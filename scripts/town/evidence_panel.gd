@@ -57,5 +57,12 @@ func refresh() -> void:
 		s += "\n[color=#e8a64a][b]AT THE LAB[/b][/color]  (back after a night's sleep)\n"
 		for id in GameState.samples:
 			s += "· %s\n" % evidence.get(id, {}).get("title", id).replace("Lab: ", "")
+	if not GameState.items.is_empty():
+		s += "\n[color=#e8a64a][b]FIELD KIT[/b][/color]\n"
+		var parts := []
+		for id in GameState.items:
+			var it: Dictionary = GameData.items.get(id, {})
+			parts.append("%s x%d" % [it.get("name", id), int(GameState.items[id])])
+		s += "· " + " · ".join(parts) + "\n"
 	s += "\n[color=#6a6f7a]Tab closes[/color]"
 	_text.text = s

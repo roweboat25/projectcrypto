@@ -1,0 +1,154 @@
+{
+ "_doc": "Dewey Hatch, night clerk at the Lowe Hotel since 1961. He remembers A. Weller in room 412, December 1967, and the grey-suited man two doors down. Coffee builds trust a point a night (the gate lowe_4th opens at trust 3); the red Empathy check on the last night gets the key outright.",
+ "id": "nightclerk",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "Lobby's closed to the public after nine. You're the public."],
+    ["teddy", "He's got a paperback face-down on the desk. Louis L'Amour. He's on page one and he's been on page one a while."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 8, "line": "He says 'public' like a man who has been one all his life. You can work with that. Go easy."},
+    {"voice": "logic", "threshold": 9, "line": "Four rows of key hooks. The fourth row has one hook and it's turned to face the wall. You don't turn a hook to the wall by accident.", "flag": "saw_hook"}
+   ],
+   "options": [
+    {"tone": "kind", "text": "We're from the Office in Sutton, Mr Hatch. Not the public. Not press.", "next": "hub", "trust": 1},
+    {"tone": "wry", "text": "A paperback and a thermos. Long night ahead?", "next": "coffee"},
+    {"tone": "hard", "text": "We're here about your fourth floor.", "next": "fourth"}
+   ]
+  },
+  "coffee": {
+   "speaker": "nightclerk",
+   "repeat": true,
+   "lines": [
+    ["nightclerk", "Every night's long. Thermos ran out at eleven. Rosie's shuts at nine and Harmon's shuts at six, so from eleven to six I run on the memory of coffee."],
+    ["ruth", "Oh, the poor man."]
+   ],
+   "options": [
+    {"tone": "kind", "text": "(Hand him a coffee from the kit.)", "next": "hub", "trust": 1},
+    {"tone": "wry", "text": "Can't help you there. Harmon's shut.", "next": "hub"}
+   ]
+  },
+  "hub": {
+   "speaker": "nightclerk",
+   "repeat": true,
+   "lines": [
+    ["nightclerk", "Dewey Hatch. Nights, since 1961. I've seen this lobby in three floods and I've seen it empty. Ask what you're going to ask."]
+   ],
+   "options": [
+    {"tone": "kind", "text": "Tell us about the fourth floor.", "next": "fourth"},
+    {"tone": "kind", "text": "December 1967. A woman from Sutton rented a room up there.", "next": "gus"},
+    {"check": {"voice": "press", "kind": "white", "difficulty": 9, "evidence_bonus": {"lowe_register_1967": 2}},
+     "text": "Who told you to keep that floor shut? Somebody did.", "pass": "orders", "fail": {"next": "hub"}},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "That's all for tonight, Mr Hatch."}
+   ]
+  },
+  "fourth": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "Fourth floor's four rooms and a landing, and we don't let it. Plumbing, if anybody asks. Nobody asks."],
+    ["nightclerk", "412 is made up. Clean sheets every Monday since 1968. I do it myself. I don't go in further than the bed."]
+   ],
+   "passives": [
+    {"voice": "arcana", "threshold": 9, "line": "There is a mark on that landing door. He has walked under it nine thousand times without once looking at it straight. You will."}
+   ],
+   "options": [
+    {"check": {"voice": "lore", "kind": "white", "difficulty": 8},
+     "text": "There's chalk on the landing door. The old kind of mark. Who put it there?", "pass": "sigil", "fail": {"next": "hub"}},
+    {"tone": "kind", "text": "Why keep it empty, Mr Hatch?", "next": "empty"},
+    {"tone": "silent", "text": "(Wait.)", "next": "empty", "trust": 1}
+   ]
+  },
+  "empty": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "Because she paid through January and she never checked out. Old Mr Lowe's rule, then his boy's: the room's hers till she comes for her things."],
+    ["nightclerk", "Register's in the safe. 'A. Weller, Sutton, W. Va., 412.' Her hand. Two lines down, 'W. Penrose, Washington, 410.' He wanted a window on the bridge."],
+    ["miriam", "Two doors apart. The week the bridge fell."]
+   ],
+   "gives": {"evidence": "lowe_register_1967", "flag": "met_nightclerk"},
+   "next": "hub"
+  },
+  "sigil": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "She drew it. Last night I saw her. Stood on a chair with a piece of chalk and did it slow, like writing a cheque she couldn't cover."],
+    ["nightclerk", "Said if anyone ever rubbed it out I'd know it wasn't her come back. Twenty-six years. I check it every Monday with the sheets."],
+    ["vera", "It is a warding line. Drawn correctly. She had been taught."]
+   ],
+   "gives": {"evidence": "clerk_sigil"},
+   "next": "hub"
+  },
+  "gus": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "Weller. A. Weller, she signed, and 'Gus' when she talked. Tall. Fountain pen. Sat at that end of the desk every night and wrote on little cards like homework."],
+    ["nightclerk", "Asked me about the bridge dreams, the lights, the bird. Listened like it cost her something. Then the bridge went, and she went, and her car turned up over in Gallipolis."]
+   ],
+   "options": [
+    {"requires": {"evidence": ["the_suits"]}, "tone": "hard", "text": "A man in a grey suit was two doors down from her. He came back, didn't he.", "next": "penrose"},
+    {"tone": "kind", "text": "What was the last night like, Mr Hatch?", "next": "lastnight"},
+    {"tone": "silent", "text": "(Let him finish.)", "next": "hub", "trust": 1}
+   ]
+  },
+  "penrose": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "Polite. Tired. Paid cash so new it stuck. Came back in January after she'd gone and asked Mr Lowe for her things out of 412. Mr Lowe said no."],
+    ["nightclerk", "He said, 'That's all right. I got there first.' And he smiled like somebody'd told him how. I've thought about that smile for twenty-six years."],
+    ["june", "Same smile. Earl said. At the pumps."]
+   ],
+   "gives": {"evidence": "penrose_asked", "dread": 1},
+   "next": "hub"
+  },
+  "lastnight": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "December fourteenth. Sleet. She came down at three with her coat on and no bag, and she gave me something to hold, and she said a thing to me, and she walked out toward the bridge."],
+    ["nightclerk", "That's all I've told anybody and that's all I'm telling you."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 10, "line": "He wants to say the rest. He has wanted to for twenty-six years. He needs it to be someone's fault that he does. Make it yours."}
+   ],
+   "static": {"min_dread": 3, "line": "He is leaving out what she said. You would too. You know exactly what she said. Make him say it."},
+   "options": [
+    {"check": {"voice": "empathy", "kind": "red", "difficulty": 10, "evidence_bonus": {"clerk_sigil": 1, "lowe_register_1967": 1}},
+     "text": "She told you who to give it to. We're who. Say it, Dewey.", "pass": "confession",
+     "fail": {"next": "shut", "trust": {"nightclerk": -1}, "dread": 1}},
+    {"tone": "kind", "text": "Thank you, Mr Hatch. That's enough for tonight.", "next": "hub", "trust": 1}
+   ]
+  },
+  "confession": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "...'Dewey. If Walt Penrose comes, I was never here. If anybody else comes asking for me by name, give them the key and don't go up with them.'"],
+    ["nightclerk", "Twenty-six years. You're anybody else. Here. 412. Don't go in further than the bed. I mean it."],
+    ["elijah", "He's shaking. He's been holding that key in his hand since 1967, whichever drawer it was in."]
+   ],
+   "gives": {"item": "room_key_4", "flag": "lowe_key", "trust": {"nightclerk": 1}},
+   "next": "hub"
+  },
+  "shut": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "No. No, I've said more than I ought and I've said it to the wrong people before. Lobby's closed."],
+    ["teddy", "That's the drawer shutting. We won't get that one open again."]
+   ],
+   "end": true
+  },
+  "orders": {
+   "speaker": "nightclerk",
+   "lines": [
+    ["nightclerk", "Mr Lowe's orders, then his boy's. But Mr Lowe got his orders off a card in the safe. Her card. She wrote the rule out for him before she went, in that pen, and he kept it because she scared him a little."],
+    ["nightclerk", "The card's gone up to 412 with the rest of her things. Mr Lowe's boy put it there in '71. Said it belonged with the others."],
+    ["teddy", "The others. Plural."]
+   ],
+   "gives": {"flag": "lowe_orders", "trust": {"nightclerk": 1}},
+   "next": "hub"
+  }
+ }
+}

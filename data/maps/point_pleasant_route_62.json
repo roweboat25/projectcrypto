@@ -1,0 +1,2370 @@
+{
+ "_doc": "Point Pleasant, Route 62: the two-lane road north out of town toward the TNT area. A tall corridor: road up the middle (cols 8-15), bare fields either side, the creek and its culvert halfway, the Night Owl Tavern, Hollis's trailer, the Whitmore farm, Krodel Lake bait stand, the hunters' tree stand and the abandoned Bethel Chapel (the night-1 roost) on the way north.",
+ "id": "point_pleasant_route_62",
+ "name": "Route 62",
+ "case": "point_pleasant",
+ "district": "route_62",
+ "size": [
+  24,
+  96
+ ],
+ "spawn": [
+  12,
+  90
+ ],
+ "ground": "snow",
+ "fills": [
+  {
+   "rect": [
+    8,
+    0,
+    8,
+    96
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    12,
+    1,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    3,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    5,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    7,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    9,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    11,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    13,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    15,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    17,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    19,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    21,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    23,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    25,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    27,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    29,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    31,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    33,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    35,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    37,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    39,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    41,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    43,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    45,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    47,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    49,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    51,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    53,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    55,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    57,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    59,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    61,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    63,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    65,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    67,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    69,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    71,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    73,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    75,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    77,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    79,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    81,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    83,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    85,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    87,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    89,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    91,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    12,
+    93,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    7,
+    1,
+    1,
+    94
+   ],
+   "tiles": [
+    "dirt_snow",
+    "dirt_snow2",
+    "dirt_snow3",
+    "snow"
+   ]
+  },
+  {
+   "rect": [
+    16,
+    1,
+    1,
+    94
+   ],
+   "tiles": [
+    "dirt_snow",
+    "dirt_snow2",
+    "dirt_snow3",
+    "snow"
+   ]
+  },
+  {
+   "rect": [
+    16,
+    79,
+    7,
+    4
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    58,
+    6,
+    1
+   ],
+   "tiles": [
+    "dirt",
+    "dirt2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    61,
+    6,
+    1
+   ],
+   "tiles": [
+    "dirt",
+    "dirt3",
+    "dirt_snow2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    64,
+    6,
+    1
+   ],
+   "tiles": [
+    "dirt2",
+    "dirt4",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    51,
+    7,
+    1
+   ],
+   "tiles": [
+    "water_snow_top",
+    "water_snow_top2",
+    "water_snow_top3"
+   ]
+  },
+  {
+   "rect": [
+    16,
+    51,
+    7,
+    1
+   ],
+   "tiles": [
+    "water_snow_top",
+    "water_snow_top2",
+    "water_snow_top3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    52,
+    7,
+    2
+   ],
+   "tiles": [
+    "water",
+    "water2",
+    "water3"
+   ]
+  },
+  {
+   "rect": [
+    16,
+    52,
+    7,
+    2
+   ],
+   "tiles": [
+    "water",
+    "water2",
+    "water3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    54,
+    7,
+    1
+   ],
+   "tiles": [
+    "ice",
+    "ice2",
+    "ice3",
+    "mud"
+   ]
+  },
+  {
+   "rect": [
+    16,
+    54,
+    7,
+    1
+   ],
+   "tiles": [
+    "ice",
+    "ice2",
+    "ice3",
+    "mud"
+   ]
+  },
+  {
+   "rect": [
+    16,
+    39,
+    7,
+    5
+   ],
+   "tiles": [
+    "dirt_snow",
+    "dirt_snow2",
+    "dirt",
+    "mud2"
+   ]
+  },
+  {
+   "rect": [
+    17,
+    45,
+    5,
+    1
+   ],
+   "tiles": [
+    "dirt",
+    "dirt3",
+    "dirt_snow3"
+   ]
+  },
+  {
+   "rect": [
+    17,
+    47,
+    5,
+    1
+   ],
+   "tiles": [
+    "dirt2",
+    "dirt4",
+    "dirt_snow3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    33,
+    6,
+    1
+   ],
+   "tiles": [
+    "water_snow_top",
+    "water_snow_top2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    34,
+    6,
+    4
+   ],
+   "tiles": [
+    "ice",
+    "ice",
+    "ice2",
+    "ice3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    20,
+    7,
+    3
+   ],
+   "tiles": [
+    "mud",
+    "mud2",
+    "dirt_snow",
+    "dirt_snow2"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    8,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    16,
+    0,
+    8,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    95,
+    8,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    16,
+    95,
+    8,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    0,
+    1,
+    96
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    23,
+    0,
+    1,
+    96
+   ],
+   "tiles": "void"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    1,
+    7,
+    94
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow_drift3",
+    "snow_rock",
+    "snow2"
+   ],
+   "chance": 0.07
+  },
+  {
+   "rect": [
+    16,
+    1,
+    7,
+    94
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow_drift3",
+    "snow_rock2",
+    "snow3"
+   ],
+   "chance": 0.07
+  },
+  {
+   "rect": [
+    8,
+    1,
+    8,
+    94
+   ],
+   "tiles": [
+    "asphalt2"
+   ],
+   "chance": 0.04
+  }
+ ],
+ "facades": [
+  {
+   "id": "tavern",
+   "facade": "tavern",
+   "name": "Night Owl Tavern",
+   "pos": [
+    16,
+    78
+   ]
+  },
+  {
+   "id": "farmhouse",
+   "facade": "farmhouse",
+   "name": "The Whitmore farm",
+   "pos": [
+    16,
+    38
+   ]
+  },
+  {
+   "id": "church_old",
+   "facade": "church_old",
+   "name": "Bethel Chapel (closed 1968)",
+   "pos": [
+    2,
+    19
+   ]
+  }
+ ],
+ "houses": [
+  {
+   "id": "trailer",
+   "name": "Hollis Pyles's trailer",
+   "prop": "trailer",
+   "pos": [
+    4.5,
+    66
+   ],
+   "door": [
+    4.5,
+    66
+   ]
+  }
+ ],
+ "props": [
+  {
+   "kind": "chain_fence",
+   "pos": [
+    2.5,
+    3
+   ],
+   "name": "Fence",
+   "look": [
+    [
+     "player",
+     "US GOVERNMENT PROPERTY. KEEP OUT. The sign is newer than the fence, and the fence is newer than the holes in it."
+    ],
+    [
+     "teddy",
+     "Somebody keeps out. Somebody else keeps coming in."
+    ]
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    5.5,
+    3
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    17.5,
+    3
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    20.5,
+    3
+   ]
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    3,
+    9
+   ]
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    20,
+    10
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    6,
+    5.5
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    18,
+    6
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    21.5,
+    7
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    16.5,
+    8.5
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    7,
+    11
+   ]
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    17,
+    11.5
+   ],
+   "name": "Snowman",
+   "look": [
+    [
+     "teddy",
+     "A snowman with a stick for a beak and two red bottle caps for eyes."
+    ],
+    [
+     "miriam",
+     "Welcome to Point Pleasant."
+    ]
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    1.5,
+    16.5
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    7,
+    13.5
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    1.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    6.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    7,
+    22.5
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    1.5,
+    22.5
+   ]
+  },
+  {
+   "kind": "tree_stand",
+   "pos": [
+    19,
+    23
+   ],
+   "name": "Tree stand",
+   "look": [
+    [
+     "dale",
+     "Tree stand. Twelve feet up, and it's facing the church, not the field."
+    ],
+    [
+     "teddy",
+     "The deer are the other way, Carl."
+    ]
+   ]
+  },
+  {
+   "kind": "campfire",
+   "pos": [
+    21,
+    18
+   ],
+   "name": "Fire ring",
+   "look": "Ashes, a can of Vienna sausages, the lid off a Thermos. Carl Ridge waits here when he isn't up the tree."
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    17,
+    15
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    21.5,
+    13.5
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    22,
+    21
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    16.5,
+    25.5
+   ]
+  },
+  {
+   "kind": "deer",
+   "pos": [
+    5,
+    27.5
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    2,
+    31
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    6.5,
+    36.5
+   ]
+  },
+  {
+   "kind": "shed",
+   "pos": [
+    4,
+    40.5
+   ],
+   "name": "Bait stand",
+   "look": [
+    [
+     "player",
+     "KRODEL LAKE BAIT. CLOSED TILL APRIL. A painted hand points back toward town for minnows."
+    ],
+    [
+     "teddy",
+     "Twelve miles for minnows."
+    ]
+   ]
+  },
+  {
+   "kind": "johnboat",
+   "pos": [
+    3,
+    43.5
+   ],
+   "name": "Johnboat",
+   "look": [
+    [
+     "dale",
+     "Johnboat. Flipped for winter."
+    ],
+    [
+     "miriam",
+     "Sixteen holes in it. Dale, that is not a boat, that is a colander."
+    ]
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    6,
+    46.5
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    1.5,
+    45.5
+   ]
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    17,
+    33.3
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    17.5,
+    44.5
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    22.5,
+    44.6
+   ]
+  },
+  {
+   "kind": "trough",
+   "pos": [
+    21,
+    41.5
+   ],
+   "name": "Trough",
+   "look": [
+    [
+     "dale",
+     "Water trough. Ice on top."
+    ],
+    [
+     "dale",
+     "The ice is broken from underneath."
+    ]
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    22,
+    39.8
+   ],
+   "name": "Dog bowl",
+   "look": [
+    [
+     "elijah",
+     "A dog's bowl. Filled this morning."
+    ],
+    [
+     "elijah",
+     "He fills it every morning."
+    ]
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    16.5,
+    47.5
+   ]
+  },
+  {
+   "kind": "tree_snow2",
+   "pos": [
+    3,
+    50
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    18,
+    49.5
+   ]
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    21.5,
+    49
+   ]
+  },
+  {
+   "kind": "culvert",
+   "pos": [
+    6,
+    55.5
+   ]
+  },
+  {
+   "kind": "culvert",
+   "pos": [
+    18,
+    55.5
+   ],
+   "name": "Culvert",
+   "look": [
+    [
+     "player",
+     "The culvert under Route 62. November 1966: the couples said it came up out of the ground right here, beside the road."
+    ],
+    [
+     "dale",
+     "Four feet of pipe. Nothing six foot tall lives in a four-foot pipe."
+    ],
+    [
+     "elijah",
+     "It didn't live here. It waited here. It's still cold where it waited."
+    ]
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    3,
+    54.9
+   ],
+   "name": "Cattails",
+   "look": [
+    [
+     "june",
+     "Cattails. The ice under them is thin."
+    ],
+    [
+     "june",
+     "Walk on the road."
+    ]
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    21,
+    54.9
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    2,
+    57.5
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    5,
+    58.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    20,
+    58.5
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    6.5,
+    57.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    22,
+    60.5
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    18,
+    62
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    19.5,
+    64.5
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    21,
+    67
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    17,
+    70
+   ],
+   "name": "Winterberry",
+   "look": [
+    [
+     "ruth",
+     "Winterberry. The birds leave it till last, honey."
+    ],
+    [
+     "ruth",
+     "Something's left it altogether."
+    ]
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    16.5,
+    71.5
+   ]
+  },
+  {
+   "kind": "antenna",
+   "pos": [
+    7,
+    64
+   ],
+   "name": "Antenna",
+   "look": [
+    [
+     "june",
+     "Eleven-metre whip on a home-made ground plane. He talks to somebody a long way off."
+    ],
+    [
+     "june",
+     "Or listens."
+    ]
+   ]
+  },
+  {
+   "kind": "table_rough",
+   "pos": [
+    6.5,
+    69.6
+   ],
+   "name": "Jerky stand",
+   "look": [
+    [
+     "player",
+     "A cooler on a sawhorse table. JERKY $2. KNOCK LOUD. A coffee can for the money, on the honour system."
+    ],
+    [
+     "teddy",
+     "Honour system. In this county."
+    ]
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    1.5,
+    69.5
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    2.5,
+    71.6
+   ],
+   "name": "Hollis's truck",
+   "look": "A '78 Ford with a CB whip, a gun rack with no gun in it, and a dashboard clock stopped at 2:10."
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    3,
+    76
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    5,
+    81
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    2,
+    79
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    6,
+    74
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    3,
+    84
+   ],
+   "name": "Rock",
+   "look": [
+    [
+     "dale",
+     "Rock."
+    ],
+    [
+     "miriam",
+     "Thank you, Dale."
+    ]
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    17,
+    81.6
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    22,
+    81.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    21.5,
+    79.6
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    22.5,
+    79.6
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    16.5,
+    79.3
+   ],
+   "name": "Burn barrel",
+   "look": [
+    [
+     "teddy",
+     "Burn barrel. Still warm."
+    ],
+    [
+     "teddy",
+     "Somebody's been feeding it the Register."
+    ]
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    3,
+    93.5
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    5,
+    87.5
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    2,
+    90
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    6,
+    93.5
+   ]
+  },
+  {
+   "kind": "deer",
+   "pos": [
+    4,
+    89.5
+   ],
+   "name": "Deer",
+   "look": [
+    [
+     "dale",
+     "Doe. Yearling. Not afraid of us."
+    ],
+    [
+     "dale",
+     "Which means she's never met Carl Ridge."
+    ]
+   ]
+  },
+  {
+   "kind": "roadside_cross",
+   "pos": [
+    17,
+    88.5
+   ],
+   "name": "Roadside cross",
+   "look": [
+    [
+     "ruth",
+     "For the bridge. December 15th, 1967. Forty-six names on the little plaque."
+    ],
+    [
+     "ruth",
+     "Somebody repaints them every December. The paint's fresh."
+    ]
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    16.5,
+    90.6
+   ],
+   "name": "Mailbox",
+   "look": "The flag is up. Inside: a Sears catalogue from 1992 and snow."
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    20,
+    93.5
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    21,
+    85.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    19,
+    92.5
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    17,
+    86
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "hollis",
+   "name": "Hollis Pyles",
+   "pos": [
+    6.5,
+    67.4
+   ],
+   "facing": "down",
+   "sprite": "hollis",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "r62_farmer",
+   "name": "Ab Whitmore",
+   "pos": [
+    19.5,
+    41.5
+   ],
+   "facing": "down",
+   "sprite": "farmer",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "r62_hunter",
+   "name": "Carl Ridge",
+   "pos": [
+    20.5,
+    24.5
+   ],
+   "facing": "up",
+   "sprite": "hunter",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "r62_church_prints",
+   "name": "Prints in the frozen mud",
+   "pos": [
+    6,
+    21.6
+   ],
+   "prop": "clue_prints",
+   "night": 1,
+   "text": "In the frozen mud of the chapel yard: three-toed prints, each longer than your forearm, in a stride no two legs should make. They lead to the chapel wall and stop. They do not lead away.",
+   "methods": {
+    "cast": "church_prints_cast",
+    "photograph": "church_prints_photo",
+    "bag": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "r62_culvert_feather",
+   "name": "A grey feather",
+   "pos": [
+    19.5,
+    56.6
+   ],
+   "prop": "clue_fur",
+   "night": 1,
+   "text": "Caught in the ice at the culvert mouth, a grey feather as long as your forearm. The quill is as thick as a pencil.",
+   "methods": {
+    "bag": "culvert_feather",
+    "photograph": "culvert_feather_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "r62_culvert_scrape",
+   "name": "Scrapes on the culvert",
+   "pos": [
+    16.5,
+    56.8
+   ],
+   "prop": "clue_scratch",
+   "text": "Four long scrapes in the concrete lip of the culvert, bright under the frost, seven feet off the creek bed.",
+   "methods": {
+    "measure": "culvert_scrape",
+    "photograph": "culvert_scrape_photo",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "r62_stand_shells",
+   "name": "Shells under the tree stand",
+   "pos": [
+    17.5,
+    23.9
+   ],
+   "prop": "clue_cans",
+   "text": "Four spent twelve-gauge shells in the snow under the stand. The brass is bright. They were fired this week.",
+   "methods": {
+    "bag": "spent_shells",
+    "photograph": "spoil",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    8,
+    95,
+    8,
+    1
+   ],
+   "to": "point_pleasant_main_street",
+   "at": [
+    31,
+    2
+   ],
+   "name": "Main Street"
+  },
+  {
+   "rect": [
+    8,
+    0,
+    8,
+    1
+   ],
+   "to": "point_pleasant_tnt",
+   "at": [
+    40,
+    62
+   ],
+   "name": "TNT Area"
+  }
+ ],
+ "interiors": {
+  "tavern": {
+   "size": [
+    14,
+    8
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark",
+    "wood_dark2"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "bar_counter",
+     "pos": [
+      3.5,
+      3.5
+     ]
+    },
+    {
+     "kind": "bar_counter",
+     "pos": [
+      6.5,
+      3.5
+     ]
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      3.5,
+      1.7
+     ]
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      6.5,
+      1.7
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      3,
+      4.6
+     ]
+    },
+    {
+     "kind": "bar_stool_blue",
+     "pos": [
+      5,
+      4.6
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      7,
+      4.6
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      1.5,
+      1.6
+     ],
+     "name": "Photograph",
+     "look": [
+      [
+       "ruth",
+       "The Silver Bridge, the Christmas before. Every bar in this county has this picture."
+      ],
+      [
+       "ruth",
+       "Nobody looks at it."
+      ]
+     ]
+    },
+    {
+     "kind": "jukebox",
+     "pos": [
+      8.5,
+      2.6
+     ],
+     "name": "Jukebox",
+     "look": "Conway Twitty, Hello Darlin'. Patsy Cline, once. And a B-side nobody has pressed since 1979."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      10,
+      1.6
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      11.5,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "Pomeroy Feed and Seed, February 1994. A buck in a field. Somebody has drawn red eyes on it in ballpoint."
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      12.5,
+      2.5
+     ],
+     "name": "Television",
+     "look": [
+      [
+       "june",
+       "Rabbit ears extended with a coat hanger. It gets Huntington, on a good night."
+      ],
+      [
+       "june",
+       "Tonight is not a good night."
+      ]
+     ]
+    },
+    {
+     "kind": "table",
+     "pos": [
+      11,
+      6.3
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      9.3,
+      5.4
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      12.7,
+      5.4
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      1.5,
+      6.5
+     ],
+     "name": "Cigar box",
+     "look": "The cigar box under the register: the tab book, a church key, one red bicycle reflector, and a Polaroid of a deer with its eyes burned white by the flash."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "r62_barkeep",
+     "name": "Lonnie Duff",
+     "pos": [
+      5,
+      2.3
+     ],
+     "facing": "down",
+     "sprite": "barkeep",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "r62_hunters",
+     "name": "Hunters",
+     "pos": [
+      11,
+      4.1
+     ],
+     "facing": "down",
+     "sprite": "hunter",
+     "when": [
+      "night"
+     ]
+    },
+    {
+     "id": "r62_hunter",
+     "name": "Carl Ridge",
+     "pos": [
+      7,
+      5.3
+     ],
+     "facing": "up",
+     "sprite": "hunter",
+     "when": [
+      "night"
+     ]
+    }
+   ]
+  },
+  "trailer": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "carpet_navy",
+    "carpet_navy",
+    "diamond_dark"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "bed_single",
+     "pos": [
+      1.5,
+      3.9
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      3.5,
+      1.6
+     ]
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      5,
+      2.3
+     ],
+     "name": "CB radio",
+     "look": [
+      [
+       "june",
+       "A Cobra 29 with the mic cord taped. He's parked on channel 19, listening."
+      ],
+      [
+       "june",
+       "He's listening right now."
+      ]
+     ]
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      7.5,
+      2.3
+     ]
+    },
+    {
+     "kind": "fridge",
+     "pos": [
+      8.5,
+      2.5
+     ],
+     "name": "Fridge",
+     "look": "Deer jerky by the pound, a Pepsi, and a Polaroid taped inside the door: lights over the TNT ridge, 2:10 AM by the dashboard clock."
+    },
+    {
+     "kind": "table_rough",
+     "pos": [
+      4.5,
+      5.6
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      4.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      8.5,
+      5.6
+     ],
+     "pickup": "deer_jerky"
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      1.5,
+      6.4
+     ],
+     "name": "Ammo cans",
+     "look": "Two ammo cans: a .30-30 and shells, a CB logbook with dates and times down to the minute, and a shoebox of Mothman clippings Hollis would deny owning."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      7,
+      1.6
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "hollis",
+     "name": "Hollis Pyles",
+     "pos": [
+      7.2,
+      4.2
+     ],
+     "facing": "down",
+     "sprite": "hollis",
+     "when": [
+      "morning",
+      "night"
+     ]
+    }
+   ]
+  },
+  "farmhouse": {
+   "size": [
+    12,
+    9
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "fireplace",
+     "pos": [
+      2.5,
+      3
+     ],
+     "name": "Mantel",
+     "look": [
+      [
+       "ruth",
+       "A hospital bracelet on the mantel, and a calendar with the Tuesdays circled."
+      ],
+      [
+       "ruth",
+       "She's at the hospital Tuesdays. He drives her."
+      ]
+     ]
+    },
+    {
+     "kind": "armchair_grey",
+     "pos": [
+      5,
+      4.3
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      8,
+      1.6
+     ],
+     "name": "Wedding portrait",
+     "look": "1961. He has more hair and she has the same look, like she's about to tell him something."
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      8.5,
+      3.8
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      7.5,
+      4.8
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      9.5,
+      4.8
+     ]
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      10.5,
+      2.3
+     ]
+    },
+    {
+     "kind": "sink",
+     "pos": [
+      11.5,
+      2.4
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      11,
+      1.6
+     ]
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      1.5,
+      5.3
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      1.5,
+      4.7
+     ]
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      6,
+      6.8
+     ]
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      11.5,
+      5.5
+     ]
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      2.5,
+      7.1
+     ],
+     "name": "Dresser",
+     "look": "Drawers: seed receipts, a dog licence tag stamped BOONE, and a county notice: ROUTE 62 CULVERT CLEANING, OCTOBER 4, 1993."
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      10.5,
+      7.3
+     ],
+     "name": "Dog bed",
+     "look": [
+      [
+       "elijah",
+       "Boone's bed. The blanket is still shaped like him."
+      ],
+      [
+       "elijah",
+       "Nobody has moved it. Nobody will."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "r62_farmer",
+     "name": "Ab Whitmore",
+     "pos": [
+      4,
+      5.4
+     ],
+     "facing": "down",
+     "sprite": "farmer",
+     "when": [
+      "morning",
+      "dusk",
+      "night"
+     ]
+    }
+   ]
+  },
+  "church_old": {
+   "size": [
+    12,
+    14
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "altar",
+     "pos": [
+      6,
+      3.5
+     ],
+     "name": "Altar",
+     "look": [
+      [
+       "player",
+       "The cloth is gone. The dust on the altar is swept clean in a shape wider than a man's shoulders."
+      ],
+      [
+       "miriam",
+       "Owls. Big ones. I'm saying owls until somebody shows me different."
+      ]
+     ]
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      1.5,
+      3.6
+     ],
+     "name": "Steeple ladder",
+     "look": [
+      [
+       "dale",
+       "Steeple ladder. The rungs are white with owl droppings."
+      ],
+      [
+       "dale",
+       "Up to the top three. Those are clean."
+      ]
+     ]
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      6,
+      1.5
+     ]
+    },
+    {
+     "kind": "graffiti",
+     "pos": [
+      9.5,
+      1.7
+     ],
+     "name": "Graffiti",
+     "look": [
+      [
+       "teddy",
+       "Spray paint, 1988: MOTHMAN WAS HERE."
+      ],
+      [
+       "teddy",
+       "And under it, in marker, smaller: no he wasn't."
+      ]
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      10.5,
+      3.5
+     ],
+     "name": "Vestry chest",
+     "look": "Hymnals, mouse-chewed felt, and a 1967 bulletin with the order of service for the bridge memorial. Forty-six names, read aloud, then silence."
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      6
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      9,
+      6
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      8
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      9,
+      8
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      10
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      9,
+      10
+     ]
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      3,
+      12.3
+     ],
+     "name": "Broken pew",
+     "look": "A pew broken clean across, like something heavy landed on it. From above."
+    },
+    {
+     "kind": "campfire",
+     "pos": [
+      9.5,
+      12
+     ],
+     "name": "Fire ring",
+     "look": [
+      [
+       "player",
+       "Someone has had a fire in here. Beer cans, and half a hymnal for kindling."
+      ],
+      [
+       "teddy",
+       "They stopped at Abide With Me."
+      ]
+     ]
+    }
+   ],
+   "npcs": [],
+   "clues": [
+    {
+     "id": "r62_owl_pellets",
+     "name": "Owl pellets",
+     "pos": [
+      2.6,
+      2.4
+     ],
+     "prop": "clue_pellets",
+     "text": "At the foot of the steeple ladder, a drift of owl pellets: grey, felted, full of small bones. Some are fresh. Some are very large.",
+     "methods": {
+      "bag": "owl_pellets",
+      "photograph": "pellets_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  }
+ }
+}

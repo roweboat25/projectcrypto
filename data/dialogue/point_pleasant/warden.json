@@ -1,0 +1,345 @@
+{
+ "id": "warden",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "warden",
+   "lines": [
+    [
+     "warden",
+     "Station's closed. Fence is closed. Ponds are closed to anybody without a permit, and I'd know, because I write the permits."
+    ],
+    [
+     "warden",
+     "You're the people from the paper. Or the people from the paper's people."
+    ],
+    [
+     "teddy",
+     "He's looking past us at the road. He's expecting someone else."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "He says closed three times. He's not keeping you out. He's keeping himself in."
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "The padlock on the fence is new. The sign is new. The EPA hasn't visited since 1991. He bought them himself.",
+     "flag": "warden_new_lock"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're not hunters, and we're not the paper. We're here about November 1966.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "State land. We don't need your permit to walk on it.",
+     "next": "hard"
+    },
+    {
+     "tone": "wry",
+     "text": "Which people from the paper? There's a few of us.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_warden"
+   }
+  },
+  "hard": {
+   "speaker": "warden",
+   "lines": [
+    [
+     "warden",
+     "State land to the fence. Federal past it. And the federal government left me the key and went home."
+    ],
+    [
+     "warden",
+     "Say what you came to say."
+    ],
+    [
+     "miriam",
+     "Good. We've made a friend."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "warden": -1
+    },
+    "dread": 1
+   }
+  },
+  "hub": {
+   "speaker": "warden",
+   "repeat": true,
+   "lines": [
+    [
+     "warden",
+     "Hollis Tackett. Warden here since '81, caretaker's boy before that. Ask what you're asking."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The keys are on the hook by the door. He wouldn't even see you take them. You've done worse."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "old_name": 3
+      }
+     },
+     "text": "Your granddad would've called this the bird's field. Before the plant. Before the fence.",
+     "pass": "pass_lore",
+     "fail": {
+      "next": "hub_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "three_note_tone": 2
+      }
+     },
+     "text": "Something past that fence is drawing current. We've got the gear to find where. You've got the gate.",
+     "pass": "pass_tech",
+     "fail": {
+      "next": "hub_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "original_report": 2,
+       "the_suits": 1
+      }
+     },
+     "text": "You drove the sheriff out here the morning after. Then you never said a word for twenty-eight years. Say it now.",
+     "pass": "sixty_six",
+     "fail": {
+      "next": "sixty_six_fail",
+      "trust": {
+       "warden": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "trust": 2
+     },
+     "tone": "kind",
+     "text": "Tell me about the north pond.",
+     "next": "ponds"
+    },
+    {
+     "requires": {
+      "flag": [
+       "warden_new_lock"
+      ]
+     },
+     "tone": "wry",
+     "text": "That's a hardware-store padlock on a federal fence. You bought it. Who are you locking out?",
+     "next": "padlock"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Warden."
+    }
+   ]
+  },
+  "pass_lore": {
+   "speaker": "warden",
+   "lines": [
+    [
+     "warden",
+     "...The bird's field. Nobody's said that to me since my granddad was in the ground."
+    ],
+    [
+     "warden",
+     "He wouldn't walk it after dark. Said the Shawnee wouldn't camp it, and they'd camp anywhere a fire would burn."
+    ],
+    [
+     "warden",
+     "Pass is in the desk. You tear it, you lose it, you go past the plant door, we never met."
+    ],
+    [
+     "ruth",
+     "He means it kindly. That's the frightening part."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "warden": 1
+    },
+    "flag": "warden_pass_ok"
+   },
+   "next": "hub"
+  },
+  "pass_tech": {
+   "speaker": "warden",
+   "lines": [
+    [
+     "warden",
+     "There's no line to that building. I pulled the fuses in '81 with my own hands."
+    ],
+    [
+     "warden",
+     "And it runs. So you go find me where from, and I'll give you the gate, and you tell me first. Not the paper. Me."
+    ],
+    [
+     "june",
+     "I can do that."
+    ],
+    [
+     "warden",
+     "I believe you. That's new."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "warden": 1
+    },
+    "flag": "warden_pass_ok"
+   },
+   "next": "hub"
+  },
+  "hub_fail": {
+   "speaker": "warden",
+   "lines": [
+    [
+     "warden",
+     "Uh huh. Come back when you've got something that isn't talk."
+    ],
+    [
+     "teddy",
+     "He didn't say no. He said come back. Write that down."
+    ]
+   ],
+   "next": "hub"
+  },
+  "sixty_six": {
+   "speaker": "warden",
+   "lines": [
+    [
+     "warden",
+     "Nineteen years old with the keys to the whole works, and the sheriff in my passenger seat going grey."
+    ],
+    [
+     "warden",
+     "Prints in the frost at the plant door. Three toes, long as your arm. Deputy cast two. I held the lamp."
+    ],
+    [
+     "warden",
+     "Two men in suits took the casts off the sheriff's desk the next day and left a receipt. He never said another word about it, and he was a man who said words."
+    ],
+    [
+     "warden",
+     "I kept the receipt. Don't ask me why. It just says received."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 8,
+     "line": "Received. Not taken, not collected. Received is what one writes when the thing was always owed."
+    }
+   ],
+   "gives": {
+    "evidence": "warden_1966",
+    "fact": "warden_1966",
+    "trust": {
+     "warden": 1
+    }
+   },
+   "next": "hub"
+  },
+  "sixty_six_fail": {
+   "speaker": "warden",
+   "lines": [
+    [
+     "warden",
+     "I was nineteen. I drove a car. That's the whole of it, and you can put that in your paper."
+    ],
+    [
+     "warden",
+     "Gate's that way. Road's the other."
+    ],
+    [
+     "miriam",
+     "We pushed. He's not a door."
+    ]
+   ],
+   "end": true
+  },
+  "ponds": {
+   "speaker": "warden",
+   "lines": [
+    [
+     "warden",
+     "Red's the iron and the TNT washing out of the ground. That's chemistry. That's not what you're asking."
+    ],
+    [
+     "warden",
+     "It don't freeze. Ten below in January and every pond on this ground was iron, and that one steamed. Ducks won't land on it. Ducks'll land on a puddle in a parking lot."
+    ],
+    [
+     "warden",
+     "Something under it. I've said that out loud now. I'd like you to leave before I say anything else."
+    ]
+   ],
+   "gives": {
+    "evidence": "warden_ponds",
+    "fact": "warden_ponds"
+   },
+   "next": "hub"
+  },
+  "padlock": {
+   "speaker": "warden",
+   "lines": [
+    [
+     "warden",
+     "In. I'm locking it in."
+    ],
+    [
+     "warden",
+     "That's a joke. Mostly."
+    ],
+    [
+     "elijah",
+     "It isn't."
+    ]
+   ],
+   "gives": {
+    "dread": 1,
+    "trust": {
+     "warden": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

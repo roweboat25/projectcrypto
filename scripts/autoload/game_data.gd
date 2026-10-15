@@ -6,12 +6,17 @@ const DATA_DIR := "res://data"
 const DAMAGE_TYPES := ["physical", "signal", "spirit", "reason", "arcane"]
 const STATS := ["reason", "charm", "grit", "intuition"]
 const SPEECH_TAGS := ["logic", "press", "tech", "lore", "empathy", "intimidate", "arcana"]
+const VOICES := ["logic", "tech", "recall", "press", "rapport", "bluff", "nerve", "intimidate", "fieldcraft", "empathy", "lore", "arcana"]
+const PHASES := ["morning", "day", "dusk", "night"]
+const TONES := ["kind", "hard", "wry", "silent"]
 
 var classes: Dictionary = {}
 var roster: Dictionary = {}
 var foes: Dictionary = {}
 var cases: Dictionary = {}
 var maps: Dictionary = {}
+var items: Dictionary = {}
+var dialogue: Dictionary = {}   # case id -> witness id -> script
 
 
 func _ready() -> void:
@@ -22,13 +27,28 @@ func load_all() -> void:
 	classes = _strip(_read_json(DATA_DIR + "/classes.json"))
 	roster = _strip(_read_json(DATA_DIR + "/roster.json"))
 	foes = _strip(_read_json(DATA_DIR + "/foes.json"))
+	items = _strip(_read_json(DATA_DIR + "/items.json"))
 	cases.clear()
 	var dir := DirAccess.open(DATA_DIR + "/cases")
 	if dir:
 		for file in dir.get_files():
 			if file.ends_with(".json"):
 				var c: Dictionary = _read_json(DATA_DIR + "/cases/" + file)
-				cases[c.get("id", file.get_basename())] = c
+				var cid: String = c.get("id", file.get_basename())
+				_merge_fragments(c, DATA_DIR + "/cases/" + cid)
+				for item_id in c.get("items", {}):
+					items[item_id] = c.items[item_id]
+				cases[cid] = c
+	dialogue.clear()
+	var ddir := DirAccess.open(DATA_DIR + "/dialogue")
+	if ddir:
+		for cid in ddir.get_directories():
+			dialogue[cid] = {}
+			var cdir := DirAccess.open(DATA_DIR + "/dialogue/" + cid)
+			for file in cdir.get_files():
+				if file.ends_with(".json"):
+					var d: Dictionary = _strip(_read_json(DATA_DIR + "/dialogue/%s/%s" % [cid, file]))
+					dialogue[cid][d.get("id", file.get_basename())] = d
 	maps.clear()
 	var mdir := DirAccess.open(DATA_DIR + "/maps")
 	if mdir:
@@ -36,6 +56,34 @@ func load_all() -> void:
 			if file.ends_with(".json"):
 				var m: Dictionary = _strip(_read_json(DATA_DIR + "/maps/" + file))
 				maps[m.get("id", file.get_basename())] = m
+
+
+## A case can be split into data/cases/<id>/*.json fragments, one per district:
+## dictionaries merge by key, lists append.
+func _merge_fragments(c: Dictionary, dir_path: String) -> void:
+	var fdir := DirAccess.open(dir_path)
+	if fdir == null:
+		return
+	var files := fdir.get_files()
+	files.sort()
+	for file in files:
+		if not file.ends_with(".json"):
+			continue
+		var f: Dictionary = _read_json(dir_path + "/" + file)
+		for k in f:
+			if k.begins_with("_"):
+				continue
+			if f[k] is Dictionary:
+				if not c.has(k):
+					c[k] = {}
+				for kk in f[k]:
+					c[k][kk] = f[k][kk]
+			elif f[k] is Array:
+				if not c.has(k):
+					c[k] = []
+				c[k].append_array(f[k])
+			else:
+				c[k] = f[k]
 
 
 ## Returns a list of human-readable problems with the data; empty means valid.
@@ -76,7 +124,7 @@ func validate() -> Array[String]:
 					errors.append("case %s evidence %s exposes missing evidence %s" % [case_id, e, x])
 			if evidence[e].has("lab") and not evidence.has(evidence[e].lab):
 				errors.append("case %s evidence %s has a missing lab result" % [case_id, e])
-		var tags: Array = c.get("speech_tags", SPEECH_TAGS)
+		var tags: Array = VOICES
 		var contradictions: Dictionary = c.get("contradictions", {})
 		for cid in contradictions:
 			for e in contradictions[cid].get("evidence", []):
@@ -99,6 +147,26 @@ func validate() -> Array[String]:
 						errors.append("case %s fact %s asks for missing evidence %s" % [case_id, fact.get("id"), gate.show])
 					if gate.has("contradiction") and not contradictions.has(gate.contradiction):
 						errors.append("case %s fact %s uses missing contradiction %s" % [case_id, fact.get("id"), gate.contradiction])
+		for gid in c.get("gates", {}):
+			var g: Dictionary = c.gates[gid]
+			if g.get("opens", []).is_empty():
+				errors.append("case %s gate %s has no way through" % [case_id, gid])
+			for cond in g.get("opens", []):
+				if cond.has("item") and not items.has(cond.item):
+					errors.append("case %s gate %s needs unknown item %s" % [case_id, gid, cond.item])
+				if cond.has("trust") and not c.get("witnesses", {}).has(cond.trust.get("npc", "")):
+					errors.append("case %s gate %s trusts an unknown witness" % [case_id, gid])
+				if cond.has("check") and not cond.check.get("voice", "") in VOICES:
+					errors.append("case %s gate %s has an unknown voice" % [case_id, gid])
+				if cond.has("class") and not classes.has(cond.get("class")):
+					errors.append("case %s gate %s has an unknown class" % [case_id, gid])
+				if cond.has("evidence") and not evidence.has(cond.evidence):
+					errors.append("case %s gate %s needs unknown evidence" % [case_id, gid])
+		for did in c.get("districts", {}):
+			if not maps.has(c.districts[did].get("map", "")):
+				errors.append("case %s district %s has an unknown map" % [case_id, did])
+		for wid in dialogue.get(case_id, {}):
+			errors.append_array(_validate_script(case_id, wid, dialogue[case_id][wid], evidence))
 	for map_id in maps:
 		var m: Dictionary = maps[map_id]
 		var c: Dictionary = cases.get(m.get("case", ""), {})
@@ -106,9 +174,30 @@ func validate() -> Array[String]:
 		var building_ids := []
 		for b in m.get("facades", []) + m.get("houses", []):
 			building_ids.append(b.id)
+			if b.has("gate") and not c.get("gates", {}).has(b.gate):
+				errors.append("map %s building %s uses unknown gate %s" % [map_id, b.id, b.gate])
 		for iid in m.get("interiors", {}):
 			if not iid in building_ids:
 				errors.append("map %s interior %s has no facade or house" % [map_id, iid])
+		for e in m.get("exits", []):
+			if not maps.has(e.get("to", "")):
+				errors.append("map %s has an exit to unknown map %s" % [map_id, e.get("to")])
+			if e.has("gate") and not c.get("gates", {}).has(e.gate):
+				errors.append("map %s exit uses unknown gate %s" % [map_id, e.gate])
+		var props: Array = m.get("props", []).duplicate()
+		var npcs: Array = m.get("npcs", []).duplicate()
+		for iid in m.get("interiors", {}):
+			props += m.interiors[iid].get("props", [])
+			npcs += m.interiors[iid].get("npcs", [])
+		for p in props:
+			if p.has("pickup") and not items.has(p.pickup):
+				errors.append("map %s prop %s picks up unknown item %s" % [map_id, p.kind, p.pickup])
+			if p.has("gate") and not c.get("gates", {}).has(p.gate):
+				errors.append("map %s prop %s uses unknown gate %s" % [map_id, p.kind, p.gate])
+		for n in npcs:
+			for ph in n.get("when", []):
+				if not ph in PHASES:
+					errors.append("map %s npc %s has unknown phase %s" % [map_id, n.id, ph])
 		var clues: Array = m.get("clues", []).duplicate()
 		for iid in m.get("interiors", {}):
 			clues += m.interiors[iid].get("clues", [])
@@ -123,6 +212,50 @@ func validate() -> Array[String]:
 					errors.append("map %s clue %s yields missing evidence %s" % [map_id, clue.get("id"), e])
 			if clue.has("requires") and not evidence.has(clue.requires):
 				errors.append("map %s clue %s requires missing evidence" % [map_id, clue.get("id")])
+	return errors
+
+
+func _validate_script(case_id: String, wid: String, d: Dictionary, evidence: Dictionary) -> Array[String]:
+	var errors: Array[String] = []
+	var nodes: Dictionary = d.get("nodes", {})
+	var where := "dialogue %s/%s" % [case_id, wid]
+	if not nodes.has(d.get("start", "")):
+		errors.append(where + " has no start node")
+	for nid in nodes:
+		var n: Dictionary = nodes[nid]
+		var w := "%s node %s" % [where, nid]
+		if n.get("lines", []).is_empty() and not n.has("line"):
+			errors.append(w + " has no lines")
+		for p in n.get("passives", []):
+			if not p.get("voice", "") in VOICES:
+				errors.append(w + " passive has an unknown voice")
+		if n.has("next") and not nodes.has(n.next):
+			errors.append(w + " next is missing")
+		if n.get("gives", {}).has("evidence") and not evidence.has(n.gives.evidence):
+			errors.append(w + " gives missing evidence")
+		for o in n.get("options", []):
+			if o.get("topics", false) or o.get("show", false) or o.get("leave", false):
+				continue
+			if o.has("tone") and not o.tone in TONES:
+				errors.append(w + " option has an unknown tone")
+			if o.has("next") and not nodes.has(o.next):
+				errors.append(w + " option next is missing")
+			if o.has("check"):
+				if not o.check.get("voice", "") in VOICES:
+					errors.append(w + " check has an unknown voice")
+				if not nodes.has(o.get("pass", "")):
+					errors.append(w + " check pass node is missing")
+				if o.check.get("kind", "white") == "red" and not o.has("fail"):
+					errors.append(w + " red check has no fail branch")
+				if o.has("fail") and o.fail.has("next") and not nodes.has(o.fail.next):
+					errors.append(w + " fail next is missing")
+				for e in o.check.get("evidence_bonus", {}):
+					if not evidence.has(e):
+						errors.append(w + " evidence bonus names missing evidence")
+			elif not o.has("next"):
+				errors.append(w + " option goes nowhere")
+			if o.get("gives", {}).has("evidence") and not evidence.has(o.gives.evidence):
+				errors.append(w + " option gives missing evidence")
 	return errors
 
 

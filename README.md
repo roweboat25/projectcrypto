@@ -22,9 +22,10 @@ lab results on anything you bagged.
 
 | Path | What lives there |
 | --- | --- |
-| `data/` | All game content as JSON: classes, partners, foes, one file per case and one per map |
+| `data/` | All game content as JSON: classes, partners, foes, cases (with per-district fragments), one map per district, scripted dialogue, items |
+| `docs/` | `content-format.md`, the schema for maps, cases, dialogue and items |
 | `assets/` | Generated tiles, props, storefronts, character sheets and portraits (see `assets/CREDITS.md`) |
-| `tools/` | `build_art.py`, which composes `assets/` from LPC Revised sheets |
+| `tools/` | `build_art.py`, which composes `assets/` from LPC Revised sheets, and `check_content.py`, which checks data references |
 | `scripts/autoload/` | `GameData` (loads and validates content) and `GameState` (progress and saves) |
 | `scripts/` | Scene scripts; `investigation.gd` holds the speech check and evidence rules |
 | `scenes/` | Godot scenes; `boot.tscn` is the entry point |
@@ -34,7 +35,8 @@ lab results on anything you bagged.
 
 ```sh
 godot --headless --path . --import
-godot --headless --path . -s res://tests/run_tests.gd   # data and save checks
+python3 tools/check_content.py                            # data references, no Godot needed
+godot --headless --path . -s res://tests/run_tests.gd   # rules, saves, scripts compile
 godot --headless --path . --export-release "Web" build/web/index.html
 ```
 

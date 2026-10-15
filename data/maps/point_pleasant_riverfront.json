@@ -1,0 +1,2349 @@
+{
+ "_doc": "Point Pleasant, the Riverfront: outside the floodwall, where Sixth Street used to become the Silver Bridge. The Ohio runs along the south and west edges; the floodwall and floodgate stand along the east edge and the only way back to Main Street is through the gate. Tu-Endie-Wei park fills the north, the landing, pier and bait shop the south. Positions are in 32px tiles.",
+ "id": "point_pleasant_riverfront",
+ "name": "Riverfront",
+ "case": "point_pleasant",
+ "district": "riverfront",
+ "size": [
+  56,
+  40
+ ],
+ "spawn": [
+  50,
+  20
+ ],
+ "ground": "snow",
+ "fills": [
+  {
+   "rect": [
+    0,
+    1,
+    3,
+    38
+   ],
+   "tiles": [
+    "water",
+    "water2",
+    "water3"
+   ]
+  },
+  {
+   "rect": [
+    3,
+    1,
+    1,
+    31
+   ],
+   "tiles": [
+    "dirt_snow",
+    "dirt_snow2",
+    "dirt_snow3"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    33,
+    56,
+    7
+   ],
+   "tiles": [
+    "water",
+    "water2",
+    "water3"
+   ]
+  },
+  {
+   "rect": [
+    3,
+    32,
+    52,
+    1
+   ],
+   "tiles": [
+    "water_snow_top",
+    "water_snow_top2",
+    "water_snow_top3"
+   ]
+  },
+  {
+   "rect": [
+    20,
+    32,
+    2,
+    6
+   ],
+   "tiles": [
+    "wood_dark",
+    "wood_dark2"
+   ]
+  },
+  {
+   "rect": [
+    3,
+    23,
+    8,
+    9
+   ],
+   "tiles": [
+    "dirt_snow",
+    "dirt_snow2",
+    "dirt_snow3",
+    "mud"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    23,
+    4,
+    9
+   ],
+   "tiles": [
+    "dirt",
+    "dirt2",
+    "dirt_snow",
+    "dirt4"
+   ]
+  },
+  {
+   "rect": [
+    4,
+    17,
+    48,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    4,
+    22,
+    48,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    3,
+    18,
+    52,
+    4
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    3,
+    19,
+    52,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    3,
+    18,
+    2,
+    4
+   ],
+   "tiles": [
+    "asphalt2",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    17,
+    11,
+    3,
+    6
+   ],
+   "tiles": [
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    4,
+    1,
+    3,
+    16
+   ],
+   "tiles": [
+    "ice",
+    "ice2",
+    "ice3",
+    "snow"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    56,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    0,
+    1,
+    40
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    55,
+    0,
+    1,
+    16
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    55,
+    24,
+    1,
+    16
+   ],
+   "tiles": "void"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    7,
+    1,
+    44,
+    16
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow_drift3",
+    "snow_rock",
+    "snow_rock2"
+   ],
+   "chance": 0.07
+  },
+  {
+   "rect": [
+    11,
+    23,
+    19,
+    9
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow2",
+    "snow3",
+    "snow_rock"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    34,
+    23,
+    17,
+    9
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow2",
+    "snow3"
+   ],
+   "chance": 0.07
+  },
+  {
+   "rect": [
+    3,
+    23,
+    8,
+    9
+   ],
+   "tiles": [
+    "mud",
+    "mud2",
+    "dirt_snow2"
+   ],
+   "chance": 0.15
+  }
+ ],
+ "facades": [
+  {
+   "id": "pump_house",
+   "facade": "pump_house",
+   "name": "Floodgate pump house",
+   "pos": [
+    47,
+    16
+   ]
+  },
+  {
+   "id": "crew_cabin",
+   "facade": "crew_cabin",
+   "name": "Kanawha Belle, crew cabin",
+   "pos": [
+    34,
+    28
+   ]
+  },
+  {
+   "id": "bait_shop",
+   "facade": "bait_shop",
+   "name": "Thacker Bait and Tackle",
+   "pos": [
+    44,
+    28
+   ]
+  }
+ ],
+ "houses": [],
+ "props": [
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    3
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    5
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    7
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    9
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    11
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    13
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    15
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    27
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    29
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    31
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    25
+   ],
+   "name": "The floodwall",
+   "look": [
+    [
+     "player",
+     "The floodwall. 1951 is cast into the concrete and the 1937 high-water mark is painted above your head."
+    ],
+    [
+     "june",
+     "Above your head."
+    ],
+    [
+     "miriam",
+     "The town is lower than the river. They just don't like to say it."
+    ]
+   ]
+  },
+  {
+   "kind": "floodgate",
+   "pos": [
+    53,
+    17
+   ],
+   "name": "The floodgate",
+   "look": [
+    [
+     "player",
+     "A steel gate in a concrete wall. SHUT AT DUSK BY ORDER. It does not say whose."
+    ],
+    [
+     "teddy",
+     "The river's, mostly."
+    ]
+   ]
+  },
+  {
+   "kind": "floodgate",
+   "pos": [
+    53,
+    23
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    53.5,
+    33
+   ],
+   "name": "Where the wall meets the river",
+   "look": "The wall walks straight into the Ohio and stops. Gulls on every step of it, all facing upstream."
+  },
+  {
+   "kind": "floodwall_stairs",
+   "pos": [
+    51,
+    26
+   ],
+   "name": "Floodwall stairs",
+   "look": [
+    [
+     "player",
+     "Concrete stairs up the back of the floodwall, behind the bait shop. Iced. No rail on the river side."
+    ],
+    [
+     "dale",
+     "Nerve. That's all that is."
+    ],
+    [
+     "teddy",
+     "Nerve and an ambulance."
+    ]
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    51.5,
+    16.9
+   ],
+   "name": "Diesel drum",
+   "look": "Diesel for the pumps. The lid is padlocked. The padlock is not."
+  },
+  {
+   "kind": "drain",
+   "pos": [
+    46,
+    17.2
+   ],
+   "name": "Storm drain",
+   "look": [
+    [
+     "player",
+     "A storm drain. Something down there is breathing."
+    ],
+    [
+     "elijah",
+     "That's the river. ...That's the river."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    44,
+    17.5
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    42,
+    22.6
+   ],
+   "name": "A dark sedan",
+   "look": [
+    [
+     "player",
+     "A dark sedan parked facing the gate. Snow on everything but the windshield."
+    ],
+    [
+     "teddy",
+     "Somebody sits in it. Not now. But somebody."
+    ]
+   ]
+  },
+  {
+   "kind": "phone_booth",
+   "pos": [
+    50,
+    22.9
+   ],
+   "name": "Pay phone",
+   "look": [
+    [
+     "player",
+     "A pay phone. Takes quarters. The book is chained and open to TOWING."
+    ],
+    [
+     "teddy",
+     "The Office number is on the inside of my hand. Had to write it somewhere."
+    ]
+   ]
+  },
+  {
+   "kind": "newspaper_box",
+   "pos": [
+    36,
+    16.9
+   ],
+   "name": "Newspaper box",
+   "look": "The Register, this morning. RIVER STAGE 31 FT, FLOOD STAGE 40. Someone has written NOT THE POINT on the glass in grease pencil."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    39,
+    16.9
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    28,
+    17.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    11,
+    23
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    37,
+    23
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    33,
+    17.5
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    30,
+    16.8
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    5,
+    21.5
+   ],
+   "name": "Road closed",
+   "look": "ROAD ENDS. Chain link, orange paint, a wreath wired to it. The asphalt goes on three more steps and stops over the water."
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    5,
+    19.5
+   ]
+  },
+  {
+   "kind": "stone_slab",
+   "pos": [
+    8,
+    22.6
+   ],
+   "name": "Memorial plaque",
+   "look": [
+    [
+     "player",
+     "SILVER BRIDGE. DECEMBER 15, 1967. Forty-six names in bronze, in two columns."
+    ],
+    [
+     "ruth",
+     "Read them, dear. All of them. It's the least we do."
+    ],
+    [
+     "elijah",
+     "...Somebody's standing right behind us. It's all right. Don't turn around. It's reading too."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    11,
+    17.5
+   ],
+   "name": "Dead streetlight",
+   "look": [
+    [
+     "player",
+     "The last streetlight before the bridge. Dead."
+    ],
+    [
+     "teddy",
+     "Nobody's changed the bulb since 1967. Nobody's going to."
+    ]
+   ]
+  },
+  {
+   "kind": "pillar",
+   "pos": [
+    2,
+    21
+   ],
+   "name": "Bridge pier",
+   "look": [
+    [
+     "miriam",
+     "A pier. The bridge stood on this."
+    ],
+    [
+     "player",
+     "The grey water goes around it without a sound."
+    ]
+   ]
+  },
+  {
+   "kind": "pillar",
+   "pos": [
+    2,
+    27
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    9,
+    16.5
+   ],
+   "name": "Memorial bench",
+   "look": [
+    [
+     "player",
+     "A bench facing the gap. FOR DOT, WHO LIKED THE RIVER."
+    ],
+    [
+     "ruth",
+     "Everybody liked the river, dear. It's the only thing here that leaves."
+    ]
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    12,
+    16.5
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    6,
+    16.5
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    5,
+    31.5
+   ],
+   "name": "The point",
+   "look": [
+    [
+     "player",
+     "The point. Kanawha behind you, Ohio ahead, and you can see the seam where the two colours of water refuse to mix."
+    ],
+    [
+     "vera",
+     "Two waters that will not join. The old people built here on purpose."
+    ]
+   ]
+  },
+  {
+   "kind": "johnboat",
+   "pos": [
+    8,
+    25.5
+   ],
+   "name": "Johnboat",
+   "look": "A johnboat full of snow. Somebody's name is painted on the stern and painted over."
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    6,
+    27.5
+   ],
+   "name": "Driftwood",
+   "look": [
+    [
+     "player",
+     "Driftwood, bleached white. Dale is looking for toothmarks."
+    ],
+    [
+     "dale",
+     "Beaver."
+    ],
+    [
+     "miriam",
+     "You sound disappointed."
+    ]
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    4,
+    24.5
+   ],
+   "name": "Cattails",
+   "look": "Cattails, frozen stiff. They rattle when there's no wind."
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    4,
+    28.5
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    9,
+    31.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    10,
+    24
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    7,
+    31
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    10,
+    28.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    10,
+    30.5
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    12,
+    27
+   ],
+   "name": "Sycamore",
+   "look": "A sycamore, white as bone, roots in the river. Three lines scored in the bark eight feet up. The fisherman says the geese stopped landing on this bank in '66."
+  },
+  {
+   "kind": "rock_cliff",
+   "pos": [
+    5,
+    15.5
+   ],
+   "name": "The bluff",
+   "look": "The park drops to the water here. The mud below is frozen hard enough to hold a print, and it is holding some."
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    16,
+    26.5
+   ],
+   "name": "Picnic table",
+   "look": [
+    [
+     "june",
+     "Someone wrote WHY in the snow on this table with a finger."
+    ],
+    [
+     "teddy",
+     "Could be a question. Could be a name."
+    ]
+   ]
+  },
+  {
+   "kind": "campfire",
+   "pos": [
+    19,
+    24.5
+   ],
+   "name": "Fire ring",
+   "look": [
+    [
+     "player",
+     "A ring of stones, cold ash, a lot of cans."
+    ],
+    [
+     "teddy",
+     "Beer, beer, beer, beer, and one Tab. Somebody was driving."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    14,
+    30.5
+   ],
+   "name": "Bench",
+   "look": "A bench facing the river. Frozen chewing gum, a pattern of initials, and a carved date: 12-15-67. Nobody has carved over it."
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    12,
+    23.6
+   ],
+   "name": "Kid's bike",
+   "look": "A kid's bike with a milk crate on the back. A fishing rod in the crate, and a tag on the rod: PROPERTY OF C. The C is underlined twice."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    17,
+    23.5
+   ],
+   "name": "Trash drum",
+   "look": "A drum for trash. Mostly bait tubs. Mostly."
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    18,
+    30.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    13,
+    25.5
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    26,
+    27
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    23,
+    24
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    28,
+    25.5
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    24,
+    30.5
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    29,
+    29.5
+   ]
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    22,
+    28
+   ],
+   "name": "Snowman",
+   "look": [
+    [
+     "player",
+     "A snowman with a bait-shop cap and two red bicycle reflectors for eyes."
+    ],
+    [
+     "dale",
+     "Reflectors. Of course."
+    ],
+    [
+     "miriam",
+     "Somebody in this town has a sense of humour, or a grudge."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    23,
+    31.5
+   ],
+   "name": "Pier light",
+   "look": "The pier light. Goes out at eleven. The fisherman says that's when the river starts talking."
+  },
+  {
+   "kind": "piling",
+   "pos": [
+    19,
+    33.5
+   ],
+   "name": "Piling",
+   "look": "A piling. The high-water mark is a bathtub ring three feet above your head."
+  },
+  {
+   "kind": "piling",
+   "pos": [
+    22,
+    33.5
+   ]
+  },
+  {
+   "kind": "piling",
+   "pos": [
+    19,
+    36.5
+   ]
+  },
+  {
+   "kind": "piling",
+   "pos": [
+    22,
+    36.5
+   ]
+  },
+  {
+   "kind": "pier_planks",
+   "pos": [
+    21,
+    33.5
+   ]
+  },
+  {
+   "kind": "pier_planks",
+   "pos": [
+    21,
+    35.5
+   ]
+  },
+  {
+   "kind": "pier_planks",
+   "pos": [
+    21,
+    37.5
+   ],
+   "name": "End of the pier",
+   "look": [
+    [
+     "player",
+     "End of the pier. Grey water, grey sky, a towboat's lights a mile down."
+    ],
+    [
+     "elijah",
+     "Quiet. ...No. Not quiet. Waiting."
+    ]
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    20.5,
+    35.2
+   ],
+   "name": "Bait bucket",
+   "look": [
+    [
+     "player",
+     "A bucket of river water with a skin of ice and one very patient catfish."
+    ],
+    [
+     "teddy",
+     "He has a look about him. A look of having seen things."
+    ]
+   ]
+  },
+  {
+   "kind": "johnboat",
+   "pos": [
+    16,
+    34.5
+   ],
+   "name": "Moored johnboat",
+   "look": "A johnboat on a frozen painter, iced to the gunwales. The oars are inside. Nobody has rowed anywhere since January."
+  },
+  {
+   "kind": "culvert",
+   "pos": [
+    27,
+    31.6
+   ],
+   "name": "Pump house outfall",
+   "look": [
+    [
+     "player",
+     "The pump house outfall. Water comes out warmer than the river and the river takes it."
+    ],
+    [
+     "miriam",
+     "Warm, foamy and glowing. Three things, one explanation, and it isn't the one Dale wants."
+    ]
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    31.5,
+    24.6
+   ],
+   "name": "Company pickup",
+   "look": "OHIO RIVER TOWING on the door. Snow on the hood a week deep. The crew does not go home much."
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    40,
+    29
+   ],
+   "name": "Deck crate",
+   "look": "Towline, shackles, a case of motor oil. The lid is stencilled KANAWHA BELLE. Searchable, if you call a case of motor oil a find."
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    41,
+    29
+   ],
+   "name": "Diesel drum",
+   "look": "Diesel. Dented. There's a bullet hole patched with a penny and some epoxy."
+  },
+  {
+   "kind": "antenna",
+   "pos": [
+    39,
+    26.5
+   ],
+   "name": "Antennas",
+   "look": [
+    [
+     "june",
+     "A marine VHF whip and a longer one beside it. The long one isn't marine. That's a listener's antenna."
+    ],
+    [
+     "player",
+     "Somebody on this boat likes the quiet bands."
+    ]
+   ]
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    36,
+    31
+   ],
+   "name": "Gangplank",
+   "look": "The gangplank, pulled up on the bank. Ice in the cleats. Somebody has chalked a tally on it: eleven marks and a line through them."
+  },
+  {
+   "kind": "piling",
+   "pos": [
+    30,
+    32.5
+   ]
+  },
+  {
+   "kind": "piling",
+   "pos": [
+    33,
+    32.5
+   ]
+  },
+  {
+   "kind": "barge",
+   "pos": [
+    31,
+    35.5
+   ],
+   "name": "Hopper barge",
+   "look": [
+    [
+     "player",
+     "An empty hopper barge riding high, the Kanawha Belle's tow."
+    ],
+    [
+     "dale",
+     "Nine hundred tons of nothing. I could live on one of those."
+    ],
+    [
+     "miriam",
+     "You'd have to."
+    ]
+   ]
+  },
+  {
+   "kind": "barge",
+   "pos": [
+    45,
+    37
+   ],
+   "name": "Coal barge",
+   "look": [
+    [
+     "player",
+     "A loaded coal barge, iced to the waterline. A gull on every hatch cover, all facing the same way."
+    ],
+    [
+     "june",
+     "Upstream. They're all looking upstream."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    33,
+    29.5
+   ]
+  },
+  {
+   "kind": "trough",
+   "pos": [
+    29,
+    30.5
+   ],
+   "name": "Fish-cleaning trough",
+   "look": "A trough for cleaning fish. Frozen scales on the rim like sequins. A crow is waiting on the far end and does not care about you."
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    27,
+    25
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    43,
+    28.6
+   ],
+   "name": "Mailbox",
+   "look": "THACKER BAIT. The flag is up. It has been up since the mail stopped coming out here in 1985."
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    49,
+    28.6
+   ],
+   "name": "Minnow tank",
+   "look": "A minnow tank with a bubbler. The minnows are all facing the same way too. Upstream."
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    50,
+    29.5
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    42,
+    30.5
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    41.5,
+    25.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    48,
+    24.5
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    44,
+    31
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    51,
+    30.5
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    39,
+    31.5
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    48,
+    31.5
+   ],
+   "name": "Bank rock",
+   "look": "A rock with a steel ring set in it. Boats tied here when the ferry still ran. Somebody has tied a red ribbon to the ring. Recently."
+  },
+  {
+   "kind": "piling",
+   "pos": [
+    44,
+    32.5
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    23,
+    16.6
+   ],
+   "name": "Park sign",
+   "look": [
+    [
+     "player",
+     "TU-ENDIE-WEI STATE PARK. 'Point of land between two waters.' Battle of Point Pleasant, October 10, 1774."
+    ],
+    [
+     "ruth",
+     "Lord Dunmore's war. A thousand men on this point and a river full of the dead by evening."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    15,
+    16.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    21,
+    16.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    20,
+    11.5
+   ]
+  },
+  {
+   "kind": "obelisk",
+   "pos": [
+    18,
+    10
+   ],
+   "name": "The obelisk",
+   "look": [
+    [
+     "player",
+     "An eighty-foot granite obelisk to the men of 1774. The snow has not settled on it. Anywhere."
+    ],
+    [
+     "vera",
+     "Stone remembers. It is the only thing that does so without lying."
+    ],
+    [
+     "teddy",
+     "It's granite, Vera. It's warm from the sun."
+    ],
+    [
+     "vera",
+     "There is no sun."
+    ]
+   ]
+  },
+  {
+   "kind": "stone_slab",
+   "pos": [
+    25,
+    9.6
+   ],
+   "name": "Grave marker",
+   "look": [
+    [
+     "player",
+     "CORNSTALK. SHAWNEE. Killed here in 1777 under a flag of truce. The marker says CHIEF. The marker does not say MURDERED."
+    ],
+    [
+     "ruth",
+     "They say he cursed the point for two hundred years. The bridge fell in year one hundred and ninety."
+    ],
+    [
+     "miriam",
+     "They say that now. They didn't say it in 1966."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    25,
+    8.4
+   ],
+   "name": "Iron fence",
+   "look": "A low iron fence around the marker. Someone has left tobacco on the stone, under the snow, tied in red cloth."
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    25,
+    10.6
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    13,
+    12.5
+   ],
+   "name": "Park bench",
+   "look": "A park bench and, carved in the slats, a wingspan: two marks and a tape measure's worth of distance. TEN FOOT FOUR. No name."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    23,
+    12.5
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    16,
+    13.5
+   ],
+   "name": "Park bin",
+   "look": [
+    [
+     "player",
+     "Empty except for a bird's leg band, aluminium, No. 7714."
+    ],
+    [
+     "dale",
+     "A crane band. A crane leg band. ...That's not nothing."
+    ],
+    [
+     "miriam",
+     "It's a bin, Dale."
+    ]
+   ]
+  },
+  {
+   "kind": "christmas_tree",
+   "pos": [
+    30,
+    13
+   ],
+   "name": "Park Christmas tree",
+   "look": [
+    [
+     "player",
+     "The park Christmas tree. Lights still on it. Still plugged in."
+    ],
+    [
+     "teddy",
+     "It's February."
+    ],
+    [
+     "ruth",
+     "It's cheerful."
+    ],
+    [
+     "teddy",
+     "It's February, Ruth."
+    ]
+   ]
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    10,
+    7
+   ],
+   "name": "Park snowman",
+   "look": "A snowman wearing a VFW cap, saluting the obelisk with a stick. The salute is correct."
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    34,
+    8
+   ],
+   "name": "Picnic table",
+   "look": "A picnic table under four inches of snow. One place has been brushed clear, and somebody sat there long enough to melt the bench through."
+  },
+  {
+   "kind": "shed",
+   "pos": [
+    42,
+    7
+   ],
+   "name": "Park shed",
+   "look": [
+    [
+     "player",
+     "Park shed. A mower, a folded flag, and a canoe with a hole the size of a fist in the hull."
+    ],
+    [
+     "dale",
+     "Not a fist."
+    ],
+    [
+     "miriam",
+     "A fist, Dale."
+    ]
+   ]
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    38,
+    11.5
+   ],
+   "name": "A hound",
+   "look": [
+    [
+     "player",
+     "A hound tied to the shed, howling at the river. It stops when you look at it. Starts again when you don't."
+    ],
+    [
+     "elijah",
+     "He's not howling at the river."
+    ]
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    9,
+    4
+   ]
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    14,
+    5
+   ]
+  },
+  {
+   "kind": "tree_snow2",
+   "pos": [
+    22,
+    5
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    28,
+    4
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    36,
+    4
+   ]
+  },
+  {
+   "kind": "tree_tall",
+   "pos": [
+    47,
+    5
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    50,
+    10
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    46,
+    12.5
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    31,
+    9.5
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    12,
+    15
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    42,
+    15.5
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    27,
+    15.5
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    33,
+    15.5
+   ],
+   "name": "Holly",
+   "look": "A holly bush, the only green on the point. The birds have left the berries alone. All of them."
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    16,
+    8.5
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    8,
+    11
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    40,
+    15
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    24,
+    14.5
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    8,
+    2.5
+   ]
+  },
+  {
+   "kind": "well",
+   "pos": [
+    33,
+    11.5
+   ],
+   "name": "Old well",
+   "look": "A capped well with a plaque: CAMP CHARLOTTE SPRING, 1774. The cap has been pried once and bolted twice."
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    9.5,
+    14.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    13.5,
+    14.5
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "rf_deckhand",
+   "name": "Lyle Boggs",
+   "pos": [
+    32,
+    27.5
+   ],
+   "facing": "down",
+   "sprite": "towboat",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "rf_dockhand",
+   "name": "A deckhand",
+   "pos": [
+    30.5,
+    30.5
+   ],
+   "facing": "right",
+   "sprite": "towboat",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "rf_fisherman",
+   "name": "Chalmer",
+   "pos": [
+    21,
+    36.5
+   ],
+   "facing": "down",
+   "sprite": "farmer",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "rf_park_kid",
+   "name": "A kid with a sled",
+   "pos": [
+    11,
+    9.5
+   ],
+   "facing": "left",
+   "sprite": "kid",
+   "when": [
+    "day"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "rf_point_feather",
+   "name": "A grey feather",
+   "pos": [
+    6,
+    29.6
+   ],
+   "prop": "clue_fur",
+   "text": "Below the point, where the mud is frozen hard: a grey feather, a foot long if it's an inch, stuck quill-down in the ice like somebody planted it. The barbs are stiff and perfect. No bird dropped this in a fight.",
+   "methods": {
+    "bag": "rf_crane_feather",
+    "photograph": "rf_feather_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "rf_point_prints",
+   "name": "Prints in the frozen mud",
+   "pos": [
+    8.5,
+    30.6
+   ],
+   "prop": "clue_prints",
+   "text": "Three-toed prints walk out of the water and up the bank toward the park. Each one is as long as your forearm. The stride is nearly two metres and the toes turn in. Whatever made them came out of the river and was not in a hurry.",
+   "methods": {
+    "cast": "rf_bank_prints_cast",
+    "photograph": "rf_bank_prints_photo",
+    "bag": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "rf_cold_spot",
+   "name": "A cold place on the road",
+   "pos": [
+    9,
+    20.5
+   ],
+   "prop": "clue_cold",
+   "night": 3,
+   "text": "Three steps short of the barricade the air changes. Your breath stops showing. The asphalt is dry here in a circle and the snow has not crossed its edge. It is colder inside the circle than anything February can do.",
+   "methods": {
+    "measure": "rf_cold_spot",
+    "photograph": "rf_cold_photo",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "rf_bridge_tone",
+   "name": "The plaque is humming",
+   "pos": [
+    10.5,
+    22.6
+   ],
+   "prop": "clue_cold",
+   "night": 3,
+   "text": "The bronze plaque is ringing, very faintly, three notes and a silence and three notes. June's scanner lights on every band. Put a hand on the bronze and you feel it in your teeth.",
+   "methods": {
+    "measure": "rf_bridge_tone_tape",
+    "photograph": "spoil",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "rf_foam",
+   "name": "Glowing foam on the water",
+   "pos": [
+    24.5,
+    31.6
+   ],
+   "prop": "clue_glow",
+   "text": "A raft of dirty foam has gathered against the bank beside the outfall. It glows. Faint, blue-green, brighter when the water moves it. Dale is already kneeling.",
+   "methods": {
+    "bag": "rf_foam_sample",
+    "photograph": "spoil",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    55,
+    16,
+    1,
+    8
+   ],
+   "to": "point_pleasant_main_street",
+   "at": [
+    2,
+    26
+   ],
+   "name": "Main Street",
+   "gate": "floodgate"
+  }
+ ],
+ "interiors": {
+  "crew_cabin": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark2"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "bed_single",
+     "pos": [
+      1.5,
+      4
+     ],
+     "name": "Lyle's bunk",
+     "look": "A bunk made tight enough to bounce a quarter off. The other one isn't."
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      8.5,
+      4
+     ]
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      3,
+      1.9
+     ],
+     "name": "Radio set",
+     "look": [
+      [
+       "june",
+       "A marine VHF and a scanner wired through the same speaker. Somebody logs channel 16 in pencil on the wall."
+      ],
+      [
+       "player",
+       "December 1967 is circled. Three ticks beside it."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      5.5,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "Ohio River Towing Co., February 1994. The 15th of every month is crossed out in red, back through the whole pad."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      7,
+      1.6
+     ],
+     "name": "Safety poster",
+     "look": "MAN OVERBOARD: SIX STEPS. Step six has been inked over to read PRAY."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5,
+      2.7
+     ],
+     "name": "Shelf",
+     "look": "Coffee, cigarettes, a Louis L'Amour with the cover gone, and a tide table for Mobile Bay. There is no tide here. Someone is homesick."
+    },
+    {
+     "kind": "table_rough",
+     "pos": [
+      5,
+      5
+     ],
+     "name": "Table",
+     "look": "Oilcloth, a cribbage board, and a chart of the Ohio from Point Pleasant to Gallipolis. A pencil line wanders off the channel at the bridge site and comes back."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      4,
+      6.2
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      6,
+      4.1
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      8.5,
+      6.5
+     ],
+     "name": "Sea chest",
+     "look": "Life jackets, a flare pistol, and under them a Register front page from December 1967 folded into eighths. He kept it. He didn't read it; the folds are clean."
+    },
+    {
+     "kind": "fridge",
+     "pos": [
+      9.5,
+      2.5
+     ],
+     "name": "Fridge",
+     "look": "Bologna, mustard, and a pound of catfish bait that is also bologna. Teddy closes it with respect."
+    },
+    {
+     "kind": "coffee_maker",
+     "pos": [
+      1.5,
+      2.1
+     ],
+     "name": "Coffee maker",
+     "look": "A coffee maker on a hot plate on a milk crate. The pot has been on since the Johnson administration."
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      1.5,
+      6.3
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "rf_deckhand",
+     "name": "Lyle Boggs",
+     "pos": [
+      5,
+      3.6
+     ],
+     "facing": "down",
+     "sprite": "towboat",
+     "when": [
+      "morning",
+      "night"
+     ]
+    }
+   ]
+  },
+  "bait_shop": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      1.5,
+      1.7
+     ],
+     "name": "Bait shelf",
+     "look": [
+      [
+       "player",
+       "Chicken livers in jars. Nightcrawlers in a cooler. Something in a jar labelled DO NOT."
+      ],
+      [
+       "teddy",
+       "I have questions about the jar."
+      ],
+      [
+       "dale",
+       "Don't."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      3.5,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "Thacker Bait and Tackle, February 1994. River stages pencilled in every day. Tuesdays say G. SHELLS. The deputy buys his shotgun shells here."
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      4.5,
+      1.4
+     ],
+     "name": "Photograph",
+     "look": [
+      [
+       "player",
+       "A photograph: twenty men in hunting coats on the riverbank, November 1966. Shotguns, lanterns, one dog. None of them are smiling and one of them is looking up."
+      ],
+      [
+       "ruth",
+       "Search party. They never say what for, in the caption."
+      ]
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      6.5,
+      1.7
+     ],
+     "name": "Tackle shelf",
+     "look": "Hooks, line, sinkers, and hand warmers at a price that suggests she knows it's February."
+    },
+    {
+     "kind": "fridge",
+     "pos": [
+      9.5,
+      2.5
+     ],
+     "name": "Bait fridge",
+     "look": "The door says NOT FOR LUNCH. There is a lunch in it."
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      2,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      2,
+      2.9
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      8.5,
+      4.5
+     ],
+     "name": "Minnow tank",
+     "look": [
+      [
+       "player",
+       "A minnow tank. The bubbler hums one note."
+      ],
+      [
+       "june",
+       "...I'm humming the other two. Sorry."
+      ]
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      9,
+      6.5
+     ],
+     "name": "Waders",
+     "pickup": "waders",
+     "look": "Chest waders, size large, $25 chalked on the box. Opal says pay her when the river's up and you need them. The river is up."
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      1.5,
+      6.5
+     ],
+     "name": "Bucket of mud",
+     "look": "A bucket of river mud. Opal sells it by the scoop to men who think the fish can tell."
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      7,
+      6.3
+     ],
+     "name": "Fly basket",
+     "look": [
+      [
+       "player",
+       "Hand-tied flies, a dollar each. One is tied with a grey feather far too long for the hook."
+      ],
+      [
+       "dale",
+       "Where did she get that."
+      ],
+      [
+       "miriam",
+       "A chicken, Dale."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      3,
+      5.2
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "rf_bait",
+     "name": "Opal Thacker",
+     "pos": [
+      3.5,
+      2.6
+     ],
+     "facing": "down",
+     "sprite": "bait",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    },
+    {
+     "id": "rf_fisherman",
+     "name": "Chalmer",
+     "pos": [
+      6.5,
+      5.3
+     ],
+     "facing": "left",
+     "sprite": "farmer",
+     "when": [
+      "dusk"
+     ]
+    }
+   ]
+  },
+  "pump_house": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "concrete_dark",
+    "tile_dark"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      1.5,
+      1.9
+     ],
+     "name": "Stage logs",
+     "look": "River stage logs, 1937 to 1993, one drawer a decade. The 1960s drawer sticks. Searchable, if you've got an hour and a crowbar."
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      3,
+      1.5
+     ],
+     "name": "County notice",
+     "look": "PUMP HOUSE. AUTHORIZED PERSONNEL ONLY. Somebody has added AND CATFISH."
+    },
+    {
+     "kind": "time_clock",
+     "pos": [
+      4.5,
+      1.9
+     ],
+     "name": "Punch clock",
+     "look": [
+      [
+       "player",
+       "A punch clock. The last card in the rack punched in at 4:58 PM, 15 December 1967, and never punched out."
+      ],
+      [
+       "elijah",
+       "He went to look. Everyone went to look."
+      ]
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      6.5,
+      2.5
+     ],
+     "name": "Wall clock",
+     "look": "Stopped. Not at five. At 5:04. Close enough to be an accident."
+    },
+    {
+     "kind": "filing_tall",
+     "pos": [
+      8.5,
+      2.1
+     ],
+     "name": "Manuals",
+     "look": "Pump manuals and a box of fuses. Someone keeps a bottle behind the fuses. Someone keeps it full."
+    },
+    {
+     "kind": "table_workshop",
+     "pos": [
+      3,
+      4.5
+     ],
+     "name": "Workbench",
+     "look": [
+      [
+       "player",
+       "Valve wheels, a grease gun, a thermos. The thermos is warm."
+      ],
+      [
+       "teddy",
+       "Somebody's here."
+      ],
+      [
+       "player",
+       "Somebody's not."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_office",
+     "pos": [
+      5,
+      4.3
+     ]
+    },
+    {
+     "kind": "drain",
+     "pos": [
+      6.5,
+      5.3
+     ],
+     "name": "Sump grate",
+     "look": [
+      [
+       "player",
+       "A sump grate. The river is right under it and you can hear it."
+      ],
+      [
+       "june",
+       "That's a hum, not the river. Sixty cycles. The pumps are off, so what's humming?"
+      ]
+     ]
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      9.5,
+      5.5
+     ],
+     "name": "Roof ladder",
+     "look": "A ladder to the roof hatch. From the roof you could see the whole bridge approach. Someone has been up there; there's no snow on the top rung."
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      1.5,
+      6.5
+     ],
+     "name": "Diesel",
+     "look": "Diesel for the pumps. The gauge says a quarter. The dipstick says somebody has been lying to the county."
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      2.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      7,
+      6.7
+     ],
+     "name": "Sandbags",
+     "look": "Sandbags, folded empty, two hundred of them. Hope, in burlap."
+    }
+   ],
+   "npcs": [],
+   "clues": [
+    {
+     "id": "rf_gauge_chart",
+     "name": "A strip chart on the floor",
+     "pos": [
+      7.5,
+      4.2
+     ],
+     "prop": "paper",
+     "text": "A river gauge strip chart, fallen behind the bench and never picked up. 15 DEC 1967. The stage line is flat all afternoon, then the pen jumps three times, evenly, at 4:58. At 5:04 the line goes off the paper.",
+     "methods": {
+      "bag": "rf_gauge_chart_doc",
+      "photograph": "rf_gauge_chart_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  }
+ }
+}
