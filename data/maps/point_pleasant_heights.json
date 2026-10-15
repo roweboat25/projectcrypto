@@ -1,0 +1,2969 @@
+{
+ "_doc": "Point Pleasant, The Heights: frame houses on a hill above the river, porch lights, dogs, the water tower (night 2 roost) and the 1966 couples' old parking spot. Same conventions as the Main Street map.",
+ "id": "point_pleasant_heights",
+ "name": "The Heights",
+ "case": "point_pleasant",
+ "district": "heights",
+ "size": [
+  48,
+  40
+ ],
+ "spawn": [
+  3,
+  20
+ ],
+ "ground": "snow",
+ "fills": [
+  {
+   "rect": [
+    1,
+    18,
+    46,
+    4
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    19,
+    46,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    1,
+    17,
+    46,
+    1
+   ],
+   "tiles": [
+    "dirt_snow",
+    "dirt_snow2",
+    "dirt_snow3",
+    "snow"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    22,
+    46,
+    1
+   ],
+   "tiles": [
+    "dirt_snow",
+    "dirt_snow2",
+    "dirt_snow3",
+    "snow"
+   ]
+  },
+  {
+   "rect": [
+    33,
+    6,
+    2,
+    8
+   ],
+   "tiles": [
+    "dirt",
+    "dirt2",
+    "dirt_snow",
+    "dirt3"
+   ]
+  },
+  {
+   "rect": [
+    33,
+    14,
+    13,
+    2
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    37,
+    1,
+    9,
+    12
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2",
+    "gravel",
+    "snow"
+   ]
+  },
+  {
+   "rect": [
+    35,
+    23,
+    9,
+    4
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2",
+    "gravel",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    30,
+    46,
+    1
+   ],
+   "tiles": [
+    "dirt_snow",
+    "dirt_snow2",
+    "snow",
+    "snow2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    36,
+    46,
+    1
+   ],
+   "tiles": [
+    "water_snow_top",
+    "water_snow_top2",
+    "water_snow_top3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    37,
+    46,
+    3
+   ],
+   "tiles": [
+    "water",
+    "water2",
+    "water3"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    48,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    0,
+    1,
+    16
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    24,
+    1,
+    16
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    47,
+    0,
+    1,
+    40
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    39,
+    48,
+    1
+   ],
+   "tiles": "void"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    1,
+    46,
+    16
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow_drift3",
+    "snow_rock",
+    "snow_rock2"
+   ],
+   "chance": 0.07
+  },
+  {
+   "rect": [
+    1,
+    23,
+    46,
+    13
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow2",
+    "snow3"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    1,
+    31,
+    46,
+    5
+   ],
+   "tiles": [
+    "ice",
+    "ice2",
+    "ice3"
+   ],
+   "chance": 0.05
+  }
+ ],
+ "facades": [
+  {
+   "id": "radio_den",
+   "facade": "radio_den",
+   "name": "Orville's radio shack",
+   "pos": [
+    19,
+    13
+   ]
+  },
+  {
+   "id": "funeral",
+   "facade": "funeral",
+   "name": "Haught Funeral Home",
+   "pos": [
+    3,
+    29
+   ],
+   "gate": "funeral_hours"
+  },
+  {
+   "id": "library",
+   "facade": "library",
+   "name": "High school library",
+   "pos": [
+    23,
+    29
+   ],
+   "gate": "library_hours"
+  }
+ ],
+ "houses": [
+  {
+   "id": "widow_house",
+   "name": "The Mercer house",
+   "prop": "house_panel",
+   "pos": [
+    6,
+    15
+   ],
+   "door": [
+    7,
+    15
+   ]
+  },
+  {
+   "id": "ham_house",
+   "name": "The Pace house",
+   "prop": "house_brick_b",
+   "pos": [
+    14,
+    15
+   ],
+   "door": [
+    12.5,
+    15
+   ]
+  },
+  {
+   "id": "mason_house",
+   "name": "The Mason house",
+   "prop": "house_brick",
+   "pos": [
+    29,
+    15
+   ],
+   "door": [
+    27.5,
+    15
+   ]
+  },
+  {
+   "id": "teen_house",
+   "name": "The Rayburn house",
+   "prop": "house_brick_b",
+   "pos": [
+    16,
+    29
+   ],
+   "door": [
+    14.5,
+    29
+   ]
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    0,
+    16,
+    1,
+    8
+   ],
+   "to": "point_pleasant_main_street",
+   "at": [
+    57,
+    27
+   ],
+   "name": "Main Street"
+  }
+ ],
+ "props": [
+  {
+   "kind": "lamp_post",
+   "pos": [
+    8.5,
+    15.8
+   ],
+   "name": "The Mercer porch light",
+   "look": [
+    [
+     "player",
+     "A bare bulb in a tin shade. It is on. It is the middle of the day."
+    ],
+    [
+     "ruth",
+     "Don't touch it, dear. Some lights are promises."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    11,
+    15.8
+   ],
+   "name": "The Pace porch light",
+   "look": [
+    [
+     "june",
+     "The bulb is on a timer. The timer is on a timer."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    26,
+    15.8
+   ],
+   "name": "The Mason porch light",
+   "look": "A yellow bug bulb. Nothing has needed it since October."
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    13,
+    29.8
+   ],
+   "name": "The Rayburn porch light",
+   "look": [
+    [
+     "teddy",
+     "Somebody has thrown a shoe at this and missed. The shoe is still in the yard."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    2,
+    23
+   ],
+   "look": "The town's lamp. Dead since the ice storm of '89, says the sticker. Nobody has called."
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    22,
+    23
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    44,
+    17.2
+   ],
+   "look": [
+    [
+     "miriam",
+     "The only streetlight for a block and it points at a water tower. Priorities."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    30,
+    23
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    5,
+    16.6
+   ],
+   "name": "Mercer mailbox",
+   "look": "MERCER, in reflective letters. Both names. One has been repainted more often than the other."
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    12,
+    16.6
+   ],
+   "look": [
+    [
+     "player",
+     "PACE. Also: KD8 something, in call-sign letters."
+    ],
+    [
+     "june",
+     "He's licensed. Good. He'll have logs."
+    ]
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    30,
+    16.6
+   ],
+   "name": "Mason mailbox",
+   "look": "MASON. The flag is up. Inside: a gas-station invoice addressed to Dwight, a church bulletin addressed to Carol."
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    19,
+    30.6
+   ],
+   "look": [
+    [
+     "teddy",
+     "RAYBURN. The box has been hit by a car. Twice, by the dents."
+    ]
+   ]
+  },
+  {
+   "kind": "mailboxes",
+   "pos": [
+    24,
+    16.6
+   ],
+   "look": "A bank of boxes for the three cottages up the lane that nobody rents in winter."
+  },
+  {
+   "kind": "newspaper_box",
+   "pos": [
+    3,
+    23.3
+   ],
+   "look": [
+    [
+     "teddy",
+     "The Register, 25 cents. Today's headline is about the levy. Not mine, yet."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    3.5,
+    16.7
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    9.5,
+    16.7
+   ],
+   "look": "A picket fence with one picket missing. The gap is dog-sized."
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    17,
+    16.7
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    20,
+    16.7
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    25,
+    16.7
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    31,
+    16.7
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    19.5,
+    30.7
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    11,
+    26
+   ],
+   "look": [
+    [
+     "elijah",
+     "Iron, cold, for a funeral home. The people inside don't need keeping in."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    11,
+    29
+   ]
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    9,
+    16.2
+   ],
+   "name": "A dog",
+   "look": [
+    [
+     "player",
+     "A beagle. Tied to the porch. It is not barking at you. It is barking at the hill."
+    ],
+    [
+     "dale",
+     "Dogs point. This one's pointing at the tower."
+    ]
+   ]
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    21.5,
+    31.2
+   ],
+   "name": "A dog",
+   "look": [
+    [
+     "player",
+     "A fat old Lab asleep in the snow by the Rayburn porch. It doesn't care."
+    ],
+    [
+     "ruth",
+     "Bless him. He has decided the world is fine."
+    ]
+   ]
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    39,
+    21.6
+   ],
+   "name": "A dog",
+   "look": [
+    [
+     "player",
+     "A dog in the middle of the road, standing very still, looking up the lane."
+    ],
+    [
+     "miriam",
+     "Move, dog."
+    ],
+    [
+     "player",
+     "It won't."
+    ]
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    12.5,
+    23.4
+   ],
+   "name": "A kid's bike",
+   "look": [
+    [
+     "teddy",
+     "Red reflectors, front and back. Everybody's got them. That's the whole problem with this town's evidence."
+    ]
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    20,
+    30.3
+   ],
+   "look": "A ten-speed with the rear reflector snapped off. Recently."
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    1.5,
+    27
+   ],
+   "look": [
+    [
+     "player",
+     "A snowman with two red bottle caps for eyes."
+    ],
+    [
+     "teddy",
+     "Case closed, Miriam."
+    ],
+    [
+     "miriam",
+     "I'm writing that down as sarcasm."
+    ]
+   ]
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    35,
+    3.5
+   ],
+   "look": "A snowman someone has knocked the head off. The head is three yards away, facing the tower."
+  },
+  {
+   "kind": "wagon",
+   "pos": [
+    44,
+    22.6
+   ],
+   "look": "A station wagon with Ohio plates and frost on the inside of the windows. Somebody slept in it."
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    31.5,
+    22.6
+   ],
+   "look": [
+    [
+     "dale",
+     "A Ford with a gun rack and no gun. Coon hunters. They know this hill at night better than anyone."
+    ]
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    7.5,
+    22.6
+   ]
+  },
+  {
+   "kind": "buick",
+   "pos": [
+    17,
+    22.6
+   ],
+   "look": "A Buick with a bumper sticker: POINT PLEASANT, A NICE PLACE TO LIVE. The sticker is older than the car."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    15.5,
+    16.5
+   ],
+   "look": "Pace's bin: a dead car battery, coax offcuts, and a Radio Shack bag. The bag is older than Radio Shack bags should be."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    24.5,
+    15.6
+   ],
+   "look": [
+    [
+     "player",
+     "The Mason bin. A Mason Gas calendar for 1993, in the trash already."
+    ],
+    [
+     "miriam",
+     "Good riddance to a slow year."
+    ]
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    23,
+    30.5
+   ],
+   "look": "Library discards, free to a good home. A 1971 encyclopedia, volume M to N only."
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    10.5,
+    23.3
+   ],
+   "look": "A burn barrel. Somebody has burned a lot of letters in it, recently. The envelopes are blue."
+  },
+  {
+   "kind": "basket",
+   "pos": [
+    8,
+    23.4
+   ],
+   "look": "Firewood in a laundry basket. Split by somebody who's angry at the wood."
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    14.5,
+    30.4
+   ]
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    40,
+    16.4
+   ],
+   "look": "Fence boards nobody put up. The hill ate the project."
+  },
+  {
+   "kind": "tv",
+   "pos": [
+    45,
+    15.4
+   ],
+   "look": [
+    [
+     "teddy",
+     "Somebody's put a television out for the trash. 19 inch Zenith. Screen's cracked from the inside."
+    ],
+    [
+     "june",
+     "From the inside."
+    ]
+   ]
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    3,
+    10
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    10,
+    7
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    17,
+    6
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    25,
+    5
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    32,
+    6
+   ],
+   "look": [
+    [
+     "player",
+     "A bare sycamore. Every branch on the tower side has lost its bark."
+    ],
+    [
+     "dale",
+     "Something's been roosting. Or the wind off the river has a grudge."
+    ]
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    7,
+    4
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    14,
+    3
+   ]
+  },
+  {
+   "kind": "tree_tall",
+   "pos": [
+    22,
+    3
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    29,
+    3
+   ]
+  },
+  {
+   "kind": "tree_snow2",
+   "pos": [
+    42,
+    16
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    44,
+    9
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    45,
+    3.5
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    4,
+    13.5
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    20,
+    9.5
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    33,
+    14.5
+   ],
+   "look": "Holly. The birds have left the berries alone this year. All of them."
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    35,
+    10
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    18,
+    12
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    12,
+    10
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    27,
+    7
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    36,
+    4
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    43,
+    12
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    2,
+    6
+   ],
+   "look": [
+    [
+     "ruth",
+     "Children used to call this the Devil's Chair. Children call everything the Devil's something."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    35,
+    5.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    45.5,
+    13.4
+   ]
+  },
+  {
+   "kind": "shed",
+   "pos": [
+    23.5,
+    9.5
+   ],
+   "name": "The Mason shed",
+   "look": [
+    [
+     "player",
+     "A shed with a new padlock and an old smell. Gasoline, mostly."
+    ],
+    [
+     "miriam",
+     "He owns a gas station. That's not a clue, that's a Tuesday."
+    ]
+   ]
+  },
+  {
+   "kind": "antenna",
+   "pos": [
+    25,
+    12.5
+   ],
+   "name": "The antenna mast",
+   "look": [
+    [
+     "june",
+     "A 40-foot mast, guyed three ways, with a beam on top pointed north-northeast. The TNT area is north-northeast."
+    ],
+    [
+     "player",
+     "Does he know that?"
+    ],
+    [
+     "june",
+     "He knows exactly that."
+    ]
+   ]
+  },
+  {
+   "kind": "chimney",
+   "pos": [
+    14,
+    9.6
+   ]
+  },
+  {
+   "kind": "chimney_dark",
+   "pos": [
+    29,
+    9.2
+   ]
+  },
+  {
+   "kind": "chimney",
+   "pos": [
+    6,
+    10.6
+   ]
+  },
+  {
+   "kind": "water_tower",
+   "pos": [
+    41,
+    9
+   ],
+   "name": "The water tower",
+   "look": [
+    [
+     "player",
+     "POINT PLEASANT in faded blue letters, and under it, where somebody climbed: CLASS OF '66. The ladder has a cage, and the cage has a hole."
+    ],
+    [
+     "june",
+     "Best reception in the county up there. Every repeater for fifty miles."
+    ],
+    [
+     "dale",
+     "Best perch, too. Look at the guano. Then tell me what bird is that big."
+    ]
+   ]
+  },
+  {
+   "kind": "ladder",
+   "pos": [
+    43,
+    9.2
+   ],
+   "name": "The tower ladder",
+   "look": [
+    [
+     "player",
+     "The ladder goes up to the catwalk. The rungs are wet, which is wrong. The ones on the ground are frozen dry."
+    ],
+    [
+     "miriam",
+     "Nobody is climbing that at night. I mean it."
+    ],
+    [
+     "teddy",
+     "Noted, and ignored."
+    ]
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    36,
+    4
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    36,
+    7
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    36,
+    10
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    36,
+    13
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    38,
+    13.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    41,
+    13.5
+   ],
+   "look": "Chain link, eight feet, barbed on top. The barbed wire is pulled down in one place, from above."
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    44,
+    13.5
+   ],
+   "name": "The water tower gate",
+   "gate": "tower_fence"
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    46,
+    13.9
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    38.5,
+    3.5
+   ],
+   "look": "A county crate of valve parts. And a thermos. Orville's, by the call sign on the tape."
+  },
+  {
+   "kind": "graffiti",
+   "pos": [
+    40.5,
+    10.2
+   ],
+   "look": [
+    [
+     "teddy",
+     "Spray paint on the tower leg: MOTHMAN LIVES, and under it, in better handwriting, SO DO I."
+    ],
+    [
+     "elijah",
+     "The second one wasn't written as a joke."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    45,
+    11.5
+   ],
+   "look": "The county's bin at the tower base. Empty except a glove. One glove, left hand, and it's warm."
+  },
+  {
+   "kind": "campfire",
+   "pos": [
+    42,
+    12
+   ],
+   "look": [
+    [
+     "dale",
+     "Dead fire. Kids. Beer cans melted into the ring."
+    ],
+    [
+     "miriam",
+     "Teenagers, Dale. The word is teenagers."
+    ]
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    2,
+    35
+   ]
+  },
+  {
+   "kind": "tree_snow2",
+   "pos": [
+    9,
+    34.5
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    30,
+    34.5
+   ],
+   "look": [
+    [
+     "elijah",
+     "An oak the river killed. There's a chain grown into it. A swing, once."
+    ]
+   ]
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    45,
+    34
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    26,
+    33
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    16,
+    34.5
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    12,
+    33
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    33,
+    28
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    44,
+    28.8
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    5,
+    34.5
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    20,
+    35
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    36,
+    33
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    28,
+    31
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    42,
+    35
+   ],
+   "look": "A rock with a plaque: FROM THIS HILL, DEC 15 1967. Nothing else. They couldn't agree on the rest."
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    2,
+    32
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    24,
+    35.2
+   ],
+   "name": "The overlook bench",
+   "look": [
+    [
+     "player",
+     "A bench facing the river. The piers of the old Silver Bridge stand in the water below like a row of knuckles. The new bridge is a mile down, lit up, carrying trucks."
+    ],
+    [
+     "ruth",
+     "They watched it go from here. Forty-six people and the bridge. Rush hour, Christmas lights on the cars."
+    ],
+    [
+     "miriam",
+     "Eyebar fracture. Half-inch crack. Nothing on this hill made that happen."
+    ],
+    [
+     "elijah",
+     "...Sit down a minute."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    38,
+    27.6
+   ],
+   "name": "The pull-off",
+   "look": [
+    [
+     "player",
+     "A gravel pull-off above the river. Beer cans, two tire tracks, and a view. This is where you parked in 1966 if you were seventeen and brave."
+    ],
+    [
+     "teddy",
+     "The couples. This is where they started from the night it chased them. Everybody in town knows it and nobody put up a sign."
+    ],
+    [
+     "vera",
+     "A place where the young come to be watched. The watching was mutual, that night."
+    ]
+   ]
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    36,
+    30
+   ],
+   "look": "A county picnic table carved with thirty years of initials. D.M. + C.T. 1966 is near the top, and there's a wing scratched beside it, later, by a different hand."
+  },
+  {
+   "kind": "roadside_cross",
+   "pos": [
+    43,
+    25.5
+   ],
+   "look": [
+    [
+     "ruth",
+     "A white cross by the pull-off. Fresh plastic flowers. The date on it is 1987. The hill keeps taking people, one way and another."
+    ]
+   ]
+  },
+  {
+   "kind": "johnboat",
+   "pos": [
+    7,
+    35.3
+   ],
+   "look": "A johnboat pulled up and turned over for the winter. Somebody's written a phone number inside it."
+  },
+  {
+   "kind": "phone_booth",
+   "pos": [
+    34,
+    22.7
+   ],
+   "name": "Pay phone",
+   "look": [
+    [
+     "player",
+     "A pay phone on the corner of the pull-off. The receiver is off the hook, swinging."
+    ],
+    [
+     "june",
+     "Dial tone's fine. No. Listen. Under the dial tone."
+    ]
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    31,
+    30.6
+   ],
+   "name": "The school notice board",
+   "look": "LIBRARY HOURS 8 TO 5. BASKETBALL FRI VS GALLIPOLIS. LOST: BEAGLE, ANSWERS TO DUKE. And a Register clipping about the lights, with MOTHMAN written across it in pen and crossed out in pencil."
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    28,
+    32.5
+   ]
+  },
+  {
+   "kind": "box",
+   "pos": [
+    29.5,
+    30.5
+   ],
+   "look": "A box by the library step: returned books. 'Strange Creatures from Time and Space', overdue since 1976, finally."
+  },
+  {
+   "kind": "planter",
+   "pos": [
+    3.5,
+    30.4
+   ],
+   "look": "Plastic lilies in a stone planter. Funeral homes hate winter."
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    40.5,
+    30.7
+   ],
+   "look": "Guardrail above the drop to the river. Somebody has tied a yellow ribbon on it. Then another. Eleven ribbons."
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    43.5,
+    30.7
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    38.5,
+    24.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    33.5,
+    32.5
+   ]
+  },
+  {
+   "kind": "well",
+   "pos": [
+    21,
+    26.5
+   ],
+   "look": [
+    [
+     "player",
+     "A capped well in the Rayburn yard. Somebody has stuck a bicycle reflector on the cap."
+    ],
+    [
+     "teddy",
+     "I'm sensing a theme."
+    ]
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "ham",
+   "name": "Orville Pace",
+   "pos": [
+    34,
+    14
+   ],
+   "facing": "up",
+   "sprite": "ham",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "widow",
+   "name": "Ada Mercer",
+   "pos": [
+    5.5,
+    16.2
+   ],
+   "facing": "down",
+   "sprite": "widow",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "teen",
+   "name": "Jody Rayburn",
+   "pos": [
+    33,
+    16.2
+   ],
+   "facing": "up",
+   "sprite": "teen",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "teen2",
+   "name": "Scooter",
+   "pos": [
+    35,
+    16.4
+   ],
+   "facing": "left",
+   "sprite": "teen2",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "librarian",
+   "name": "Opal Fry",
+   "pos": [
+    22.5,
+    34.5
+   ],
+   "facing": "right",
+   "sprite": "librarian",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "hts_neighbor",
+   "name": "A neighbor on his porch",
+   "pos": [
+    10,
+    16.3
+   ],
+   "facing": "down",
+   "sprite": "hollis",
+   "when": [
+    "morning",
+    "dusk"
+   ]
+  },
+  {
+   "id": "hts_kid",
+   "name": "A kid on a bike",
+   "pos": [
+    13,
+    23.6
+   ],
+   "facing": "right",
+   "sprite": "kid",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "hts_hunter",
+   "name": "A coon hunter",
+   "pos": [
+    29.5,
+    23.6
+   ],
+   "facing": "up",
+   "sprite": "hunter",
+   "when": [
+    "night",
+    "morning"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "tower_dog",
+   "name": "Something under a tarp",
+   "pos": [
+    38.5,
+    16.3
+   ],
+   "prop": "clue_tarp",
+   "night": 2,
+   "text": "A county tarp over a shape by the fence. Under it: a hound, stiff, eyes open, not a mark on it. The snow under the body hasn't melted at all.",
+   "methods": {
+    "photograph": "dog_photo",
+    "measure": "dog_cold_reading",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "tower_static",
+   "name": "Static at the tower base",
+   "pos": [
+    38.5,
+    10.5
+   ],
+   "prop": "clue_cold",
+   "night": 2,
+   "text": "Every radio in the block is hissing: the hunter's CB, the house sets, the pay phone. Up here, by the leg of the tower, you can hear the hiss without a radio.",
+   "methods": {
+    "measure": "static_reading",
+    "photograph": "spoil",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "tower_reflectors",
+   "name": "Red reflectors on a tree",
+   "pos": [
+    32.5,
+    7.5
+   ],
+   "prop": "clue_reflector",
+   "night": 2,
+   "text": "Two red bicycle reflectors taped to a sycamore trunk at head height, facing the lane. Silver tape, new.",
+   "methods": {
+    "bag": "reflector_tree",
+    "photograph": "reflector_tree_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "pulloff_cans",
+   "name": "Cans at the pull-off",
+   "pos": [
+    40.5,
+    25.3
+   ],
+   "prop": "clue_cans",
+   "text": "Beer cans in the gravel at the pull-off, half under the snow, arranged in a rough ring. Somebody meant something by it, or somebody was drunk.",
+   "methods": {
+    "bag": "pulloff_cans",
+    "photograph": "spoil",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  }
+ ],
+ "interiors": {
+  "widow_house": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "fireplace",
+     "pos": [
+      2.5,
+      3
+     ],
+     "look": "A coal grate, lit. The mantel clock above it is stopped at 5:04. She winds every other clock in the house."
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      5,
+      2.7
+     ],
+     "look": [
+      [
+       "player",
+       "A second clock, running, three minutes slow."
+      ],
+      [
+       "elijah",
+       "She keeps one for him and one for her."
+      ]
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      7,
+      1.7
+     ],
+     "name": "Wedding photo",
+     "look": "Carl and Ada Mercer, 1961, on the Silver Bridge. He is pointing at something off the frame. She is looking at him."
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      4,
+      1.6
+     ]
+    },
+    {
+     "kind": "armchair_grey",
+     "pos": [
+      6.5,
+      4.3
+     ],
+     "look": "His chair. The seat cushion has never been sat flat."
+    },
+    {
+     "kind": "sofa_brown",
+     "pos": [
+      3.5,
+      6.6
+     ]
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      8.5,
+      4.4
+     ],
+     "look": "A side table with a Mason Gas matchbook and a pipe that has not been smoked since 1967. The matchbook is from 1993."
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      8.5,
+      3.9
+     ]
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      8.5,
+      2.4
+     ],
+     "name": "The hall dresser",
+     "look": [
+      [
+       "player",
+       "Top drawer: church bulletins. Second: a shoebox of letters in blue envelopes, bundled by year, 1967 to 1993, every one addressed to Carl and never posted."
+      ],
+      [
+       "ruth",
+       "Put them back the way they were, dear. Exactly the way they were."
+      ]
+     ]
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      5,
+      6.5
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      1.5,
+      2.6
+     ],
+     "look": [
+      [
+       "player",
+       "A 1994 calendar from the funeral home. Every December 15th since the first one has a small cross on it. In February she has written: 'light bulb'."
+      ],
+      [
+       "teddy",
+       "She buys them by the case, I'd bet."
+      ]
+     ]
+    },
+    {
+     "kind": "table",
+     "pos": [
+      6.5,
+      7.2
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      7.5,
+      6.6
+     ],
+     "look": "A rotary phone. The number card in the dial reads 675-2109. It still has the 1966 exchange."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      1.5,
+      7
+     ],
+     "look": "A box of light bulbs. Sixty watt, soft white, a case of twenty-four. Eleven left."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "widow",
+     "name": "Ada Mercer",
+     "pos": [
+      5.5,
+      4.4
+     ],
+     "facing": "down",
+     "sprite": "widow",
+     "when": [
+      "morning",
+      "dusk",
+      "night"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "porch_switch",
+     "name": "The porch light switch",
+     "pos": [
+      1.5,
+      5.2
+     ],
+     "prop": "clue_scratch",
+     "text": "The switch for the porch light, by the door, taped in the ON position with yellowed tape. Layers of it. The oldest layer is cloth tape, the kind nobody has sold since the sixties.",
+     "methods": {
+      "photograph": "porch_switch_photo",
+      "measure": "spoil",
+      "bag": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  },
+  "ham_house": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "fridge",
+     "pos": [
+      1.5,
+      2.3
+     ],
+     "look": "A fridge with a QSL card from every state but Hawaii. Hawaii is coming, says a note."
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      2.5,
+      2.2
+     ]
+    },
+    {
+     "kind": "sink",
+     "pos": [
+      3.5,
+      2.1
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      3,
+      5
+     ],
+     "look": "A kitchen table with a map of Mason County under the glass. Compass lines drawn on it in pencil from his house, the tower and the TNT plant. They cross at igloo 7."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      2,
+      4.3
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      4,
+      5.6
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      7,
+      1.7
+     ],
+     "look": "QST magazines back to 1958, in order. The November 1966 issue is missing from the shelf and lives on his desk in the shack."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      8.5,
+      2
+     ],
+     "look": [
+      [
+       "player",
+       "ARRL handbooks and a shoebox labelled TAPES 66 to 71."
+      ],
+      [
+       "june",
+       "He recorded it. He's had it on tape for twenty-eight years and nobody asked."
+      ]
+     ]
+    },
+    {
+     "kind": "armchair_grey",
+     "pos": [
+      7,
+      4.4
+     ]
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      5.5,
+      2.2
+     ],
+     "look": "A console television with the back off. A wire runs from it to the window. He is using the TV as an antenna tuner, somehow."
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      8.5,
+      6.5
+     ],
+     "look": "A second receiver by the chair, for listening while he eats. It is on. It is set to a frequency with nothing on it, and he's left it there on purpose."
+    },
+    {
+     "kind": "rug_blue",
+     "pos": [
+      5,
+      6.5
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      5,
+      1.6
+     ],
+     "look": "An ARRL calendar. Contest weekends circled. The 15th of every month has a small cross: he keeps that date too."
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      1.5,
+      6.6
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      9,
+      1.7
+     ],
+     "look": "A young man in a Signal Corps uniform, Korea. The same ears."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "ham",
+     "name": "Orville Pace",
+     "pos": [
+      6.5,
+      4.8
+     ],
+     "facing": "left",
+     "sprite": "ham",
+     "when": [
+      "dusk"
+     ]
+    }
+   ]
+  },
+  "radio_den": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark2"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "desk_wood",
+     "pos": [
+      3,
+      2.4
+     ]
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      3,
+      1.9
+     ],
+     "name": "The rig",
+     "look": [
+      [
+       "june",
+       "A Collins receiver and a Drake transmitter, tube gear, warm, humming. He's left it on 3.885 megahertz. 75 metres. The band the tone was on."
+      ],
+      [
+       "player",
+       "Can you hear it now?"
+      ],
+      [
+       "june",
+       "...Not tonight."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      3,
+      3.3
+     ]
+    },
+    {
+     "kind": "scanner",
+     "pos": [
+      5.5,
+      1.9
+     ],
+     "look": "A police scanner. The county, the state police, and a third channel labelled in his hand: THEM."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      6.5,
+      1.6
+     ],
+     "look": "Logbooks on a shelf, 1958 to 1994, one per year, spines labelled in the same hand getting shakier. 1966 is on the desk."
+    },
+    {
+     "kind": "filing_tall",
+     "pos": [
+      1.5,
+      1.6
+     ],
+     "look": [
+      [
+       "player",
+       "Filing cabinet: QSL cards by country, and in the bottom drawer, a folder labelled SILVER BRIDGE, 15 DEC 67, with a strip of chart paper in it."
+      ],
+      [
+       "june",
+       "He was listening when it fell. He's got it on paper."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      5,
+      1.2
+     ],
+     "look": "A tide table for the Ohio at Point Pleasant. Rivers don't have tides. He's marked three nights on it anyway."
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      1.5,
+      3.3
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      7,
+      4.6
+     ],
+     "look": "Spare tubes, a soldering iron, and a ring of keys on a hook above. One is tagged COUNTY TOWER.",
+     "pickup": "tower_key"
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      6.5,
+      3.6
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      1.5,
+      5.2
+     ],
+     "look": "Coffee cans. Chart paper. A torn-up QSL card from a station in Gallipolis that says only: HEARD IT TOO. 73."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "ham",
+     "name": "Orville Pace",
+     "pos": [
+      4.5,
+      3.4
+     ],
+     "facing": "left",
+     "sprite": "ham",
+     "when": [
+      "morning",
+      "night"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "ham_logbook",
+     "name": "The 1966 log book",
+     "pos": [
+      1.5,
+      2.6
+     ],
+     "prop": "clue_film",
+     "text": "The 1966 station log, open on the desk to November. 15 Nov, 0210 local: 'Tone, three notes, repeating, 3.885, no carrier. Not QRM. Not me.' The entry runs for six nights, then stops.",
+     "methods": {
+      "photograph": "ham_log_photo",
+      "bag": "spoil",
+      "measure": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  },
+  "mason_house": {
+   "size": [
+    12,
+    8
+   ],
+   "floor": [
+    "carpet_navy",
+    "carpet_navy",
+    "diamond_dark"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "fireplace",
+     "pos": [
+      3,
+      3
+     ],
+     "look": "A gas fire, off. Above it, a Mason Gas sign from the fifties, chrome, the only thing in the room Dwight chose."
+    },
+    {
+     "kind": "sofa_grey",
+     "pos": [
+      7,
+      4.5
+     ]
+    },
+    {
+     "kind": "loveseat",
+     "pos": [
+      10.5,
+      3.4
+     ]
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      6.5,
+      2.2
+     ],
+     "look": "A big Magnavox on a cart. VHS tapes under it: Matlock, Matlock, Matlock, and one labelled TNT 11/93 in Dwight's writing. It has been recorded over with Matlock."
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      9,
+      4.6
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      9,
+      4.1
+     ]
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      10,
+      1.6
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      5,
+      1.7
+     ],
+     "look": "Carol and Dwight, 1971, in front of the new bridge. Neither of them is smiling, but they are holding hands hard."
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      1.5,
+      6.6
+     ],
+     "name": "The hall dresser",
+     "look": [
+      [
+       "player",
+       "Top drawer: bills, church envelopes, a 1966 phone bill with a long-distance call to Columbus circled. Bottom drawer: a car key on a rabbit's foot, for a car they don't own anymore."
+      ],
+      [
+       "miriam",
+       "The '66 Chevy. He kept the key."
+      ]
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      4,
+      6.8
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      3,
+      6.2
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      5,
+      7.4
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      11,
+      6.7
+     ],
+     "look": "A wall phone in the kitchen. 675-2211. The number from the receipt."
+    },
+    {
+     "kind": "fridge",
+     "pos": [
+      11,
+      2.2
+     ],
+     "look": "A fridge with a prescription list and a Mason Gas calendar. Thursday nights are blank. Every Thursday."
+    },
+    {
+     "kind": "rug_blue",
+     "pos": [
+      7,
+      6.5
+     ]
+    },
+    {
+     "kind": "tabletop_photo",
+     "pos": [
+      9,
+      3.8
+     ],
+     "look": [
+      [
+       "player",
+       "Four kids on the hood of a Chevy at the pull-off. Dwight, Carol, Gene, Patty. 1966, written on the back. Everybody is laughing."
+      ],
+      [
+       "elijah",
+       "The next week they stopped."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "carol",
+     "name": "Carol Mason",
+     "pos": [
+      8,
+      5.6
+     ],
+     "facing": "down",
+     "sprite": "nurse",
+     "when": [
+      "morning",
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "dwight",
+     "name": "Dwight Mason",
+     "pos": [
+      3.5,
+      4.6
+     ],
+     "facing": "right",
+     "sprite": "dwight",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    }
+   ]
+  },
+  "teen_house": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "carpet_red",
+    "carpet_red",
+    "wood_warm"
+   ],
+   "wall": "purple",
+   "props": [
+    {
+     "kind": "bed_single",
+     "pos": [
+      1.5,
+      3.4
+     ]
+    },
+    {
+     "kind": "pillows",
+     "pos": [
+      1.5,
+      1.7
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      3,
+      1.6
+     ],
+     "look": "A Pearl Jam poster. Under it, pinned flat, a Register clipping from 1966 stolen from the library."
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      6,
+      1.5
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      8,
+      1.6
+     ],
+     "look": "A Nirvana poster. Kurt is watching you with the same look as everybody else on this hill."
+    },
+    {
+     "kind": "desk_wood",
+     "pos": [
+      7,
+      2.6
+     ],
+     "look": [
+      [
+       "player",
+       "A desk with a roll of silver duct tape, a bag of bicycle reflectors, and a Polaroid of the two of them in front of the tower at night, holding a bedsheet."
+      ],
+      [
+       "miriam",
+       "Oh, this is going in the file."
+      ],
+      [
+       "teddy",
+       "Don't gloat. Look at the top of the frame."
+      ],
+      [
+       "player",
+       "...Something's on the catwalk."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_office",
+     "pos": [
+      7,
+      3.7
+     ]
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      4.5,
+      2.2
+     ],
+     "look": "A Sega Genesis hooked up to a portable TV. Sonic 2 paused mid-loop for what looks like days."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      9,
+      2
+     ],
+     "look": "Fangoria. Goosebumps. A library copy of Keel's book, due 1992."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      3.5,
+      6.6
+     ],
+     "look": "A box under the bed: cassette tapes labelled TOWER 1 through TOWER 5. Static. Ten minutes each. On TOWER 4 somebody says 'is it looking at us' and the tape stops."
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      5.5,
+      5.5
+     ]
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      9,
+      6.6
+     ]
+    },
+    {
+     "kind": "bicycle",
+     "pos": [
+      2.5,
+      7.1
+     ],
+     "look": "A bike kept indoors with no rear reflector. The front one's gone too."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      5,
+      1.6
+     ],
+     "look": "A 1994 calendar. Thursday the 10th: TOWER. In red."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "teen",
+     "name": "Jody Rayburn",
+     "pos": [
+      5.5,
+      4.6
+     ],
+     "facing": "down",
+     "sprite": "teen",
+     "when": [
+      "night",
+      "morning"
+     ]
+    },
+    {
+     "id": "teen2",
+     "name": "Scooter",
+     "pos": [
+      7.5,
+      4.8
+     ],
+     "facing": "left",
+     "sprite": "teen2",
+     "when": [
+      "night"
+     ]
+    }
+   ]
+  },
+  "funeral": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "carpet_navy",
+    "carpet_navy",
+    "diamond_dark"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "desk_wood",
+     "pos": [
+      4,
+      3.3
+     ]
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      4,
+      4.2
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      4.5,
+      2.9
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      3.2,
+      2.9
+     ],
+     "look": "A casket catalogue, 1994 prices. Opened to the page marked 'the Ohio', in walnut."
+    },
+    {
+     "kind": "cabinet",
+     "pos": [
+      1.5,
+      1.9
+     ],
+     "name": "Records cabinet",
+     "look": [
+      [
+       "player",
+       "Burial records by year. 1967 is thickest. It holds a typed list of forty-six names and, paper-clipped to it, a second list in pencil: two names, a question mark, and the word 'cold'."
+      ],
+      [
+       "elijah",
+       "He's been waiting to be asked."
+      ]
+     ]
+    },
+    {
+     "kind": "filing_tall",
+     "pos": [
+      8.5,
+      1.6
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      6.5,
+      2.7
+     ],
+     "look": "A grandfather clock from the Lowe Hotel lobby, bought at auction. It keeps hotel time: two minutes fast, so nobody misses a train."
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      9,
+      6.5
+     ]
+    },
+    {
+     "kind": "planter",
+     "pos": [
+      1.5,
+      6.5
+     ],
+     "look": "A silk fern. The only thing in this building that will never die, and it looks it."
+    },
+    {
+     "kind": "sofa_brown",
+     "pos": [
+      7,
+      6.6
+     ],
+     "look": "A visitor's sofa. The cushions are softer than they should be. A lot of people have sat here and not stood up for a long time."
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      5,
+      1.6
+     ],
+     "look": "A painting of the Silver Bridge, finished in 1966. The artist gave it a sky with a shape in it. Everyone who comes in asks. He says it's a gull."
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      8,
+      1.7
+     ]
+    },
+    {
+     "kind": "curtain",
+     "pos": [
+      9.5,
+      2.4
+     ],
+     "look": "A velvet curtain to the preparation room. Cold air comes from under it. Colder than a cold room should be."
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      5,
+      6.5
+     ]
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      7,
+      4.8
+     ]
+    },
+    {
+     "kind": "tabletop_photo",
+     "pos": [
+      7,
+      4.3
+     ],
+     "look": "Virgil Haught and his father, 1952, in front of the first hearse. The father is the one with the gloves on."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "undertaker",
+     "name": "Virgil Haught",
+     "pos": [
+      4,
+      2.7
+     ],
+     "facing": "down",
+     "sprite": "undertaker",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "funeral_ledger",
+     "name": "The 1967 ledger",
+     "pos": [
+      2,
+      4.6
+     ],
+     "prop": "clue_film",
+     "text": "The preparation ledger for December 1967, left open. Forty-six entries. Beside two of them, in the margin: 'no water in lungs', 'body temp would not rise, 36 hours', and a small drawing of a wing.",
+     "methods": {
+      "photograph": "ledger_photo",
+      "bag": "spoil",
+      "measure": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  },
+  "library": {
+   "size": [
+    12,
+    10
+   ],
+   "floor": [
+    "tile_cream",
+    "tile_cream",
+    "tile_grey"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "counter_l",
+     "pos": [
+      2,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "time_clock",
+     "pos": [
+      1.5,
+      1.6
+     ],
+     "look": "A card punch for the student aides. Carol Mason's card is in the rack. She volunteers Tuesdays and Thursdays."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      2,
+      1.9
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      4,
+      1.9
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      7,
+      1.9
+     ],
+     "look": "Local history: three shelves. The one about the bridge has been checked out two hundred times. The one about the bird, four hundred."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      9,
+      1.9
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      11,
+      1.9
+     ]
+    },
+    {
+     "kind": "microfiche",
+     "pos": [
+      10,
+      4.4
+     ],
+     "look": [
+      [
+       "teddy",
+       "A microfiche reader with the Register on film back to 1920. November 1966 is in the drawer. So is December 1967. Somebody's left both reels out."
+      ],
+      [
+       "miriam",
+       "Somebody's been doing our job."
+      ]
+     ]
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      11,
+      2.6
+     ]
+    },
+    {
+     "kind": "table",
+     "pos": [
+      5,
+      6.3
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      4,
+      5.6
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      6,
+      6.9
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      6,
+      5.6
+     ]
+    },
+    {
+     "kind": "table",
+     "pos": [
+      8.5,
+      8.3
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      8.5,
+      8.9
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      2.5,
+      8.6
+     ],
+     "look": "Yearbooks, 1948 to 1993, on a low shelf by the door. Two are missing from the run and sit on the librarian's desk instead: 1966 and 1967."
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      3,
+      2.6
+     ],
+     "look": "An overdue list. Jody Rayburn, 'The Mothman Prophecies', two years. Carol Mason, nothing, ever."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      9,
+      1.6
+     ],
+     "look": "READ: Michael Jordan, holding a book like a basketball."
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      11.5,
+      8.6
+     ]
+    },
+    {
+     "kind": "planter",
+     "pos": [
+      1.5,
+      9.2
+     ]
+    },
+    {
+     "kind": "bulletin_board",
+     "pos": [
+      5.5,
+      1.9
+     ],
+     "look": [
+      [
+       "player",
+       "Student notices. A sign-up for a 'Bird Watch' club, 1994, six names. Jody and Scooter are two of them."
+      ],
+      [
+       "dale",
+       "Kids who tape reflectors to trees don't join bird clubs. Unless they saw a bird."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "librarian",
+     "name": "Opal Fry",
+     "pos": [
+      3.5,
+      2.4
+     ],
+     "facing": "down",
+     "sprite": "librarian",
+     "when": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "id": "carol",
+     "name": "Carol Mason",
+     "pos": [
+      8,
+      5
+     ],
+     "facing": "left",
+     "sprite": "nurse",
+     "when": [
+      "day"
+     ]
+    },
+    {
+     "id": "teen",
+     "name": "Jody Rayburn",
+     "pos": [
+      9.5,
+      7.6
+     ],
+     "facing": "up",
+     "sprite": "teen",
+     "when": [
+      "day"
+     ]
+    },
+    {
+     "id": "teen2",
+     "name": "Scooter",
+     "pos": [
+      7.5,
+      7.8
+     ],
+     "facing": "right",
+     "sprite": "teen2",
+     "when": [
+      "day",
+      "morning"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "yearbooks",
+     "name": "The 1966 and 1967 yearbooks",
+     "pos": [
+      4.5,
+      4.2
+     ],
+     "prop": "clue_film",
+     "text": "Two yearbooks on the desk. 1966: four seniors on a Chevy hood, 'Most Likely To Leave Town'. 1967: a photo of the water tower at dusk with a dark shape on the catwalk, captioned 'Our new mascot?'",
+     "methods": {
+      "photograph": "yearbook_photo",
+      "bag": "spoil",
+      "measure": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,400 @@
+{
+ "id": "walt",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "Off my step."
+    ],
+    [
+     "walt",
+     "...You're them Sutton people. Marlene said you'd be round. Said you listen. We'll see."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "The run's been patched at the top of the wire, not the bottom. Whatever got in came over, not under, and it came over eight feet.",
+     "flag": "walt_patched_top"
+    },
+    {
+     "voice": "nerve",
+     "threshold": 7,
+     "line": "He wants you off his step. His boots say he wants somebody on it. Stay where you are, and don't shift your weight."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "Porch light's on at noon. He has not turned it off since Thursday. He has not slept since Thursday either.",
+     "flag": "walt_light_on"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We heard you lost a hen.",
+     "next": "hen"
+    },
+    {
+     "tone": "wry",
+     "requires": {
+      "flag": [
+       "walt_light_on"
+      ]
+     },
+     "text": "Porch light's doing a lot of work for noon.",
+     "next": "light"
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "fence_fur": 1,
+       "fur_photo": 1
+      }
+     },
+     "text": "That patch is at the top of the wire. Something came over, not under.",
+     "pass": "over",
+     "fail": {
+      "next": "over_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "Those Dominiques? Good layers in the cold.",
+     "pass": "layers",
+     "fail": {
+      "next": "layers_fail",
+      "trust": {
+       "walt": -1
+      }
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Stand on the step and say nothing.)",
+     "next": "silent",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_walt"
+   }
+  },
+  "hen": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "Lost three. Lost a dog in '87 the same way, and nobody come round then neither, so don't act like you're doing me a favour."
+    ],
+    [
+     "walt",
+     "Didn't eat 'em. That's what I can't get past. Took 'em over the wire and left 'em in the ditch by the road, not a mark on 'em. What takes a hen and don't eat it."
+    ],
+    [
+     "dale",
+     "Nothing that's hungry. Something that's angry, or something that's playing."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "walt": 1
+    },
+    "flag": "walt_hens_uneaten"
+   }
+  },
+  "light": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "It stays on. Laugh."
+    ],
+    [
+     "walt",
+     "...It don't like the light. Thursday it come to the edge of the yard and stopped where the light stopped. I know that much, and that's more than the deputy knows."
+    ],
+    [
+     "june",
+     "Stopped at the edge of the light. Walt, did the light flicker? Did it dim?"
+    ],
+    [
+     "walt",
+     "...Went brown. Like when the well pump kicks in. Then it was gone."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "walt": 1
+    },
+    "flag": "walt_light_browned"
+   }
+  },
+  "over": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "...Yeah. Eight foot of wire, and it come over with a hen in its mouth and never touched the top. I'd have heard the wire sing."
+    ],
+    [
+     "walt",
+     "You can look. Nobody else bothered to look, they just stood on my step and said coyote."
+    ],
+    [
+     "dale",
+     "Eight feet with a load and no contact. That's not a jump. That's something coming down from higher."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "walt": 1
+    },
+    "flag": "walt_let_you_look"
+   }
+  },
+  "over_fail": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "Coons. Patch is where the coons go, same as any farm. You ever kept a bird in your life?"
+    ],
+    [
+     "walt",
+     "You want fur on a fence, go to the church lot. Reverend's got some on his wire too, and he ain't a farmer, so he'll think it's special."
+    ]
+   ],
+   "next": "hub"
+  },
+  "layers": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "Barred Rocks. But close enough that you've been near a coop, which is more than the last three."
+    ],
+    [
+     "walt",
+     "...You hunt?"
+    ],
+    [
+     "dale",
+     "Since I was six. Fort Campbell woods."
+    ],
+    [
+     "walt",
+     "Huh. Then you know what an owl looks like by flashlight, and you know this wasn't one."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "walt": 1
+    }
+   }
+  },
+  "layers_fail": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "Don't talk chickens at me like you know chickens. Them's Barred Rocks and you'd know it if you'd ever stood in a coop."
+    ],
+    [
+     "walt",
+     "City. Every one of you. Marlene said you listened. She didn't say you knew anything."
+    ]
+   ],
+   "next": "hub"
+  },
+  "silent": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "..."
+    ],
+    [
+     "walt",
+     "Well. You ain't talked yet. That's more than the deputy managed, and he had a hat on."
+    ],
+    [
+     "walt",
+     "Wipe your feet if you're coming in. Coffee's burnt."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "walt": 1
+    }
+   }
+  },
+  "hub": {
+   "speaker": "walt",
+   "repeat": true,
+   "lines": [
+    [
+     "walt",
+     "Say it or don't. I got birds to feed, what's left of 'em."
+    ]
+   ],
+   "options": [
+    {
+     "tone": "hard",
+     "requires": {
+      "not_flag": [
+       "walt_let_you_look",
+       "walt_backed_down"
+      ]
+     },
+     "text": "We're not leaving till we've seen the fence.",
+     "next": "gun"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll leave you to your birds."
+    }
+   ]
+  },
+  "gun": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "That so."
+    ],
+    [
+     "walt",
+     "(He reaches behind the door and comes back with a shotgun. He does not point it. He does not need to.)"
+    ],
+    [
+     "walt",
+     "I said off my step."
+    ],
+    [
+     "miriam",
+     "Walt. Nobody here is armed and nobody here is from the county. Put it down and we'll talk or we'll go."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "nerve",
+     "threshold": 6,
+     "line": "Breech is open. It's not loaded, or he wants you to think it's not. Either way: feet planted, hands open, eyes on his, not on it."
+    }
+   ],
+   "options": [
+    {
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 9
+     },
+     "text": "(Stay on the step.)",
+     "pass": "stays",
+     "fail": {
+      "next": "stays_fail",
+      "trust": {
+       "walt": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "tone": "kind",
+     "text": "All right, Walt. We're going.",
+     "next": "backed_down"
+    }
+   ]
+  },
+  "stays": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "..."
+    ],
+    [
+     "walt",
+     "Hell. Hell, you're either stupid or you mean it."
+    ],
+    [
+     "walt",
+     "(He breaks the gun over his arm. It was empty.) Come see the wire. Bag what's on it, I ain't touching it."
+    ],
+    [
+     "dale",
+     "That's the Walt I'd have bet on."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "walt_fur",
+    "flag": "walt_let_you_look",
+    "trust": {
+     "walt": 2
+    }
+   }
+  },
+  "stays_fail": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "That's what I thought."
+    ],
+    [
+     "walt",
+     "Come back with a warrant or a backbone. Don't much care which."
+    ]
+   ],
+   "end": true
+  },
+  "backed_down": {
+   "speaker": "walt",
+   "lines": [
+    [
+     "walt",
+     "Smart. Marlene said you listened. Guess you do."
+    ],
+    [
+     "walt",
+     "(He puts the gun back behind the door.) Fence is round the side. I didn't say you could look. I didn't say you couldn't."
+    ],
+    [
+     "elijah",
+     "That's as close to yes as he gets."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "walt_backed_down",
+    "trust": {
+     "walt": 1
+    }
+   }
+  }
+ }
+}

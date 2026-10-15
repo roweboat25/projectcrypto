@@ -1,0 +1,325 @@
+{
+ "id": "marlene",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "I'll tell it once more and that's it. Route 62, past the old TNT plant, coming home from my sister's."
+    ],
+    [
+     "marlene",
+     "Two red lights in my headlights. Then they went up. Up, mister. Whatever had them was bigger than my Buick."
+    ],
+    [
+     "teddy",
+     "She checks the door every time it opens. Every time."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "She says 'once more' like someone who has said it a hundred times and been laughed at for ninety of them."
+    },
+    {
+     "voice": "logic",
+     "threshold": 10,
+     "line": "Her sister lives in Gallipolis. That is across the river, not up Route 62. You file it and say nothing yet.",
+     "flag": "marlene_sister"
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "She's lying about the sister. Ask her where the sister lived. Ask her now."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Take your time.",
+     "next": "story"
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "original_report": 2
+      }
+     },
+     "text": "Who laughed at you first?",
+     "pass": "first",
+     "fail": {
+      "next": "earl",
+      "trust": {
+       "earl": -1
+      }
+     }
+    },
+    {
+     "check": {
+      "voice": "recall",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "The Register ran your name. You were seventeen.",
+     "pass": "register",
+     "fail": {
+      "next": "register_fail"
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Say nothing. Let her finish.)",
+     "next": "refill",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "evidence": "marlene_statement",
+    "flag": "met_marlene"
+   }
+  },
+  "story": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "It didn't flap. That's what nobody wants to hear. A bird flaps. This went up like somebody pulled it on a string."
+    ],
+    [
+     "marlene",
+     "I sat in the car with the engine running till the windows fogged. Then I drove to the first phone I could find."
+    ],
+    [
+     "dale",
+     "A heron takes three beats to lift. Nothing that size goes straight up."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "A heron takes three wingbeats to clear a car. She is describing something that did not need any."
+    }
+   ],
+   "next": "hub"
+  },
+  "first": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "Earl. Earl at the gas station, before I'd got the car door shut. Then the deputy, politely. Then my own mother."
+    ],
+    [
+     "marlene",
+     "Mother said I'd been drinking. I had not been drinking. I have thought about that every day for twenty-eight years."
+    ],
+    [
+     "teddy",
+     "That's the quote. That's the whole story, right there."
+    ]
+   ],
+   "next": "hub"
+  },
+  "earl": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "Everybody. Ask Earl at the gas station, he laughed loudest. Go on, he's open."
+    ],
+    [
+     "marlene",
+     "Tell him Marlene sent you. See if he laughs then."
+    ]
+   ],
+   "next": "hub"
+  },
+  "register": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "Seventeen. They printed my street. Boys drove past honking for a month, and one of them married me, which tells you about the boys."
+    ],
+    [
+     "marlene",
+     "You read the old papers. Most people just read the headline."
+    ],
+    [
+     "ruth",
+     "My uncle kept that issue. Front page, folded in the family Bible."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "marlene": 1
+    }
+   }
+  },
+  "register_fail": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "Wasn't the Register. The Gallipolis paper ran it, and they spelled my name with a y."
+    ],
+    [
+     "marlene",
+     "The Register waited a week. By then it was somebody else's bird."
+    ]
+   ],
+   "next": "hub"
+  },
+  "refill": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "..."
+    ],
+    [
+     "marlene",
+     "Nobody's let me finish in twenty-eight years."
+    ],
+    [
+     "elijah",
+     "Thank you, Marlene."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "marlene",
+   "repeat": true,
+   "lines": [
+    [
+     "marlene",
+     "What else. Coffee's a quarter, the story's free."
+    ]
+   ],
+   "options": [
+    {
+     "tone": "wry",
+     "text": "Bigger than a Buick is a high bar.",
+     "next": "buick"
+    },
+    {
+     "tone": "hard",
+     "requires": {
+      "flag": [
+       "marlene_sister"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "call_log": 2,
+       "suits_at_diner": 1
+      }
+     },
+     "text": "Where did your sister live, Marlene?",
+     "pass": "sister_truth",
+     "fail": {
+      "next": "sister_fail",
+      "trust": {
+       "marlene": -2
+      }
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now."
+    }
+   ]
+  },
+  "buick": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "It's a '63. Rusted through the floor on the driver's side. Still runs."
+    ],
+    [
+     "marlene",
+     "Ha. You're the first one in here who's asked about the car and not the bird. I like you a little better."
+    ],
+    [
+     "teddy",
+     "See, that's how you do it."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "marlene": 1
+    }
+   }
+  },
+  "sister_truth": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "...Gallipolis. Across the river. You knew that when you sat down."
+    ],
+    [
+     "marlene",
+     "I was out at the TNT area. With Dwight Mason, and his wife don't know, and now you do."
+    ],
+    [
+     "marlene",
+     "It came up off the roof of igloo 7 like it had been sitting there. Waiting on something. Two red lights, and then it was over the car and there was no sound at all."
+    ],
+    [
+     "miriam",
+     "Igloo 7. June's tone was strongest there."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "marlene_tnt",
+    "flag": "marlene_told_tnt"
+   }
+  },
+  "sister_fail": {
+   "speaker": "marlene",
+   "lines": [
+    [
+     "marlene",
+     "My sister lived where she lived."
+    ],
+    [
+     "marlene",
+     "Everybody in this town knows I wasn't at any sister's, and they've had the decency not to say it to my face over my own counter."
+    ],
+    [
+     "marlene",
+     "Come back when you've got coffee money and manners."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "press",
+     "threshold": 5,
+     "line": "That was Press talking, not you. It said 'everybody knows' before you could stop it. You hear the door bell ring behind you and it is not you who opened it."
+    }
+   ],
+   "end": true
+  }
+ }
+}

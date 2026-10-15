@@ -1,0 +1,164 @@
+{
+ "_doc": "Ada Mercer, the widow on the hill. Her porch light has been on since 15 December 1967. Side case: the widow's porch light. Topics on the hub node offer her quick facts from the case fragment.",
+ "id": "widow",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "If it's about the light, the county's already been. I pay the bill. It's my bulb."],
+    ["widow", "...You're not the county."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 7, "line": "She looked at your feet first. Not your face. She's checking for river water."},
+    {"voice": "logic", "threshold": 9, "line": "Sixty watts, every night, twenty-six years. About four hundred dollars of light. You could buy a lot of forgetting for that, and she hasn't."}
+   ],
+   "options": [
+    {"tone": "kind", "text": "No, ma'am. We're not the county. We'd like to hear about the light, if you'll tell it.", "next": "porch"},
+    {"tone": "wry", "text": "It's noon and your porch light's on. I'm a sucker for a thing like that.", "next": "light"},
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 8, "evidence_bonus": {"undertaker_cold": 2, "widow_porch": 1}},
+     "text": "We're investigators, Mrs. Mercer. December 1967. We'll stand out here in the cold as long as you need.",
+     "pass": "porch",
+     "fail": {"next": "shut", "trust": {"widow": -1}, "dread": 1}}
+   ]
+  },
+  "light": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "Since the fifteenth of December, 1967. I was on the step with the new bulb in my hand when the phone rang in the hall."],
+    ["widow", "I screwed it in first. I don't know why I tell people that. I screwed it in first and then I went and answered."],
+    ["teddy", "...I'm not writing that part down."]
+   ],
+   "gives": {"evidence": "widow_porch", "flag": "met_widow", "trust": {"widow": 1}},
+   "next": "porch"
+  },
+  "porch": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "Come in off the step, then. Wipe your feet. Carl's chair is the grey one, so don't."],
+    ["widow", "There's coffee. It's from this morning but it's hot."]
+   ],
+   "passives": [
+    {"voice": "logic", "threshold": 9, "line": "Blue envelopes in the burn barrel outside. Blue envelopes in the hall dresser. She's been burning letters this week, and she's kept some.", "flag": "widow_letters"}
+   ],
+   "gives": {"flag": "met_widow"},
+   "next": "hub"
+  },
+  "shut": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "Investigators. The last investigators came in 1967 in good coats and told me what I saw. I didn't see anything. I was in the hall."],
+    ["widow", "Come back when you've learned to knock like a neighbour."],
+    ["miriam", "...Well. That's one way to open."]
+   ],
+   "end": true
+  },
+  "hub": {
+   "speaker": "widow",
+   "repeat": true,
+   "lines": [
+    ["widow", "Ask what you came to ask. I've got a bulb to change before dark and I don't like to rush it."]
+   ],
+   "options": [
+    {"check": {"voice": "empathy", "kind": "white", "difficulty": 9, "evidence_bonus": {"undertaker_cold": 2, "ledger_photo": 1, "porch_switch_photo": 1}},
+     "text": "He asked you to leave it on. The week before. Why would a man ask that?",
+     "pass": "carl",
+     "fail": {"next": "carl_no", "dread": 1}},
+    {"requires": {"flag": ["widow_letters"]},
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 10, "evidence_bonus": {"carl_last_words": 2}},
+     "text": "You've been burning his letters this week. Something's changed.",
+     "pass": "letters",
+     "fail": {"next": "letters_fail", "trust": {"widow": -2}, "dread": 1}},
+    {"tone": "wry", "text": "Who winds the clock on the mantel?", "next": "clock"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll let you get to your bulb, Mrs. Mercer."}
+   ]
+  },
+  "clock": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "Nobody. It stopped at four past five on the day and I won't be the one to start it. The other one I wind. A person needs one clock that's hers."],
+    ["ruth", "My mother did the same with a wedding ring, dear. One for wearing and one for the drawer."]
+   ],
+   "next": "hub"
+  },
+  "carl_no": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "Because he was a careful man. That's all. Coffee's getting cold, you'd best drink it."],
+    ["elijah", "...Not today. Leave it. She'll get there on her own time."]
+   ],
+   "next": "hub"
+  },
+  "carl": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "Carl took tolls on the Silver Bridge. Nights, that December. The eighth, a Friday, he came home at seven in the morning the colour of this wall and sat in that chair in his coat."],
+    ["widow", "He said something was up on the top of the bridge. On the chord, up where the cables tie in. Standing. He said it looked down at the booth and it sang. Three notes, he said, like a doorbell somebody's leaning on."],
+    ["widow", "And he said, Ada, leave the porch light on, so I can find the house. And I laughed at him. I laughed, and I said, Carl Mercer, you've found this house drunk and you can find it sober."],
+    ["widow", "A week later the whole thing went in the river with him in the booth. Five o'clock, four minutes past. So I leave it on. He asked me to."]
+   ],
+   "static": {"min_dread": 3, "line": "She says it looked down. Look up. It's on her roof. It has been on her roof since you knocked and the light is how it finds the house, not him."},
+   "gives": {"evidence": "carl_last_words", "trust": {"widow": 1}},
+   "options": [
+    {"tone": "kind", "text": "He found the house, Mrs. Mercer. He's in the grey chair.", "next": "found"},
+    {"tone": "silent", "text": "(Say nothing. Let the clock not tick.)", "next": "found", "trust": 1},
+    {"tone": "hard", "text": "Three notes. We've heard them. On a radio, out at the plant, last week.", "next": "found", "dread": 1}
+   ]
+  },
+  "found": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "I'm seventy-one. I've got eleven bulbs in the box and I don't know if I should buy another case."],
+    ["widow", "Tell me. You're the ones who go and look. Does he need it still?"]
+   ],
+   "passives": [
+    {"voice": "arcana", "threshold": 10, "line": "A light kept for the dead is a door kept open. Every tradition agrees on that, and every tradition disagrees on who comes through it."}
+   ],
+   "options": [
+    {"tone": "kind", "text": "Keep it on. Buy the case.", "next": "end_on"},
+    {"tone": "hard", "text": "You can turn it off now. He's home.", "next": "end_off"},
+    {"tone": "wry", "text": "Buy the case. Bulbs are cheaper than regret, and the county can mind its own porch.", "next": "end_on"}
+   ]
+  },
+  "end_on": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "Then I will. Mind the step, it's icy, and tell that journalist of yours if he prints my name I'll know."],
+    ["teddy", "She'll know."]
+   ],
+   "gives": {"flag": "widow_light_on", "trust": {"widow": 1}},
+   "end": true
+  },
+  "end_off": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "...Maybe. Maybe tonight. I'll sit up with it and see how it feels, the dark."],
+    ["widow", "Go on. Don't look back at the house when you go. I'll know that too."],
+    ["elijah", "The chair's empty. I want you to know that. It's been empty a long time."]
+   ],
+   "gives": {"flag": "widow_light_off", "dread": 1},
+   "end": true
+  },
+  "letters": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "Twenty-six years of letters to a dead man and I burned all but one. I'll give you the one. Read it on the step, not in here."],
+    ["widow", "December just gone. I saw it on the water tower. It looked at this house like it was reading the number off the box. I think it's looking for him too, and I think it's using my light."],
+    ["june", "...She's describing a beacon."]
+   ],
+   "gives": {"evidence": "ada_letter", "trust": {"widow": 1}},
+   "next": "hub"
+  },
+  "letters_fail": {
+   "speaker": "widow",
+   "lines": [
+    ["widow", "What I burn in my own yard is between me and the fire department."],
+    ["widow", "I think you'd better drink that coffee outside."],
+    ["miriam", "You pushed. She's seventy-one and she's buried a husband twice, once in the river and once in that barrel. You pushed."]
+   ],
+   "next": "hub"
+  }
+ }
+}

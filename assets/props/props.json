@@ -1,0 +1,892 @@
+{
+ "altar": {
+  "h": 48,
+  "solid": 1,
+  "w": 64
+ },
+ "antenna": {
+  "h": 64,
+  "solid": 1,
+  "w": 32
+ },
+ "armchair_grey": {
+  "h": 48,
+  "solid": 1,
+  "w": 64
+ },
+ "bar_counter": {
+  "h": 64,
+  "solid": 1,
+  "w": 96
+ },
+ "bar_stool": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "bar_stool_blue": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "barge": {
+  "h": 64,
+  "solid": 2,
+  "w": 192
+ },
+ "barn": {
+  "h": 176,
+  "solid": 4,
+  "w": 192
+ },
+ "barrel": {
+  "h": 37,
+  "solid": 1,
+  "w": 32
+ },
+ "bars": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "basket": {
+  "h": 23,
+  "solid": 1,
+  "w": 32
+ },
+ "bed_double": {
+  "h": 78,
+  "solid": 2,
+  "w": 96
+ },
+ "bed_single": {
+  "h": 96,
+  "solid": 2,
+  "w": 64
+ },
+ "bed_wood": {
+  "h": 71,
+  "solid": 2,
+  "w": 64
+ },
+ "bench": {
+  "h": 32,
+  "solid": 1,
+  "w": 64
+ },
+ "bicycle": {
+  "h": 32,
+  "solid": 1,
+  "w": 48
+ },
+ "bin": {
+  "h": 63,
+  "solid": 1,
+  "w": 32
+ },
+ "bookcase": {
+  "h": 59,
+  "solid": 1,
+  "w": 64
+ },
+ "booth": {
+  "h": 48,
+  "solid": 1,
+  "w": 64
+ },
+ "bottles_shelf": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "box": {
+  "h": 14,
+  "solid": 1,
+  "w": 32
+ },
+ "bucket": {
+  "h": 24,
+  "solid": 1,
+  "w": 32
+ },
+ "buick": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "bulletin_board": {
+  "h": 64,
+  "solid": 1,
+  "w": 64
+ },
+ "bush_berry": {
+  "h": 29,
+  "solid": 1,
+  "w": 32
+ },
+ "bush_snow": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "bush_snow2": {
+  "h": 30,
+  "solid": 1,
+  "w": 32
+ },
+ "cabinet": {
+  "h": 59,
+  "solid": 1,
+  "w": 64
+ },
+ "calendar": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "camera_bag": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "campfire": {
+  "h": 24,
+  "solid": 1,
+  "w": 32
+ },
+ "cattails": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "cells_rack": {
+  "h": 64,
+  "solid": 1,
+  "w": 64
+ },
+ "chain_fence": {
+  "h": 48,
+  "solid": 1,
+  "w": 96
+ },
+ "chain_fence_v": {
+  "h": 96,
+  "solid": 2,
+  "w": 32
+ },
+ "chair_back": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "chair_front": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "chair_office": {
+  "h": 29,
+  "solid": 1,
+  "w": 32
+ },
+ "chair_office_back": {
+  "h": 18,
+  "solid": 1,
+  "w": 32
+ },
+ "chest": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "chimney": {
+  "h": 45,
+  "solid": 0,
+  "w": 32
+ },
+ "chimney_dark": {
+  "h": 45,
+  "solid": 0,
+  "w": 32
+ },
+ "christmas_tree": {
+  "h": 92,
+  "solid": 1,
+  "w": 64
+ },
+ "clock": {
+  "h": 71,
+  "solid": 1,
+  "w": 32
+ },
+ "clue_bed": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_cans": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_cold": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_film": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_fur": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_glow": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_glyph": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_pellets": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_prints": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_reflector": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_ring": {
+  "h": 48,
+  "solid": 0,
+  "w": 64
+ },
+ "clue_scratch": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "clue_tarp": {
+  "h": 32,
+  "solid": 0,
+  "w": 48
+ },
+ "clue_vest": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "coffee_maker": {
+  "h": 61,
+  "solid": 1,
+  "w": 32
+ },
+ "copy_machine": {
+  "h": 45,
+  "solid": 1,
+  "w": 64
+ },
+ "counter": {
+  "h": 52,
+  "solid": 1,
+  "w": 64
+ },
+ "counter_l": {
+  "h": 64,
+  "solid": 1,
+  "w": 32
+ },
+ "counter_r": {
+  "h": 52,
+  "solid": 1,
+  "w": 32
+ },
+ "crate": {
+  "h": 64,
+  "solid": 1,
+  "w": 32
+ },
+ "culvert": {
+  "h": 48,
+  "solid": 1,
+  "w": 96
+ },
+ "curtain": {
+  "h": 96,
+  "solid": 0,
+  "w": 64
+ },
+ "deer": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
+ },
+ "desk_grey": {
+  "h": 35,
+  "solid": 2,
+  "w": 64
+ },
+ "desk_long_wood": {
+  "h": 40,
+  "solid": 2,
+  "w": 192
+ },
+ "desk_wood": {
+  "h": 40,
+  "solid": 2,
+  "w": 64
+ },
+ "dishes": {
+  "h": 12,
+  "solid": 0,
+  "w": 32
+ },
+ "dog": {
+  "h": 40,
+  "solid": 1,
+  "w": 48
+ },
+ "drain": {
+  "h": 16,
+  "solid": 0,
+  "w": 32
+ },
+ "dresser": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "end_table": {
+  "h": 24,
+  "solid": 1,
+  "w": 32
+ },
+ "fence_h": {
+  "h": 31,
+  "solid": 1,
+  "w": 96
+ },
+ "fence_iron": {
+  "h": 18,
+  "solid": 1,
+  "w": 96
+ },
+ "fence_v": {
+  "h": 95,
+  "solid": 1,
+  "w": 32
+ },
+ "filing_cabinet": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "filing_tall": {
+  "h": 64,
+  "solid": 1,
+  "w": 32
+ },
+ "fireplace": {
+  "h": 72,
+  "solid": 1,
+  "w": 96
+ },
+ "floodgate": {
+  "h": 64,
+  "solid": 2,
+  "w": 64
+ },
+ "floodwall": {
+  "h": 64,
+  "solid": 2,
+  "w": 96
+ },
+ "floodwall_stairs": {
+  "h": 64,
+  "solid": 0,
+  "w": 64
+ },
+ "fridge": {
+  "h": 64,
+  "solid": 1,
+  "w": 32
+ },
+ "gas_pump": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
+ },
+ "gas_sign": {
+  "h": 96,
+  "solid": 1,
+  "w": 32
+ },
+ "graffiti": {
+  "h": 31,
+  "solid": 0,
+  "w": 64
+ },
+ "grass_tall_snow": {
+  "h": 53,
+  "solid": 0,
+  "w": 32
+ },
+ "house_brick": {
+  "h": 201,
+  "solid": 4,
+  "w": 192
+ },
+ "house_brick_b": {
+  "h": 192,
+  "solid": 4,
+  "w": 192
+ },
+ "house_panel": {
+  "h": 160,
+  "solid": 3,
+  "w": 160
+ },
+ "igloo": {
+  "h": 96,
+  "solid": 2,
+  "w": 128
+ },
+ "igloo_shut": {
+  "h": 96,
+  "solid": 2,
+  "w": 128
+ },
+ "johnboat": {
+  "h": 40,
+  "solid": 1,
+  "w": 96
+ },
+ "jukebox": {
+  "h": 64,
+  "solid": 1,
+  "w": 32
+ },
+ "ladder": {
+  "h": 83,
+  "solid": 1,
+  "w": 32
+ },
+ "lamp_floor": {
+  "h": 49,
+  "solid": 1,
+  "w": 32
+ },
+ "lamp_post": {
+  "h": 80,
+  "solid": 1,
+  "w": 32
+ },
+ "lamp_post_off": {
+  "h": 80,
+  "solid": 1,
+  "w": 32
+ },
+ "lamp_table": {
+  "h": 31,
+  "solid": 0,
+  "w": 32
+ },
+ "loveseat": {
+  "h": 48,
+  "solid": 1,
+  "w": 64
+ },
+ "lumber": {
+  "h": 18,
+  "solid": 1,
+  "w": 64
+ },
+ "mailbox": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
+ },
+ "mailboxes": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "microfiche": {
+  "h": 48,
+  "solid": 1,
+  "w": 64
+ },
+ "mirror_standing": {
+  "h": 62,
+  "solid": 1,
+  "w": 64
+ },
+ "mirror_wall": {
+  "h": 23,
+  "solid": 0,
+  "w": 32
+ },
+ "morgue_drawers": {
+  "h": 32,
+  "solid": 1,
+  "w": 64
+ },
+ "neon_amber": {
+  "h": 24,
+  "solid": 0,
+  "w": 64
+ },
+ "neon_red": {
+  "h": 24,
+  "solid": 0,
+  "w": 64
+ },
+ "newspaper_box": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
+ },
+ "obelisk": {
+  "h": 112,
+  "solid": 1,
+  "w": 48
+ },
+ "oven": {
+  "h": 41,
+  "solid": 1,
+  "w": 32
+ },
+ "painting": {
+  "h": 28,
+  "solid": 0,
+  "w": 64
+ },
+ "paper": {
+  "h": 15,
+  "solid": 0,
+  "w": 32
+ },
+ "paper2": {
+  "h": 8,
+  "solid": 0,
+  "w": 32
+ },
+ "pew": {
+  "h": 32,
+  "solid": 1,
+  "w": 64
+ },
+ "phone": {
+  "h": 14,
+  "solid": 0,
+  "w": 32
+ },
+ "phone_booth": {
+  "h": 64,
+  "solid": 1,
+  "w": 32
+ },
+ "pickup": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "picnic_table": {
+  "h": 56,
+  "solid": 2,
+  "w": 96
+ },
+ "pie_case": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
+ },
+ "pier_planks": {
+  "h": 32,
+  "solid": 0,
+  "w": 64
+ },
+ "piling": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
+ },
+ "pillar": {
+  "h": 96,
+  "solid": 1,
+  "w": 32
+ },
+ "pillows": {
+  "h": 15,
+  "solid": 0,
+  "w": 32
+ },
+ "pine_small": {
+  "h": 91,
+  "solid": 1,
+  "w": 96
+ },
+ "pine_snow": {
+  "h": 104,
+  "solid": 1,
+  "w": 96
+ },
+ "pine_snow2": {
+  "h": 111,
+  "solid": 1,
+  "w": 96
+ },
+ "pine_tall": {
+  "h": 136,
+  "solid": 1,
+  "w": 96
+ },
+ "planter": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "portrait_wall": {
+  "h": 24,
+  "solid": 0,
+  "w": 32
+ },
+ "poster": {
+  "h": 25,
+  "solid": 0,
+  "w": 32
+ },
+ "poster2": {
+  "h": 11,
+  "solid": 0,
+  "w": 32
+ },
+ "radio_set": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "roadside_cross": {
+  "h": 64,
+  "solid": 1,
+  "w": 32
+ },
+ "rock_big": {
+  "h": 64,
+  "solid": 1,
+  "w": 64
+ },
+ "rock_cliff": {
+  "h": 64,
+  "solid": 2,
+  "w": 96
+ },
+ "rock_small": {
+  "h": 30,
+  "solid": 1,
+  "w": 32
+ },
+ "rug_blue": {
+  "h": 64,
+  "solid": 0,
+  "w": 96
+ },
+ "rug_red": {
+  "h": 64,
+  "solid": 0,
+  "w": 96
+ },
+ "scanner": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "sedan": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "shed": {
+  "h": 96,
+  "solid": 2,
+  "w": 96
+ },
+ "shelf": {
+  "h": 20,
+  "solid": 1,
+  "w": 96
+ },
+ "shrub_green": {
+  "h": 57,
+  "solid": 1,
+  "w": 32
+ },
+ "sink": {
+  "h": 54,
+  "solid": 1,
+  "w": 32
+ },
+ "snowman": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "sofa_brown": {
+  "h": 31,
+  "solid": 1,
+  "w": 96
+ },
+ "sofa_grey": {
+  "h": 31,
+  "solid": 1,
+  "w": 96
+ },
+ "stone_slab": {
+  "h": 16,
+  "solid": 1,
+  "w": 64
+ },
+ "stool": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "table": {
+  "h": 36,
+  "solid": 2,
+  "w": 96
+ },
+ "table_rough": {
+  "h": 42,
+  "solid": 2,
+  "w": 96
+ },
+ "table_wood": {
+  "h": 36,
+  "solid": 2,
+  "w": 96
+ },
+ "table_workshop": {
+  "h": 63,
+  "solid": 2,
+  "w": 96
+ },
+ "tabletop_photo": {
+  "h": 20,
+  "solid": 0,
+  "w": 32
+ },
+ "time_clock": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
+ },
+ "trailer": {
+  "h": 96,
+  "solid": 3,
+  "w": 160
+ },
+ "tree_bare": {
+  "h": 103,
+  "solid": 1,
+  "w": 96
+ },
+ "tree_dead": {
+  "h": 84,
+  "solid": 1,
+  "w": 96
+ },
+ "tree_snow": {
+  "h": 91,
+  "solid": 1,
+  "w": 96
+ },
+ "tree_snow2": {
+  "h": 123,
+  "solid": 1,
+  "w": 96
+ },
+ "tree_stand": {
+  "h": 128,
+  "solid": 1,
+  "w": 64
+ },
+ "tree_tall": {
+  "h": 160,
+  "solid": 1,
+  "w": 96
+ },
+ "trough": {
+  "h": 19,
+  "solid": 1,
+  "w": 64
+ },
+ "tuft_snow": {
+  "h": 41,
+  "solid": 0,
+  "w": 32
+ },
+ "tuft_snow2": {
+  "h": 41,
+  "solid": 0,
+  "w": 32
+ },
+ "tv": {
+  "h": 40,
+  "solid": 1,
+  "w": 48
+ },
+ "typewriter": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
+ "vending": {
+  "h": 64,
+  "solid": 1,
+  "w": 64
+ },
+ "wagon": {
+  "h": 40,
+  "solid": 1,
+  "w": 80
+ },
+ "wall_lamp": {
+  "h": 28,
+  "solid": 0,
+  "w": 32
+ },
+ "water_cooler": {
+  "h": 53,
+  "solid": 1,
+  "w": 32
+ },
+ "water_tower": {
+  "h": 176,
+  "solid": 2,
+  "w": 96
+ },
+ "well": {
+  "h": 48,
+  "solid": 1,
+  "w": 48
+ },
+ "workbench": {
+  "h": 52,
+  "solid": 2,
+  "w": 96
+ }
+}

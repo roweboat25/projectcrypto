@@ -1,0 +1,301 @@
+{
+ "id": "pastor",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "pastor",
+   "lines": [
+    [
+     "pastor",
+     "You've come about the bird. Everyone does, eventually. Sit; the pews don't bite, whatever you've heard about Methodists."
+    ],
+    [
+     "pastor",
+     "I'll tell you what I tell the television people. It was a hard winter and a harder year after, and this town got through it on casseroles and the Lord."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "lore",
+     "threshold": 7,
+     "line": "He says 'the bird' and never the other word. Church people here don't; the other word is the newspaper's word, and it brought the cameras."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "He keeps a hand on the Bible on the lectern. Not reading it. Keeping it, the way you keep a hand on a child in a crowd.",
+     "flag": "pastor_keeps_bible"
+    },
+    {
+     "voice": "recall",
+     "threshold": 8,
+     "line": "December 15th, 1967, five in the evening, forty-six dead. The memorial service was in this room. He would have been a young man, and it would have been his first."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're sorry to bring it back up.",
+     "next": "sorry"
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "Cornstalk's curse. Do your parishioners believe in it?",
+     "pass": "curse",
+     "fail": {
+      "next": "curse_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "dream_list": 2
+      }
+     },
+     "text": "You wrote something down once that you wish you hadn't.",
+     "pass": "wrote",
+     "fail": {
+      "next": "wrote_fail",
+      "trust": {
+       "pastor": -1
+      }
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Sit in the pew and say nothing.)",
+     "next": "silent",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_pastor"
+   }
+  },
+  "sorry": {
+   "speaker": "pastor",
+   "lines": [
+    [
+     "pastor",
+     "Everyone's sorry. Sorry is this town's second language; we speak it at the Kroger."
+    ],
+    [
+     "pastor",
+     "Don't be sorry. Be careful. People here will tell you what you want so you'll go, and then they'll feel they lied, and then they'll come to me about it."
+    ],
+    [
+     "elijah",
+     "He's not warning us off. He's asking us to be gentle."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "pastor": 1
+    }
+   }
+  },
+  "curse": {
+   "speaker": "pastor",
+   "lines": [
+    [
+     "pastor",
+     "They believe it the way they believe in weather. I preach against it every December and every December the pews are full."
+    ],
+    [
+     "pastor",
+     "A Shawnee chief murdered under a flag of truce, two hundred years of a town that would rather be cursed than unlucky. I understand it. I just can't bless it."
+    ],
+    [
+     "ruth",
+     "Nor should you, Reverend. But you keep them warm while they believe it, and that's the job."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "pastor_curse",
+    "trust": {
+     "pastor": 1
+    }
+   }
+  },
+  "curse_fail": {
+   "speaker": "pastor",
+   "lines": [
+    [
+     "pastor",
+     "That's the Riverfront's story, not mine. The obelisk tells it better than I would, and it doesn't take offence."
+    ],
+    [
+     "pastor",
+     "If you want the old stories, the library keeps the county history. If you want what people pray about, that's between them and me."
+    ]
+   ],
+   "next": "hub"
+  },
+  "wrote": {
+   "speaker": "pastor",
+   "lines": [
+    [
+     "pastor",
+     "...How would you know a thing like that."
+    ],
+    [
+     "pastor",
+     "Yes. There is a list. I'll tell you that there is a list and I won't tell you, today, what's on it. Ask me when you've earned it, and I'll know when that is."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "pastor_admits_list",
+    "trust": {
+     "pastor": 1
+    }
+   }
+  },
+  "wrote_fail": {
+   "speaker": "pastor",
+   "lines": [
+    [
+     "pastor",
+     "I write a sermon a week. I wish I hadn't written half of them."
+    ],
+    [
+     "pastor",
+     "I think you should go now, and I think you should come to service on Sunday, and I mean both."
+    ]
+   ],
+   "end": true
+  },
+  "silent": {
+   "speaker": "pastor",
+   "lines": [
+    [
+     "pastor",
+     "..."
+    ],
+    [
+     "pastor",
+     "'Be still, and know.' That's the whole of my ministry some weeks, and the only part that works."
+    ],
+    [
+     "pastor",
+     "Thank you for sitting. Most of them stand by the door with the hat in their hands."
+    ],
+    [
+     "elijah",
+     "Amen, Reverend."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "pastor",
+   "repeat": true,
+   "lines": [
+    [
+     "pastor",
+     "Ask what you came to ask. The sanctuary's open till six."
+    ]
+   ],
+   "options": [
+    {
+     "tone": "hard",
+     "requires": {
+      "flag": [
+       "pastor_admits_list"
+      ]
+     },
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "dream_list": 2,
+       "original_report": 1
+      }
+     },
+     "text": "Show us the list, Reverend.",
+     "pass": "list",
+     "fail": {
+      "next": "list_fail",
+      "trust": {
+       "pastor": -2
+      }
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll come to service, Reverend."
+    }
+   ]
+  },
+  "list": {
+   "speaker": "pastor",
+   "lines": [
+    [
+     "pastor",
+     "...All right. All right."
+    ],
+    [
+     "pastor",
+     "Thirteen names. Look at the dates in the margin. I wrote the date each one told me. Go on."
+    ],
+    [
+     "pastor",
+     "Every one of them is after the 15th. I knew it when I wrote the second one down and I kept writing. Grief needs a reason. I gave them one."
+    ],
+    [
+     "miriam",
+     "After. Every single one. I'm sorry, Reverend. It's still the most honest document in this town."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "dreams_after",
+    "flag": "pastor_showed_list",
+    "trust": {
+     "pastor": 1
+    }
+   }
+  },
+  "list_fail": {
+   "speaker": "pastor",
+   "lines": [
+    [
+     "pastor",
+     "No."
+    ],
+    [
+     "pastor",
+     "People died on that bridge and you've been in my church ten minutes. The list stays in the Book. The Book stays with me. Sunday, if you're still in town. If not, God keep you anyway."
+    ],
+    [
+     "elijah",
+     "I'd have waited. I'd have waited a week."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "press",
+     "threshold": 5,
+     "line": "You heard yourself say 'people died' as if he needed reminding. Press said it, but it came out in your voice, in his church."
+    }
+   ],
+   "end": true
+  }
+ }
+}

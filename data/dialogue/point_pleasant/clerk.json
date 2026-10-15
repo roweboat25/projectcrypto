@@ -1,0 +1,336 @@
+{
+ "id": "clerk",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "Couple from Ohio checked out at three in the morning. Said something tapped on their window."
+    ],
+    [
+     "clerk",
+     "Room 14. Second floor. No balcony."
+    ],
+    [
+     "june",
+     "Can we see the room?"
+    ],
+    [
+     "clerk",
+     "I don't go up there now."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "He doesn't go up there. His eyes do. Every few seconds, to the ceiling, to the exact spot."
+    },
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "Three in the morning, and they checked out rather than ran. Somebody stood at this counter and paid. He talked to them. He is leaving that part out.",
+     "flag": "clerk_they_paid"
+    },
+    {
+     "voice": "arcana",
+     "threshold": 8,
+     "line": "Second floor, no balcony. Whatever taps on a window it cannot stand under is standing on nothing, and comfortable there."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The key's in his shirt pocket. Left side. He won't stop you. He wants you to take it so it isn't his any more."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Did you hear it too?",
+     "next": "heard"
+    },
+    {
+     "tone": "kind",
+     "requires": {
+      "flag": [
+       "clerk_they_paid"
+      ]
+     },
+     "text": "They paid before they left. What did they say to you?",
+     "next": "paid"
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "the_suits": 2
+      }
+     },
+     "text": "Your register. Anyone else check in that week? Cash, no plates?",
+     "pass": "ledger",
+     "fail": {
+      "next": "ledger_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "Three a.m. checkouts. You get a lot of those?",
+     "pass": "nights",
+     "fail": {
+      "next": "nights_fail",
+      "trust": {
+       "clerk": -1
+      }
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Say nothing. Look where he's looking.)",
+     "next": "silent",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "evidence": "room_14",
+    "flag": "met_clerk",
+    "dread": 1
+   }
+  },
+  "heard": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "...I heard the couple. Running on the walk. I heard the ice machine. I heard the ice machine stop."
+    ],
+    [
+     "clerk",
+     "Ice machine don't stop. I don't know what I heard."
+    ],
+    [
+     "elijah",
+     "You don't have to know. You just have to say it."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "clerk": 1
+    },
+    "flag": "clerk_ice_machine"
+   }
+  },
+  "paid": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "The wife paid. Husband wouldn't come in off the walk. She said, 'It wasn't a branch,' and I hadn't said branch. Nobody had said branch."
+    ],
+    [
+     "clerk",
+     "She tipped. Nobody tips a motel. Twenty dollars, on the counter, and she said, 'Don't go up till it's light.'"
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "clerk_not_a_branch"
+   }
+  },
+  "ledger": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "Two men. Room 9. Paid a week up front in new bills and never slept in the bed; maid says the bed's made the way she made it."
+    ],
+    [
+     "clerk",
+     "Car with no plates. Parks nose out, lights off. Some nights the engine's running and nobody's in it."
+    ],
+    [
+     "june",
+     "Room 9 is under 14. Directly under."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "clerk_room_9",
+    "dread": 1
+   }
+  },
+  "ledger_fail": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "Register's private. I don't read it to anybody with a notebook."
+    ],
+    [
+     "clerk",
+     "You want names, the Lowe Hotel keeps a book on the counter in plain sight and a night clerk who'll read it to you for a cup of coffee."
+    ]
+   ],
+   "next": "hub"
+  },
+  "nights": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "Since Thursday? Four. Four in a week, in February, when I'd be lucky to have four rooms let."
+    ],
+    [
+     "clerk",
+     "All second floor. All said tapping. None of 'em knew each other. I stopped putting people up there Saturday."
+    ],
+    [
+     "teddy",
+     "Four. That's a pattern, not a story. Patterns are better."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "clerk_four_checkouts",
+    "trust": {
+     "clerk": 1
+    }
+   }
+  },
+  "nights_fail": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "That funny to you?"
+    ],
+    [
+     "clerk",
+     "Rooms are twenty-two a night. Ground floor only. Checkout's eleven."
+    ]
+   ],
+   "next": "hub"
+  },
+  "silent": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "..."
+    ],
+    [
+     "clerk",
+     "You're in 6. Ground floor. I put you on the ground floor on purpose and I'd take it as a kindness if you didn't ask to be moved."
+    ],
+    [
+     "ruth",
+     "We won't, honey. Thank you."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "clerk",
+   "repeat": true,
+   "lines": [
+    [
+     "clerk",
+     "Anything else. I'm here all night. That's the job."
+    ]
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "window_scratches": 2,
+       "developed_film": 2
+      }
+     },
+     "text": "What did you see on the roof, the night you stopped going up?",
+     "pass": "roofline",
+     "fail": {
+      "next": "roofline_fail",
+      "trust": {
+       "clerk": -2
+      }
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Get some sleep if you can."
+    }
+   ]
+  },
+  "roofline": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "...Saturday. I went up with the master to check 14 after the fourth couple. Got to the top of the stairs."
+    ],
+    [
+     "clerk",
+     "Two lights on the roofline. Red, like a car backing up. On the roof. There's no road on the roof."
+    ],
+    [
+     "clerk",
+     "They turned. Together. The way eyes do. I came down the stairs and I have not been up since and I would like you to not ask me again."
+    ],
+    [
+     "elijah",
+     "We won't. You did fine."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "clerk_roof_lights",
+    "dread": 1,
+    "trust": {
+     "clerk": 1
+    }
+   }
+  },
+  "roofline_fail": {
+   "speaker": "clerk",
+   "lines": [
+    [
+     "clerk",
+     "I didn't see anything. I'm not a witness. I'm the night clerk."
+    ],
+    [
+     "clerk",
+     "Rooms are twenty-two a night. Checkout's eleven. The office is closed."
+    ],
+    [
+     "miriam",
+     "He saw something. And now he'll never say what, not to us."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 5,
+     "line": "You asked for the thing he could not afford to give, and he paid you with the price list instead. That door is shut for good."
+    }
+   ],
+   "end": true
+  }
+ }
+}

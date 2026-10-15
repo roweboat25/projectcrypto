@@ -45,6 +45,9 @@ jobs:
           mv templates/* ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable/
           rm -rf t.tpz templates
 
+      - name: Check content references
+        run: python3 tools/check_content.py
+
       - name: Import project
         run: ~/godot/godot --headless --path . --import || true
 

@@ -4,7 +4,7 @@ config_version=5
 [application]
 
 config/name="The Casebook of Unquiet Places"
-config/description="An HD-2D investigation JRPG about real anomalous events."
+config/description="A pixel-art investigation JRPG about real anomalous events."
 config/version="0.0.1"
 run/main_scene="res://scenes/boot.tscn"
 config/features=PackedStringArray("4.3")
@@ -15,17 +15,25 @@ GameData="*res://scripts/autoload/game_data.gd"
 GameState="*res://scripts/autoload/game_state.gd"
 Controls="*res://scripts/autoload/controls.gd"
 
+[gui]
+
+theme/default_font_antialiasing=0
+theme/default_font_hinting=2
+theme/default_font_subpixel_positioning=0
+
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
+window/stretch/scale_mode="integer"
 
 [rendering]
 
-renderer/rendering_method="forward_plus"
+renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 renderer/rendering_method.web="gl_compatibility"
 textures/canvas_textures/default_texture_filter=0
-anti_aliasing/quality/msaa_3d=1

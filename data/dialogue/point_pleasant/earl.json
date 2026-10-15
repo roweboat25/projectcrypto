@@ -1,0 +1,342 @@
+{
+ "id": "earl",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "Two fellas in black suits came by Tuesday. Asked which folks saw the bird. Asked about the bridge too."
+    ],
+    [
+     "earl",
+     "Paid in bills so new they stuck together. Car had no plates. Smiled like they'd read about smiling."
+    ],
+    [
+     "june",
+     "Earl. Are they here now?"
+    ],
+    [
+     "earl",
+     "...Don't look at the pumps."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "nerve",
+     "threshold": 7,
+     "line": "He said don't look. So you don't. Good. Hands on the counter, eyes on Earl, and breathe like you mean it."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He isn't afraid of them. He is afraid of being the one in town who talked about them."
+    },
+    {
+     "voice": "arcana",
+     "threshold": 9,
+     "line": "'Smiled like they'd read about smiling.' You have read that sentence before, in an older book, about a thing that was not a man either.",
+     "flag": "earl_old_sentence"
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Look at the pumps. Go on. They want you to look, and you want to. What's the harm in looking?"
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Take your time, Earl. We're just buying gas.",
+     "next": "gas"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "What were they driving?",
+     "pass": "car",
+     "fail": {
+      "next": "car_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "bluff",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "We're with them. We're checking your story matches.",
+     "pass": "bluff_pass",
+     "fail": {
+      "next": "bluff_fail",
+      "trust": {
+       "earl": -1
+      }
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Don't look at the pumps.)",
+     "next": "silent",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "evidence": "the_suits",
+    "flag": "met_earl",
+    "dread": 1
+   }
+  },
+  "gas": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "Seven dollars on pump two. Yeah. Yeah, that's fine."
+    ],
+    [
+     "earl",
+     "They asked about a woman, too. Not the bird. A woman from Sutton, from way back, like I'd know. I was nine in '67."
+    ],
+    [
+     "earl",
+     "Why's everybody from Sutton this month."
+    ],
+    [
+     "vera",
+     "Because she never came home, Earl. And we are the ones who still keep her desk."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "earl_sutton_woman",
+    "trust": {
+     "earl": 1
+    }
+   }
+  },
+  "car": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "Black Ford. Galaxie, near enough, but a Galaxie that nobody's dealer ever sold. Clean. February and not a speck of salt on it."
+    ],
+    [
+     "earl",
+     "Saw it again Wednesday, after midnight. Parked at the Riverview, nose out, lights off, engine running. Nobody in it. Engine running."
+    ],
+    [
+     "june",
+     "Nose out. Lights off. That's a car that's waiting for somebody to come out of a room."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "earl_car_at_motel",
+    "dread": 1
+   }
+  },
+  "car_fail": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "Don't know cars. I pump 'em, I don't read 'em."
+    ],
+    [
+     "earl",
+     "Kid on the courthouse corner knows every car in this county by the sound. Ask him what parks at the motel after midnight. Don't say I sent you."
+    ]
+   ],
+   "next": "hub"
+  },
+  "bluff_pass": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "...Oh. Oh, Lord. I told 'em everything, I swear, I told 'em Marlene and the deputy and the reverend, same as I'll tell you."
+    ],
+    [
+     "earl",
+     "They gave me a number. Charleston exchange. Said to call if anybody came asking about them. I ain't called. I'll call now if you want, I'll call right now."
+    ],
+    [
+     "elijah",
+     "Stop. Earl, stop. We're not them. I'm sorry. We're not them."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "earl_has_number",
+    "trust": {
+     "earl": -1
+    }
+   }
+  },
+  "bluff_fail": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "With them. Sure. Then you know what I told 'em."
+    ],
+    [
+     "earl",
+     "Told 'em what the paper said. Big grey crane, off its path, red head. That's what I saw in '66 and that's what I told your friends and I'll tell it to anybody."
+    ],
+    [
+     "teddy",
+     "He's reciting. We just taught him we're not worth the real one."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "biologist_letter"
+   }
+  },
+  "silent": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "..."
+    ],
+    [
+     "earl",
+     "They're gone. They go. They come back Tuesdays, like the bread truck."
+    ],
+    [
+     "earl",
+     "You're the first ones who didn't look. The reverend looked. Looked right at 'em and then went to bed for two days."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "earl",
+   "repeat": true,
+   "lines": [
+    [
+     "earl",
+     "Need anything else? Wipers, map, somebody to tell you it's all nothing?"
+    ]
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "requires": {
+      "not_flag": [
+       "earl_paid"
+      ]
+     },
+     "text": "(Pay for the gas, and leave a twenty on the counter for his time.)",
+     "next": "paid"
+    },
+    {
+     "tone": "hard",
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 9
+     },
+     "text": "(Turn around and look at the pumps.)",
+     "pass": "look",
+     "fail": {
+      "next": "look_fail",
+      "dread": 2
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Thanks, Earl. Keep the change."
+    }
+   ]
+  },
+  "paid": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "That's too much."
+    ],
+    [
+     "earl",
+     "...I'll keep it. You want, I'll call Sutton if that car comes through again. I got the number off your wagon. I notice things. I just don't look at 'em."
+    ],
+    [
+     "dale",
+     "That's the most useful twenty we'll spend in this town."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "earl_paid",
+    "trust": {
+     "earl": 2
+    }
+   }
+  },
+  "look": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "Don't..."
+    ],
+    [
+     "earl",
+     "...Huh. Nobody. Just the Ford pulling out onto 62. North. Towards the plant."
+    ],
+    [
+     "earl",
+     "He waved. Did you see him wave? He had a hat on. Nobody wears a hat."
+    ],
+    [
+     "june",
+     "No plates. Going north. He got here before us."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "saw_penrose_car",
+    "dread": 1
+   }
+  },
+  "look_fail": {
+   "speaker": "earl",
+   "lines": [
+    [
+     "earl",
+     "I said don't."
+    ],
+    [
+     "earl",
+     "Why'd you look. You looked and now he's seen you look. Get out. Get your gas somewhere else, get it in Gallipolis."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "nerve",
+     "threshold": 5,
+     "line": "There was a man at pump two. He raised one hand, friendly, the way you would. You cannot say, afterward, what his face was, and you will try all night."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He looked like you. That's why Earl's shouting. He looked exactly like you."
+   },
+   "end": true
+  }
+ }
+}

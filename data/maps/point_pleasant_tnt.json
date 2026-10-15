@@ -1,0 +1,4794 @@
+{
+ "_doc": "Point Pleasant, the TNT Area: the West Virginia Ordnance Works north of town, in 1994 a wildlife management area and Superfund site. Snow on concrete, red ponds, twelve igloos, the game warden's station and the North Power Plant inside the inner fence. No lights but the station.",
+ "id": "point_pleasant_tnt",
+ "name": "TNT Area",
+ "case": "point_pleasant",
+ "district": "tnt",
+ "size": [
+  80,
+  64
+ ],
+ "spawn": [
+  40,
+  58
+ ],
+ "ground": "snow",
+ "fills": [
+  {
+   "rect": [
+    30,
+    11,
+    20,
+    4
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    27,
+    15,
+    21,
+    7
+   ],
+   "tiles": [
+    "cement",
+    "cement_b",
+    "cement_crack",
+    "concrete_dark"
+   ]
+  },
+  {
+   "rect": [
+    56,
+    44,
+    8,
+    3
+   ],
+   "tiles": [
+    "cement",
+    "cement_b",
+    "cement_crack",
+    "concrete_dark"
+   ]
+  },
+  {
+   "rect": [
+    8,
+    22,
+    11,
+    1
+   ],
+   "tiles": [
+    "mud",
+    "mud2",
+    "dirt_snow2"
+   ]
+  },
+  {
+   "rect": [
+    19,
+    43,
+    9,
+    1
+   ],
+   "tiles": [
+    "mud",
+    "dirt_snow3",
+    "mud2"
+   ]
+  },
+  {
+   "rect": [
+    38,
+    14,
+    4,
+    49
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    14,
+    34,
+    52,
+    3
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    14,
+    40,
+    52,
+    3
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    14,
+    34,
+    3,
+    9
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    63,
+    34,
+    3,
+    9
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    42,
+    57,
+    10,
+    2
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    16,
+    22,
+    46,
+    2
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    38,
+    48,
+    4,
+    1
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    48,
+    1,
+    1,
+    52
+   ],
+   "tiles": "rail"
+  },
+  {
+   "rect": [
+    40,
+    16,
+    8,
+    1
+   ],
+   "tiles": "rail"
+  },
+  {
+   "rect": [
+    9,
+    17,
+    9,
+    5
+   ],
+   "tiles": [
+    "water_red",
+    "water_red",
+    "water_red2"
+   ]
+  },
+  {
+   "rect": [
+    50,
+    24,
+    8,
+    4
+   ],
+   "tiles": [
+    "water_red",
+    "water_red",
+    "water_red2"
+   ]
+  },
+  {
+   "rect": [
+    52,
+    2,
+    8,
+    3
+   ],
+   "tiles": [
+    "water_red",
+    "water_red",
+    "water_red2"
+   ]
+  },
+  {
+   "rect": [
+    19,
+    44,
+    9,
+    2
+   ],
+   "tiles": [
+    "water_red",
+    "water_red",
+    "water_red2"
+   ]
+  },
+  {
+   "rect": [
+    9,
+    16,
+    9,
+    1
+   ],
+   "tiles": [
+    "ice",
+    "ice2",
+    "ice3"
+   ]
+  },
+  {
+   "rect": [
+    50,
+    28,
+    8,
+    1
+   ],
+   "tiles": [
+    "ice",
+    "ice2",
+    "ice3"
+   ]
+  },
+  {
+   "rect": [
+    19,
+    46,
+    9,
+    1
+   ],
+   "tiles": [
+    "ice",
+    "ice2",
+    "ice3"
+   ]
+  },
+  {
+   "rect": [
+    60,
+    2,
+    2,
+    3
+   ],
+   "tiles": [
+    "ice",
+    "ice3"
+   ]
+  },
+  {
+   "rect": [
+    5,
+    49,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    21,
+    49,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    53,
+    51,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    69,
+    49,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    27,
+    40,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    11,
+    27,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    21,
+    15,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    59,
+    27,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    59,
+    15,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    11,
+    9,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    49,
+    20,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    63,
+    7,
+    6,
+    2
+   ],
+   "tiles": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    80,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    0,
+    1,
+    64
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    79,
+    0,
+    1,
+    64
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    63,
+    36,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    44,
+    63,
+    36,
+    1
+   ],
+   "tiles": "void"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    1,
+    78,
+    62
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow_drift3",
+    "snow_rock",
+    "snow_rock2"
+   ],
+   "chance": 0.05
+  },
+  {
+   "rect": [
+    27,
+    15,
+    21,
+    7
+   ],
+   "tiles": [
+    "cement_crack",
+    "snow_drift"
+   ],
+   "chance": 0.15
+  }
+ ],
+ "facades": [
+  {
+   "id": "station",
+   "facade": "warden",
+   "name": "Game warden's station",
+   "pos": [
+    46,
+    56
+   ]
+  },
+  {
+   "id": "plant",
+   "facade": "power_plant",
+   "name": "North Power Plant",
+   "pos": [
+    34,
+    10
+   ]
+  }
+ ],
+ "houses": [
+  {
+   "id": "igloo_1",
+   "name": "Igloo 1",
+   "prop": "igloo",
+   "pos": [
+    8,
+    48
+   ],
+   "door": [
+    8,
+    48
+   ]
+  },
+  {
+   "id": "igloo_2",
+   "name": "Igloo 2",
+   "prop": "igloo",
+   "pos": [
+    24,
+    48
+   ],
+   "door": [
+    24,
+    48
+   ]
+  },
+  {
+   "id": "igloo_3",
+   "name": "Igloo 3",
+   "prop": "igloo",
+   "pos": [
+    56,
+    50
+   ],
+   "door": [
+    56,
+    50
+   ]
+  },
+  {
+   "id": "igloo_4",
+   "name": "Igloo 4",
+   "prop": "igloo_shut",
+   "pos": [
+    72,
+    48
+   ],
+   "door": [
+    72,
+    48
+   ],
+   "locked": "Igloo 4. The steel door is welded shut and someone has welded it shut again on top of that."
+  },
+  {
+   "id": "igloo_5",
+   "name": "Igloo 5",
+   "prop": "igloo",
+   "pos": [
+    30,
+    39
+   ],
+   "door": [
+    30,
+    39
+   ]
+  },
+  {
+   "id": "igloo_6",
+   "name": "Igloo 6",
+   "prop": "igloo",
+   "pos": [
+    14,
+    26
+   ],
+   "door": [
+    14,
+    26
+   ]
+  },
+  {
+   "id": "igloo_7",
+   "name": "Igloo 7",
+   "prop": "igloo",
+   "pos": [
+    24,
+    14
+   ],
+   "door": [
+    24,
+    14
+   ]
+  },
+  {
+   "id": "igloo_8",
+   "name": "Igloo 8",
+   "prop": "igloo",
+   "pos": [
+    62,
+    26
+   ],
+   "door": [
+    62,
+    26
+   ]
+  },
+  {
+   "id": "igloo_9",
+   "name": "Igloo 9",
+   "prop": "igloo_shut",
+   "pos": [
+    62,
+    14
+   ],
+   "door": [
+    62,
+    14
+   ],
+   "locked": "Igloo 9. A new EPA padlock and a sticker: SAMPLING IN PROGRESS. The sticker is from 1991."
+  },
+  {
+   "id": "igloo_10",
+   "name": "Igloo 10",
+   "prop": "igloo",
+   "pos": [
+    14,
+    8
+   ],
+   "door": [
+    14,
+    8
+   ]
+  },
+  {
+   "id": "igloo_11",
+   "name": "Igloo 11",
+   "prop": "igloo",
+   "pos": [
+    52,
+    19
+   ],
+   "door": [
+    52,
+    19
+   ]
+  },
+  {
+   "id": "igloo_12",
+   "name": "Igloo 12",
+   "prop": "igloo_shut",
+   "pos": [
+    66,
+    6
+   ],
+   "door": [
+    66,
+    6
+   ],
+   "locked": "Igloo 12. The mound has slumped over the door. Whatever is in there is staying in there."
+  }
+ ],
+ "props": [
+  {
+   "kind": "chain_fence",
+   "pos": [
+    9.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    12.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    15.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    18.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    21.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    24.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    27.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    30.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    33.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    36.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    39.5,
+    30.5
+   ],
+   "name": "Inner fence gate",
+   "gate": "superfund_fence"
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    42.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    45.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    48.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    51.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    54.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    57.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    60.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    63.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    66.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    69.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    27.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    27.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    21.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    21.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    18.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    18.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    15.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    15.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    12.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    12.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    9.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    9.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    6.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    6.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    7.5,
+    3.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    71.5,
+    3.5
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    44,
+    56.9
+   ],
+   "name": "Notice board",
+   "look": [
+    [
+     "player",
+     "MASON COUNTY WILDLIFE MANAGEMENT AREA. Hunting by permit. NO ENTRY past the inner fence by order of the U.S. EPA."
+    ],
+    [
+     "teddy",
+     "Somebody has added OR ELSE in marker. The warden, I'd guess. Or the EPA."
+    ]
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    53,
+    56.9
+   ],
+   "name": "Mailbox",
+   "look": "The warden's mailbox. One letter from the EPA, unopened since Christmas."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    52,
+    54.5
+   ],
+   "name": "Bench",
+   "look": [
+    [
+     "player",
+     "A bench facing the road. The warden sits here at dusk and counts cars."
+    ],
+    [
+     "miriam",
+     "He's up to zero."
+    ]
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    56,
+    59.6
+   ],
+   "name": "DNR truck",
+   "look": [
+    [
+     "dale",
+     "DNR truck. Green, dented, a spotlight on the mirror."
+    ],
+    [
+     "miriam",
+     "And a box of shotgun shells on the dash, in case the ducks file an appeal."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    42,
+    55.9
+   ],
+   "name": "Trash can",
+   "look": "Shell boxes, coffee cans, and a duck decoy with the head shot clean off. Somebody is a very bad shot or a very good one."
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    37,
+    52.5
+   ],
+   "name": "Light pole",
+   "look": "A plant light pole from 1943. The copper was stripped before the war was over. Nothing out here has been lit since."
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    43,
+    36.5
+   ],
+   "name": "Light pole",
+   "look": [
+    [
+     "june",
+     "Dead pole. The crossarm still has the insulators on it."
+    ],
+    [
+     "june",
+     "Somebody's run a new wire up it. New as in this winter."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    37,
+    20.5
+   ],
+   "name": "Light pole",
+   "look": "The last pole before the plant. A crow sits on it. Then it doesn't."
+  },
+  {
+   "kind": "culvert",
+   "pos": [
+    44.5,
+    45
+   ],
+   "name": "Culvert",
+   "look": [
+    [
+     "player",
+     "The culvert under the road. Something scraped the ice off the lip from the inside."
+    ],
+    [
+     "june",
+     "Or the outside. Ice doesn't keep a diary."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    12,
+    38
+   ],
+   "name": "The turn",
+   "look": [
+    [
+     "ruth",
+     "This is the ridge. November '66, the car swung round right here and ran for town at a hundred miles an hour."
+    ],
+    [
+     "teddy",
+     "On this gravel? The road nearly got them before anything else did."
+    ]
+   ]
+  },
+  {
+   "kind": "tree_stand",
+   "pos": [
+    70,
+    45
+   ],
+   "name": "Deer stand",
+   "look": [
+    [
+     "dale",
+     "A deer stand. Deer, not ducks."
+    ],
+    [
+     "player",
+     "A tally carved into the ladder. Eleven marks, then a question mark."
+    ]
+   ]
+  },
+  {
+   "kind": "johnboat",
+   "pos": [
+    16,
+    46.6
+   ],
+   "name": "Johnboat",
+   "look": [
+    [
+     "player",
+     "A johnboat dragged up the bank, half full of snow. LYLE in yellow paint."
+    ],
+    [
+     "dale",
+     "Lyle shoots ducks off a boat he can't float. Respect."
+    ]
+   ]
+  },
+  {
+   "kind": "campfire",
+   "pos": [
+    30,
+    46
+   ],
+   "name": "Campfire",
+   "look": "A fire of pallet wood. Someone keeps it going all night, which out here is a confession."
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    33,
+    48.5
+   ],
+   "name": "Snowman",
+   "look": [
+    [
+     "teddy",
+     "A snowman with a hunting licence pinned to its chest."
+    ],
+    [
+     "june",
+     "Lyle's. Expired."
+    ]
+   ]
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    22,
+    53
+   ],
+   "name": "Picnic table",
+   "look": "A picnic table the WMA put in. Nobody has ever picnicked here. The table knows."
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    50,
+    52
+   ],
+   "name": "Railroad ties",
+   "look": "Ties pulled off the spur and stacked to burn. They have never burned. They are wet with something that isn't water."
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    60,
+    20
+   ],
+   "name": "Drums",
+   "look": [
+    [
+     "miriam",
+     "Fifty-five gallon drums, rusted through. The stencil says DNT. Not TNT. Worse."
+    ],
+    [
+     "june",
+     "Don't lean on it."
+    ]
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    61,
+    20
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    60.5,
+    19
+   ]
+  },
+  {
+   "kind": "shed",
+   "pos": [
+    14,
+    4
+   ],
+   "name": "Pump shed",
+   "look": "A pump shed with a new padlock. The EPA is the only one who still buys padlocks for this place."
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    12,
+    22.6
+   ],
+   "name": "Cattails",
+   "look": [
+    [
+     "player",
+     "Cattails frozen stiff. The pond under them is the colour of rust and it has not frozen. It is nine degrees."
+    ],
+    [
+     "elijah",
+     "It's warm. Not the water. The place."
+    ]
+   ]
+  },
+  {
+   "kind": "deer",
+   "pos": [
+    24,
+    4
+   ],
+   "name": "A doe",
+   "look": "A doe. She does not run. She is watching the plant door, and she has been for some time."
+  },
+  {
+   "kind": "drain",
+   "pos": [
+    39,
+    12.2
+   ],
+   "name": "Storm drain",
+   "look": "A storm drain in front of the plant. The grate is warm. Nothing out here is warm."
+  },
+  {
+   "kind": "antenna",
+   "pos": [
+    47,
+    10.5
+   ],
+   "name": "Antenna mast",
+   "look": [
+    [
+     "june",
+     "A mast from the war. The guy wires are gone, so it's standing on habit."
+    ],
+    [
+     "june",
+     "I'm not climbing it. I'm thinking about climbing it."
+    ]
+   ]
+  },
+  {
+   "kind": "graffiti",
+   "pos": [
+    8,
+    47
+   ],
+   "name": "Graffiti",
+   "look": "PP CLASS OF 71 in house paint, and under it, smaller, IT CAME BACK."
+  },
+  {
+   "kind": "graffiti",
+   "pos": [
+    56,
+    49
+   ],
+   "name": "Graffiti",
+   "look": [
+    [
+     "teddy",
+     "MOTHMAN LIVES. Someone's crossed out LIVES and written WORKS NIGHTS."
+    ],
+    [
+     "miriam",
+     "Finally, a theory with a schedule."
+    ]
+   ]
+  },
+  {
+   "kind": "graffiti",
+   "pos": [
+    62,
+    25
+   ],
+   "name": "Graffiti",
+   "look": [
+    [
+     "vera",
+     "A circle with three lines through it. Spray paint over something older."
+    ],
+    [
+     "vera",
+     "The older one was not painted."
+    ]
+   ]
+  },
+  {
+   "kind": "stone_slab",
+   "pos": [
+    20,
+    33
+   ],
+   "name": "Plant marker",
+   "look": "A concrete marker: W.V.O.W. 1942. The West Virginia Ordnance Works. Somebody has laid a plastic rose on it, this winter."
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    22,
+    10
+   ],
+   "name": "Pallets",
+   "look": "Pallets, frozen into a block. Igloo 7's hunter dragged them out and gave up halfway."
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    54,
+    29
+   ],
+   "name": "Dead stalks",
+   "look": "Cattail stalks on the north pond. They rattle when the wind comes off the plant. There is no wind."
+  },
+  {
+   "kind": "roadside_cross",
+   "pos": [
+    34,
+    44
+   ],
+   "name": "A cross",
+   "look": [
+    [
+     "ruth",
+     "A white cross by the road. No name, no date. Somebody paints it every spring."
+    ],
+    [
+     "elijah",
+     "Nobody died here. That's what it's for."
+    ]
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    46,
+    28
+   ],
+   "name": "Sample bucket",
+   "look": "An EPA sample bucket, numbered 112. Empty. The lid is a long way off."
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    66,
+    33
+   ],
+   "name": "A rock",
+   "look": [
+    [
+     "dale",
+     "A rock."
+    ],
+    [
+     "dale",
+     "Someone's turned it over. Why would anyone turn over a rock out here?"
+    ],
+    [
+     "miriam",
+     "You just did."
+    ]
+   ]
+  },
+  {
+   "kind": "trough",
+   "pos": [
+    68,
+    52
+   ],
+   "name": "Trough",
+   "look": "A cattle trough from when this was farms. Frozen solid, with a boot in it."
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    66.5,
+    32.5
+   ],
+   "name": "Old fence",
+   "look": [
+    [
+     "player",
+     "The old WMA fence, flattened. Somebody drove through it, from the inside."
+    ],
+    [
+     "dale",
+     "Twice. Look at the posts. Once going, once coming back faster."
+    ]
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    46,
+    48
+   ],
+   "name": "Burn barrel",
+   "look": [
+    [
+     "teddy",
+     "A burn barrel full of Register front pages. Every one with the bird on it."
+    ],
+    [
+     "teddy",
+     "That's my competition's whole circulation. I'm oddly moved."
+    ]
+   ]
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    60,
+    45.5
+   ],
+   "name": "Ties",
+   "look": "More ties, stacked as a blind. Shell casings in the snow behind it, and one child's glove. Red."
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    64,
+    10
+   ],
+   "name": "Boulder",
+   "look": [
+    [
+     "player",
+     "A boulder with a scorch mark down one side, old enough to have lichen on it."
+    ],
+    [
+     "vera",
+     "Scorch. On stone. Lightning does this, when it is lightning."
+    ]
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    18,
+    31.5
+   ],
+   "name": "A bush",
+   "look": "A bush with a dozen red reflectors hung in it like Christmas. Someone thought this was funny once."
+  },
+  {
+   "kind": "box",
+   "pos": [
+    26,
+    36.5
+   ],
+   "name": "A box",
+   "look": [
+    [
+     "player",
+     "A cardboard box on the loop road, dry, taped shut. SHERIFF - EVIDENCE - 1966 in marker, the ink fresh."
+    ],
+    [
+     "miriam",
+     "Empty. Someone wants us to think they got here first."
+    ],
+    [
+     "teddy",
+     "Someone did."
+    ]
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    30,
+    56
+   ],
+   "name": "Rabbit tracks",
+   "look": "Rabbit tracks across the snow, then nothing. Not a hole. Just nothing."
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    18.5,
+    16.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    18.5,
+    17.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    18.5,
+    19.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    18.5,
+    20.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    49.5,
+    28.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    49.5,
+    25.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    58.5,
+    25.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    49.5,
+    27.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    58.5,
+    27.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    52.5,
+    1.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    52.5,
+    5.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    53.5,
+    1.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    54.5,
+    5.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    55.5,
+    5.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    56.5,
+    1.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    56.5,
+    5.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    58.5,
+    1.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    58.5,
+    5.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    59.5,
+    5.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    60.5,
+    1.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    51.5,
+    3.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    18.5,
+    46.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    28.5,
+    46.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    18.5,
+    44.7
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    29,
+    18
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    30,
+    18.2
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    33,
+    20
+   ]
+  },
+  {
+   "kind": "box",
+   "pos": [
+    36,
+    19
+   ]
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    44,
+    18.5
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    46,
+    20.5
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    41,
+    21
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    35,
+    17
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    54,
+    55
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    55,
+    55.2
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    57.5,
+    56.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    60.5,
+    56.5
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    28,
+    47
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    31.5,
+    47.6
+   ]
+  },
+  {
+   "kind": "box",
+   "pos": [
+    29,
+    48.5
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    37,
+    26.5
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    37,
+    44.5
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    37,
+    60.5
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    43,
+    8.5
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    43,
+    38.5
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    43,
+    50.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    18.5,
+    55.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    21.5,
+    55.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    24.5,
+    55.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    60.5,
+    32.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    63.5,
+    32.5
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    9.5,
+    10.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    31.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    69.5,
+    20.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    56.5,
+    11.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    67.5,
+    14.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    10.5,
+    4.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    52.5,
+    10.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    67.5,
+    19.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    56.5,
+    10.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    24.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    25.5,
+    4.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    59.5,
+    10.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    54.5,
+    8.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    56.5,
+    15.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    9.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    27.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    33.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    67.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    18.5,
+    15.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    67.5,
+    25.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    20.5,
+    6.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    56.5,
+    14.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    44.5,
+    27.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    17.5,
+    4.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    51.5,
+    9.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    19.5,
+    3.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    68.5,
+    13.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    25.5,
+    3.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    25.5,
+    20.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    9.5,
+    3.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    68.5,
+    23.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    58.5,
+    9.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    19.5,
+    27.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    26.5,
+    8.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    9.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    22.5,
+    27.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    13.5,
+    14.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    62.5,
+    20.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    21.5,
+    20.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    10.5,
+    15.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    21.5,
+    9.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    52.5,
+    13.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    9.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    23.5,
+    8.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    45.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    17.5,
+    14.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    22.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    30.5,
+    27.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    57.5,
+    18.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    19.5,
+    13.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    67.5,
+    18.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    9.5,
+    14.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    2.5,
+    25.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    3.5,
+    23.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    3.5,
+    14.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    5.5,
+    18.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    5.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    2.5,
+    18.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    4.5,
+    22.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    2.5,
+    10.6
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    4.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    3.5,
+    3.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    2.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    2.5,
+    13.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    74.5,
+    27.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    77.5,
+    4.6
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    73.5,
+    14.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    75.5,
+    21.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    77.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    74.5,
+    11.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    73.5,
+    3.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    76.5,
+    14.6
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    75.5,
+    18.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    73.5,
+    10.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    73.5,
+    9.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    76.5,
+    25.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    54.5,
+    39.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    74.5,
+    40.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    58.5,
+    59.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    36.5,
+    50.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    63.5,
+    52.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    36.5,
+    48.6
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    30.5,
+    55.6
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    8.5,
+    37.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    61.5,
+    51.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    69.5,
+    38.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    63.5,
+    55.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    72.5,
+    38.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    31.5,
+    54.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    76.5,
+    57.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    15.5,
+    49.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    63.5,
+    50.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    76.5,
+    32.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    50.5,
+    45.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    17.5,
+    54.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    70.5,
+    58.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    11.5,
+    56.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    30.5,
+    51.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    4.5,
+    41.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    5.5,
+    36.6
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    2.5,
+    54.6
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    11.5,
+    36.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    64.5,
+    58.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    9.5,
+    40.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    28.5,
+    59.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    11.5,
+    59.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    76.5,
+    43.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    71.5,
+    36.6
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    45.5,
+    51.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    14.5,
+    59.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    70.5,
+    56.6
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    25.5,
+    39.6
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    29.5,
+    33.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    4.5,
+    44.6
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    19.5,
+    51.6
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    19.5,
+    59.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    73.5,
+    60.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    36.5,
+    56.6
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    73.5,
+    33.6
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    4.5,
+    34.6
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    65.5,
+    45.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    69.5,
+    34.6
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    14.5,
+    57.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    74.5,
+    55.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    67.5,
+    50.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    73.5,
+    58.6
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    29.5,
+    45.6
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    75.5,
+    38.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    74.5,
+    20.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    13.5,
+    34.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    33.5,
+    55.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    6.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    37.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    29.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    24.5,
+    53.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    70.5,
+    59.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    77.5,
+    8.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    8.5,
+    33.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    33.5,
+    59.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    71.5,
+    33.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    46.5,
+    37.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    71.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    18.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    62.5,
+    19.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    28.5,
+    57.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    65.5,
+    18.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    70.5,
+    40.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    62.5,
+    60.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    18.5,
+    31.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    77.5,
+    55.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    8.5,
+    56.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    25.5,
+    1.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    17.5,
+    44.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    19.5,
+    32.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    73.5,
+    62.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    66.5,
+    57.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    76.5,
+    60.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    71.5,
+    54.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    21.5,
+    58.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    4.5,
+    10.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    5.5,
+    2.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    2.5,
+    4.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    4.5,
+    43.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    10.5,
+    58.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    29.5,
+    44.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    22.5,
+    58.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    18.5,
+    58.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    3.5,
+    19.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    69.5,
+    36.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    77.5,
+    46.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    42.5,
+    24.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    34.5,
+    56.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    27.5,
+    10.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    67.5,
+    33.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    3.5,
+    35.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    62.5,
+    5.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    37.5,
+    33.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    6.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    24.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    20.5,
+    54.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    6.5,
+    54.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    47.5,
+    2.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    6.5,
+    35.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    78.5,
+    30.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    35.5,
+    27.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    28.5,
+    6.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    28.5,
+    61.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    32.5,
+    59.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    65.5,
+    52.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    68.5,
+    27.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    14.5,
+    1.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    17.5,
+    32.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    3.5,
+    61.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    13.5,
+    33.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    61.5,
+    9.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    58.5,
+    14.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    77.5,
+    13.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    50.5,
+    44.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    74.5,
+    35.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    1.5,
+    16.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    34.5,
+    38.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    51.5,
+    2.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    26.5,
+    29.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    8.5,
+    8.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    77.5,
+    40.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    52.5,
+    15.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    14.5,
+    62.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    12.5,
+    61.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    1.5,
+    40.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    52.5,
+    11.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    71.5,
+    13.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    12.5,
+    54.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    53.5,
+    44.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    24.5,
+    9.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    71.5,
+    19.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    44.5,
+    61.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    4.5,
+    19.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    61.5,
+    1.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    6.5,
+    39.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    9.5,
+    13.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    34.5,
+    24.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    37.5,
+    46.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    3.5,
+    57.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    3.5,
+    43.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    49.5,
+    61.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    72.5,
+    8.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    46.5,
+    2.6
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    46.5,
+    49.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    47.5,
+    29.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    20.5,
+    38.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    70.5,
+    52.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    10.5,
+    34.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    16.5,
+    45.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    10.5,
+    5.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    5.5,
+    55.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    78.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    6.5,
+    23.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    55.5,
+    29.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    14.5,
+    32.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    6.5,
+    5.6
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    31.5,
+    25.6
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    6.5,
+    27.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    14.5,
+    43.6
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    1.5,
+    47.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    1.5,
+    61.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    31.5,
+    45.6
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    1.5,
+    2.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    5.5,
+    57.6
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    47.5,
+    44.6
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    47.5,
+    50.6
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    52.5,
+    50.6
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    62.5,
+    53.6
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    46.5,
+    47.6
+   ]
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    49.5,
+    46.6
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "warden",
+   "name": "Warden Hollis Tackett",
+   "pos": [
+    40.5,
+    32.5
+   ],
+   "facing": "down",
+   "sprite": "warden",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "warden",
+   "name": "Warden Hollis Tackett",
+   "pos": [
+    51.5,
+    58.5
+   ],
+   "facing": "left",
+   "sprite": "warden",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "tnt_hunter",
+   "name": "Lyle, duck hunter",
+   "pos": [
+    31,
+    45.5
+   ],
+   "facing": "down",
+   "sprite": "hunter",
+   "when": [
+    "morning",
+    "dusk",
+    "night"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "pond_foam",
+   "name": "Foam on the north pond",
+   "pos": [
+    54,
+    28.3
+   ],
+   "prop": "clue_glow",
+   "text": "Where the ice meets the open water of the north pond, a rust-red foam has gathered. It is faintly warm to the back of the hand. The pond is the only water for miles that has not frozen.",
+   "methods": {
+    "bag": "pond_sample",
+    "photograph": "spoil",
+    "cast": "spoil",
+    "measure": "pond_reading"
+   }
+  },
+  {
+   "id": "spur_prints",
+   "name": "Marks on the rail",
+   "pos": [
+    48.5,
+    32.6
+   ],
+   "prop": "clue_prints",
+   "night": 4,
+   "text": "Three-toed marks in the snow along the rail spur, long and far apart, walking the rail like a tightrope. They start inside the fence and stop at the fence. They do not go over it or under it.",
+   "methods": {
+    "cast": "spur_cast",
+    "photograph": "spur_photo",
+    "bag": "spoil",
+    "measure": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    36,
+    63,
+    8,
+    1
+   ],
+   "to": "point_pleasant_route_62",
+   "at": [
+    12,
+    2
+   ],
+   "name": "Route 62"
+  }
+ ],
+ "interiors": {
+  "station": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "desk_grey",
+     "pos": [
+      3,
+      3.3
+     ]
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      3,
+      4.2
+     ]
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      6.5,
+      2.8
+     ],
+     "name": "CB base station",
+     "look": [
+      [
+       "june",
+       "A CB base and a scanner, tuned to the sheriff's band."
+      ],
+      [
+       "june",
+       "And a tape deck wired into the scanner. He's recording something."
+      ]
+     ]
+    },
+    {
+     "kind": "cabinet",
+     "pos": [
+      1.5,
+      1.9
+     ],
+     "name": "Cabinet",
+     "look": [
+      [
+       "player",
+       "Hunting licences by year, and a drawer of confiscated spotlights. Eleven of them."
+      ],
+      [
+       "teddy",
+       "He confiscates the spotlight and keeps the batteries. Smart."
+      ]
+     ]
+    },
+    {
+     "kind": "filing_tall",
+     "pos": [
+      8.5,
+      1.9
+     ],
+     "name": "Files",
+     "look": "EPA correspondence, 1983 to 1994, in a cabinet that will not shut. The top drawer is labelled 1966 and is empty."
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      5,
+      1.6
+     ],
+     "name": "Plant map",
+     "look": [
+      [
+       "ruth",
+       "A 1944 plant map, framed. Every igloo numbered. Somebody has circled 7 in pencil, a long time ago."
+      ],
+      [
+       "player",
+       "And drawn a line from 7 to the power plant."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8,
+      1.6
+     ],
+     "look": "A 1994 Division of Natural Resources calendar. February's duck is a canvasback. The 14th is circled: YOU."
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      7,
+      1.7
+     ],
+     "name": "Jars",
+     "look": [
+      [
+       "miriam",
+       "Mason jars of pond water, dated by month. They go from rust to red."
+      ],
+      [
+       "miriam",
+       "January's is still moving."
+      ]
+     ]
+    },
+    {
+     "kind": "fridge",
+     "pos": [
+      9,
+      4.5
+     ]
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      8.5,
+      7
+     ],
+     "look": "An army cot. He sleeps here more nights than he admits."
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      1,
+      5.5
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      1.5,
+      7
+     ],
+     "name": "Footlocker",
+     "look": "A footlocker: a shotgun, a flare gun, and a pair of chest waders with a hole in one knee."
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      2.5,
+      2.9
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      4,
+      2.9
+     ],
+     "look": "A trespass citation, half filled out. The name line says 'the kid from the paper'."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "warden",
+     "name": "Warden Hollis Tackett",
+     "pos": [
+      3,
+      2.6
+     ],
+     "facing": "down",
+     "sprite": "warden",
+     "when": [
+      "morning",
+      "night"
+     ]
+    }
+   ]
+  },
+  "igloo_1": {
+   "size": [
+    6,
+    5
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "box",
+     "pos": [
+      1.5,
+      1.6
+     ],
+     "name": "Box",
+     "look": "A box of 1971 yearbook pages, Point Pleasant High. One face has been cut out of every page."
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      4.5,
+      1.8
+     ]
+    },
+    {
+     "kind": "graffiti",
+     "pos": [
+      3,
+      1.2
+     ],
+     "look": [
+      [
+       "teddy",
+       "BOBBY K WAS HERE 93. Under it, DWIGHT + M, inside a heart, much older."
+      ],
+      [
+       "player",
+       "M."
+      ]
+     ]
+    }
+   ]
+  },
+  "igloo_2": {
+   "size": [
+    6,
+    5
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "bucket",
+     "pos": [
+      1.5,
+      3
+     ],
+     "name": "Bucket",
+     "look": "A bucket of frozen bait. The hunter's. Or the hunter's hunter's."
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      4,
+      1.6
+     ]
+    },
+    {
+     "kind": "graffiti",
+     "pos": [
+      3,
+      1.2
+     ],
+     "look": "PP 66 WAS HERE. Under it: NO IT WASN'T."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      4.5,
+      3.5
+     ],
+     "look": "Beer cartons. Stroh's. Flattened for sleeping on."
+    }
+   ]
+  },
+  "igloo_3": {
+   "size": [
+    7,
+    5
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "crate",
+     "pos": [
+      1.5,
+      2
+     ],
+     "name": "Crate",
+     "look": [
+      [
+       "player",
+       "A crate stencilled U.S. ARMY 1944. Empty but for a mitten."
+      ],
+      [
+       "ruth",
+       "A child's mitten. Red. Nobody brings a child out here."
+      ]
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      5.5,
+      1.8
+     ]
+    },
+    {
+     "kind": "rock_small",
+     "pos": [
+      3,
+      3.5
+     ],
+     "look": "Rubble from the roof. The roof is fine."
+    },
+    {
+     "kind": "graffiti",
+     "pos": [
+      4,
+      1.2
+     ],
+     "look": "A tally in chalk: nights, maybe. It stops at 13 and starts again at 1."
+    }
+   ]
+  },
+  "igloo_5": {
+   "size": [
+    6,
+    5
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "crate",
+     "pos": [
+      4.5,
+      2
+     ],
+     "look": "Decoys. A dozen mallards and one swan, which is illegal and also enormous."
+    },
+    {
+     "kind": "pillows",
+     "pos": [
+      1.5,
+      3.3
+     ],
+     "look": "A sleeping bag and pillow. Somebody has been sleeping inside the fence line, outside the fence."
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      2,
+      1.6
+     ],
+     "look": "Bottles on a shelf nailed into the concrete. Somebody made a home here. Somebody left in a hurry and took the good bottle."
+    }
+   ]
+  },
+  "igloo_6": {
+   "size": [
+    7,
+    5
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "chest",
+     "pos": [
+      1.5,
+      2
+     ],
+     "name": "Tackle box",
+     "look": [
+      [
+       "dale",
+       "A tackle box of rifle casings, sorted by calibre."
+      ],
+      [
+       "miriam",
+       "Sorted. Out here. Someone has a lot of evenings."
+      ]
+     ]
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      5,
+      1.6
+     ]
+    },
+    {
+     "kind": "graffiti",
+     "pos": [
+      3.5,
+      1.2
+     ],
+     "look": [
+      [
+       "player",
+       "A map of the igloos scratched into the wall, with 7 circled."
+      ],
+      [
+       "teddy",
+       "Everyone circles 7. Nobody says why."
+      ]
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      5.5,
+      3.5
+     ]
+    }
+   ]
+  },
+  "igloo_7": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "lumber",
+     "pos": [
+      2,
+      2.5
+     ],
+     "name": "Pallets",
+     "look": "Old pallets. The frost on them is thicker than the frost on the walls, as if the cold came from inside the wood."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      6.5,
+      2.2
+     ],
+     "name": "Crate",
+     "look": [
+      [
+       "player",
+       "A crate with a tarp over it. Under the tarp: a radio, batteries, a hunter's thermos."
+      ],
+      [
+       "june",
+       "Somebody else has been listening."
+      ]
+     ]
+    },
+    {
+     "kind": "clue_cans",
+     "pos": [
+      6,
+      4.5
+     ],
+     "name": "Beer cans",
+     "look": [
+      [
+       "teddy",
+       "Beer cans, a dozen. Lyle's brand."
+      ],
+      [
+       "miriam",
+       "Every one of them crushed flat. From the top. Like something sat on them."
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      1.5,
+      4.8
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "igloo7_glyph",
+     "name": "The glyph on the back wall",
+     "pos": [
+      4,
+      1.4
+     ],
+     "prop": "clue_glyph",
+     "night": 4,
+     "text": "Scratched into the concrete of the back wall, head height: a shape like a bird's foot inside a circle, and three short marks beside it. The scratches are deep and the dust is fresh.",
+     "methods": {
+      "photograph": "igloo_glyph_photo",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "igloo7_scorch",
+     "name": "Scorched concrete",
+     "pos": [
+      4,
+      3.4
+     ],
+     "prop": "clue_ring",
+     "night": 4,
+     "text": "A ring on the floor where the frost has gone and the concrete under it has gone black. It is still warm. The air inside the ring smells like the inside of a radio.",
+     "methods": {
+      "measure": "igloo_scorch_reading",
+      "photograph": "igloo_scorch_photo",
+      "bag": "spoil",
+      "cast": "spoil"
+     }
+    },
+    {
+     "id": "igloo7_vest",
+     "name": "A red reflective vest",
+     "pos": [
+      7,
+      4.5
+     ],
+     "prop": "clue_vest",
+     "text": "A hunter's blaze-orange vest with red reflective tape, dropped by the door. In a flashlight the tape throws back two bright red bars, the size and height of eyes.",
+     "methods": {
+      "bag": "hunter_vest",
+      "photograph": "vest_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "igloo_8": {
+   "size": [
+    6,
+    5
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "crate",
+     "pos": [
+      1.5,
+      2
+     ],
+     "look": "A crate of EPA sample jars, numbered and empty. Number 112 is missing."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      4.5,
+      3.5
+     ]
+    },
+    {
+     "kind": "graffiti",
+     "pos": [
+      3,
+      1.2
+     ],
+     "look": [
+      [
+       "vera",
+       "The circle with three lines, again. This one is scratched, not painted."
+      ],
+      [
+       "vera",
+       "It is older than the paint on the outside. Older than the paint on anything."
+      ]
+     ]
+    }
+   ]
+  },
+  "igloo_10": {
+   "size": [
+    6,
+    5
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "barrel",
+     "pos": [
+      1.5,
+      1.8
+     ],
+     "look": "A drum with the top cut off and a fire laid in it, never lit."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      4.5,
+      1.6
+     ],
+     "name": "Box",
+     "look": [
+      [
+       "player",
+       "A box of Register back issues, December 1967. Water-damaged, all the same date."
+      ],
+      [
+       "teddy",
+       "The bridge. Somebody brought every copy out here and left them."
+      ]
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      3,
+      3.5
+     ]
+    }
+   ]
+  },
+  "igloo_11": {
+   "size": [
+    7,
+    5
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "table_rough",
+     "pos": [
+      3.5,
+      2.2
+     ],
+     "name": "Table",
+     "look": [
+      [
+       "player",
+       "A table made of a door. A duck call, a candle, and a Mason County phone book open to M."
+      ],
+      [
+       "june",
+       "Mason. Twelve of them."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      3.5,
+      3.4
+     ]
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      5.5,
+      1.6
+     ],
+     "look": "Bottles of the red pond water, corked. Someone is collecting it. Not the EPA; the EPA uses jars."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      1.5,
+      2
+     ],
+     "look": "A crate of pallet wood for the fire outside. Somebody walks this in from inside the fence every night."
+    }
+   ]
+  },
+  "plant": {
+   "size": [
+    16,
+    12
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "cement_crack",
+    "cement_b"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "workbench",
+     "pos": [
+      2,
+      2.7
+     ],
+     "name": "Workbench",
+     "look": [
+      [
+       "player",
+       "A bench of dead gauges and a vice. In the vice, a feather, clamped like someone meant to study it."
+      ],
+      [
+       "dale",
+       "That's not a crane feather. I'd know. I'd want to know."
+      ]
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      4,
+      2.7
+     ]
+    },
+    {
+     "kind": "pillar",
+     "pos": [
+      5,
+      2.7
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      6,
+      2.7
+     ]
+    },
+    {
+     "kind": "fence_iron",
+     "pos": [
+      8,
+      2.6
+     ],
+     "name": "Sump stair railing",
+     "gate": "plant_lower"
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      10,
+      2.7
+     ]
+    },
+    {
+     "kind": "pillar",
+     "pos": [
+      11,
+      2.7
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      12,
+      2.7
+     ]
+    },
+    {
+     "kind": "table_workshop",
+     "pos": [
+      14,
+      2.7
+     ],
+     "name": "Workshop table",
+     "look": "A table of switchgear parts and a plant log, last entry 1945. Under it, in a different hand and a different century: KEEP THE LIGHTS OFF."
+    },
+    {
+     "kind": "drain",
+     "pos": [
+      8,
+      1.2
+     ],
+     "name": "The boiler pit",
+     "look": [
+      [
+       "player",
+       "Stairs down into black water. The boiler pit is flooded waist deep and the surface is steaming."
+      ],
+      [
+       "june",
+       "The sump pump is running. Listen. There is no power in this building."
+      ],
+      [
+       "elijah",
+       "Don't go down with the lights on."
+      ]
+     ]
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      14,
+      1.5
+     ],
+     "name": "Service ladder",
+     "look": "A service ladder up to the catwalk. The catwalk ends in the dark and does not come back."
+    },
+    {
+     "kind": "pillar",
+     "pos": [
+      4,
+      7.7
+     ]
+    },
+    {
+     "kind": "pillar",
+     "pos": [
+      12,
+      7.7
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      1.5,
+      6
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      1.5,
+      9
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      14.5,
+      6
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      14.5,
+      9.2
+     ],
+     "look": "A drum of lamp oil, 1944, three-quarters full. Someone has been dipping from it."
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      8,
+      6
+     ],
+     "name": "Nest",
+     "look": [
+      [
+       "dale",
+       "Insulation and feathers piled into a ring the size of a bathtub."
+      ],
+      [
+       "dale",
+       "That's a nest. I don't say that lightly. I don't say it at all."
+      ]
+     ]
+    },
+    {
+     "kind": "graffiti",
+     "pos": [
+      11,
+      1.2
+     ],
+     "look": "GUS WAS HERE, DEC 67, in grease pencil, neat as a ledger."
+    },
+    {
+     "kind": "clue_cold",
+     "pos": [
+      12,
+      4.5
+     ],
+     "name": "Dead dials",
+     "look": [
+      [
+       "june",
+       "A panel of dead gauges. The needles are all on the same number."
+      ],
+      [
+       "june",
+       "There is no number on the dial that they are on."
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      5.5,
+      10.5
+     ],
+     "look": "A box of flashbulbs. 1966 flashbulbs, every one of them fired."
+    }
+   ],
+   "clues": [
+    {
+     "id": "plant_feathers",
+     "name": "Feathers in the nest",
+     "pos": [
+      8,
+      7.3
+     ],
+     "prop": "clue_fur",
+     "night": 5,
+     "text": "Grey feathers, each longer than your forearm, worked into the insulation. The quills are hollow and warm.",
+     "methods": {
+      "bag": "plant_feathers",
+      "photograph": "plant_feathers_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "plant_cold",
+     "name": "The cold spot",
+     "pos": [
+      3.5,
+      5
+     ],
+     "prop": "clue_cold",
+     "night": 5,
+     "text": "A column of cold between the bench and the pillar, sharp-edged as a doorway. Your breath stops showing inside it; it is too cold even for that.",
+     "methods": {
+      "measure": "plant_cold_reading",
+      "photograph": "spoil",
+      "bag": "spoil",
+      "cast": "spoil"
+     }
+    },
+    {
+     "id": "plant_glyph",
+     "name": "The glyph on the switchgear",
+     "pos": [
+      13.5,
+      4
+     ],
+     "prop": "clue_glyph",
+     "night": 5,
+     "text": "The bird's-foot in a circle again, scratched across the face of a dead switch panel. Three marks beside it, and a fourth begun.",
+     "methods": {
+      "photograph": "plant_glyph_photo",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "plant_prints",
+     "name": "Prints in the dust",
+     "pos": [
+      10,
+      9.5
+     ],
+     "prop": "clue_prints",
+     "night": 5,
+     "text": "Three-toed prints in the concrete dust, walking from the boiler stairs to the nest and back. The stride is eight feet. Nothing on two legs walks like that.",
+     "methods": {
+      "cast": "plant_prints_cast",
+      "photograph": "plant_prints_photo",
+      "bag": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  }
+ }
+}

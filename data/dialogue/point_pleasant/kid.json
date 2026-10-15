@@ -1,0 +1,260 @@
+{
+ "id": "kid",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kid",
+   "lines": [
+    [
+     "kid",
+     "You the monster people? I saw it. Red eyes. Big as a truck. Out at the igloos."
+    ],
+    [
+     "kid",
+     "Everybody knows. Ask anybody."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "rapport",
+     "threshold": 6,
+     "line": "He rehearsed that. He is waiting for you to be impressed, and a little worried that you will be."
+    },
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "Big as a truck. At the diner it was a Buick. Stories grow in the retelling, but this one grew in a day and a half."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He is cold. He has been standing on this corner a while. Somebody told him to stand here and say that to strangers.",
+     "flag": "kid_told_to_stand"
+    }
+   ],
+   "options": [
+    {
+     "tone": "wry",
+     "text": "Big as a truck. What kind of truck?",
+     "next": "truck"
+    },
+    {
+     "tone": "kind",
+     "text": "You're freezing. Hot chocolate at Rosie's, on us.",
+     "next": "cocoa",
+     "trust": 1
+    },
+    {
+     "check": {
+      "voice": "bluff",
+      "kind": "white",
+      "difficulty": 6
+     },
+     "text": "We're from the paper. A dollar a quote.",
+     "pass": "dollar",
+     "fail": {
+      "next": "dollar_fail",
+      "trust": {
+       "kid": -1
+      }
+     }
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "Those are bicycle reflectors in your pocket.",
+     "pass": "reflectors",
+     "fail": {
+      "next": "reflectors_fail"
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Say nothing. Kids hate that.)",
+     "next": "bored",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_kid"
+   }
+  },
+  "truck": {
+   "speaker": "kid",
+   "lines": [
+    [
+     "kid",
+     "...A big one."
+    ],
+    [
+     "kid",
+     "Okay, a car. A big car. It was dark."
+    ],
+    [
+     "teddy",
+     "First rule of the trade, kid. Never give a size."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "kid": 1
+    }
+   }
+  },
+  "cocoa": {
+   "speaker": "kid",
+   "lines": [
+    [
+     "kid",
+     "I'm not supposed to go in Rosie's. Marlene says I'm bad for business."
+    ],
+    [
+     "kid",
+     "...With marshmallows? Okay. Okay, but I'm not saying anything in there. Bobby's cousin eats there."
+    ],
+    [
+     "ruth",
+     "Two marshmallows and he'll say plenty. I raised four."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "kid_cocoa"
+   }
+  },
+  "dollar": {
+   "speaker": "kid",
+   "lines": [
+    [
+     "kid",
+     "A dollar? Bobby only gives a dollar. You give two and I'll say it was purple."
+    ],
+    [
+     "kid",
+     "...Wait. You're not from the paper. Okay. Okay, Bobby gives me a dollar to say I saw it. I didn't see it."
+    ],
+    [
+     "kid",
+     "I saw the dog, though. The big one with the wrong legs. Out behind the church. I'm not going back there for any dollar."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "kid_dog"
+   }
+  },
+  "dollar_fail": {
+   "speaker": "kid",
+   "lines": [
+    [
+     "kid",
+     "My mom says don't talk to reporters. She says the reporters are why Grandpa don't go to the diner."
+    ],
+    [
+     "kid",
+     "I gotta go."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "bluff",
+     "threshold": 5,
+     "line": "You told a ten-year-old you were a reporter, in this town. There was no worse badge to flash."
+    }
+   ],
+   "end": true
+  },
+  "reflectors": {
+   "speaker": "kid",
+   "lines": [
+    [
+     "kid",
+     "They're Bobby's. I'm supposed to put 'em on the new board tonight. He gave me a flashlight too."
+    ],
+    [
+     "kid",
+     "I'm not going. I'm not going out there again. Not after Thursday. You can tell him, I don't care."
+    ],
+    [
+     "dale",
+     "Thursday. Something was out there Thursday that scared the kid off the prank. That's worth more than the prank."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "kid_quit_prank",
+    "trust": {
+     "kid": 1
+    }
+   }
+  },
+  "reflectors_fail": {
+   "speaker": "kid",
+   "lines": [
+    [
+     "kid",
+     "They're for my bike. Everybody's got 'em. Harmon's sells 'em."
+    ],
+    [
+     "kid",
+     "...You want to see something real, go behind the church. The lot. Don't tell Reverend Addy I said so. He doesn't like people back there since Thursday."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "kid_church_hint"
+   }
+  },
+  "bored": {
+   "speaker": "kid",
+   "lines": [
+    [
+     "kid",
+     "..."
+    ],
+    [
+     "kid",
+     "...Are you just gonna stand there?"
+    ],
+    [
+     "kid",
+     "Fine. It ain't out at the igloos. That's what Bobby wants everybody to think. It's in town. It's been in town since Thursday. That's all, I'm done, bye."
+    ],
+    [
+     "miriam",
+     "That's the first thing anyone's told us today that they weren't paid to say."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "kid_in_town"
+   }
+  },
+  "hub": {
+   "speaker": "kid",
+   "repeat": true,
+   "lines": [
+    [
+     "kid",
+     "What? I gotta be home by dark. Mom's rule since Thursday."
+    ]
+   ],
+   "options": [
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Go home before dark, then."
+    }
+   ]
+  }
+ }
+}

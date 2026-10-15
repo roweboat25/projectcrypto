@@ -1,388 +1,3233 @@
 {
- "_doc": "Main Street district of Point Pleasant. Units are meters; x runs east, z runs south. Buildings are boxes for now; door is the side the entrance faces (n/s/e/w). npcs point at roster or case speakers.",
- "id": "main_street",
+ "_doc": "Point Pleasant, Main Street, as a 2D top-down map. Positions are in 32px tiles. fills paint ground rectangles [x,y,w,h] with a tile name or a list of tiles to pick from; facades are storefronts from assets/facades (pos is the bottom-left tile); props come from assets/props (pos is the bottom-centre tile); npcs, clues and doors use the case data. Interiors are small rooms the party enters through a facade door; each lists its own floor, wall colour, props, npcs and clues, and the exit is the bottom row.",
+ "id": "point_pleasant_main_street",
  "name": "Main Street",
  "case": "point_pleasant",
  "size": [
-  64,
-  48
+  60,
+  40
  ],
  "spawn": [
-  0,
-  0,
-  2
+  9.5,
+  24.5
  ],
- "roads": [
+ "ground": "snow",
+ "fills": [
   {
-   "pos": [
+   "rect": [
     0,
+    18,
+    60,
+    4
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    19,
+    60,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    0,
+    17,
+    60,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    22,
+    60,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    33,
+    15,
+    12,
     2
    ],
-   "size": [
-    64,
-    6
+   "tiles": [
+    "cement",
+    "cement_b"
    ]
   },
   {
-   "pos": [
-    -14,
-    -12
+   "rect": [
+    0,
+    31,
+    60,
+    3
    ],
-   "size": [
-    5,
-    22
+   "tiles": [
+    "dirt",
+    "dirt2",
+    "dirt3",
+    "dirt_snow",
+    "dirt4"
    ]
   },
   {
-   "pos": [
+   "rect": [
+    36,
+    24,
+    6,
+    1
+   ],
+   "tiles": [
+    "water",
+    "water2",
+    "water3"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    37,
+    60,
+    3
+   ],
+   "tiles": [
+    "water",
+    "water2",
+    "water3"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    36,
+    60,
+    1
+   ],
+   "tiles": [
+    "water_snow_top",
+    "water_snow_top2",
+    "water_snow_top3"
+   ]
+  },
+  {
+   "rect": [
     16,
-    14
+    8,
+    41,
+    3
    ],
-   "size": [
-    5,
-    22
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
    ]
+  },
+  {
+   "rect": [
+    16,
+    9,
+    41,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    16,
+    7,
+    41,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    16,
+    11,
+    41,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    31,
+    1,
+    4,
+    16
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    28,
+    1,
+    3,
+    4
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    35,
+    1,
+    1,
+    4
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    51,
+    2,
+    2,
+    5
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    23,
+    2,
+    8
+   ],
+   "tiles": [
+    "dirt",
+    "dirt2",
+    "dirt_snow",
+    "dirt_snow2"
+   ]
+  },
+  {
+   "rect": [
+    57,
+    23,
+    2,
+    8
+   ],
+   "tiles": [
+    "dirt",
+    "dirt2",
+    "dirt_snow",
+    "dirt_snow2"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    28,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    36,
+    0,
+    24,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    0,
+    1,
+    23
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    31,
+    1,
+    9
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    59,
+    0,
+    1,
+    23
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    59,
+    33,
+    1,
+    7
+   ],
+   "tiles": "void"
   }
  ],
- "buildings": [
+ "scatter": [
+  {
+   "rect": [
+    1,
+    1,
+    15,
+    16
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow_drift3",
+    "snow_rock"
+   ],
+   "chance": 0.06
+  },
+  {
+   "rect": [
+    45,
+    1,
+    13,
+    6
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow_drift3"
+   ],
+   "chance": 0.05
+  },
+  {
+   "rect": [
+    1,
+    23,
+    58,
+    13
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow2",
+    "snow3"
+   ],
+   "chance": 0.08
+  }
+ ],
+ "facades": [
   {
    "id": "diner",
    "name": "Rosie's Diner",
    "pos": [
-    -22,
-    -6
-   ],
-   "size": [
-    10,
-    3.4,
-    7
-   ],
-   "color": "7a3b2e",
-   "roof": "3d4a5c",
-   "door": "s",
-   "neon": "e0303c"
+    4,
+    17
+   ]
   },
   {
    "id": "register",
    "name": "The Register",
    "pos": [
-    -4,
-    -7
-   ],
-   "size": [
-    8,
-    5.0,
-    8
-   ],
-   "color": "8a5a3a",
-   "roof": "4a4e58",
-   "door": "s"
+    15,
+    17
+   ]
   },
   {
    "id": "sheriff",
    "name": "Sheriff's Office",
    "pos": [
-    8,
-    -6.5
-   ],
-   "size": [
-    8,
-    3.6,
-    7
-   ],
-   "color": "cfc4a8",
-   "roof": "3d4a5c",
-   "door": "s"
+    24,
+    17
+   ]
   },
   {
    "id": "gas",
    "name": "Mason Gas",
    "pos": [
-    24,
-    -6
+    35,
+    15
+   ]
+  },
+  {
+   "id": "garage",
+   "name": "Kessler Garage",
+   "pos": [
+    46,
+    17
    ],
-   "size": [
-    7,
-    3.0,
-    6
-   ],
-   "color": "d8e2ec",
-   "roof": "8a2a2a",
-   "door": "s",
-   "neon": "e8a64a"
+   "locked": "Chained shut. A bicycle reflector hangs from the padlock."
   },
   {
    "id": "motel",
    "name": "Riverview Motel",
    "pos": [
-    -24,
-    14
-   ],
-   "size": [
-    14,
-    4.6,
-    6
-   ],
-   "color": "5e6e72",
-   "roof": "2a2a30",
-   "door": "n",
-   "neon": "e0303c"
+    2,
+    31
+   ]
   },
   {
    "id": "church",
    "name": "First Methodist",
    "pos": [
-    2,
-    17
-   ],
-   "size": [
-    7,
-    6.5,
-    10
-   ],
-   "color": "e6e2d4",
-   "roof": "4a4e58",
-   "door": "n"
+    20,
+    31
+   ]
   },
   {
-   "id": "house_a",
-   "name": "House",
+   "id": "variety",
+   "facade": "variety",
+   "name": "Harmon's Variety",
    "pos": [
-    26,
-    14
+    51,
+    17
+   ]
+  },
+  {
+   "id": "hotel",
+   "facade": "hotel",
+   "name": "The Lowe Hotel",
+   "pos": [
+    17,
+    7
+   ]
+  },
+  {
+   "id": "library",
+   "facade": "library",
+   "name": "Mason County Library",
+   "pos": [
+    37,
+    7
+   ]
+  }
+ ],
+ "houses": [
+  {
+   "id": "house_a",
+   "name": "Walt Pruitt's house",
+   "prop": "house_brick",
+   "pos": [
+    37,
+    31
    ],
-   "size": [
-    7,
-    3.6,
-    6
-   ],
-   "color": "cfc4a8",
-   "roof": "7a3b2e",
-   "door": "w"
+   "door": [
+    35.5,
+    31
+   ]
   },
   {
    "id": "house_b",
-   "name": "House",
+   "name": "The Kessler house",
+   "prop": "house_panel",
    "pos": [
-    -2,
-    -20
+    48.5,
+    31
    ],
-   "size": [
-    6,
-    3.2,
-    6
+   "door": [
+    49.5,
+    31
    ],
-   "color": "9ab0c8",
-   "roof": "3d4a5c",
-   "door": "s"
+   "locked": "Nobody answers. Somebody is watching from upstairs."
   }
- ],
- "lamps": [
-  [
-   -26,
-   5.5
-  ],
-  [
-   -16,
-   5.5
-  ],
-  [
-   -6,
-   5.5
-  ],
-  [
-   4,
-   5.5
-  ],
-  [
-   14,
-   5.5
-  ],
-  [
-   24,
-   5.5
-  ],
-  [
-   -12,
-   -1.5
-  ],
-  [
-   10,
-   -1.5
-  ],
-  [
-   20,
-   -1.5
-  ]
- ],
- "trees": [
-  [
-   -30,
-   -18
-  ],
-  [
-   -26,
-   -21
-  ],
-  [
-   -18,
-   -20
-  ],
-  [
-   12,
-   -20
-  ],
-  [
-   18,
-   -18
-  ],
-  [
-   28,
-   -20
-  ],
-  [
-   30,
-   2
-  ],
-  [
-   -31,
-   0
-  ],
-  [
-   8,
-   -22
-  ],
-  [
-   12,
-   24
-  ],
-  [
-   -12,
-   25
-  ],
-  [
-   30,
-   25
-  ],
-  [
-   -30,
-   25
-  ]
  ],
  "props": [
   {
-   "kind": "car",
+   "kind": "lamp_post",
    "pos": [
-    -17,
-    -1
-   ],
-   "color": "6a3a5a"
-  },
-  {
-   "kind": "car",
-   "pos": [
-    22,
-    -1.2
-   ],
-   "color": "3f6b4f"
-  },
-  {
-   "kind": "pump",
-   "pos": [
-    22,
-    -2.6
+    14,
+    17.5
    ]
   },
   {
-   "kind": "pump",
+   "kind": "lamp_post",
    "pos": [
-    26,
-    -2.6
+    23,
+    17.5
    ]
   },
   {
-   "kind": "phone",
+   "kind": "lamp_post",
    "pos": [
-    -9,
-    -2.2
+    32,
+    17.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    45.5,
+    17.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    52,
+    17.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    3,
+    23
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    29,
+    23
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    55,
+    23
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    15,
+    31.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    27,
+    31.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    43,
+    31.5
    ]
   },
   {
    "kind": "mailbox",
    "pos": [
+    13,
+    16.8
+   ],
+   "look": "Last collection 4:30 p.m. Somebody has scratched a pair of eyes into the paint, and somebody else has tried to scratch them out."
+  },
+  {
+   "kind": "phone_booth",
+   "pos": [
+    22,
+    16.9
+   ],
+   "look": [
+    [
+     "player",
+     "The booth calls the Office. Ruth picks up on the second ring whatever the hour and asks if we've eaten."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    44.5,
+    16.9
+   ],
+   "look": "The Mason Gas bin. Oil rags, a Register from Tuesday, and a paper cup from the diner with lipstick on it. Earl doesn't wear lipstick."
+  },
+  {
+   "kind": "gas_pump",
+   "pos": [
+    41,
+    16.5
+   ]
+  },
+  {
+   "kind": "gas_pump",
+   "pos": [
+    43,
+    16.5
+   ]
+  },
+  {
+   "kind": "gas_sign",
+   "pos": [
+    34,
+    16.9
+   ],
+   "look": [
+    [
+     "miriam",
+     "The Mason Gas sign. Red, tall, and it hasn't blinked since 1967. Remember that when somebody blames it."
+    ]
+   ]
+  },
+  {
+   "kind": "wagon",
+   "pos": [
+    5.5,
+    22.6
+   ],
+   "look": [
+    [
+     "teddy",
+     "The Office's station wagon. Three hundred thousand miles, a heater that works on Tuesdays, and Ruth's casserole dish still in the back."
+    ]
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    27,
+    22.6
+   ],
+   "look": "A pickup with a church bumper sticker and a shotgun rack. The rack is empty. The ashtray is not."
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    38.5,
+    22.6
+   ],
+   "look": [
+    [
+     "june",
+     "Dark sedan. No plates. The engine's warm."
+    ],
+    [
+     "teddy",
+     "June. Keep walking."
+    ]
+   ]
+  },
+  {
+   "kind": "buick",
+   "pos": [
     5,
-    -2.2
+    30.6
+   ],
+   "look": [
+    [
+     "player",
+     "Marlene's Buick. There is a dent in the roof the size of a dinner plate, pushed in from above."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    22.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    25.5,
+    24.5
+   ],
+   "look": "The church fence. Two metres of wire and a sign: PLEASE DO NOT FEED THE DEER. Somebody has added: OR ANYTHING ELSE."
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    28.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    46.5,
+    25.5
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    49.5,
+    25.5
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    2.5,
+    8
+   ]
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    6,
+    6
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    11,
+    5
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    14,
+    9
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    10.5,
+    12
+   ]
+  },
+  {
+   "kind": "tree_tall",
+   "pos": [
+    45,
+    13.9
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    14.5,
+    1.9
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    57,
+    12
+   ]
+  },
+  {
+   "kind": "tree_snow2",
+   "pos": [
+    16,
+    27
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    31,
+    27
+   ],
+   "look": [
+    [
+     "dale",
+     "Dead elm. The bark's stripped head-high all the way round."
+    ],
+    [
+     "miriam",
+     "Deer."
+    ],
+    [
+     "dale",
+     "Deer don't strip up."
+    ]
+   ]
+  },
+  {
+   "kind": "pine_small",
+   "pos": [
+    43,
+    27
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    55,
+    28
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    2,
+    35.5
+   ]
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    30,
+    35.8
+   ],
+   "look": "The tallest pine on the bank. There is a rope swing in it from a summer nobody remembers."
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    44,
+    35.5
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    57,
+    35.5
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    18,
+    23.5
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    33,
+    23.5
+   ]
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    53,
+    30
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    8,
+    27
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    40,
+    29
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    12,
+    35
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    20,
+    35.5
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    50,
+    35
+   ],
+   "look": [
+    [
+     "ruth",
+     "The old flood stone. The 1913 mark is at my shoulder. The 1937 mark is over my head."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    25,
+    35.5
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    41.5,
+    13.9
+   ],
+   "look": "Kessler Garage overflow. Spark plugs, a hubcap, and a child's bicycle with no reflectors on it."
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    42.5,
+    13.9
+   ],
+   "look": "A burn barrel. Somebody has been burning newspapers. November 1966, by the one corner left."
+  },
+  {
+   "kind": "newspaper_box",
+   "pos": [
+    2.5,
+    16.9
+   ],
+   "name": "Newspaper box",
+   "look": [
+    [
+     "teddy",
+     "The Register, morning edition. 'COUNTY BUDGET PASSES.' Below the fold, smaller: 'Lights reported on Route 62 again.'"
+    ],
+    [
+     "miriam",
+     "Again is doing a lot of work in that sentence."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    15.5,
+    22.7
+   ],
+   "look": "A bench with a plaque: IN MEMORY OF THE 46. Somebody sits here every morning. The snow is worn through to the slats on one side only."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    31,
+    22.7
+   ],
+   "look": [
+    [
+     "elijah",
+     "Cold here. Colder than the bench should be."
+    ],
+    [
+     "teddy",
+     "It's February, Elijah."
+    ],
+    [
+     "elijah",
+     "Yes."
+    ]
+   ]
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    7.5,
+    23.9
+   ],
+   "look": [
+    [
+     "dale",
+     "Coonhound. Old. Somebody's fed her this morning and she's still asking."
+    ],
+    [
+     "ruth",
+     "That's Rosie's dog. Rosie's been dead since 1980. The dog is a different dog. The name isn't."
+    ]
+   ]
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    15,
+    29.9
+   ],
+   "look": [
+    [
+     "teddy",
+     "A snowman with two red reflectors for eyes."
+    ],
+    [
+     "june",
+     "That's not funny."
+    ],
+    [
+     "teddy",
+     "It's a little funny."
+    ]
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    14,
+    15.9
+   ],
+   "look": "A kid's bicycle leaned on the lamp post. No lock, no reflectors. The reflectors have been pried off."
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    30.5,
+    12.5
+   ]
+  },
+  {
+   "kind": "lamp_post_off",
+   "pos": [
+    35.5,
+    5.5
+   ],
+   "look": "The last street light before Route 62. Out. The bulb is fine. Earl changed it twice."
+  },
+  {
+   "kind": "roadside_cross",
+   "pos": [
+    29,
+    4.9
+   ],
+   "look": [
+    [
+     "ruth",
+     "A white cross at the edge of the road. No name. Fresh plastic flowers, this week's."
+    ],
+    [
+     "elijah",
+     "It isn't for a car accident."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    16.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    27.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    36,
+    7.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    45.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    22,
+    11.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    40,
+    11.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    50,
+    11.6
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    28.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    44.5,
+    7.8
+   ],
+   "look": "A library bin. Overdue notices, torn in half. One is addressed to A. Weller, December 1967. Twenty-six years of postage due."
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    25,
+    10.6
+   ],
+   "look": [
+    [
+     "teddy",
+     "A rental, Ohio plates, parked crooked in front of the Lowe. Somebody checked in with a bad feeling and a rush."
+    ]
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    42,
+    10.6
+   ],
+   "look": "A county truck with a plough blade and a bumper sticker: I BRAKE FOR NOTHING. The plough has not been used. The snow has."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    28.5,
+    11.7
+   ],
+   "look": [
+    [
+     "vera",
+     "A bench facing the hotel. Somebody has carved a circle with a line through it into the arm. Old, and not idle."
+    ]
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    26.5,
+    11.7
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    36.5,
+    11.7
+   ]
+  },
+  {
+   "kind": "planter",
+   "pos": [
+    16,
+    6.9
+   ],
+   "look": "The hotel's planter. Dead geraniums under snow and one lit cigarette, just set down."
+  },
+  {
+   "kind": "planter",
+   "pos": [
+    28,
+    6.9
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    46.5,
+    6.4
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    49.5,
+    6.4
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    55.5,
+    6.4
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    49.5,
+    3.9
+   ],
+   "name": "Courthouse bulletin board",
+   "look": [
+    [
+     "player",
+     "COUNTY NOTICES. Pinned over the top in a fresh hand: 'Whoever's buying up all the red bicycle reflectors at Harmon's, the Sheriff knows.' Under it, smaller: 'Bobby K. doesn't.'"
+    ],
+    [
+     "teddy",
+     "Today's rumour. Tomorrow's will be worse."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    47,
+    5.4
+   ],
+   "look": "The courthouse bench. Three cigarette butts and a tin of Skoal, ground into the snow with care."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    54.5,
+    5.4
+   ]
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    46.5,
+    2.9
+   ],
+   "look": [
+    [
+     "miriam",
+     "A snowman in a deputy's hat. The hat is real."
+    ],
+    [
+     "teddy",
+     "The deputy is going to want that back."
+    ]
+   ]
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    54,
+    2.4
+   ],
+   "look": [
+    [
+     "dale",
+     "Beagle. Belongs to the courthouse, the way a cat belongs to a barn."
+    ],
+    [
+     "elijah",
+     "He won't go near the board."
+    ]
+   ]
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    49,
+    13.9
+   ],
+   "look": "Stacked lumber behind the garage, and a tarp over something the shape of a board with two holes in it."
+  },
+  {
+   "kind": "bush_berry",
+   "pos": [
+    54,
+    12.4
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    52,
+    12.4
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    2.5,
+    12
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    14,
+    13.9
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    5,
+    4
    ]
   }
  ],
  "npcs": [
   {
-   "id": "marlene",
-   "name": "Marlene",
-   "pos": [
-    -20,
-    -1.8
-   ],
-   "coat": "d9737f",
-   "hair": "c9a24a",
-   "skin": "e6bd98"
-  },
-  {
-   "id": "editor",
-   "name": "The editor",
-   "pos": [
-    -3,
-    -2.4
-   ],
-   "coat": "e8e2d0",
-   "hair": "bfbfbf",
-   "skin": "e0b48e"
-  },
-  {
-   "id": "deputy",
-   "name": "The deputy",
-   "pos": [
-    9,
-    -2.2
-   ],
-   "coat": "7a6a3e",
-   "hair": "3a2a1a",
-   "skin": "d9a57d",
-   "hat": true
-  },
-  {
    "id": "earl",
    "name": "Earl",
    "pos": [
-    25,
-    -0.4
+    40,
+    15.5
    ],
-   "coat": "3a5a8a",
-   "hair": "6a4a2a",
-   "skin": "cf9a72",
-   "hat": true
-  },
-  {
-   "id": "clerk",
-   "name": "The motel clerk",
-   "pos": [
-    -22,
-    10
-   ],
-   "coat": "7a7f5a",
-   "hair": "4a3020",
-   "skin": "c99068"
+   "facing": "down",
+   "when": [
+    "day"
+   ]
   },
   {
    "id": "kid",
    "name": "A local kid",
    "pos": [
-    1.4,
-    0.8
+    12.5,
+    23.5
    ],
-   "coat": "c8452f",
-   "hair": "d8b35a",
-   "skin": "efc6a0"
+   "facing": "up",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "kid",
+   "name": "A local kid",
+   "pos": [
+    53,
+    4.5
+   ],
+   "facing": "left",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "ms_suit",
+   "name": "The man in the suit",
+   "pos": [
+    37.5,
+    23.4
+   ],
+   "facing": "left",
+   "sprite": "suit",
+   "when": [
+    "night"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "church_fur",
+   "name": "Something on the fence",
+   "pos": [
+    27,
+    24.6
+   ],
+   "text": "A tuft of grey fur caught on the top wire of the church fence. The wire is two metres up.",
+   "methods": {
+    "bag": "fence_fur",
+    "photograph": "fur_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   },
+   "prop": "clue_fur"
+  },
+  {
+   "id": "scorch",
+   "name": "A ring in the snow",
+   "pos": [
+    21.5,
+    23.4
+   ],
+   "text": "Behind the church the snow has melted in a ring two metres across. The grass under it is black. The air inside the ring feels wrong.",
+   "methods": {
+    "measure": "scorch_reading",
+    "photograph": "scorch_photo",
+    "bag": "spoil",
+    "cast": "spoil"
+   },
+   "prop": "clue_ring"
+  },
+  {
+   "id": "runoff",
+   "name": "Glow in the ditch",
+   "pos": [
+    39,
+    25.2
+   ],
+   "text": "The ditch behind Mason Gas is glowing. Faintly, blue-green, under a skin of ice.",
+   "methods": {
+    "bag": "runoff_sample",
+    "photograph": "spoil",
+    "cast": "spoil",
+    "measure": "spoil"
+   },
+   "prop": "clue_glow"
+  },
+  {
+   "id": "film",
+   "name": "Something in the snow",
+   "pos": [
+    8,
+    28
+   ],
+   "text": "A roll of 35mm film, half buried behind the motel. The canister is open. Whoever dropped it was running.",
+   "methods": {
+    "bag": "dropped_film",
+    "photograph": "spoil",
+    "cast": "spoil",
+    "measure": "spoil"
+   },
+   "prop": "clue_film"
+  },
+  {
+   "id": "claws",
+   "name": "Tracks by the Kessler house",
+   "pos": [
+    47,
+    28.5
+   ],
+   "text": "Three-toed tracks in the snow leading to the back door. Look closer: under each claw mark, pressed flat, the tread of a boot.",
+   "methods": {
+    "photograph": "boot_tell",
+    "cast": "boot_cast",
+    "bag": "spoil",
+    "measure": "spoil"
+   },
+   "prop": "clue_prints"
+  },
+  {
+   "id": "riverbank",
+   "name": "Prints in the frozen mud",
+   "pos": [
+    12,
+    35.6
+   ],
+   "text": "Where Main Street gives out toward the river, the mud is frozen hard and holds three-toed prints a foot long. A grey feather lies beside them.",
+   "methods": {
+    "cast": "prints_cast",
+    "bag": "feather_prints",
+    "photograph": "spoil",
+    "measure": "spoil"
+   },
+   "prop": "clue_prints"
+  }
+ ],
+ "interiors": {
+  "diner": {
+   "size": [
+    16,
+    10
+   ],
+   "floor": [
+    "tile_white",
+    "tile_white",
+    "tile_blue"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "fridge",
+     "pos": [
+      1,
+      2.6
+     ],
+     "look": "A walk-in's worth of pie filling and one shelf of Sunday hams. Taped inside the door: a 1966 price list, kept for the day they bring prices back."
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      2,
+      2.6
+     ]
+    },
+    {
+     "kind": "sink",
+     "pos": [
+      3,
+      2.6
+     ],
+     "look": [
+      [
+       "june",
+       "The tap drips in threes."
+      ],
+      [
+       "teddy",
+       "Everything drips in threes if you listen long enough."
+      ],
+      [
+       "june",
+       "No. It doesn't."
+      ]
+     ]
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      2,
+      3.3
+     ]
+    },
+    {
+     "kind": "time_clock",
+     "pos": [
+      1,
+      5.9
+     ],
+     "look": "The punch clock. Marlene's card has two punches a day, 5 a.m. and 9 p.m., and no punch out between them for twenty years."
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      6.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      8.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      10.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      12,
+      3
+     ]
+    },
+    {
+     "kind": "coffee_maker",
+     "pos": [
+      6,
+      2.4
+     ],
+     "look": [
+      [
+       "player",
+       "Bunn-O-Matic. The left pot has been on since morning and tastes like the bottom of the river."
+      ],
+      [
+       "ruth",
+       "Hush. It's warm."
+      ]
+     ]
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      9,
+      2.3
+     ]
+    },
+    {
+     "kind": "pie_case",
+     "pos": [
+      13,
+      2.6
+     ],
+     "look": [
+      [
+       "teddy",
+       "Coconut cream. Teddy has already decided."
+      ]
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      14,
+      1.6
+     ],
+     "name": "Corkboard",
+     "look": "The corkboard. A lost-cat flyer from 1991, still hopeful. A casserole sign-up for the bridge memorial. A fresh card in blue ballpoint: 'LIGHTS OVER THE WATER TOWER TUESDAY. NOT KIDS.' No name."
+    },
+    {
+     "kind": "jukebox",
+     "pos": [
+      15,
+      2.6
+     ],
+     "look": [
+      [
+       "teddy",
+       "Patsy Cline, twice."
+      ]
+     ]
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      8.5,
+      1.5
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      5,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      6,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      7,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      8,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      9,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      10,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      11,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      12,
+      4.2
+     ],
+     "look": "The eighth stool. Nobody sits on it. The regulars say it's Dwight Mason's and Dwight Mason hasn't been in since Tuesday."
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      2,
+      9.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      5,
+      9.3
+     ],
+     "look": "Red vinyl, split and taped. Under the table, in marker: BOBBY K WAS HERE 1992. Under that, in a neater hand: SO WAS I."
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      11.5,
+      9.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      14.5,
+      9.3
+     ],
+     "look": [
+      [
+       "player",
+       "The corner booth. Four coffee rings on the table in a square, every morning, same four places."
+      ]
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      14.5,
+      7.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      14.5,
+      5.3
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      4.5,
+      1.6
+     ],
+     "look": "A feed-store calendar. February 1994. Marlene has circled the 15th and written 'again' in it."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "marlene",
+     "name": "Marlene",
+     "pos": [
+      8.5,
+      3.4
+     ],
+     "facing": "down",
+     "when": [
+      "morning",
+      "night"
+     ]
+    },
+    {
+     "id": "regulars",
+     "name": "The regulars",
+     "pos": [
+      13,
+      8.3
+     ],
+     "facing": "right",
+     "when": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "id": "deputy",
+     "name": "The deputy",
+     "pos": [
+      10,
+      5.3
+     ],
+     "facing": "up",
+     "when": [
+      "dusk"
+     ]
+    },
+    {
+     "id": "cook",
+     "name": "The cook",
+     "pos": [
+      2.5,
+      4.4
+     ],
+     "facing": "down",
+     "sprite": "cook",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "kid",
+     "name": "A local kid",
+     "pos": [
+      5,
+      7.4
+     ],
+     "facing": "up",
+     "when": [
+      "night"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "diner_receipt",
+     "name": "The kitchen bin",
+     "pos": [
+      3,
+      5.9
+     ],
+     "prop": "bin",
+     "text": "The kitchen bin. Grease, grounds, and under the liner where it has been for a very long time, a Rosie's check dated 11/17/66: four coffees. A phone number in pencil on the back, 675-2211. The cook is watching you.",
+     "methods": {
+      "photograph": "kitchen_receipt_1966",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "corkboard_card",
+     "name": "The morning's rumour card",
+     "pos": [
+      13.5,
+      2.9
+     ],
+     "prop": "paper",
+     "text": "An index card pinned to the corkboard. Blue ballpoint, block capitals: 'LIGHTS OVER THE WATER TOWER TUESDAY. NOT KIDS.' Pinned this morning; the hole is fresh.",
+     "methods": {
+      "photograph": "rumour_card",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "register": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "desk_long_wood",
+     "pos": [
+      4,
+      3.3
+     ]
+    },
+    {
+     "kind": "copy_machine",
+     "pos": [
+      8.5,
+      2.7
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      2,
+      1.7
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5,
+      1.7
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      8,
+      1.9
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      2,
+      5
+     ]
+    },
+    {
+     "kind": "paper2",
+     "pos": [
+      6.5,
+      5.5
+     ]
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      4,
+      4.2
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      1.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      9,
+      6.5
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      5,
+      2.9
+     ]
+    },
+    {
+     "kind": "typewriter",
+     "pos": [
+      3,
+      2.9
+     ],
+     "look": [
+      [
+       "teddy",
+       "An Underwood. The 'o' sticks. Every front page since 1952 has had slightly square zeroes."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "editor",
+     "name": "The editor",
+     "pos": [
+      4,
+      2.7
+     ],
+     "facing": "down",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    }
+   ]
+  },
+  "sheriff": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "tile_grey",
+    "tile_grey2"
+   ],
+   "wall": "blue",
+   "props": [
+    {
+     "kind": "desk_grey",
+     "pos": [
+      3,
+      3.3
+     ]
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      3,
+      4.2
+     ]
+    },
+    {
+     "kind": "cabinet",
+     "pos": [
+      1.5,
+      1.9
+     ]
+    },
+    {
+     "kind": "water_cooler",
+     "pos": [
+      5,
+      1.8
+     ]
+    },
+    {
+     "kind": "bars",
+     "pos": [
+      8,
+      2.4
+     ]
+    },
+    {
+     "kind": "bars",
+     "pos": [
+      9,
+      2.4
+     ]
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      8.5,
+      5.5
+     ]
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      6,
+      1.6
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      3.5,
+      2.9
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      1.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8,
+      1.6
+     ],
+     "look": "A sheriff's calendar from the tyre place. February 1994. Every Tuesday has a pencil tick and no note."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "deputy",
+     "name": "The deputy",
+     "pos": [
+      3,
+      2.7
+     ],
+     "facing": "down",
+     "when": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "id": "deputy",
+     "name": "The deputy",
+     "pos": [
+      6.5,
+      4.4
+     ],
+     "facing": "down",
+     "when": [
+      "night"
+     ]
+    }
+   ]
+  },
+  "motel": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "carpet_red",
+    "carpet_red",
+    "diamond_dark"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "counter",
+     "pos": [
+      2.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      4,
+      3
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      2.5,
+      2.3
+     ]
+    },
+    {
+     "kind": "vending",
+     "pos": [
+      8.5,
+      2.5
+     ]
+    },
+    {
+     "kind": "planter",
+     "pos": [
+      6,
+      2.6
+     ]
+    },
+    {
+     "kind": "sofa_brown",
+     "pos": [
+      7,
+      6.5
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      4,
+      2.3
+     ]
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      6,
+      1.6
+     ]
+    },
+    {
+     "kind": "bed_wood",
+     "pos": [
+      1.5,
+      7
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      8,
+      1.6
+     ],
+     "name": "Case board",
+     "look": "The motel's rates card, and under it our case board. Ruth has pinned a postcard to the corner so it looks like a vacation."
+    }
+   ],
+   "bed": [
+    1.5,
+    5.5
+   ],
+   "npcs": [
+    {
+     "id": "clerk",
+     "name": "The motel clerk",
+     "pos": [
+      3,
+      2.7
+     ],
+     "facing": "down",
+     "when": [
+      "morning",
+      "day",
+      "dusk",
+      "night"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "room14",
+     "name": "Room 14 window",
+     "pos": [
+      8.5,
+      4.5
+     ],
+     "requires": "room_14_key",
+     "locked_text": "The door to room 14 is locked. The clerk has the key.",
+     "text": "Room 14, second floor, no balcony. Three long scratches on the outside of the glass, at head height, as if something hung there.",
+     "methods": {
+      "photograph": "window_scratches",
+      "measure": "spoil",
+      "bag": "spoil",
+      "cast": "spoil"
+     },
+     "prop": "clue_scratch"
+    }
+   ]
+  },
+  "church": {
+   "size": [
+    10,
+    12
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "altar",
+     "pos": [
+      5,
+      3.5
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      1.5,
+      2.6
+     ]
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      8.5,
+      1.6
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      6
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      7,
+      6
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      8
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      7,
+      8
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      10
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      7,
+      10
+     ]
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      5,
+      10.8
+     ]
+    },
+    {
+     "kind": "bulletin_board",
+     "pos": [
+      8.5,
+      12.4
+     ],
+     "name": "Noticeboard",
+     "look": "The parish noticeboard. FOOD PANTRY TUESDAYS. BRIDGE MEMORIAL, DEC 15, 26 YEARS. A casserole sign-up with Marlene down for two and the deputy down for 'rolls (store)'."
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      1,
+      4.9
+     ],
+     "look": "The stair down to the basement pantry. The light switch is at the bottom. The pastor says that's a test of faith and the deacons say it's a code violation."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      1,
+      12.4
+     ],
+     "look": "Pantry stock, labelled by a parish hand: GREEN BEANS 1993, PEACHES 1993, PEACHES 1966. The 1966 peaches are on top."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      2,
+      12.3
+     ],
+     "name": "Pantry ledger",
+     "look": [
+      [
+       "player",
+       "The pantry sign-out ledger, 1965 to now. December 1967: a page torn out. January 1968: 'A. W., 2 cans soup, no address.' In the pastor's hand: 'Paid.'"
+      ],
+      [
+       "ruth",
+       "She was still here in January."
+      ]
+     ]
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      3,
+      12.4
+     ],
+     "look": "Lost and found. One mitten, one hymnal, one pair of men's black sunglasses, folded, new."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "pastor",
+     "name": "Reverend Addy",
+     "pos": [
+      6.5,
+      4.5
+     ],
+     "facing": "left",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    },
+    {
+     "id": "pastor",
+     "name": "Reverend Addy",
+     "pos": [
+      4,
+      11.3
+     ],
+     "facing": "up",
+     "when": [
+      "night"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "pantry_cans",
+     "name": "Cans on the pantry floor",
+     "pos": [
+      1,
+      10.6
+     ],
+     "prop": "clue_cans",
+     "text": "Three cans of peaches knocked off the bottom shelf, dented, each one punched clean through by something with three points. Grey hair in the punctures.",
+     "methods": {
+      "bag": "pantry_cans",
+      "photograph": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "house_a": {
+   "size": [
+    9,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "fireplace",
+     "pos": [
+      2.5,
+      3
+     ]
+    },
+    {
+     "kind": "armchair_grey",
+     "pos": [
+      5,
+      4
+     ]
+    },
+    {
+     "kind": "table_rough",
+     "pos": [
+      6.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      7,
+      1.7
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      1.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      8,
+      3
+     ]
+    },
+    {
+     "kind": "rug_blue",
+     "pos": [
+      4,
+      5.5
+     ]
+    },
+    {
+     "kind": "tabletop_photo",
+     "pos": [
+      7,
+      1.6
+     ],
+     "look": [
+      [
+       "player",
+       "A photo of Walt and a woman on the old bridge, 1965. She's laughing. He has written on the back: BEFORE."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "walt",
+     "name": "Walt Pruitt",
+     "pos": [
+      3.5,
+      4.6
+     ],
+     "facing": "right",
+     "when": [
+      "day",
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "walt",
+     "name": "Walt Pruitt",
+     "pos": [
+      3.5,
+      6.4
+     ],
+     "facing": "up",
+     "when": [
+      "morning"
+     ]
+    }
+   ]
+  },
+  "gas": {
+   "size": [
+    6,
+    5
+   ],
+   "floor": [
+    "tile_grey",
+    "tile_grey2",
+    "tile_dark"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "counter_l",
+     "pos": [
+      1,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      2.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      4,
+      3
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      2,
+      2.3
+     ],
+     "look": "The station phone. Earl has written one number on the wall above it in grease pencil and crossed it out four times. It's the same number each time."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      4,
+      1.7
+     ],
+     "name": "Map rack",
+     "look": [
+      [
+       "player",
+       "Road maps, West Virginia and Ohio, 1993. One is missing from the rack and the man in the suit has it."
+      ],
+      [
+       "teddy",
+       "Penrose got there first. He's going to keep getting there first until we stop following."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      1,
+      1.6
+     ],
+     "look": "A Snap-on calendar. Still on December. Not December 1993."
+    },
+    {
+     "kind": "vending",
+     "pos": [
+      1,
+      5.4
+     ],
+     "look": "Coke machine. Takes dimes. Somebody has jammed a 1966 dime in the slot and the machine has been thinking about it ever since."
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      5,
+      4.9
+     ],
+     "look": "Oil rags and a pair of black gloves, new, the price tag still on. Harmon's Variety, $4.99."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "earl",
+     "name": "Earl",
+     "pos": [
+      2.5,
+      3.4
+     ],
+     "facing": "down",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "ms_suit",
+     "name": "The man in the suit",
+     "pos": [
+      4.5,
+      3.4
+     ],
+     "facing": "left",
+     "sprite": "suit",
+     "when": [
+      "day"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "suit_map",
+     "name": "A map left open on the counter",
+     "pos": [
+      3.5,
+      3.5
+     ],
+     "prop": "paper",
+     "text": "A road map, folded open to the north of the county. The TNT area is circled in pencil. North of it, where the old power plant stands, a small neat tick, and the letters W.P.",
+     "methods": {
+      "photograph": "circled_map",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "variety": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "shelf",
+     "pos": [
+      2,
+      1.7
+     ],
+     "look": "The camping aisle. Film, batteries, flashlights, Sterno, and a sign: NO RETURNS ON FLASHLIGHTS AFTER DARK."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5,
+      1.7
+     ],
+     "look": [
+      [
+       "dale",
+       "Plaster, salt, sample bags. Harmon stocks for us like he's been expecting us."
+      ],
+      [
+       "miriam",
+       "He stocks for hunters, Dale."
+      ],
+      [
+       "dale",
+       "Same aisle."
+      ]
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      8,
+      1.7
+     ],
+     "look": "Dry goods, and one shelf of 'souvenirs': a postcard of the old bridge, a jar of bolts from it, a glass eye. The eye is not for sale."
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      1,
+      2.9
+     ],
+     "pickup": "film",
+     "look": "Kodak Gold, 24 exposures. Harmon keeps it cold."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      2,
+      2.9
+     ],
+     "pickup": "batteries",
+     "look": "D cells by the box."
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      3,
+      2.9
+     ],
+     "pickup": "sample_bags",
+     "look": "Sandwich bags, sold to hunters as 'evidence bags' at twice the price."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      4,
+      2.9
+     ],
+     "pickup": "salt",
+     "look": [
+      [
+       "vera",
+       "Rock salt, for the walk. It will serve."
+      ]
+     ]
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      6,
+      4
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      7.5,
+      4
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      9,
+      4
+     ]
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      8.5,
+      3.4
+     ],
+     "pickup": "coffee",
+     "look": "A thermos and paper cups. Honour box, fifty cents. The box has a dollar in it and an IOU from the deputy."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      9,
+      2.9
+     ],
+     "pickup": "bolt_cutters",
+     "name": "Behind the counter",
+     "look": [
+      [
+       "player",
+       "Behind the counter: a crate marked HARDWARE, DAY 2 STOCK. Bolt cutters on top, still tagged."
+      ],
+      [
+       "teddy",
+       "Harmon says the truck comes Thursday. The truck is right there."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8,
+      1.6
+     ]
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      2.5,
+      5.9
+     ],
+     "look": "Patent medicines and Mason jars. One jar is labelled TNT AREA WATER, DO NOT DRINK, $2. It glows a little."
+    },
+    {
+     "kind": "paper2",
+     "pos": [
+      1,
+      7.4
+     ],
+     "pickup": "pp_postcard",
+     "look": "A rack of postcards. 'Greetings from Point Pleasant, W. Va.' The bridge on the front is the old one."
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      8,
+      6.9
+     ],
+     "pickup": "plaster",
+     "look": "Casting plaster. Harmon sells more of it in winter than any town this size should."
+    },
+    {
+     "kind": "christmas_tree",
+     "pos": [
+      8.5,
+      7.9
+     ],
+     "look": [
+      [
+       "player",
+       "Harmon's tree. Lights still up, still on. The angel on top has had her face turned to the wall."
+      ],
+      [
+       "elijah",
+       "Someone did that on purpose."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "harmon",
+     "name": "Harmon",
+     "pos": [
+      7.5,
+      3.2
+     ],
+     "facing": "down",
+     "sprite": "harmon",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    }
+   ]
+  },
+  "hotel": {
+   "size": [
+    12,
+    8
+   ],
+   "floor": [
+    "carpet_navy",
+    "carpet_navy",
+    "diamond_dark"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "counter_l",
+     "pos": [
+      2,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "mailboxes",
+     "pos": [
+      2,
+      1.9
+     ],
+     "name": "Key rack",
+     "look": [
+      [
+       "player",
+       "Key pigeonholes, four rows. The fourth row has one hook and it is turned to the wall."
+      ],
+      [
+       "miriam",
+       "A hotel with a floor it won't rent. That's a story or it's plumbing."
+      ]
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      4,
+      2.3
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      3,
+      2.4
+     ],
+     "name": "The register",
+     "look": "The guest register, open to this week. Three names. One is a Columbus salesman who has written 'NO' in the box for 'How did you hear of us?'"
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      6.5,
+      2.6
+     ],
+     "look": "A lobby clock, stopped at 5:04. The Silver Bridge fell at 5:04 p.m. Nobody has wound it since and nobody is going to."
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      8,
+      1.6
+     ],
+     "look": [
+      [
+       "ruth",
+       "The Lowe in 1901, when it was new and the river was the way in. The paddleboat in the picture burned in 1911."
+      ]
+     ]
+    },
+    {
+     "kind": "sofa_grey",
+     "pos": [
+      2.5,
+      6.5
+     ],
+     "look": "A lobby sofa. Somebody slept on it last night. Somebody with very long legs and no shoes."
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      4.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "loveseat",
+     "pos": [
+      8.5,
+      6.9
+     ],
+     "look": "A loveseat under the window. The cushion on the left is worn through; the one on the right has never been sat on."
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      10.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      1,
+      4.9
+     ],
+     "pickup": "lowe_matchbook",
+     "look": "A basket of matchbooks. THE LOWE HOTEL, POINT PLEASANT, ON THE OHIO. Take one."
+    },
+    {
+     "kind": "rug_blue",
+     "pos": [
+      6,
+      5.5
+     ]
+    },
+    {
+     "kind": "planter",
+     "pos": [
+      9,
+      2.9
+     ]
+    },
+    {
+     "kind": "pillar",
+     "pos": [
+      9,
+      3.9
+     ]
+    },
+    {
+     "kind": "bars",
+     "pos": [
+      10,
+      4.9
+     ],
+     "name": "Stairs to the 4th floor",
+     "gate": "lowe_4th"
+    },
+    {
+     "kind": "planter",
+     "pos": [
+      11,
+      4.9
+     ]
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      11,
+      3.9
+     ],
+     "look": "The back stairs, roped off. The rope is velvet and the dust on it is twenty-six years deep."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "nightclerk",
+     "name": "Dewey Hatch, night clerk",
+     "pos": [
+      3.5,
+      3.4
+     ],
+     "facing": "down",
+     "sprite": "nightclerk",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "ms_dayclerk",
+     "name": "The day clerk",
+     "pos": [
+      3.5,
+      3.4
+     ],
+     "facing": "down",
+     "sprite": "teen",
+     "when": [
+      "morning",
+      "day"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "founder_card",
+     "name": "Room 412",
+     "pos": [
+      10,
+      2.9
+     ],
+     "prop": "paper",
+     "text": "Up four flights, the room she rented. The bed is made. On the desk by the window, one case card in a tall slanting hand: POINT PLEASANT, DEC 1967. A. WELLER. Every line filled but the verdict, and under the verdict line, pressed hard enough to tear: NOT HOAX. W.P. WAS HERE FIRST.",
+     "methods": {
+      "photograph": "gus_card_1967",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "library": {
+   "size": [
+    10,
+    10
+   ],
+   "floor": [
+    "carpet_red",
+    "carpet_red",
+    "herringbone"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "bookcase",
+     "pos": [
+      1.5,
+      2.6
+     ],
+     "look": "Fiction, A to L. Every Louis L'Amour is out. The night clerk at the Lowe has them."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      3.5,
+      2.6
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      8.5,
+      2.6
+     ],
+     "look": [
+      [
+       "ruth",
+       "Local history. The Mason County centennial book, 1904. The chapter on the Shawnee is three pages and apologises for two of them."
+      ]
+     ]
+    },
+    {
+     "kind": "desk_wood",
+     "pos": [
+      5,
+      4.2
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      5,
+      3.5
+     ],
+     "look": "The returns pile. A county plat book is on the overdue list in red, borrowed December 12th, 1967. The borrower's card is still active."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8,
+      1.6
+     ]
+    },
+    {
+     "kind": "filing_tall",
+     "pos": [
+      1,
+      6.4
+     ],
+     "name": "Local studies",
+     "look": "LOCAL STUDIES. Microfiche of the Register, 1950 to 1990, by year. 1967 is filed in front of 1966. Somebody has had it out recently."
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      1,
+      8.4
+     ],
+     "look": "Vertical files. CLIPPINGS, BRIDGE. CLIPPINGS, FLOOD. CLIPPINGS, MISC. The MISC folder is the fattest and it is empty."
+    },
+    {
+     "kind": "table",
+     "pos": [
+      7.5,
+      8.9
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      6.5,
+      6.9
+     ]
+    },
+    {
+     "kind": "paper2",
+     "pos": [
+      8,
+      8.3
+     ]
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      9.5,
+      4.9
+     ]
+    },
+    {
+     "kind": "planter",
+     "pos": [
+      3,
+      8.9
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "ms_dot",
+     "name": "Dot Rainey, librarian",
+     "pos": [
+      7,
+      3.9
+     ],
+     "facing": "left",
+     "sprite": "dot",
+     "when": [
+      "morning",
+      "day"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "register_fiche",
+     "name": "Microfiche reader",
+     "pos": [
+      8.5,
+      6.4
+     ],
+     "prop": "microfiche",
+     "requires": "fiche_pulled",
+     "locked_text": "The reader is dark. The local studies fiche is behind the desk and Dot pulls it by request only.",
+     "text": "The Register on fiche, November 1966 to December 1967. Page after page of lights, birds and letters. Then December 18th, 1967, three days after the bridge: a two-inch notice. 'Federal investigators conclude Route 62 sightings a hoax. W. Penrose, Office of Special Inquiry.' There is no such office.",
+     "methods": {
+      "photograph": "fiche_hoax_verdict",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  }
+ },
+ "district": "main_street",
+ "exits": [
+  {
+   "rect": [
+    0,
+    23,
+    1,
+    8
+   ],
+   "to": "point_pleasant_riverfront",
+   "at": [
+    54,
+    20
+   ],
+   "name": "Riverfront",
+   "gate": "floodgate"
+  },
+  {
+   "rect": [
+    59,
+    23,
+    1,
+    10
+   ],
+   "to": "point_pleasant_heights",
+   "at": [
+    2,
+    20
+   ],
+   "name": "The Heights"
+  },
+  {
+   "rect": [
+    28,
+    0,
+    8,
+    1
+   ],
+   "to": "point_pleasant_route_62",
+   "at": [
+    12,
+    93
+   ],
+   "name": "Route 62"
   }
  ]
 }

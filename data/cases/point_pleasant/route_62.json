@@ -1,0 +1,241 @@
+{
+ "_doc": "Route 62 fragment: the road north out of Point Pleasant. Witnesses are the barkeep at the Night Owl (dialogue script in data/dialogue/point_pleasant/r62_barkeep.json), Carl Ridge the hunter, Hollis Pyles in the trailer and Ab Whitmore at the farm. Night 1 of the trail roosts at the abandoned Bethel Chapel.",
+ "districts": {
+  "route_62": {"name": "Route 62", "map": "point_pleasant_route_62"}
+ },
+ "items": {
+  "deer_jerky": {"name": "Hollis's deer jerky", "text": "Restores a little Composure. Tastes of smoke and the inside of a truck.", "kind": "consumable", "price": 2}
+ },
+ "trail": [
+  {"night": 1, "roost": "Bethel Chapel, Route 62", "map": "point_pleasant_route_62", "clues": ["r62_church_prints", "r62_culvert_feather"], "herring": ["r62_owl_pellets"]}
+ ],
+ "witnesses": {
+  "r62_barkeep": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "barkeep_laughed",
+     "title": "Who laughed at Marlene",
+     "gates": [
+      {"check": "press", "difficulty": 9, "prompt": "Who laughed at her first? You were pouring."},
+      {"show": "prank_rumour"}
+     ],
+     "lines": [
+      ["r62_barkeep", "Ray Kessler laughed first. Bobby's uncle. Laughed so hard he bought a round, and Ray never buys a round."],
+      ["r62_barkeep", "He sells those reflectors out of his garage. Thought that was the funniest part."],
+      ["teddy", "A man who laughs that hard wants you looking at him."]
+     ],
+     "evidence": "barkeep_laughed"
+    },
+    {
+     "id": "barkeep_regulars",
+     "title": "Thursday's tab",
+     "gates": [
+      {"check": "rapport", "difficulty": 8, "prompt": "Thursday's a Dwight Mason night, I hear."},
+      {"show": "call_log"}
+     ],
+     "lines": [
+      ["r62_barkeep", "Dwight Mason. Six Blue Ribbon, every Thursday, and Thursday he cashed out ten to one. Walked out with Marlene Pike."],
+      ["r62_barkeep", "I said he closed the place. His wife asked me to say it. I'm done saying it."]
+     ],
+     "evidence": "barkeep_regulars"
+    },
+    {
+     "id": "barkeep_dwight_left",
+     "title": "What Dwight said in the morning",
+     "gates": [
+      {"contradiction": "barkeep_dwight"},
+      {"trust": 3}
+     ],
+     "lines": [
+      ["r62_barkeep", "Dwight came in Friday at open, which he never does, and drank standing up."],
+      ["r62_barkeep", "Said the thing never flapped. Said it went up like it was being pulled. He said it three times and then he asked me not to repeat it."],
+      ["miriam", "Pulled. That's the third person who's used that word."]
+     ],
+     "evidence": "dwight_pulled"
+    }
+   ]
+  },
+  "r62_hunter": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hunter_sighting",
+     "title": "What he saw from the stand",
+     "gates": [
+      {"check": "fieldcraft", "difficulty": 7, "prompt": "That stand faces the chapel, not the field. What are you hunting?"},
+      {"check": "intimidate", "difficulty": 8, "prompt": "You've got a gun rack and a story. Give me the story."}
+     ],
+     "lines": [
+      ["r62_hunter", "Monday night. It was on the chapel roof. Stood up slow, like a man off his knees, and I put the glass on it."],
+      ["r62_hunter", "No light on it. None. And its eyes lit anyway. Red, like a brake light when you touch the pedal."],
+      ["dale", "Eyeshine needs a source. There's no source out there."]
+     ],
+     "evidence": "hunter_sighting"
+    },
+    {
+     "id": "hunter_no_blood",
+     "title": "He fired",
+     "gates": [
+      {"show": "church_prints_cast"},
+      {"trust": 2}
+     ],
+     "lines": [
+      ["r62_hunter", "I fired. Twice, at twenty yards, and I don't miss at twenty yards."],
+      ["r62_hunter", "No blood. No feathers. No sound, not even the shot coming back off the chapel. Like the night ate it."]
+     ],
+     "evidence": "hunter_no_blood"
+    },
+    {
+     "id": "hunter_second_night",
+     "title": "The second night",
+     "gates": [
+      {"contradiction": "hunter_shells"},
+      {"check": "nerve", "difficulty": 9, "prompt": "You went back up the second night. Say it."}
+     ],
+     "lines": [
+      ["r62_hunter", "Fine. Four shells. I went back Tuesday and it was there again, and I fired again, and it never even turned around."],
+      ["r62_hunter", "There was snow on every roof on this road but that one. The chapel roof was bare and steaming."],
+      ["june", "Steaming. In February. I want a thermometer on that roof."]
+     ],
+     "evidence": "hunter_second_night"
+    }
+   ]
+  },
+  "hollis": {
+   "trust": 0,
+   "facts": [
+    {
+     "id": "hollis_lights",
+     "title": "Lights over the ridge",
+     "gates": [
+      {"trust": 1},
+      {"check": "rapport", "difficulty": 7, "prompt": "Best jerky in Mason County. What else do you see out here?"}
+     ],
+     "lines": [
+      ["hollis", "Lights over the TNT ridge. Ten past two, most nights, like they're on a clock. Two of 'em, red, and they move against the wind."],
+      ["hollis", "I keep the times in the logbook. A man ought to keep times."]
+     ],
+     "evidence": "hollis_lights"
+    },
+    {
+     "id": "hollis_car",
+     "title": "The car at the chapel",
+     "gates": [
+      {"check": "bluff", "difficulty": 9, "prompt": "We're with the state. We know about the car. We just need your dates."},
+      {"show": "the_suits"}
+     ],
+     "lines": [
+      ["hollis", "...State. Sure. Black sedan, no plates, parked at the chapel two nights running. Monday and Tuesday. Engine never once turned over for heat."],
+      ["hollis", "Two fellas in it. They sat there all night in a cold car and watched the roof, same as Carl."],
+      ["teddy", "They got here before us. Again."]
+     ],
+     "evidence": "hollis_car"
+    },
+    {
+     "id": "hollis_tone",
+     "title": "What the CB picks up",
+     "gates": [
+      {"show": "three_note_tone"},
+      {"check": "tech", "difficulty": 8, "prompt": "Channel 19 is quiet tonight. What are you really listening for?"}
+     ],
+     "lines": [
+      ["hollis", "Three notes. Every band, ten past two, same as the lights. Channel 19, channel 9, the weather band. Three notes and then the carrier drops."],
+      ["hollis", "I had it in '66 too. On my daddy's set. I was nine."],
+      ["june", "Same tone. Twenty-eight years. It's not a malfunction, it's a schedule."]
+     ],
+     "evidence": "hollis_tone"
+    }
+   ]
+  },
+  "r62_farmer": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "farmer_dog",
+     "title": "Boone",
+     "gates": [
+      {"check": "empathy", "difficulty": 7, "prompt": "You still fill his bowl."},
+      {"trust": 2}
+     ],
+     "lines": [
+      ["r62_farmer", "Boone went out Monday night barking and he didn't come back. Thirty-one years I've had dogs on this place. They come back."],
+      ["r62_farmer", "Found his collar Wednesday. On the barn roof. The barn's twenty-two feet at the peak."],
+      ["elijah", "He didn't climb. He was carried, and he was set down gently."]
+     ],
+     "evidence": "farmer_dog"
+    },
+    {
+     "id": "farmer_culvert",
+     "title": "The county and the culvert",
+     "gates": [
+      {"show": "culvert_scrape"},
+      {"check": "logic", "difficulty": 7, "prompt": "Those scrapes on the culvert lip are too even. Machine even."}
+     ],
+     "lines": [
+      ["r62_farmer", "Those scrapes? County came through in October with the bucket rig and cleaned every culvert on 62. Chewed the concrete up something awful."],
+      ["r62_farmer", "I've got the notice in the dresser. Don't let anybody in town tell you a monster did it. They will."],
+      ["miriam", "One for the natural column. I'll take it."]
+     ],
+     "evidence": "farmer_culvert"
+    },
+    {
+     "id": "farmer_owls",
+     "title": "The chapel owls",
+     "gates": [
+      {"show": "owl_pellets"},
+      {"check": "lore", "difficulty": 6, "prompt": "Barn owls in a church steeple. The old folks would say that means something."},
+      {"show": "pellets_photo"}
+     ],
+     "lines": [
+      ["r62_farmer", "Barn owls have nested in that steeple since before they closed it. Thirty years. Big pale things, they scream like a woman."],
+      ["r62_farmer", "Half of what this road sees at night is them. The other half, I couldn't tell you."],
+      ["ruth", "A white owl over a churchyard. My grandmother would have crossed the road."]
+     ],
+     "evidence": "farmer_owls"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "church_prints_cast": {"title": "Cast of the chapel prints", "text": "Three toes, a hand and a half long, in frozen mud. The stride is nine feet and the prints stop at a wall.", "lean": "unexplained", "weight": 2, "kind": "physical", "reliability": "A"},
+  "church_prints_photo": {"title": "Photo of the chapel prints", "text": "Three-toed prints in the chapel yard, flash-lit, hard to scale.", "lean": "unexplained", "weight": 1, "kind": "recording", "reliability": "C"},
+  "culvert_feather": {"title": "Feather from the culvert", "text": "A grey feather thirty centimetres long, caught in the ice at the culvert where it was first seen to rise.", "lean": "natural", "weight": 1, "kind": "physical", "reliability": "B", "lab": "culvert_feather_lab"},
+  "culvert_feather_lab": {"title": "Lab: the culvert feather", "text": "Structure of a flight feather, but no bird in the key grows one this size. Not crane, not eagle, not condor. The lab asked where we got it and then asked us not to say.", "lean": "unexplained", "weight": 3, "kind": "physical", "reliability": "A"},
+  "culvert_feather_photo": {"title": "Photo of the feather", "text": "A long grey feather in ice, a glove beside it for scale.", "lean": "natural", "weight": 1, "kind": "recording", "reliability": "C"},
+  "culvert_scrape": {"title": "Scrapes on the culvert lip", "text": "Four parallel gouges in the concrete, seven feet above the creek bed, measured at 94 cm across.", "lean": "unexplained", "weight": 2, "kind": "recording", "reliability": "B", "red_herring": true},
+  "culvert_scrape_photo": {"title": "Photo of the culvert scrapes", "text": "Bright gouges in old concrete, high on the culvert mouth.", "lean": "unexplained", "weight": 1, "kind": "recording", "reliability": "C", "red_herring": true},
+  "spent_shells": {"title": "Spent shells under the stand", "text": "Four twelve-gauge shells fired this week from a stand that faces the chapel, not the deer.", "lean": "unexplained", "weight": 1, "kind": "physical", "reliability": "B", "red_herring": true, "lab": "spent_shells_lab"},
+  "spent_shells_lab": {"title": "Lab: the shells", "text": "Buckshot, fired within the week, all from the same gun. Carl Ridge's gun. They prove he shot at something; they do not say what.", "lean": "natural", "weight": 1, "kind": "physical", "reliability": "B", "exposes": ["spent_shells"]},
+  "owl_pellets": {"title": "Pellets from the steeple", "text": "Large grey pellets from the foot of the steeple ladder. Some hold bones too big for a mouse.", "lean": "unexplained", "weight": 1, "kind": "physical", "reliability": "B", "red_herring": true, "lab": "owl_pellets_lab"},
+  "owl_pellets_lab": {"title": "Lab: the steeple pellets", "text": "Barn owl, every one. Voles, a rat, one unlucky starling. The big bones are rabbit.", "lean": "natural", "weight": 1, "kind": "physical", "reliability": "A", "exposes": ["owl_pellets", "pellets_photo"]},
+  "pellets_photo": {"title": "Photo of the steeple pellets", "text": "A drift of large pellets under the steeple ladder.", "lean": "unexplained", "weight": 1, "kind": "recording", "reliability": "D", "red_herring": true},
+  "barkeep_laughed": {"title": "Ray Kessler laughed first", "text": "Bobby Kessler's uncle laughed loudest at Marlene and sells the bicycle reflectors from his garage.", "lean": "hoax", "weight": 1, "kind": "testimony", "reliability": "B"},
+  "barkeep_regulars": {"title": "Dwight Mason's Thursday tab", "text": "Dwight Mason cashed out at ten to one on the Thursday and left with Marlene. The barkeep said he closed the bar because Dwight's wife asked him to.", "lean": "unexplained", "weight": 1, "kind": "testimony", "reliability": "B"},
+  "dwight_pulled": {"title": "'It went up like it was pulled'", "text": "Dwight Mason told the barkeep the thing never flapped; it rose as if pulled from above.", "lean": "unexplained", "weight": 2, "kind": "testimony", "reliability": "C"},
+  "hunter_sighting": {"title": "Carl Ridge's sighting", "text": "From the tree stand: it stood up on the chapel roof and its eyes lit red with no light on them.", "lean": "unexplained", "weight": 2, "kind": "testimony", "reliability": "B"},
+  "hunter_no_blood": {"title": "Two shots, no blood", "text": "Carl fired twice at twenty yards. No blood, no feathers, and the shots made no echo off the chapel.", "lean": "unexplained", "weight": 2, "kind": "testimony", "reliability": "B"},
+  "hunter_second_night": {"title": "The bare roof", "text": "On the second night the chapel roof was the only roof on Route 62 with no snow, and it was steaming.", "lean": "unexplained", "weight": 2, "kind": "testimony", "reliability": "B"},
+  "hollis_lights": {"title": "Hollis's logbook", "text": "Two red lights over the TNT ridge at 2:10 most nights, moving against the wind, logged to the minute.", "lean": "unexplained", "weight": 1, "kind": "document", "reliability": "B"},
+  "hollis_car": {"title": "The car at the chapel", "text": "A black sedan with no plates sat at the chapel on Monday and Tuesday nights, two men inside, engine off, watching the roof.", "lean": "unexplained", "weight": 2, "kind": "testimony", "reliability": "B"},
+  "hollis_tone": {"title": "Three notes on the CB", "text": "Hollis hears three notes on every band at 2:10, and heard the same on his father's set in 1966.", "lean": "unexplained", "weight": 2, "kind": "testimony", "reliability": "B"},
+  "farmer_dog": {"title": "Boone's collar", "text": "The Whitmores' dog vanished Monday night; his collar was found on the barn roof, twenty-two feet up.", "lean": "unexplained", "weight": 2, "kind": "testimony", "reliability": "A"},
+  "farmer_culvert": {"title": "The county cleaned the culvert", "text": "The county's bucket rig gouged every culvert on Route 62 in October 1993. The scrapes are machine marks.", "lean": "natural", "weight": 1, "kind": "testimony", "reliability": "A", "exposes": ["culvert_scrape", "culvert_scrape_photo"]},
+  "farmer_owls": {"title": "The chapel's barn owls", "text": "Barn owls have nested in Bethel Chapel's steeple for thirty years and account for half of what Route 62 sees at night.", "lean": "natural", "weight": 1, "kind": "testimony", "reliability": "A", "exposes": ["owl_pellets", "pellets_photo"]}
+ },
+ "contradictions": {
+  "hunter_shells": {
+   "title": "Two shots, four shells",
+   "evidence": ["hunter_no_blood", "spent_shells"],
+   "witness": "r62_hunter",
+   "prompt": "You said you fired twice. There are four shells under your stand, all fresh."
+  },
+  "barkeep_dwight": {
+   "title": "Who closed the Night Owl",
+   "evidence": ["marlene_tnt", "barkeep_regulars"],
+   "witness": "r62_barkeep",
+   "prompt": "Marlene says she was out at the TNT area with Dwight Mason. You say Dwight closed your bar. Which is it?"
+  }
+ },
+ "gates": {}
+}

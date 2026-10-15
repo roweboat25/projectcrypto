@@ -1,0 +1,517 @@
+{
+ "_doc": "Riverfront fragment for the Point Pleasant case: the district, the floodgate, three witnesses on the river side, the night-3 roost at the Silver Bridge approach, and the evidence the riverbank gives up. Ids are prefixed rf_.",
+ "districts": {
+  "riverfront": {
+   "name": "Riverfront",
+   "map": "point_pleasant_riverfront"
+  }
+ },
+ "locations": {
+  "riverfront": "The Riverfront",
+  "bait_shop": "Thacker Bait and Tackle",
+  "crew_cabin": "Kanawha Belle, crew cabin",
+  "pump_house": "Floodgate pump house"
+ },
+ "gates": {
+  "floodgate": {
+   "name": "The floodgate",
+   "locked": "The floodgate is shut for the night. Through the bars, the river, and a sign: SHUT AT DUSK BY ORDER.",
+   "opens": [
+    {
+     "phase": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "item": "sheriff_key"
+    },
+    {
+     "trust": {
+      "npc": "deputy",
+      "level": 3
+     }
+    },
+    {
+     "check": {
+      "voice": "nerve",
+      "difficulty": 9,
+      "prompt": "Climb the floodwall stairs"
+     }
+    }
+   ]
+  }
+ },
+ "items": {},
+ "witnesses": {
+  "rf_deckhand": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "rf_deckhand_lights",
+     "title": "Lights on the water, 1966",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "You've worked this river a long time. What did you see in '66?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "rf_deckhand",
+       "November '66, night tow, downbound under the bridge. Two red lights on the water ahead of us, low, where a boat would be."
+      ],
+      [
+       "rf_deckhand",
+       "No bow light, no stern light, and they were moving against the current. Nothing moves against this current without a diesel, and I'd have heard a diesel."
+      ],
+      [
+       "dale",
+       "Two lights, low on the water, upstream. Write it down exactly like that."
+      ]
+     ],
+     "evidence": "rf_lights_1966"
+    },
+    {
+     "id": "rf_deckhand_radio",
+     "title": "The Belle's radio, December 1967",
+     "gates": [
+      {
+       "show": "three_note_tone"
+      }
+     ],
+     "lines": [
+      [
+       "rf_deckhand",
+       "...Where did you get that."
+      ],
+      [
+       "rf_deckhand",
+       "Channel 16, the afternoon of the fifteenth. Three notes, over and over, for an hour. Skipper said it was Gallipolis testing something. Then the bridge went."
+      ],
+      [
+       "june",
+       "Same interval. Half a step lower. It's the same signal."
+      ]
+     ],
+     "evidence": "rf_towboat_radio"
+    },
+    {
+     "id": "rf_deckhand_ferry",
+     "title": "The run to Gallipolis",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "check": "press",
+       "difficulty": 8,
+       "prompt": "The Belle crosses every morning. Nobody would notice four more."
+      }
+     ],
+     "lines": [
+      [
+       "rf_deckhand",
+       "First light, every day, we cross for the Ohio-side mail and a crewman. You stand on the barge and you don't touch anything."
+      ],
+      [
+       "rf_deckhand",
+       "You miss first light, you wait for tomorrow. The river doesn't do afternoons."
+      ]
+     ],
+     "evidence": "rf_ferry_run"
+    }
+   ]
+  },
+  "rf_bait": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "rf_bait_search",
+     "title": "The search parties of 1966",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "That photo on the wall. You were there?"
+      },
+      {
+       "check": "lore",
+       "difficulty": 6,
+       "prompt": "Towns like this always send men out with lanterns. Who went?"
+      }
+     ],
+     "lines": [
+      [
+       "rf_bait",
+       "I was fourteen and I carried the lanterns. Two nights on the point after the Register ran it. Twenty men, one dog, and my daddy's shotgun."
+      ],
+      [
+       "rf_bait",
+       "Found crane tracks on the bank, big ones, and shot at nothing for two nights. Then the deputy said crane and everybody went home relieved."
+      ],
+      [
+       "miriam",
+       "Relieved. That's the word I'd have used."
+      ]
+     ],
+     "evidence": "rf_search_parties"
+    },
+    {
+     "id": "rf_bait_feather",
+     "title": "No cranes in November",
+     "gates": [
+      {
+       "contradiction": "rf_crane_walk"
+      },
+      {
+       "show": "rf_crane_feather_lab"
+      },
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "You know every bird on this river. When do the cranes come through?"
+      }
+     ],
+     "lines": [
+      [
+       "rf_bait",
+       "Sandhills pass over in March and again in October, high up, and you hear 'em before you see 'em. Never on the ground here. Never in November."
+      ],
+      [
+       "rf_bait",
+       "There weren't any in '66 and there aren't any now. I told the deputy that in '66. He bought shells and didn't listen."
+      ],
+      [
+       "dale",
+       "So the lab says crane and the one person who'd know says no crane."
+      ],
+      [
+       "rf_bait",
+       "I say no crane. I don't say what."
+      ]
+     ],
+     "evidence": "rf_crane_season"
+    },
+    {
+     "id": "rf_bait_suits",
+     "title": "Two men bought waders",
+     "gates": [
+      {
+       "show": "the_suits"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "rf_bait",
+       "Them. Tuesday. Two pair of waders, size large, and they asked which way the current ran. Which way the current ran."
+      ],
+      [
+       "rf_bait",
+       "Paid in new bills so flat they stuck together. Asked if the pump house was manned at night. I said ask the county."
+      ],
+      [
+       "teddy",
+       "Waders. They're going somewhere wet."
+      ]
+     ],
+     "evidence": "rf_suits_waders"
+    }
+   ]
+  },
+  "rf_fisherman": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "rf_fisherman_catfish",
+     "title": "The catfish that pulled a boat",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 5,
+       "prompt": "Go on. The big one."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "rf_fisherman",
+       "Summer of '71 my cousin Dewey hooked something off this pier that towed his johnboat to the Ohio side and back, twice, and then let go."
+      ],
+      [
+       "rf_fisherman",
+       "Flathead cat. Big as a sofa. Dewey saw its whiskers, says they was long as your arm. Dewey'd had a few, but the boat was wet on the Ohio side, you can't argue a wet boat."
+      ],
+      [
+       "dale",
+       "Flatheads top out around a hundred pounds."
+      ],
+      [
+       "rf_fisherman",
+       "Then it was two of 'em."
+      ]
+     ],
+     "evidence": "rf_catfish_tale"
+    },
+    {
+     "id": "rf_fisherman_foam",
+     "title": "What the foam is",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "That foam by the outfall. You've seen it before."
+      },
+      {
+       "check": "logic",
+       "difficulty": 7,
+       "prompt": "The glow is strongest where the warm water comes out. Why would that be?"
+      }
+     ],
+     "lines": [
+      [
+       "rf_fisherman",
+       "Pump house outfall. The county runs the pumps Thursdays and the foam glows Thursday nights and the fish don't care."
+      ],
+      [
+       "rf_fisherman",
+       "Been doing it since the plant. Your bird don't make soap suds, son."
+      ],
+      [
+       "miriam",
+       "Thank you. Finally."
+      ]
+     ],
+     "evidence": "rf_foam_outfall"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "rf_crane_feather": {
+   "title": "The feather at the point",
+   "text": "A thirty-centimetre grey feather planted quill-down in the frozen mud below the point.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "B",
+   "red_herring": true,
+   "lab": "rf_crane_feather_lab"
+  },
+  "rf_crane_feather_lab": {
+   "title": "Lab: the point feather",
+   "text": "Sandhill crane primary, by structure. Thirty centimetres: a third longer than any crane in the key. Crane, and not a crane.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B",
+   "exposes": [
+    "rf_crane_feather"
+   ]
+  },
+  "rf_feather_photo": {
+   "title": "Photo of the feather",
+   "text": "A grey feather in the mud at the point. Could be a crane's. Could be a big crane's.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "rf_bank_prints_cast": {
+   "title": "Cast of the point prints",
+   "text": "Three toes, thirty-two centimetres, toes turned in, and a stride of nearly two metres out of the water and up the bank. No crane walks like that.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B"
+  },
+  "rf_bank_prints_photo": {
+   "title": "Photo of the point prints",
+   "text": "Three-toed prints in frozen mud by the point. A heron. A very big heron.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "rf_cold_spot": {
+   "title": "Cold spot, bridge approach",
+   "text": "Night three: a circle three metres wide on the bridge approach reading twenty degrees below the air, drifting slowly toward the water.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "A"
+  },
+  "rf_cold_photo": {
+   "title": "Photo of the bridge approach",
+   "text": "The bridge approach at night. The frame is fogged in a perfect circle. The rest is sharp.",
+   "lean": "unexplained",
+   "weight": 0,
+   "kind": "recording",
+   "reliability": "D"
+  },
+  "rf_bridge_tone_tape": {
+   "title": "Tape: the plaque, night three",
+   "text": "Three notes from the memorial plaque, recorded on the bridge approach. The same three June taped at igloo 7, a half-step lower, and in the bronze you can feel it.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "A"
+  },
+  "rf_foam_sample": {
+   "title": "Glowing foam",
+   "text": "Blue-green foam from the river beside the pump house outfall. It glows when the water moves it.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "rf_foam_lab"
+  },
+  "rf_foam_lab": {
+   "title": "Lab: river foam",
+   "text": "Phosphate runoff and detergent from the pump house outfall. It glows under the lamp. It would glow in a sink.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "rf_foam_sample"
+   ]
+  },
+  "rf_foam_outfall": {
+   "title": "Chalmer on the foam",
+   "text": "The foam glows every Thursday night when the county runs the pumps. It has done so since the plant.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "rf_foam_sample"
+   ]
+  },
+  "rf_gauge_chart_doc": {
+   "title": "Gauge chart, 15 Dec 1967",
+   "text": "The pump house river gauge: flat all afternoon, three even jumps at 4:58, off the paper at 5:04 when the bridge fell.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C"
+  },
+  "rf_gauge_chart_photo": {
+   "title": "Photo of the gauge chart",
+   "text": "A strip chart dated 15 Dec 1967 with three spikes before the big one.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D"
+  },
+  "rf_lights_1966": {
+   "title": "Lights on the water, 1966",
+   "text": "Two red lights low on the Ohio below the bridge, November 1966, moving against the current with no boat and no engine.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rf_towboat_radio": {
+   "title": "The Belle's radio, 1967",
+   "text": "The towboat's VHF took three notes on channel 16 for an hour on the afternoon of 15 December 1967, until the bridge fell.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rf_ferry_run": {
+   "title": "The run to Gallipolis",
+   "text": "The Kanawha Belle crosses to Gallipolis at first light. Lyle will take you if you stand on the barge and touch nothing.",
+   "lean": "unexplained",
+   "weight": 0,
+   "kind": "document",
+   "reliability": "A",
+   "key": true
+  },
+  "rf_cable_birds": {
+   "title": "The birds on the cable",
+   "text": "A woman Lyle pulled from the river in 1967 asked him whether the birds were still on the bridge cable. There had been no birds.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "rf_search_parties": {
+   "title": "The 1966 search parties",
+   "text": "Twenty men searched the point for two nights in November 1966, found crane tracks, and went home relieved when the deputy said crane.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "rf_crane_season": {
+   "title": "No cranes in November",
+   "text": "Opal Thacker has watched this river for thirty years: sandhills pass in March and October, high, and never land. None in 1966. None now.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "rf_feather_photo",
+    "rf_bank_prints_photo",
+    "rf_search_parties"
+   ]
+  },
+  "rf_suits_waders": {
+   "title": "The suits bought waders",
+   "text": "Two men in black suits bought waders at the bait shop on Tuesday, asked which way the current ran, and whether the pump house was manned at night.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rf_catfish_tale": {
+   "title": "The catfish that pulled a boat",
+   "text": "Chalmer's cousin Dewey was towed to Ohio and back by a flathead catfish the size of a sofa in 1971. The boat was wet.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  }
+ },
+ "contradictions": {
+  "rf_crane_walk": {
+   "title": "The crane that walks like a man",
+   "evidence": [
+    "biologist_letter",
+    "rf_bank_prints_cast"
+   ],
+   "witness": "rf_bait",
+   "prompt": "The biologist says crane. The cast says a two-metre stride with the toes turned in. What walked your bank, Opal?"
+  }
+ },
+ "trail": [
+  {
+   "night": 3,
+   "roost": "Silver Bridge approach, Riverfront",
+   "map": "point_pleasant_riverfront",
+   "clues": [
+    "rf_cold_spot",
+    "rf_bridge_tone"
+   ],
+   "herring": [
+    "rf_foam"
+   ]
+  }
+ ]
+}

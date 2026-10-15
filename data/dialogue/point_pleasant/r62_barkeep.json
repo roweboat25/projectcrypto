@@ -1,0 +1,127 @@
+{
+ "_doc": "Lonnie Duff, barkeep at the Night Owl Tavern on Route 62. Open dusk and night. He poured for everyone who laughed at Marlene and he is tired of covering for Dwight Mason.",
+ "id": "r62_barkeep",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "r62_barkeep",
+   "lines": [
+    ["r62_barkeep", "Door. Shut it, the heat's not free."],
+    ["r62_barkeep", "You're the ones from the motel. Marlene's people. What'll it be."],
+    ["teddy", "He knew who we were before the door shut."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 7, "line": "He's wiped that same glass twice. He's deciding what you are, not what you'll drink."},
+    {"voice": "logic", "threshold": 9, "line": "There's a tab book under the register. One page is dog-eared. Thursday's.", "flag": "barkeep_tab"}
+   ],
+   "options": [
+    {"tone": "kind", "text": "Whatever's warm.", "next": "warm", "trust": 1},
+    {"tone": "hard", "text": "We're here about Marlene Pike.", "next": "marlene"},
+    {"tone": "wry", "text": "Night Owl. Does the owl come in much?", "next": "owl"}
+   ],
+   "gives": {"flag": "met_barkeep"}
+  },
+  "warm": {
+   "speaker": "r62_barkeep",
+   "lines": [
+    ["r62_barkeep", "Coffee. It's been on since four. You'll want the sugar."],
+    ["r62_barkeep", "Hunters'll be in after dark. They talk more than I do. Don't believe the half of it that's loud."],
+    ["june", "It's the quiet half I want."]
+   ],
+   "next": "hub"
+  },
+  "marlene": {
+   "speaker": "r62_barkeep",
+   "lines": [
+    ["r62_barkeep", "Marlene told it in here Friday and this whole room laughed. I poured the round they laughed with."],
+    ["r62_barkeep", "So ask what you came to ask. I'm not going to like it either way."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 8, "line": "He isn't angry about Marlene. He's ashamed. Ashamed is easier to open than angry."}
+   ],
+   "next": "hub"
+  },
+  "owl": {
+   "speaker": "r62_barkeep",
+   "lines": [
+    ["r62_barkeep", "Owl's in the chapel steeple down the road. Been there longer than I have. Screams like a woman at two in the morning."],
+    ["r62_barkeep", "That's what half this road saw. Don't quote me on the other half."],
+    ["miriam", "Noted. Owl. I like him already."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "r62_barkeep",
+   "repeat": true,
+   "lines": [
+    ["r62_barkeep", "What else."]
+   ],
+   "passives": [
+    {"voice": "lore", "threshold": 8, "line": "A bar called the Night Owl, in a town that saw a bird. Nobody in here thinks that's funny anymore. You do, and you should stop."}
+   ],
+   "static": {"min_dread": 3, "line": "He knows who laughed. He laughed too. Say it to his face and watch him pour."},
+   "options": [
+    {"check": {"voice": "press", "kind": "white", "difficulty": 9, "evidence_bonus": {"marlene_statement": 2, "prank_rumour": 1}},
+     "tone": "hard", "text": "Who laughed at her first? You were pouring. You saw.",
+     "pass": "laughed", "fail": {"next": "cold", "trust": {"r62_barkeep": -1}}},
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 8, "evidence_bonus": {"call_log": 2}},
+     "tone": "kind", "text": "Thursday's a Dwight Mason night, I hear.",
+     "pass": "dwight", "fail": {"next": "cold"}},
+    {"requires": {"flag": ["barkeep_tab"]}, "tone": "wry", "text": "The tab book under the register. Thursday's page is dog-eared.", "next": "tabbook"},
+    {"check": {"voice": "bluff", "kind": "red", "difficulty": 11},
+     "tone": "hard", "text": "Marlene already told us about Dwight. We just need it in your words.",
+     "pass": "dwight", "fail": {"next": "thrown_out", "trust": {"r62_barkeep": -2}, "dread": 1}},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "That's all for now."}
+   ]
+  },
+  "laughed": {
+   "speaker": "r62_barkeep",
+   "lines": [
+    ["r62_barkeep", "Ray Kessler. Bobby's uncle. Laughed so hard he bought a round, and Ray never buys a round."],
+    ["r62_barkeep", "He sells those bicycle reflectors out of his garage on Sixth. Thought that was the funniest part. Funnier than Marlene crying, anyhow."],
+    ["teddy", "A man who laughs that hard wants you looking at him."]
+   ],
+   "gives": {"evidence": "barkeep_laughed", "fact": "barkeep_laughed", "flag": "barkeep_laughed"},
+   "next": "hub"
+  },
+  "dwight": {
+   "speaker": "r62_barkeep",
+   "lines": [
+    ["r62_barkeep", "Dwight Mason. Six Blue Ribbon, every Thursday. That Thursday he cashed out ten to one and walked out behind Marlene Pike."],
+    ["r62_barkeep", "I told the deputy Dwight closed the place. His wife asked me to say it. I'm done saying it; you can tell her that too."],
+    ["miriam", "Ten to one. The call came in at two-forty from the TNT gatehouse. That's a long drive home from your sister's."]
+   ],
+   "gives": {"evidence": "barkeep_regulars", "fact": "barkeep_regulars", "trust": {"r62_barkeep": 1}},
+   "next": "hub"
+  },
+  "tabbook": {
+   "speaker": "r62_barkeep",
+   "lines": [
+    ["r62_barkeep", "...You've got eyes. Fine."],
+    ["r62_barkeep", "Thursday. D. MASON, six Ribbon, out 12:50. Underneath, in Dwight's hand: 'closed up with Lonnie.' He wrote that Friday morning. Didn't ask me."],
+    ["june", "He came back to write his own alibi in your book."]
+   ],
+   "gives": {"evidence": "barkeep_regulars", "fact": "barkeep_regulars"},
+   "next": "hub"
+  },
+  "cold": {
+   "speaker": "r62_barkeep",
+   "lines": [
+    ["r62_barkeep", "Drink or don't. I've been asked harder by the deputy and he tips."],
+    ["elijah", "Leave it tonight. He'll be here tomorrow, and so will the thing he isn't saying."]
+   ],
+   "next": "hub"
+  },
+  "thrown_out": {
+   "speaker": "r62_barkeep",
+   "lines": [
+    ["r62_barkeep", "Marlene never told you a thing about Dwight, or you wouldn't be fishing. Out."],
+    ["r62_barkeep", "Carl. Boys. Help these folks find the door; it's the big thing with the cold on the other side."],
+    ["teddy", "Well. That's the Night Owl for tonight."]
+   ],
+   "end": true
+  }
+ }
+}
