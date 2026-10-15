@@ -124,7 +124,7 @@ func _show_menu() -> void:
 			_options.append(entry)
 	if _options.is_empty():
 		_options.append({"kind": "leave", "label": "Leave", "enabled": true})
-	box.show_menu(n.get("prompt", ""), witness_name, _options)
+	box.show_menu(n.get("prompt", ""), witness_name, _options, witness_id)
 
 
 func _on_option(i: int) -> void:

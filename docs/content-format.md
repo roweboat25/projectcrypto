@@ -107,7 +107,7 @@ gets that script instead, and its `{"topics": true}` option offers the facts.
 ```
 
 - Voices: `logic`, `tech`, `recall` (Reason); `press`, `rapport`, `bluff` (Charm); `nerve`, `intimidate`, `fieldcraft` (Grit); `empathy`, `lore`, `arcana` (Intuition). `static` is the thirteenth and needs no level.
-- A passive plays when the lead's voice level meets the threshold. A white check rolls 2d6 + voice level + evidence bonus + trust modifier against the difficulty and locks until tomorrow on a failure. A red check locks for the case. Every red check needs a `fail`.
+- A voice level is the lead's stat (1 to 4) +2 when their class boosts the voice, +1 per partner in the party whose class boosts it, −1 at Dread 3 and −2 at Dread 5. A passive plays when the voice level + 3 meets the threshold, so thresholds of 7 to 10 suit levels of 4 to 7; use 7 for things most leads notice and 10 for a specialist only. A white check rolls 2d6 + voice level + evidence bonus + trust modifier against the difficulty and locks until tomorrow on a failure. A red check locks for the case. Every red check needs a `fail`.
 - Tones are `kind`, `hard`, `wry`, `silent`; they colour the option and feed partner approval.
 - A node with `"end": true` closes the conversation after its lines. Nodes are visited at most once per day unless `"repeat": true`.
 - Voice lines are short, present tense, second person. Voices judge the lead, never the witness.

@@ -198,14 +198,23 @@ func _art_checks(data) -> Array[String]:
 			if not props.has(h.prop):
 				errors.append("map %s house %s uses missing prop" % [map_id, h.id])
 		for f in m.get("facades", []):
-			if not facades.has(f.id):
-				errors.append("map %s uses missing facade %s" % [map_id, f.id])
+			if not facades.has(f.get("facade", f.id)):
+				errors.append("map %s uses missing facade %s" % [map_id, f.get("facade", f.id)])
 		for fill in m.get("fills", []) + m.get("scatter", []):
 			var tiles: Variant = fill.tiles
 			for t in (tiles if tiles is Array else [tiles]):
 				if not atlas.has(t):
 					errors.append("map %s fills with missing tile %s" % [map_id, t])
-		for n in m.get("npcs", []):
-			if not FileAccess.file_exists("res://assets/sprites/%s.png" % n.id):
+		var all_npcs: Array = m.get("npcs", []).duplicate()
+		for id in m.get("interiors", {}):
+			all_npcs += m.interiors[id].get("npcs", [])
+		for n in all_npcs:
+			if not FileAccess.file_exists("res://assets/sprites/%s.png" % n.get("sprite", n.id)):
 				errors.append("map %s npc %s has no sprite" % [map_id, n.id])
+		var all_clues: Array = m.get("clues", []).duplicate()
+		for id in m.get("interiors", {}):
+			all_clues += m.interiors[id].get("clues", [])
+		for c in all_clues:
+			if not props.has(c.get("prop", "clue_prints")):
+				errors.append("map %s clue %s uses missing prop" % [map_id, c.id])
 	return errors

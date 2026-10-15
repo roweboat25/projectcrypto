@@ -59,7 +59,7 @@ func _on_lines_finished() -> void:
 func _show_menu() -> void:
 	_mode = "menu"
 	_options = Investigation.witness_options(GameData, GameState, witness_id)
-	box.show_menu("What do you want to do?", witness_name, _options)
+	box.show_menu("What do you want to do?", witness_name, _options, witness_id)
 
 
 func _on_option(i: int) -> void:

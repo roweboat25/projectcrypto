@@ -72,8 +72,13 @@ static func voice_level(data: Node, state: Node, voice: String) -> int:
 	return level
 
 
+## A passive is a quiet check with no dice: the voice level plus 3 (a cautious
+## roll) against the threshold, so thresholds of 7 to 10 suit levels of 4 to 7.
+const PASSIVE_BONUS := 3
+
+
 static func passive_passes(data: Node, state: Node, voice: String, threshold: int) -> bool:
-	return voice_level(data, state, voice) >= threshold
+	return voice_level(data, state, voice) + PASSIVE_BONUS >= threshold
 
 
 ## The day phase for a time of day (0 = 6 AM, 0.25 = noon, 0.75 = midnight).

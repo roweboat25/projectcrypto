@@ -112,12 +112,17 @@ func show_lines(lines: Array) -> void:
 
 
 ## Shows a question and a list of options ({label, enabled}) under the current speaker.
-func show_menu(title: String, speaker: String, options: Array) -> void:
+func show_menu(title: String, speaker: String, options: Array, portrait_id := "") -> void:
 	_lines = []
 	_options = options
 	_cursor = 0
 	visible = true
+	_name.add_theme_color_override("font_color", Color("e8a64a"))
 	_name.text = speaker
+	if portrait_id != "":
+		var path := PORTRAIT_DIR + portrait_id + ".png"
+		_portrait.texture = load(path) if ResourceLoader.exists(path) else null
+		_portrait_frame.visible = _portrait.texture != null
 	_text.text = title
 	_hint.text = "W/S choose · Space pick · X back"
 	for child in _menu.get_children():
