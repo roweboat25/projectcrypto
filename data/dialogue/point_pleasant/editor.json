@@ -1,0 +1,370 @@
+{
+ "id": "editor",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "editor",
+     "November 16th, 1966. Two couples, the TNT area, 'a large white creature' with red eyes that chased their car."
+    ],
+    [
+     "editor",
+     "We ran it on the front page. I've regretted the headline every day since. Not the story. The headline."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "recall",
+     "threshold": 8,
+     "line": "The 16th was a Wednesday. The sighting was the night of the 15th. He set that page in a few hours, on a weekly that usually took a week."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "'Every day since.' He has counted them. Men who count the days are waiting for someone to tell them they can stop."
+    },
+    {
+     "voice": "press",
+     "threshold": 7,
+     "line": "He said 'the headline' twice and is waiting for you to ask about it. A newspaperman always leaves the real story one question down.",
+     "flag": "editor_headline"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "What was the headline?",
+     "next": "headline"
+    },
+    {
+     "check": {
+      "voice": "recall",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "original_report": 1
+      }
+     },
+     "text": "You went to press the same night. Who typed it?",
+     "pass": "typed",
+     "fail": {
+      "next": "typed_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 9
+     },
+     "text": "You regret it. So print a correction. This week.",
+     "pass": "correction",
+     "fail": {
+      "next": "correction_fail",
+      "trust": {
+       "editor": -1
+      }
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Let him look at the page a while.)",
+     "next": "page",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "evidence": "original_report",
+    "flag": "met_editor"
+   }
+  },
+  "headline": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "editor",
+     "'COUPLES SEE MAN-SIZED BIRD... CREATURE... SOMETHING.' Three nouns and two sets of dots. I was tired and I was scared and I let the dots do the work."
+    ],
+    [
+     "editor",
+     "A wire desk in Ohio turned 'something' into a name the next week. After that it was a cartoon, and the four of them were a punchline."
+    ],
+    [
+     "teddy",
+     "Dots are a confession. Every editor knows that."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "He blames the dots, not the facts. He still believes the facts. Note that; it is rarer than it sounds."
+    }
+   ],
+   "next": "hub"
+  },
+  "typed": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "editor",
+     "I did. Two fingers, one in the morning, with the four of them in that chair you're sitting in."
+    ],
+    [
+     "editor",
+     "The girls weren't hysterical. The deputy wrote hysterical. I never printed it and I never printed that I didn't."
+    ],
+    [
+     "miriam",
+     "Two witnesses calm at one a.m. is better evidence than two witnesses screaming at eleven."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "editor": 1
+    },
+    "flag": "editor_calm_girls"
+   }
+  },
+  "typed_fail": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "editor",
+     "You weren't born. Don't tell me how my paper went out."
+    ],
+    [
+     "editor",
+     "The deputy took the statement. I took the quote. You want the statement, go two doors down and ask him what he wrote and what he was told to write."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "recall",
+     "threshold": 5,
+     "line": "You guessed at the date and he heard the guess. Still, 'told to write' is a door, and he opened it on his way out."
+    }
+   ],
+   "next": "hub"
+  },
+  "correction": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "editor",
+     "I'd print one tomorrow if I had something true to correct it with. Twenty-eight years and nobody's brought me a fact. They bring me feelings."
+    ],
+    [
+     "editor",
+     "Bring me a fact. One. I'll give it the front page and a headline with no dots in it."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "editor": 1
+    },
+    "flag": "editor_promised_page"
+   }
+  },
+  "correction_fail": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "editor",
+     "A correction. Of what, exactly? That something was seen? It was seen."
+    ],
+    [
+     "editor",
+     "I've run this paper since Truman. Come back when you've read a year of it instead of a day."
+    ],
+    [
+     "teddy",
+     "That was pushy. I'm allowed to say that. I'm the pushy one."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "press",
+     "threshold": 5,
+     "line": "You leaned, and he is a man who has been leaned on by better. Tomorrow. Bring him something to print."
+    }
+   ],
+   "end": true
+  },
+  "page": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "editor",
+     "..."
+    ],
+    [
+     "editor",
+     "The letters started the next morning. Half the county. I kept every one. The file's in the morgue, third drawer, if you want it. Nobody's asked in years."
+    ],
+    [
+     "ruth",
+     "Letters to the editor are the county's diary, honey. Read them properly."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 6,
+     "line": "He offered the file because you did not ask for it. That is how it works with this one."
+    }
+   ],
+   "next": "letters"
+  },
+  "letters": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "teddy",
+     "Anyone write in who wasn't scared?"
+    ],
+    [
+     "editor",
+     "A university biologist. Says a sandhill crane, way off its migration. Tall as a man, grey, and a red patch on the head."
+    ],
+    [
+     "miriam",
+     "Red patch. Car headlights. That would do it."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "A biologist who writes to a weekly the same week, with a species, a height and a colour. Letters from scientists are never that tidy. Letters from somebody who wants a word printed are.",
+     "flag": "editor_tidy_letter"
+    },
+    {
+     "voice": "tech",
+     "threshold": 7,
+     "line": "Typed on an IBM, not a university typewriter. Universities in 1966 did not hand out Selectrics to biologists."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "biologist_letter"
+   }
+  },
+  "hub": {
+   "speaker": "editor",
+   "repeat": true,
+   "lines": [
+    [
+     "editor",
+     "Morgue's open. Ask, or read."
+    ]
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "requires": {
+      "not_flag": [
+       "editor_gave_letters"
+      ]
+     },
+     "text": "Could we see the letter file?",
+     "next": "letters"
+    },
+    {
+     "tone": "hard",
+     "check": {
+      "voice": "bluff",
+      "kind": "red",
+      "difficulty": 10
+     },
+     "text": "We're with the state. Open the December 1967 drawer.",
+     "pass": "morgue",
+     "fail": {
+      "next": "morgue_fail",
+      "trust": {
+       "editor": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll let you get the paper out."
+    }
+   ]
+  },
+  "morgue": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "editor",
+     "The state. Took you twenty-seven years. Fine. December '67 is the bottom drawer, and it's mostly the bridge."
+    ],
+    [
+     "editor",
+     "There's a woman in it who shouldn't be. From Sutton. Came in the week before it fell, asking what you're asking, with a man in a grey suit who never said a word."
+    ],
+    [
+     "editor",
+     "I never ran her name. Her car turned up in Gallipolis and I never ran that either. I was told it wasn't a story."
+    ],
+    [
+     "vera",
+     "Sutton. A woman from Sutton, in December 1967. That is the Office. That is Gus."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 8,
+     "line": "A man in a grey suit who never spoke. You know a name for that shape and you will not say it in a newspaper office."
+    },
+    {
+     "voice": "bluff",
+     "threshold": 6,
+     "line": "He does not believe you are the state. He opened the drawer anyway. Remember that this one is on your side and has been since 1966."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "editor_gus_1967",
+    "dread": 1
+   }
+  },
+  "morgue_fail": {
+   "speaker": "editor",
+   "lines": [
+    [
+     "editor",
+     "The state. The state sent a woman last spring with a briefcase and a better lie than yours."
+    ],
+    [
+     "editor",
+     "Get out of my morgue. The deputy will want to know who's impersonating Charleston in his town, and I'm going to tell him."
+    ],
+    [
+     "miriam",
+     "He's not wrong. I am the state. I'd rather he didn't find out from the deputy."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "nerve",
+     "threshold": 7,
+     "line": "He is dialling. Walk, do not run, and do not look back at the drawer. You will not get a second swing at this one."
+    }
+   ],
+   "end": true
+  }
+ }
+}

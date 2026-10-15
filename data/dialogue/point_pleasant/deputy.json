@@ -1,0 +1,352 @@
+{
+ "id": "deputy",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "Those kids were scared, I'll give 'em that. Shaking. Couldn't find tracks, ground was froze."
+    ],
+    [
+     "deputy",
+     "Spring before, I saw a big grey bird down by the river. Five, six foot across. Ugly thing. Red on its head."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 7,
+     "line": "Motorola base station behind him, and a dispatcher's logbook on the shelf under it. Everything that rings in here gets a time and a line.",
+     "flag": "deputy_logbook"
+    },
+    {
+     "voice": "fieldcraft",
+     "threshold": 8,
+     "line": "Five, six foot: his hands are wider than his desk. He is not describing a bird. He is describing the width of the thing he decided to call one."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "'I'll give 'em that.' He wanted to give them more, and somebody with a bigger hat did not let him."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "You believed them.",
+     "next": "believed"
+    },
+    {
+     "tone": "wry",
+     "text": "Ugly thing. You've seen a crane before, then?",
+     "next": "crane"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "Night desk in February. They give you the shifts nobody wants.",
+     "pass": "shifts",
+     "fail": {
+      "next": "shifts_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "three_note_tone": 2
+      }
+     },
+     "text": "What's on the squawk box at two in the morning?",
+     "pass": "squawk",
+     "fail": {
+      "next": "squawk_fail"
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Wait. He's not done.)",
+     "next": "coffee",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "evidence": "deputy_bird",
+    "flag": "met_deputy"
+   }
+  },
+  "believed": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "Didn't say that. Said they were scared. Sheriff said write 'bird', so I wrote 'bird'."
+    ],
+    [
+     "deputy",
+     "Been writing 'bird' on things twenty-eight years. Gets easier. That's the part I don't like."
+    ],
+    [
+     "elijah",
+     "He's telling you. Don't make him say it twice."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "deputy_wrote_bird"
+   }
+  },
+  "crane": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "Seen herons. Seen a crane once at the state fair. This wasn't either, and I said bird because bird was what fit on the form."
+    ],
+    [
+     "deputy",
+     "Form's got a box for species. It don't have a box for 'I don't know, and I've hunted this river since I was nine.'"
+    ],
+    [
+     "dale",
+     "Grey, six foot, red head, by the river. Sandhill. Or he's right and it isn't anything."
+    ]
+   ],
+   "next": "hub"
+  },
+  "shifts": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "Nights are fine. Nights you get the calls nobody wants on the day log. The sheriff don't read the night log; the sheriff's asleep."
+    ],
+    [
+     "deputy",
+     "You want to know what happened in this town, you read the night log. You want to know what the town says happened, you read the paper."
+    ],
+    [
+     "teddy",
+     "I'll take that as a compliment to the profession."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "rapport",
+     "threshold": 6,
+     "line": "He is tipping you, not telling you. The night log. Ask him about it when the sheriff is not in."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "deputy": 1
+    },
+    "flag": "deputy_night_log"
+   }
+  },
+  "shifts_fail": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "Shift's a shift. You want gossip, the diner's open and the coffee's better."
+    ],
+    [
+     "deputy",
+     "Marlene works nights too. Ask her who gives her the shifts nobody wants."
+    ]
+   ],
+   "next": "hub"
+  },
+  "squawk": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "Static. More than usual this week, and it comes in threes. Like somebody keying a mic three times and not saying nothing."
+    ],
+    [
+     "deputy",
+     "Dispatcher thinks it's the power company. I think the power company don't key a mic at two in the morning from the TNT area."
+    ],
+    [
+     "june",
+     "Threes. On a police band. I need that frequency."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 7,
+     "line": "Three keys, no carrier. Not a mic. Whatever is doing it is doing it to the band itself."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "deputy_static_threes",
+    "dread": 1
+   }
+  },
+  "squawk_fail": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "Truckers on CB bleeding over. Kids with a Radio Shack set. Same as any county."
+    ],
+    [
+     "deputy",
+     "You want radio, there's a ham up on the Heights who logs every squeak. Talks more than me, too."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 5,
+     "line": "CB does not bleed onto a police band. He knows that. He gave you the ham instead, which is a kindness, so take it."
+    }
+   ],
+   "next": "hub"
+  },
+  "coffee": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "..."
+    ],
+    [
+     "deputy",
+     "Pot's fresh. Sheriff's in at eight. Whatever you came in to ask, ask it before eight, and ask me, not him."
+    ],
+    [
+     "elijah",
+     "He poured you one. That's an answer."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 6,
+     "line": "He poured without asking. A man on the night desk who pours you coffee is a man who has decided to talk and is waiting to be let."
+    }
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "deputy",
+   "repeat": true,
+   "lines": [
+    [
+     "deputy",
+     "Go on. Desk is quiet till the bars let out."
+    ]
+   ],
+   "options": [
+    {
+     "tone": "hard",
+     "requires": {
+      "flag": [
+       "deputy_wrote_bird"
+      ]
+     },
+     "check": {
+      "voice": "intimidate",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "original_report": 1,
+       "call_log": 1
+      }
+     },
+     "text": "You wrote 'bird' because you were told to. Say it on the record.",
+     "pass": "record",
+     "fail": {
+      "next": "record_fail",
+      "trust": {
+       "deputy": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll let you get back to it."
+    }
+   ]
+  },
+  "record": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "...On the record. Fine. The sheriff had the state police on the line, and the state police had somebody on their line, and the word that came down the line was 'bird'."
+    ],
+    [
+     "deputy",
+     "Two men in suits sat in that chair the morning after and read my report before the sheriff did. I was twenty-three. You write 'bird'."
+    ],
+    [
+     "teddy",
+     "On the record. Thank you, Deputy. That one's going in exactly like you said it."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "intimidate",
+     "threshold": 7,
+     "line": "You got it out of him and it cost him something to give. Do not thank him twice; he will hear the second one as pity."
+    },
+    {
+     "voice": "nerve",
+     "threshold": 6,
+     "line": "Men in suits read a deputy's report before his own sheriff, in 1966. That is not a bird. Keep your face still."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "deputy_on_record",
+    "dread": 1
+   }
+  },
+  "record_fail": {
+   "speaker": "deputy",
+   "lines": [
+    [
+     "deputy",
+     "Say it on the record. In my station. With my name on the door."
+    ],
+    [
+     "deputy",
+     "Get out. Come back with the sheriff's permission, which you won't get, because I'm going to tell him you came in here and leaned on a peace officer."
+    ],
+    [
+     "elijah",
+     "I told you not to make him say it twice."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "intimidate",
+     "threshold": 5,
+     "line": "That was Intimidate in your mouth, and it is still there, wanting to say the thing about the twenty-three-year-old. Close your mouth and walk."
+    }
+   ],
+   "end": true
+  }
+ }
+}

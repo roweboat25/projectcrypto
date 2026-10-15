@@ -1,0 +1,561 @@
+{
+ "_doc": "TNT Area fragment: the warden and the duck hunter, the inner fence and the plant sump gates, igloo 7 (night 4) and the power plant lair (night 5).",
+ "districts": {
+  "tnt": {
+   "name": "TNT Area",
+   "map": "point_pleasant_tnt"
+  }
+ },
+ "gates": {
+  "superfund_fence": {
+   "name": "The inner Superfund fence",
+   "locked": "Chain-link, eight feet, EPA signs every thirty yards. The gate is padlocked and the padlock is new.",
+   "opens": [
+    {
+     "item": "bolt_cutters"
+    },
+    {
+     "item": "warden_pass"
+    },
+    {
+     "trust": {
+      "npc": "warden",
+      "level": 2
+     }
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "difficulty": 9,
+      "prompt": "Talk your way past the warden: you know what this ground was called"
+     }
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "difficulty": 9,
+      "prompt": "Talk your way past the warden: offer to trace the plant's power draw"
+     }
+    }
+   ]
+  },
+  "plant_lower": {
+   "name": "The boiler pit stairs",
+   "locked": "The stairs go down into black water, waist deep and steaming. The sump pump is running on no power at all.",
+   "opens": [
+    {
+     "item": "waders"
+    },
+    {
+     "item": "car_battery"
+    }
+   ]
+  }
+ },
+ "items": {},
+ "witnesses": {
+  "warden": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "warden_1966",
+     "title": "November 1966, with the sheriff",
+     "gates": [
+      {
+       "show": "original_report"
+      },
+      {
+       "check": "recall",
+       "difficulty": 8,
+       "prompt": "You were nineteen in '66. The plant caretaker's boy. You drove the sheriff out here."
+      }
+     ],
+     "lines": [
+      [
+       "warden",
+       "I was nineteen. I drove the sheriff and two deputies out here the morning after, because I had the keys and they didn't."
+      ],
+      [
+       "warden",
+       "Prints in the frost by the plant door. Three toes, long as my arm. Deputy cast two of them in plaster."
+      ],
+      [
+       "warden",
+       "Next day two men in suits came to the sheriff's office and took the casts. Receipt and everything. Sheriff never said another word about it, and he was a man who said words."
+      ],
+      [
+       "teddy",
+       "A receipt. From whom?"
+      ],
+      [
+       "warden",
+       "Didn't say. Just said 'received'."
+      ]
+     ],
+     "evidence": "warden_1966"
+    },
+    {
+     "id": "warden_ponds",
+     "title": "The north pond",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "check": "fieldcraft",
+       "difficulty": 7,
+       "prompt": "The north pond isn't frozen. Everything else is."
+      }
+     ],
+     "lines": [
+      [
+       "warden",
+       "Red's the iron and the TNT washing out of the ground. Been red since the war. That's not the thing."
+      ],
+      [
+       "warden",
+       "Thing is, it don't freeze. Ten below in January, every pond on this ground was iron, and that one steamed. Ducks won't land on it. Ducks'll land on anything."
+      ],
+      [
+       "dale",
+       "Warm water. Something under it."
+      ],
+      [
+       "warden",
+       "Something. You said it."
+      ]
+     ],
+     "evidence": "warden_ponds"
+    },
+    {
+     "id": "warden_pump",
+     "title": "The sump pump",
+     "gates": [
+      {
+       "show": "three_note_tone"
+      },
+      {
+       "check": "tech",
+       "difficulty": 8,
+       "prompt": "There's a current draw out here. Something inside the fence is running."
+      }
+     ],
+     "lines": [
+      [
+       "warden",
+       "Plant's sump pump runs. Some nights. There's no line to that building, hasn't been since '45. I pulled the fuses myself in '81."
+      ],
+      [
+       "warden",
+       "You can hear it from the gate on a still night. Thump, thump, thump, and then it stops for a while. Then three more."
+      ],
+      [
+       "june",
+       "Three."
+      ],
+      [
+       "warden",
+       "I didn't count 'em. I'm telling you what you'd hear."
+      ]
+     ],
+     "evidence": "warden_pump"
+    },
+    {
+     "id": "warden_lyle",
+     "title": "Who he lets inside",
+     "gates": [
+      {
+       "contradiction": "pond_access"
+      }
+     ],
+     "lines": [
+      [
+       "warden",
+       "Lyle's my wife's brother. He shoots the north pond because I let him, and he gets out when I tell him."
+      ],
+      [
+       "warden",
+       "I tell him on the nights the plant lights up. He's never argued once. Lyle argues about the weather."
+      ],
+      [
+       "miriam",
+       "The plant lights up."
+      ],
+      [
+       "warden",
+       "Windows. Top floor. Like someone walking through with a lamp, slow. Nobody's up there. I've been up there."
+      ]
+     ],
+     "evidence": "warden_lets_hunter"
+    }
+   ]
+  },
+  "tnt_hunter": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hunter_vest",
+     "title": "The vest in igloo 7",
+     "gates": [
+      {
+       "show": "hunter_vest"
+      },
+      {
+       "show": "vest_photo"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "Lose anything out here, Lyle? Orange, reflective?"
+      }
+     ],
+     "lines": [
+      [
+       "tnt_hunter",
+       "That's my vest. Lost it deer season '92, chasing a doe I never hit. Walked into igloo 7 for the beer and came out without it."
+      ],
+      [
+       "tnt_hunter",
+       "Been meaning to go back for it. Don't go in 7 much now."
+      ],
+      [
+       "teddy",
+       "Two years to walk forty yards."
+      ],
+      [
+       "tnt_hunter",
+       "You go in."
+      ]
+     ],
+     "evidence": "vest_owner"
+    },
+    {
+     "id": "hunter_lights",
+     "title": "Lights over the plant",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "You sit by that fire all night. What do you see?"
+      },
+      {
+       "trust": 2
+      },
+      {
+       "show": "marlene_tnt"
+      }
+     ],
+     "lines": [
+      [
+       "tnt_hunter",
+       "Dusk, most nights since January. Two red lights come up off the plant roof, slow, like a man climbing. Then they go over the north pond and the ducks go up."
+      ],
+      [
+       "tnt_hunter",
+       "Ducks don't go up for lights. Ducks go up for a hawk."
+      ],
+      [
+       "dale",
+       "How high?"
+      ],
+      [
+       "tnt_hunter",
+       "Higher'n a hawk."
+      ]
+     ],
+     "evidence": "hunter_plant_lights"
+    },
+    {
+     "id": "hunter_cans",
+     "title": "The crushed cans",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 7,
+       "prompt": "Who crushes a dozen beer cans from the top, flat, and leaves them in a row?"
+      }
+     ],
+     "lines": [
+      [
+       "tnt_hunter",
+       "Not me. I drank 'em. I don't fold 'em. Went back in October and every one of 'em was stepped flat and lined up by the wall."
+      ],
+      [
+       "tnt_hunter",
+       "Lined up. Like somebody wanted me to see they'd been in."
+      ],
+      [
+       "miriam",
+       "Or like a kid with a boot and an evening."
+      ],
+      [
+       "tnt_hunter",
+       "Kid'd take the vest. Kids take anything orange."
+      ]
+     ],
+     "evidence": "hunter_cans"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "igloo_glyph_photo": {
+   "title": "Photo of the igloo 7 glyph",
+   "text": "A bird's foot inside a circle and three marks, scratched fresh into the back wall of igloo 7.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "igloo_scorch_reading": {
+   "title": "Counter reading, igloo 7",
+   "text": "A warm black ring on the igloo 7 floor reads six times background. The reading climbs while you stand in it.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "recording",
+   "reliability": "A"
+  },
+  "igloo_scorch_photo": {
+   "title": "Photo of the igloo 7 floor",
+   "text": "A ring of blackened concrete with no frost on it, in a room full of frost.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "hunter_vest": {
+   "title": "Reflective vest from igloo 7",
+   "text": "A blaze-orange vest with red reflective tape, found by the door of igloo 7. In a flashlight the tape looks like two red eyes.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B",
+   "red_herring": true,
+   "lab": "hunter_vest_lab"
+  },
+  "hunter_vest_lab": {
+   "title": "Lab: the vest",
+   "text": "A 1992 Walls hunting vest, size XL, sold by the thousand. Mud, dog hair and deer blood. Nothing that isn't a hunter.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "hunter_vest",
+    "vest_photo"
+   ]
+  },
+  "vest_photo": {
+   "title": "Photo of two red eyes in igloo 7",
+   "text": "Two red bars of light at head height by the door of igloo 7, in the flash.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "vest_owner": {
+   "title": "Lyle's vest",
+   "text": "The duck hunter lost the vest in igloo 7 in 1992. The red eyes by the door are reflective tape.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "hunter_vest",
+    "vest_photo"
+   ]
+  },
+  "pond_sample": {
+   "title": "Foam from the north pond",
+   "text": "Warm red foam from the one pond that has not frozen all winter.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "pond_sample_lab"
+  },
+  "pond_sample_lab": {
+   "title": "Lab: the pond foam",
+   "text": "Iron oxide, nitrotoluene residue and bacteria that eat it. The reaction gives off heat; the pond warms itself. Ugly, not uncanny.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "pond_sample",
+    "pond_reading"
+   ]
+  },
+  "pond_reading": {
+   "title": "Counter reading, north pond",
+   "text": "The north pond shore reads twice background. The water is 48 degrees in a nine-degree night.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "spur_cast": {
+   "title": "Cast of the rail spur prints",
+   "text": "Three toes, long, walking the rail like a wire. The prints stop at the fence and do not cross it.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B"
+  },
+  "spur_photo": {
+   "title": "Photo of the rail spur prints",
+   "text": "A line of three-toed marks along the rail in the snow, ending at the fence.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "plant_feathers": {
+   "title": "Feathers from the plant nest",
+   "text": "Grey feathers longer than a forearm, warm in the quill, worked into a nest of insulation.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B",
+   "lab": "plant_feathers_lab"
+  },
+  "plant_feathers_lab": {
+   "title": "Lab: the plant feathers",
+   "text": "The barb structure matches no bird in the key. The quills are hollow and contain a fluid the lab will not name in writing.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "physical",
+   "reliability": "A"
+  },
+  "plant_feathers_photo": {
+   "title": "Photo of the nest",
+   "text": "A ring of insulation and grey feathers the size of a bathtub, in the generator hall.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "plant_cold_reading": {
+   "title": "Thermometer, the generator hall",
+   "text": "A column of air by the bench reads 22 degrees below the room, with a hard edge, as if it had walls.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "A"
+  },
+  "plant_glyph_photo": {
+   "title": "Photo of the switchgear glyph",
+   "text": "The bird's-foot glyph on a dead switch panel, with three marks and a fourth begun.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "plant_prints_cast": {
+   "title": "Cast of the generator hall prints",
+   "text": "A three-toed print from the plant floor. Stride eight feet. Depth says four hundred pounds.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "physical",
+   "reliability": "A"
+  },
+  "plant_prints_photo": {
+   "title": "Photo of the generator hall prints",
+   "text": "Three-toed prints in concrete dust, from the boiler stairs to the nest.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "warden_1966": {
+   "title": "The warden in 1966",
+   "text": "The sheriff cast three-toed prints at the plant door the morning after. Two men in suits took the casts with a receipt.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "warden_ponds": {
+   "title": "The pond that will not freeze",
+   "text": "The north pond has steamed all winter at ten below. Ducks will not land on it.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "warden_pump": {
+   "title": "The sump pump",
+   "text": "The plant's sump pump runs some nights with no power to the building. Three strokes, a pause, three strokes.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "warden_lets_hunter": {
+   "title": "Lights in the plant windows",
+   "text": "The warden clears the hunter out on nights the plant's top-floor windows light up. He has been up there. Nobody is.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "hunter_plant_lights": {
+   "title": "The hunter's lights",
+   "text": "Two red lights rise off the plant roof at dusk and cross the north pond. The ducks flush as for a hawk.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "hunter_cans": {
+   "title": "The lined-up cans",
+   "text": "The hunter's cans in igloo 7 were crushed flat and lined up along the wall after he left, and the vest was not taken.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  }
+ },
+ "contradictions": {
+  "pond_access": {
+   "title": "Who shoots the north pond",
+   "evidence": [
+    "hunter_plant_lights",
+    "warden_ponds"
+   ],
+   "witness": "warden",
+   "prompt": "Nobody goes past the fence, you said. Lyle's been shooting the north pond all winter and watching your plant from the bank."
+  }
+ },
+ "trail": [
+  {
+   "night": 4,
+   "roost": "Igloo 7, TNT Area",
+   "map": "point_pleasant_tnt",
+   "clues": [
+    "igloo7_glyph",
+    "igloo7_scorch",
+    "spur_prints"
+   ],
+   "herring": [
+    "igloo7_vest",
+    "pond_foam"
+   ]
+  },
+  {
+   "night": 5,
+   "roost": "The North Power Plant",
+   "map": "point_pleasant_tnt",
+   "clues": [
+    "plant_feathers",
+    "plant_cold",
+    "plant_glyph",
+    "plant_prints"
+   ],
+   "herring": []
+  }
+ ]
+}

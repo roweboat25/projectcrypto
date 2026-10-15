@@ -233,10 +233,7 @@ func _apply_phase() -> void:
 	for n in get_tree().get_nodes_in_group("interactable"):
 		if n.has_meta("when"):
 			var when: Array = n.get_meta("when")
-			var here: bool = when.is_empty() or ph in when
-			n.visible = here
-			n.monitoring = here
-			n.set_meta("hidden", not here)
+			n.set_present(when.is_empty() or ph in when)
 		elif n.has_meta("clue"):
 			var here := Investigation.clue_visible(GameState, n.data, time_of_day)
 			n.visible = here

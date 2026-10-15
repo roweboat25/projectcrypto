@@ -6,6 +6,7 @@ const ROW := {"down": 0, "left": 1, "right": 2, "up": 3}
 var npc_id := ""
 var display_name := ""
 var sprite: Sprite2D
+var _body: StaticBody2D
 
 
 func setup(data: Dictionary) -> void:
@@ -24,16 +25,23 @@ func setup(data: Dictionary) -> void:
 	sprite.position = Vector2(0, -29)
 	add_child(sprite)
 	face(data.get("facing", "down"))
-	var body := StaticBody2D.new()
+	_body = StaticBody2D.new()
 	var shape := CollisionShape2D.new()
 	var rect := RectangleShape2D.new()
 	rect.size = Vector2(18, 10)
 	shape.shape = rect
 	shape.position = Vector2(0, -5)
-	body.add_child(shape)
-	add_child(body)
+	_body.add_child(shape)
+	add_child(_body)
 	add_to_group("interactable")
 	set_meta("prompt", "Talk to " + display_name)
+
+
+## Off shift: invisible, and the party walks through the empty spot.
+func set_present(here: bool) -> void:
+	visible = here
+	_body.collision_layer = 1 if here else 0
+	set_meta("hidden", not here)
 
 
 func face(dir: String) -> void:
