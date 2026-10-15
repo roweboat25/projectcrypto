@@ -25,9 +25,7 @@ var _box: DialogueBox
 var _root: Control
 var _stage: Node2D
 var _sprites: Dictionary = {}          # actor key -> Node2D
-var _bars: Dictionary = {}             # actor key -> {name, comp, focus}
-var _turn_row: Label
-var _meter: Label
+var _hud: BattleHud
 var _field_label: Label
 var _mark: Label                       # the timed-hit "!"
 var _timing := false
@@ -72,16 +70,7 @@ func _build() -> void:
 	back.set_anchors_preset(Control.PRESET_FULL_RECT)
 	back.color = Color(cols[0])
 	add_child(back)
-	var ground := ColorRect.new()
-	ground.color = Color(cols[1])
-	ground.position = Vector2(0, 200)
-	ground.size = Vector2(640, 60)
-	add_child(ground)
-	var horizon := ColorRect.new()
-	horizon.color = Color(cols[1]).lightened(0.15)
-	horizon.position = Vector2(0, 198)
-	horizon.size = Vector2(640, 2)
-	add_child(horizon)
+	add_child(BattleBackdrop.new(field))
 	_stage = Node2D.new()
 	add_child(_stage)
 	if field.get("weather", "") in ["rain", "gale", "snow", "mist"] and not field.get("inside", false):
@@ -109,15 +98,6 @@ func _build() -> void:
 		node.position = Vector2(x0 + spread * i, 210)
 		_stage.add_child(node)
 		_sprites[f.key] = node
-		var lbl := Label.new()
-		lbl.add_theme_font_size_override("font_size", 9)
-		lbl.add_theme_color_override("font_color", Color("f0e6d2"))
-		_shadow(lbl)
-		lbl.position = Vector2(node.position.x - 50, 52)
-		lbl.size = Vector2(100, 20)
-		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		add_child(lbl)
-		_bars[f.key] = {"name": lbl}
 		i += 1
 	# party, left half, seen from behind
 	var party := BattleRules.alive(b, "party")
@@ -142,18 +122,11 @@ func _build() -> void:
 		node.position = Vector2(90 + 70 * i, 236)
 		_stage.add_child(node)
 		_sprites[m.key] = node
-		var lbl := Label.new()
-		lbl.add_theme_font_size_override("font_size", 9)
-		lbl.add_theme_color_override("font_color", Color("e8a64a"))
-		_shadow(lbl)
-		lbl.position = Vector2(node.position.x - 40, 72)
-		lbl.size = Vector2(80, 36)
-		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		add_child(lbl)
-		_bars[m.key] = {"name": lbl}
 		i += 1
 	_fx = Node2D.new()
 	_stage.add_child(_fx)
+	_hud = BattleHud.new()
+	add_child(_hud)
 	_banner = Label.new()
 	_banner.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
 	_banner.offset_top = 34
@@ -165,25 +138,10 @@ func _build() -> void:
 	_shadow(_banner)
 	_banner.visible = false
 	add_child(_banner)
-	_turn_row = Label.new()
-	_turn_row.position = Vector2(8, 6)
-	_turn_row.size = Vector2(420, 14)
-	_turn_row.add_theme_font_size_override("font_size", 10)
-	_turn_row.add_theme_color_override("font_color", Color("f0e6d2"))
-	_shadow(_turn_row)
-	add_child(_turn_row)
-	_meter = Label.new()
-	_meter.position = Vector2(400, 6)
-	_meter.size = Vector2(232, 14)
-	_meter.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_meter.add_theme_font_size_override("font_size", 10)
-	_meter.add_theme_color_override("font_color", Color("e8a64a"))
-	_shadow(_meter)
-	add_child(_meter)
 	_field_label = Label.new()
 	_field_label.position = Vector2(8, 20)
-	_field_label.add_theme_font_size_override("font_size", 9)
-	_field_label.modulate.a = 0.8
+	_field_label.add_theme_font_size_override("font_size", 8)
+	_field_label.modulate.a = 0.7
 	_shadow(_field_label)
 	var parts := [str(field.get("phase", "night")).capitalize()]
 	if field.get("weather", "") not in ["", "clear"] and not field.get("inside", false):
@@ -300,10 +258,12 @@ func _run() -> void:
 			BattleRules.spend_turn(b, a)
 			_refresh()
 			continue
+		_hud.current = a.key
 		if a.side == "party":
 			await _party_turn(a)
 		else:
 			await _foe_turn(a)
+		_hud.current = ""
 		_refresh()
 		if BattleRules.outcome(b) != "":
 			break
@@ -579,28 +539,6 @@ func _outro() -> void:
 
 func _refresh() -> void:
 	for a in b.actors:
-		var bars: Dictionary = _bars.get(a.key, {})
-		if bars.is_empty():
-			continue
-		var st := ""
-		for s in a.statuses:
-			st += " " + str(s)
-		if a.side == "party":
-			bars.name.text = "%s\n%s %d\n%s %d%s" % [a.name, _bar(a.composure, a.max_composure, 8), a.composure, _bar(a.focus, a.max_focus, 5, "+"), a.focus, st]
-			if a.broken:
-				bars.name.text = a.name + "\nbroken"
-		else:
-			var weak := ""
-			if a.known and not a.weak.is_empty():
-				weak = "\nweak: " + ", ".join(a.weak)
-			elif not a.weak.is_empty():
-				weak = "\nweak: ?"
-			if a.anomaly:
-				bars.name.text = "%s\n%s%s%s" % [a.name, _bar(a.phase, max(1, a.tells.size()), a.tells.size(), "*"), weak, st]
-			else:
-				bars.name.text = "%s\n%s%s%s" % [a.name, _bar(a.composure, a.max_composure, 8), weak, st]
-			if a.broken:
-				bars.name.text = ""
 		var node: Node2D = _sprites.get(a.key)
 		if node:
 			if a.broken and not a.key in _gone:
@@ -613,25 +551,7 @@ func _refresh() -> void:
 				_gone.erase(a.key)
 				node.modulate.a = 1.0
 			node.visible = not a.broken or a.key in _gone
-	var row := []
-	for p in BattleRules.preview(b, 7):
-		row.append(p.name if p.side == "party" else "[%s]" % p.name)
-	_turn_row.text = "Next: " + " › ".join(row)
-	var anomaly := BattleRules.has_anomaly(b)
-	var turns := ""
-	if anomaly:
-		for f in BattleRules.alive(b, "foe"):
-			if f.anomaly:
-				turns = "   Hold %d more" % max(0, f.turns - b.round)
-	_meter.text = "Evidence %s %d   Insight %s%s" % [_bar(b.meter, BattleRules.METER_MAX, 10, "o"), b.meter, _bar(b.insight, BattleRules.INSIGHT_MAX, 3, "^"), turns]
-
-
-func _bar(v: int, maxv: int, cells: int, mark := "#") -> String:
-	var filled := int(round(float(cells) * float(v) / float(max(1, maxv))))
-	var s := ""
-	for i in cells:
-		s += mark if i < filled else "-"
-	return s
+	_hud.refresh(b, _sprites)
 
 
 # ---------- effects ----------
