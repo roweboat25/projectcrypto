@@ -1,0 +1,128 @@
+{
+ "_doc": "The inner voices' stock lines, used wherever a script has none: a take on a check before you pick it (sure when the odds are 60% or better, unsure below), a verdict when the dice land, and the Static at high Dread. Partners interject by class after a check in their voices. Lines are short, present tense, second person; voices judge you, never the witness. {n} is the total rolled, {d} the difficulty, {v} the voice's name.",
+ "voices": {
+  "logic": {
+   "sure": ["Their story has a seam. Pull it.", "You have the dates. They do not.", "Ask it plainly. They will trip on the answer."],
+   "unsure": ["You are missing a piece. Guessing is not reasoning.", "Not yet. Get one more fact first.", "If you push now, they will see you have nothing."],
+   "pass": ["{n} against {d}. It holds. Say it like you already knew.", "There. The seam opens.", "Yes. Watch their hands."],
+   "fail": ["{n} against {d}. You said it wrong, and they heard it.", "No. That was a guess in a suit.", "They are better at this than you were just now."]
+  },
+  "tech": {
+   "sure": ["Frequencies, voltages, dates. This is a wiring problem. You can do wiring.", "Ask about the equipment. People lie about feelings, not about model numbers.", "The numbers are on your side."],
+   "unsure": ["You do not know the kit well enough to bluff it.", "Hold off. You need the manual, or the man who read it.", "Half a spec sheet is worse than none."],
+   "pass": ["{n} against {d}. Clean signal.", "Got it. That part number checks.", "The tape would agree with you."],
+   "fail": ["{n} against {d}. Static. You lost them at the second question.", "No. You named the wrong part.", "Noise on the line. Try again when it clears."]
+  },
+  "recall": {
+   "sure": ["You have read this before. Somewhere. Say the name.", "The old account matches. Tell them you know it.", "You remember. Trust that."],
+   "unsure": ["It is on the tip of something. Not close enough.", "You are mixing two stories.", "Do not quote what you cannot place."],
+   "pass": ["{n} against {d}. The page comes back whole.", "Yes. 1955. Third paragraph.", "It was in the clipping. You knew it was."],
+   "fail": ["{n} against {d}. The page is blank where it matters.", "Wrong year. They noticed.", "You remembered the shape and not the words."]
+  },
+  "press": {
+   "sure": ["They want to be asked. Ask harder.", "Keep the pen moving and they will keep talking.", "This one gives if you do not blink."],
+   "unsure": ["They have been asked before, by people with bigger papers.", "Push now and they shut the door.", "You are not the first reporter here. They can tell."],
+   "pass": ["{n} against {d}. They give. Keep writing.", "There it is. Front page.", "They wanted you to make them say it."],
+   "fail": ["{n} against {d}. The door shuts, politely.", "No comment. You pushed on the wrong word.", "They have had enough of your kind today."]
+  },
+  "rapport": {
+   "sure": ["They like you. Let them.", "Agree with them first. Then ask.", "You are from somewhere like here. Say so."],
+   "unsure": ["They have not decided about you yet.", "Too soon. Buy the coffee first.", "You are a stranger with a notebook. Be a person first."],
+   "pass": ["{n} against {d}. Something eases in their shoulders.", "Friends, for the length of a conversation.", "They tell you the way they would tell a neighbour."],
+   "fail": ["{n} against {d}. You sounded like you were working them.", "No. That smile was wrong.", "They are polite about it, which is worse."]
+  },
+  "bluff": {
+   "sure": ["They cannot check this. Say it straight.", "You already know, remember? Act like it.", "Confidence is evidence, to them."],
+   "unsure": ["They can check this. Do not.", "Your tell is showing.", "If they call it, you lose more than the question."],
+   "pass": ["{n} against {d}. They buy it.", "Sold. Do not grin.", "They fill in the rest for you."],
+   "fail": ["{n} against {d}. Called. They look at you like a bad cheque.", "Caught. Now everything you say is a lie to them.", "You overplayed it."]
+  },
+  "nerve": {
+   "sure": ["Stand still. Say it. Do not look away.", "You can take whatever they say back.", "Steady. This is just a person."],
+   "unsure": ["Your hands are not as still as you think.", "Not here. Not with it this dark.", "You will flinch. They will see."],
+   "pass": ["{n} against {d}. You did not blink.", "Held. They looked away first.", "Good. The room is yours for a moment."],
+   "fail": ["{n} against {d}. The flinch got out.", "You stepped back. They saw.", "Not today. The dark is in your voice."]
+  },
+  "intimidate": {
+   "sure": ["Lower your voice. Let the silence do it.", "They are more afraid of you than of the dark. Use that.", "One step closer."],
+   "unsure": ["They have been shouted at by worse than you.", "This one will shout back.", "Threats you cannot keep are just noise."],
+   "pass": ["{n} against {d}. They fold.", "That worked. Do not enjoy it.", "They talk fast now. Write faster."],
+   "fail": ["{n} against {d}. They square up instead.", "Wrong person to lean on.", "Now they are angry and you have nothing."]
+  },
+  "fieldcraft": {
+   "sure": ["Read the ground, then ask. You know where this happened.", "Tracks, wind, sightlines. Talk like you have walked it.", "Ask what time the light went. They will know you mean it."],
+   "unsure": ["You have not been out there yet. It shows.", "City shoes. They noticed.", "Guess the terrain wrong and you are a tourist."],
+   "pass": ["{n} against {d}. You named the right field.", "They nod. You have been where they have been.", "The map in your head matches theirs."],
+   "fail": ["{n} against {d}. Wrong creek.", "You said north. It was south. They stopped listening.", "Not a woodsman today."]
+  },
+  "empathy": {
+   "sure": ["They are frightened. Say you know.", "Wait. Let the quiet finish.", "Ask how it felt, not what it was."],
+   "unsure": ["You are not listening. You are waiting to talk.", "Too raw. Leave it until tomorrow.", "You cannot fake caring here. They would know."],
+   "pass": ["{n} against {d}. Something in them unlocks.", "They look at you properly for the first time.", "That was the right silence."],
+   "fail": ["{n} against {d}. You reached and they stepped back.", "Wrong moment. The wound is open.", "They hear the question, not the kindness."]
+  },
+  "lore": {
+   "sure": ["There is a name for this, and they half know it. Say it.", "Every town has this story. Tell them theirs.", "The old rule applies. Ask about salt, iron, the hour."],
+   "unsure": ["You are reaching for a legend that is not from here.", "Wrong county, wrong creature.", "Do not lecture a man about his own grandmother's story."],
+   "pass": ["{n} against {d}. The old story and theirs meet.", "They had forgotten that part. You gave it back.", "Yes. That is the version their mother told."],
+   "fail": ["{n} against {d}. Wrong tale, wrong teller.", "That is a book story. Theirs is older.", "You said it like a tourist reading a plaque."]
+  },
+  "arcana": {
+   "sure": ["Something here was arranged. Ask who arranged it.", "The pattern is a pattern. Say so.", "They know a word for this they will not say first. Say it for them."],
+   "unsure": ["Speak of this and they will think you are part of it.", "Not aloud. Not here.", "You are guessing at a shape in the dark, and so is it."],
+   "pass": ["{n} against {d}. The word lands. Something in the room agrees.", "They go quiet in the right way.", "Yes. You have named it."],
+   "fail": ["{n} against {d}. The word was wrong, and something heard it anyway.", "They cross themselves. Conversation over.", "You said too much, to the wrong listener."]
+  }
+ },
+ "static": {
+  "min_dread": 2,
+  "chance": 0.35,
+  "lines": ["They know more. They all know more.", "Ask about the lights. No. Do not ask about the lights.", "You have been here before. You do not remember being here before.", "Something is listening from the next room. Lower your voice.", "That is not their real name.", "Leave now and nobody has to get hurt.", "You already failed this. You just have not noticed yet.", "The tape will not have it. It is never on the tape."],
+  "pass": ["It let you. Ask yourself why.", "A win. Count how many you have left."],
+  "fail": ["Of course.", "You see? It is never on your side."]
+ },
+ "partners": {
+  "skeptic": {
+   "pass": ["That is the question I would have asked.", "Good. Now we have something falsifiable.", "Write that down before they revise it."],
+   "fail": ["You led the witness.", "We lost that one. The premise was wrong.", "Let me ask next time."],
+   "passive": ["Hm. That does not follow.", "Note the date. It will matter."],
+   "evidence": ["That is consistent. Which proves nothing yet.", "Check it against the record before we lean on it."]
+  },
+  "journalist": {
+   "pass": ["That is the quote. That is the whole piece.", "Keep them talking. They are warm.", "Did you catch the look when you said that?"],
+   "fail": ["Too hard, too soon.", "You lost the thread. Let it rest a minute.", "They have talked to the papers before. I should have warned you."],
+   "passive": ["Somebody has told this story a lot of times.", "They are watching the door."],
+   "evidence": ["People will read that.", "That goes in the first paragraph."]
+  },
+  "signals": {
+   "pass": ["That matches what is on the tape.", "Clean. The timeline holds.", "Good. I can pin that to a frequency."],
+   "fail": ["Interference.", "They heard a different question than the one you asked.", "I will try the equipment angle later."],
+   "passive": ["Hear that? The hum changed.", "There is a radio on somewhere in this house."],
+   "evidence": ["I can measure that.", "Log the time on it."]
+  },
+  "folklorist": {
+   "pass": ["That is the old version. Nobody tells the old version by accident.", "They remember more than they say.", "There is a story under that one."],
+   "fail": ["You cannot hurry a story.", "Wrong telling. Let them tell it their way.", "We will come back when the kettle is on."],
+   "passive": ["Every county has one of these.", "Note the hour they said. It is always that hour."],
+   "evidence": ["That has a name, where I come from.", "The old people would know what that means."]
+  },
+  "medium": {
+   "pass": ["They needed to say that out loud.", "Thank you. That was hard for them.", "Did you feel the room change?"],
+   "fail": ["Not like that. They are hurting.", "Give them a minute. Give yourself one.", "We pushed on a bruise."],
+   "passive": ["Someone else is in this story. Someone who is not here any more.", "They keep looking at the empty chair."],
+   "evidence": ["That belonged to somebody.", "Be careful with that. It remembers."]
+  },
+  "crypto": {
+   "pass": ["Good. Now we know where to look.", "That is a trail. Tonight we follow it.", "Right. Boots on."],
+   "fail": ["Doesn't matter. We will find it ourselves.", "Talk is cheap. Tracks are not.", "They are not going to help. Fine."],
+   "passive": ["Scratches on the doorframe. Low. Something with claws.", "They keep a gun by the door. They are not stupid."],
+   "evidence": ["Bag it. Lab can argue about it later.", "That is a print, or it is a prank. Either way it is ours."]
+  },
+  "occultist": {
+   "pass": ["Yes. They know the words, even if they will not say them.", "Carefully now. We are being listened to.", "Good. The pattern is almost whole."],
+   "fail": ["Some doors want a different knock.", "We said it too plainly.", "They are protecting themselves. I would too."],
+   "passive": ["Salt on the sill. Somebody here knows.", "That is not decoration. That is a ward."],
+   "evidence": ["That was placed. Nothing lies like that by accident.", "Do not touch it with your bare hand."]
+  }
+ }
+}

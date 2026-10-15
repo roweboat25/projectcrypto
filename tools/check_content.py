@@ -324,6 +324,27 @@ def main():
         if it.get("shop") and not it.get("price"):
             err("%s is in a shop with no price" % w)
 
+    voices_path = os.path.join(ROOT, "data/voices.json")
+    voices = load(voices_path) if os.path.exists(voices_path) else {}
+    if not voices:
+        err("data/voices.json is missing")
+    for v in VOICES:
+        for k in ("sure", "unsure", "pass", "fail"):
+            if not voices.get("voices", {}).get(v, {}).get(k):
+                err("voices.json: voice %s has no %s lines" % (v, k))
+    for cid in classes:
+        if cid == "_doc":
+            continue
+        for k in ("pass", "fail", "passive", "evidence"):
+            if not voices.get("partners", {}).get(cid, {}).get(k):
+                err("voices.json: class %s has no partner %s lines" % (cid, k))
+    for k in ("lines", "pass", "fail"):
+        if not voices.get("static", {}).get(k):
+            err("voices.json: the Static has no %s lines" % k)
+    for k in ("min_dread", "chance"):
+        if k not in voices.get("static", {}):
+            err("voices.json: the Static needs %s" % k)
+
     office_path = os.path.join(ROOT, "data/office.json")
     office = load(office_path) if os.path.exists(office_path) else {}
     for rid, r in office.get("rooms", {}).items():

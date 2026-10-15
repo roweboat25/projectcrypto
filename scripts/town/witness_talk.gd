@@ -38,6 +38,18 @@ func start() -> void:
 			break
 	if lines.is_empty():
 		lines = [[witness_id, "Cold night. You're not from around here."]]
+	var key := "%s:open" % witness_id
+	if int(GameState.visited.get(key, -1)) != GameState.day:
+		GameState.visited[key] = GameState.day
+		var hiss := Investigation.static_line(GameData, GameState)
+		if not hiss.is_empty():
+			lines.append(hiss)
+		for o in Investigation.witness_options(GameData, GameState, witness_id):
+			if o.kind == "check" and o.enabled:
+				var take := Investigation.voice_take(GameData, o.gate.check, o.odds)
+				if not take.is_empty():
+					lines.append(take)
+				break
 	_mode = "open"
 	box.show_lines(lines)
 
@@ -78,13 +90,12 @@ func _on_option(i: int) -> void:
 			box.show_lines(o.fact.lines)
 		"check":
 			var r: Dictionary = Investigation.attempt_check(GameData, GameState, o.fact.id, o.gate)
+			var said := _verdict_lines(o.gate.check, r)
 			if r.ok:
-				toast.call("[%s] passed: %d vs %d" % [o.gate.check.capitalize(), r.total, r.difficulty])
-				_unlock(o.fact)
+				_unlock(o.fact, said)
 			else:
-				toast.call("[%s] failed: %d vs %d" % [o.gate.check.capitalize(), r.total, r.difficulty])
 				_mode = "result"
-				box.show_lines([[witness_id, _refusal()]])
+				box.show_lines(said + [[witness_id, _refusal()]])
 		"contradiction", "trust":
 			_unlock(o.fact)
 		"show":
@@ -105,13 +116,32 @@ func _present(evidence_id: String) -> void:
 		_unlock(fact)
 
 
-func _unlock(fact: Dictionary) -> void:
+func _unlock(fact: Dictionary, before: Array = []) -> void:
 	Investigation.unlock_fact(GameData, GameState, fact)
+	var after := []
 	if fact.has("evidence"):
 		_announce(fact.evidence)
+		var say := Investigation.partner_interjection(GameData, GameState, "", "evidence")
+		if not say.is_empty():
+			after.append(say)
 	_mode = "fact"
 	_pending_fact = fact
-	box.show_lines(fact.lines)
+	box.show_lines(before + fact.lines + after)
+
+
+## The voice's verdict on a roll, a partner's word on it, and the Static's gloss at high Dread.
+func _verdict_lines(voice: String, r: Dictionary) -> Array:
+	var out := []
+	var v := Investigation.voice_verdict(GameData, voice, r)
+	if not v.is_empty():
+		out.append(v)
+	var p := Investigation.partner_interjection(GameData, GameState, voice, "pass" if r.ok else "fail")
+	if not p.is_empty():
+		out.append(p)
+	var hiss := Investigation.static_line(GameData, GameState, "pass" if r.ok else "fail")
+	if not hiss.is_empty():
+		out.append(hiss)
+	return out
 
 
 func _announce(evidence_id: String) -> void:

@@ -381,6 +381,57 @@ func _voice_checks(data) -> Array[String]:
 	Investigation.apply_gives(data, state, {"flag": "f", "trust": {"marlene": 2}, "dread": -1, "item": "film"})
 	if not state.flags.get("f", false) or Investigation.trust_of(data, state, "marlene") != 3 or not state.has_item("film"):
 		errors.append("apply_gives did not apply")
+	# odds: 2d6 >= 7 is 21/36, a sure thing at need 2, nothing past 12; d6 + 0 >= 4 is half
+	if Investigation.percent(Investigation.odds_2d6(0, 7)) != 58:
+		errors.append("2d6 against 7 should be 58%%, got %d" % Investigation.percent(Investigation.odds_2d6(0, 7)))
+	if Investigation.odds_2d6(5, 7) != 1.0 or Investigation.odds_2d6(0, 13) != 0.0 or Investigation.odds_d6(0, 4) != 0.5:
+		errors.append("odds edges are off")
+	# tech level 5 (dread 1 after the sleeps... dread is 3 now: level 4) against difficulty 9 needs a 5: 30/36
+	var tech_check := {"voice": "tech", "difficulty": 9}
+	var want := Investigation.odds_2d6(Investigation.check_bonus(data, state, "w", tech_check), 9)
+	if Investigation.check_odds(data, state, "w", tech_check) != want:
+		errors.append("check_odds should agree with check_bonus")
+	# takes, verdicts, interjections and the Static, with a seeded rng
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 7
+	var take := Investigation.voice_take(data, "logic", 0.6, rng)
+	if take.size() != 2 or take[0] != "voice:logic" or not take[1] in data.voices.voices.logic.sure:
+		errors.append("a 60%% take should be sure: %s" % str(take))
+	take = Investigation.voice_take(data, "logic", 0.59, rng)
+	if take.is_empty() or not take[1] in data.voices.voices.logic.unsure:
+		errors.append("a 59%% take should be unsure")
+	var verdict := Investigation.voice_verdict(data, "press", {"ok": false, "total": 6, "difficulty": 9}, rng)
+	if verdict.is_empty() or verdict[1].contains("{n}") or verdict[1].contains("{d}"):
+		errors.append("verdict placeholders were not filled: %s" % str(verdict))
+	if Investigation.partner_for(data, state, "press") != "teddy" or Investigation.partner_for(data, state, "logic") != "miriam" or Investigation.partner_for(data, state, "arcana") != "":
+		errors.append("partner_for picks the wrong partner")
+	var say := Investigation.partner_interjection(data, state, "press", "pass", rng)
+	if say.size() != 2 or say[0] != "teddy" or not say[1] in data.voices.partners.journalist["pass"] or int(state.bond.get("teddy", 0)) != 1:
+		errors.append("a passed press check should be Teddy's line and deepen the bond: %s" % str(say))
+	if not Investigation.partner_interjection(data, state, "arcana", "fail", rng).is_empty():
+		errors.append("nobody in this party speaks for arcana")
+	say = Investigation.partner_interjection(data, state, "", "evidence", rng)
+	if say.size() != 2 or not say[0] in ["miriam", "teddy"]:
+		errors.append("an evidence line should come from a partner: %s" % str(say))
+	state.dread = 1
+	if not Investigation.static_line(data, state, "", rng, true).is_empty():
+		errors.append("the Static should be quiet at Dread 1")
+	state.dread = 2
+	var hiss := Investigation.static_line(data, state, "", rng, true)
+	if hiss.size() != 2 or hiss[0] != "voice:static" or not hiss[1] in data.voices.static.lines:
+		errors.append("the Static should speak at Dread 2 when forced: %s" % str(hiss))
+	hiss = Investigation.static_line(data, state, "fail", rng, true)
+	if hiss.is_empty() or not hiss[1] in data.voices.static.fail:
+		errors.append("the Static should gloss a failure")
+	var copy = load("res://scripts/autoload/game_state.gd").new()
+	copy.from_dict(JSON.parse_string(JSON.stringify(state.to_dict())))
+	if int(copy.bond.get("teddy", 0)) != 1:
+		errors.append("the bond should survive a save")
+	copy.free()
+	# the quick-facts menu shows odds in its labels
+	for o in Investigation.witness_options(data, state, "marlene"):
+		if o.kind == "check" and not o.label.contains("%]"):
+			errors.append("quick-facts check labels should show the odds: " + o.label)
 	state.free()
 	return errors
 
