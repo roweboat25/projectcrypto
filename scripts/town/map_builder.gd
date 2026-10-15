@@ -70,14 +70,14 @@ static func _props(actors: Node2D, list: Array, origin: Vector2i, map_id: String
 	for i in list.size():
 		var p: Dictionary = list[i]
 		var key := "%s:%d" % [map_id, i]
-		if (p.has("pickup") or p.has("gate")) and (key in GameState.picked or (p.get("restock", false) and ("%s:%d" % [key, GameState.day]) in GameState.picked)):
+		if (p.has("pickup") or p.has("gate") or p.has("fight")) and (key in GameState.picked or (p.get("restock", false) and ("%s:%d" % [key, GameState.day]) in GameState.picked)):
 			continue
 		var node := prop(actors, p.kind, _px(p.pos, origin))
 		if p.has("appears"):
 			out.appears.append({"node": node, "gate": p.appears})
 		if p.kind.begins_with("lamp_post"):
 			out.lamps.append(_light(node, Vector2(0, -78), Color("ffb860"), 1.1, 150.0))
-		if p.has("look") or p.has("pickup") or p.has("gate") or p.has("use") or p.has("travel") or p.has("enter"):
+		if p.has("look") or p.has("pickup") or p.has("gate") or p.has("use") or p.has("travel") or p.has("enter") or p.has("fight"):
 			var spot := Area2D.new()
 			spot.set_script(load("res://scripts/town/hotspot.gd"))
 			node.add_child(spot)

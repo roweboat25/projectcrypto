@@ -1,0 +1,415 @@
+{
+ "id": "records_clerk",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "Western State records. If you're family, I need a name and your relation. If you're a lawyer, I need the order. If you're the people from West Virginia about the Kelly business, I need you to understand something before you sit down."
+    ],
+    [
+     "records_clerk",
+     "This is a records office. There is nobody here but me and the paper. Nobody you came to look at. There never was."
+    ],
+    [
+     "elijah",
+     "She's said that before. To people who didn't listen."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "She said 'nobody you came to look at' and her hand went flat on the desk, over the photograph. The one turned away from you. You're not the first to come in here wanting a look at somebody."
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "The 1955 drawer is the only one with the key already in the lock. She pulled it when the sergeant called her to say you were in town. She has decided to decide.",
+     "flag": "hv_clerk_drawer_ready"
+    },
+    {
+     "voice": "lore",
+     "threshold": 8,
+     "line": "Over the lintel, cut in the stone before anybody painted it: WESTERN LUNATIC ASYLUM, 1848. She works under that word every day. She has had every joke you're about to not make."
+    },
+    {
+     "voice": "tech",
+     "threshold": 10,
+     "line": "The typewriter ribbon is new and the stamp on the blotter says today. She has already typed something this morning, and the carbon is face down."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're not here to look at anybody. We're here because the whole county has a man's name wrong, and you're the only one who can put it right.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "We're the people from West Virginia. We'll sit down when you say so.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "We're investigators. The 1955 admissions. We know what's in them.",
+     "next": "cold"
+    }
+   ],
+   "gives": {
+    "flag": "met_records_clerk"
+   }
+  },
+  "cold": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "You know what's in them. Then you don't need me, and I don't need to have had this conversation. There's a chair in the hall. The county attorney's number is on the wall by it."
+    ],
+    [
+     "records_clerk",
+     "I've been here nineteen years. 'We know what's in them' is how every one of them starts, and not one of them did."
+    ],
+    [
+     "miriam",
+     "We opened with a threat to the one person in Kentucky who's on our side. Well done, us."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "records_clerk": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "records_clerk",
+   "repeat": true,
+   "lines": [
+    [
+     "records_clerk",
+     "Loretta Ames. Records clerk. I don't give opinions on the Kelly business, I give dates, and I give those to people who've earned a date."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The key's on a ribbon round her neck. She bends to the bottom drawer every time the phone rings. You could have it off her in the time it takes to say 'wrong number'."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "hv_drunk_rumour": 1,
+       "hv_sgt_sober": 1,
+       "hv_bbq_sober": 1
+      }
+     },
+     "text": "It's not for us. It's for him. The county's called him the drunk in the yard for thirty-nine years and he was never in that yard. You've got the only paper that says where he was.",
+     "pass": "grace",
+     "fail": {
+      "next": "grace_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "hv_drunk_rumour": 2,
+       "hv_sgt_unknown_walker": 1
+      }
+     },
+     "text": "One name, one date, present or absent. That's not a medical record. That's a roll call. Nobody's confidence is in a roll call.",
+     "pass": "logic_pass",
+     "fail": {
+      "next": "logic_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "intimidate",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "hv_police_log_1955": 1,
+       "hv_police_log_copy": 1
+      }
+     },
+     "text": "Open records. We've got a reporter and a lawyer a phone call away and a desk log that says the police were never told. Open the drawer, Mrs. Ames.",
+     "pass": "bully_pass",
+     "fail": {
+      "next": "bully_fail",
+      "trust": {
+       "records_clerk": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "trust": 2
+     },
+     "tone": "kind",
+     "text": "Tell us about him. Not the file. Him.",
+     "next": "the_man"
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_clerk_drawer_ready"
+      ]
+     },
+     "tone": "wry",
+     "text": "The key's already in the 1955 drawer. You decided before we came in.",
+     "next": "drawer_ready"
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_clerk_grace"
+      ]
+     },
+     "tone": "silent",
+     "text": "(Wait while she finds the card.)",
+     "next": "page"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mrs. Ames."
+    }
+   ]
+  },
+  "grace": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "...Thirty-nine years. His sister used to come in every August and ask me to say it to somebody, and I'd tell her I couldn't, and she'd sit in that chair and not cry, and then she stopped coming, because she's in Riverside too now."
+    ],
+    [
+     "records_clerk",
+     "I'm going to turn a card around on this counter with my thumb on the name. You can read the dates. You can't read the name. That's what a records office can do for a man. It's not nothing."
+    ],
+    [
+     "records_clerk",
+     "Gloves are in the box. One card. Pencil only."
+    ],
+    [
+     "elijah",
+     "She's been waiting nineteen years for somebody to ask it that way. Don't say anything else. You'll only make it smaller."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "She's looking at the chair, not at you. The sister's chair. Leave it where it is when you go."
+    }
+   ],
+   "gives": {
+    "trust": {
+     "records_clerk": 2
+    },
+    "flag": "hv_clerk_grace",
+    "fact": "rc_why_kept"
+   },
+   "next": "hub"
+  },
+  "grace_fail": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "That's a nice speech. I've had it before, from a man with a camera crew, and it was for him too. Come back tomorrow and ask me something that isn't a speech."
+    ],
+    [
+     "ruth",
+     "She's not angry, dear. She's tired. Those aren't the same and you treat them differently."
+    ]
+   ],
+   "next": "hub"
+  },
+  "logic_pass": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "A roll call. Hm. The night count is a roll call. The night count is a line on a card with a time and a tick, and the only thing it says about a man is that he was in his bed."
+    ],
+    [
+     "records_clerk",
+     "I'll check one name against one night. I will not tell you what he was here for. If you already know what he was here for, I'll thank you to forget it in front of me."
+    ],
+    [
+     "miriam",
+     "She's found a way to say yes that she can live with. That's what logic is for. Not winning. Finding the door."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "records_clerk": 1
+    },
+    "flag": "hv_clerk_rollcall"
+   },
+   "next": "hub"
+  },
+  "logic_fail": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "A roll call is a medical record if it's in a medical file, and I've had that argument with a judge, and the judge agreed with me, and he was a better lawyer than you."
+    ],
+    [
+     "records_clerk",
+     "You can try again tomorrow. I'll still be right."
+    ],
+    [
+     "teddy",
+     "She's enjoying this. Slightly. I'd enjoy it too."
+    ]
+   ],
+   "next": "hub"
+  },
+  "bully_pass": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "...Fine. You want it open. It's open. Read your date. Read it fast."
+    ],
+    [
+     "records_clerk",
+     "And then get out of my office, and don't come back, and when you write it up, don't put my name in it, and don't put his. You don't get to have his name. You didn't earn his name."
+    ],
+    [
+     "elijah",
+     "We got the drawer. We lost the woman. Somebody write down that we chose that."
+    ],
+    [
+     "vera",
+     "One will remember this room. One is not proud of it."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "records_clerk": 2
+    },
+    "flag": "hv_clerk_bullied",
+    "dread": 1
+   },
+   "end": true
+  },
+  "bully_fail": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "A reporter and a lawyer. Call them. Call the county attorney, he's in the book, I'll dial it for you. And then sit in the hall with your reporter until he comes, because this office is closed to you."
+    ],
+    [
+     "records_clerk",
+     "Not today. Not this week. Not for the anniversary and not for the fortieth. I've had nineteen years of people who think a sick man is a punchline and you're the first ones who thought he was a lever. Get out."
+    ],
+    [
+     "ruth",
+     "Well. That's the door, dear, and she's right, and there's nothing in your bag that'll open it again."
+    ],
+    [
+     "miriam",
+     "We did that. Not her. Put it in the file like that."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_records_barred",
+    "dread": 1
+   },
+   "end": true
+  },
+  "the_man": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "He was a tobacco man. Quiet. He drank in the spring when the plants went in because that's when the money ran out, and every August he came here and dried out, voluntary, his sister driving. Same ward. Same bed, if he could get it. Nineteen years of Augusts."
+    ],
+    [
+     "records_clerk",
+     "And the one August the whole world was looking at that road, he was in it. In the bed. The county picked the one man in Christian County who couldn't have been there, because he was the one man who couldn't say so."
+    ],
+    [
+     "records_clerk",
+     "He never said a word about it. Not once. He'd have had to say where he was."
+    ],
+    [
+     "elijah",
+     "He let them call him a drunk in a yard rather than say he was here. That's not shame. That's the other thing. The thing nobody has a card for."
+    ]
+   ],
+   "gives": {
+    "evidence": "hv_clerk_the_man",
+    "trust": {
+     "records_clerk": 1
+    }
+   },
+   "next": "hub"
+  },
+  "drawer_ready": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "I pulled it when Dub Cansler called to say you were in town and you weren't laughing. I haven't opened it. Pulling it and opening it are two different things and I've been nineteen years learning the difference."
+    ],
+    [
+     "records_clerk",
+     "Ask me right and I'll open it. Ask me wrong and I'll put it back, and it'll stay back."
+    ],
+    [
+     "june",
+     "She's told us the rules. That's more than anybody else in this town has done."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_clerk_rules"
+   },
+   "next": "hub"
+  },
+  "page": {
+   "speaker": "records_clerk",
+   "lines": [
+    [
+     "records_clerk",
+     "Here. Nineteenth of August. Thirtieth of August. The night counts in between. My thumb stays where it is."
+    ],
+    [
+     "records_clerk",
+     "That's the card. That's the whole of what this office knows, and it's enough, and it's more than anybody's given him."
+    ],
+    [
+     "miriam",
+     "Present, 2300. Present, 0300. Two ticks in a nurse's hand and the easiest answer in this case is gone. I'll take that over a photograph any day."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_clerk_page",
+    "fact": "rc_confirms"
+   },
+   "next": "hub"
+  }
+ }
+}

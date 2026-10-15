@@ -1,0 +1,2844 @@
+{
+ "_doc": "Kelly Crossroads, Kentucky, August 1994: five houses, a store, a church and the railroad, where US-41 meets the farm road and the L&N crosses the highway. US-41 runs north to the Lacy farm and south to Hopkinsville; the red-clay farm road runs east to the Pennyrile Sinks and west into the fields. Oates' store on the north-east corner with the checkers board on its porch, Kelly Baptist and the Pettit house on the north-west, the Hardin place south-east, the old L&N depot and a boxcar siding south-west. Clear and hot. Positions are in 32px tiles.",
+ "id": "kelly_crossroads",
+ "name": "Kelly Crossroads",
+ "case": "kelly",
+ "district": "crossroads",
+ "size": [
+  40,
+  32
+ ],
+ "spawn": [
+  20,
+  29
+ ],
+ "ground": "dry_grass",
+ "weather": "clear",
+ "fills": [
+  {
+   "rect": [
+    0,
+    0,
+    16,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    24,
+    0,
+    16,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    31,
+    16,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    24,
+    31,
+    16,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    1,
+    1,
+    30
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    39,
+    1,
+    1,
+    11
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    39,
+    20,
+    1,
+    11
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    1,
+    1,
+    16,
+    2
+   ],
+   "tiles": [
+    "tobacco_field",
+    "tobacco_field2"
+   ]
+  },
+  {
+   "rect": [
+    24,
+    1,
+    14,
+    3
+   ],
+   "tiles": [
+    "tobacco_field",
+    "tobacco_field2"
+   ]
+  },
+  {
+   "rect": [
+    25,
+    27,
+    13,
+    4
+   ],
+   "tiles": [
+    "tobacco_field",
+    "tobacco_field2",
+    "tobacco_field"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    27,
+    3,
+    2
+   ],
+   "tiles": [
+    "tobacco_cut"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    14,
+    39,
+    4
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2",
+    "red_clay"
+   ]
+  },
+  {
+   "rect": [
+    17,
+    0,
+    1,
+    32
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    23,
+    0,
+    1,
+    32
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    18,
+    0,
+    5,
+    32
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt2",
+    "asphalt"
+   ]
+  },
+  {
+   "rect": [
+    20,
+    1,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    3,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    5,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    7,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    9,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    11,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    13,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    15,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    17,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    19,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    21,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    23,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    25,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    27,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    20,
+    29,
+    1,
+    1
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    1,
+    24,
+    38,
+    3
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2",
+    "gravel"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    25,
+    38,
+    1
+   ],
+   "tiles": "railbed"
+  },
+  {
+   "rect": [
+    4,
+    29,
+    11,
+    1
+   ],
+   "tiles": "railbed"
+  },
+  {
+   "rect": [
+    1,
+    20,
+    6,
+    3
+   ],
+   "tiles": [
+    "cement",
+    "cement_crack",
+    "cement"
+   ]
+  },
+  {
+   "rect": [
+    32,
+    11,
+    3,
+    3
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    4,
+    13,
+    1,
+    1
+   ],
+   "tiles": "cement"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    3,
+    16,
+    10
+   ],
+   "tiles": [
+    "dry_grass2",
+    "dry_grass3",
+    "earth",
+    "grass_tuft"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    24,
+    4,
+    14,
+    9
+   ],
+   "tiles": [
+    "dry_grass2",
+    "dry_grass3",
+    "earth",
+    "grass_tuft"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    1,
+    18,
+    16,
+    5
+   ],
+   "tiles": [
+    "dry_grass2",
+    "dry_grass3",
+    "earth"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    24,
+    18,
+    14,
+    5
+   ],
+   "tiles": [
+    "dry_grass2",
+    "dry_grass3",
+    "earth",
+    "grass_tuft2"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    1,
+    27,
+    16,
+    3
+   ],
+   "tiles": [
+    "dry_grass2",
+    "dry_grass3",
+    "grass_tuft"
+   ],
+   "chance": 0.1
+  }
+ ],
+ "facades": [
+  {
+   "id": "kelly_church",
+   "facade": "baptist_church",
+   "name": "Kelly Baptist Church",
+   "pos": [
+    2,
+    12
+   ]
+  },
+  {
+   "id": "pettit_house",
+   "facade": "neighbour_house",
+   "name": "The Pettit house",
+   "pos": [
+    9,
+    12
+   ]
+  },
+  {
+   "id": "kelly_store",
+   "facade": "general_store_ky",
+   "name": "Oates' General Store",
+   "pos": [
+    25,
+    12
+   ],
+   "gate": "kc_store_open"
+  },
+  {
+   "id": "hardin_house",
+   "facade": "neighbour_house2",
+   "name": "The Hardin house",
+   "pos": [
+    27,
+    22
+   ]
+  },
+  {
+   "id": "kelly_depot",
+   "facade": "depot",
+   "name": "The old L&N depot",
+   "pos": [
+    7,
+    22
+   ]
+  }
+ ],
+ "houses": [],
+ "props": [
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    11,
+    7.2
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    14.5,
+    7.8
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    10,
+    3.4
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    12,
+    3.4
+   ],
+   "name": "Dark-fired tobacco",
+   "look": [
+    [
+     "player",
+     "Tobacco to the horizon, higher than Teddy, the leaves gone gold at the bottom. In a week they cut it and hang it in the barns and set fires under it."
+    ],
+    [
+     "ruth",
+     "Dark-fired. My daddy chewed it. You could smell him coming up the holler in the dark."
+    ],
+    [
+     "dale",
+     "That's the barns smoking at dusk, then. Not the other thing."
+    ]
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    14,
+    3.4
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    16,
+    3.4
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    1.5,
+    6.4
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    1.5,
+    10.4
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    8.5,
+    11.6
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    2.5,
+    13.2
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    3.4,
+    13.2
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    6.5,
+    13.3
+   ],
+   "name": "Church bench",
+   "look": [
+    [
+     "player",
+     "A bench by the church door with a funeral home's name on the back and a wasp nest under the seat. Nobody sits on it. Everybody stands near it."
+    ],
+    [
+     "teddy",
+     "A free bench and a free wasp. That's Baptists for you."
+    ]
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    8.5,
+    13.4
+   ],
+   "name": "Church noticeboard",
+   "look": [
+    [
+     "player",
+     "KELLY BAPTIST CHURCH. SUNDAY AUG 21: 39TH ANNIVERSARY SERVICE. 'WHAT WE SAW AND WHAT WE SAY.' BRO. AMOS TILLEY. DINNER ON THE GROUND. ALL WELCOME, PRESS INCLUDED, CAMERAS NOT."
+    ],
+    [
+     "player",
+     "Under it, smaller: REVIVAL POSTPONED. HEAT."
+    ],
+    [
+     "miriam",
+     "Thirty-nine. They couldn't wait for forty. Somebody's afraid there won't be anyone left to tell it."
+    ]
+   ]
+  },
+  {
+   "kind": "rocking_chair",
+   "pos": [
+    10.4,
+    13.3
+   ],
+   "name": "Rocking chair",
+   "look": "A rocking chair with a church fan on the seat, Cayce Funeral Home on one side and Jesus on the other. Both sides look worried."
+  },
+  {
+   "kind": "porch_swing",
+   "pos": [
+    15.2,
+    13.4
+   ],
+   "name": "Porch swing",
+   "look": [
+    [
+     "player",
+     "A porch swing on two chains. One chain is newer than the other. There is a dent in the porch boards under it the size of a gun butt, and another, and another."
+    ],
+    [
+     "elijah",
+     "He sits here every night. He sits here and waits for it to be 1955 and it never is."
+    ]
+   ]
+  },
+  {
+   "kind": "shotgun",
+   "pos": [
+    15.2,
+    13.5
+   ],
+   "appears": "kc_drunk_calm",
+   "name": "The shotgun on the swing",
+   "look": [
+    [
+     "player",
+     "A pump gun laid across the swing with the action open and the shells in a row beside it. He put them there himself. He is inside, and the house is quiet."
+    ],
+    [
+     "dale",
+     "Leave it. It's the first night it's been on the swing and not in his lap. Let it stay there."
+    ]
+   ]
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    17.2,
+    13.4
+   ],
+   "name": "Pettit mailbox",
+   "look": "PETTIT, in reflector letters, three of them hanging upside down. Inside: a Hopkinsville Electric bill, a church bulletin, and a flyer from a man who will buy any gun, cash."
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    25.5,
+    4.3
+   ],
+   "name": "Fence line",
+   "look": [
+    [
+     "player",
+     "A wire fence between the store's lot and the Hardin tobacco. Every third post has a jar lid nailed to it, which is what you use for a reflector when you have no reflectors."
+    ],
+    [
+     "june",
+     "Jar lids. In a county where everybody says the eyes shone like metal."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    28.5,
+    4.3
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    31.5,
+    4.3
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    26,
+    2.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    29,
+    2.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    32,
+    2.9
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    27.5,
+    6.4
+   ],
+   "name": "Hay bales",
+   "look": [
+    [
+     "player",
+     "Hay behind the store, round bales gone grey on the weather side. Something has been sleeping in the gap between two of them. Something with a lot of hair, or one coat."
+    ],
+    [
+     "dale",
+     "Dog. Big one. Or Buford."
+    ]
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    28.6,
+    6.3
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    28.6,
+    7.4
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    24.5,
+    10.4
+   ]
+  },
+  {
+   "kind": "water_tower",
+   "pos": [
+    35.5,
+    9.2
+   ],
+   "name": "The water tower",
+   "look": [
+    [
+     "player",
+     "A railroad water tower on four legs, KELLY painted on the tank in letters that used to be white. The spout is rusted open. Something nests in the tank; the ladder is streaked white under it."
+    ],
+    [
+     "dale",
+     "Great horned owl. That's a great horned owl's ladder, there's no two ways about it. Look at the size of the splash."
+    ],
+    [
+     "teddy",
+     "Everything's bigger in Kentucky."
+    ]
+   ]
+  },
+  {
+   "kind": "pickup_old",
+   "pos": [
+    33.3,
+    10.8
+   ],
+   "name": "A 1951 Chevrolet",
+   "look": [
+    [
+     "player",
+     "A '51 Chevrolet pickup, green under the rust, up on blocks behind the store with OATES on the door. The bed is full of empty bottles, forty years of them, returned and never redeemed."
+    ],
+    [
+     "teddy",
+     "He's got the deposit on a thousand bottles and he's never once gone in to collect it. I respect that."
+    ]
+   ]
+  },
+  {
+   "kind": "gas_pump",
+   "pos": [
+    33.8,
+    12.7
+   ],
+   "name": "The pump",
+   "look": "One pump, regular, no unleaded, and a sign: PAY INSIDE. ASK ABOUT TEA. The price on the glass was right in 1986."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    32.6,
+    12.9
+   ]
+  },
+  {
+   "kind": "greyhound_sign",
+   "pos": [
+    26,
+    13.4
+   ],
+   "name": "Greyhound flag stop",
+   "look": [
+    [
+     "player",
+     "A Greyhound flag stop sign, the dog faded to a ghost of a dog. You stand under it and wave and the bus stops if it feels like it. Last one at 4:10, Hopkinsville and points south."
+    ],
+    [
+     "june",
+     "It's the same bus we came in on. It just didn't feel like it."
+    ]
+   ]
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    24.3,
+    13.4
+   ]
+  },
+  {
+   "kind": "checkers_table",
+   "pos": [
+    30.5,
+    13.4
+   ],
+   "name": "The checkers board",
+   "look": [
+    [
+     "player",
+     "A checkers board painted on a cable spool, the squares worn to suggestions, bottle caps for pieces: RC for red, Ski for black. A game is in progress. It has been in progress since Truman."
+    ],
+    [
+     "miriam",
+     "Black is winning. Black has been winning since Truman, too."
+    ]
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    37,
+    13.4
+   ],
+   "name": "The crossroads oak",
+   "look": [
+    [
+     "player",
+     "A white oak at the corner of the farm road, older than the highway and most of the county. A hollow in it the size of a mailbox, about where a man's head would be if the man were four feet tall."
+    ],
+    [
+     "elijah",
+     "Something lives in it. It's asleep. It's not sorry about anything."
+    ]
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    38.2,
+    9.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    24.4,
+    18.4
+   ],
+   "name": "The one streetlight",
+   "look": [
+    [
+     "player",
+     "The one streetlight in Kelly, a mercury lamp on a creosote pole the county put up in 1962 after the second time somebody shot at the crossroads sign. It comes on at dusk and every bug in the Pennyrile comes with it."
+    ],
+    [
+     "june",
+     "Mercury vapour. Blue-white. Anything with eyes under that light shines like a quarter."
+    ]
+   ]
+  },
+  {
+   "kind": "roadside_cross",
+   "pos": [
+    16.4,
+    18.6
+   ],
+   "name": "A roadside cross",
+   "look": [
+    [
+     "player",
+     "A white cross by the road with a name and 1971 on it, plastic flowers bleached to bone, and a Hot Wheels car laid on the arm."
+    ],
+    [
+     "ruth",
+     "Somebody's boy. Somebody still comes. Walk soft past it, dear, it's the one thing at this crossroads that's exactly what it looks like."
+    ]
+   ]
+  },
+  {
+   "kind": "railroad_crossing_sign",
+   "pos": [
+    16.4,
+    23.8
+   ],
+   "name": "Railroad crossing",
+   "look": [
+    [
+     "player",
+     "A crossbuck, RAILROAD CROSSING, two tracks, LOOK OUT FOR THE CARS, from a time when cars were the ones you looked out for. The post is peppered with old shot at a man's shoulder height."
+    ],
+    [
+     "dale",
+     "Somebody stood in the road one night and shot the sign. From about where the centre line is."
+    ]
+   ]
+  },
+  {
+   "kind": "railroad_crossing_sign",
+   "pos": [
+    24.4,
+    27.8
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    16,
+    27.4
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    1.5,
+    23.4
+   ]
+  },
+  {
+   "kind": "platform_roof",
+   "pos": [
+    4,
+    21.4
+   ]
+  },
+  {
+   "kind": "depot_bench",
+   "pos": [
+    2.5,
+    22.2
+   ],
+   "name": "Platform bench",
+   "look": [
+    [
+     "player",
+     "A platform bench under a roof nothing has stopped at since 1958. Carved into the back: J.T. + O.P. 1950, and under it in a different knife, LIAR."
+    ],
+    [
+     "teddy",
+     "O.P. Somebody at the Pettit place has a long memory and a short pocketknife."
+    ]
+   ]
+  },
+  {
+   "kind": "depot_bench",
+   "pos": [
+    5,
+    22.2
+   ]
+  },
+  {
+   "kind": "lantern_hung",
+   "pos": [
+    12.2,
+    22.4
+   ],
+   "name": "Depot lantern",
+   "look": "A red railroad lantern on a hook by the door, lit, in August, at noon. He lights it every morning. The L&N never told him to stop."
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    14.5,
+    23.3
+   ],
+   "name": "Freight",
+   "look": [
+    [
+     "player",
+     "A crate and a barrel on the platform, stencilled SWANN BROS. TRAVELING SHOW, HOPKINSVILLE KY, HOLD FOR PICKUP. Nobody has picked them up. The stencil is forty years old."
+    ],
+    [
+     "dale",
+     "A travelling show. With animals. Left its freight at Kelly. I'm just saying it out loud."
+    ]
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    13.4,
+    23.4
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    3.5,
+    19.8
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    6.5,
+    18.4
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    12,
+    23.6
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    2.5,
+    29.6
+   ]
+  },
+  {
+   "kind": "rail_car",
+   "pos": [
+    8,
+    29.3
+   ],
+   "name": "A boxcar on the siding",
+   "look": [
+    [
+     "player",
+     "An L&N boxcar on the siding with the door chained shut and kudzu to the roofwalk. Painted on the side, under the kudzu, in whitewash: THEY WAS HERE 8-21-55. Under that, newer: SO WAS I."
+    ],
+    [
+     "miriam",
+     "Two witnesses. Neither of them signed."
+    ]
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    13.5,
+    30.4
+   ],
+   "name": "Kudzu",
+   "look": [
+    [
+     "player",
+     "Kudzu, over the end of the siding, over the fence, over a boxcar, reaching for the depot. It grows a foot a night in August. Nobody planted it. Nobody can kill it."
+    ],
+    [
+     "dale",
+     "If I'm honest, this is the only thing in this county I'd file as Unexplained."
+    ]
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    6,
+    30.6
+   ],
+   "name": "Honeysuckle",
+   "look": [
+    [
+     "player",
+     "Honeysuckle on the siding fence, gone over, the smell of it heavy as a blanket in the heat."
+    ],
+    [
+     "ruth",
+     "Pinch the end off and pull the thread through. There. Now you know what Kentucky tastes like, and now you have an idea what the children were doing out at dusk."
+    ]
+   ]
+  },
+  {
+   "kind": "well",
+   "pos": [
+    25.5,
+    20.4
+   ],
+   "name": "The Hardin well",
+   "look": [
+    [
+     "player",
+     "A hand-dug well with a tin roof over the windlass and a Folgers can for a dipper. The water is cold enough to hurt. Cleve Hardin says it comes from the same cave as the Sinks and has never once been wrong about anything."
+    ],
+    [
+     "june",
+     "Listen. There's air moving down there. That's not a well, that's a vent."
+    ]
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    25.6,
+    22.6
+   ],
+   "name": "Limestone",
+   "look": [
+    [
+     "player",
+     "A shelf of grey limestone through the grass, pocked and wet-looking in the dry. The whole county sits on this, and the whole county has holes in it."
+    ],
+    [
+     "dale",
+     "Karst. Caves under everything. Something could live under this yard and never once come up for air."
+    ]
+   ]
+  },
+  {
+   "kind": "rocking_chair",
+   "pos": [
+    28.4,
+    23.2
+   ]
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    27.2,
+    23.4
+   ]
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    32.5,
+    23.6
+   ],
+   "name": "Hardin's dog",
+   "look": [
+    [
+     "player",
+     "A redbone hound asleep on the warm side of the house, one ear inside out. It opens one eye for you and closes it, which is the most anybody in Kelly has done for you today."
+    ],
+    [
+     "teddy",
+     "That dog has heard every version of the story and it's not impressed by any of them."
+    ]
+   ]
+  },
+  {
+   "kind": "chicken_house",
+   "pos": [
+    36.5,
+    20.2
+   ],
+   "name": "Chicken house",
+   "look": [
+    [
+     "player",
+     "A chicken house with hardware cloth over every gap and a padlock on the door. Something took eleven hens in 1991 and left the heads."
+    ],
+    [
+     "dale",
+     "Owl. That's an owl's signature, the heads. Or a weasel. But an owl, if we're honest, which we are, in private."
+    ]
+   ]
+  },
+  {
+   "kind": "rusted_car",
+   "pos": [
+    36.8,
+    23.0
+   ],
+   "name": "A 1951 Nash",
+   "look": [
+    [
+     "player",
+     "A '51 Nash, pea green, sunk to the hubs in Johnson grass, with a mud dauber city in the dash. The radio's still in it. Cleve says it picked up Havana the night of the 21st and never again."
+    ],
+    [
+     "june",
+     "Skip. Hot night, high pressure, the ionosphere does what it likes. Havana's easy. It's what else was on the band."
+    ]
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    34.6,
+    23.6
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    26,
+    27.6
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    28,
+    27.6
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    30,
+    27.6
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    32,
+    27.6
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    34,
+    27.6
+   ]
+  },
+  {
+   "kind": "tractor",
+   "pos": [
+    29,
+    30.4
+   ],
+   "name": "Hardin's tractor",
+   "look": "A Farmall H with the hood up and a cat under it. The cat was here first and intends to be here last."
+  },
+  {
+   "kind": "tobacco_sticks",
+   "pos": [
+    33.5,
+    30.4
+   ],
+   "name": "Tobacco sticks",
+   "look": [
+    [
+     "player",
+     "A stack of tobacco sticks, four feet, hickory, for spearing the stalks to hang in the barn. A thousand of them. Every one of them, in the right hand, is a club."
+    ],
+    [
+     "dale",
+     "Hands up, long arms, three feet tall. That's a man carrying a stick of tobacco up a row in the dark. I'm not saying it is. I'm saying it would be."
+    ]
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    37,
+    30.5
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    35.2,
+    16.7
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "kc_checkers1",
+   "name": "Ott Blane",
+   "pos": [
+    29.6,
+    13.6
+   ],
+   "facing": "right",
+   "sprite": "old_man_checkers",
+   "when": [
+    "morning",
+    "dusk"
+   ]
+  },
+  {
+   "id": "kc_checkers2",
+   "name": "Buford Keel",
+   "pos": [
+    31.5,
+    13.6
+   ],
+   "facing": "left",
+   "sprite": "old_man_checkers2",
+   "when": [
+    "morning",
+    "dusk"
+   ]
+  },
+  {
+   "id": "kc_drunk",
+   "name": "Royce Pettit",
+   "pos": [
+    13.6,
+    13.6
+   ],
+   "facing": "down",
+   "sprite": "drunk_local",
+   "when": [
+    "dusk",
+    "night"
+   ],
+   "appears": "kc_drunk_wild",
+   "prompt": "Talk to the man on the porch",
+   "fight": {
+    "foes": [
+     "drunk_local"
+    ],
+    "intro": [
+     [
+      "narrator",
+      "The man on the swing has a pump gun across his knees and a pint on the boards beside him, and he has been watching you come up the road since the streetlight came on."
+     ],
+     [
+      "kc_drunk",
+      "I seen 'em too. Thirty-nine years ago tonight. I seen 'em and I shot 'em and they rolled up and run and ain't nobody. Ain't nobody ever. Y'all from the paper?"
+     ],
+     [
+      "kc_drunk",
+      "Y'all stand right there. Y'all stand right there in the light where I can see your hands."
+     ]
+    ],
+    "win": "The gun ends up on the swing with the action open, and Royce Pettit ends up on the porch steps with his face in his hands, crying the way a man cries who has been waiting thirty-nine years for somebody to take the gun. His sister comes to the screen door and does not come out. Nobody says anything for a while. The cicadas start up again.",
+    "lose": "He fires over your heads twice and the second time the light goes out of him. 'Go on,' he says. 'Go on back to town. Y'all ain't seen nothing yet.' You go. From the road you can hear him crying.",
+    "flag": "drunk_calmed"
+   }
+  },
+  {
+   "id": "kc_drunk",
+   "name": "Royce Pettit",
+   "pos": [
+    13.6,
+    13.6
+   ],
+   "facing": "down",
+   "sprite": "drunk_local",
+   "when": [
+    "dusk",
+    "night"
+   ],
+   "appears": "kc_drunk_calm"
+  },
+  {
+   "id": "kc_neighbour_man",
+   "name": "Cleve Hardin",
+   "pos": [
+    29.3,
+    23.5
+   ],
+   "facing": "down",
+   "sprite": "neighbour_man",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "kc_kid",
+   "name": "A kid on a bicycle",
+   "pos": [
+    33.6,
+    16.6
+   ],
+   "facing": "left",
+   "sprite": "kid",
+   "when": [
+    "morning",
+    "dusk"
+   ]
+  },
+  {
+   "id": "kc_hand",
+   "name": "A hand off the Hardin place",
+   "pos": [
+    28,
+    28.8
+   ],
+   "facing": "up",
+   "sprite": "tobacco_hand",
+   "when": [
+    "morning"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "kc_pellets",
+   "name": "Owl pellets",
+   "pos": [
+    36.3,
+    10.4
+   ],
+   "prop": "clue_pellets",
+   "text": "Under the water tower ladder, in the white streaks: pellets, grey and felted, the size of a thumb. One has come apart in the dew and there is a jawbone in it with teeth, and a whole rabbit's foot, which was not lucky.",
+   "methods": {
+    "bag": "kc_pellets_sample",
+    "photograph": "kc_pellets_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "kc_crossbuck",
+   "name": "Pellets in the crossbuck",
+   "pos": [
+    15.6,
+    24.6
+   ],
+   "prop": "clue_scratch",
+   "text": "The crossing post is peppered with old shot from about a man's shoulder down, the holes rusted and the wood around them gone silver. The spread is tight on the road side and wide on the field side. Somebody stood in the road and fired at the sign, more than once, a long time ago.",
+   "methods": {
+    "photograph": "kc_crossbuck_photo",
+    "measure": "kc_crossbuck_spread",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "kc_silver",
+   "name": "A glint under the boxcar",
+   "pos": [
+    11.8,
+    29.9
+   ],
+   "prop": "clue_reflector",
+   "text": "Under the boxcar, in the ballast where the kudzu has not reached, something silver catches the light. A scrap of it, crumpled, bright as a fish, with a smell on it like a cigarette pack.",
+   "methods": {
+    "bag": "kc_silver_foil",
+    "photograph": "kc_silver_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "kc_clay_print",
+   "name": "Prints in the red clay",
+   "pos": [
+    36.5,
+    17.7
+   ],
+   "prop": "clue_prints",
+   "text": "Prints in the red clay at the road's edge, going toward the oak: three long toes and a pad, the toes spread wide like fingers, too big for a coon and the wrong shape for a dog. They stop at the ditch.",
+   "methods": {
+    "cast": "kc_clay_print",
+    "measure": "kc_clay_print_measure",
+    "photograph": "kc_clay_print_photo",
+    "bag": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    16,
+    31,
+    8,
+    1
+   ],
+   "to": "kelly_us41",
+   "at": [
+    12,
+    2
+   ],
+   "name": "US-41 south"
+  },
+  {
+   "rect": [
+    16,
+    0,
+    8,
+    1
+   ],
+   "to": "kelly_farm",
+   "at": [
+    24,
+    45
+   ],
+   "name": "The Lacy farm"
+  },
+  {
+   "rect": [
+    39,
+    12,
+    1,
+    8
+   ],
+   "to": "kelly_sinks",
+   "at": [
+    2,
+    28
+   ],
+   "name": "The Pennyrile Sinks"
+  }
+ ],
+ "encounters": [
+  {
+   "foes": [
+    "hound_pack"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 2,
+   "intro": "Every dog in Kelly has been barking since the streetlight came on, and now three of them come off the Hardin porch together and the barking stops, which is worse.",
+   "win": "They break off at the ditch and stand there panting, and then one of them wags, and they go home. Somewhere in the dark a screen door bangs."
+  },
+  {
+   "foes": [
+    "owl_wrong_ky"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 1,
+   "intro": "Something comes off the water tower without a sound and the streetlight goes through its eyes like a quarter through a slot.",
+   "win": "It lifts off over the tobacco on five feet of wing and does not look back. Dale is already writing. June is already not saying anything."
+  }
+ ],
+ "encounter_rate": 0.03,
+ "interiors": {
+  "kelly_store": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "lino",
+    "lino2",
+    "lino"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "shelf",
+     "pos": [
+      2,
+      0.65
+     ],
+     "name": "Shelves",
+     "look": "Lamp oil, lye soap, Vienna sausages, canning lids, and a single tin of Spam with a 1979 price on it that he refuses to mark down on principle."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5,
+      0.65
+     ],
+     "name": "Hardware",
+     "look": [
+      [
+       "player",
+       "Shells. Numbers four, six and eight, boxed by the dozen, between the fly swatters and the mousetraps. The number fours are the ones with the dust wiped off."
+      ],
+      [
+       "dale",
+       "Number four. That's what you'd use on something the size of a dog. Or the size of a thing you've been told is there."
+      ]
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      7,
+      0.6
+     ],
+     "name": "Fair poster",
+     "look": "CHRISTIAN COUNTY FAIR, AUG 15-20. HARNESS RACING. BURGOO. BIGGEST TOBACCO WORM, CASH PRIZE. Somebody has written BUFORD next to the worm."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8,
+      0.6
+     ],
+     "name": "Feed store calendar",
+     "look": "August 1994, from the feed store on US-41. The 21st has a ring around it in pencil. He says the cousin did that. The cousin says he did."
+    },
+    {
+     "kind": "fridge",
+     "pos": [
+      9.3,
+      2.0
+     ],
+     "name": "The drink box",
+     "look": [
+      [
+       "player",
+       "A chest cooler of RC Cola, Ski, and quart jars of sweet tea with the lids on crooked, sweating in a row."
+      ],
+      [
+       "teddy",
+       "Ski. I have missed Ski. I didn't know I'd missed Ski."
+      ]
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3,
+      2.3
+     ],
+     "name": "The counter",
+     "look": [
+      [
+       "player",
+       "A counter worn pale where forty years of elbows have leaned on it. A jar of pickled eggs, a jar of pigs' feet, and a cigar box that is the till."
+      ],
+      [
+       "teddy",
+       "The eggs are older than the till."
+      ]
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      4.5,
+      2.3
+     ]
+    },
+    {
+     "kind": "scanner_radio",
+     "pos": [
+      2.4,
+      2.0
+     ],
+     "name": "Police scanner",
+     "look": [
+      [
+       "june",
+       "Christian County sheriff, Fort Campbell fire, and a channel he's labelled WEATHER that isn't weather."
+      ],
+      [
+       "player",
+       "He turns it down when you look at it."
+      ]
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      3.8,
+      2.0
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      1.2,
+      2.0
+     ],
+     "pickup": "cousin_key",
+     "appears": "kc_key_offered",
+     "name": "The cousin's key"
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      1.5,
+      4.6
+     ],
+     "name": "Pickle barrel",
+     "look": [
+      [
+       "player",
+       "A pickle barrel with a hand-lettered sign: ONE DIP ONE PICKLE. THIS MEANS YOU BUFORD."
+      ],
+      [
+       "teddy",
+       "Buford's been warned in writing."
+      ]
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      2.6,
+      4.4
+     ]
+    },
+    {
+     "kind": "feed_sacks",
+     "pos": [
+      8.5,
+      4.4
+     ],
+     "name": "Feed sacks",
+     "look": "Fifty-pound sacks of layer mash, stacked where the sun won't get them. One has been clawed open at the corner by something with a lot of patience and not many fingers."
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      6,
+      5.5
+     ],
+     "name": "The back table",
+     "look": "A table under the window where the ledgers live, 1931 to date, a shelf of them. The 1955 one is on top, which means somebody has been reading it, and not you."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      5,
+      4.6
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      7,
+      6.4
+     ]
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      8.5,
+      6.4
+     ],
+     "name": "Peaches",
+     "look": [
+      [
+       "player",
+       "A bushel of peaches gone soft in the heat. The wasps have found them."
+      ],
+      [
+       "elijah",
+       "...They're very good peaches."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "kc_storekeeper",
+     "name": "Dewey Oates",
+     "pos": [
+      3.5,
+      1.5
+     ],
+     "facing": "down",
+     "sprite": "store_keeper_ky",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ],
+     "shop": "kelly_store"
+    }
+   ],
+   "clues": [
+    {
+     "id": "kc_ledger",
+     "name": "The 1955 ledger",
+     "pos": [
+      6,
+      5.8
+     ],
+     "prop": "clue_scratch",
+     "text": "A store ledger, August 1955, in a hand that is not Dewey's: his father's. Who bought what, by the day, on credit. The 19th, the 20th, the 21st and the 22nd take up a page each; the whole rest of the month takes up two. Shells. Whiskey. Shells. Film.",
+     "methods": {
+      "photograph": "kc_ledger_1955",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "kc_souvenir",
+     "name": "A box of postcards",
+     "pos": [
+      1.5,
+      6.4
+     ],
+     "prop": "clue_film",
+     "text": "A shoebox under the counter: postcards, KELLY, KY. HOME OF THE LITTLE MEN, 1956. A drawing of a thing with big ears and long arms waving from a tobacco row, and a farmhouse with every window lit. Fifteen cents. There are four hundred left.",
+     "methods": {
+      "photograph": "kc_souvenir_card",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "kelly_church": {
+   "size": [
+    12,
+    10
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "painting",
+     "pos": [
+      2,
+      0.6
+     ],
+     "name": "The Jordan",
+     "look": "A print of the Jordan, which looks a great deal like the Little River with a frame on it."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      4.2,
+      0.6
+     ],
+     "name": "Hymn board",
+     "look": "HYMNS: 71, 319, 230. ATTENDANCE LAST SUNDAY: 41. OFFERING: $212.50. ANNIVERSARY SERVICE SUNDAY, DINNER ON THE GROUND. The 41 has been corrected from 38, in a firm hand."
+    },
+    {
+     "kind": "altar",
+     "pos": [
+      6,
+      1.7
+     ],
+     "name": "The pulpit",
+     "look": [
+      [
+       "player",
+       "A pulpit with a Bible open on it at Judges 7: Gideon's three hundred, the lamps in the pitchers, the trumpets, and the enemy running from each other in the dark. Somebody preached that the Sunday after, and the ribbon has never moved."
+      ],
+      [
+       "ruth",
+       "Lamps in jars and a shout in the dark, and the Midianites ran from their own camp. He chose that on purpose, dear. He was telling them something kind."
+      ]
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      8,
+      0.6
+     ],
+     "name": "Pastors of Kelly Baptist",
+     "look": [
+      [
+       "player",
+       "Pastors, 1911 to date. Brother J.T. Tilley, 1948 to 1977. Brother Amos Tilley, 1977 to date. The same chin, thirty years apart."
+      ],
+      [
+       "teddy",
+       "Family business. Like ours."
+      ]
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      10.3,
+      1.2
+     ],
+     "name": "Church clock",
+     "look": "A clock that runs eight minutes slow so the sermon ends on time."
+    },
+    {
+     "kind": "flag",
+     "pos": [
+      1.5,
+      2.2
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      10.5,
+      2.5
+     ],
+     "name": "Hymnals",
+     "look": "Broadman Hymnals, 1956 edition, a hundred of them, and under them the 1940 edition nobody will throw away because the Rapture might want it."
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      3.6
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      4.8
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      6.0
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      7.2
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      9,
+      3.6
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      9,
+      4.8
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      9,
+      6.0
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      9,
+      7.2
+     ],
+     "name": "The back pew",
+     "look": "The back pew, where the men sit who come for their wives. Somebody has carved R.P. into the arm and then tried to sand it out, and then carved it again."
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      6,
+      8.2
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      1.5,
+      8.3
+     ],
+     "name": "Lost and found",
+     "look": [
+      [
+       "player",
+       "A chest marked LOST AND FOUND: three umbrellas, a child's shoe, a set of false teeth in a Mason jar, and a flashlight with 1955 batteries in it, corroded solid."
+      ],
+      [
+       "june",
+       "Eveready. The batteries date it better than the teeth do."
+      ]
+     ]
+    },
+    {
+     "kind": "curtain",
+     "pos": [
+      10.8,
+      8.9
+     ],
+     "name": "The vestry",
+     "enter": "vestry"
+    }
+   ],
+   "npcs": [
+    {
+     "id": "kc_preacher",
+     "name": "Brother Amos Tilley",
+     "pos": [
+      6,
+      2.8
+     ],
+     "facing": "down",
+     "sprite": "baptist_preacher",
+     "when": [
+      "morning",
+      "day"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "kc_pew_scorch",
+     "name": "A scorch on the back pew",
+     "pos": [
+      9.5,
+      7.5
+     ],
+     "prop": "clue_scratch",
+     "text": "The back pew is scorched black along the seat for a foot and a half, the wood alligatored, the varnish bubbled and sanded and bubbled again. Somebody sat here with something that burned. The shape of it is a shape.",
+     "methods": {
+      "photograph": "kc_pew_scorch_photo",
+      "measure": "kc_pew_scorch_reading",
+      "bag": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  },
+  "vestry": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark2"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "bookcase",
+     "pos": [
+      1.2,
+      1.1
+     ],
+     "name": "Commentaries",
+     "look": "Matthew Henry in six volumes and a run of Reader's Digest Condensed Books nobody will admit to."
+    },
+    {
+     "kind": "desk_wood",
+     "pos": [
+      3,
+      1.5
+     ],
+     "name": "The pastor's desk",
+     "look": "A desk with a sermon half written on a legal pad: 'THIRTY-NINE YEARS. WHAT DID WE SEE. WHAT DO WE SAY WE SAW.' The second line is crossed out, and written again, and crossed out."
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      3,
+      0.9
+     ]
+    },
+    {
+     "kind": "kerosene_lamp",
+     "pos": [
+      4.3,
+      1.3
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      5,
+      0.6
+     ]
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      6.2,
+      1.1
+     ],
+     "name": "Church records",
+     "look": "Minutes, rolls, baptisms, 1921 to date. 1955 is thicker than the years either side of it, and the drawer is the only one that sticks."
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      7.2,
+      1.1
+     ]
+    },
+    {
+     "kind": "costume_rail",
+     "pos": [
+      2.5,
+      4.2
+     ],
+     "name": "Baptismal robes",
+     "look": [
+      [
+       "player",
+       "White robes on a rail, drip-dried. The baptistry is the creek, when there is a creek."
+      ],
+      [
+       "dale",
+       "August. They're baptising in a puddle."
+      ]
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      6.5,
+      4.5
+     ],
+     "name": "Vacation Bible School",
+     "look": "A crate of popsicle-stick crosses and a banner: VBS 1994, THE ARMOR OF GOD. The breastplates are cereal boxes. The helmets are colanders."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "kc_preacher",
+     "name": "Brother Amos Tilley",
+     "pos": [
+      4,
+      2.6
+     ],
+     "facing": "down",
+     "sprite": "baptist_preacher",
+     "when": [
+      "dusk"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "kc_prayer_list",
+     "name": "The prayer list, August 1955",
+     "pos": [
+      6.7,
+      1.5
+     ],
+     "prop": "clue_scratch",
+     "text": "The prayer list for the Sunday of 28 August 1955, typed on the church's own machine with the e that drops: THE LACY FAMILY, FOR THEIR TROUBLE AND FOR THE TALK. R. PETTIT, FOR HIS DRINKING AND HIS NERVES. THE HARDIN BABY. OUR BOYS AT FORT CAMPBELL. Under it, in pencil: 'and for the owls, Lord, that they go somewhere else.'",
+     "methods": {
+      "photograph": "kc_prayer_list_1955",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "pettit_house": {
+   "size": [
+    12,
+    8
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      3,
+      0.6
+     ],
+     "name": "Wedding photograph",
+     "look": "Odessa and a man in a borrowed suit, 1951. He is not in any later photograph in the house. Nobody has said why and nobody will."
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      5.5,
+      1.3
+     ],
+     "name": "The television",
+     "look": [
+      [
+       "player",
+       "A Zenith console with foil on the rabbit ears, tuned to the Nashville station and the Nashville station only."
+      ],
+      [
+       "teddy",
+       "Foil on the antenna. Somebody in this house believes in silver."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      7.5,
+      0.6
+     ],
+     "name": "Funeral home calendar",
+     "look": "A calendar from a Hopkinsville funeral home. August 1994. Every Wednesday has ROYCE written on it, which is bingo night and also the day the check comes."
+    },
+    {
+     "kind": "gun_rack",
+     "pos": [
+      9.5,
+      0.6
+     ],
+     "name": "The gun rack",
+     "look": [
+      [
+       "player",
+       "Two pegs for two guns. One gun. The empty pegs are the clean ones."
+      ],
+      [
+       "dale",
+       "The other one's wherever Royce is."
+      ]
+     ]
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      1.2,
+      2.7
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      1.2,
+      2.3
+     ]
+    },
+    {
+     "kind": "sofa_brown",
+     "pos": [
+      3,
+      2.9
+     ],
+     "name": "The davenport",
+     "look": "A davenport with a crocheted throw over the worn arm. Under the cushion, a church fan and a pint bottle, empty, that she has not found yet."
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      10.5,
+      2.2
+     ],
+     "name": "The dresser",
+     "look": "A dresser with a doily and a Bible and a drawer that sticks. Under the hankies, a cigar box that has been opened so often the lid is soft."
+    },
+    {
+     "kind": "fridge",
+     "pos": [
+      11.3,
+      4.0
+     ]
+    },
+    {
+     "kind": "sink",
+     "pos": [
+      11.3,
+      5.3
+     ]
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      10.2,
+      5.4
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      8,
+      5.5
+     ],
+     "name": "The kitchen table",
+     "look": "Oilcloth, a pitcher of sweet tea sweating a ring, a plate of fried pies under a dish towel, and a paper sack folded small, the way a sack is folded around a bottle."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      8,
+      4.6
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      8,
+      6.5
+     ]
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      8.2,
+      5.3
+     ]
+    },
+    {
+     "kind": "bed_wood",
+     "pos": [
+      2,
+      6.3
+     ],
+     "name": "Royce's cot",
+     "look": [
+      [
+       "player",
+       "A cot in the front room with the quilt folded in military corners. The one tidy thing he kept from Korea."
+      ],
+      [
+       "elijah",
+       "He makes it every morning. Every morning he thinks today might be the day he's different."
+      ]
+     ]
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      5.5,
+      6.0
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "kc_neighbour_woman",
+     "name": "Odessa Pettit",
+     "pos": [
+      4,
+      4.4
+     ],
+     "facing": "down",
+     "sprite": "neighbour_woman",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    },
+    {
+     "id": "kc_drunk",
+     "name": "Royce Pettit",
+     "pos": [
+      2.5,
+      5.0
+     ],
+     "facing": "right",
+     "sprite": "drunk_local",
+     "when": [
+      "morning"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "kc_clippings",
+     "name": "A cigar box of clippings",
+     "pos": [
+      10.5,
+      2.5
+     ],
+     "prop": "clue_film",
+     "text": "Every clipping from August and September 1955, Kentucky New Era, Courier-Journal, a Nashville paper, a Chicago one. TWELVE LITTLE MEN is underlined in every one, and in the margin of each, in pencil, in the same hand thirty-nine years apart: 'nobody said twelve.' One has 'she said' circled, and 'she' is not the Lacy mother.",
+     "methods": {
+      "photograph": "kc_clippings_1955",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "hardin_house": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "calendar",
+     "pos": [
+      1.5,
+      0.6
+     ],
+     "name": "Feed store calendar",
+     "look": [
+      [
+       "player",
+       "August 1994 from the feed store. The 21st is circled in red. Not in his hand; the hand is a woman's."
+      ],
+      [
+       "miriam",
+       "Somebody's planning a party."
+      ]
+     ]
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      4.5,
+      1.3
+     ],
+     "name": "The television",
+     "look": [
+      [
+       "player",
+       "A set with the sound off and the Weather Channel on. The Cardinals aren't on. Nobody's on. The strike is a week old."
+      ],
+      [
+       "teddy",
+       "He's watching the radar like it owes him money."
+      ]
+     ]
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      6.5,
+      1.1
+     ],
+     "name": "The radio",
+     "look": "A tabletop Philco, 1949, which still gets WSM clear as a bell at night and nothing else at all."
+    },
+    {
+     "kind": "kerosene_lamp",
+     "pos": [
+      7.8,
+      1.0
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      8.5,
+      0.6
+     ],
+     "name": "A son in uniform",
+     "look": "A boy in Army green, Fort Campbell, 1968. The frame is dusted and the glass is not."
+    },
+    {
+     "kind": "cabinet",
+     "pos": [
+      9,
+      2.3
+     ],
+     "name": "The gun cabinet",
+     "look": "A cabinet with a glass front: a pump gun, a .22, and on the shelf below, a box of shells with a 1955 price on it, unopened."
+    },
+    {
+     "kind": "armchair_grey",
+     "pos": [
+      2.5,
+      3.0
+     ],
+     "name": "His chair",
+     "look": "A recliner with the shape of one man in it and a TV Guide with the ballgames crossed out, every one, in the same black pen."
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      1.5,
+      4.9
+     ]
+    },
+    {
+     "kind": "scanner_radio",
+     "pos": [
+      1.5,
+      4.6
+     ],
+     "name": "Police scanner",
+     "look": [
+      [
+       "june",
+       "Christian County sheriff, the state police, Fort Campbell's MPs. He's got the fort's band. That's not a band you're meant to have."
+      ],
+      [
+       "player",
+       "He says it came that way."
+      ]
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      5,
+      4.6
+     ],
+     "name": "The kitchen table",
+     "look": "A table set for one, a bottle of Tabasco, and the Kentucky New Era folded to the obituaries, where he checks every morning for his own name."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      5,
+      3.7
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      5,
+      5.6
+     ]
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      5.2,
+      4.4
+     ]
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      8.5,
+      6.4
+     ]
+    },
+    {
+     "kind": "rug_blue",
+     "pos": [
+      3.5,
+      6.4
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "kc_neighbour_man",
+     "name": "Cleve Hardin",
+     "pos": [
+      4,
+      3.6
+     ],
+     "facing": "down",
+     "sprite": "neighbour_man",
+     "when": [
+      "morning",
+      "day"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "kc_hardin_shells",
+     "name": "A box of shells, 1955",
+     "pos": [
+      9,
+      2.6
+     ],
+     "prop": "clue_pellets",
+     "text": "A box of number four shot with the store's price on it in grease pencil, 22 AUG 55, the seal unbroken. He bought them the morning after and never opened them. Thirty-nine years in a glass cabinet, waiting.",
+     "methods": {
+      "photograph": "kc_hardin_shells_photo",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "kelly_depot": {
+   "size": [
+    12,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "time_clock",
+     "pos": [
+      1,
+      1.0
+     ],
+     "name": "The time clock",
+     "look": [
+      [
+       "player",
+       "A punch clock on the wall, stopped at 2:05. The card in it says SISK, V. and the last punch is 21 August 1955."
+      ],
+      [
+       "june",
+       "He stopped it himself. You can see where he pulled the weight."
+      ]
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3,
+      1.9
+     ],
+     "name": "The ticket window",
+     "look": [
+      [
+       "player",
+       "A ticket window with the grille down and a sign: NO PASSENGER SERVICE AFTER MAY 1 1958. The brass is polished. He polishes it."
+      ],
+      [
+       "teddy",
+       "Thirty-six years of no passengers and the brass still shines. That's either love or spite."
+      ]
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      4.5,
+      1.9
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      4.6,
+      2.6
+     ]
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      5.5,
+      0.9
+     ],
+     "name": "The telegraph",
+     "look": "A sounder and a key, L&N pattern, wired to nothing since 1971. He taps on it sometimes. It does not answer."
+    },
+    {
+     "kind": "lantern_hung",
+     "pos": [
+      6.3,
+      0.9
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      7,
+      1.2
+     ],
+     "name": "Station clock",
+     "look": "A railroad clock, running, correct to the second. The only one in Kelly."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      8.5,
+      0.6
+     ],
+     "name": "L&N timetable",
+     "look": "LOUISVILLE & NASHVILLE, Evansville Division, 1957. The 2:05 freight is not on it. Freights never are."
+    },
+    {
+     "kind": "pigeonholes",
+     "pos": [
+      10,
+      0.7
+     ],
+     "name": "Waybill pigeonholes",
+     "look": "Pigeonholes for waybills, every one empty but one, which holds a telegram form with nothing written on it but a time: 2:05 A."
+    },
+    {
+     "kind": "filing_tall",
+     "pos": [
+      11,
+      2.6
+     ],
+     "name": "Freight claims",
+     "look": "Claims, 1931 to 1971, in a cabinet that leans. One drawer has been pulled so often the label is gone: AUG 55."
+    },
+    {
+     "kind": "bench",
+     "pos": [
+      9,
+      3.3
+     ],
+     "name": "Waiting room bench",
+     "look": "A bench with the varnish worn through in two places, a foot apart, where people sat waiting for the 6:40 and leaned on each other."
+    },
+    {
+     "kind": "bench",
+     "pos": [
+      9,
+      4.7
+     ]
+    },
+    {
+     "kind": "desk_wood",
+     "pos": [
+      3,
+      4.4
+     ],
+     "name": "The agent's desk",
+     "look": "A roll-top desk with every pigeonhole labelled in a copperplate hand. The register is in the middle, where a man keeps the thing he looks at every day."
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      3,
+      3.7
+     ]
+    },
+    {
+     "kind": "typewriter",
+     "pos": [
+      2.4,
+      4.1
+     ]
+    },
+    {
+     "kind": "kerosene_lamp",
+     "pos": [
+      3.7,
+      4.1
+     ]
+    },
+    {
+     "kind": "coffee_maker",
+     "pos": [
+      11.2,
+      4.6
+     ],
+     "name": "Percolator",
+     "look": "A percolator that has been on since the Eisenhower administration. The coffee tastes like it."
+    },
+    {
+     "kind": "mail_cart",
+     "pos": [
+      1.5,
+      6.4
+     ],
+     "name": "Mail cart",
+     "look": "A mail cart with one sack still in it. He says it's his laundry."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      10.5,
+      6.3
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "kc_depot_agent",
+     "name": "Virgil Sisk",
+     "pos": [
+      3.5,
+      3.2
+     ],
+     "facing": "down",
+     "sprite": "depot_agent",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "kc_register",
+     "name": "The train register, August 1955",
+     "pos": [
+      3,
+      4.8
+     ],
+     "prop": "clue_scratch",
+     "text": "The depot's train register, every movement by the minute in Virgil Sisk's copperplate. 21 August: '2:05 A. Extra 1418 south, 41 cars, no stop.' Then, in the remarks column, where remarks are not meant to go: 'Shooting at Lacy place quit about when 1418 came through. Did not start again. Mrs O. Pettit at crossing with lantern 2:20 A. asking after Royce, told her no. Dogs quit same time as the shooting.'",
+     "methods": {
+      "photograph": "kc_train_register",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "kc_monkey_claim",
+     "name": "A freight claim, August 1955",
+     "pos": [
+      11,
+      2.9
+     ],
+     "prop": "clue_film",
+     "text": "A freight claim form, 23 August 1955: SWANN BROS. TRAVELING SHOW, HOPKINSVILLE. One crate rhesus monkeys, SIX, received FIVE, crate damaged. Claim DENIED, crate signed for intact at Kelly 19 Aug. In the margin, in copperplate: 'Fifth one bit the conductor. Sixth one is not my problem.'",
+     "methods": {
+      "photograph": "kc_monkey_claim_1955",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  }
+ }
+}

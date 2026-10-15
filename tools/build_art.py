@@ -22,6 +22,8 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import art_extra  # noqa: E402
 import art_summer  # noqa: E402
+import art_kelly  # noqa: E402
+import art_foes  # noqa: E402
 
 from PIL import Image, ImageDraw
 
@@ -169,6 +171,7 @@ TILES = {
 }
 TILES.update(art_extra.EXTRA_TILES)
 TILES.update(art_summer.SUMMER_TILES)
+TILES.update(art_kelly.KELLY_TILES)
 # painted walls, by colour index (3-column blocks left to right) and row group
 WALL_COLOURS = {
     "grey": wall(3, 0),
@@ -183,7 +186,7 @@ for _name, _parts in WALL_COLOURS.items():
         TILES[f"wall_{_name}_{_part}"] = _loc
 
 ATLAS_COLS = 16
-SOLID_PREFIXES = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", "void", "water", "cement_edge")
+SOLID_PREFIXES = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", "void", "water", "cement_edge") + art_kelly.SOLID_KELLY
 
 
 def special_tile(name):
@@ -191,6 +194,8 @@ def special_tile(name):
         return art_extra.special_tile_extra(name, tile)
     if name in art_summer.SUMMER_TILES and isinstance(art_summer.SUMMER_TILES[name], str):
         return art_summer.special_tile_summer(name, tile)
+    if name in art_kelly.KELLY_TILES:
+        return art_kelly.special_tile_kelly(name, tile)
     if name == "void":
         return Image.new("RGBA", (T, T), (6, 6, 10, 255))
     base = shade(tile(F + "Gritty Dirt.png", 1, 1), 0.42)
@@ -339,6 +344,7 @@ PROPS = {
 
 PROPS.update(art_extra.EXTRA_PROPS)
 PROPS.update(art_summer.SUMMER_PROPS)
+PROPS.update(art_kelly.KELLY_PROPS)
 
 
 def trim(im):
@@ -362,7 +368,7 @@ def build_props():
         im = trim(im)
         im.save(os.path.join(out, name + ".png"))
         index[name] = {"w": im.size[0], "h": im.size[1], "solid": solid}
-    for name, (im, solid) in list(custom_props().items()) + list(art_extra.extra_custom_props().items()) + list(art_summer.summer_custom_props(outline, crop).items()):
+    for name, (im, solid) in list(custom_props().items()) + list(art_extra.extra_custom_props().items()) + list(art_summer.summer_custom_props(outline, crop).items()) + list(art_kelly.kelly_custom_props(outline, crop).items()):
         im.save(os.path.join(out, name + ".png"))
         index[name] = {"w": im.size[0], "h": im.size[1], "solid": solid}
     with open(os.path.join(out, "props.json"), "w") as f:
@@ -588,6 +594,7 @@ FACADES = {
 
 FACADES.update(art_extra.EXTRA_FACADES)
 FACADES.update(art_summer.SUMMER_FACADES)
+FACADES.update(art_kelly.KELLY_FACADES)
 
 
 def siding_tile(colour, shade, part, row):
@@ -788,6 +795,9 @@ CHARACTERS.update({
 KID_HAIR = {"kid": (216, 179, 90)}
 CHARACTERS.update(art_extra.extra_characters(adult, child, LONG, BUTTONED, CARDIGAN))
 CHARACTERS.update(art_summer.summer_characters(adult, child, LONG, BUTTONED, CARDIGAN))
+CHARACTERS.update(art_kelly.kelly_characters(adult, child, LONG, BUTTONED, CARDIGAN))
+TINTS.update(art_kelly.KELLY_TINTS)
+KID_HAIR.update(art_kelly.KELLY_KID_HAIR)
 
 
 def build_characters():
@@ -901,6 +911,7 @@ def main():
     build_facades()
     build_characters()
     build_portraits()
+    art_foes.build_foes(ASSETS, sheet, adult, outline)
     write_credits()
 
 

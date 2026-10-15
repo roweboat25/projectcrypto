@@ -303,6 +303,12 @@ static func cond_holds(data: Node, state: Node, cond: Dictionary, time_of_day: f
 		return true
 	if cond.has("signs") and signs_logged(data, state) >= int(cond.signs):
 		return true
+	if cond.has("not_flag") and not state.flags.get(cond.not_flag, false):
+		return true
+	if cond.has("day") and state.day >= int(cond.day):
+		return true
+	if cond.has("night") and night_number(state, time_of_day) >= int(cond.night):
+		return true
 	if cond.has("all") and not cond.all.is_empty():
 		for c in cond.all:
 			if not cond_holds(data, state, c, time_of_day):

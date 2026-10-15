@@ -3472,5 +3472,19 @@
    ],
    "name": "Route 62"
   }
- ]
+ ],
+ "encounters": [
+  {
+   "foes": [
+    "dark_suit"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 1,
+   "intro": "A man in a dark suit is standing where there was nobody a second ago. He knows your name.",
+   "win": "He walks away without turning around. The street is the street again."
+  }
+ ],
+ "encounter_rate": 0.015
 }

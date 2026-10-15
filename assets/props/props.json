@@ -74,6 +74,11 @@
   "solid": 2,
   "w": 96
  },
+ "bbq_pit": {
+  "h": 72,
+  "solid": 1,
+  "w": 64
+ },
  "beach_hut": {
   "h": 64,
   "solid": 2,
@@ -117,6 +122,11 @@
  "bin": {
   "h": 63,
   "solid": 1,
+  "w": 32
+ },
+ "boarded_window": {
+  "h": 32,
+  "solid": 0,
   "w": 32
  },
  "bookcase": {
@@ -163,6 +173,11 @@
   "h": 40,
   "solid": 1,
   "w": 32
+ },
+ "burned_circle": {
+  "h": 96,
+  "solid": 0,
+  "w": 96
  },
  "bush": {
   "h": 32,
@@ -239,6 +254,21 @@
   "solid": 0,
   "w": 32
  },
+ "cave_mouth": {
+  "h": 112,
+  "solid": 3,
+  "w": 128
+ },
+ "cayce_grave": {
+  "h": 48,
+  "solid": 1,
+  "w": 64
+ },
+ "cedar": {
+  "h": 136,
+  "solid": 1,
+  "w": 96
+ },
  "cells_rack": {
   "h": 64,
   "solid": 1,
@@ -289,10 +319,20 @@
   "solid": 2,
   "w": 64
  },
+ "checkers_table": {
+  "h": 36,
+  "solid": 1,
+  "w": 32
+ },
  "chest": {
   "h": 32,
   "solid": 1,
   "w": 32
+ },
+ "chicken_house": {
+  "h": 52,
+  "solid": 1,
+  "w": 64
  },
  "chimney": {
   "h": 45,
@@ -399,9 +439,19 @@
   "solid": 1,
   "w": 32
  },
+ "compass_spinning": {
+  "h": 16,
+  "solid": 0,
+  "w": 16
+ },
  "copy_machine": {
   "h": 45,
   "solid": 1,
+  "w": 64
+ },
+ "corn_crib": {
+  "h": 72,
+  "solid": 2,
   "w": 64
  },
  "costume_rail": {
@@ -424,6 +474,11 @@
   "solid": 1,
   "w": 32
  },
+ "courthouse_lawn_cannon": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
  "crate": {
   "h": 64,
   "solid": 1,
@@ -433,6 +488,11 @@
   "h": 48,
   "solid": 1,
   "w": 96
+ },
+ "cupola": {
+  "h": 56,
+  "solid": 0,
+  "w": 64
  },
  "curtain": {
   "h": 96,
@@ -463,6 +523,11 @@
   "h": 48,
   "solid": 1,
   "w": 32
+ },
+ "depot_bench": {
+  "h": 32,
+  "solid": 1,
+  "w": 64
  },
  "desk_grey": {
   "h": 35,
@@ -514,6 +579,11 @@
   "solid": 1,
   "w": 64
  },
+ "dry_creek_rocks": {
+  "h": 55,
+  "solid": 0,
+  "w": 64
+ },
  "end_table": {
   "h": 24,
   "solid": 1,
@@ -523,6 +593,21 @@
   "h": 48,
   "solid": 1,
   "w": 32
+ },
+ "eyeshine": {
+  "h": 8,
+  "solid": 0,
+  "w": 16
+ },
+ "fair_tent": {
+  "h": 100,
+  "solid": 3,
+  "w": 128
+ },
+ "feed_sacks": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
  },
  "fence_h": {
   "h": 31,
@@ -594,6 +679,11 @@
   "solid": 0,
   "w": 32
  },
+ "fort_fence": {
+  "h": 56,
+  "solid": 1,
+  "w": 96
+ },
  "fortune_teller": {
   "h": 64,
   "solid": 1,
@@ -624,10 +714,20 @@
   "solid": 0,
   "w": 64
  },
+ "grain_silo": {
+  "h": 168,
+  "solid": 2,
+  "w": 64
+ },
  "grass_tall_snow": {
   "h": 53,
   "solid": 0,
   "w": 32
+ },
+ "greyhound_sign": {
+  "h": 72,
+  "solid": 1,
+  "w": 64
  },
  "gull": {
   "h": 24,
@@ -638,6 +738,31 @@
   "h": 64,
   "solid": 2,
   "w": 96
+ },
+ "gun_rack": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "handprints": {
+  "h": 24,
+  "solid": 0,
+  "w": 24
+ },
+ "hay_bale": {
+  "h": 30,
+  "solid": 1,
+  "w": 32
+ },
+ "honeysuckle": {
+  "h": 51,
+  "solid": 0,
+  "w": 64
+ },
+ "hospital_file_cart": {
+  "h": 56,
+  "solid": 1,
+  "w": 64
  },
  "house_brick": {
   "h": 201,
@@ -674,6 +799,11 @@
   "solid": 2,
   "w": 128
  },
+ "jeep_mp": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
  "jet": {
   "h": 64,
   "solid": 1,
@@ -689,6 +819,16 @@
   "solid": 1,
   "w": 32
  },
+ "kerosene_lamp": {
+  "h": 32,
+  "solid": 0,
+  "w": 16
+ },
+ "kudzu": {
+  "h": 80,
+  "solid": 1,
+  "w": 96
+ },
  "ladder": {
   "h": 83,
   "solid": 1,
@@ -698,6 +838,11 @@
   "h": 49,
   "solid": 1,
   "w": 32
+ },
+ "lamp_oil_can": {
+  "h": 28,
+  "solid": 0,
+  "w": 16
  },
  "lamp_post": {
   "h": 80,
@@ -714,10 +859,25 @@
   "solid": 0,
   "w": 32
  },
+ "lantern_hung": {
+  "h": 40,
+  "solid": 0,
+  "w": 16
+ },
+ "library_card_catalog": {
+  "h": 64,
+  "solid": 1,
+  "w": 64
+ },
  "lily": {
   "h": 16,
   "solid": 0,
   "w": 32
+ },
+ "limestone_rock": {
+  "h": 63,
+  "solid": 1,
+  "w": 64
  },
  "loveseat": {
   "h": 48,
@@ -735,6 +895,11 @@
   "w": 32
  },
  "mailbox": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
+ },
+ "mailbox_rural": {
   "h": 48,
   "solid": 1,
   "w": 32
@@ -759,6 +924,11 @@
   "solid": 0,
   "w": 32
  },
+ "monkey_cage": {
+  "h": 64,
+  "solid": 1,
+  "w": 64
+ },
  "morgue_drawers": {
   "h": 32,
   "solid": 1,
@@ -779,10 +949,25 @@
   "solid": 0,
   "w": 64
  },
+ "net_bundle": {
+  "h": 24,
+  "solid": 0,
+  "w": 32
+ },
  "newspaper_box": {
   "h": 48,
   "solid": 1,
   "w": 32
+ },
+ "oak_summer": {
+  "h": 93,
+  "solid": 1,
+  "w": 96
+ },
+ "oak_summer2": {
+  "h": 125,
+  "solid": 1,
+  "w": 96
  },
  "obelisk": {
   "h": 112,
@@ -799,6 +984,16 @@
   "solid": 1,
   "w": 32
  },
+ "owl_pellets": {
+  "h": 16,
+  "solid": 0,
+  "w": 24
+ },
+ "owl_tree": {
+  "h": 128,
+  "solid": 1,
+  "w": 96
+ },
  "painting": {
   "h": 28,
   "solid": 0,
@@ -811,6 +1006,16 @@
  },
  "paper2": {
   "h": 8,
+  "solid": 0,
+  "w": 32
+ },
+ "pawn_sign": {
+  "h": 48,
+  "solid": 0,
+  "w": 32
+ },
+ "pellet_scars": {
+  "h": 24,
   "solid": 0,
   "w": 32
  },
@@ -840,6 +1045,11 @@
   "w": 32
  },
  "pickup": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "pickup_old": {
   "h": 40,
   "solid": 1,
   "w": 64
@@ -929,10 +1139,25 @@
   "solid": 1,
   "w": 32
  },
+ "platform_roof": {
+  "h": 48,
+  "solid": 0,
+  "w": 192
+ },
  "pool_empty": {
   "h": 96,
   "solid": 3,
   "w": 160
+ },
+ "porch_post": {
+  "h": 64,
+  "solid": 1,
+  "w": 16
+ },
+ "porch_swing": {
+  "h": 48,
+  "solid": 1,
+  "w": 64
  },
  "portrait_wall": {
   "h": 24,
@@ -954,10 +1179,25 @@
   "solid": 1,
   "w": 64
  },
+ "raccoon_prints": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
+ },
  "radio_set": {
   "h": 40,
   "solid": 1,
   "w": 64
+ },
+ "rail_car": {
+  "h": 72,
+  "solid": 2,
+  "w": 192
+ },
+ "railroad_crossing_sign": {
+  "h": 80,
+  "solid": 1,
+  "w": 32
  },
  "reeds": {
   "h": 53,
@@ -989,6 +1229,16 @@
   "solid": 1,
   "w": 32
  },
+ "rocking_chair": {
+  "h": 40,
+  "solid": 1,
+  "w": 32
+ },
+ "rope_coil": {
+  "h": 24,
+  "solid": 0,
+  "w": 32
+ },
  "rug_blue": {
   "h": 64,
   "solid": 0,
@@ -999,9 +1249,29 @@
   "solid": 0,
   "w": 96
  },
+ "rusted_car": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "salt_sack": {
+  "h": 28,
+  "solid": 0,
+  "w": 32
+ },
  "scanner": {
   "h": 32,
   "solid": 0,
+  "w": 32
+ },
+ "scanner_radio": {
+  "h": 24,
+  "solid": 0,
+  "w": 32
+ },
+ "screen_door": {
+  "h": 48,
+  "solid": 1,
   "w": 32
  },
  "sedan": {
@@ -1024,6 +1294,11 @@
   "solid": 1,
   "w": 96
  },
+ "shotgun": {
+  "h": 48,
+  "solid": 0,
+  "w": 16
+ },
  "shrub_green": {
   "h": 57,
   "solid": 1,
@@ -1034,9 +1309,24 @@
   "solid": 1,
   "w": 32
  },
+ "sinkhole": {
+  "h": 96,
+  "solid": 3,
+  "w": 96
+ },
+ "sinkhole_small": {
+  "h": 64,
+  "solid": 2,
+  "w": 64
+ },
  "slide": {
   "h": 64,
   "solid": 1,
+  "w": 64
+ },
+ "smokehouse": {
+  "h": 92,
+  "solid": 2,
   "w": 64
  },
  "snowman": {
@@ -1104,15 +1394,50 @@
   "solid": 0,
   "w": 32
  },
+ "tape_deck_big": {
+  "h": 32,
+  "solid": 1,
+  "w": 64
+ },
  "time_clock": {
   "h": 48,
   "solid": 1,
   "w": 32
  },
+ "tobacco_barn": {
+  "h": 136,
+  "solid": 3,
+  "w": 128
+ },
+ "tobacco_barn_smoke": {
+  "h": 136,
+  "solid": 3,
+  "w": 128
+ },
+ "tobacco_plant": {
+  "h": 40,
+  "solid": 0,
+  "w": 32
+ },
+ "tobacco_sticks": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
+ "tractor": {
+  "h": 56,
+  "solid": 1,
+  "w": 64
+ },
  "trailer": {
   "h": 96,
   "solid": 3,
   "w": 160
+ },
+ "trash_pile_burned": {
+  "h": 32,
+  "solid": 0,
+  "w": 48
  },
  "tree_bare": {
   "h": 103,
@@ -1258,6 +1583,11 @@
   "h": 40,
   "solid": 1,
   "w": 96
+ },
+ "window_open": {
+  "h": 32,
+  "solid": 0,
+  "w": 32
  },
  "workbench": {
   "h": 52,

@@ -50,6 +50,24 @@
      "item": "car_battery"
     }
    ]
+  },
+  "plant_roost": {
+   "name": "The thing at the top of the stairs",
+   "locked": "The plant is empty. Whatever uses it is not here yet.",
+   "opens": [
+    {
+     "all": [
+      {
+       "night": 5
+      },
+      {
+       "phase": [
+        "night"
+       ]
+      }
+     ]
+    }
+   ]
   }
  },
  "items": {},
@@ -517,6 +535,30 @@
    "weight": 1,
    "kind": "testimony",
    "reliability": "C"
+  },
+  "plant_glare_photo": {
+   "title": "Photo: the red eyes in the plant",
+   "text": "Two red points at the top of the boiler stairs, and around them nothing the flash would take. The film is otherwise fine.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "plant_shriek_tape": {
+   "title": "Tape: the shriek",
+   "text": "Four seconds of a cry that peaks at 2.1 kHz, then nothing. June says a sandhill crane tops out around 1.5. She says it twice.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "plant_wall_mark": {
+   "title": "The mark behind it",
+   "text": "When the wings opened there was a mark on the wall behind it, the same bird's foot in a circle as igloo 7, and it was not there when you came in.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B"
   }
  },
  "contradictions": {

@@ -1,0 +1,411 @@
+{
+ "id": "lacy_cousin",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "Y'all the TV people? You're early. They don't come till the twenty-first, and they don't come up on the porch, they stand down in the yard and point."
+    ],
+    [
+     "lacy_cousin",
+     "Lonnie Lacy. It's my place. Was my granddaddy's. I don't sleep in it. Ask what you come to ask; it's hot."
+    ],
+    [
+     "teddy",
+     "He said 'the twenty-first' like a man saying 'the dentist'."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "He says 'they' for the TV people and 'they' for the other thing, and it's the same 'they'. Thirty-nine years of people coming to the yard to point."
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "He was six in 1955. Every 'we' he's about to say is a 'they' he learned at breakfast. Listen for the one time he says 'I'."
+    },
+    {
+     "voice": "lore",
+     "threshold": 8,
+     "line": "Overalls, a feed cap, a jar of tea sweating by the chair, and a scanner on the seat. A man who keeps watch. Your grandmother would have said: that one's waiting for something to come back, and he hasn't decided if he wants it to.",
+     "flag": "fm_cousin_keeps_watch"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're not TV. We came to listen to the people the TV didn't.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "We'll stand on the porch, if that's all right. The yard's taken.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "We need the house. Tonight, and the night of the twenty-first.",
+     "next": "hard"
+    }
+   ],
+   "gives": {
+    "flag": "met_lacy_cousin"
+   }
+  },
+  "hard": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "Everybody needs the house. Magazine needed it, Army needed it, man from Louisville with a dowsing rod needed it. It's got a padlock on it and the padlock's new, and I'm the one that's new on it."
+    ],
+    [
+     "lacy_cousin",
+     "You want in that house, you sit a while first. That's the price. It ain't money."
+    ],
+    [
+     "miriam",
+     "We asked for the one thing he's spent thirty-nine years learning not to give. Sit down."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "lacy_cousin": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "lacy_cousin",
+   "repeat": true,
+   "lines": [
+    [
+     "lacy_cousin",
+     "Go on, then. I've told it to everybody. I can tell it to you."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The key's in his bib pocket. Bread tag. You can see it from here. He's going to give it to you anyway; take it now and save the afternoon."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "fm_account_versions": 2,
+       "fm_shotgun_photo": 1
+      }
+     },
+     "text": "Tell it from the beginning. Where was everybody when it started?",
+     "pass": "first",
+     "fail": {
+      "next": "first_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "fm_account_v1": 2,
+       "fm_hand_light": 1
+      }
+     },
+     "text": "You were six. Where were you, Lonnie? Not the family. You.",
+     "pass": "second",
+     "fail": {
+      "next": "second_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "fm_account_v2": 2,
+       "fm_account_versions": 1,
+       "fm_pellets_lab": 1
+      }
+     },
+     "text": "A six-year-old under a kitchen table at seven is asleep by nine. What did you see yourself, and what did they tell you at breakfast?",
+     "pass": "third",
+     "fail": {
+      "next": "third_fail",
+      "trust": {
+       "lacy_cousin": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "fm_account_v1",
+       "fm_account_v3"
+      ]
+     },
+     "tone": "kind",
+     "text": "Three ways you've told it. Is there one thing you've never told differently?",
+     "next": "light"
+    },
+    {
+     "requires": {
+      "flag": [
+       "fm_cousin_keeps_watch"
+      ]
+     },
+     "tone": "wry",
+     "text": "Those scars on the posts are a week old. You're still being shot at?",
+     "next": "posts"
+    },
+    {
+     "requires": {
+      "trust": 3
+     },
+     "tone": "silent",
+     "text": "(Look at the padlock. Say nothing.)",
+     "next": "key"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Lacy."
+    }
+   ]
+  },
+  "first": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "We was on the porch. All eleven of us, after supper, it was hot like this. And the first one come up out of the gully yonder with its hands up, and Billy Ray shot it off the fence, and it rolled up like a ball and run."
+    ],
+    [
+     "lacy_cousin",
+     "Eyes glowed. Yellow. Twelve or fifteen of 'em, in the yard, on the roof, in the trees. We held the house till it got light and then we all got in the truck and went to town for the law."
+    ],
+    [
+     "miriam",
+     "That's the 1955 police statement. He's got the commas in the right places."
+    ]
+   ],
+   "gives": {
+    "evidence": "fm_account_v1",
+    "fact": "fm_cousin_v1"
+   },
+   "next": "hub"
+  },
+  "first_fail": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "It's in the paper. It's in every paper. You can read it in the library in town, they got it on the microfilm, I ain't a microfilm."
+    ],
+    [
+     "teddy",
+     "He's done this with better reporters than us. Let him cool off."
+    ]
+   ],
+   "next": "hub"
+  },
+  "second": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "...Kitchen. I was in the kitchen. Mama at the sink and me under the table with the dog, and the face come to the window over the sink with its hands up flat on the glass. That's the first I knew of anything."
+    ],
+    [
+     "lacy_cousin",
+     "Then the porch, then the shooting. The eyes shone in the flashlight. Like a cat's. Glowed. Shone. I don't know what I said a minute ago."
+    ],
+    [
+     "lacy_cousin",
+     "Don't look at me like that. I know what I said."
+    ],
+    [
+     "elijah",
+     "He does know. Give him a minute. Nobody's ever given him the minute."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He's not lying now and he wasn't lying before. He's telling you two things he was told and one thing he saw, and he can't tell them apart any more. He's asking you to."
+    }
+   ],
+   "gives": {
+    "evidence": "fm_account_v2",
+    "fact": "fm_cousin_v2",
+    "trust": {
+     "lacy_cousin": 1
+    }
+   },
+   "next": "hub"
+  },
+  "second_fail": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "I was where the family was. We was all together. That's how it was and that's how it's wrote down."
+    ],
+    [
+     "lacy_cousin",
+     "Y'all want some tea? It's about all I got that ain't been asked for."
+    ],
+    [
+     "ruth",
+     "Take the tea, dear. He's not saying no. He's saying not yet."
+    ]
+   ],
+   "next": "hub"
+  },
+  "third": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "..."
+    ],
+    [
+     "lacy_cousin",
+     "I was asleep. I woke up on the front-room floor with Junior and the dog and everybody hollering, and the first thing I seen was Daddy's gun. Not a window. The gun, going past my face."
+    ],
+    [
+     "lacy_cousin",
+     "I seen two. One time, at the window. And I ain't sure now it was two. I was six. The rest is what they said at breakfast and said to the police and said to the magazine man, and it was the only way I had to tell it, so I told it. Thirty-nine years."
+    ],
+    [
+     "lacy_cousin",
+     "Don't put that in nothing. Not for me. For Mama. She believed it till she died, and she wasn't a liar, and I ain't going to be the one made her one."
+    ],
+    [
+     "ruth",
+     "Nobody's putting anything anywhere, dear. We're listening. You can tell it's been a while."
+    ]
+   ],
+   "gives": {
+    "evidence": "fm_account_v3",
+    "fact": "fm_cousin_v3",
+    "trust": {
+     "lacy_cousin": 1
+    },
+    "flag": "fm_cousin_v3_told",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "third_fail": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "You calling my mama a liar. On her porch."
+    ],
+    [
+     "lacy_cousin",
+     "Get down in the yard with the rest of 'em. Point if you want. I'm going in."
+    ],
+    [
+     "miriam",
+     "We pushed on the one thing that would have come on its own. That's on me."
+    ]
+   ],
+   "end": true
+  },
+  "light": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "One thing. Before supper, before any of it. I was on that swing, by myself, and a light come down in the gully behind the big oak. Round. Not a colour I got a word for. Slow, like somebody letting a lamp down on a string, and then it was down, and then it wasn't."
+    ],
+    [
+     "lacy_cousin",
+     "I went in and ate. Didn't say nothing. Six-year-olds don't."
+    ],
+    [
+     "lacy_cousin",
+     "I told that the same in '55 and '57 and '78 and I'm telling it the same to you. I ain't never changed it, because I ain't never had to. That one's mine. The rest was theirs."
+    ],
+    [
+     "june",
+     "That's the one part nobody could have told him. He was alone on the swing. Write it down the way he said it."
+    ]
+   ],
+   "gives": {
+    "evidence": "fm_account_light",
+    "fact": "fm_cousin_light",
+    "trust": {
+     "lacy_cousin": 1
+    },
+    "flag": "fm_cousin_light_told"
+   },
+   "next": "hub"
+  },
+  "posts": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "Pruitt boys. Every August, with their daddy's gun, so the posts look fresh for the TV people. I let 'em. Somebody ought to shoot at it. It ain't going to be me."
+    ],
+    [
+     "lacy_cousin",
+     "The old ones is under there. Lead. You can dig one out if you want; the man from Louisville did. Took it home in his pocket like a tooth."
+    ],
+    [
+     "teddy",
+     "The county dresses the set. Every year. And he supervises."
+    ]
+   ],
+   "gives": {
+    "evidence": "fm_cousin_posts"
+   },
+   "next": "hub"
+  },
+  "key": {
+   "speaker": "lacy_cousin",
+   "lines": [
+    [
+     "lacy_cousin",
+     "...It's on a bread tag. Says LACY, like the mailbox used to. I'll leave the lock open for y'all, and I'll leave the lamp full, and on the twenty-first I'll leave, and I won't be back till it's light."
+    ],
+    [
+     "lacy_cousin",
+     "Don't sleep in it. Sit up. That's all I know that's worth knowing. Sit up where you can see the doors."
+    ],
+    [
+     "elijah",
+     "He never looked at the padlock. He's been looking at us since we came up the steps. He decided a while ago."
+    ]
+   ],
+   "gives": {
+    "flag": "fm_cousin_opens_house",
+    "trust": {
+     "lacy_cousin": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

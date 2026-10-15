@@ -1,0 +1,3293 @@
+{
+ "_doc": "Kelly, the Lacy farm: the signature site. A clapboard house with pellet scars in the porch posts, a well and smokehouse to the north-east, a dark-fired tobacco barn to the north-west, the gully behind the house where a light was said to come down, a treeline of oaks and cedars along the east with the road to the Sinks through it, and tobacco to the south and east. The farmhouse door is the skeleton gate `farmhouse`; the siege is run from the lamp on the front-room table (use siege, appears siege_night). Four trail signs (fm_eyeshine_rafters, fm_handprints_smokehouse, fm_burned_circle, fm_cousin_account) feed the siege. Positions are in 32px tiles.",
+ "id": "kelly_farm",
+ "name": "The Lacy farm",
+ "case": "kelly",
+ "district": "farm",
+ "size": [
+  48,
+  48
+ ],
+ "spawn": [
+  24,
+  33
+ ],
+ "ground": "dry_grass",
+ "weather": "clear",
+ "fills": [
+  {
+   "rect": [
+    0,
+    0,
+    48,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    47,
+    20,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    28,
+    47,
+    20,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    1,
+    1,
+    46
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    47,
+    1,
+    1,
+    19
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    47,
+    28,
+    1,
+    19
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    41,
+    1,
+    6,
+    46
+   ],
+   "tiles": [
+    "grass",
+    "grass2",
+    "grass3"
+   ]
+  },
+  {
+   "rect": [
+    6,
+    3,
+    36,
+    1
+   ],
+   "tiles": "sink_edge"
+  },
+  {
+   "rect": [
+    6,
+    4,
+    36,
+    4
+   ],
+   "tiles": [
+    "earth",
+    "earth2",
+    "earth3",
+    "earth"
+   ]
+  },
+  {
+   "rect": [
+    6,
+    6,
+    36,
+    1
+   ],
+   "tiles": [
+    "creek_bed",
+    "creek_bed",
+    "earth2"
+   ]
+  },
+  {
+   "rect": [
+    6,
+    8,
+    36,
+    1
+   ],
+   "tiles": "sink_edge"
+  },
+  {
+   "rect": [
+    10,
+    25,
+    27,
+    7
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2",
+    "red_clay"
+   ]
+  },
+  {
+   "rect": [
+    22,
+    32,
+    4,
+    15
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2"
+   ]
+  },
+  {
+   "rect": [
+    11,
+    16,
+    3,
+    9
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2"
+   ]
+  },
+  {
+   "rect": [
+    19,
+    25,
+    10,
+    1
+   ],
+   "tiles": "porch_boards"
+  },
+  {
+   "rect": [
+    3,
+    33,
+    18,
+    13
+   ],
+   "tiles": [
+    "tobacco_field",
+    "tobacco_field2"
+   ]
+  },
+  {
+   "rect": [
+    27,
+    33,
+    13,
+    13
+   ],
+   "tiles": [
+    "tobacco_field",
+    "tobacco_field2"
+   ]
+  },
+  {
+   "rect": [
+    21,
+    33,
+    1,
+    13
+   ],
+   "tiles": "tobacco_cut"
+  },
+  {
+   "rect": [
+    26,
+    33,
+    1,
+    13
+   ],
+   "tiles": "tobacco_cut"
+  },
+  {
+   "rect": [
+    30,
+    18,
+    11,
+    6
+   ],
+   "tiles": [
+    "tobacco_field",
+    "tobacco_field2"
+   ]
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    9,
+    40,
+    16
+   ],
+   "tiles": [
+    "dry_grass2",
+    "dry_grass3",
+    "grass_tuft",
+    "earth"
+   ],
+   "chance": 0.1
+  },
+  {
+   "rect": [
+    1,
+    1,
+    40,
+    2
+   ],
+   "tiles": [
+    "dry_grass3",
+    "grass_tuft2"
+   ],
+   "chance": 0.15
+  },
+  {
+   "rect": [
+    10,
+    25,
+    27,
+    7
+   ],
+   "tiles": [
+    "red_clay2",
+    "earth2"
+   ],
+   "chance": 0.12
+  },
+  {
+   "rect": [
+    41,
+    1,
+    6,
+    46
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2",
+    "earth3"
+   ],
+   "chance": 0.1
+  }
+ ],
+ "facades": [
+  {
+   "id": "farmhouse",
+   "facade": "farmhouse_ky",
+   "name": "The farmhouse",
+   "pos": [
+    19,
+    24
+   ],
+   "gate": "farmhouse"
+  }
+ ],
+ "houses": [
+  {
+   "id": "smokehouse",
+   "name": "The smokehouse",
+   "prop": "smokehouse",
+   "pos": [
+    37,
+    14.8
+   ],
+   "door": [
+    37,
+    14.8
+   ]
+  },
+  {
+   "id": "tobacco_barn",
+   "name": "The tobacco barn",
+   "prop": "tobacco_barn",
+   "pos": [
+    12,
+    15
+   ],
+   "door": [
+    12,
+    15
+   ]
+  }
+ ],
+ "props": [
+  {
+   "kind": "porch_post",
+   "pos": [
+    21.5,
+    25.9
+   ],
+   "name": "Porch post",
+   "look": [
+    [
+     "player",
+     "A porch post, pine, painted white a long time ago. Pellet scars either side of the door, fresh ones over old ones, like a tree that has been shot at by two generations."
+    ],
+    [
+     "dale",
+     "Bird shot. Twelve-gauge, close. The old ones are lead, the new ones aren't."
+    ],
+    [
+     "teddy",
+     "So somebody's been keeping the tradition up."
+    ]
+   ]
+  },
+  {
+   "kind": "pellet_scars",
+   "pos": [
+    21.5,
+    25.5
+   ]
+  },
+  {
+   "kind": "porch_post",
+   "pos": [
+    25.5,
+    25.9
+   ],
+   "name": "Porch post",
+   "look": [
+    [
+     "player",
+     "The other post. Somebody has dug at the old scars with a pocket knife, looking for a pellet, and given up."
+    ],
+    [
+     "miriam",
+     "Souvenir hunters. The house has been a stop on the tour since 1955."
+    ]
+   ]
+  },
+  {
+   "kind": "pellet_scars",
+   "pos": [
+    25.5,
+    25.5
+   ]
+  },
+  {
+   "kind": "porch_swing",
+   "pos": [
+    27,
+    25.7
+   ],
+   "name": "Porch swing",
+   "look": [
+    [
+     "player",
+     "A porch swing on two chains, one chain newer. It faces the gully, not the road."
+    ],
+    [
+     "elijah",
+     "Somebody sat here every evening and watched the gully. For years. You can feel where he sat."
+    ],
+    [
+     "ruth",
+     "That's the cousin, dear. You don't need a gift for that, you need a cushion. Look at the cushion."
+    ]
+   ]
+  },
+  {
+   "kind": "rocking_chair",
+   "pos": [
+    19.5,
+    25.7
+   ],
+   "name": "Rocking chair",
+   "look": [
+    [
+     "player",
+     "A rocking chair with a scanner radio on the seat and a quart jar of tea beside it, sweating."
+    ],
+    [
+     "june",
+     "Scanner's on the county band. And one channel past it, where Fort Campbell talks."
+    ],
+    [
+     "teddy",
+     "The man listens to the Army at night. I'd be out here with a jar too."
+    ]
+   ]
+  },
+  {
+   "kind": "window_open",
+   "pos": [
+    20.5,
+    24.4
+   ],
+   "name": "The barn-side window",
+   "look": [
+    [
+     "player",
+     "The west window, lit. From here you can see the barn, and from the barn you can see this window, and that is the whole problem with the west side of the house."
+    ],
+    [
+     "dale",
+     "Board it. One sheet of plywood, eight nails. Don't let Vera near it with the salt."
+    ]
+   ],
+   "appears": "fm_night"
+  },
+  {
+   "kind": "window_open",
+   "pos": [
+    27.5,
+    24.4
+   ],
+   "name": "The east window",
+   "look": [
+    [
+     "player",
+     "The east window. Beyond it, the well, the smokehouse, and the dark where the yard stops being a yard."
+    ],
+    [
+     "vera",
+     "Windows are agreements. Something outside has agreed to stay outside. One prefers an agreement in writing. Salt is writing."
+    ]
+   ],
+   "appears": "fm_night"
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    16.5,
+    26.4
+   ],
+   "name": "A dog",
+   "look": [
+    [
+     "player",
+     "A hound, old, flat in the red clay with his chin on his paws, watching the gully. He does not get up for you."
+    ],
+    [
+     "dale",
+     "Good dog. Doesn't bark at people. The question is what he does bark at."
+    ],
+    [
+     "ruth",
+     "The dog in 1955 went under the house, dear. This one's just waiting for his turn."
+    ]
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    30,
+    24.3
+   ],
+   "name": "Honeysuckle",
+   "look": "Honeysuckle up the east corner of the porch, heavy as a wet towel. August in Kentucky smells like this and tobacco smoke and nothing else."
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    18.5,
+    25.7
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    29,
+    25.6
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    14.5,
+    24.6
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    31.5,
+    23.6
+   ]
+  },
+  {
+   "kind": "pickup_old",
+   "pos": [
+    18,
+    29.6
+   ],
+   "name": "An old truck",
+   "look": [
+    [
+     "player",
+     "A 1950s pickup with no tires, on blocks, red where it was once green. The bed is full of tobacco sticks and one shoe."
+    ],
+    [
+     "teddy",
+     "That's the truck. The one they drove to town for the police. Eleven people in a pickup at two in the morning."
+    ],
+    [
+     "miriam",
+     "Or it's a truck. Every farm in this county has one of these on blocks."
+    ]
+   ]
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    32,
+    28.6
+   ],
+   "name": "Picnic table",
+   "look": [
+    [
+     "player",
+     "A picnic table with the Kentucky New Era weighted under a brick. KELLY 'GOBLINS' TURN 39, with a drawing of something that looks like a wet cat in a helmet."
+    ],
+    [
+     "teddy",
+     "The drawing's the same one they ran in '55. They've been running it for thirty-nine years. It's the most reprinted cat in Kentucky."
+    ]
+   ]
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    26.8,
+    44.5
+   ],
+   "name": "Mailbox",
+   "look": [
+    [
+     "player",
+     "A rural mailbox on a post, LACY in stick-on letters, the Y gone. Somebody has shot the flag off."
+    ],
+    [
+     "dale",
+     "Pellet holes in the box too. Same gun as the porch."
+    ],
+    [
+     "teddy",
+     "LAC. It's the most honest mailbox in the county."
+    ]
+   ]
+  },
+  {
+   "kind": "tractor",
+   "pos": [
+    8,
+    24.6
+   ],
+   "name": "Tractor",
+   "look": "A red tractor with a cushion tied to the seat with baling twine. Somebody drives it every day and nobody loves it."
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    6,
+    26.6
+   ],
+   "name": "Hay bales",
+   "look": [
+    [
+     "player",
+     "Round bales under a tarp, sweating in the heat. One has been pulled apart by something and put back by someone."
+    ],
+    [
+     "dale",
+     "Coons. Or a dog. Or a man who wanted to look like a coon."
+    ],
+    [
+     "miriam",
+     "Three theories from a hay bale. We're going to be here a while."
+    ]
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    7,
+    26.6
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    6.5,
+    25.6
+   ]
+  },
+  {
+   "kind": "rusted_car",
+   "pos": [
+    8,
+    19.6
+   ],
+   "name": "A rusted car",
+   "look": [
+    [
+     "player",
+     "A sedan from before anyone in the party was born, rusted to lace, with a tobacco plant growing up through the floor and out the window."
+    ],
+    [
+     "ruth",
+     "That's a '53 Chevrolet, dear. My husband courted me in one. I'd know that shade of rust anywhere."
+    ]
+   ]
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    16.5,
+    19.6
+   ],
+   "name": "Boards",
+   "look": [
+    [
+     "player",
+     "A stack of boards under a tarp, and a coffee can of nails. Cut to window length. The cousin has been meaning to."
+    ],
+    [
+     "dale",
+     "Those are for the windows. He's measured them. He's just never done it. Thirty-nine years of meaning to."
+    ]
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    16,
+    23.5
+   ],
+   "name": "The cedar",
+   "look": "A red cedar by the west corner of the house, planted the year the house was built and never trimmed, so that now the house leans on it a little."
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    19.5,
+    32.4
+   ],
+   "name": "Yard fence",
+   "look": [
+    [
+     "player",
+     "A board fence between the yard and the field, white once. Nothing has leaned on it in years; the pellet holes are the only wear."
+    ],
+    [
+     "june",
+     "Every one of these holes is at about four feet. Somebody short was shooting, or somebody sitting down."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    4.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    7.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    10.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    13.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    16.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    28.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    31.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    34.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    37.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    40.5,
+    32.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    43.5,
+    32.4
+   ],
+   "name": "Fence corner",
+   "look": "The fence stops at the treeline as though it ran out of courage. Beyond it the oaks take over."
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    4.5,
+    30.5
+   ],
+   "name": "A limestone rock",
+   "look": "A rock the plough found and the family dragged here and gave up on. The county is made of these, the Sinks are where the rest of them went."
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    36.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    38,
+    27.5
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    12,
+    27.5
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    38.5,
+    25.4
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    4,
+    22.5
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    10,
+    30.5
+   ]
+  },
+  {
+   "kind": "well",
+   "pos": [
+    33,
+    16.6
+   ],
+   "name": "The well",
+   "look": [
+    [
+     "player",
+     "A stone well with a tin roof and a bucket on a rope. The water is cold and tastes of rock. Somebody has dropped a flashlight down it; you can see the lens."
+    ],
+    [
+     "dale",
+     "The well side's the open side. Smokehouse, chicken house, nothing taller than a man between here and the treeline."
+    ],
+    [
+     "vera",
+     "Doorsteps on the well side. Salt. One will see to it."
+    ]
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    34.6,
+    17.6
+   ],
+   "name": "A bucket",
+   "look": "A galvanised bucket by the well, half full of yesterday's rain and three dead June bugs. Teddy drinks from the dipper anyway."
+  },
+  {
+   "kind": "rope_coil",
+   "pos": [
+    31.6,
+    17.2
+   ],
+   "name": "Well rope",
+   "look": "Spare well rope, coiled and hung on a nail. Fifty feet. Dale looks at it the way he looks at a fishing net."
+  },
+  {
+   "kind": "lantern_hung",
+   "pos": [
+    38.4,
+    15.0
+   ],
+   "name": "The smokehouse door",
+   "look": [
+    [
+     "player",
+     "A log smokehouse with a door the width of a man and a latch the height of a child, and a lantern on a nail beside it. The door is scarred black with smoke and something has been at it."
+    ],
+    [
+     "elijah",
+     "The door's been opened from outside. Low. Not by the cousin. He opens it high, you can see where his hand goes."
+    ]
+   ]
+  },
+  {
+   "kind": "chicken_house",
+   "pos": [
+    30,
+    12.6
+   ],
+   "name": "The chicken house",
+   "look": [
+    [
+     "player",
+     "A chicken house with the wire torn on the field side and four hens who have seen some things. There is no rooster. There was a rooster."
+    ],
+    [
+     "dale",
+     "Great horned owl'll take a rooster off a roost and leave the head. That's what owls do with heads."
+    ],
+    [
+     "teddy",
+     "Thank you, Dale."
+    ]
+   ]
+  },
+  {
+   "kind": "trough",
+   "pos": [
+    30.5,
+    16.6
+   ],
+   "name": "Water trough",
+   "look": "A trough with an inch of green water and a frog in it who does not believe in you."
+  },
+  {
+   "kind": "owl_tree",
+   "pos": [
+    39,
+    9.6
+   ],
+   "name": "The dead oak",
+   "look": [
+    [
+     "player",
+     "A dead oak on the edge of the gully with a hollow at head height, and the ground under it white with droppings and bones. Small bones. Mouse, rabbit, something with feathers."
+    ],
+    [
+     "dale",
+     "That's a roost. Great horned, by the pellets. Been here years."
+    ],
+    [
+     "ruth",
+     "Owls lived here before the family did, dear. They've been reading the paper too."
+    ]
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    41,
+    10.5
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    35.5,
+    11.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    28.5,
+    14.5
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    34.5,
+    13.5
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    14.5,
+    15.6
+   ],
+   "name": "By the barn door",
+   "look": [
+    [
+     "player",
+     "A dark-fired tobacco barn, black boards and a tin roof, with the sweet smoke smell that gets into everything in this county by September. Gaps in the boards you could put a hand through, and a bale by the door for sitting on while you watch it burn."
+    ],
+    [
+     "june",
+     "Gaps at the top for the smoke. Anything that can fly can get in. Anything that can climb, too."
+    ]
+   ]
+  },
+  {
+   "kind": "tobacco_barn_smoke",
+   "pos": [
+    12,
+    15
+   ],
+   "appears": "fm_dusk"
+  },
+  {
+   "kind": "tobacco_sticks",
+   "pos": [
+    16,
+    14.6
+   ],
+   "name": "Tobacco sticks",
+   "look": "Tobacco sticks in a bundle, the kind the hands spear the stalks on to hang in the barn. Forty inches, sharpened. Dale picks one up and nobody tells him to put it down."
+  },
+  {
+   "kind": "corn_crib",
+   "pos": [
+    6,
+    13.6
+   ],
+   "name": "Corn crib",
+   "look": [
+    [
+     "player",
+     "A corn crib on stilts, the slats grey, half full of last year's corn and the mice who live on it."
+    ],
+    [
+     "dale",
+     "Mice feed the owls. Owls feed the story. Everything on this farm is on the same payroll."
+    ]
+   ]
+  },
+  {
+   "kind": "tobacco_sticks",
+   "pos": [
+    17,
+    17.6
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    15.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "feed_sacks",
+   "pos": [
+    8,
+    16.6
+   ],
+   "name": "Feed sacks",
+   "look": "Feed sacks stacked under the crib, SOUTHERN STATES, and a trap set under them that has caught nothing but a feed sack."
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    4.5,
+    17.5
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    7.5,
+    11.5
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    12,
+    6.9
+   ],
+   "name": "The gully",
+   "look": [
+    [
+     "player",
+     "A dry gully behind the house, limestone and clay, deep enough to hide a man standing up. Water runs here two months a year. A light was said to come down here first, before any of it."
+    ],
+    [
+     "june",
+     "It's a trench. Anything in it is out of the line of the windows until it's thirty feet from the house."
+    ]
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    25,
+    6.9
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    36,
+    6.9
+   ],
+   "name": "Creek stones",
+   "look": "Flat stones in the dry bed, turned over. Something has been lifting rocks for what lives under them. Dale says coon. Dale says coon a lot."
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    20,
+    5.6
+   ],
+   "name": "A limestone slab",
+   "look": [
+    [
+     "player",
+     "A slab of limestone in the gully with a smooth place worn in the top, like a seat. Somebody has sat here, facing the house, a great many times."
+    ],
+    [
+     "elijah",
+     "Somebody sits here at dusk. Not the cousin. He watches the gully from the porch, and this is what he's watching."
+    ]
+   ]
+  },
+  {
+   "kind": "compass_spinning",
+   "pos": [
+    31,
+    7.4
+   ],
+   "appears": "fm_night3",
+   "name": "The compass",
+   "look": [
+    [
+     "june",
+     "The compass won't settle. It goes round like a clock in a cartoon and then it stops, and it stops pointing at the house."
+    ],
+    [
+     "miriam",
+     "Iron in the ground. Limestone country has iron in it."
+    ],
+    [
+     "june",
+     "Not this much. Not in a circle."
+    ]
+   ]
+  },
+  {
+   "kind": "eyeshine",
+   "pos": [
+    24,
+    5.3
+   ],
+   "appears": "fm_gully_eyes",
+   "name": "Eyes in the gully",
+   "fight": {
+    "foes": [
+     "eyeshine"
+    ],
+    "flag": "gully_eyes_seen",
+    "intro": [
+     [
+      "narrator",
+      "Two points of yellow in the gully, at the height of a man's knee, and they do not blink and they do not move when the flashlight finds them."
+     ],
+     [
+      "dale",
+      "Hold the light on it. Don't run. Nothing out here runs from a light except us."
+     ]
+    ],
+    "win": "The eyes go out, and the gully is a gully, and somewhere downstream something small and heavy crashes off through the brush with no dignity at all. You have seen it. It has seen you.",
+    "lose": "You are on the porch, and nobody remembers the steps. The eyes are still in the gully, lower now, and patient."
+   }
+  },
+  {
+   "kind": "eyeshine",
+   "pos": [
+    44,
+    29.4
+   ],
+   "appears": "fm_night",
+   "name": "Eyes in the treeline",
+   "look": [
+    [
+     "player",
+     "Two yellow points in the oaks at the height of a tall man's chest. They go out while you watch, and come on again a tree to the left."
+    ],
+    [
+     "teddy",
+     "That's the treeline. If I were a small silver man with my hands up, that is exactly where I'd stand."
+    ],
+    [
+     "dale",
+     "Owl. Moved branches. Owls do that."
+    ],
+    [
+     "teddy",
+     "Noted, and I'm still not going over there."
+    ]
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    9,
+    9.5
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    33,
+    9.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    40,
+    4.5
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    7,
+    4.5
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    10,
+    2.4
+   ],
+   "name": "An oak",
+   "look": "A white oak on the far rim of the gully, old enough to have been in the 1955 photographs. It was in them. It has not changed its story."
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    22,
+    2.4
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    28,
+    2.4
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    34,
+    2.4
+   ],
+   "name": "The big oak",
+   "look": [
+    [
+     "player",
+     "The biggest oak on the place, on the far side of the gully. The family said they floated down out of the trees. Out of this one, if any."
+    ],
+    [
+     "ruth",
+     "Floated, dear. Not flew. Mind the word. A thing that flies is a bird, a thing that floats is a story."
+    ]
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    43.5,
+    3.5
+   ],
+   "name": "The treeline",
+   "look": [
+    [
+     "player",
+     "The treeline: oaks and cedars in a row along the east edge of the farm, planted as a windbreak and grown into a wall. The road to the Sinks goes through a gap in it."
+    ],
+    [
+     "june",
+     "It's a wall with a door in it. The treeline side is the side they'd use if they were smart."
+    ],
+    [
+     "dale",
+     "A net. Forty feet of net between the oaks at the height of a small man. I've said it before and I'll say it in the car."
+    ]
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    43.5,
+    6.5
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    43.5,
+    9.5
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    43.5,
+    12.5
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    43.5,
+    15.5
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    43.5,
+    18.5
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    43.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    43.5,
+    33.5
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    43.5,
+    36.5
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    43.5,
+    39.5
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    43.5,
+    42.5
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    43.5,
+    45.5
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    45.5,
+    2
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    45.5,
+    5
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    45.5,
+    8
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    45.5,
+    11
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    45.5,
+    14
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    45.5,
+    17
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    45.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    45.5,
+    35
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    45.5,
+    38
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    45.5,
+    41
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    45.5,
+    44
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    41.5,
+    40.5
+   ],
+   "name": "Kudzu",
+   "look": [
+    [
+     "player",
+     "Kudzu has taken a cedar and is working on the fence. In August you can watch it move."
+    ],
+    [
+     "teddy",
+     "That's the only thing on this farm that's definitely from somewhere else."
+    ]
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    41.5,
+    30
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    40.5,
+    36.5
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    41.5,
+    16.5
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    40,
+    22.5
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    41,
+    25.5
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    39.5,
+    20.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    4,
+    33.9
+   ],
+   "name": "Tobacco",
+   "look": [
+    [
+     "player",
+     "Dark-fired tobacco, head high, the leaves like elephant ears, sticky to the touch. The rows run away south toward the crossroads and the whole field ticks in the heat."
+    ],
+    [
+     "ruth",
+     "You can lose a child in a tobacco field in August, dear. You can lose a grown man. You can certainly lose a thing three feet tall with its hands up."
+    ]
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    6,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    8,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    10,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    12,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    14,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    16,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    18,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    20,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    28,
+    33.9
+   ],
+   "name": "Tobacco",
+   "look": [
+    [
+     "player",
+     "The east field, topped last week; the flower heads are lying in the rows. The plants bend toward the house."
+    ],
+    [
+     "miriam",
+     "They bend toward the sun. The house is west. It's evening."
+    ],
+    [
+     "elijah",
+     "...It's morning, Miriam."
+    ]
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    30,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    32,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    34,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    36,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    38,
+    33.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    20.6,
+    36.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    27.4,
+    36.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    20.6,
+    39.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    27.4,
+    39.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    20.6,
+    42.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    27.4,
+    42.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    30.4,
+    19.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    30.4,
+    21.9
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    30.4,
+    23.9
+   ],
+   "name": "The near rows",
+   "look": "The rows nearest the house. In the lull on the real night the family said the yard was empty and the field was full. Of what, nobody wrote down."
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    32,
+    24.4
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    34,
+    24.4
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    36,
+    24.4
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    38,
+    24.4
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    40,
+    24.4
+   ]
+  },
+  {
+   "kind": "deer",
+   "pos": [
+    36,
+    37.5
+   ],
+   "name": "A deer",
+   "look": [
+    [
+     "player",
+     "A doe in the tobacco, early, eating the one thing on the farm that is not hers. She looks at you the way the dog did."
+    ],
+    [
+     "dale",
+     "Thirty yards and she's not moved. Nobody shoots here in the mornings. Whoever's shooting shoots at night."
+    ]
+   ],
+   "appears": "fm_morning"
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    12,
+    46.4
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    34,
+    46.4
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "lacy_cousin",
+   "name": "Lonnie Lacy",
+   "pos": [
+    24.3,
+    25.7
+   ],
+   "facing": "down",
+   "sprite": "lacy_cousin",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "fm_farm_kid",
+   "name": "A kid on a bicycle",
+   "pos": [
+    28,
+    43.6
+   ],
+   "facing": "left",
+   "sprite": "farm_kid",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "fm_farm_kid",
+   "name": "A kid on a bicycle",
+   "pos": [
+    18,
+    27.2
+   ],
+   "facing": "right",
+   "sprite": "farm_kid",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "fm_tobacco_hand",
+   "name": "Virgil, a tobacco hand",
+   "pos": [
+    35,
+    21.6
+   ],
+   "facing": "left",
+   "sprite": "tobacco_hand",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "fm_tobacco_hand",
+   "name": "Virgil, a tobacco hand",
+   "pos": [
+    15,
+    17.6
+   ],
+   "facing": "left",
+   "sprite": "tobacco_hand",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "fm_tobacco_hand2",
+   "name": "Dwayne, a tobacco hand",
+   "pos": [
+    9.5,
+    25.6
+   ],
+   "facing": "right",
+   "sprite": "tobacco_hand2",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "fm_tobacco_hand2",
+   "name": "Dwayne, a tobacco hand",
+   "pos": [
+    10,
+    36.6
+   ],
+   "facing": "down",
+   "sprite": "tobacco_hand2",
+   "when": [
+    "day"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "fm_porch_pellets",
+   "name": "Fresh pellet scars",
+   "pos": [
+    23.3,
+    25.4
+   ],
+   "prop": "clue_scratch",
+   "text": "Fresh pellet scars in the door frame and both posts, bright wood in the grey, the splinters still sharp. Under them, older scars, the wood gone black, filled with paint. Two sieges, forty years apart, or one siege and some kids.",
+   "methods": {
+    "photograph": "fm_pellet_photo",
+    "bag": "fm_pellet_sample",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "fm_handprints_smokehouse",
+   "name": "Handprints on the smokehouse door",
+   "pos": [
+    36.4,
+    15.2
+   ],
+   "prop": "handprints",
+   "night": 2,
+   "text": "Small handprints on the smokehouse door, in soot, at the height of your chest. A child's hand, by the size, three feet off the ground higher than any child reaches, with the fingers spread wide and no thumb that you can find. They are climbing. Or they were held up.",
+   "methods": {
+    "cast": "fm_handprint_cast",
+    "photograph": "fm_handprint_photo",
+    "bag": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "fm_raccoon_prints",
+   "name": "Prints in the red clay",
+   "pos": [
+    34.5,
+    15.6
+   ],
+   "prop": "raccoon_prints",
+   "text": "Five-fingered prints in the wet clay by the well, small, with long fingers, walking toward the smokehouse and back again, heavy. The hands of something that has hands.",
+   "methods": {
+    "cast": "fm_raccoon_cast",
+    "photograph": "fm_raccoon_photo",
+    "bag": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "fm_burned_circle",
+   "name": "A burned circle",
+   "pos": [
+    30,
+    6.5
+   ],
+   "prop": "burned_circle",
+   "night": 3,
+   "text": "A circle burned into the floor of the gully, nine feet across, the clay baked red to a crust and the grass gone to white ash at the edge in a line you could draw with a compass. Nothing has burned here; there is no wood, no wire, no can. The ground inside is warm, and June's compass needle is going round like a second hand.",
+   "methods": {
+    "measure": "fm_gully_reading",
+    "photograph": "fm_gully_photo",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "fm_trash_pile",
+   "name": "A burned trash pile",
+   "pos": [
+    15,
+    6.4
+   ],
+   "prop": "trash_pile_burned",
+   "text": "A pile of burned trash in the gully, the ash still grey and greasy: cans, a tire bead, a chair frame, something that was a mattress. The clay under it is scorched in a ring. A farmer's way of taking out the garbage, or something that wanted to look like one.",
+   "methods": {
+    "bag": "fm_trash_sample",
+    "photograph": "fm_trash_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    20,
+    47,
+    8,
+    1
+   ],
+   "to": "kelly_crossroads",
+   "at": [
+    20,
+    2
+   ],
+   "name": "Kelly Crossroads"
+  },
+  {
+   "rect": [
+    47,
+    20,
+    1,
+    8
+   ],
+   "to": "kelly_sinks",
+   "at": [
+    2,
+    12
+   ],
+   "name": "The Pennyrile Sinks"
+  }
+ ],
+ "interiors": {
+  "farmhouse": {
+   "size": [
+    16,
+    12
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2",
+    "farm_floor"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "bookcase",
+     "pos": [
+      1.5,
+      2.1
+     ],
+     "name": "Bookcase",
+     "look": [
+      [
+       "player",
+       "A bookcase: a family Bible with the births in the front, a Farmer's Almanac for every year since 1949, and four paperbacks about flying saucers with the family's name in the index of each one."
+      ],
+      [
+       "teddy",
+       "They bought the books. Every one that mentioned them. And underlined the parts that were wrong."
+      ],
+      [
+       "miriam",
+       "There's a lot of underlining."
+      ]
+     ]
+    },
+    {
+     "kind": "curtain",
+     "pos": [
+      4,
+      1.9
+     ],
+     "name": "The front bedroom",
+     "enter": "bedroom_front"
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      6,
+      1.4
+     ],
+     "name": "The family, 1954",
+     "look": [
+      [
+       "player",
+       "A photograph on the wall: eleven people on the porch, squinting. A grandmother in the middle like a hinge. Two boys in front, six and eight, the small one holding a dog by the ear."
+      ],
+      [
+       "elijah",
+       "That's him. The small one. He's still holding on to something."
+      ]
+     ]
+    },
+    {
+     "kind": "fireplace",
+     "pos": [
+      8,
+      2.3
+     ],
+     "name": "The fireplace",
+     "look": [
+      [
+       "player",
+       "A fireplace with a mantel and a shotgun shell on the mantel, brass gone green, in the place where another house would keep a clock."
+      ],
+      [
+       "dale",
+       "Twelve-gauge, paper hull. 1955. They kept one."
+      ],
+      [
+       "vera",
+       "A spent shell on a mantelpiece is a ward. They may not call it that. It is."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      10,
+      1.5
+     ],
+     "name": "Calendar",
+     "look": "A 1994 feed-store calendar, August, with the 21st circled in pencil and under it, in the cousin's hand: THEY'LL COME. Then, smaller, in the same hand: (the TV people)."
+    },
+    {
+     "kind": "curtain",
+     "pos": [
+      12,
+      1.9
+     ],
+     "name": "The kitchen",
+     "enter": "kitchen"
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      14.5,
+      2.2
+     ],
+     "name": "The radio",
+     "look": [
+      [
+       "player",
+       "A floor radio from the 1950s, the dial lit, tuned to WHOP in Hopkinsville. They are playing a request for the Lacy family: 'Little Green Men' by somebody who should have known better."
+      ],
+      [
+       "june",
+       "The dial drifts. Every few seconds it slides off the station and back on. Radios don't do that."
+      ],
+      [
+       "teddy",
+       "Thirty-nine years of that song. I'd drift too."
+      ]
+     ]
+    },
+    {
+     "kind": "sofa_brown",
+     "pos": [
+      5,
+      5.3
+     ],
+     "name": "The sofa",
+     "look": "A brown sofa with a crocheted blanket folded on the arm, square. The cousin sleeps here when he stays, which the blanket says is often and the house says is never."
+    },
+    {
+     "kind": "armchair_grey",
+     "pos": [
+      11.5,
+      5.3
+     ],
+     "name": "An armchair",
+     "look": [
+      [
+       "player",
+       "An armchair facing the west window with the cushion worn through to the webbing. You could sit in it and see the barn without turning your head."
+      ],
+      [
+       "elijah",
+       "Somebody kept watch from here. For years. The chair remembers it better than he does."
+      ]
+     ]
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      14.5,
+      5.2
+     ],
+     "name": "Floor lamp",
+     "look": "A floor lamp with a bulb in it and no shade. It has been on since you came in. You did not turn it on."
+    },
+    {
+     "kind": "lantern_hung",
+     "pos": [
+      2,
+      4.6
+     ],
+     "name": "A lantern",
+     "look": "A kerosene lantern on a nail by the door, full, the glass clean. The power goes out here when it storms, and it storms in August."
+    },
+    {
+     "kind": "table",
+     "pos": [
+      8,
+      7.4
+     ]
+    },
+    {
+     "kind": "kerosene_lamp",
+     "pos": [
+      6.8,
+      7.3
+     ],
+     "name": "The lamp on the table",
+     "look": [
+      [
+       "player",
+       "A kerosene lamp in the middle of the table, the wick trimmed, a box of kitchen matches beside it. From this table on the night, the family said, you could see every door in the house. You can. That is why the table is here."
+      ],
+      [
+       "ruth",
+       "This is where you'll sit, dear. Everybody who ever held a house sat where they could see the doors."
+      ],
+      [
+       "teddy",
+       "We're not holding anything. We're taking pictures."
+      ],
+      [
+       "ruth",
+       "Of course, dear."
+      ]
+     ]
+    },
+    {
+     "kind": "kerosene_lamp",
+     "pos": [
+      8.2,
+      7.3
+     ],
+     "name": "Hold the house",
+     "use": "siege",
+     "appears": "siege_night"
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      6,
+      8.3
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      10,
+      5.9
+     ]
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      8,
+      9.7
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      1.5,
+      8.3
+     ],
+     "name": "A cedar chest",
+     "look": [
+      [
+       "player",
+       "A cedar chest under the window: quilts, mothballs, and under the quilts a scrapbook. Every clipping since 1955, the national ones too, the ones with the cartoons. Somebody has written in the margins. Mostly NO."
+      ],
+      [
+       "miriam",
+       "'Twelve to fifteen.' NO. 'Three feet tall.' Nothing. 'Floated.' NO, then crossed out, then nothing."
+      ],
+      [
+       "elijah",
+       "He argued with it. For thirty-nine years. And then he stopped."
+      ]
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      12.5,
+      9.5
+     ],
+     "name": "A newspaper",
+     "look": "The Kentucky New Era, this week, open on the floor. Under the goblin piece, a smaller one: TRAVELLING SHOW RETURNS TO FAIRGROUNDS, FIRST TIME SINCE 1955. Somebody has drawn a circle round it and then a question mark, and then another question mark."
+    },
+    {
+     "kind": "window_open",
+     "pos": [
+      3,
+      1.3
+     ],
+     "name": "The front window",
+     "look": "The front window faces the road and the fields. It is the only window in the house that nothing came to. The curtain is the only one that has been washed."
+    }
+   ],
+   "npcs": [],
+   "clues": [
+    {
+     "id": "fm_cousin_account",
+     "name": "The typed statements",
+     "pos": [
+      9.6,
+      7.2
+     ],
+     "prop": "clue_film",
+     "night": 1,
+     "requires": "fm_account_v1",
+     "text": "Three typed statements on the table under the sugar bowl, each a carbon: the family's statement to the Hopkinsville police, August 1955; a magazine piece from 1957 'as told to'; and a 1978 anniversary piece from the New Era. Lonnie has laid them side by side. The shooting starts on the porch in one, in the kitchen in another. The eyes glow in one and shine in another. In all three, a light comes down in the gully first.",
+     "methods": {
+      "photograph": "fm_account_versions",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "kitchen": {
+   "size": [
+    12,
+    8
+   ],
+   "floor": [
+    "lino",
+    "lino2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "curtain",
+     "pos": [
+      1,
+      1.9
+     ],
+     "name": "The back bedroom",
+     "enter": "bedroom_back"
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      3,
+      2.2
+     ],
+     "name": "The woodstove",
+     "look": [
+      [
+       "player",
+       "A woodstove with a coffee pot on it, warm. There is nobody here. The coffee is this morning's."
+      ],
+      [
+       "teddy",
+       "He makes coffee in the house he won't sleep in. That's a whole man in one pot."
+      ]
+     ]
+    },
+    {
+     "kind": "window_open",
+     "pos": [
+      5.5,
+      1.2
+     ],
+     "name": "The well-side window",
+     "look": [
+      [
+       "player",
+       "The window over the sink looks out on the well and the smokehouse. It is the window the family said the first face came to, with its hands up on the glass."
+      ],
+      [
+       "vera",
+       "Two windows and a door in one room. This is the weak room. The sill wants salt and the door wants a chair under the handle."
+      ],
+      [
+       "dale",
+       "Or boards."
+      ],
+      [
+       "vera",
+       "Or boards, and salt."
+      ]
+     ]
+    },
+    {
+     "kind": "sink",
+     "pos": [
+      5.5,
+      2.3
+     ],
+     "name": "The sink",
+     "look": "An enamel sink with a pump handle and a single tap added later, and a cake of yellow soap worn to the shape of one particular hand."
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      7.5,
+      2.4
+     ],
+     "name": "The stopped clock",
+     "look": [
+      [
+       "player",
+       "A kitchen clock, stopped at eleven minutes past seven. Nobody has wound it. The key is on the shelf beside it, within reach of anyone."
+      ],
+      [
+       "miriam",
+       "Seven eleven. The first one came to the kitchen window 'about seven', they told the police. Someone stopped this clock on purpose."
+      ],
+      [
+       "elijah",
+       "Or it stopped. And nobody could stand to start it."
+      ]
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      9.5,
+      1.7
+     ],
+     "name": "The shelf",
+     "look": "Mason jars of beans and tomatoes, 1994 in pencil on the lids, and one jar of something clear with no label at all that Dale picks up and puts down very carefully."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      11,
+      1.5
+     ],
+     "name": "Feed-store calendar, 1955",
+     "look": [
+      [
+       "player",
+       "A feed-store calendar on a nail, August 1955, the paper gone the colour of tea. Nobody took it down. Nobody turned the page. Sunday the 21st has a cross by it in pencil, small, the way you'd mark a day you planned to can tomatoes."
+      ],
+      [
+       "ruth",
+       "That's the whole house, dear. A page nobody could turn. Leave it be."
+      ]
+     ]
+    },
+    {
+     "kind": "fridge",
+     "pos": [
+      11.3,
+      4.4
+     ],
+     "name": "The refrigerator",
+     "look": [
+      [
+       "player",
+       "A round-shouldered refrigerator, humming. Inside: a quart of sweet tea, bologna, a jar of pickled eggs and a box of 12-gauge shells on the butter shelf, cold."
+      ],
+      [
+       "teddy",
+       "He keeps the shells in the fridge."
+      ],
+      [
+       "dale",
+       "Keeps the powder dry. August."
+      ],
+      [
+       "teddy",
+       "Next to the eggs, Dale."
+      ]
+     ]
+    },
+    {
+     "kind": "screen_door",
+     "pos": [
+      11.3,
+      6.6
+     ],
+     "name": "The back door",
+     "look": [
+      [
+       "player",
+       "A screen door and a plank door behind it, the plank door with a bar you drop across it. The bar is new pine. The brackets are 1955."
+      ],
+      [
+       "june",
+       "Replaced the bar. Not the brackets. He wanted it to fit the old marks."
+      ]
+     ]
+    },
+    {
+     "kind": "cabinet",
+     "pos": [
+      1.5,
+      5.6
+     ],
+     "name": "The pie safe",
+     "look": [
+      [
+       "player",
+       "A pie safe with punched-tin doors, a pattern of stars. Inside, no pie; a flashlight, a box of candles, a church fan and a .22 cartridge box with no cartridges in it, only a rolled-up note that says 'DON'T'."
+      ],
+      [
+       "teddy",
+       "Don't what?"
+      ],
+      [
+       "ruth",
+       "Just don't, dear. It's a very complete sentence in a house like this."
+      ]
+     ]
+    },
+    {
+     "kind": "table",
+     "pos": [
+      6,
+      5.6
+     ],
+     "name": "The kitchen table",
+     "look": "A table with oilcloth, red check, worn white where eleven people put their elbows on one night and one man has put his every morning since. A deck of cards, a sugar bowl, a salt shaker with rice in it against the damp."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      5,
+      6.6
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      7,
+      4.3
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      3.5,
+      6.8
+     ],
+     "name": "Slop bucket",
+     "look": "A slop bucket for the hens with a tin plate over it, because of the flies, which are not fooled."
+    }
+   ],
+   "npcs": [],
+   "clues": []
+  },
+  "bedroom_front": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "blue",
+   "props": [
+    {
+     "kind": "bed_double",
+     "pos": [
+      2,
+      3.3
+     ],
+     "name": "The bed",
+     "look": "A double bed with an iron frame, made tight as a drum, with a quilt in a pattern Ruth says is called Drunkard's Path and the cousin says is called Grandma's. Nobody has slept in it since the grandmother."
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      4.5,
+      1.4
+     ],
+     "name": "Wedding photograph",
+     "look": [
+      [
+       "player",
+       "A wedding photograph, 1931, the couple like two people who have been told to hold still for a shooting. Behind them, this house, with the porch posts unscarred."
+      ],
+      [
+       "ruth",
+       "Look at her hands, dear. She's holding his sleeve. That's the one who held the house. The men had the guns; she had the sleeve."
+      ]
+     ]
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      6.5,
+      2.0
+     ],
+     "name": "The dresser",
+     "look": [
+      [
+       "player",
+       "A dresser with a lace runner. The top drawer sticks and then gives: hairpins, a Bible, a folded page from LIFE magazine with a photograph of the family on the porch and a caption that uses the word 'hillbillies'."
+      ],
+      [
+       "teddy",
+       "They kept that. They kept the worst one."
+      ],
+      [
+       "miriam",
+       "You keep the worst one so you'll remember who said it."
+      ]
+     ]
+    },
+    {
+     "kind": "mirror_standing",
+     "pos": [
+      8.5,
+      4.6
+     ],
+     "name": "A mirror",
+     "look": [
+      [
+       "player",
+       "A standing mirror with the silver going at the edges, so that the room in it has a dark border and you in the middle of it, looking tired."
+      ],
+      [
+       "elijah",
+       "Don't look at it after dark. I'm not being mysterious. It's just a bad mirror and you're in a bad mood."
+      ]
+     ]
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      4,
+      3.5
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      4,
+      3.1
+     ],
+     "name": "Bedside lamp",
+     "look": "A bedside lamp with a shade of pressed flowers, and under it a flashlight with the switch taped ON, the batteries long dead."
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      6,
+      5.7
+     ]
+    },
+    {
+     "kind": "rug_blue",
+     "pos": [
+      5,
+      7.0
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      1.5,
+      6.5
+     ],
+     "name": "Hope chest",
+     "look": [
+      [
+       "player",
+       "A hope chest. Linens, a wedding dress gone to the colour of a tooth, and at the bottom a Kentucky New Era from 1957: TWO YEARS ON, KELLY FAMILY STANDS BY STORY. They are photographed standing by it, on the porch, in a row."
+      ],
+      [
+       "teddy",
+       "Standing by it. That's a headline that does the reporter's job and the family's at once."
+      ]
+     ]
+    },
+    {
+     "kind": "boarded_window",
+     "pos": [
+      8,
+      1.3
+     ],
+     "name": "The boarded window",
+     "look": [
+      [
+       "player",
+       "A window boarded from the inside, the boards gone grey. The nails are square-headed and the boards are chestnut. Nobody has boarded a window with chestnut since the blight."
+      ],
+      [
+       "dale",
+       "That's 1955. That's the night's own boards."
+      ],
+      [
+       "june",
+       "And they left them up. In a bedroom. For thirty-nine years."
+      ]
+     ]
+    }
+   ],
+   "npcs": [],
+   "clues": [
+    {
+     "id": "fm_shotgun_wall",
+     "name": "The shotgun on the wall",
+     "pos": [
+      9.3,
+      1.9
+     ],
+     "prop": "shotgun",
+     "text": "A shotgun on two nails over the dresser, a single-barrel 20-gauge with the bluing worn to grey at the grip, and beside it a .22 rifle with a cracked stock bound in tape. Under them a box of shells, paper hulls, number 6 bird shot. These are the guns. The family said the pellets did nothing; the pellets would have done nothing to a cow at forty feet through a screen door.",
+     "methods": {
+      "photograph": "fm_shotgun_photo",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "bedroom_back": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "bed_single",
+     "pos": [
+      1.5,
+      3.7
+     ],
+     "name": "A child's bed",
+     "look": [
+      [
+       "player",
+       "A narrow bed with a chenille spread. The boys' room. Lonnie was six, his brother eight. The small bed is nearest the window."
+      ],
+      [
+       "elijah",
+       "He was asleep when it started. He told us he was on the porch. He was here, with the window right there, and then somebody carried him through to the front room."
+      ],
+      [
+       "elijah",
+       "He doesn't know that. Don't tell him. Let him keep the porch."
+      ]
+     ]
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      8.5,
+      3.7
+     ]
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      5,
+      2.6
+     ],
+     "name": "The attic ladder",
+     "enter": "attic",
+     "look": "A ladder nailed to the wall, going up through a trap in the ceiling. The rungs are worn in the middle by small feet and the top rung by large ones."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      3,
+      1.4
+     ],
+     "name": "A pennant",
+     "look": "A felt pennant, KENTUCKY STATE FAIR 1962, and beside it, pinned with a diaper pin, a cardboard space helmet from a cereal box, which somebody has drawn a face inside with a crayon."
+    },
+    {
+     "kind": "boarded_window",
+     "pos": [
+      7.5,
+      1.3
+     ],
+     "name": "The boys' window",
+     "look": [
+      [
+       "player",
+       "This window is boarded too, but from outside, and recently; the screws are Phillips head and shine. The cousin boards the boys' window every August and takes it down every September."
+      ],
+      [
+       "teddy",
+       "Thirty-nine Augusts. That's not a habit. That's a liturgy."
+      ]
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      8.5,
+      6.5
+     ],
+     "name": "A toy box",
+     "look": [
+      [
+       "player",
+       "A toy box: a tin ray gun from 1956, a baseball with the cover coming off, and a Mason jar of marbles, the yellow cat's eyes picked out and kept in a separate jar with the lid screwed down tight."
+      ],
+      [
+       "miriam",
+       "A six-year-old sorted out all the yellow eyes and put them in a jar. That is the most honest thing in this house."
+      ],
+      [
+       "ruth",
+       "Oh, the poor lamb."
+      ]
+     ]
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      2.5,
+      6.4
+     ],
+     "name": "A small dresser",
+     "look": "A dresser with two drawers of boys' clothes, folded, sizes 6 and 8, moth-eaten. In the bottom drawer, a school tablet with a drawing of a man with big ears and his hands up and under it, in a teacher's hand, VERY GOOD LONNIE."
+    },
+    {
+     "kind": "lantern_hung",
+     "pos": [
+      9.5,
+      1.6
+     ]
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      5,
+      7.1
+     ]
+    }
+   ],
+   "npcs": [],
+   "clues": []
+  },
+  "attic": {
+   "size": [
+    10,
+    6
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "window_open",
+     "pos": [
+      5,
+      1.3
+     ],
+     "name": "The gable window",
+     "look": [
+      [
+       "player",
+       "The gable window, small, with a hook to swing it out. Out of it, the roof: tin, rusted in long stripes, the ridge running away to the chimney. From here you could step out onto it. From the ridge, anything could step in."
+      ],
+      [
+       "dale",
+       "Tin roof. Anything walking on it, you'd hear every step. Nothing heavy walked this roof in 1955 or the tin would say so."
+      ],
+      [
+       "june",
+       "Unless it was light. Or it wasn't walking."
+      ],
+      [
+       "teddy",
+       "Okay, but the view's nice. I'll give the view that."
+      ]
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      1.5,
+      2.3
+     ],
+     "name": "Crates",
+     "look": [
+      [
+       "player",
+       "Crates marked LACY in paint. Magazines, 1955 to 1960, every one with the family in it, and a cardboard box of fan letters. Fan letters. From Ohio and California and one from Belgium, in French, which nobody here could read and nobody threw away."
+      ],
+      [
+       "teddy",
+       "People wrote to them. Strangers. 'I believe you.' In four languages."
+      ],
+      [
+       "elijah",
+       "That's what they kept. Not the cartoons. The letters."
+      ]
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      2.5,
+      2.3
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      8.5,
+      2.3
+     ],
+     "name": "A trunk",
+     "look": "A steamer trunk with a broken hasp. Christmas decorations, a flag, a Sears catalogue from 1954 with the shotgun page folded down, and a photograph of a man in a dark suit on the porch in 1955 that nobody in the family can name, because the back says WHO IS THIS."
+    },
+    {
+     "kind": "pillar",
+     "pos": [
+      6.5,
+      4.3
+     ],
+     "name": "The chimney",
+     "look": [
+      [
+       "player",
+       "The chimney stack goes up through the attic, brick, warm from the stove. Lean against it and you can hear the whole house: the stove ticking, the refrigerator, the radio drifting off its station and back."
+      ],
+      [
+       "vera",
+       "A chimney is a door that goes up. One mentions it only because nobody else will."
+      ]
+     ]
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      7,
+      5.2
+     ],
+     "name": "Planks",
+     "look": "Loose planks laid over the joists. Step off them and you are in the kitchen the quick way."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      3.5,
+      4.7
+     ],
+     "name": "A box",
+     "look": "A box of Christmas lights, 1970s, the big kind that get hot, every bulb replaced with a yellow one."
+    },
+    {
+     "kind": "lantern_hung",
+     "pos": [
+      9,
+      1.7
+     ]
+    }
+   ],
+   "npcs": [],
+   "clues": []
+  },
+  "smokehouse": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "earth",
+    "earth2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "shelf",
+     "pos": [
+      2,
+      1.7
+     ],
+     "name": "The hooks",
+     "look": [
+      [
+       "player",
+       "Hooks along a beam and three country hams on them, black with smoke and salt, a year old, the kind this county sends to the state fair and wins."
+      ],
+      [
+       "dale",
+       "A ham that size'd feed a coon family for a month. Nothing's touched them. Whatever's been at the door doesn't want ham."
+      ],
+      [
+       "teddy",
+       "Everything wants ham, Dale. That's what's wrong with it."
+      ]
+     ]
+    },
+    {
+     "kind": "salt_sack",
+     "pos": [
+      5,
+      1.8
+     ],
+     "name": "Salt",
+     "look": [
+      [
+       "player",
+       "A fifty-pound sack of curing salt, open, with a scoop in it. The floor around it is white."
+      ],
+      [
+       "vera",
+       "Salt. A house that cures its own meat has never been without it. One wonders whether the family knew what else they had."
+      ],
+      [
+       "ruth",
+       "They knew, dear. Everybody's grandmother knew. They just didn't say it where the men could hear."
+      ]
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      7,
+      2.4
+     ],
+     "name": "A barrel",
+     "look": "A barrel of hickory chips and corncobs for the smoke. The lid is off and there are small prints in the dust on the chips, five fingers, going in and not coming out."
+    },
+    {
+     "kind": "table_rough",
+     "pos": [
+      4,
+      4.7
+     ],
+     "name": "The salting table",
+     "look": "A plank table black with salt and years, and a knife in it, point down, that has been there so long the handle has a bloom of rust shaped like the hand that left it."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      1.5,
+      4.8
+     ],
+     "name": "A crate",
+     "look": [
+      [
+       "player",
+       "A crate under the table, straw in it, and in the straw six Mason jars of something clear with no labels and a seventh with a thumbprint in the dust on the lid, fresh."
+      ],
+      [
+       "dale",
+       "That's not water."
+      ],
+      [
+       "miriam",
+       "The neighbours said the whole family was drinking. The neighbours were not entirely without evidence."
+      ]
+     ]
+    },
+    {
+     "kind": "lantern_hung",
+     "pos": [
+      6.5,
+      1.5
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      7,
+      5.1
+     ]
+    }
+   ],
+   "npcs": [],
+   "clues": [
+    {
+     "id": "fm_smokehouse_jar",
+     "name": "The jar with the thumbprint",
+     "pos": [
+      2.3,
+      5.2
+     ],
+     "prop": "clue_cans",
+     "text": "One Mason jar of clear liquor in the straw with a fresh thumbprint in the dust on the lid, and a ring in the dust beside it where another jar stood until lately. The smokehouse is where the family kept it in 1955, the neighbours said, and where somebody keeps it now.",
+     "methods": {
+      "bag": "fm_jar_sample",
+      "photograph": "fm_jar_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "tobacco_barn": {
+   "size": [
+    12,
+    10
+   ],
+   "floor": [
+    "earth",
+    "earth2",
+    "earth3"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "tobacco_sticks",
+     "pos": [
+      2,
+      2.4
+     ],
+     "name": "Hung tobacco",
+     "look": [
+      [
+       "player",
+       "Tobacco hung on sticks in tiers up into the dark, the leaves going from green to the brown of an old saddle, and the whole barn ticking and dripping in the heat like something breathing."
+      ],
+      [
+       "ruth",
+       "Dark-fired, dear. They smoke it in the barn for weeks. It's a cathedral for a cash crop."
+      ]
+     ]
+    },
+    {
+     "kind": "tobacco_sticks",
+     "pos": [
+      4,
+      2.4
+     ]
+    },
+    {
+     "kind": "tobacco_sticks",
+     "pos": [
+      10,
+      2.4
+     ]
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      7,
+      2.6
+     ],
+     "name": "Up to the tiers",
+     "look": [
+      [
+       "player",
+       "A ladder to the first tier, and above that the hands climb the tiers themselves like a trellis, forty feet up into the rafters where the smoke goes. You can see the rafters. You cannot see what is on them."
+      ],
+      [
+       "teddy",
+       "The flash will reach. Give me one try and don't anybody breathe."
+      ],
+      [
+       "dale",
+       "Owls don't like flash either."
+      ],
+      [
+       "teddy",
+       "Then we'll have two things in common."
+      ]
+     ]
+    },
+    {
+     "kind": "campfire",
+     "pos": [
+      6,
+      6.3
+     ],
+     "name": "The fire pit",
+     "look": [
+      [
+       "player",
+       "A long low fire of sawdust and hickory slabs on the barn floor, smouldering, no flame, tended twice a day. The smoke goes up through the tobacco and out the gaps in the roof. This is how the county has made its money since before the war."
+      ],
+      [
+       "june",
+       "The whole barn glows a little, at night, through the gaps. From the gully it'd look like something was inside it, looking out."
+      ]
+     ]
+    },
+    {
+     "kind": "workbench",
+     "pos": [
+      3,
+      7.6
+     ],
+     "name": "The workbench",
+     "look": [
+      [
+       "player",
+       "A workbench: a spool of baling twine, a hatchet, a coffee can of nails, a 1994 Farmer's Almanac open to the moon tables, and a hunting catalogue open to night scopes, the page soft from being turned to."
+      ],
+      [
+       "dale",
+       "He's priced a night scope. Every year, I'd guess, and every year he hasn't."
+      ]
+     ]
+    },
+    {
+     "kind": "feed_sacks",
+     "pos": [
+      10.5,
+      7.4
+     ],
+     "name": "Feed sacks",
+     "look": "Feed sacks, and a mouse in one who leaves at speed. Everything in this barn is either food for owls or an owl."
+    },
+    {
+     "kind": "hay_bale",
+     "pos": [
+      9.5,
+      5.4
+     ]
+    },
+    {
+     "kind": "hay_bale",
+     "pos": [
+      10.5,
+      5.4
+     ]
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      8,
+      8.7
+     ],
+     "name": "Tier poles",
+     "look": "Spare tier poles, oak, and under them a flattened place in the dust the length of a small sleeping animal, or a large sleeping child."
+    },
+    {
+     "kind": "lantern_hung",
+     "pos": [
+      1,
+      1.6
+     ],
+     "name": "Barn lantern",
+     "look": "A lantern on a nail, the glass smoked black. In a barn full of dry tobacco, a lantern is a very serious decision."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      1.5,
+      5.0
+     ],
+     "name": "A crate",
+     "look": "A crate of tobacco twine and, under it, a child's school tablet from 1957 with every page the same drawing, a man with big ears, getting better each time."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "fm_tobacco_hand",
+     "name": "Virgil, a tobacco hand",
+     "pos": [
+      5,
+      4.6
+     ],
+     "facing": "down",
+     "sprite": "tobacco_hand",
+     "when": [
+      "day"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "fm_eyeshine_rafters",
+     "name": "Eyes in the rafters",
+     "pos": [
+      7,
+      1.4
+     ],
+     "prop": "eyeshine",
+     "night": 1,
+     "text": "Two points of yellow in the rafters, forty feet up where the smoke goes, close together, at the height of a small head. They do not move. The smoke goes past them and they do not blink in it. When the flashlight finds them they are gone, and when it moves they are back, a rafter over.",
+     "methods": {
+      "photograph": "fm_eyeshine_photo",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "fm_owl_pellets",
+     "name": "Pellets under the rafters",
+     "pos": [
+      8.5,
+      3.7
+     ],
+     "prop": "owl_pellets",
+     "text": "Grey pellets on the floor under the rafters, dozens, the size of a thumb: fur and bone, packed tight, a skull in one no bigger than a fingernail. Something has been eating here for a long time and sitting very still to do it.",
+     "methods": {
+      "bag": "fm_pellets_sample",
+      "photograph": "fm_pellets_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "fm_barn_feather",
+     "name": "A feather in the tobacco",
+     "pos": [
+      4.5,
+      5.3
+     ],
+     "prop": "clue_fur",
+     "text": "A feather caught in the hung tobacco at the height of your head, pale, nearly white, nearly a foot long, and softer than any feather has a right to be. There is no white bird in this county that size. Ruth has stopped talking.",
+     "methods": {
+      "bag": "fm_feather_sample",
+      "photograph": "fm_feather_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "fm_silver_paint",
+     "name": "A can of silver paint",
+     "pos": [
+      11,
+      4.7
+     ],
+     "prop": "bucket",
+     "text": "A gallon can of silver paint on a shelf behind the feed, the lid crusted, a brush stuck to it. A rag beside it, silver on one side. Somebody painted something silver in this barn and did not want to be seen carrying the can out.",
+     "methods": {
+      "bag": "fm_paint_sample",
+      "photograph": "fm_paint_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  }
+ },
+ "encounters": [
+  {
+   "foes": [
+    "eyeshine"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 2,
+   "intro": "Two yellow points in the dark at the edge of the yard, low, and the dog under the house starts to whine.",
+   "win": "The eyes go out. The dog stops. Somewhere in the tobacco something small goes away fast."
+  },
+  {
+   "foes": [
+    "little_man"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 1,
+   "intro": "It comes out of the tobacco with its hands up, the way the family said, and it is the height of the fence and the colour of the moon.",
+   "win": "It rolls up like a ball and goes off through the rows, and the rows do not move for it."
+  }
+ ],
+ "encounter_rate": 0.03
+}

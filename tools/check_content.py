@@ -20,6 +20,10 @@ TIDES = ["low", "rising", "high", "falling"]
 WEATHERS = ["snow", "clear", "mist", "rain", "gale"]
 MODES = ["car", "plane", "train", "hovercraft", "ferry"]
 GIVES_KEYS = ["item", "flag", "cash", "gas", "dread", "composure", "hours", "evidence"]
+MOVE_TYPES = ["attack", "horror", "status", "all"]
+STATUSES = ["unnerved", "blinded", "jammed", "cursed", "bound", "exposed"]
+OBSERVE_METHODS = ["photograph", "record", "read"]
+DAMAGE_TYPES = ["physical", "signal", "spirit", "reason", "arcane"]
 SOLID = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", "void", "water", "sea", "cement_edge")
 
 
@@ -42,6 +46,8 @@ def main():
     items = load(os.path.join(ROOT, "data/items.json")) if os.path.exists(os.path.join(ROOT, "data/items.json")) else {}
     roster = load(os.path.join(ROOT, "data/roster.json"))
     classes = load(os.path.join(ROOT, "data/classes.json"))
+    foes = load(os.path.join(ROOT, "data/foes.json"))
+    foes = {k: v for k, v in foes.items() if not k.startswith("_")}
 
     # cases with fragments merged
     cases = {}
@@ -82,8 +88,41 @@ def main():
     road_path = os.path.join(ROOT, "data/road.json")
     road = load(road_path) if os.path.exists(road_path) else {}
     all_gates = {}
+    all_evidence = {}
     for c in cases.values():
         all_gates.update(c.get("gates", {}))
+        all_evidence.update(c.get("evidence", {}))
+    for fid, f in foes.items():
+        w = "foe %s" % fid
+        for t in f.get("weak", []) + f.get("resist", []):
+            if t not in DAMAGE_TYPES:
+                err("%s has unknown damage type %s" % (w, t))
+        for mv in f.get("moves", []):
+            if isinstance(mv, dict):
+                if mv.get("type", "attack") not in MOVE_TYPES:
+                    err("%s move %s has unknown type %s" % (w, mv.get("name"), mv.get("type")))
+                if mv.get("damage") and mv["damage"] not in DAMAGE_TYPES:
+                    err("%s move %s has unknown damage type" % (w, mv.get("name")))
+                if mv.get("status") and mv["status"] not in STATUSES:
+                    err("%s move %s has unknown status %s" % (w, mv.get("name"), mv["status"]))
+        if f.get("kind") == "anomaly" and not f.get("tells"):
+            err("%s is an anomaly with no tells to observe" % w)
+        for t in f.get("tells", []):
+            if t.get("method") not in OBSERVE_METHODS:
+                err("%s tell has unknown method %s" % (w, t.get("method")))
+            if t.get("evidence") and t["evidence"] not in all_evidence:
+                err("%s tell gives unknown evidence %s" % (w, t["evidence"]))
+
+    def check_fight(f, where):
+        if not isinstance(f, dict):
+            err("%s fight is not a table" % where)
+            return
+        lst = f.get("foes", [])
+        if not 1 <= len(lst) <= 4:
+            err("%s fight needs 1 to 4 foes" % where)
+        for fid in lst:
+            if fid not in foes:
+                err("%s fights unknown foe %s" % (where, fid))
     shops = set()
     for m in maps.values():
         for n in m.get("npcs", []):
@@ -93,6 +132,37 @@ def main():
             for n in room.get("npcs", []):
                 if n.get("shop"):
                     shops.add(n["shop"])
+
+    for cid, c in cases.items():
+        if "siege" not in c:
+            continue
+        s = c["siege"]
+        w = "case %s siege" % cid
+        ev = c.get("evidence", {})
+        for ap, a in s.get("approaches", {}).items():
+            it = a.get("prep", {}).get("item")
+            if it and it not in items:
+                err("%s approach %s needs unknown item %s" % (w, ap, it))
+        if not s.get("waves"):
+            err("%s has no waves" % w)
+        for wave in s.get("waves", []):
+            check_fight(wave, w + " wave")
+            if wave.get("from") not in s.get("approaches", {}):
+                err("%s wave comes from unknown approach %s" % (w, wave.get("from")))
+            fb = wave.get("flashback", {})
+            if "question" in fb:
+                if not 0 <= fb.get("answer", -1) < len(fb.get("options", [])):
+                    err("%s flashback answer out of range" % w)
+                if fb.get("evidence") and fb["evidence"] not in ev:
+                    err("%s flashback gives unknown evidence %s" % (w, fb["evidence"]))
+        if "lull" in s:
+            check_fight(s["lull"].get("out", {}), w + " lull")
+            if s["lull"].get("out", {}).get("evidence") and s["lull"]["out"]["evidence"] not in ev:
+                err("%s lull gives unknown evidence" % w)
+        if "final" in s:
+            check_fight(s["final"], w + " final")
+        if s.get("held") and s["held"] not in ev:
+            err("%s held evidence unknown" % w)
 
     for mid, m in maps.items():
         case = cases.get(m.get("case", ""), {})
@@ -139,15 +209,22 @@ def main():
             if iid not in building_ids and iid not in entered:
                 err("map %s interior %s has no facade, house or door into it" % (mid, iid))
 
+        for e in m.get("encounters", []):
+            check_fight(e, "map %s encounter" % mid)
+            if any(ph not in PHASES for ph in e.get("phase", [])):
+                err("map %s encounter has an unknown phase" % mid)
+
         def check_props(plist, where):
             for p in plist:
                 if p["kind"] not in props:
                     err("%s prop %s unknown" % (where, p["kind"]))
+                if "fight" in p:
+                    check_fight(p["fight"], where + " prop " + p["kind"])
                 if p.get("pickup") and p["pickup"] not in items:
                     err("%s pickup %s is not in items.json" % (where, p["pickup"]))
                 if p.get("restock") and not p.get("price"):
                     err("%s prop restocks but has no price" % where)
-                if p.get("use") and p["use"] not in ("board", "ledger", "catalog", "radio_log", "shop", "dials"):
+                if p.get("use") and p["use"] not in ("board", "ledger", "catalog", "radio_log", "shop", "dials", "siege"):
                     err("%s prop has unknown use %s" % (where, p["use"]))
                 if p.get("enter") and p["enter"] not in m.get("interiors", {}):
                     err("%s prop enters unknown room %s" % (where, p["enter"]))
@@ -170,6 +247,8 @@ def main():
 
         def check_npcs(nlist, where):
             for n in nlist:
+                if "fight" in n:
+                    check_fight(n["fight"], "%s npc %s" % (where, n["id"]))
                 sheet = n.get("sprite", n["id"])
                 if sheet not in sprites:
                     err("%s npc %s has no sprite sheet %s" % (where, n["id"], sheet))

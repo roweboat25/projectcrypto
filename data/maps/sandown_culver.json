@@ -3263,5 +3263,15 @@
     }
    ]
   }
- }
+ },
+ "encounters": [
+  {
+   "foes": [
+    "gull_swarm"
+   ],
+   "weight": 1,
+   "intro": "The gulls come up off the cliff all at once, and they are not after the chips."
+  }
+ ],
+ "encounter_rate": 0.025
 }

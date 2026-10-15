@@ -4098,5 +4098,19 @@
     }
    ]
   }
- }
+ },
+ "encounters": [
+  {
+   "foes": [
+    "arcade_lads"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 1,
+   "intro": "Two lads in shell suits peel off the arcade wall. \"Oi. Yank.\"",
+   "win": "They go off down the prom, laughing, and the laughing is the worst of it."
+  }
+ ],
+ "encounter_rate": 0.02
 }

@@ -1,0 +1,339 @@
+{
+ "id": "rt_trucker",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "rt_trucker",
+   "repeat": true,
+   "lines": [
+    [
+     "rt_trucker",
+     "You the ones from West Virginia? Dot said. Sit down, I ain't rolling till nine and the coffee's bottomless whether you drink it or not."
+    ],
+    [
+     "teddy",
+     "He hasn't looked away from the window once. He's watching his rig the way other men watch a baby."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 8,
+     "line": "Two radios on his belt and a handset on the table, tuned to 19, squelch wide open. He listens more than he talks. You could try it.",
+     "flag": "rt_cb_habit"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "He has told this before and been laughed at. He is waiting to see whether you will. Don't."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "What do you see out there at night, Royce?",
+     "next": "eyes"
+    },
+    {
+     "tone": "wry",
+     "text": "Dot says you've seen eyes.",
+     "next": "eyes"
+    },
+    {
+     "requires": {
+      "flag": [
+       "rt_cb_habit"
+      ]
+     },
+     "tone": "kind",
+     "text": "Channel 19. You keep the squelch open. What do they say in August?",
+     "next": "cb"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Drive safe."
+    }
+   ]
+  },
+  "eyes": {
+   "speaker": "rt_trucker",
+   "lines": [
+    [
+     "rt_trucker",
+     "Nine years on this run. Nashville to Evansville, up 41 at night, back down at dawn. Nine years, and every August, north of the ford: eyes."
+    ],
+    [
+     "rt_trucker",
+     "On the fence posts. Two at a time, headlight height, yellow like a road sign. They don't run when I come up on 'em. They go UP. Straight up, and gone."
+    ],
+    [
+     "june",
+     "Up."
+    ],
+    [
+     "rt_trucker",
+     "I ain't said what they are. I'm telling you what they do."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "lore",
+     "threshold": 8,
+     "line": "Anything that sits on a fence post at night and goes straight up is an owl or a haint, and a haint, your grandmother would tell you, does not blink in the brights."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He's leaving one out. The eyes weren't on a post that time. They were in the mirror. Ask him what was in the cab."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "tone": "kind",
+     "text": "A driver knows his road by the mile. Where, exactly?",
+     "pass": "marker",
+     "fail": {
+      "next": "no_marker",
+      "dread": 1
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "rt_owl_pellet_lab": 2,
+       "rt_owl_tree_photo": 1
+      }
+     },
+     "tone": "wry",
+     "text": "Headlight height, two at a time, gone when you hit the brights. You know what that is. You've known for nine years.",
+     "pass": "owls",
+     "fail": {
+      "next": "no_owls",
+      "trust": {
+       "rt_trucker": -1
+      }
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Let him go on.)",
+     "next": "cab",
+     "trust": 1
+    },
+    {
+     "tone": "kind",
+     "text": "That's enough for now.",
+     "next": "open"
+    }
+   ]
+  },
+  "marker": {
+   "speaker": "rt_trucker",
+   "lines": [
+    [
+     "rt_trucker",
+     "Mile seven. There's a dead oak on the west side, white as a bone, with a hollow in it. The post under it or the limb over it. Every time. Nine years."
+    ],
+    [
+     "rt_trucker",
+     "Never south of the ford. Never the east side. If it was anything that could pick, it'd pick."
+    ],
+    [
+     "dale",
+     "That's a roost. He's been giving people a roost for nine years and they've been writing down 'eyes.'"
+    ]
+   ],
+   "gives": {
+    "evidence": "rt_mile_marker",
+    "trust": {
+     "rt_trucker": 1
+    }
+   },
+   "next": "open"
+  },
+  "no_marker": {
+   "speaker": "rt_trucker",
+   "lines": [
+    [
+     "rt_trucker",
+     "North of the ford. Somewhere. Friend, it's dark out there. It's all one road in the dark, and I'm doing fifty-five."
+    ],
+    [
+     "miriam",
+     "He knows. He's decided we don't get it today."
+    ]
+   ],
+   "next": "open"
+  },
+  "owls": {
+   "speaker": "rt_trucker",
+   "lines": [
+    [
+     "rt_trucker",
+     "...Owls. Great horned. I know it's owls. I've known it was owls since the second August, when one of 'em came off the post and went over the cab and I saw the wings."
+    ],
+    [
+     "rt_trucker",
+     "I drive it with the brights on and the window up all the same. You can know a thing and still not want it on the hood. Don't tell Dot. She likes the other version."
+    ],
+    [
+     "ruth",
+     "Everybody likes the other version, sweetheart. That's why there is one."
+    ]
+   ],
+   "gives": {
+    "evidence": "rt_trucker_owls",
+    "trust": {
+     "rt_trucker": 1
+    }
+   },
+   "next": "open"
+  },
+  "no_owls": {
+   "speaker": "rt_trucker",
+   "lines": [
+    [
+     "rt_trucker",
+     "Don't tell me what I know. You been on this road one night. I've been on it nine years and I'll tell you what I've seen and you can call it what you like somewhere else."
+    ],
+    [
+     "teddy",
+     "That's a man who's heard 'owls' from somebody he didn't like."
+    ]
+   ],
+   "next": "open"
+  },
+  "cab": {
+   "speaker": "rt_trucker",
+   "lines": [
+    [
+     "rt_trucker",
+     "Once. Ninety-one. Fourth night of a long one, south of the ford, two in the morning. I looked in the mirror to check the trailer and there was something sitting in the sleeper behind me."
+    ],
+    [
+     "rt_trucker",
+     "Little. Hands up. Like it was sorry. I pulled in here at the pumps and got out and there wasn't nothing in the cab, and Dot came out and found me, and I ain't slept in that sleeper on this road since."
+    ],
+    [
+     "elijah",
+     "He's not telling it for us. He's telling it because it's two in the morning somewhere every time he says it."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "'Fourth night of a long one.' He put that in and hoped you'd miss it. He hasn't missed it once in three years."
+    }
+   ],
+   "gives": {
+    "evidence": "rt_mirror_story",
+    "dread": 1
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10
+     },
+     "tone": "hard",
+     "text": "There was nobody in your mirror. You'd been driving four nights, you went to sleep at the wheel, and you can't say it because Dot was the one who found you.",
+     "pass": "confess",
+     "fail": {
+      "next": "sore",
+      "trust": {
+       "rt_trucker": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "tone": "kind",
+     "text": "Thank you for telling us. That's enough.",
+     "next": "open",
+     "trust": 1
+    },
+    {
+     "tone": "silent",
+     "text": "(Say nothing. Drink the coffee.)",
+     "next": "open"
+    }
+   ]
+  },
+  "confess": {
+   "speaker": "rt_trucker",
+   "lines": [
+    [
+     "rt_trucker",
+     "...Rumble strip. I hit the rumble strip south of the ford and woke up, and the thing in the mirror was the thing I woke up out of. Nineteen hours. I know. I know what it was."
+    ],
+    [
+     "rt_trucker",
+     "You tell her and I'll find out where in West Virginia you park."
+    ],
+    [
+     "miriam",
+     "We won't. But write it down, somebody, because that's the first true thing anybody's said on this road."
+    ]
+   ],
+   "gives": {
+    "evidence": "rt_fell_asleep",
+    "flag": "rt_royce_confessed"
+   },
+   "next": "open"
+  },
+  "sore": {
+   "speaker": "rt_trucker",
+   "lines": [
+    [
+     "rt_trucker",
+     "Get out of my booth."
+    ],
+    [
+     "rt_trucker",
+     "Dot. These people are done."
+    ],
+    [
+     "teddy",
+     "Well. We'll be eating the pie in the car."
+    ]
+   ],
+   "end": true
+  },
+  "cb": {
+   "speaker": "rt_trucker",
+   "lines": [
+    [
+     "rt_trucker",
+     "Every August. 'Eyes at the seventh mile.' 'Watch the ford.' 'They're out tonight.' Half of it's boys egging each other on and the other half's boys who heard the first half and want in."
+    ],
+    [
+     "rt_trucker",
+     "I don't key up. I just listen. There's a man out of Owensboro who's seen 'em every night for two years and never once on a night he had a co-driver."
+    ],
+    [
+     "june",
+     "A rumour with a carrier wave. It sounds like evidence because it comes out of a speaker."
+    ]
+   ],
+   "gives": {
+    "evidence": "rt_cb_chatter"
+   },
+   "next": "open"
+  }
+ }
+}

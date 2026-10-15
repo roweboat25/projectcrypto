@@ -1,0 +1,778 @@
+{
+ "_doc": "Farm fragment for the Kelly case: the Lacy farm, its house, barn and smokehouse, the cousin who owns it (lacy_cousin, the id the skeleton's farmhouse gate reads), the four trail signs the siege reads by id (fm_eyeshine_rafters, fm_handprints_smokehouse, fm_burned_circle, fm_cousin_account), their herrings, and the gates the Farm map needs for night props and the gully fight. Ids are prefixed fm_ except the cousin's. Gates farmhouse and siege_night are the skeleton's and reused.",
+ "locations": {
+  "farm_front_room": "The Lacy farmhouse, the front room",
+  "farm_kitchen": "The Lacy farmhouse, the kitchen",
+  "farm_bedrooms": "The Lacy farmhouse, the bedrooms",
+  "farm_attic": "The Lacy farmhouse, the attic",
+  "smokehouse": "The Lacy smokehouse",
+  "tobacco_barn": "The Lacy tobacco barn",
+  "gully": "The gully behind the Lacy house"
+ },
+ "items": {},
+ "gates": {
+  "fm_night": {
+   "name": "After dark",
+   "locked": "",
+   "opens": [
+    {
+     "phase": [
+      "night"
+     ]
+    }
+   ]
+  },
+  "fm_dusk": {
+   "name": "Dusk and after",
+   "locked": "",
+   "opens": [
+    {
+     "phase": [
+      "dusk",
+      "night"
+     ]
+    }
+   ]
+  },
+  "fm_morning": {
+   "name": "Early",
+   "locked": "",
+   "opens": [
+    {
+     "phase": [
+      "morning"
+     ]
+    }
+   ]
+  },
+  "fm_night3": {
+   "name": "The third night",
+   "locked": "",
+   "opens": [
+    {
+     "night": 3
+    }
+   ]
+  },
+  "fm_gully_eyes": {
+   "name": "Eyes in the gully",
+   "locked": "",
+   "opens": [
+    {
+     "all": [
+      {
+       "night": 2
+      },
+      {
+       "phase": [
+        "night"
+       ]
+      },
+      {
+       "not_flag": "siege_survived"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "witnesses": {
+  "lacy_cousin": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "fm_cousin_v1",
+     "title": "The night, the way the family told it",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 7,
+       "prompt": "Tell it from the beginning. Where was everybody when it started?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "lacy_cousin",
+       "We was on the porch. All of us, after supper, it was hot. And the first one come up out of the gully with its hands up, and Billy Ray shot it off the fence, and it rolled up like a ball and run."
+      ],
+      [
+       "lacy_cousin",
+       "Eyes glowed. Yellow. Twelve or fifteen of 'em, all over the yard, on the roof. We held the house till it got light and then we drove to town."
+      ],
+      [
+       "miriam",
+       "That's the police statement. Comma for comma."
+      ]
+     ],
+     "evidence": "fm_account_v1"
+    },
+    {
+     "id": "fm_cousin_v2",
+     "title": "The night, the second time",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "You were six. Where were you, Lonnie? Not the family. You."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "lacy_cousin",
+       "...Kitchen. Mama was at the sink and I was under the table with the dog, and the face come to the window over the sink with its hands up on the glass. That's the first I knew."
+      ],
+      [
+       "lacy_cousin",
+       "Then the porch. Then the shooting. The eyes shone in the flashlight, like a cat's. Glowed. Shone. I don't know what I said before."
+      ],
+      [
+       "elijah",
+       "He does know. Let him have a minute."
+      ]
+     ],
+     "evidence": "fm_account_v2"
+    },
+    {
+     "id": "fm_cousin_v3",
+     "title": "The night, the third time",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 9,
+       "prompt": "A six-year-old under the kitchen table at seven is asleep by nine. What did you see yourself, and what did they tell you at breakfast?"
+      },
+      {
+       "check": "empathy",
+       "difficulty": 9,
+       "prompt": "You can tell it the way it was. Nobody here is going to laugh. Nobody here is going to write it down wrong."
+      },
+      {
+       "trust": 3
+      }
+     ],
+     "lines": [
+      [
+       "lacy_cousin",
+       "I was asleep. I woke up on the front-room floor with Junior and the dog and everybody hollering, and the first thing I seen was the gun. Not a window. Daddy's gun."
+      ],
+      [
+       "lacy_cousin",
+       "I seen two. At the window, one time, and I ain't sure now it was two. Everything else is what they said at breakfast and what they said to the police, and I was six and that was the only way I had to tell it. I've told it that way thirty-nine years."
+      ],
+      [
+       "lacy_cousin",
+       "Don't put that in the paper. Not for me. For Mama."
+      ],
+      [
+       "ruth",
+       "Nobody's putting anything anywhere, dear. We're just listening. You can tell it was a while since anybody did."
+      ]
+     ],
+     "evidence": "fm_account_v3"
+    },
+    {
+     "id": "fm_cousin_light",
+     "title": "The one thing that never changed",
+     "gates": [
+      {
+       "contradiction": "fm_account_shifts"
+      }
+     ],
+     "lines": [
+      [
+       "lacy_cousin",
+       "You want to know what I seen. Me. Not them."
+      ],
+      [
+       "lacy_cousin",
+       "Before supper. I was on the swing, on the porch, and a light come down in the gully behind the big oak. Round. Not a colour I got a word for. Slow, like somebody letting it down on a string. And it was gone and I went in and ate."
+      ],
+      [
+       "lacy_cousin",
+       "I told that the same in '55 and '57 and '78 and I'm telling it the same now. I ain't never changed it because I ain't never had to. That's mine. The rest was theirs."
+      ],
+      [
+       "june",
+       "That's the part nobody could have told him. He was alone on the swing."
+      ]
+     ],
+     "evidence": "fm_account_light",
+     "flag": "fm_cousin_light_told"
+    }
+   ]
+  },
+  "fm_farm_kid": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "fm_kid_posts",
+     "title": "Who shot the porch posts",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "That's a nice shotgun pattern on those posts. Somebody can shoot."
+      },
+      {
+       "show": "fm_pellet_lab"
+      }
+     ],
+     "lines": [
+      [
+       "fm_farm_kid",
+       "Me. Saturday. With Dwayne's gun, Dwayne's my brother. Every August the TV people come and they want the posts to look shot, so Mr Lonnie lets us. I hit 'em every time."
+      ],
+      [
+       "fm_farm_kid",
+       "Don't tell my mama. She thinks it's Dwayne."
+      ],
+      [
+       "teddy",
+       "The scars are a set. For the cameras. This whole county's been dressing the set since 1955."
+      ]
+     ],
+     "evidence": "fm_kid_confession"
+    },
+    {
+     "id": "fm_kid_eyes",
+     "title": "Eyes at the smokehouse",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 7,
+       "prompt": "You ride out here after dark, don't you. What have you seen?"
+      }
+     ],
+     "lines": [
+      [
+       "fm_farm_kid",
+       "Eyes. At the smokehouse door, down low. Two. I hollered and they went out. Dwayne says coons. Dwayne wasn't there."
+      ],
+      [
+       "fm_farm_kid",
+       "I ain't scared of coons."
+      ],
+      [
+       "dale",
+       "Good. Keep it that way. Coons are the one thing out here that'll actually bite you."
+      ]
+     ],
+     "evidence": "fm_kid_eyes"
+    }
+   ]
+  },
+  "fm_tobacco_hand": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "fm_hand_owls",
+     "title": "The eyes in the barn",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "You've fired that barn every August. What lives up in the tiers?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "fm_tobacco_hand",
+       "Owls. Great horned, two or three, every year since I been doing it and that's twenty-two. Come for the mice. Mice come for the tobacco. You go in with a lantern and there's the eyes, yellow as a road sign, and they don't blink. You'd swear they was studying you."
+      ],
+      [
+       "fm_tobacco_hand",
+       "Nobody ever asked me. Thirty-nine years of reporters in that yard and not one of 'em come in the barn."
+      ],
+      [
+       "dale",
+       "Twenty-two years. That's the best witness in this county and he's holding a tobacco stick."
+      ]
+     ],
+     "evidence": "fm_hand_owls"
+    },
+    {
+     "id": "fm_hand_light",
+     "title": "What Virgil's daddy saw",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "Your father was on this road in '55. He told you something once and not twice."
+      },
+      {
+       "show": "fm_account_light"
+      }
+     ],
+     "lines": [
+      [
+       "fm_tobacco_hand",
+       "Daddy was coming back from Kelly on the road that evening and he seen a light go down behind the Lacy place. Slow. Round. 'Like a lamp let down on a string,' he said. That's all he said. He said it once, drunk, and I asked him sober and he hit me."
+      ],
+      [
+       "fm_tobacco_hand",
+       "He never told it in town. You seen what town done to the Lacys."
+      ],
+      [
+       "elijah",
+       "A lamp on a string. Lonnie said the same words. They've never spoken about it. I'd bet the car on it."
+      ]
+     ],
+     "evidence": "fm_hand_light"
+    }
+   ]
+  },
+  "fm_tobacco_hand2": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "fm_hand2_jar",
+     "title": "The jar in the smokehouse",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "What's in the smokehouse besides ham?"
+      },
+      {
+       "show": "fm_jar_photo"
+      }
+     ],
+     "lines": [
+      [
+       "fm_tobacco_hand2",
+       "Jar. Been a jar in that smokehouse since before the war and there's one now, and I ain't saying who fills it. Eleven of 'em in that house on a Sunday night in August with the jar going round. I don't have to draw you a picture."
+      ],
+      [
+       "fm_tobacco_hand2",
+       "That don't mean they didn't see nothing. Means they saw it better."
+      ],
+      [
+       "miriam",
+       "That's the neighbours' version, from 1955. It's held up. It's the only one that has."
+      ]
+     ],
+     "evidence": "fm_hand2_drink"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "fm_eyeshine_photo": {
+   "title": "Photo: eyes in the rafters",
+   "text": "Teddy's flash, forty feet up into the smoke of the tobacco barn. Two yellow points, close together, at the height of a small head, and around them nothing: no face, no feathers, no rafter. The second frame, a second later, has the rafter and no eyes.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "fm_pellets_sample": {
+   "title": "Owl pellets from the barn floor",
+   "text": "A dozen pellets from under the rafters of the tobacco barn, fur and bone, bagged with the dust.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "B",
+   "lab": "fm_pellets_lab"
+  },
+  "fm_pellets_lab": {
+   "title": "Lab: the barn pellets",
+   "text": "Great horned owl, by the size and the prey: cotton rat, vole, a young rabbit, a cardinal. Two birds at least, by the age of the pellets, roosting in that barn for years. The lab adds that a great horned owl's eyes shine yellow in a light, stand three inches apart, and sit on a bird that can take a cat.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "A"
+  },
+  "fm_pellets_photo": {
+   "title": "Photo: pellets under the rafters",
+   "text": "The barn floor under the rafters, white with droppings and grey with pellets. Something has been eating here, sitting still, for years.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "fm_feather_sample": {
+   "title": "A white feather from the tobacco",
+   "text": "A pale feather nearly a foot long, taken from the hung tobacco at head height in the barn. Softer than a feather should be. There is no white bird that size in the county.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "fm_feather_lab"
+  },
+  "fm_feather_photo": {
+   "title": "Photo: the white feather",
+   "text": "A long pale feather caught in the hung tobacco, soft-edged, nearly glowing in the flash.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "fm_feather_lab": {
+   "title": "Lab: the white feather",
+   "text": "Barn owl, primary flight feather, the pale underside. Barn owls are the colour of the moon from below and the colour of toast from above, and they nest in tobacco barns. The lab is a little hurt that this was sent.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "fm_feather_sample",
+    "fm_feather_photo"
+   ]
+  },
+  "fm_paint_sample": {
+   "title": "Silver paint from the barn",
+   "text": "A scraping from a gallon can of silver paint found behind the feed sacks in the tobacco barn, the brush stuck to the lid.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "fm_paint_lab"
+  },
+  "fm_paint_photo": {
+   "title": "Photo: the silver paint",
+   "text": "A can of silver paint hidden in a tobacco barn, a rag beside it silver on one side. Somebody painted something silver and put the can where it would not be seen.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "fm_paint_lab": {
+   "title": "Lab: the silver paint",
+   "text": "Aluminium roof coating, the kind sold by the gallon at every feed store in the state for tin roofs, this batch from 1991. The barn roof is silver. So is the chicken house. So is every roof for ten miles.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "fm_paint_sample",
+    "fm_paint_photo"
+   ]
+  },
+  "fm_handprint_cast": {
+   "title": "Cast: the smokehouse handprints",
+   "text": "A plaster lift of the soot prints on the smokehouse door. A hand the size of a six-year-old's, fingers spread, no thumb that the plaster can find, pressed at a height of four feet eight inches from the sill. Pressed, not slapped: the soot is even. Whatever made it stood there and held its hands up.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B"
+  },
+  "fm_handprint_photo": {
+   "title": "Photo: hands on the smokehouse door",
+   "text": "Small handprints in soot on the smokehouse door, two of them, too high for a child and the wrong shape for a child, in the flash.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "fm_raccoon_cast": {
+   "title": "Cast: the prints by the well",
+   "text": "A plaster cast of five-fingered prints in the red clay between the well and the smokehouse, small, long-fingered, walking toward the door and back heavier than they came.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "fm_raccoon_lab"
+  },
+  "fm_raccoon_photo": {
+   "title": "Photo: prints by the well",
+   "text": "Hands in the wet clay by the well, five long fingers, walking. The hands of something with hands.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "fm_raccoon_lab": {
+   "title": "Lab: the prints by the well",
+   "text": "Raccoon, a big boar, going to the smokehouse door for the ham and coming back without it. Hind foot over fore foot, the gait of a thing that is sure of its route. The soot on the door is no higher than a raccoon reaches standing on the latch.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "fm_raccoon_cast",
+    "fm_raccoon_photo",
+    "fm_kid_eyes"
+   ]
+  },
+  "fm_gully_reading": {
+   "title": "Reading: the burned circle",
+   "text": "June's tape measure says nine feet across, even to the inch. Her thermometer says the clay inside is eleven degrees warmer than the clay outside at midnight, with no fuel and no fire. Her compass goes round in it, and stops pointing at the house. And on the tape, under the needle's scratch, three notes, a silence, three notes: the same three she taped in Point Pleasant and in the Hut, lower again, with cicadas under them.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "recording",
+   "reliability": "A"
+  },
+  "fm_gully_photo": {
+   "title": "Photo: the burned circle",
+   "text": "A circle of baked clay and white ash in the floor of the gully behind the house, the edge as clean as a drawn line. Nothing in it that burned.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "fm_trash_sample": {
+   "title": "Ash from the gully trash pile",
+   "text": "Greasy grey ash and a scrap of something melted from a burned pile in the gully, bagged with the scorched clay under it.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "D",
+   "red_herring": true,
+   "lab": "fm_trash_lab"
+  },
+  "fm_trash_photo": {
+   "title": "Photo: the gully trash pile",
+   "text": "A burned pile in the gully, the ash fresh, the clay under it scorched in a ring, a tire bead and a chair frame in it. Something came down here and burned, or something was burned here.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "fm_trash_lab": {
+   "title": "Lab: the gully trash pile",
+   "text": "Household trash: a mattress, a kitchen chair, a tire, a gallon of something that was once roof coating, burned with kerosene within the week. The scorch ring is the shape of a mattress. The lab notes that in Christian County this is called taking out the garbage.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "fm_trash_sample",
+    "fm_trash_photo"
+   ]
+  },
+  "fm_account_v1": {
+   "title": "Lonnie's account, the first time",
+   "text": "The way he tells it the first time: they were on the porch after supper, all eleven, and the first one came up out of the gully with its hands up and the men shot it off the fence and it rolled up and ran. The eyes glowed. There were twelve or fifteen. It is the 1955 police statement, word for word, and he was six.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "fm_account_v2": {
+   "title": "Lonnie's account, the second time",
+   "text": "Asked again, it starts in the kitchen. His mother at the sink, the first face at the window with its hands up on the glass, then the porch, then the shooting. 'The eyes shone,' he says this time, 'in the flashlight.' Not glowed. He hears himself say it and goes on.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "fm_account_v3": {
+   "title": "Lonnie's account, the third time",
+   "text": "The third telling is the one he has not told anybody. He was asleep. He woke up in the front room on the floor with his brother and the dog and the grown-ups shouting, and the first thing he saw was the gun, not the window. He never saw more than two, and he is not sure, now, that he saw two. The rest is what the family told him at breakfast, and told the police, and told the magazine, and he has told it that way since he was six because it was the only way he had.",
+   "lean": "natural",
+   "weight": 3,
+   "kind": "testimony",
+   "reliability": "A"
+  },
+  "fm_account_light": {
+   "title": "The one thing Lonnie never changed",
+   "text": "In every telling, first, before supper, before any of it: a light came down in the gully behind the house. Round, no colour he can name, going down slow behind the big oak, and gone. He saw that himself, from the porch swing, with his own eyes, and he has never once told it differently. Three versions of everything else, and this one line in all of them, the same.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "fm_account_versions": {
+   "title": "Photo: the three statements",
+   "text": "Three typed statements side by side on the Lacys' table: 1955 to the police, 1957 to a magazine, 1978 to the local paper. The shooting starts on the porch, then in the kitchen. The eyes glow, then shine. Twelve or fifteen becomes 'several' becomes 'two at a time'. The light in the gully is on the first line of all three.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "A"
+  },
+  "fm_shotgun_photo": {
+   "title": "Photo: the guns on the wall",
+   "text": "A single-barrel 20-gauge and a taped .22 on two nails in the front bedroom, with a box of number 6 bird shot under them. These are the guns of the siege. Bird shot from a 20-gauge through a screen door at forty feet would not have stopped a rabbit; the family said it did not stop them, and the family was right.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "fm_pellet_photo": {
+   "title": "Photo: fresh pellet scars",
+   "text": "Bright new pellet scars in the porch posts and the door frame of the farmhouse, over the old black ones. Somebody shot at this porch again, lately, from the yard, at something.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "fm_pellet_sample": {
+   "title": "A pellet from the porch post",
+   "text": "A pellet dug out of a fresh scar in the porch post with a pocket knife, and a splinter of the bright wood round it.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "fm_pellet_lab"
+  },
+  "fm_pellet_lab": {
+   "title": "Lab: the porch pellet",
+   "text": "Steel shot, number 7, a 1993 Winchester load, fired from the yard at the posts within the month. The old scars under it hold lead. Somebody has been shooting at the porch for the anniversary. The lab's guess is teenagers; the lab has been a teenager.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "fm_pellet_photo",
+    "fm_pellet_sample"
+   ]
+  },
+  "fm_cousin_posts": {
+   "title": "Lonnie on the porch posts",
+   "text": "The fresh scars in the posts are the Pruitt boys, every August, with their daddy's gun, for the TV people. Lonnie lets them. 'Somebody ought to shoot at it,' he says. 'It ain't going to be me.'",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "fm_pellet_photo",
+    "fm_pellet_sample"
+   ]
+  },
+  "fm_kid_confession": {
+   "title": "The kid and the porch posts",
+   "text": "The kid on the bicycle shot the porch posts with his brother Dwayne's shotgun last Saturday, for the TV people who come every year, and would like it known that he hit them every time.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "fm_pellet_photo",
+    "fm_pellet_sample"
+   ]
+  },
+  "fm_kid_eyes": {
+   "title": "The kid saw eyes at the smokehouse",
+   "text": "The kid on the bicycle has seen little eyes at the smokehouse door after dark, low down, two of them, that went out when he yelled. Dwayne says coons. The kid says Dwayne wasn't there.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "fm_hand_owls": {
+   "title": "Virgil on the barn owls",
+   "text": "Virgil has fired the Lacy barn every August for twenty-two years and seen eyes in the rafters every one of them: great horned owls, two or three, that come for the mice that come for the tobacco. 'Yellow as a road sign. Don't blink. You'd swear they was studying you.' He has never told a reporter, because no reporter has asked him.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "A"
+  },
+  "fm_hand_light": {
+   "title": "Virgil's daddy and the light",
+   "text": "Virgil's father was on the Kelly road the evening of the 21st in 1955 and saw a light go down behind the Lacy place, slow, round, 'like a lamp let down on a string'. He never told it in town because of what town did to the Lacys. He told it to Virgil once, drunk, and never again.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "fm_hand2_drink": {
+   "title": "Dwayne on the smokehouse jars",
+   "text": "Dwayne says the Lacys have kept a jar in the smokehouse since before the war and keep one there now, and that in 1955 there were eleven of them in the house on a Sunday night in August with the jar, and he does not have to draw anybody a picture.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "fm_jar_sample": {
+   "title": "The jar from the smokehouse",
+   "text": "A sample from a Mason jar of clear liquor in the straw of the Lacy smokehouse, the lid with a fresh thumbprint on it.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "lab": "fm_jar_lab"
+  },
+  "fm_jar_lab": {
+   "title": "Lab: the smokehouse jar",
+   "text": "Corn whiskey, unaged, strong, this year's, from a still that has been in use a long time by the taste of the copper. The lab tasted it. The lab would like the rest.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "B"
+  },
+  "fm_jar_photo": {
+   "title": "Photo: the jars in the straw",
+   "text": "Seven Mason jars of clear liquor in a crate in the smokehouse, one with a thumbprint in the dust and a ring beside it where another stood until lately.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  }
+ },
+ "contradictions": {
+  "fm_account_shifts": {
+   "title": "The porch and the floor",
+   "evidence": [
+    "fm_account_v1",
+    "fm_account_v3"
+   ],
+   "witness": "lacy_cousin",
+   "prompt": "The first time, you were on the porch with all eleven and saw the first one come up the gully. The third time, you were asleep and woke up on the front-room floor and saw the gun. Both can't be yours, Lonnie. Which one is?"
+  }
+ },
+ "trail": [
+  {
+   "night": 1,
+   "roost": "The tobacco barn rafters, the Lacy farm",
+   "map": "kelly_farm",
+   "clues": [
+    "fm_eyeshine_rafters"
+   ],
+   "herring": [
+    "fm_barn_feather"
+   ]
+  },
+  {
+   "night": 1,
+   "roost": "The front-room table, the Lacy farmhouse",
+   "map": "kelly_farm",
+   "clues": [
+    "fm_cousin_account"
+   ],
+   "herring": [
+    "fm_porch_pellets"
+   ]
+  },
+  {
+   "night": 2,
+   "roost": "The smokehouse door, the Lacy farm",
+   "map": "kelly_farm",
+   "clues": [
+    "fm_handprints_smokehouse"
+   ],
+   "herring": [
+    "fm_raccoon_prints"
+   ]
+  },
+  {
+   "night": 3,
+   "roost": "The gully behind the Lacy house",
+   "map": "kelly_farm",
+   "clues": [
+    "fm_burned_circle"
+   ],
+   "herring": [
+    "fm_trash_pile"
+   ]
+  }
+ ]
+}

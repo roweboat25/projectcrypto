@@ -13,7 +13,10 @@ const TONES := ["kind", "hard", "wry", "silent"]
 const LEANS := ["hoax", "natural", "unexplained"]
 const TIDES := ["low", "rising", "high", "falling"]
 const WEATHERS := ["snow", "clear", "mist", "rain", "gale"]
-const USES := ["board", "ledger", "catalog", "radio_log", "shop", "dials"]
+const USES := ["board", "ledger", "catalog", "radio_log", "shop", "dials", "siege"]
+const MOVE_TYPES := ["attack", "horror", "status", "all"]
+const STATUSES := ["unnerved", "blinded", "jammed", "cursed", "bound", "exposed"]
+const OBSERVE_METHODS := ["photograph", "record", "read"]
 
 var classes: Dictionary = {}
 var roster: Dictionary = {}
@@ -152,10 +155,29 @@ func validate() -> Array[String]:
 	for id in roster:
 		if not classes.has(roster[id].get("class", "")):
 			errors.append("roster %s has unknown class" % id)
+	var all_evidence := {}
+	for case_id in cases:
+		all_evidence.merge(cases[case_id].get("evidence", {}))
 	for id in foes:
-		for t in foes[id].get("weak", []) + foes[id].get("resist", []):
+		var f: Dictionary = foes[id]
+		for t in f.get("weak", []) + f.get("resist", []):
 			if not t in DAMAGE_TYPES:
 				errors.append("foe %s has unknown damage type %s" % [id, t])
+		for m in f.get("moves", []):
+			if m is Dictionary:
+				if not m.get("type", "attack") in MOVE_TYPES:
+					errors.append("foe %s move %s has unknown type %s" % [id, m.get("name"), m.type])
+				if m.has("damage") and not m.damage in DAMAGE_TYPES:
+					errors.append("foe %s move %s has unknown damage type" % [id, m.get("name")])
+				if m.has("status") and not m.status in STATUSES:
+					errors.append("foe %s move %s has unknown status %s" % [id, m.get("name"), m.status])
+		if f.get("kind", "") == "anomaly" and f.get("tells", []).is_empty():
+			errors.append("anomaly %s has no tells to observe" % id)
+		for t in f.get("tells", []):
+			if not t.get("method", "") in OBSERVE_METHODS:
+				errors.append("foe %s tell has unknown method %s" % [id, t.get("method")])
+			if t.has("evidence") and not all_evidence.has(t.evidence):
+				errors.append("foe %s tell gives unknown evidence %s" % [id, t.evidence])
 	for case_id in cases:
 		var c: Dictionary = cases[case_id]
 		var evidence: Dictionary = c.get("evidence", {})
@@ -221,6 +243,8 @@ func validate() -> Array[String]:
 		for did in c.get("districts", {}):
 			if not maps.has(c.districts[did].get("map", "")):
 				errors.append("case %s district %s has an unknown map" % [case_id, did])
+		if c.has("siege"):
+			errors.append_array(_validate_siege(case_id, c.siege, evidence))
 		for wid in dialogue.get(case_id, {}):
 			errors.append_array(_validate_script(case_id, wid, dialogue[case_id][wid], evidence))
 	for map_id in maps:
@@ -254,7 +278,14 @@ func validate() -> Array[String]:
 		for iid in m.get("interiors", {}):
 			props += m.interiors[iid].get("props", [])
 			npcs += m.interiors[iid].get("npcs", [])
+		for e in m.get("encounters", []):
+			errors.append_array(_validate_fight(map_id, "encounter", e))
+			for ph in e.get("phase", []):
+				if not ph in PHASES:
+					errors.append("map %s encounter has unknown phase %s" % [map_id, ph])
 		for p in props:
+			if p.has("fight"):
+				errors.append_array(_validate_fight(map_id, "prop " + str(p.get("kind")), p.fight))
 			if p.has("pickup") and not items.has(p.pickup):
 				errors.append("map %s prop %s picks up unknown item %s" % [map_id, p.kind, p.pickup])
 			if p.has("gate") and gate(p.gate).is_empty():
@@ -272,6 +303,8 @@ func validate() -> Array[String]:
 					if not road.get("legs", {}).has(leg_id):
 						errors.append("map %s prop %s drives unknown leg %s" % [map_id, p.kind, leg_id])
 		for n in npcs:
+			if n.has("fight"):
+				errors.append_array(_validate_fight(map_id, "npc " + str(n.get("id")), n.fight))
 			if n.has("appears") and gate(n.appears).is_empty():
 				errors.append("map %s npc %s appears on unknown gate %s" % [map_id, n.id, n.appears])
 			if n.has("shop") and shop_stock(n.shop).is_empty():
@@ -399,6 +432,52 @@ func _read_json(path: String) -> Variant:
 
 
 ## Drops "_doc" notes so they never show up as content.
+## The siege table: approaches with carried items, waves with known foes, flashback answers in range.
+func _validate_siege(case_id: String, s: Dictionary, evidence: Dictionary) -> Array[String]:
+	var errors: Array[String] = []
+	var w := "case %s siege" % case_id
+	for ap in s.get("approaches", {}):
+		var item: String = s.approaches[ap].get("prep", {}).get("item", "")
+		if item != "" and not items.has(item):
+			errors.append("%s approach %s needs unknown item %s" % [w, ap, item])
+	if s.get("waves", []).is_empty():
+		errors.append("%s has no waves" % w)
+	for wave in s.get("waves", []):
+		errors.append_array(_validate_fight(case_id, "siege wave", wave))
+		if not s.get("approaches", {}).has(wave.get("from", "")):
+			errors.append("%s wave comes from unknown approach %s" % [w, wave.get("from")])
+		var fb: Dictionary = wave.get("flashback", {})
+		if fb.has("question"):
+			if int(fb.get("answer", -1)) < 0 or int(fb.get("answer", -1)) >= fb.get("options", []).size():
+				errors.append("%s flashback answer is out of range" % w)
+			if fb.has("evidence") and not evidence.has(fb.evidence):
+				errors.append("%s flashback gives unknown evidence %s" % [w, fb.evidence])
+	if s.has("lull"):
+		errors.append_array(_validate_fight(case_id, "siege lull", s.lull.get("out", {})))
+		if s.lull.get("out", {}).has("evidence") and not evidence.has(s.lull.out.evidence):
+			errors.append("%s lull gives unknown evidence" % w)
+	if s.has("final"):
+		errors.append_array(_validate_fight(case_id, "siege final", s.final))
+	if s.get("held", "") != "" and not evidence.has(s.held):
+		errors.append("%s held evidence %s is unknown" % [w, s.held])
+	return errors
+
+
+## A fight spec on a prop, person or encounter: one to four known foes.
+func _validate_fight(map_id: String, where: String, f: Variant) -> Array[String]:
+	var errors: Array[String] = []
+	if not f is Dictionary:
+		errors.append("map %s %s fight is not a table" % [map_id, where])
+		return errors
+	var list: Array = f.get("foes", [])
+	if list.is_empty() or list.size() > 4:
+		errors.append("map %s %s fight needs 1 to 4 foes" % [map_id, where])
+	for id in list:
+		if not foes.has(id):
+			errors.append("map %s %s fights unknown foe %s" % [map_id, where, id])
+	return errors
+
+
 func _strip(d: Variant) -> Dictionary:
 	if typeof(d) != TYPE_DICTIONARY:
 		return {}

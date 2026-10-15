@@ -10,7 +10,9 @@ func setup(p: Dictionary, p_key: String) -> void:
 	key = p_key
 	add_to_group("interactable")
 	set_meta("hotspot", true)
-	if p.has("gate"):
+	if p.has("fight"):
+		set_meta("prompt", str(p.get("name", "Something is there")))
+	elif p.has("gate"):
 		set_meta("prompt", str(p.get("name", "Gate")))
 	elif p.has("use"):
 		set_meta("prompt", {"board": "The case board", "ledger": "The Office ledger", "catalog": "The card catalog", "radio_log": "The station log", "shop": "Shop"}.get(p.use, "Use") if not p.has("name") else str(p.name))
