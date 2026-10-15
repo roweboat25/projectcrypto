@@ -1,0 +1,404 @@
+{
+ "id": "lk_camp_boss",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "Welcome to Sunnyside! Terry Gosling, manager. You're not the Rovers coach. You're the Americans off the train, aren't you, the ones asking about that business."
+    ],
+    [
+     "lk_camp_boss",
+     "Lovely. Lovely. Bar's open, bingo's at eight, and I've got nothing to tell you, but I'll tell you it over a drink."
+    ],
+    [
+     "teddy",
+     "He said 'that business' before anybody said what business."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "He had the smile ready before you reached the door. It has been ready for twenty-one years. He has rehearsed this conversation more times than you have."
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "Twenty-four staff photographs on that wall and one clean rectangle where 1973 should hang. He took one down and did not shift the others along. He wanted the gap to be seen, by someone, some day.",
+     "flag": "lk_boss_gap"
+    },
+    {
+     "voice": "press",
+     "threshold": 8,
+     "line": "'Nothing to tell you' is a headline, not an answer. He is offering the drink so that the drink is the story."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're here about 1973. Two children, the Levels. You were here then.",
+     "next": "story"
+    },
+    {
+     "tone": "wry",
+     "requires": {
+      "flag": [
+       "lk_boss_gap"
+      ]
+     },
+     "text": "Nice wall of photos. Where did 1973 go?",
+     "next": "gap"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "Twenty-one seasons here. You must have some stories.",
+     "pass": "seasons",
+     "fail": {
+      "next": "seasons_fail"
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Say nothing. Let him fill it.)",
+     "next": "silent",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_lk_camp_boss"
+   }
+  },
+  "story": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "I was assistant manager, twenty-four, hair down to here. Police came round on the Tuesday, asked if we'd anyone dressed up. We had sixteen people dressed up, love, it's a holiday camp."
+    ],
+    [
+     "lk_camp_boss",
+     "They went away happy. Everybody went away happy. The kids' mum and dad laughed it off, I remember that. Good people. Didn't want a fuss."
+    ],
+    [
+     "lk_camp_boss",
+     "We had one lad leave that week, since you'll ask. Walked out over wages, Tuesday. Thin crowd on the bank holiday and I'd docked him and he took it badly. Nothing to do with anything."
+    ],
+    [
+     "miriam",
+     "He's volunteered the one thing we didn't ask about."
+    ]
+   ],
+   "gives": {
+    "evidence": "lk_boss_wages",
+    "flag": "lk_boss_story"
+   },
+   "next": "hub"
+  },
+  "gap": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "...Water damage. Winter of '78. Lost the one photo and never got round to shifting the rest."
+    ],
+    [
+     "lk_camp_boss",
+     "You're sharp. I'll say that. Sharp doesn't get you a drink any quicker, mind."
+    ],
+    [
+     "elijah",
+     "It isn't water damage. He looks at that gap every morning, and he looks at it the way you'd look at a grave you dug."
+    ]
+   ],
+   "gives": {
+    "flag": "lk_boss_gap_asked",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "seasons": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "Stories! I had a hypnotist in '81 put the mayor of Sandown to sleep and couldn't get him up again. Had a donkey in the ballroom in '86, don't ask how, ask how we got it out."
+    ],
+    [
+     "lk_camp_boss",
+     "Had a Yellowcoat in '73 could do a voice for anything. Birds, engines, the Queen. Best I ever had. Lads like that, they don't stay. They go off to Butlins or the telly or nowhere, and you get a card at Christmas, or you don't."
+    ],
+    [
+     "ruth",
+     "There, dear. That's the one. That's the one he didn't mean to say."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "lk_camp_boss": 1
+    },
+    "flag": "lk_boss_jim"
+   },
+   "next": "hub"
+  },
+  "seasons_fail": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "Stories? I've got bingo at eight and a coach of Bristol Rovers in the bar. I've got stories like a dog's got fleas and none of them are for the paper."
+    ],
+    [
+     "lk_camp_boss",
+     "Have a drink. Have a 99. Have a go on the fruit machine, nudges held till Tuesday."
+    ]
+   ],
+   "next": "hub"
+  },
+  "silent": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "..."
+    ],
+    [
+     "lk_camp_boss",
+     "You lot don't say much. The last ones didn't either. Two fellas in suits, 1973, the week after. Stood where you're standing, said nothing, and I talked for twenty minutes to fill it. Said we'd nobody dressed up. Said I'd swear to it."
+    ],
+    [
+     "lk_camp_boss",
+     "I never did get asked to swear to it."
+    ],
+    [
+     "vera",
+     "Two men in suits. In 1973. Here, before us."
+    ]
+   ],
+   "gives": {
+    "flag": "lk_boss_suits",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "lk_camp_boss",
+   "repeat": true,
+   "lines": [
+    [
+     "lk_camp_boss",
+     "Go on then. Ask. Bar's open till eleven and I'm here till the last one's carried out."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He hired it. He hired the thing in the hat and he's run bingo on top of it for twenty-one years. Make him say the name. Say it for him if you have to."
+   },
+   "options": [
+    {
+     "tone": "hard",
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "lk_rota_1973": 2,
+       "lk_hat_photo": 1,
+       "lk_hat_lab": 2,
+       "lk_caretaker_jim": 1
+      }
+     },
+     "text": "Say it, Terry. Sunny Jim did a Yellow Man walkabout. The pointed hat. You hired him and you sent him off before the police came.",
+     "pass": "admit",
+     "fail": {
+      "next": "barred",
+      "trust": {
+       "lk_camp_boss": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "tone": "wry",
+     "check": {
+      "voice": "bluff",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "lk_hat_photo": 1
+      }
+     },
+     "text": "The stage manager at the pier already told us about the hat. We just want your side before it's in print.",
+     "pass": "bluffed",
+     "fail": {
+      "next": "bluff_fail",
+      "trust": {
+       "lk_camp_boss": -1
+      }
+     }
+    },
+    {
+     "tone": "kind",
+     "requires": {
+      "evidence": [
+       "lk_rota_1973"
+      ]
+     },
+     "text": "Your rota says he left on the 29th. Your writing. NOT TO BE REHIRED.",
+     "next": "rota"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll let you get to the bingo."
+    }
+   ]
+  },
+  "rota": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "...Len. Len and his cabinets. I told him burn the lot in '79 and he said paper's cheaper than guilt, Terry, and went back to his mower."
+    ],
+    [
+     "lk_camp_boss",
+     "Yes, it's my writing. Yes, I was twenty-four. Not to be rehired. I'd have written it in blood if we'd had any."
+    ],
+    [
+     "miriam",
+     "'Not to be rehired' isn't what you write about a man who left over wages."
+    ],
+    [
+     "lk_camp_boss",
+     "No. It isn't."
+    ]
+   ],
+   "gives": {
+    "flag": "lk_boss_rota_shown",
+    "trust": {
+     "lk_camp_boss": 1
+    }
+   },
+   "next": "hub"
+  },
+  "bluffed": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "The pier? What's the pier got to... Oh, he would. He would, that one. Ran Jim's lights for a week in '73 and never shut up about it since."
+    ],
+    [
+     "lk_camp_boss",
+     "All right. There was a hat. There's always a hat, in this business. I'm not saying what was under it."
+    ],
+    [
+     "teddy",
+     "He's confirmed the hat. He thinks he hasn't."
+    ]
+   ],
+   "gives": {
+    "flag": "lk_boss_hat_confirmed",
+    "trust": {
+     "lk_camp_boss": 1
+    }
+   },
+   "next": "hub"
+  },
+  "bluff_fail": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "Did he. Did he now. Funny, because Dennis on the pier wasn't on the pier till '79, and the last time he told anyone anything it was a bus timetable."
+    ],
+    [
+     "lk_camp_boss",
+     "Try that again and you can try it from the car park."
+    ]
+   ],
+   "next": "hub"
+  },
+  "admit": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "...Sunny Jim. Portsmouth lad. Stage name, I never had his real one on paper, Len did. Kids' club walkabout, the Yellow Man: a hat a yard high, greasepaint every colour, a voice like a tin whistle. The kids loved it. The kids screamed."
+    ],
+    [
+     "lk_camp_boss",
+     "He wasn't to take it off the camp. He took it off the camp, Monday, over the fence, through the gap, for a laugh. Two kids on the Levels. I don't know what he said to them. I know they ran."
+    ],
+    [
+     "lk_camp_boss",
+     "Police came Tuesday. I'd put him on the Ryde train Tuesday morning with a week's wages and the hat stayed. I was twenty-four and I didn't want it in the Chronicle. That's it. That's the whole thing. Twenty-one years."
+    ],
+    [
+     "lk_camp_boss",
+     "...Their mum and dad laughed. I let them laugh. That's the bit I've got to carry, not the hat."
+    ],
+    [
+     "miriam",
+     "There it is. Thank you, Mr Gosling."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "lore",
+     "threshold": 8,
+     "line": "A tall thing in a hat that comes over the fence and makes the children run. He thinks he has told you a hoax. He has told you how every story like it starts."
+    }
+   ],
+   "gives": {
+    "evidence": "lk_boss_walkabout",
+    "flag": "lk_boss_admitted",
+    "trust": {
+     "lk_camp_boss": 1
+    }
+   },
+   "next": "hub"
+  },
+  "barred": {
+   "speaker": "lk_camp_boss",
+   "lines": [
+    [
+     "lk_camp_boss",
+     "Out."
+    ],
+    [
+     "lk_camp_boss",
+     "I've had the police, I've had two men in suits, I've had the Chronicle and I've had twenty-one years of bank holidays and I will not have it from four Yanks with a notebook in my own ballroom."
+    ],
+    [
+     "lk_camp_boss",
+     "Bar's shut to you. Bingo's shut to you. Come back tomorrow if you've learned manners and I'll think about it. Len! See them off."
+    ],
+    [
+     "teddy",
+     "We had him. We had him and we pushed."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 6,
+     "line": "You asked him to say the name in front of his own bar. He could have said it to you. He could not say it to the room."
+    }
+   ],
+   "end": true
+  }
+ }
+}

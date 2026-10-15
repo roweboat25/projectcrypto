@@ -1,0 +1,366 @@
+{
+ "id": "fay",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "You're the Americans. The ones at Mrs Bannister's. She said you'd come in, and she said you'd be polite about it, so I'll be polite back."
+    ],
+    [
+     "fay",
+     "Before you ask me anything, I'm going to ask you something, and I'll know from the answer whether we're talking. What colour was the hat?"
+    ],
+    [
+     "teddy",
+     "She's got her hands flat on the counter. That's a woman who's practised not moving."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "She has rehearsed this. Not the story, the asking. Every word of it has been said to a mirror, and the mirror never got it right either."
+    },
+    {
+     "voice": "arcana",
+     "threshold": 9,
+     "line": "Stillness like that is older than she is. A child learns it in a room where something is listening. She has never unlearned it."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Yellow. Pointed. Taller than a man with it on. But that's not the part you care about.",
+     "next": "test_pass"
+    },
+    {
+     "tone": "silent",
+     "text": "(Say nothing. Let her see you're not going to guess.)",
+     "next": "test_silent",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "We read the paper, Miss Mallory. We're not here to be graded.",
+     "next": "test_other"
+    },
+    {
+     "tone": "wry",
+     "text": "You tell me. You're the one who was there.",
+     "next": "test_other"
+    }
+   ],
+   "gives": {
+    "flag": "met_fay"
+   }
+  },
+  "test_pass": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "...No. It isn't. Everybody knows yellow. Colin told everybody yellow, and yellow was the bit they could laugh at, so yellow's the bit that stuck."
+    ],
+    [
+     "fay",
+     "All right. Sit down, there's a chair. I'll say it once and I'll say it properly, and then you'll be the third."
+    ]
+   ],
+   "next": "story",
+   "gives": {
+    "trust": {
+     "fay": 1
+    }
+   }
+  },
+  "test_silent": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "..."
+    ],
+    [
+     "fay",
+     "Good. It was yellow. Nobody has ever asked me what the rest of it was, and I think that's because nobody wanted to know."
+    ],
+    [
+     "fay",
+     "Sit down. I'll say it once."
+    ]
+   ],
+   "next": "story"
+  },
+  "test_other": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "No. You don't get to be clever about it. I was seven and I have had twenty-one years of clever, and clever is what my father was at breakfast when Colin cried."
+    ],
+    [
+     "fay",
+     "...Yellow. It was yellow. I'll tell you once, because Mr Harwood's gone to the bank and he'd want me to. Then that's it."
+    ]
+   ],
+   "next": "story"
+  },
+  "story": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "Tuesday. Hot. We were down by the brook catching sticklebacks in a jar and it was standing in the reeds, and it was all colours. Not striped, not spotted. The colour of it went across it like weather goes across a field. It never stayed."
+    ],
+    [
+     "fay",
+     "The hat was the only thing that stayed. Yellow, pointed, higher than a man. And it bent down and it said, come and see the dials, and we went, because we were seven, and it was a hut, and the hut was full of dials. Walls of them. And the sea behind, through a window, which it couldn't be."
+    ],
+    [
+     "fay",
+     "I drew it that week. On the back of a hymn sheet first, then properly, with the dials. I put numbers on them. I thought if I put numbers on them it would be true."
+    ],
+    [
+     "june",
+     "Numbers on the dials. She was seven. You put numbers on things when you want to be believed."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 10,
+     "line": "Numbers on the dials, added afterward. A child remembers colours; the numbers are what an adult goes back for. She has looked at that drawing a great deal since 1973, and it is upstairs, and she has not offered it.",
+     "flag": "fay_drawing_dials"
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "fay_told_story"
+   }
+  },
+  "hub": {
+   "speaker": "fay",
+   "repeat": true,
+   "lines": [
+    [
+     "fay",
+     "That's what happened. Ask what you like. I'll answer what I can and I'll tell you when I can't."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "It's upstairs. You can hear it through the ceiling, the paper, the way paper sounds when it's been folded for twenty years. Ask for it. Ask now, while Harwood's out."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "tn_chemist_on_fay": 2,
+       "tn_vicar_children": 1
+      }
+     },
+     "text": "You've told this to a mirror more than you've told it to people.",
+     "pass": "mirror",
+     "fail": {
+      "next": "mirror_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "tn_county_press_1973": 2,
+       "tn_prescription_1973": 1
+      }
+     },
+     "text": "The paper said a stray dog and the heat. A dog doesn't need a hut full of dials.",
+     "pass": "paper",
+     "fail": {
+      "next": "paper_fail"
+     }
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "fay_shut",
+       "fay_gave_drawing"
+      ]
+     },
+     "check": {
+      "voice": "rapport",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "tn_register_1973": 2,
+       "tn_landlady_rudds": 1,
+       "fay_on_colin": 1
+      }
+     },
+     "text": "Show us the drawing, Fay. Not for the file. For you.",
+     "pass": "drawing",
+     "fail": {
+      "next": "drawing_fail",
+      "trust": {
+       "fay": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now. Thank you."
+    }
+   ]
+  },
+  "mirror": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "...Every night for a year. Then every birthday. Then just the 29th of May, in the afternoon, on the Levels, out loud, to the reeds. Mr Harwood gives me the afternoon. He thinks I don't know he knows."
+    ],
+    [
+     "fay",
+     "You're the first person who's noticed I was rehearsed and not minded. Most people think rehearsed means made up. It means the opposite. You don't rehearse a lie, it comes out fine on its own."
+    ],
+    [
+     "elijah",
+     "You were kind. She noticed that too."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "fay": 1
+    },
+    "flag": "fay_rehearsed"
+   }
+  },
+  "mirror_fail": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "I've told it to nobody. That's what nobody means. ...A mirror. Is that what you lot do, in America, with the lights and the sofa?"
+    ],
+    [
+     "fay",
+     "Ask me something about the hut. That I can answer."
+    ]
+   ],
+   "next": "hub"
+  },
+  "paper": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "Dr Gale wrote 'sunstroke' and the sergeant wrote 'Alsatian' and the paper wrote both, and my father bought them each a drink. Everybody bought everybody a drink that week. It was that kind of story."
+    ],
+    [
+     "fay",
+     "I had sunstroke. I'm not saying I didn't; I was sick for two days and I saw patterns on the ceiling. But I was sick on the Wednesday. I saw it on the Tuesday. Nobody at the Mermaid was interested in which day."
+    ],
+    [
+     "miriam",
+     "Tuesday, then Wednesday. That's a sequence, not a symptom. Fine. Noted."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "fay": 1
+    }
+   }
+  },
+  "paper_fail": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "You read it, then. Good. Then you know what the island decided, and you can decide the same, and save yourselves the ferry."
+    ],
+    [
+     "fay",
+     "I'm sorry. That's not fair to you. It's just that the paper's the one thing everybody read."
+    ]
+   ],
+   "next": "hub"
+  },
+  "drawing": {
+   "speaker": "fay",
+   "lines": [
+    [
+     "fay",
+     "...Mind the shop. If anyone comes in for a prescription, tell them ten minutes. If anyone comes in for anything else, they can wait."
+    ],
+    [
+     "fay",
+     "Here. Don't touch the crayon, it comes off. Blue, red, green, yellow. Left to right. He turned them in that order and the wall opened, and that's the part I didn't make up, and that's the part nobody ever asked about."
+    ],
+    [
+     "fay",
+     "The numbers are mine. I was seven. Take a picture of it if you want. I'd rather keep the paper, if that's all right. It's been upstairs twenty-one years and I think it would miss the ceiling."
+    ],
+    [
+     "june",
+     "Blue, red, green, yellow. If there's a wall of dials anywhere on this island, that's the combination, and she's had it in a drawer since she was seven."
+    ],
+    [
+     "ruth",
+     "Thank you, dear. Nobody's going to laugh in this shop. I'll see to it."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "fay_drawing",
+    "flag": "fay_gave_drawing",
+    "trust": {
+     "fay": 2
+    }
+   }
+  },
+  "drawing_fail": {
+   "speaker": "fay",
+   "end": true,
+   "lines": [
+    [
+     "fay",
+     "No."
+    ],
+    [
+     "fay",
+     "'For you.' I've kept it twenty-one years from people who were kinder than you and worse at it. You can put down that I said no, and you can put down why, and the why is that you said 'for you' like you'd read it off a card."
+    ],
+    [
+     "fay",
+     "There's a bell on the door. Mr Harwood will be back at two."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "press",
+     "threshold": 5,
+     "line": "That was Rapport talking, not you, and it was reading off a card. She heard the card. You hear the bell, and you did not touch the door."
+    }
+   ],
+   "gives": {
+    "flag": "fay_shut"
+   }
+  }
+ }
+}

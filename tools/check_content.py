@@ -20,7 +20,7 @@ TIDES = ["low", "rising", "high", "falling"]
 WEATHERS = ["snow", "clear", "mist", "rain", "gale"]
 MODES = ["car", "plane", "train", "hovercraft", "ferry"]
 GIVES_KEYS = ["item", "flag", "cash", "gas", "dread", "composure", "hours", "evidence"]
-SOLID = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", "void", "water", "cement_edge")
+SOLID = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", "void", "water", "sea", "cement_edge")
 
 
 def load(path):
@@ -130,9 +130,14 @@ def main():
                 err("map %s house %s appears on unknown gate %s" % (mid, h["id"], h["appears"]))
             if not h.get("locked") and h["id"] not in m.get("interiors", {}):
                 err("map %s house %s is open but has no interior" % (mid, h["id"]))
+        entered = set()
+        for room in m.get("interiors", {}).values():
+            for p in room.get("props", []):
+                if p.get("enter"):
+                    entered.add(p["enter"])
         for iid in m.get("interiors", {}):
-            if iid not in building_ids:
-                err("map %s interior %s has no facade or house" % (mid, iid))
+            if iid not in building_ids and iid not in entered:
+                err("map %s interior %s has no facade, house or door into it" % (mid, iid))
 
         def check_props(plist, where):
             for p in plist:

@@ -1,0 +1,3171 @@
+{
+ "_doc": "Sandown, Lake and the holiday camp: Sunnyside Holiday Camp on the edge of the village of Lake, the chalet rows, the drained pool, the outdoor stage and the play area, the boundary fence onto the Levels along the north edge with the kids' gap at the north exit, and the village road east to the seafront with a scrap of beach in the south-east corner. Positions are in 32px tiles.",
+ "id": "sandown_lake",
+ "name": "Lake and the holiday camp",
+ "case": "sandown",
+ "district": "lake",
+ "size": [
+  48,
+  40
+ ],
+ "spawn": [
+  44,
+  20
+ ],
+ "ground": "grass",
+ "weather": "clear",
+ "fills": [
+  {
+   "rect": [
+    32,
+    25,
+    15,
+    8
+   ],
+   "tiles": [
+    "sand",
+    "sand",
+    "sand2",
+    "sand3"
+   ]
+  },
+  {
+   "rect": [
+    32,
+    33,
+    15,
+    2
+   ],
+   "tiles": [
+    "wet_sand",
+    "wet_sand2"
+   ]
+  },
+  {
+   "rect": [
+    32,
+    35,
+    15,
+    1
+   ],
+   "tiles": "beach_top"
+  },
+  {
+   "rect": [
+    32,
+    36,
+    15,
+    3
+   ],
+   "tiles": [
+    "sea",
+    "sea2",
+    "sea3"
+   ]
+  },
+  {
+   "rect": [
+    32,
+    38,
+    15,
+    1
+   ],
+   "tiles": [
+    "sea_deep",
+    "sea_deep2"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    16,
+    18,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    23,
+    18,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    17,
+    18,
+    6
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    19,
+    18,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    20,
+    15,
+    10,
+    8
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    4,
+    13,
+    26,
+    2
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    6,
+    23,
+    16,
+    2
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2",
+    "earth"
+   ]
+  },
+  {
+   "rect": [
+    25,
+    23,
+    7,
+    5
+   ],
+   "tiles": [
+    "cement",
+    "cement_b",
+    "cement",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    32,
+    25,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    37,
+    25,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement_crack",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    39,
+    5,
+    7,
+    5
+   ],
+   "tiles": [
+    "sand",
+    "sand2",
+    "earth"
+   ]
+  },
+  {
+   "rect": [
+    20,
+    1,
+    8,
+    3
+   ],
+   "tiles": [
+    "earth",
+    "earth2",
+    "earth3",
+    "grass"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    20,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    28,
+    0,
+    20,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    0,
+    1,
+    40
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    47,
+    0,
+    1,
+    16
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    47,
+    24,
+    1,
+    16
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    39,
+    48,
+    1
+   ],
+   "tiles": "void"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    3,
+    30,
+    10
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2",
+    "grass2"
+   ],
+   "chance": 0.07
+  },
+  {
+   "rect": [
+    1,
+    15,
+    19,
+    12
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2",
+    "earth"
+   ],
+   "chance": 0.06
+  },
+  {
+   "rect": [
+    25,
+    28,
+    7,
+    10
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2",
+    "sand"
+   ],
+   "chance": 0.1
+  },
+  {
+   "rect": [
+    32,
+    25,
+    15,
+    8
+   ],
+   "tiles": [
+    "shingle",
+    "shingle2"
+   ],
+   "chance": 0.05
+  }
+ ],
+ "facades": [
+  {
+   "id": "ballroom",
+   "facade": "ballroom",
+   "name": "Sunnyside Ballroom",
+   "pos": [
+    8,
+    12
+   ]
+  },
+  {
+   "id": "camp_office",
+   "facade": "camp_office",
+   "name": "Camp office",
+   "pos": [
+    22,
+    12
+   ]
+  },
+  {
+   "id": "green_room",
+   "facade": "green_room",
+   "name": "Green room",
+   "pos": [
+    7,
+    22
+   ]
+  },
+  {
+   "id": "costume_store",
+   "facade": "costume_store",
+   "name": "Costume store",
+   "pos": [
+    14,
+    22
+   ],
+   "gate": "costume_store"
+  },
+  {
+   "id": "chalet_1",
+   "facade": "chalet",
+   "name": "Chalet 1",
+   "pos": [
+    2,
+    29
+   ],
+   "locked": "A card in the window: ASLEEP. DO NOT KNOCK. SERIOUSLY. The card is laminated."
+  },
+  {
+   "id": "chalet_2",
+   "facade": "chalet",
+   "name": "Chalet 2",
+   "pos": [
+    8,
+    29
+   ],
+   "locked": "Locked. Somebody inside is playing 'Doop' on a cassette player for what Teddy says is the fourth time."
+  },
+  {
+   "id": "chalet_3",
+   "facade": "chalet",
+   "name": "Chalet 3",
+   "pos": [
+    14,
+    29
+   ]
+  },
+  {
+   "id": "chalet_4",
+   "facade": "chalet",
+   "name": "Chalet 4",
+   "pos": [
+    20,
+    29
+   ],
+   "locked": "Locked, and a NO VACANCIES card in the window, which on a chalet is a boast."
+  },
+  {
+   "id": "chalet_7",
+   "facade": "chalet",
+   "name": "Chalet 7",
+   "pos": [
+    2,
+    36
+   ],
+   "locked": "Locked. The curtains are 1970s orange and they are drawn, and have been since the 1970s."
+  },
+  {
+   "id": "chalet_8",
+   "facade": "chalet",
+   "name": "Chalet 8",
+   "pos": [
+    8,
+    36
+   ],
+   "locked": "Locked. Through the glass: a Teasmade, an ironing board and nobody."
+  },
+  {
+   "id": "chalet_9",
+   "facade": "chalet",
+   "name": "Chalet 9 (staff)",
+   "pos": [
+    14,
+    36
+   ]
+  },
+  {
+   "id": "chalet_10",
+   "facade": "chalet",
+   "name": "Chalet 10",
+   "pos": [
+    20,
+    36
+   ],
+   "locked": "Locked. A row of shoes on the step, smallest to largest, drying out with sand in every one."
+  }
+ ],
+ "houses": [],
+ "props": [
+  {
+   "kind": "chain_fence",
+   "pos": [
+    2.5,
+    2
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    5.5,
+    2
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    8.5,
+    2
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    11.5,
+    2
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    14.5,
+    2
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    17.5,
+    2
+   ],
+   "name": "Boundary fence",
+   "look": [
+    [
+     "player",
+     "Chain-link, sagging. SUNNYSIDE HOLIDAY CAMP. PRIVATE. The gap beside it has been a gap for longer than the sign has been a sign."
+    ],
+    [
+     "dale",
+     "Kids' path. Worn to the dirt. Twenty years of kids."
+    ],
+    [
+     "ruth",
+     "Two of them in particular, dear."
+    ]
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    29.5,
+    2
+   ],
+   "name": "Boundary fence",
+   "look": [
+    [
+     "player",
+     "The fence goes on toward the sea with a tide of crisp packets along the bottom of it."
+    ],
+    [
+     "teddy",
+     "Crisps. They call them crisps. The bag says the same thing it says at home and you still can't eat them with a straight face."
+    ]
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    32.5,
+    2
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    35.5,
+    2
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    38.5,
+    2
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    41.5,
+    2
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    44.5,
+    2
+   ]
+  },
+  {
+   "kind": "reeds",
+   "pos": [
+    21,
+    3.6
+   ]
+  },
+  {
+   "kind": "reeds2",
+   "pos": [
+    27,
+    3.6
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    19.5,
+    3.4
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    28.5,
+    3.4
+   ]
+  },
+  {
+   "kind": "reeds",
+   "pos": [
+    2,
+    4.5
+   ]
+  },
+  {
+   "kind": "reeds2",
+   "pos": [
+    45,
+    4.5
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    3,
+    7.5
+   ]
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    27,
+    6.5
+   ]
+  },
+  {
+   "kind": "bush_big",
+   "pos": [
+    19.5,
+    5.5
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    10,
+    5.4
+   ],
+   "name": "Ballroom bins",
+   "look": [
+    [
+     "player",
+     "Two bins and a stack of crates. The smell is lager, bleach and a very old carpet."
+    ],
+    [
+     "elijah",
+     "Something's been sick in the hedge."
+    ],
+    [
+     "teddy",
+     "Something British."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    11,
+    5.4
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    5,
+    5.9
+   ],
+   "name": "Beer crates",
+   "look": "Empty crates. WHITBREAD, and under that, a sticker from the 1970s that says the same thing with less confidence."
+  },
+  {
+   "kind": "mower",
+   "pos": [
+    15,
+    5.6
+   ],
+   "name": "The caretaker's mower",
+   "look": [
+    [
+     "player",
+     "A ride-on mower, hand-painted the camp yellow. The seat is a car seat. Someone loves this."
+    ],
+    [
+     "june",
+     "Len. The spanners are laid out by size."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair_stack",
+   "pos": [
+    24,
+    6.5
+   ],
+   "name": "Deckchair stack",
+   "look": "Forty deckchairs, folded, roped and padlocked. Someone counted them. Someone has been burned before."
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    7,
+    4.5
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    22,
+    4.5
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    30,
+    4.5
+   ]
+  },
+  {
+   "kind": "outdoor_stage",
+   "pos": [
+    34,
+    9
+   ],
+   "name": "The outdoor stage",
+   "look": [
+    [
+     "player",
+     "An outdoor stage. Boards, a fringe of bunting, two floods on a bar. A board at the side: TALENT NIGHT 7PM. KIDS CLUB 10AM. A third line has been painted over."
+    ],
+    [
+     "miriam",
+     "Painted over, and the paint is older than the sign."
+    ],
+    [
+     "elijah",
+     "Someone very tall stood right at the front of this. I can see where the boards remember him."
+    ]
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    34,
+    6.6
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    30,
+    12.5
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    38,
+    12.5
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    33,
+    12.6
+   ],
+   "name": "Bench",
+   "look": [
+    [
+     "player",
+     "A bench facing the stage with a bronze plate: FOR BETTY, WHO WON THE GLAMOROUS GRANDMOTHER 1978 TO 1981."
+    ],
+    [
+     "ruth",
+     "Four years running. Good for Betty."
+    ],
+    [
+     "teddy",
+     "What happened in '82?"
+    ],
+    [
+     "ruth",
+     "Don't."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    37,
+    12.6
+   ]
+  },
+  {
+   "kind": "swing",
+   "pos": [
+    42,
+    8
+   ],
+   "name": "Swings",
+   "look": [
+    [
+     "player",
+     "A swing frame, three swings, two seats. The third chain ends in a knot and a lot of trust."
+    ],
+    [
+     "dale",
+     "Kids don't care. Kids have never cared."
+    ]
+   ]
+  },
+  {
+   "kind": "slide",
+   "pos": [
+    45,
+    8
+   ],
+   "name": "Slide",
+   "look": "A steel slide, hot enough to brand a child. It has done so, going by the shoes beside it."
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    42,
+    12.3
+   ],
+   "name": "Picnic table",
+   "look": [
+    [
+     "player",
+     "A picnic table with initials cut into every inch of it. The oldest you can find is 1962."
+    ],
+    [
+     "june",
+     "There's a C.R. and an F.M. about a hand apart. 1973."
+    ],
+    [
+     "miriam",
+     "There are a thousand initials, June."
+    ],
+    [
+     "june",
+     "They're a hand apart."
+    ]
+   ]
+  },
+  {
+   "kind": "tree_summer2",
+   "pos": [
+    40,
+    4.5
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    31,
+    6.4
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    44,
+    11.3
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    39,
+    11.3
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    38,
+    4.6
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    31,
+    11.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    39,
+    14.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    31,
+    14.6
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    36,
+    10.6
+   ],
+   "name": "Gull",
+   "look": "A herring gull on the stage, in the exact centre, looking at you like you are late."
+  },
+  {
+   "kind": "camp_sign",
+   "pos": [
+    32,
+    14.4
+   ],
+   "name": "Camp sign",
+   "look": [
+    [
+     "player",
+     "SUNNYSIDE HOLIDAY CAMP. EST. 1951. FAMILIES WELCOME. A sun with a face. The sun's face has been repainted, and the painter was not told what the old one looked like."
+    ],
+    [
+     "teddy",
+     "It looks like it knows something."
+    ],
+    [
+     "vera",
+     "It looks like it is being paid to."
+    ]
+   ]
+  },
+  {
+   "kind": "camp_sign",
+   "pos": [
+    3,
+    17
+   ],
+   "name": "The old sign",
+   "look": [
+    [
+     "player",
+     "A second sign, behind the first, faded to the bone: SUNNYSIDE. 1973 SEASON. SUNNY JIM AND THE YELLOWCOATS. CABARET NIGHTLY. KIDS' WALKABOUT DAILY."
+    ],
+    [
+     "miriam",
+     "Walkabout. Daily."
+    ],
+    [
+     "ruth",
+     "Somebody kept that up for twenty years, dear. Somebody wanted it read."
+    ]
+   ]
+  },
+  {
+   "kind": "phone_box",
+   "pos": [
+    2.5,
+    13.6
+   ],
+   "name": "Telephone box",
+   "look": [
+    [
+     "player",
+     "A red phone box with every pane intact, which Teddy says is a first. It takes ten pence pieces the size of a saucer."
+    ],
+    [
+     "june",
+     "It rings. Sometimes. Len says don't answer it."
+    ]
+   ]
+  },
+  {
+   "kind": "vacancies_sign",
+   "pos": [
+    21,
+    13.6
+   ],
+   "name": "Vacancies sign",
+   "look": "VACANCIES. The NO has been slid in and out so many times it hangs loose. It is out. It is the bank holiday."
+  },
+  {
+   "kind": "pillar_box",
+   "pos": [
+    29,
+    14.5
+   ],
+   "name": "Pillar box",
+   "look": [
+    [
+     "player",
+     "A pillar box. Last collection 5.30 PM. GR, not ER: older than the Queen."
+    ],
+    [
+     "teddy",
+     "They put the king's initials on the mail boxes. I love it here."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    10,
+    16.6
+   ],
+   "name": "Bench",
+   "look": "A bench facing the ballroom doors. The wood says J.R. 1973 in a careful hand, and then a heart, and then nothing."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    16,
+    16.6
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    9,
+    13.2
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    18,
+    13.2
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    26,
+    13.2
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    25,
+    15.4
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    25,
+    19.4
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    19,
+    17.6
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    7,
+    16.5
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    3,
+    10.5
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    6,
+    10.5
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    20.5,
+    10.5
+   ]
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    29.5,
+    9.5
+   ]
+  },
+  {
+   "kind": "coach",
+   "pos": [
+    23,
+    21.3
+   ],
+   "name": "Coach",
+   "look": [
+    [
+     "player",
+     "A coach on the drive. SOUTHERN VECTIS, and a card in the windscreen: BRISTOL ROVERS SUPPORTERS CLUB, SPRING TOUR."
+    ],
+    [
+     "teddy",
+     "A bus of soccer fans."
+    ],
+    [
+     "dale",
+     "Football."
+    ],
+    [
+     "teddy",
+     "A bus of football fans."
+    ]
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    27.5,
+    17.4
+   ],
+   "name": "Bicycle",
+   "look": "A bicycle with a basket and a sign on the basket: KERRY'S. TOUCH IT AND DIE. XX."
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    12.5,
+    21.9
+   ],
+   "name": "Props crate",
+   "look": [
+    [
+     "player",
+     "A crate with PROPS on it, and inside, a rubber chicken and a wooden sword marked TERRY'S."
+    ],
+    [
+     "teddy",
+     "Everybody's got a wooden sword marked TERRY'S."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair_stack",
+   "pos": [
+    21,
+    21.6
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    19.5,
+    21.5
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    3,
+    21.5
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    4.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    3.5,
+    26.5
+   ]
+  },
+  {
+   "kind": "pool_empty",
+   "pos": [
+    28,
+    26
+   ],
+   "name": "The pool",
+   "look": [
+    [
+     "player",
+     "The pool, drained for the season. Leaves in the deep end, a traffic cone in the shallow end, a tidemark at four feet where the fun used to stop."
+    ],
+    [
+     "elijah",
+     "It's full. ...Not of water."
+    ],
+    [
+     "miriam",
+     "It's full of leaves, Elijah."
+    ],
+    [
+     "elijah",
+     "Yes. That's what I'm telling myself."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    25.5,
+    24.6
+   ],
+   "name": "Deckchair",
+   "look": "A deckchair facing an empty pool. Optimism, or a man who has stopped asking."
+  },
+  {
+   "kind": "deckchair_blue",
+   "pos": [
+    30.5,
+    24.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    25,
+    28.6
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    31,
+    28.4
+   ]
+  },
+  {
+   "kind": "deckchair_green",
+   "pos": [
+    7,
+    31
+   ],
+   "name": "Deckchair",
+   "look": "Somebody's own deckchair, carried from home. It has a name on it in marker, like a child's coat."
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    12.5,
+    30.6
+   ],
+   "name": "Bucket and spade",
+   "look": [
+    [
+     "player",
+     "A bucket and spade from Woolworths. The bucket is shaped like a castle and the sand inside is shaped like a bucket."
+    ],
+    [
+     "teddy",
+     "The British go to the beach to build smaller Britains."
+    ]
+   ]
+  },
+  {
+   "kind": "windbreak",
+   "pos": [
+    18.5,
+    31.6
+   ],
+   "name": "Windbreak",
+   "look": "A striped windbreak, folded, for a beach that is three minutes away and always in the wind."
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    23.5,
+    31.2
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    4,
+    30.3
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    22,
+    30.3
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    7,
+    30.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    25.5,
+    31.6
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    5,
+    37.6
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    20.5,
+    37.6
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    25,
+    37.5
+   ]
+  },
+  {
+   "kind": "deckchair_blue",
+   "pos": [
+    11,
+    37.6
+   ],
+   "name": "Deckchair",
+   "look": "A deckchair with a newspaper over the face of nobody. The newspaper is this morning's. The nobody got up."
+  },
+  {
+   "kind": "tree_summer2",
+   "pos": [
+    27,
+    31.5
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    30,
+    36.5
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    26,
+    34.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    29,
+    33.5
+   ]
+  },
+  {
+   "kind": "stile",
+   "pos": [
+    31.5,
+    30.4
+   ],
+   "name": "Stile onto the beach",
+   "look": [
+    [
+     "player",
+     "A stile over a fence that stopped existing. You could walk round it. Everybody uses the stile."
+    ],
+    [
+     "ruth",
+     "Of course they do, dear. It's there."
+    ]
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    31,
+    27.5
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    31,
+    34.5
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    32.5,
+    29.5
+   ]
+  },
+  {
+   "kind": "beach_hut",
+   "pos": [
+    35,
+    28
+   ]
+  },
+  {
+   "kind": "beach_hut_pink",
+   "pos": [
+    38,
+    28
+   ]
+  },
+  {
+   "kind": "beach_hut_yellow",
+   "pos": [
+    41,
+    28
+   ],
+   "name": "Yellow beach hut",
+   "look": [
+    [
+     "player",
+     "A yellow beach hut with the number painted out. Inside, through the gap: a primus, a kettle, and a lifetime of Woman's Own."
+    ],
+    [
+     "miriam",
+     "That's the exact yellow."
+    ],
+    [
+     "player",
+     "Of what?"
+    ],
+    [
+     "miriam",
+     "I don't know yet. Of something."
+    ]
+   ]
+  },
+  {
+   "kind": "ice_cream_cart",
+   "pos": [
+    34,
+    31.6
+   ],
+   "name": "Ice cream cart",
+   "look": [
+    [
+     "player",
+     "WALL'S. A 99 is a cone with a chocolate stick in it and it costs 60p, which is not 99 of anything."
+    ],
+    [
+     "teddy",
+     "I've asked three people. Nobody knows why it's called that. Nobody has ever wondered."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    37,
+    31.4
+   ]
+  },
+  {
+   "kind": "deckchair_blue",
+   "pos": [
+    39,
+    31.4
+   ]
+  },
+  {
+   "kind": "deckchair_green",
+   "pos": [
+    41,
+    31.6
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    44,
+    30.6
+   ],
+   "name": "Deckchair",
+   "look": [
+    [
+     "player",
+     "A deckchair, unoccupied, with a towel on it, which on a British beach is a legal document."
+    ],
+    [
+     "teddy",
+     "I'm going to sit in it."
+    ],
+    [
+     "ruth",
+     "You are not."
+    ]
+   ]
+  },
+  {
+   "kind": "windbreak",
+   "pos": [
+    44,
+    32.8
+   ],
+   "name": "Windbreak",
+   "look": "A windbreak, hammered in with a shoe. The shoe is still there."
+  },
+  {
+   "kind": "buoy",
+   "pos": [
+    36,
+    34.4
+   ],
+   "name": "Buoy",
+   "look": "A buoy, dragged up the beach and left. NO BATHING BEYOND, it says, pointing at the chalets."
+  },
+  {
+   "kind": "dinghy",
+   "pos": [
+    41,
+    34.3
+   ],
+   "name": "Dinghy",
+   "look": [
+    [
+     "player",
+     "An inflatable dinghy, half down, called SANDOWN STAR in biro. Someone has been to sea in this."
+    ],
+    [
+     "dale",
+     "Someone has been to France in this. Look at the bottom."
+    ]
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    45,
+    33.7
+   ],
+   "name": "Gull",
+   "look": [
+    [
+     "player",
+     "A gull with a whole chip, running from six other gulls."
+    ],
+    [
+     "teddy",
+     "Chip. Not fry. Chip. The fat here smells like a different century."
+    ]
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    33,
+    26.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    38,
+    36.8
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    43,
+    37.3
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    34,
+    37.7
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    46,
+    28.4
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    34,
+    16.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    40,
+    16.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    37,
+    23.6
+   ]
+  },
+  {
+   "kind": "pillar_box",
+   "pos": [
+    46,
+    16.5
+   ]
+  },
+  {
+   "kind": "phone_box",
+   "pos": [
+    43,
+    16.5
+   ],
+   "name": "Telephone box",
+   "look": [
+    [
+     "player",
+     "Another phone box. The directory is chained in. Somebody has written a number inside the cover and SUNNY in capitals, in pencil, faded almost to the paper."
+    ],
+    [
+     "june",
+     "That's a Sandown number. Old exchange. Four digits."
+    ],
+    [
+     "teddy",
+     "Four digits. Nineteen-seventies."
+    ]
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    36,
+    21.7
+   ],
+   "name": "Parked car",
+   "look": [
+    [
+     "player",
+     "A Vauxhall Cavalier with the steering wheel on the wrong side, parked on the wrong side, facing the wrong way."
+    ],
+    [
+     "miriam",
+     "It's the right side. We're the ones who are wrong here."
+    ],
+    [
+     "player",
+     "I don't accept that."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    32,
+    23.6
+   ],
+   "name": "Bus stop",
+   "look": "A bench and a pole: SOUTHERN VECTIS. The timetable says hourly and the people waiting say otherwise."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    46,
+    23.5
+   ]
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    33,
+    15.5
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    45,
+    14.5
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    41,
+    14.5
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "lk_camp_boss",
+   "name": "Terry Gosling",
+   "pos": [
+    36,
+    11.5
+   ],
+   "facing": "down",
+   "sprite": "camp_boss",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "lk_caretaker",
+   "name": "Len Cutmore",
+   "pos": [
+    26,
+    28.6
+   ],
+   "facing": "left",
+   "sprite": "caretaker",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "lk_yellowcoat",
+   "name": "Kerry Pardoe",
+   "pos": [
+    33,
+    10.6
+   ],
+   "facing": "down",
+   "sprite": "yellowcoat2",
+   "when": [
+    "morning",
+    "dusk"
+   ]
+  },
+  {
+   "id": "lk_yellowcoat_2",
+   "name": "Gaz",
+   "pos": [
+    40.5,
+    10.5
+   ],
+   "facing": "right",
+   "sprite": "yellowcoat",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "lk_kid",
+   "name": "A kid on the swings",
+   "pos": [
+    43,
+    9.6
+   ],
+   "facing": "down",
+   "sprite": "kid",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "lk_kid2",
+   "name": "A kid with a bucket",
+   "pos": [
+    39.5,
+    9.6
+   ],
+   "facing": "left",
+   "sprite": "kid",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "lk_mum",
+   "name": "Sandra Teale",
+   "pos": [
+    39,
+    32.6
+   ],
+   "facing": "down",
+   "sprite": "holidaymaker",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "lk_dad",
+   "name": "Mick Teale",
+   "pos": [
+    42.5,
+    29.6
+   ],
+   "facing": "left",
+   "sprite": "holidaymaker2",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "lk_gran",
+   "name": "A grandmother in a deckchair",
+   "pos": [
+    38,
+    30.6
+   ],
+   "facing": "down",
+   "sprite": "holidaymaker",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "lk_driver",
+   "name": "Coach driver",
+   "pos": [
+    21,
+    22.5
+   ],
+   "facing": "down",
+   "sprite": "holidaymaker2",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "lk_mod",
+   "name": "A lad from Lake",
+   "pos": [
+    45,
+    22.6
+   ],
+   "facing": "up",
+   "sprite": "mod",
+   "when": [
+    "dusk",
+    "night"
+   ]
+  }
+ ],
+ "clues": [],
+ "exits": [
+  {
+   "rect": [
+    47,
+    16,
+    1,
+    8
+   ],
+   "to": "sandown_seafront",
+   "at": [
+    2,
+    20
+   ],
+   "name": "The seafront"
+  },
+  {
+   "rect": [
+    20,
+    0,
+    8,
+    1
+   ],
+   "to": "sandown_levels",
+   "at": [
+    24,
+    53
+   ],
+   "name": "The Levels"
+  }
+ ],
+ "interiors": {
+  "ballroom": {
+   "size": [
+    16,
+    10
+   ],
+   "floor": [
+    "carpet_red"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "curtain",
+     "pos": [
+      2,
+      2.7
+     ],
+     "name": "Stage curtains",
+     "look": [
+      [
+       "player",
+       "A little stage with red curtains and a glitter backdrop that says SUNNYSIDE in a font from 1971. The boards are sprung. The springs have given up."
+      ],
+      [
+       "elijah",
+       "The air changes two steps in from the curtain. Everyone who ever stood there is still a bit there."
+      ]
+     ]
+    },
+    {
+     "kind": "curtain",
+     "pos": [
+      4,
+      2.7
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      7,
+      1.5
+     ],
+     "name": "Staff photographs",
+     "look": [
+      [
+       "player",
+       "Staff photos, one a season, 1971 to 1994, in a row along the wall. Yellow blazers, every year. There's a gap: a clean rectangle on the wallpaper where 1973 should be."
+      ],
+      [
+       "miriam",
+       "One missing photo in twenty-four. They took it down. They didn't move the others up."
+      ]
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      9,
+      1.6
+     ],
+     "name": "Programme",
+     "look": "THIS WEEK AT SUNNYSIDE. Bingo, talent night, glamorous grandmother, knobbly knees, and on Wednesday a hypnotist called The Great Marvo, with a drawing of Marvo that is not great."
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      5.5,
+      1.4
+     ],
+     "name": "Bingo",
+     "look": "BINGO NIGHTLY. EYES DOWN 8. The 8 has been changed from a 7 with a felt pen and nobody has been told."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      11,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "Sunnyside 1994. The bank holiday is circled. Every Tuesday says COACHES. Every Saturday says CHANGEOVER in a hand that hates Saturdays."
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      14,
+      1.6
+     ]
+    },
+    {
+     "kind": "bar_counter",
+     "pos": [
+      13,
+      3
+     ],
+     "name": "Bar",
+     "look": [
+      [
+       "player",
+       "A bar: Whitbread on the pump, Babycham on the shelf, a jar of pickled eggs that Teddy is not allowed to open."
+      ],
+      [
+       "teddy",
+       "They sell beer by the pint and the pint is bigger. I measured. It's bigger."
+      ]
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      12,
+      4.2
+     ]
+    },
+    {
+     "kind": "bar_stool_blue",
+     "pos": [
+      13,
+      4.2
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      14,
+      4.2
+     ]
+    },
+    {
+     "kind": "jukebox",
+     "pos": [
+      15.5,
+      2.6
+     ],
+     "name": "Jukebox",
+     "look": [
+      [
+       "player",
+       "Three plays for 50p. The top slot is MR BLOBBY and the label is worn white."
+      ],
+      [
+       "vera",
+       "Who is Mr Blobby."
+      ],
+      [
+       "teddy",
+       "Don't."
+      ],
+      [
+       "vera",
+       "I insist on knowing who Mr Blobby is."
+      ]
+     ]
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      6,
+      3.4
+     ],
+     "name": "Colour wheel",
+     "look": [
+      [
+       "player",
+       "A colour wheel on a stand, pointed at the dance floor: red, blue, green, yellow, round and round. It would make a man all colours."
+      ],
+      [
+       "dale",
+       "It would make a man a disco."
+      ],
+      [
+       "june",
+       "RYDE ELECTRICAL, 1989, on the sticker. Not the one. There might have been one."
+      ]
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      9.5,
+      2.6
+     ],
+     "name": "Clock",
+     "look": "A clock that says BULOVA and twenty past four. It is not twenty past four. It has not been twenty past four since the heatwave of '76, Len says."
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      1.5,
+      4.5
+     ],
+     "name": "Television",
+     "look": [
+      [
+       "player",
+       "A big television on a bracket. NEIGHBOURS. The sound is off and the picture is orange."
+      ],
+      [
+       "teddy",
+       "It's Australian. They're watching Australia in England, on an island, in a holiday camp."
+      ],
+      [
+       "ruth",
+       "That's a holiday, dear."
+      ]
+     ]
+    },
+    {
+     "kind": "table",
+     "pos": [
+      4,
+      6.2
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      3,
+      7.3
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      5,
+      5.3
+     ]
+    },
+    {
+     "kind": "table",
+     "pos": [
+      9,
+      6.5
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      8,
+      7.6
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      10,
+      5.6
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      10,
+      7.6
+     ]
+    },
+    {
+     "kind": "table",
+     "pos": [
+      13.5,
+      7
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      12.5,
+      6.1
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      14.5,
+      8.1
+     ]
+    },
+    {
+     "kind": "arcade_machine_red",
+     "pos": [
+      15.5,
+      5.5
+     ],
+     "name": "Fruit machine",
+     "look": "A fruit machine, BAR-X, with a hand-lettered card: NUDGES HELD TILL TUESDAY. Somebody is coming back for them."
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      1.5,
+      7.2
+     ],
+     "name": "Lost property",
+     "look": [
+      [
+       "player",
+       "A lost property box. Forty-three single flip-flops, a wig, a denture, and a child's cardigan with a name tape: C. RUDD."
+      ],
+      [
+       "ruth",
+       "...Twenty-one years in a box, dear. Nobody came for it."
+      ],
+      [
+       "miriam",
+       "Or it's a common name. ...It isn't."
+      ]
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      7.5,
+      8.5
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "lk_camp_boss",
+     "name": "Terry Gosling",
+     "pos": [
+      8,
+      4.6
+     ],
+     "facing": "down",
+     "sprite": "camp_boss",
+     "when": [
+      "day"
+     ]
+    },
+    {
+     "id": "lk_camp_boss",
+     "name": "Terry Gosling",
+     "pos": [
+      11.5,
+      4.8
+     ],
+     "facing": "left",
+     "sprite": "camp_boss",
+     "when": [
+      "night"
+     ]
+    },
+    {
+     "id": "lk_yellowcoat",
+     "name": "Kerry Pardoe",
+     "pos": [
+      4,
+      4.5
+     ],
+     "facing": "down",
+     "sprite": "yellowcoat2",
+     "when": [
+      "night"
+     ]
+    },
+    {
+     "id": "lk_yellowcoat_2",
+     "name": "Gaz",
+     "pos": [
+      2.5,
+      5.8
+     ],
+     "facing": "right",
+     "sprite": "yellowcoat",
+     "when": [
+      "night"
+     ]
+    },
+    {
+     "id": "lk_gran",
+     "name": "A grandmother with a dabber",
+     "pos": [
+      8,
+      5.7
+     ],
+     "facing": "down",
+     "sprite": "holidaymaker",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "lk_dad",
+     "name": "Mick Teale",
+     "pos": [
+      12,
+      5.3
+     ],
+     "facing": "up",
+     "sprite": "holidaymaker2",
+     "when": [
+      "night"
+     ]
+    }
+   ]
+  },
+  "green_room": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "lino",
+    "lino2"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "mirror_standing",
+     "pos": [
+      2,
+      2.8
+     ],
+     "name": "Mirror",
+     "look": [
+      [
+       "player",
+       "A dressing mirror with a ring of bulbs. Half of them work. The working half spells nothing, which Teddy finds a relief."
+      ],
+      [
+       "teddy",
+       "I'd have read it."
+      ]
+     ]
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      5.5,
+      2.4
+     ],
+     "name": "Dressing table",
+     "look": [
+      [
+       "player",
+       "A dressing table: hairgrips, a 1992 tide table, a Sunnyside biro, a jar of cold cream. In the back of the drawer, stuck under the paper lining, a brass key on a Sunnyside fob. The fob says OFFICE in Dymo tape."
+      ],
+      [
+       "miriam",
+       "Under the lining. Somebody didn't want it found and didn't want it gone."
+      ]
+     ],
+     "pickup": "camp_office_key"
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      7.5,
+      1.5
+     ],
+     "name": "Yellowcoat rota, 1994",
+     "look": [
+      [
+       "player",
+       "YELLOWCOATS, MAY 1994. Kerry. Gaz. A third name crossed out so hard the biro went through the paper, and under it, in a different hand: GONE TO BUTLINS."
+      ],
+      [
+       "teddy",
+       "They do that here. They just leave. Mid-season."
+      ],
+      [
+       "miriam",
+       "They did it in 1973, apparently."
+      ]
+     ]
+    },
+    {
+     "kind": "costume_rail",
+     "pos": [
+      8.5,
+      2.7
+     ],
+     "name": "This week's rail",
+     "look": "Three yellow blazers, a gorilla, and the back half of a pantomime horse. The front half is a matter between Gaz and Kerry."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      3.5,
+      1.6
+     ],
+     "name": "Page-a-day calendar",
+     "look": "A page-a-day with a joke on every page. Today's: 'What do you call a man with a seagull on his head? Cliff.' Kerry has written NO under it."
+    },
+    {
+     "kind": "sofa_grey",
+     "pos": [
+      4,
+      5.6
+     ],
+     "name": "Sofa",
+     "look": [
+      [
+       "player",
+       "A sofa that has been slept on more than sat on. There's a blanket, a hot water bottle and a copy of The Stage folded to SITUATIONS VACANT."
+      ],
+      [
+       "elijah",
+       "She's looking for a way out, poor love. They all are, in this room. Always were."
+      ]
+     ]
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      6.5,
+      5.6
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      6.5,
+      5.3
+     ],
+     "name": "Internal phone",
+     "look": "An internal phone. 1 for OFFICE. 2 for BAR. 3 has a strip of tape over it and nobody will say what 3 was."
+    },
+    {
+     "kind": "coffee_maker",
+     "pos": [
+      9,
+      2.2
+     ],
+     "name": "Kettle",
+     "look": [
+      [
+       "player",
+       "A kettle, a jar of Mellow Birds and a tin of custard creams with two left."
+      ],
+      [
+       "ruth",
+       "One left."
+      ],
+      [
+       "player",
+       "Ruth."
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      8.5,
+      6.5
+     ],
+     "name": "Box of balloons",
+     "look": "Five hundred balloons and a pump. On the box, in marker: DO NOT GIVE GAZ THE PUMP."
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      2,
+      5.4
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      1.5,
+      7.2
+     ]
+    },
+    {
+     "kind": "mirror_wall",
+     "pos": [
+      6,
+      1.5
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "lk_yellowcoat",
+     "name": "Kerry Pardoe",
+     "pos": [
+      5,
+      4.4
+     ],
+     "facing": "down",
+     "sprite": "yellowcoat2",
+     "when": [
+      "day"
+     ]
+    }
+   ]
+  },
+  "costume_store": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      1.5,
+      3.4
+     ],
+     "name": "The one working light",
+     "look": "One bulb, bare, on a stand. Everything in here leans toward it."
+    },
+    {
+     "kind": "costume_rail",
+     "pos": [
+      3.5,
+      2.7
+     ],
+     "name": "Rail: the eighties",
+     "look": "Shell suits, a Rubik's cube costume, a yellow blazer with shoulder pads you could land a plane on."
+    },
+    {
+     "kind": "costume_rail",
+     "pos": [
+      7.5,
+      2.7
+     ],
+     "name": "Rail: the seventies",
+     "look": [
+      [
+       "player",
+       "The old rail. Yellow blazers from when the yellow was a different yellow. A gorilla with no head. A Dalek made of a bin."
+      ],
+      [
+       "miriam",
+       "And between the blazer and the gorilla. There."
+      ],
+      [
+       "teddy",
+       "Oh, hello."
+      ]
+     ]
+    },
+    {
+     "kind": "mirror_wall",
+     "pos": [
+      5.5,
+      1.5
+     ]
+    },
+    {
+     "kind": "cabinet",
+     "pos": [
+      9,
+      2.6
+     ],
+     "name": "Make-up cabinet",
+     "look": [
+      [
+       "player",
+       "Leichner sticks, numbered. Fives and Nines for faces, barely touched. Then the colours: a full set, red, blue, green, hardly used, and the yellow worn to a stub."
+      ],
+      [
+       "miriam",
+       "Somebody painted one thing yellow, a lot, for a long time."
+      ],
+      [
+       "vera",
+       "Or painted himself every colour there is, once."
+      ]
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      3,
+      4.8
+     ],
+     "name": "Wig shelf",
+     "look": "Wigs on polystyrene heads. The heads have faces drawn on. The faces have names. One of the names is TERRY."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      9,
+      6.6
+     ],
+     "name": "Props crate",
+     "look": [
+      [
+       "player",
+       "A custard pie tin, a rubber chicken, a bunch of plastic flowers that goes up a sleeve, and a tin trumpet with a note tied on: DO NOT. LEN."
+      ],
+      [
+       "dale",
+       "A trumpet. A voice with no breath in it."
+      ],
+      [
+       "june",
+       "...It's a tin trumpet, Dale."
+      ],
+      [
+       "dale",
+       "I'm just saying."
+      ]
+     ]
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      1.5,
+      6.6
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      6.5,
+      6.6
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      8,
+      7.3
+     ]
+    }
+   ],
+   "npcs": [],
+   "clues": [
+    {
+     "id": "lk_yellow_hat",
+     "name": "A yellow pointed hat",
+     "pos": [
+      6.5,
+      3.8
+     ],
+     "prop": "clue_vest",
+     "night": 2,
+     "text": "On the far rail, between a 1970s yellow blazer and a gorilla with no head: a pointed hat, yellow, as tall as your arm is long, the felt gone grey along the folds. It is not a costumier's hat. Someone built it on a wire frame and it has been worn: there's a rim of something greasy inside the band, and a thumbprint in it. Miriam already has the camera out. Teddy already has the notebook out.",
+     "methods": {
+      "photograph": "lk_hat_photo",
+      "bag": "lk_hat_fibres",
+      "measure": "spoil",
+      "cast": "spoil"
+     }
+    },
+    {
+     "id": "lk_hire_box",
+     "name": "A box of receipts",
+     "pos": [
+      5.5,
+      5.6
+     ],
+     "prop": "box",
+     "text": "A shoebox marked HIRE, full of costume hire receipts: Gieves Theatrical, Portsmouth. One conical hat, yellow felt, and sundries, every summer since 1968. The hat has been hired every year. Which means the hat on the rail might be anybody's, and any year's.",
+     "methods": {
+      "bag": "lk_hire_receipts",
+      "photograph": "spoil",
+      "measure": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  },
+  "camp_office": {
+   "size": [
+    10,
+    10
+   ],
+   "floor": [
+    "lino",
+    "lino2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "time_clock",
+     "pos": [
+      1.5,
+      1.9
+     ],
+     "name": "Punch clock",
+     "look": "A punch clock. Terry's card is in. Terry's card has been in since Thursday, and Len's has never been out."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      3,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "A calendar from Hursts of Sandown, the ironmonger. May 1994. Every day has a number of chalets let, in pencil, and the bank holiday has 48 and an exclamation mark."
+    },
+    {
+     "kind": "pigeonholes",
+     "pos": [
+      5.5,
+      1.6
+     ],
+     "name": "Key board",
+     "look": [
+      [
+       "player",
+       "Chalet keys, 1 to 48, on hooks. Hook 3 and hook 9 are empty. Hook 23 has two keys and a note: DO NOT LET."
+      ],
+      [
+       "elijah",
+       "Twenty-three is fine. It's just sad. Somebody died on holiday and the camp never forgave the chalet."
+      ]
+     ]
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      7.5,
+      1.4
+     ],
+     "name": "Notice",
+     "look": "STAFF: NO WALKABOUTS WITHOUT THE MANAGER. Signed T.G. The paper is yellow and the drawing pins are rusted into the wall."
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      8.5,
+      2.1
+     ],
+     "name": "Filing cabinet: 1971 to 1980",
+     "look": [
+      [
+       "player",
+       "A grey cabinet, one drawer a year. 1973 is the thin one, and the only one with a lock, and the lock is open."
+      ],
+      [
+       "miriam",
+       "Someone opens it. Someone keeps opening it."
+      ]
+     ]
+    },
+    {
+     "kind": "filing_tall",
+     "pos": [
+      9.5,
+      2.1
+     ],
+     "name": "Filing cabinet: 1981 to date",
+     "look": "Fatter years. 1994 is already the fattest. Terry says it's the paperwork; Len says it's the complaints."
+    },
+    {
+     "kind": "desk_wood",
+     "pos": [
+      4,
+      3.4
+     ],
+     "name": "Len's desk",
+     "look": "A desk with a blotter, a ledger, a Sunnyside biro and a mug that says WORLD'S OKAYEST GRANDAD, which Len bought himself."
+    },
+    {
+     "kind": "typewriter",
+     "pos": [
+      3.5,
+      3.2
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      5,
+      3.2
+     ]
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      4,
+      2.6
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      1.5,
+      4.6
+     ],
+     "name": "Ledgers",
+     "look": [
+      [
+       "player",
+       "Season ledgers, 1951 to date, by colour of spine. 1973 is red. The rest are green."
+      ],
+      [
+       "june",
+       "They ran out of green in 1973. ...Or something."
+      ]
+     ]
+    },
+    {
+     "kind": "bulletin_board",
+     "pos": [
+      6.5,
+      6
+     ],
+     "name": "Noticeboard",
+     "look": [
+      [
+       "player",
+       "Lost property notices. LOST: ONE CHILD, 11. FOUND: ONE CHILD, 11. SAME CHILD. And a photo of a dog that found its own way home from Shanklin."
+      ],
+      [
+       "teddy",
+       "That's good. That's a good dog."
+      ]
+     ]
+    },
+    {
+     "kind": "copy_machine",
+     "pos": [
+      8.5,
+      7.3
+     ],
+     "name": "Photocopier",
+     "look": "A photocopier with a sign: OUT OF ORDER SINCE THE WAR. Len's handwriting. Len is sixty-one."
+    },
+    {
+     "kind": "water_cooler",
+     "pos": [
+      9.5,
+      5.2
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      2,
+      7.4
+     ]
+    },
+    {
+     "kind": "cabinet",
+     "pos": [
+      2.5,
+      9.3
+     ],
+     "name": "Lost and found cabinet",
+     "look": "A cabinet of things people left in 1994 and will not come back for: a cagoule, a Walkman, a cassette of 'Now 27' with the case of 'Now 26'."
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      9,
+      9.4
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "lk_camp_boss",
+     "name": "Terry Gosling",
+     "pos": [
+      3,
+      5.2
+     ],
+     "facing": "down",
+     "sprite": "camp_boss",
+     "when": [
+      "morning"
+     ]
+    },
+    {
+     "id": "lk_caretaker",
+     "name": "Len Cutmore",
+     "pos": [
+      7,
+      4.4
+     ],
+     "facing": "down",
+     "sprite": "caretaker",
+     "when": [
+      "day",
+      "dusk"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "lk_rota_cabinet",
+     "name": "The 1973 staff rota",
+     "pos": [
+      8.5,
+      3.6
+     ],
+     "prop": "paper",
+     "text": "In the thin drawer, on top of everything: the 1973 staff rota, typed, with a coffee ring. SUNNY JIM (ENTERTAINMENTS) is on every day of May, and then a line through the 29th and onward, and in the margin, in a young man's hand: LEFT 29/5. NO FWD ADDRESS. NOT TO BE REHIRED. T.G. The spring bank holiday was the 28th.",
+     "methods": {
+      "photograph": "lk_rota_1973",
+      "bag": "spoil",
+      "measure": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  },
+  "chalet_3": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "carpet_navy"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "bed_double",
+     "pos": [
+      2,
+      3.2
+     ],
+     "name": "The big bed",
+     "look": "A double bed with a candlewick bedspread and a hot water bottle, in May."
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      6.5,
+      3.4
+     ],
+     "name": "The small bed",
+     "look": "A single bed with a Thunderbirds duvet and a comic under the pillow. The comic has been read in the dark."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      4,
+      1.5
+     ],
+     "name": "Welcome card",
+     "look": "YOUR HOLIDAY STARTS HERE! A sun with a face, in a font nobody has updated since 1971. The exclamation mark is doing a lot of work."
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      4.5,
+      2.1
+     ],
+     "name": "Television",
+     "look": [
+      [
+       "player",
+       "A portable telly on a chain. Four channels, and the fourth is a snowstorm with a voice in it."
+      ],
+      [
+       "june",
+       "That's Channel 4. Probably."
+      ],
+      [
+       "elijah",
+       "...Probably."
+      ]
+     ]
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      7,
+      1.7
+     ],
+     "name": "Drawer",
+     "look": [
+      [
+       "player",
+       "A Gideon Bible, a 1994 Island Line timetable and sixteen pence in brown coins the size of medals."
+      ],
+      [
+       "teddy",
+       "The coins here are enormous."
+      ],
+      [
+       "miriam",
+       "That's two pence. It's worth two pence, Teddy."
+      ],
+      [
+       "teddy",
+       "It's the size of a cookie."
+      ]
+     ]
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      1.5,
+      5.2
+     ],
+     "name": "Beach bag",
+     "look": "A beach bag: a towel, factor 4, a Mills and Boon, and a bag of chips from last night, cold, which Sandra will eat."
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      5,
+      5.2
+     ],
+     "name": "Bucket",
+     "look": "A bucket with a crab in it. The crab has a name and a grievance."
+    },
+    {
+     "kind": "coffee_maker",
+     "pos": [
+      7.5,
+      4.8
+     ],
+     "name": "Kettle",
+     "look": "A kettle, two mugs, a half-pint of milk on the windowsill. The windowsill is the fridge."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "lk_mum",
+     "name": "Sandra Teale",
+     "pos": [
+      3.5,
+      4.6
+     ],
+     "facing": "down",
+     "sprite": "holidaymaker",
+     "when": [
+      "morning",
+      "night"
+     ]
+    },
+    {
+     "id": "lk_kid",
+     "name": "Darren Teale",
+     "pos": [
+      6,
+      5
+     ],
+     "facing": "left",
+     "sprite": "kid",
+     "when": [
+      "morning",
+      "night"
+     ]
+    },
+    {
+     "id": "lk_dad",
+     "name": "Mick Teale",
+     "pos": [
+      2,
+      5.2
+     ],
+     "facing": "right",
+     "sprite": "holidaymaker2",
+     "when": [
+      "dusk"
+     ]
+    }
+   ]
+  },
+  "chalet_9": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "carpet_red"
+   ],
+   "wall": "blue",
+   "props": [
+    {
+     "kind": "bed_single",
+     "pos": [
+      2,
+      3.4
+     ],
+     "name": "Gaz's bed",
+     "look": "An unmade bed, a yellow blazer on the floor, a can of Red Stripe on the sill. Gaz is not a morning person. Gaz is not, strictly, an afternoon person."
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      6.5,
+      3.4
+     ],
+     "name": "Kerry's bed",
+     "look": "Made. Hospital corners. A copy of The Stage and a letter to Butlins, Minehead, stamped and not posted."
+    },
+    {
+     "kind": "costume_rail",
+     "pos": [
+      4.5,
+      1.9
+     ],
+     "name": "Wardrobe rail",
+     "look": "Two yellow blazers and a dinner jacket that Gaz calls his 'Vegas'. There is no Vegas."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      7,
+      1.5
+     ],
+     "name": "Training poster",
+     "look": [
+      [
+       "player",
+       "YELLOWCOAT RULES: SMILE. SING. NEVER SAY NO. NEVER BE SEEN WITHOUT THE BLAZER. The fifth rule has been cut off with scissors."
+      ],
+      [
+       "miriam",
+       "Cut. Not torn. Somebody did that carefully."
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      2.5,
+      5.1
+     ],
+     "name": "Box under the bed",
+     "look": [
+      [
+       "player",
+       "A box that came with the chalet, Kerry says; they just push it back under. Inside: greasepaint sticks fused into one rainbow lump, a lampshade frame bent into a cone, a mouth-organ, and a 1973 Sunnyside name badge. SUNNY JIM."
+      ],
+      [
+       "elijah",
+       "He was tall. Not as tall as the hat. The hat did the rest, and he knew it."
+      ],
+      [
+       "dale",
+       "That's a frame for a hat. That's the frame for the hat."
+      ],
+      [
+       "ruth",
+       "He sat on this bed and built it, dear. And then he went and did it to two children, and then he ran."
+      ]
+     ]
+    },
+    {
+     "kind": "mirror_wall",
+     "pos": [
+      2,
+      1.5
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      7.5,
+      5.3
+     ]
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      4.5,
+      4.9
+     ],
+     "name": "Television",
+     "look": "A telly with a coat hanger for an aerial. It gets Radio 1 better than it gets pictures."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "lk_yellowcoat_2",
+     "name": "Gaz",
+     "pos": [
+      3,
+      4.6
+     ],
+     "facing": "down",
+     "sprite": "yellowcoat",
+     "when": [
+      "morning"
+     ]
+    }
+   ]
+  }
+ }
+}

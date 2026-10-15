@@ -1,0 +1,699 @@
+{
+ "_doc": "Levels fragment for the Sandown case: the golf club secretary, the groundsman and the hide volunteer, the two night-1 trail signs (the glove print on the hide glass and the berry ring in the meadow), the Hut's dial room and magazine, and the evidence the marsh gives up. Ids are prefixed lv_ except the Hut's (hut_). Gates golf_links, the_hut and hut_inner_door are defined in the case skeleton and reused here.",
+ "locations": {
+  "clubhouse": "Sandown Golf Club, the clubhouse",
+  "secretary_office": "Sandown Golf Club, the secretary's office",
+  "groundsman_shed": "The groundsman's shed",
+  "hide": "The birdwatching hide",
+  "hut_corridor": "The Hut, the colour corridor",
+  "hut_magazine": "The Hut, the magazine",
+  "hut_gun_pit": "The Hut, the gun pit"
+ },
+ "items": {},
+ "witnesses": {
+  "lv_secretary": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "lv_sec_ninth",
+     "title": "The man on the ninth, May 1973",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 7,
+       "prompt": "You were a member in 1973. What did you see on the ninth?"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "lv_secretary",
+       "I was nineteen and caddying for my father on the Saturday of the bank holiday. A man came over the fence at the brook end of the ninth in a yellow coat. Lifeboat yellow. Carrying a hatbox and a tent bag."
+      ],
+      [
+       "lv_secretary",
+       "He walked the whole fairway in front of the members as if he had a tee time. Nobody said a word to him. One does not, you see, on the Island. One writes to the committee."
+      ],
+      [
+       "teddy",
+       "A hatbox. He's remembered the hatbox for twenty-one years."
+      ]
+     ],
+     "evidence": "lv_yellow_coat_1973"
+    },
+    {
+     "id": "lv_sec_minutes",
+     "title": "The committee minutes, June 1973",
+     "gates": [
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "lv_secretary",
+       "The minutes of the fourth of June, 1973. I keep them. I have kept them for thirty years and nobody has asked, so you may as well."
+      ],
+      [
+       "lv_secretary",
+       "Item seven. Complaint from members regarding Sunnyside Holiday Camp staff 'rehearsing' on the ninth fairway with a tent and paint. Letter to the camp manager. Matter closed on receipt of apology and a donation to the roof fund."
+      ],
+      [
+       "miriam",
+       "Rehearsing. With a tent and paint. The week two children were taken into a hut."
+      ],
+      [
+       "lv_secretary",
+       "The roof was done in 1974. It is a very good roof."
+      ]
+     ],
+     "evidence": "lv_club_minutes"
+    },
+    {
+     "id": "lv_sec_lights",
+     "title": "The night the ninth green lit up",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "A man who keeps minutes that long keeps something he never minuted. What was it?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "lv_secretary",
+       "I shall say this once and I shall deny it in the bar. The Sunday night of that weekend I walked the dog along the fence and the ninth green was lit. Not lamps. Colours. Red, then green, then a yellow that made my teeth ache. For a minute. Then nothing."
+      ],
+      [
+       "lv_secretary",
+       "I did not minute it. One minutes what the committee can act upon."
+      ],
+      [
+       "elijah",
+       "He's been waiting to say that to somebody who wouldn't laugh. Don't laugh."
+      ]
+     ],
+     "evidence": "lv_sec_lights"
+    },
+    {
+     "id": "lv_sec_concede",
+     "title": "Fireworks at the camp",
+     "gates": [
+      {
+       "contradiction": "lv_colours_fireworks"
+      },
+      {
+       "show": "lv_hide_log"
+      }
+     ],
+     "lines": [
+      [
+       "lv_secretary",
+       "...Fireworks. Sunnyside let off fireworks every bank holiday Sunday at ten. I had forgotten. I had, I think, chosen to."
+      ],
+      [
+       "lv_secretary",
+       "Red, green and gold. Reflected in the mist on the green. There. Now you have my one ghost and it is a firework. I hope you are satisfied."
+      ],
+      [
+       "miriam",
+       "I'm not, actually. But thank you."
+      ]
+     ],
+     "evidence": "lv_sec_concedes"
+    }
+   ]
+  },
+  "lv_groundsman": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "lv_gm_mower",
+     "title": "The mower",
+     "gates": [
+      {
+       "check": "fieldcraft",
+       "difficulty": 7,
+       "prompt": "Get the mower going"
+      }
+     ],
+     "lines": [
+      [
+       "lv_groundsman",
+       "Choke. I knew it was the choke. I've been saying it was the choke to a spanner for an hour."
+      ],
+      [
+       "lv_groundsman",
+       "Right. Pike'll have your shoes off you at the gate, so don't go by the gate. Follow me round the service side, and if anybody asks you're the mower man's cousins from Newport. All of you."
+      ],
+      [
+       "dale",
+       "I've been worse things."
+      ]
+     ],
+     "flag": "mower_helped"
+    },
+    {
+     "id": "lv_gm_shed",
+     "title": "A shed that isn't on the map",
+     "gates": [
+      {
+       "show": "lv_glove_photo"
+      },
+      {
+       "trust": 2
+      },
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "You walk this marsh every dusk. You've seen something you don't put in the diary."
+      }
+     ],
+     "lines": [
+      [
+       "lv_groundsman",
+       "Twice. Both times at dusk, both times from the stile. A shed, out in the reeds past the sarsen, black, no windows. Not on my map and I drew my map."
+      ],
+      [
+       "lv_groundsman",
+       "Went out to it the second time with the dog. The dog wouldn't. Came back in the morning with a billhook and there's reeds. Just reeds. Not even bent."
+      ],
+      [
+       "elijah",
+       "Dusk. Both times. Write that down, the time matters more than the shed."
+      ]
+     ],
+     "evidence": "lv_marsh_shed"
+    },
+    {
+     "id": "lv_gm_diary",
+     "title": "The greens diary, May 1973",
+     "gates": [
+      {
+       "show": "lv_club_minutes"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "Your predecessor kept a diary. May 1973 is the page everyone wants and nobody's asked for."
+      }
+     ],
+     "lines": [
+      [
+       "lv_groundsman",
+       "Old Harry's book. May the twenty-sixth, 1973: 'Camp lads on 9th again, tent & paint tins, told them off, cheeky beggar in yellow said it was for the kiddies.' Twenty-seventh: 'Tent gone. Paint on green. Two Rudd kids crying at the stile, sent them home.'"
+      ],
+      [
+       "lv_groundsman",
+       "Harry sent them home. He wrote it down and he sent them home and that was the whole of the Island's investigation."
+      ],
+      [
+       "ruth",
+       "'For the kiddies.' Oh, I'm sure it was, dear."
+      ]
+     ],
+     "evidence": "lv_greens_diary_1973"
+    },
+    {
+     "id": "lv_gm_lantern",
+     "title": "The Levels lantern",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "Every marsh has a light that walks. What do they call this one?"
+      },
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "Warm May, still air, a marsh. What burns out here that nobody lit?"
+      }
+     ],
+     "lines": [
+      [
+       "lv_groundsman",
+       "Levels lantern, my dad called it. Marsh gas. Warm week in May after rain and you'll see it in the reeds about ten, blue, then it's gone. He'd not go near it and he'd not say why, and he was a man who'd go near anything."
+      ],
+      [
+       "lv_groundsman",
+       "It's just gas. I know it's just gas. I cut round that bit of the ninth all the same."
+      ],
+      [
+       "dale",
+       "Methane. Blue flame, no heat, gone in a breath. That's a real thing, for once."
+      ]
+     ],
+     "evidence": "lv_will_o_wisp"
+    }
+   ]
+  },
+  "lv_birder": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "lv_bd_figure",
+     "title": "Something tall that did not fly",
+     "gates": [
+      {
+       "show": "lv_glove_photo"
+      },
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "You wrote 'did not fly' and underlined it. You've been waiting for someone to ask."
+      }
+     ],
+     "lines": [
+      [
+       "lv_birder",
+       "Dusk, the night you arrived. In the reeds past the sarsen, something tall. Taller than the reeds, and the reeds are taller than me. I had the glasses on it for a count of ten."
+      ],
+      [
+       "lv_birder",
+       "It had no colour. I don't mean it was grey. I mean the glasses wouldn't settle on it, the way they won't on heat. Then it stepped down, and there was no water sound, and there's water under every inch of that bank."
+      ],
+      [
+       "lv_birder",
+       "I'm sixty-one and I've logged every bird on this marsh for twenty years. I wrote 'did not fly' because I would not write the other thing."
+      ],
+      [
+       "dale",
+       "No sound in the water. That's the bit I can't do anything with."
+      ]
+     ],
+     "evidence": "lv_birder_figure"
+    },
+    {
+     "id": "lv_bd_log",
+     "title": "The hide log, 1973",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "A log like that goes back years. May 1973 would be in it."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "lv_birder",
+       "The old log's in the bookcase. 27th May 1973: 'Lights over the Levels at 2200, red, green, gold, from the camp direction. Fireworks, Sunnyside. Reed warbler disturbed.' In the warden's hand. He was a very literal man."
+      ],
+      [
+       "lv_birder",
+       "The 28th says: 'Two children at the hide at dawn asking if birds can be yellow. Told them yellowhammer. They said bigger.'"
+      ],
+      [
+       "june",
+       "Fireworks at ten. Colours over the Levels. Every adult on the Island saw the same sky and filed it under Sunnyside."
+      ]
+     ],
+     "evidence": "lv_hide_log"
+    },
+    {
+     "id": "lv_bd_party",
+     "title": "The painted hands",
+     "gates": [
+      {
+       "show": "lv_handprints_sample"
+      },
+      {
+       "show": "lv_handprints_photo"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "The hands on the end wall. That's not vandals."
+      }
+     ],
+     "lines": [
+      [
+       "lv_birder",
+       "The junior members, last Saturday. Poster paint, the RSPB's own, and I held the tin. Fourteen children and one of them did a three-fingered one on purpose because his brother told him about the Levels Man."
+      ],
+      [
+       "lv_birder",
+       "I'd have scrubbed it off. I didn't, because of the look on his face. You'd not have scrubbed it either."
+      ],
+      [
+       "teddy",
+       "Fourteen kids who've all heard of the Levels Man. Twenty-one years on."
+      ]
+     ],
+     "evidence": "lv_party_explained"
+    }
+   ]
+  },
+  "lv_golfer": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "lv_golfer_gossip",
+     "title": "What the members say",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "Lovely course. Is it true about the ninth?"
+      }
+     ],
+     "lines": [
+      [
+       "lv_golfer",
+       "The ninth? Oh, the Levels Man. Every club has a story, hasn't it. Ours is that if you slice into the reeds off the ninth you don't go in after it, because the last chap who did came out with a child's drawing in his pocket and no ball."
+      ],
+      [
+       "lv_golfer",
+       "Pike doesn't like it told. Pike was there, they say. Nineteen and in short trousers, if you ask the bar."
+      ],
+      [
+       "teddy",
+       "Everybody's got a version and nobody's got a ball."
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "lv_glove_photo": {
+   "title": "Photo: the print on the hide glass",
+   "text": "A handprint in blue on the inside of the hide's viewing slot, three broad fingers and a thumb, lifted clean. The hide was locked overnight and the volunteer has the only key.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "lv_glove_sample": {
+   "title": "Blue from the hide glass",
+   "text": "A scraping of the blue from the three-fingered print on the hide glass, bagged with the condensation still on it.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "B",
+   "lab": "lv_glove_lab"
+  },
+  "lv_glove_lab": {
+   "title": "Lab: the hide glass print",
+   "text": "Theatrical greasepaint, cobalt, a stage brand sold by the stick since the 1950s, and under it the talc and rubber of a costume glove. Something wearing a three-fingered rubber glove and stage make-up pressed its hand to the glass. Something, or someone.",
+   "lean": "hoax",
+   "weight": 3,
+   "kind": "physical",
+   "reliability": "A",
+   "key": true
+  },
+  "lv_handprints_sample": {
+   "title": "Paint from the hide wall",
+   "text": "Blue paint from the small three-fingered print on the outside wall of the hide, among dozens of children's prints.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "lv_handprints_lab"
+  },
+  "lv_handprints_lab": {
+   "title": "Lab: the hide wall paint",
+   "text": "Poster paint, school grade, water-based, still curing. Applied by a hand about six years old, in the last week.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "lv_handprints_sample",
+    "lv_handprints_photo"
+   ]
+  },
+  "lv_handprints_photo": {
+   "title": "Photo: hands on the hide wall",
+   "text": "Children's handprints in poster paint on the end wall of the hide. One blue print near the bottom has three fingers.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "lv_berries": {
+   "title": "The berry ring",
+   "text": "Seven berries from a ring laid in the meadow grass by the stile, each a different colour, bagged with the dew on them.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B",
+   "lab": "lv_berries_lab"
+  },
+  "lv_berries_lab": {
+   "title": "Lab: the berry ring",
+   "text": "Sloe, rowan, haw, elder, blackberry, wild strawberry and crab apple, all fresh, none bruised, none frozen or dried. They ripen in five different months of the year. It is May. The lab asked twice where the sample came from.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "A"
+  },
+  "lv_ring_photo": {
+   "title": "Photo: the berry ring",
+   "text": "A ring of berries a yard across in the meadow grass, laid one at a time and closed with a yellow crab apple. Neat. Rehearsed, even.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "lv_picnic_litter": {
+   "title": "The meadow picnic",
+   "text": "Two shandy cans, a crisp packet and an orange peel in one piece from a picnic left in the meadow. The cans are this year's and the crisps are prawn cocktail.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "lv_picnic_photo": {
+   "title": "Photo: the picnic",
+   "text": "A rug, two cans and an orange peel in the meadow grass. Somebody had a nice afternoon and did not take their rubbish home.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "lv_sleeper_photo": {
+   "title": "Photo: the scorched sleeper",
+   "text": "A sleeper on the old Newport line burned black in a circle, the rail beside it blued by heat. Grass through the ash.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "lv_sleeper_reading": {
+   "title": "Reading: the scorched sleeper",
+   "text": "No residual heat, no radiation, nails and bottle caps in the ash under the tape measure. A bonfire on a railway sleeper. Somebody's Guy Fawkes, and the rail went blue because that is what rails do.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B",
+   "exposes": [
+    "lv_sleeper_photo"
+   ]
+  },
+  "lv_paint_tins": {
+   "title": "Yellow paint from the shed",
+   "text": "Scrapings of yellow paint from two unlabelled tins on the floor of the groundsman's shed.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "lv_paint_lab"
+  },
+  "lv_paint_lab": {
+   "title": "Lab: the shed paint",
+   "text": "Line-marking paint, 1991 batch, the yellow the club uses for the ladies' tees. Twenty years too young to have painted anything in 1973.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "lv_paint_tins",
+    "lv_paint_photo"
+   ]
+  },
+  "lv_paint_photo": {
+   "title": "Photo: the yellow tins",
+   "text": "Two tins of yellow paint with the labels scraped off, on the floor of a golf club shed.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "hut_tone_tape": {
+   "title": "Tape: the dial room",
+   "text": "Three notes, a silence, three notes, recorded in the Hut's dial room with the needles swinging in time. The same three June taped in Point Pleasant, a half-step lower again, and the sea audible under them.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "recording",
+   "reliability": "A"
+  },
+  "hut_founder_card": {
+   "title": "Gus Weller's card, May 1973",
+   "text": "An Office index card pinned among the drawings in the Hut's magazine, in the founder's hand, dated 28 May 1973, six years after she vanished: 'HOAX?? NO. THEY WERE TOLD THE TRUTH AND NOBODY ELSE WAS. A.W.'",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B",
+   "key": true
+  },
+  "lv_yellow_coat_1973": {
+   "title": "The man on the ninth, 1973",
+   "text": "Gerald Pike, nineteen in May 1973, watched a man in a lifeboat-yellow coat carry a hatbox and a tent bag the length of the ninth fairway on the Saturday of the bank holiday.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "lv_club_minutes": {
+   "title": "Committee minutes, 4 June 1973",
+   "text": "Item seven: complaint regarding Sunnyside Holiday Camp staff 'rehearsing' on the ninth fairway with a tent and paint. Letter sent. Matter closed on apology and a donation to the roof fund.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "A",
+   "key": true
+  },
+  "lv_committee_laughed": {
+   "title": "The bar laughed",
+   "text": "Colin Rudd's father came to the clubhouse bar in his work boots in May 1973 asking whether any of the gentlemen had seen a man in a hat. The bar laughed. Gerald Pike, nineteen, laughed first. Mr Rudd never came in again.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "A"
+  },
+  "lv_camp_apology": {
+   "title": "Sunnyside's letter, June 1973",
+   "text": "The carbon of the club's letter and the camp manager's reply, kept under the secretary's blotter for twenty-one years: 'Our entertainments staff regret any alarm caused to junior persons on the Levels during a rehearsal for the Children's Carnival. The member of staff concerned has been spoken to.'",
+   "lean": "hoax",
+   "weight": 3,
+   "kind": "document",
+   "reliability": "A",
+   "key": true
+  },
+  "lv_sec_lights": {
+   "title": "The ninth green lit up",
+   "text": "On the Sunday night of the 1973 bank holiday the ninth green lit red, then green, then yellow for a minute, with no lamps. Pike never minuted it.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "lv_sec_concedes": {
+   "title": "Pike's ghost was a firework",
+   "text": "Sunnyside let off fireworks at ten every bank holiday Sunday. Red, green and gold, reflected in the mist on the ninth green.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "lv_sec_lights"
+   ]
+  },
+  "lv_marsh_shed": {
+   "title": "Len's shed in the reeds",
+   "text": "The groundsman has twice seen a black, windowless shed in the reeds past the sarsen at dusk, from the stile. His dog would not go to it. By morning there were reeds, not even bent.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "lv_greens_diary_1973": {
+   "title": "The greens diary, May 1973",
+   "text": "Old Harry's greens diary, 26 May 1973: camp lads on the ninth again with a tent and paint tins, 'cheeky beggar in yellow said it was for the kiddies.' 27 May: tent gone, paint on the green, two Rudd children crying at the stile, sent home.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "lv_will_o_wisp": {
+   "title": "The Levels lantern",
+   "text": "Marsh gas burns blue in the reeds off the ninth about ten on warm May nights after rain. Len Dabell's father called it the Levels lantern and would not go near it.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "lv_birder_figure": {
+   "title": "Something tall that did not fly",
+   "text": "Bridget Quick had her binoculars on something taller than the reeds for a count of ten at dusk on the 27th. The glasses would not settle on it. It stepped down into water without a sound.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "lv_hide_log": {
+   "title": "The hide log, May 1973",
+   "text": "27 May 1973, 2200: lights over the Levels, red, green, gold, from the camp direction. 'Fireworks, Sunnyside.' 28 May: two children at dawn asking if birds can be yellow. 'Told them yellowhammer. They said bigger.'",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B",
+   "exposes": [
+    "lv_sec_lights"
+   ]
+  },
+  "lv_party_explained": {
+   "title": "The junior members' hands",
+   "text": "The handprints on the hide wall are last Saturday's RSPB junior party, poster paint, and the three-fingered one was done on purpose by a boy whose brother told him about the Levels Man.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "A",
+   "exposes": [
+    "lv_handprints_sample",
+    "lv_handprints_photo"
+   ]
+  }
+ },
+ "contradictions": {
+  "lv_colours_fireworks": {
+   "title": "Colours on the green, fireworks over the camp",
+   "evidence": [
+    "lv_sec_lights",
+    "lv_hide_log"
+   ],
+   "witness": "lv_secretary",
+   "prompt": "You said the ninth green lit red, green and yellow with no lamps. The hide log has Sunnyside's fireworks at ten that night, red, green and gold, in the mist. Which was it, Mr Pike?"
+  }
+ },
+ "trail": [
+  {
+   "night": 1,
+   "roost": "The birdwatching hide, the Levels",
+   "map": "sandown_levels",
+   "clues": [
+    "lv_glove_print"
+   ],
+   "herring": [
+    "lv_handprints"
+   ]
+  },
+  {
+   "night": 1,
+   "roost": "The meadow by the brook, the Levels",
+   "map": "sandown_levels",
+   "clues": [
+    "lv_berry_ring"
+   ],
+   "herring": [
+    "lv_picnic"
+   ]
+  }
+ ]
+}

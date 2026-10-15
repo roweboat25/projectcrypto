@@ -41,7 +41,7 @@ and `tests/run_tests.gd` runs the same checks plus the rules.
 ```
 
 Rules:
-- `fills` tiles that start with `wall_`, `brick_`, `stone_`, `drywall_`, `window_`, `frame_`, `void`, `water` and `cement_edge` are solid. Everything else is walkable.
+- `fills` tiles that start with `wall_`, `brick_`, `stone_`, `drywall_`, `window_`, `frame_`, `void`, `water`, `sea` (including `sea_top`, the bank) and `cement_edge` are solid; `beach_top`, the tide line, is walkable. Everything else is walkable.
 - A `facades` entry needs an `interiors` entry with the same `id` unless it is `locked`. `facade` names the drawn storefront in `assets/facades` and defaults to `id`, so two buildings can share a look.
 - `houses` are whole-house props (`house_brick`, `house_brick_b`, `house_panel`) with a `door` tile; they also take `interiors`.
 - A prop `pos` is the bottom-centre tile; a facade `pos` is the bottom-left tile.

@@ -236,9 +236,14 @@ func validate() -> Array[String]:
 				errors.append("map %s building %s uses unknown gate %s" % [map_id, b.id, b.gate])
 			if b.has("appears") and gate(b.appears).is_empty():
 				errors.append("map %s building %s appears on unknown gate %s" % [map_id, b.id, b.appears])
+		var entered := []
 		for iid in m.get("interiors", {}):
-			if not iid in building_ids:
-				errors.append("map %s interior %s has no facade or house" % [map_id, iid])
+			for p in m.interiors[iid].get("props", []):
+				if p.has("enter"):
+					entered.append(p.enter)
+		for iid in m.get("interiors", {}):
+			if not iid in building_ids and not iid in entered:
+				errors.append("map %s interior %s has no facade, house or door into it" % [map_id, iid])
 		for e in m.get("exits", []):
 			if not maps.has(e.get("to", "")):
 				errors.append("map %s has an exit to unknown map %s" % [map_id, e.get("to")])

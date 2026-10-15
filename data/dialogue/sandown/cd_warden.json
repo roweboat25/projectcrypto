@@ -1,0 +1,404 @@
+{
+ "id": "cd_warden",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "Beach is shut. Path's shut. Battery's been shut since 1956, and the sea's doing what it likes, so if you've come about the sea you can take it up with the sea."
+    ],
+    [
+     "cd_warden",
+     "If you've come about the Levels, you're the first in twenty years who didn't bring a camera crew. Sit down. Mind the lamb."
+    ],
+    [
+     "teddy",
+     "She said Levels before we did."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "She says 'the Levels' the way you'd say a name. Not a place. Someone."
+    },
+    {
+     "voice": "lore",
+     "threshold": 8,
+     "line": "A child's book on the shelf, the spine broken at the middle. You don't break a spine reading it once. You break it reading the same page to someone."
+    },
+    {
+     "voice": "tech",
+     "threshold": 9,
+     "line": "The handset on charge has three presets. Two are labelled. The third is tuned a long way off the marine band, and it's the one with the worn button.",
+     "flag": "cd_warden_preset"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're the ones who still believe the kids. We'd like to know what you know.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "We came about the Levels. The sea can wait. The sea's good at it.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "You've got the only key to that battery. We'll need it.",
+     "next": "hard"
+    }
+   ],
+   "gives": {
+    "flag": "met_cd_warden"
+   }
+  },
+  "hard": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "I've got the only key, and the Trust's got my job, and you've got a very nice coat for a cliff. Nobody needs anything yet."
+    ],
+    [
+     "cd_warden",
+     "Ask properly. I'm not hard to ask."
+    ],
+    [
+     "miriam",
+     "We led with the key. We led with the one thing she can't give us."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "cd_warden": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "cd_warden",
+   "repeat": true,
+   "lines": [
+    [
+     "cd_warden",
+     "Hazel Dyer. Warden since '86. Born in Sandown, mother at the camp, father on the lifeboat, so I've heard every story this bay's got and I know which ones have an ending."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The key's on the board by the door, on the twine. She counts sheep, not keys. Take it while she's talking."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "cd_tunnel_dials_photo": 2,
+       "cd_shepherd_colours": 1
+      }
+     },
+     "text": "The battery was built in 1906 against a French invasion that never came, and the Trust got it in '74 because nobody else would sign for it. Tell us what they signed for.",
+     "pass": "history",
+     "fail": {
+      "next": "history_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "cd_compere_tab": 2,
+       "cd_coastguard_log_1973": 1
+      }
+     },
+     "text": "Every Thursday on your calendar says MUM. What does she say about August 1973?",
+     "pass": "mother",
+     "fail": {
+      "next": "mother_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "cd_tunnel_dials_photo": 2,
+       "cd_cave_tone": 1
+      }
+     },
+     "text": "There's a mark on the steel door under the grey paint. A dial face with no numbers. You painted over it yourself, your first week. What is it?",
+     "pass": "sigil",
+     "fail": {
+      "next": "sigil_fail",
+      "trust": {
+       "cd_warden": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "trust": 2
+     },
+     "tone": "kind",
+     "text": "Ray's 1973 log. You've read it more than he has. We'd like to.",
+     "next": "log"
+    },
+    {
+     "requires": {
+      "flag": [
+       "cd_warden_preset"
+      ]
+     },
+     "tone": "wry",
+     "text": "That third preset on your handset. The worn one. What's on it?",
+     "next": "preset"
+    },
+    {
+     "requires": {
+      "trust": 3
+     },
+     "tone": "silent",
+     "text": "(Look at the key board. Say nothing.)",
+     "next": "key"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Hazel."
+    }
+   ]
+  },
+  "history": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "Two six-inch guns, a magazine, and a tunnel the Army said went to the gun pit and stopped. The Trust surveyed it in '74 and it didn't stop. It went down, under the point, toward the sea. The surveyor's note says 'wet, unsafe, sealed'. The surveyor's name is crossed out."
+    ],
+    [
+     "cd_warden",
+     "The door was open when the Trust took it on. Somebody had been living in there. Primus stove, paint tins, a Radio Times. August '73. They put a padlock on and painted the door and wrote it up as vandals, and I've had the file for eight years and it isn't vandals."
+    ],
+    [
+     "cd_warden",
+     "You want in, you take the key, and you don't go past the second door, and you come and tell me what's on the wall. I've never looked. I've got a lamb to feed."
+    ],
+    [
+     "ruth",
+     "She's never looked. Eight years with the key and never looked. That's not fear, dear. That's manners."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "cd_warden": 1
+    },
+    "flag": "cd_warden_history",
+    "evidence": "cd_sigil_1973"
+   },
+   "next": "hub"
+  },
+  "history_fail": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "1906 against the French. Well done. There's a leaflet. It's fifty pence, and the money goes to the lamb."
+    ],
+    [
+     "teddy",
+     "She's not cross. She's bored. That's worse."
+    ]
+   ],
+   "next": "hub"
+  },
+  "mother": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "Mum ran the laundry at Sunnyside. The morning after those two came off the Levels, a yellow hat came down in the staff basket. A cone, two foot high, felt, crusted with greasepaint, with a name on the label."
+    ],
+    [
+     "cd_warden",
+     "She put it in the sink and the dye ran every colour there is. She says that. Every colour there is. Then the entertainments manager told her to lose it and she lost it, and she's wished she hadn't every Thursday for twenty years."
+    ],
+    [
+     "cd_warden",
+     "They laughed at those children. Everybody did. Mum didn't, and she couldn't say why, and that's what I can give you. It isn't much."
+    ],
+    [
+     "elijah",
+     "It's the whole thing. It's the only thing anyone's given them."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "She wants you to say the children were right. Not the hat. The children. Say that first and she'll give you the rest."
+    }
+   ],
+   "gives": {
+    "trust": {
+     "cd_warden": 1
+    },
+    "evidence": "cd_laundry_hat",
+    "fact": "cd_warden_mother"
+   },
+   "next": "hub"
+  },
+  "mother_fail": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "She says it was a long time ago, and she says it in a voice that means come back when you've earned it."
+    ],
+    [
+     "cd_warden",
+     "Thursday's her day. I'm not spending it on you."
+    ],
+    [
+     "miriam",
+     "Fair."
+    ]
+   ],
+   "next": "hub"
+  },
+  "sigil": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "...You've been in. Or you've been on that beach with a torch, which is worse."
+    ],
+    [
+     "cd_warden",
+     "It's not a sigil. It's a dial. A dial with no numbers on it, scratched in the steel from the inside, and I painted it because the Trust pays me to paint things, and because Mum drew the same thing on the back of the laundry docket in 1973 from what the children told her, and I'd seen it on our fridge my whole life."
+    ],
+    [
+     "cd_warden",
+     "Whatever was in that tunnel drew what the children drew. Before the Trust ever opened the door. That's the file. That's the whole file, and you're the first I've told."
+    ],
+    [
+     "vera",
+     "A dial that measures nothing, drawn by two hands that never met. One is formal about such things. One is not formal now."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "cd_warden": 2
+    },
+    "evidence": "cd_sigil_1973",
+    "flag": "cd_warden_sigil",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "sigil_fail": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "It's a scratch on a door. Vandals. 1973. It's in the file, and the file's the Trust's, and you can write to Queen Anne's Gate."
+    ],
+    [
+     "cd_warden",
+     "I think we're done for today. The lamb's due."
+    ],
+    [
+     "ruth",
+     "Oh, we trod on something there. Leave it be, dear. It'll keep."
+    ]
+   ],
+   "end": true
+  },
+  "log": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "Ray photocopied it for me in '88 to stop me coming in. Fourteenth of August. The phone call at 2142. The Sunnyside van at 2210 with its lights off, looking for one of their own who'd gone missing after the show."
+    ],
+    [
+     "cd_warden",
+     "You read that line enough times and it stops being a mystery and starts being a man. Here. Bring it back. It's the only copy that isn't Ray's."
+    ],
+    [
+     "teddy",
+     "A missing entertainer, the night of, a mile from the Levels, in a van with no lights. That's not a lead. That's a confession with the name torn off."
+    ]
+   ],
+   "gives": {
+    "evidence": "cd_coastguard_log_1973",
+    "fact": "cd_warden_log",
+    "trust": {
+     "cd_warden": 1
+    }
+   },
+   "next": "hub"
+  },
+  "preset": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "Nothing. It's tuned to nothing. There's no station there, Ray says, and Ray's right."
+    ],
+    [
+     "cd_warden",
+     "Twice this week after eleven, nothing's been purring like a phone off the hook. I sit here with the lamb and listen to nothing. Go and ask Ray. He's got the proper set and the proper log, and he's got more squelch than I have."
+    ],
+    [
+     "june",
+     "Off the marine band and still getting it. That's not a station. That's something that doesn't care what band you're on."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_warden_preset_told"
+   },
+   "next": "hub"
+  },
+  "key": {
+   "speaker": "cd_warden",
+   "lines": [
+    [
+     "cd_warden",
+     "...It's on the twine. Brass one. BATTERY, DO NOT, and my initials, and I never finished the sentence because I never knew how it ended."
+    ],
+    [
+     "cd_warden",
+     "Take it. Second door stays shut. Come back and tell me. And if you're not back by dark I'm ringing Ray, and Ray's got a rope and he's not gentle."
+    ],
+    [
+     "miriam",
+     "She didn't look at the board. She's been looking at us. She decided a while ago."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_warden_key_offered",
+    "trust": {
+     "cd_warden": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

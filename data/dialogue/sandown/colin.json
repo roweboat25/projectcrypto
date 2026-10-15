@@ -1,0 +1,352 @@
+{
+ "id": "colin",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "colin",
+   "lines": [
+    [
+     "colin",
+     "Ten pence. Go on, it's the same for everyone. May 1973, the Tuesday. Me and Fay Mallory, the meadow by the brook, after school."
+    ],
+    [
+     "colin",
+     "A man taller than a man in a yellow pointed hat, and he was all colours. He took us in a hut full of dials, walls of them, and the sea behind the dials. Then we were on the stile and it was tea time."
+    ],
+    [
+     "teddy",
+     "He said it like a bus timetable. Every stop in order."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "He is not telling you. He is playing you a record of himself telling someone else, years ago, and the record is worn smooth. Listen for the scratch."
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "The Levels are a mile inland and the hut had the sea behind it. Either the hut moves or the sea does. File it. Do not say it yet.",
+     "flag": "colin_sea_noted"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Tell it the way you tell it. I've got all day.",
+     "next": "story"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sf_arcade_wizard": 1
+      }
+     },
+     "text": "Here's a pound. Not for the story. For the one under it.",
+     "pass": "real",
+     "fail": {
+      "next": "story"
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Put ten pence in the tray and say nothing.)",
+     "next": "wait",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "evidence": "colin_statement",
+    "flag": "met_colin"
+   }
+  },
+  "story": {
+   "speaker": "colin",
+   "lines": [
+    [
+     "colin",
+     "Hat first. Yellow, pointed, taller than him and he was taller than my dad. Then the colours: it was all colours, the whole of him, and they kept changing, and you couldn't look at one bit of him for long."
+    ],
+    [
+     "colin",
+     "Then the voice, which had no breath in it, and then the hut, and the dials, and the sea. Then the stile. Then tea. That's it. That's the ten pence."
+    ],
+    [
+     "colin",
+     "Kids like the hat. Grown-ups like the sea. Americans like the dials. You're the first lot to not say anything after."
+    ]
+   ],
+   "next": "hub"
+  },
+  "real": {
+   "speaker": "colin",
+   "lines": [
+    [
+     "colin",
+     "...A pound. Right."
+    ],
+    [
+     "colin",
+     "It laughed. Nobody wants that bit. Not at us, up over our heads, at something behind us, like a bloke at a show who's seen how the trick's done. And the hat wasn't all colours. The hat was yellow. Sewn. It had the sun and the moon on it, in felt, and one of the moon's points was coming off."
+    ],
+    [
+     "colin",
+     "He was all colours. The hat was just a hat. I've said that to one person in twenty-one years and she's not speaking to me."
+    ],
+    [
+     "elijah",
+     "He's eight years old right now. Give him a second."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "lore",
+     "threshold": 8,
+     "line": "A sewn hat, with the sun and the moon on it. That is not a fairy's hat, dear. That is a wizard's hat from a shop, and you have seen one on a child at every birthday party you were ever dragged to."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "colin_laughing",
+    "flag": "colin_real",
+    "trust": {
+     "colin": 1
+    }
+   }
+  },
+  "wait": {
+   "speaker": "colin",
+   "lines": [
+    [
+     "colin",
+     "..."
+    ],
+    [
+     "colin",
+     "Nobody waits. They want the hat and the sea and then they want their change."
+    ],
+    [
+     "colin",
+     "You can have the ten pence back. I don't know why. Have it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "colin",
+   "repeat": true,
+   "lines": [
+    [
+     "colin",
+     "Go on, then. Falls are 2p, the story's 10p, questions are free and I'll regret that."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He is not finished. Nobody in this town is ever finished. The sea, ask him about the sea, ask him why it didn't move."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "sf_cafe_gossip": 1,
+       "sf_penrose_1973": 2
+      }
+     },
+     "tone": "hard",
+     "text": "What did your dad say? The exact words.",
+     "pass": "father",
+     "fail": {
+      "next": "stopped",
+      "trust": {
+       "colin": -1
+      }
+     }
+    },
+    {
+     "tone": "wry",
+     "text": "Why'd you stop telling it for free?",
+     "next": "stopped"
+    },
+    {
+     "tone": "kind",
+     "requires": {
+      "flag": [
+       "colin_sea_noted"
+      ]
+     },
+     "text": "The sea behind the dials. The Levels are a mile from the sea, Colin.",
+     "next": "sea"
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "colin_laughing": 2,
+       "sf_arcade_wizard": 1
+      }
+     },
+     "tone": "kind",
+     "text": "You and Fay don't speak. What did she say to you?",
+     "pass": "fay_truth",
+     "fail": {
+      "next": "fay_fail",
+      "trust": {
+       "colin": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That'll do for now. Mind the falls."
+    }
+   ]
+  },
+  "father": {
+   "speaker": "colin",
+   "lines": [
+    [
+     "colin",
+     "'That's the Sunnyside lot, Col. They do it every year for the kiddies.' Then he laughed. Then my mum laughed, because he had, and she always did."
+    ],
+    [
+     "colin",
+     "Then he went to the Mermaid and told it, and it was his story by Friday, and it was a joke by the Saturday, and I was in it."
+    ],
+    [
+     "colin",
+     "He named the camp before I'd got to the hat. I've only just heard that. Twenty-one years and I've only just heard what he said."
+    ],
+    [
+     "teddy",
+     "That's the quote. Write it exactly. 'They do it every year.'"
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "He does his father's voice perfectly. A man can only do a voice that well if he has been hearing it every day since, in his own head."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "colin_father",
+    "flag": "colin_father_told"
+   }
+  },
+  "stopped": {
+   "speaker": "colin",
+   "lines": [
+    [
+     "colin",
+     "Fay stopped first. Eleven, twelve. Girls are quicker at knowing when a thing's gone wrong for them. I kept on. Then Len put the sign up, and it was ten pence, and you tell a thing for money and it goes smooth. Like a stone in the sea."
+    ],
+    [
+     "colin",
+     "It doesn't hurt now. That's the worst thing I can tell you about it. Ten pence and it doesn't hurt."
+    ],
+    [
+     "ruth",
+     "Oh, my dear. It hurts. You just put it where it earns its keep."
+    ]
+   ],
+   "next": "hub"
+  },
+  "sea": {
+   "speaker": "colin",
+   "lines": [
+    [
+     "colin",
+     "I know where the Levels are. I've looked at them every day since out of that window and I sit with my back to it."
+    ],
+    [
+     "colin",
+     "There was a window where there wasn't a wall and the sea was in it, the right way up, and the light on it was the wrong time of day. Fay said after, it never moved. Not a wave. She was right. I didn't want her to be."
+    ],
+    [
+     "june",
+     "A sea that doesn't move is a picture of the sea. Lit from behind. I've built one."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 9,
+     "line": "You have seen a cyclorama lit from the back. You know what the sea looks like when it is thirty feet wide, made of gauze, and never moves. He has just described one and does not know the word."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "colin_dials_sea"
+   }
+  },
+  "fay_truth": {
+   "speaker": "colin",
+   "lines": [
+    [
+     "colin",
+     "...Nineteen eighty-five. She did a season at Sunnyside, in the office. She rang me from the camp phone box. She'd found it. On a rail, in the costume store, with a label on. The hat. The sun and the moon on it, one point of the moon coming off."
+    ],
+    [
+     "colin",
+     "And I said she was a liar. I said it twice so it'd stick. Because if it was a hat it was a man, and if it was a man he knew what he was doing to two kids, and he did it anyway, and that's worse than a monster. A monster's just a monster."
+    ],
+    [
+     "colin",
+     "She was telling me the truth. She was the only one who ever did and I called her a liar for it. Same as my dad did to me. I'm him. That's the end of the story. Nobody pays for that bit."
+    ],
+    [
+     "elijah",
+     "...We'll tell her you said it. If you want. Not now."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "colin_fay_hat",
+    "flag": "colin_told_fay",
+    "trust": {
+     "colin": 1
+    }
+   }
+  },
+  "fay_fail": {
+   "speaker": "colin",
+   "lines": [
+    [
+     "colin",
+     "No."
+    ],
+    [
+     "colin",
+     "You don't get that for a pound and you don't get it for a face like that. Go and ask her. She's in the town somewhere, she's easy to find, she's the one not looking at the pier."
+    ],
+    [
+     "colin",
+     "Don't go near her with that face, though. Go on. Falls are over there."
+    ],
+    [
+     "miriam",
+     "...Leave it. We've lost him for today, and we deserved to."
+    ]
+   ],
+   "next": "hub"
+  }
+ }
+}

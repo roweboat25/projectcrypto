@@ -298,7 +298,7 @@ static func _fill(ground: TileMapLayer, walls: TileMapLayer, origin: Vector2i, f
 			if every > 1 and x % every != 0:
 				continue
 			var tile: String = _pick(f.tiles, rng)
-			var solid := tile == "void" or tile.begins_with("water")
+			var solid := tile == "void" or tile.begins_with("water") or tile.begins_with("sea")
 			_tile(walls if solid else ground, origin + Vector2i(x, y), tile)
 
 

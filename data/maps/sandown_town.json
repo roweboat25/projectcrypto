@@ -1,0 +1,4168 @@
+{
+ "_doc": "Sandown, the Town: the streets behind the seafront. The High Street runs east-west through the middle with the Seaview Guest House (base), the newsagent, the Mermaid Arms, Harwood's chemist (Fay Mallory works and lives here) and the shut record shop along its north side; the station and its forecourt are at the east end, the Island Line platform below them. Church Lane to the north has St John's, the church hall, the library and the charity shop; Melville Street to the south has the terraces and guest houses; Pier Street runs south to the seafront. Positions are in 32px tiles.",
+ "id": "sandown_town",
+ "name": "Town",
+ "case": "sandown",
+ "district": "town",
+ "size": [
+  56,
+  48
+ ],
+ "spawn": [
+  48,
+  24
+ ],
+ "ground": "grass",
+ "weather": "clear",
+ "fills": [
+  {
+   "rect": [
+    1,
+    13,
+    54,
+    2
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    17,
+    11,
+    3,
+    10
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    51,
+    11,
+    4,
+    8
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    5,
+    12,
+    1,
+    1
+   ],
+   "tiles": [
+    "chalk",
+    "chalk2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    21,
+    39,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    22,
+    39,
+    4
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    23,
+    39,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    1,
+    26,
+    39,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    20,
+    1,
+    8
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    40,
+    19,
+    15,
+    9
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    40,
+    28,
+    15,
+    2
+   ],
+   "tiles": "rail"
+  },
+  {
+   "rect": [
+    27,
+    27,
+    1,
+    20
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    32,
+    27,
+    1,
+    20
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    28,
+    27,
+    4,
+    21
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    26,
+    46,
+    8,
+    2
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    35,
+    26,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    33,
+    35,
+    22,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    36,
+    26,
+    4
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    33,
+    36,
+    22,
+    4
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    37,
+    26,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    33,
+    37,
+    22,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    1,
+    40,
+    26,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    33,
+    40,
+    22,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    37,
+    31,
+    13,
+    3
+   ],
+   "tiles": [
+    "fairway",
+    "fairway",
+    "fairway2"
+   ]
+  },
+  {
+   "rect": [
+    2,
+    15,
+    15,
+    1
+   ],
+   "tiles": [
+    "earth",
+    "earth2",
+    "earth3"
+   ]
+  },
+  {
+   "rect": [
+    20,
+    15,
+    20,
+    2
+   ],
+   "tiles": [
+    "earth",
+    "earth2",
+    "earth3"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    56,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    47,
+    26,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    34,
+    47,
+    22,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    1,
+    1,
+    19
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    28,
+    1,
+    20
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    55,
+    1,
+    1,
+    47
+   ],
+   "tiles": "void"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    1,
+    54,
+    11
+   ],
+   "tiles": [
+    "grass2",
+    "grass3",
+    "grass_tuft",
+    "grass_tuft2"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    1,
+    41,
+    25,
+    5
+   ],
+   "tiles": [
+    "grass2",
+    "grass3",
+    "grass_tuft",
+    "earth"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    33,
+    41,
+    21,
+    5
+   ],
+   "tiles": [
+    "grass2",
+    "grass3",
+    "grass_tuft2"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    1,
+    22,
+    39,
+    4
+   ],
+   "tiles": [
+    "asphalt2"
+   ],
+   "chance": 0.05
+  }
+ ],
+ "facades": [
+  {
+   "id": "church",
+   "facade": "church_stone",
+   "name": "St John's",
+   "pos": [
+    3,
+    12
+   ],
+   "locked": "The church is locked between services. A card on the door: FOR THE VICAR, TRY THE HALL."
+  },
+  {
+   "id": "church_hall",
+   "facade": "church_hall",
+   "name": "St John's church hall",
+   "pos": [
+    10,
+    12
+   ]
+  },
+  {
+   "id": "library",
+   "facade": "library_uk",
+   "name": "Sandown Library",
+   "pos": [
+    20,
+    12
+   ]
+  },
+  {
+   "id": "charity_shop",
+   "facade": "charity_shop",
+   "name": "Earl Mountbatten Hospice shop",
+   "pos": [
+    30,
+    12
+   ]
+  },
+  {
+   "id": "guest_house",
+   "facade": "guest_house",
+   "name": "Seaview Guest House",
+   "pos": [
+    2,
+    21
+   ]
+  },
+  {
+   "id": "newsagent",
+   "facade": "newsagent",
+   "name": "Prior's Newsagent",
+   "pos": [
+    11,
+    21
+   ]
+  },
+  {
+   "id": "pub",
+   "facade": "pub",
+   "name": "The Mermaid Arms",
+   "pos": [
+    20,
+    21
+   ]
+  },
+  {
+   "id": "chemist",
+   "facade": "chemist",
+   "name": "Harwood's Chemist",
+   "pos": [
+    29,
+    21
+   ]
+  },
+  {
+   "id": "record_shop",
+   "facade": "record_shop",
+   "name": "Sound Wave Records",
+   "pos": [
+    35,
+    21
+   ],
+   "locked": "CLOSED BANK HOLIDAY. BACK TUESDAY. A second card under it: BACK WEDNESDAY."
+  },
+  {
+   "id": "station",
+   "facade": "station",
+   "name": "Sandown station",
+   "pos": [
+    41,
+    19
+   ]
+  },
+  {
+   "id": "belmont",
+   "facade": "guest_house",
+   "name": "The Belmont",
+   "pos": [
+    9,
+    35
+   ],
+   "locked": "NO VACANCIES. The landlady looks at you through the net curtain and then is not there."
+  }
+ ],
+ "houses": [
+  {
+   "id": "house_lane_a",
+   "name": "A terrace on Church Lane",
+   "prop": "house_brick",
+   "pos": [
+    39,
+    12
+   ],
+   "door": [
+    39.5,
+    12
+   ],
+   "locked": "Net curtains, a brass knocker, and a dog on the other side of the door with opinions."
+  },
+  {
+   "id": "house_lane_b",
+   "name": "Albion Villa",
+   "prop": "house_panel",
+   "pos": [
+    46.5,
+    12
+   ],
+   "door": [
+    46.5,
+    12
+   ],
+   "locked": "ALBION VILLA. A bell that does not ring and a note: GONE TO THE PIER."
+  },
+  {
+   "id": "house_melville_a",
+   "name": "A terrace on Melville Street",
+   "prop": "house_brick",
+   "pos": [
+    5,
+    35
+   ],
+   "door": [
+    5.5,
+    35
+   ],
+   "locked": "A terrace house with a hanging basket and a Sky dish. Nobody home. The telly is on."
+  },
+  {
+   "id": "house_melville_b",
+   "name": "Ferndale",
+   "prop": "house_brick_b",
+   "pos": [
+    21,
+    35
+   ],
+   "door": [
+    21.5,
+    35
+   ],
+   "locked": "FERNDALE. The door is open an inch on a chain. 'We've had the Jehovah's. Thank you.' It shuts."
+  }
+ ],
+ "props": [
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    3,
+    13
+   ],
+   "name": "Church noticeboard",
+   "look": [
+    [
+     "player",
+     "ST JOHN'S. SUNDAY 10.30. JUMBLE SALE SAT. A poster for a Bank Holiday ceilidh with the date crossed out and rewritten twice."
+    ],
+    [
+     "ruth",
+     "They've a flower rota, dear. A town with a flower rota has never once been destroyed by anything."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    8,
+    13
+   ]
+  },
+  {
+   "kind": "stone_slab",
+   "pos": [
+    2,
+    9
+   ],
+   "name": "Gravestone",
+   "look": [
+    [
+     "player",
+     "A headstone leaning on the church wall. SACRED TO THE MEMORY OF. The rest has gone to lichen."
+    ],
+    [
+     "ruth",
+     "Lichen takes the names first and the dates last, dear. It knows what matters."
+    ]
+   ]
+  },
+  {
+   "kind": "stone_slab",
+   "pos": [
+    2,
+    5
+   ],
+   "name": "Gravestone",
+   "look": "A small stone, newer. 1973 on it. You check twice. It is a woman born in 1892 who died that year. It is just a year. It keeps being just a year."
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    1.5,
+    7
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    4,
+    2
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    7.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    11.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    11,
+    13
+   ],
+   "name": "Churchyard bench",
+   "look": [
+    [
+     "player",
+     "A bench under the yew. IN MEMORY OF STAN, WHO SAT HERE. He still does, by the look of the slats."
+    ],
+    [
+     "elijah",
+     "...He's not here now. He's at the pub. I don't know how I know that."
+    ]
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    14.75,
+    13
+   ],
+   "name": "Vicar's bicycle",
+   "look": "A black bicycle with a basket, leaning on nothing in particular. The lock is a piece of string. The string is not tied."
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    16.5,
+    13
+   ]
+  },
+  {
+   "kind": "tree_tall_summer",
+   "pos": [
+    11.5,
+    7
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    15.5,
+    4
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    17.5,
+    5
+   ]
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    19.5,
+    3
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    21,
+    13
+   ],
+   "name": "Library bench",
+   "look": "A bench where somebody has left a library book face down to keep the place. Catherine Cookson. Page 212. They'll be back."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    25.5,
+    13
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    28.5,
+    13
+   ]
+  },
+  {
+   "kind": "box",
+   "pos": [
+    30.5,
+    13
+   ],
+   "name": "Donations",
+   "look": "A cardboard box left on the step overnight. Coat hangers, a fondue set, one shoe. The volunteer has written NO MORE FONDUE on the door in biro."
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    33.5,
+    13
+   ]
+  },
+  {
+   "kind": "deckchair_stack",
+   "pos": [
+    35,
+    13
+   ],
+   "name": "Charity deckchairs",
+   "look": [
+    [
+     "player",
+     "Deckchairs outside the charity shop, two pounds each, striped like the shop can't decide."
+    ],
+    [
+     "dale",
+     "That one's broken."
+    ],
+    [
+     "miriam",
+     "They're all broken, Dale. That's the business model."
+    ]
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    23.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    26.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "tree_summer2",
+   "pos": [
+    21.5,
+    4
+   ]
+  },
+  {
+   "kind": "bush_big",
+   "pos": [
+    24.5,
+    5
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    27.5,
+    3
+   ]
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    31.5,
+    5
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    34,
+    3
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    36,
+    6
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    37.5,
+    13
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    41.5,
+    13
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    43.5,
+    13
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    45,
+    13
+   ],
+   "name": "A Ford Sierra",
+   "look": [
+    [
+     "player",
+     "A Ford Sierra with the steering wheel on the wrong side. Every car here has the steering wheel on the wrong side."
+    ],
+    [
+     "june",
+     "Right side. Theirs is the right side. That's what they'll tell you."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    47.5,
+    13
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    48.75,
+    13
+   ]
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    51,
+    13
+   ],
+   "name": "A Jack Russell",
+   "look": [
+    [
+     "player",
+     "A Jack Russell tied to the fence, vibrating."
+    ],
+    [
+     "teddy",
+     "He has seen things. Mostly cats."
+    ]
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    53.5,
+    13
+   ]
+  },
+  {
+   "kind": "mower",
+   "pos": [
+    43,
+    3
+   ],
+   "name": "Lawnmower",
+   "look": "A Flymo hovering on a lawn the size of a bath towel. Somebody is very proud of this lawn."
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    50.5,
+    4
+   ]
+  },
+  {
+   "kind": "bush_big",
+   "pos": [
+    53.5,
+    5
+   ]
+  },
+  {
+   "kind": "tree_tall_summer",
+   "pos": [
+    53.5,
+    9
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    41.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    48.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    44,
+    2
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    38,
+    3
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    3.5,
+    16
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    6.5,
+    16
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    9.5,
+    16
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    15.5,
+    16
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    29.5,
+    16
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    34.5,
+    16
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    38.5,
+    16
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    21.5,
+    16
+   ],
+   "name": "Pub bins",
+   "look": [
+    [
+     "player",
+     "Bins behind the Mermaid, full of bottles. The bottles are full of wasps."
+    ],
+    [
+     "teddy",
+     "The wasps are full of beer. It's a whole economy."
+    ]
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    22.5,
+    16
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    23.5,
+    16
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    25.5,
+    17
+   ],
+   "name": "Crates",
+   "look": "Beer crates stacked behind the pub. HOLD THE DOOR WITH THESE. Someone has, often."
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    31.75,
+    17
+   ],
+   "name": "A bicycle",
+   "look": "A lady's bicycle with a wicker basket, chained to a drainpipe. Chemist's green on the frame. Fay cycles. Of course she does."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    36.5,
+    17
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    8,
+    16
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    12,
+    16
+   ]
+  },
+  {
+   "kind": "vacancies_sign",
+   "pos": [
+    1.5,
+    22
+   ],
+   "name": "VACANCIES",
+   "look": [
+    [
+     "player",
+     "SEAVIEW GUEST HOUSE. VACANCIES. There is no view of the sea."
+    ],
+    [
+     "teddy",
+     "There's a view of the Belmont, which has a view of the sea. Transitive."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    3.5,
+    22
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    8,
+    22
+   ],
+   "name": "Bench",
+   "look": "A bench with a brass plate. DONATED BY SANDOWN ROTARY 1988. A Rotary pin has been pressed into the wood beside it, hard."
+  },
+  {
+   "kind": "newspaper_box",
+   "pos": [
+    10.5,
+    22
+   ],
+   "name": "Billboard",
+   "look": [
+    [
+     "player",
+     "The County Press board outside the newsagent. BANK HOLIDAY: PIER PACKED. Under it, in smaller letters, HOVERCRAFT DELAYED."
+    ],
+    [
+     "miriam",
+     "The hovercraft is always delayed. I've been here a day and I know that."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    15.5,
+    22
+   ]
+  },
+  {
+   "kind": "pillar_box",
+   "pos": [
+    20.5,
+    22
+   ],
+   "name": "Pillar box",
+   "look": [
+    [
+     "player",
+     "A red pillar box, round as a drum. E II R on the front. Last collection 5.30."
+    ],
+    [
+     "teddy",
+     "They paint them so you can't miss them, and then put the slot at knee height."
+    ]
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    21.5,
+    22
+   ],
+   "name": "Beer barrel",
+   "look": "An empty cask on the pavement for the dray. Somebody has chalked MERMAID on it and somebody else has drawn the mermaid."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    26,
+    22
+   ],
+   "name": "Pub bench",
+   "look": [
+    [
+     "player",
+     "A bench outside the Mermaid. Two pints, abandoned, still cold."
+    ],
+    [
+     "teddy",
+     "Nobody abandons two pints. They've gone to the bookies and they're coming back."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    28.5,
+    22
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    33.5,
+    22
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    34.5,
+    22
+   ],
+   "name": "Deckchair",
+   "look": "A deckchair on the pavement outside the chemist, with a man asleep in it, sunburned to the exact shape of his vest."
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    38.5,
+    22
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    22,
+    17.5
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    25,
+    17.5
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    31,
+    18.5
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    37,
+    18.5
+   ]
+  },
+  {
+   "kind": "poster",
+   "pos": [
+    36.5,
+    19.8
+   ],
+   "name": "Record shop window",
+   "look": [
+    [
+     "player",
+     "A film poster in the record shop window, sun-faded to blue. THE WICKER MAN. 1973. A man in a mask, a crowd in animal heads, a hill."
+    ],
+    [
+     "ruth",
+     "They made that the same spring, dear. Something was in the air that year, and it wasn't just the heat."
+    ],
+    [
+     "miriam",
+     "It was a film, Ruth."
+    ],
+    [
+     "ruth",
+     "It was a film about a town that put on a show."
+    ]
+   ]
+  },
+  {
+   "kind": "poster2",
+   "pos": [
+    38.5,
+    19.5
+   ],
+   "name": "Gig poster",
+   "look": "TOP OF THE POPS, THIS THURSDAY, 7.30. Another poster under it: PULP, THE PAVILION, JUNE 11. Someone has written ARE THEY ANY GOOD and someone else has written YES."
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    11.5,
+    18.3
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    27.5,
+    17.3
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    35.5,
+    18.3
+   ],
+   "name": "Gull",
+   "look": [
+    [
+     "player",
+     "A herring gull on the record shop sign, the size of a cat, looking at your chips."
+    ],
+    [
+     "dale",
+     "You don't have chips."
+    ],
+    [
+     "player",
+     "It's looking at the chips I'm going to have."
+    ]
+   ]
+  },
+  {
+   "kind": "buick",
+   "pos": [
+    7,
+    26
+   ],
+   "name": "A Rover 2000",
+   "look": [
+    [
+     "player",
+     "A Rover, parked on the left. Everything is parked on the left. You crossed this street looking the wrong way twice."
+    ],
+    [
+     "dale",
+     "Three times."
+    ]
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    14,
+    26
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    23,
+    26
+   ],
+   "name": "A pickup",
+   "look": "A flatbed with SUNNYSIDE HOLIDAY CAMP on the door and a drum kit in the back, under a tarp. The drum skin says RAINBOW REVUE."
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    31,
+    26
+   ]
+  },
+  {
+   "kind": "coach",
+   "pos": [
+    4.5,
+    27
+   ],
+   "name": "A coach",
+   "look": [
+    [
+     "player",
+     "A coach from Birmingham with its door open and its engine running. Thirty people in the same anorak are getting off it."
+    ],
+    [
+     "ruth",
+     "A coach party, dear. It's a species."
+    ]
+   ]
+  },
+  {
+   "kind": "ice_cream_cart",
+   "pos": [
+    16,
+    27
+   ],
+   "name": "Ice cream cart",
+   "look": [
+    [
+     "player",
+     "A cart selling 99s. A 99 is a soft ice cream with a chocolate bar stuck in it, and it costs 60p, not 99."
+    ],
+    [
+     "teddy",
+     "I asked. The man looked at me like I'd asked why the sea is wet."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    37.5,
+    27
+   ]
+  },
+  {
+   "kind": "phone_box",
+   "pos": [
+    42.5,
+    22
+   ],
+   "name": "Telephone box",
+   "look": [
+    [
+     "player",
+     "A red telephone box. Smells of old coins. The phone is a grey thing with a slot for ten pences and a card wedged in the frame: SANDOWN 405xxx, FAY, with the last digits rubbed out."
+    ],
+    [
+     "june",
+     "Pick it up. ...There's no dial tone. There's something, but it isn't a dial tone."
+    ],
+    [
+     "elijah",
+     "Put it down. Please. Put it down gently."
+    ]
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    52,
+    21
+   ],
+   "name": "Station noticeboard",
+   "look": [
+    [
+     "player",
+     "SANDOWN. ISLAND LINE. Trains to Ryde Pier Head every twenty minutes. A timetable, a lost-and-found sheet, a card for a bike, and a hand-drawn poster: SUNNYSIDE, THE RAINBOW REVUE, NIGHTLY."
+    ],
+    [
+     "miriam",
+     "Nightly. Underlined. Somebody is very keen."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    48,
+    21
+   ],
+   "name": "Station bench",
+   "look": "A green bench, GREAT WESTERN cast in the ends, though it never was Great Western here. Somebody's chips, still warm, in the paper. Nobody's coming back for them."
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    40.5,
+    21
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    54.5,
+    26
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    50.5,
+    20
+   ]
+  },
+  {
+   "kind": "pillar_box",
+   "pos": [
+    40.5,
+    24
+   ]
+  },
+  {
+   "kind": "coach",
+   "pos": [
+    43.5,
+    27
+   ],
+   "name": "A coach",
+   "look": [
+    [
+     "player",
+     "A coach with SHEARINGS on the side, idling, the driver asleep with the paper over his face."
+    ],
+    [
+     "teddy",
+     "He's not asleep. That's a tactic."
+    ]
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    52,
+    25
+   ],
+   "name": "A taxi",
+   "look": "A taxi with the meter running and nobody in it. The meter is at four pounds. It has been at four pounds for a while."
+  },
+  {
+   "kind": "tube_carriage",
+   "pos": [
+    46.5,
+    30
+   ],
+   "name": "The train",
+   "look": [
+    [
+     "player",
+     "A red tube train. An actual London Underground train, 1938, with the round windows and the wooden floor, on a branch line on an island, by the sea."
+    ],
+    [
+     "june",
+     "They couldn't fit anything else through the tunnel at Ryde. So they bought the oldest trains in England and painted them."
+    ],
+    [
+     "dale",
+     "It's fifty-six years old and it's on time."
+    ],
+    [
+     "miriam",
+     "Don't."
+    ]
+   ]
+  },
+  {
+   "kind": "clock",
+   "pos": [
+    51.5,
+    28
+   ],
+   "name": "The train to Ryde Pier Head",
+   "travel": "sandown_to_sutton"
+  },
+  {
+   "kind": "mail_cart",
+   "pos": [
+    53.5,
+    28
+   ],
+   "name": "Porter's trolley",
+   "look": "A porter's trolley with one suitcase on it, labelled BIRMINGHAM, and a brass luggage tag from 1973 on the handle that nobody has cut off."
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    41.5,
+    31
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    44.5,
+    31
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    47.5,
+    31
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    50.5,
+    31
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    53.5,
+    31
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    45.5,
+    19.3
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    35,
+    34
+   ],
+   "name": "Bowls bench",
+   "look": [
+    [
+     "player",
+     "A bench facing a lawn so flat it looks poured. CROWN GREEN. MEMBERS. A sign: NO DOGS NO BALL GAMES, on a bowling green."
+    ],
+    [
+     "teddy",
+     "No ball games. On the bowling green."
+    ],
+    [
+     "miriam",
+     "Bowls are not a game, Teddy. You can tell by the faces."
+    ]
+   ]
+  },
+  {
+   "kind": "golf_flag",
+   "pos": [
+    43.5,
+    33.5
+   ],
+   "name": "Jack",
+   "look": "A small white ball on the green with four black ones around it, and nobody there. The match was abandoned for lunch. In 1987, by the look of the moss."
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    38.5,
+    35
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    41.5,
+    35
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    44.5,
+    35
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    47.5,
+    35
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    33.5,
+    35
+   ]
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    52.5,
+    33
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    50.5,
+    34
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    54.5,
+    32
+   ]
+  },
+  {
+   "kind": "vacancies_sign",
+   "pos": [
+    16.5,
+    36
+   ],
+   "name": "NO VACANCIES",
+   "look": [
+    [
+     "player",
+     "THE BELMONT. NO VACANCIES. SEA VIEWS. The sea is three streets away and the view is of the Mermaid's bins."
+    ],
+    [
+     "teddy",
+     "In the brochure that's a 'short stroll'."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    2.5,
+    36
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    24.5,
+    36
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    8.5,
+    36
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    19,
+    36
+   ],
+   "name": "Bench",
+   "look": "A bench with a cat on it. The cat is in charge of Melville Street and has been for some years."
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    14.75,
+    36
+   ],
+   "name": "Paperboy's bike",
+   "look": "A BMX with a canvas bag on the handlebars. COUNTY PRESS. There are still three papers in it. Somebody is not getting their news."
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    9,
+    40
+   ],
+   "name": "A Metro",
+   "look": [
+    [
+     "player",
+     "An Austin Metro the colour of a boiled sweet. Fluffy dice."
+    ],
+    [
+     "dale",
+     "That's a car?"
+    ],
+    [
+     "teddy",
+     "That's a British car, Dale. It's doing its best."
+    ]
+   ]
+  },
+  {
+   "kind": "buick",
+   "pos": [
+    19,
+    40
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    3.5,
+    35.6
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    11.5,
+    35.6
+   ]
+  },
+  {
+   "kind": "windbreak",
+   "pos": [
+    25,
+    30
+   ],
+   "name": "Windbreak",
+   "look": "A striped windbreak, folded on a wall to dry, two streets from any wind. Bank holiday luggage."
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    25.5,
+    34
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    25,
+    28
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    7,
+    28.3
+   ]
+  },
+  {
+   "kind": "tree_summer2",
+   "pos": [
+    8.5,
+    30
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    41.5,
+    36
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    45.5,
+    36
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    50,
+    36
+   ],
+   "name": "Bench",
+   "look": [
+    [
+     "player",
+     "A bench facing the bowling green with a plaque: FOR DORIS, WHO NEVER MISSED A WOOD. Two women in cardigans are sitting on it, and they are not Doris, and they are discussing you."
+    ],
+    [
+     "teddy",
+     "Loudly. In case we missed it."
+    ]
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    53.75,
+    41
+   ],
+   "name": "Tandem",
+   "look": "A tandem leaning on the railings, with a child seat on the back and a basket on the front and a label from a hire shop on the pier. Somebody's holiday is going very well or very badly."
+  },
+  {
+   "kind": "deckchair_blue",
+   "pos": [
+    42.5,
+    6
+   ],
+   "name": "Deckchair",
+   "look": [
+    [
+     "player",
+     "A deckchair in a back garden, in the one square yard of sun, with a man in it reading the racing. He does not look up. He will not look up for anyone."
+    ],
+    [
+     "ruth",
+     "That's a man on his holidays, dear. Leave him be."
+    ]
+   ]
+  },
+  {
+   "kind": "planter",
+   "pos": [
+    43.5,
+    8
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    49.5,
+    8
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    51.5,
+    7.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    26.5,
+    43
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    32.5,
+    45
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    26.5,
+    41
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    4.5,
+    45
+   ]
+  },
+  {
+   "kind": "tree_tall_summer",
+   "pos": [
+    12.5,
+    46
+   ]
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    21.5,
+    44
+   ]
+  },
+  {
+   "kind": "tree_summer2",
+   "pos": [
+    38.5,
+    45
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    47.5,
+    45
+   ]
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    53.5,
+    44
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    4.5,
+    42
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    7.5,
+    42
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    15.5,
+    42
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    18.5,
+    42
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    36.5,
+    42
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    39.5,
+    42
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    46.5,
+    42
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    49.5,
+    42
+   ]
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    8.5,
+    46
+   ],
+   "name": "Picnic table",
+   "look": [
+    [
+     "player",
+     "A picnic table in a front garden, with a lilo on it, drying. The lilo is a crocodile."
+    ],
+    [
+     "elijah",
+     "...It's smiling. Why is it smiling."
+    ]
+   ]
+  },
+  {
+   "kind": "swing",
+   "pos": [
+    43,
+    46
+   ],
+   "name": "Swing",
+   "look": "A swing in a front garden, going by itself. There's a breeze. There's a breeze, and that's what it is."
+  },
+  {
+   "kind": "bush_big",
+   "pos": [
+    24.5,
+    46
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    34.5,
+    43
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    51.5,
+    46
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    6.5,
+    42.6
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    37.5,
+    42.6
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    48.5,
+    42.6
+   ]
+  },
+  {
+   "kind": "deckchair_green",
+   "pos": [
+    16.5,
+    45
+   ],
+   "name": "Deckchair",
+   "look": "A deckchair in a garden with a transistor radio on it, playing Radio 1 on medium wave, which is a tune under a layer of frying."
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    2,
+    44
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    53,
+    42
+   ]
+  },
+  {
+   "kind": "mower",
+   "pos": [
+    40,
+    44
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    29.5,
+    42.3
+   ],
+   "name": "Gull",
+   "look": [
+    [
+     "player",
+     "A gull in the middle of Pier Street, standing on a chip, daring a car."
+    ],
+    [
+     "dale",
+     "The car will lose."
+    ]
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    35,
+    41
+   ],
+   "name": "Parked car",
+   "look": "A Vauxhall Cavalier parked half on the pavement, which is how you park here, apparently, and nobody minds."
+  }
+ ],
+ "npcs": [
+  {
+   "id": "fay",
+   "name": "Fay Mallory",
+   "pos": [
+    32.5,
+    21.5
+   ],
+   "facing": "left",
+   "sprite": "fay",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "tn_landlady",
+   "name": "Mrs Bannister",
+   "pos": [
+    6.5,
+    21.5
+   ],
+   "facing": "down",
+   "sprite": "landlady",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "tn_publican",
+   "name": "Reg Cheverton",
+   "pos": [
+    22.5,
+    21.5
+   ],
+   "facing": "right",
+   "sprite": "publican",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "tn_vicar",
+   "name": "The Reverend Alan Perry",
+   "pos": [
+    12.5,
+    12.5
+   ],
+   "facing": "down",
+   "sprite": "vicar",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "tn_stationmaster",
+   "name": "Mr Attrill",
+   "pos": [
+    49.5,
+    27.5
+   ],
+   "facing": "down",
+   "sprite": "stationmaster",
+   "when": [
+    "night"
+   ]
+  },
+  {
+   "id": "tn_coach_driver",
+   "name": "The coach driver",
+   "pos": [
+    45.5,
+    27.5
+   ],
+   "facing": "left",
+   "sprite": "holidaymaker2",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "tn_coach_party",
+   "name": "A coach party",
+   "pos": [
+    5.5,
+    24.5
+   ],
+   "facing": "down",
+   "sprite": "holidaymaker",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "tn_coach_party2",
+   "name": "A woman in an anorak",
+   "pos": [
+    9.5,
+    21.5
+   ],
+   "facing": "left",
+   "sprite": "holidaymaker2",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "tn_family",
+   "name": "A family with a windbreak",
+   "pos": [
+    36.5,
+    24.5
+   ],
+   "facing": "right",
+   "sprite": "holidaymaker",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "tn_kid_bmx",
+   "name": "A kid on a BMX",
+   "pos": [
+    13.5,
+    36.5
+   ],
+   "facing": "left",
+   "sprite": "kid",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "tn_kid_station",
+   "name": "A kid with a bucket",
+   "pos": [
+    44.5,
+    23.5
+   ],
+   "facing": "up",
+   "sprite": "kid",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "tn_mod",
+   "name": "A lad in a parka",
+   "pos": [
+    36.5,
+    21.5
+   ],
+   "facing": "up",
+   "sprite": "mod",
+   "when": [
+    "dusk",
+    "night"
+   ]
+  },
+  {
+   "id": "tn_bowler",
+   "name": "A bowler",
+   "pos": [
+    41.5,
+    32.5
+   ],
+   "facing": "right",
+   "sprite": "holidaymaker2",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "tn_dog_walker",
+   "name": "A woman with a dog",
+   "pos": [
+    23.5,
+    13.5
+   ],
+   "facing": "right",
+   "sprite": "holidaymaker",
+   "when": [
+    "morning",
+    "dusk"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "tn_phone_voice",
+   "name": "The receiver is off the hook",
+   "pos": [
+    43.5,
+    22.6
+   ],
+   "prop": "clue_cold",
+   "night": 1,
+   "text": "The telephone box glows the wrong colour tonight. The receiver is swinging on its cord and there is a voice coming out of it, a man's voice, reading, and between the words there is nothing. No breath. No room. No tape hiss. A voice that does not need to stop for air. June's recorder is already running.",
+   "methods": {
+    "measure": "tn_phone_voice",
+    "photograph": "spoil",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "tn_lost_hat",
+   "name": "A lost-and-found notice",
+   "pos": [
+    50.5,
+    21.5
+   ],
+   "prop": "clue_film",
+   "text": "Pinned to the noticeboard under the timetable: FOUND, PIER, 24 MAY. ONE YELLOW POINTED HAT (PARTY). ASK AT THE BOOKING OFFICE. Somebody has drawn a face under it.",
+   "methods": {
+    "photograph": "tn_lost_hat_notice",
+    "bag": "spoil",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    26,
+    47,
+    8,
+    1
+   ],
+   "to": "sandown_seafront",
+   "at": [
+    36,
+    2
+   ],
+   "name": "The seafront"
+  },
+  {
+   "rect": [
+    0,
+    20,
+    1,
+    8
+   ],
+   "to": "sandown_levels",
+   "at": [
+    61,
+    28
+   ],
+   "name": "The Levels"
+  }
+ ],
+ "interiors": {
+  "guest_house": {
+   "size": [
+    16,
+    12
+   ],
+   "floor": [
+    "carpet_red",
+    "carpet_red",
+    "carpet_red",
+    "diamond_dark"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "counter",
+     "pos": [
+      2.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      4,
+      3
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      2.5,
+      2.3
+     ],
+     "name": "Hall telephone",
+     "look": [
+      [
+       "player",
+       "A cream telephone with a lock on the dial and a tin beside it: 10p A CALL, HONESTY BOX. The box has 40p in it and a button."
+      ],
+      [
+       "teddy",
+       "The Office is a dollar a minute from here. I've done the math and I'm not calling."
+      ]
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      2,
+      1.6
+     ],
+     "name": "Case board",
+     "look": [
+      [
+       "player",
+       "A framed print of Shanklin Chine, taken down, and our case board pinned up where it was. Mrs Bannister said 'as long as it's Blu-Tack'. It is not Blu-Tack."
+      ],
+      [
+       "miriam",
+       "Six cards and a drawing of a hat. Somebody's going to have to write the word 'hoax' on this board eventually and I'd like it to be me."
+      ],
+      [
+       "ruth",
+       "Only if it's true, dear."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      4,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "Isle of Wight County Press calendar, May 1994. The bank holiday is ringed. So is the 29th, in a different pen, every year, back through the whole pad."
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      5.5,
+      1.5
+     ],
+     "name": "Framed photograph",
+     "look": [
+      [
+       "player",
+       "Seaview Guest House, 1973: Mrs Bannister younger, in the doorway, with a line of guests. Two children at the end, squinting. One of them is holding a crayon."
+      ],
+      [
+       "elijah",
+       "That one's Fay. She's looking at the camera like it's going to ask her something."
+      ]
+     ]
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      8,
+      1.6
+     ],
+     "name": "Painting",
+     "look": "A painting of Culver Down from the pier, in oils, by someone who had never seen a cliff but had heard about them."
+    },
+    {
+     "kind": "fireplace",
+     "pos": [
+      7,
+      3.5
+     ],
+     "name": "Fireplace",
+     "look": "An electric fire with fake coals, and a brass shell case for a poker stand. The shell case is from the Culver battery, 1942, and is used for umbrellas."
+    },
+    {
+     "kind": "sofa_brown",
+     "pos": [
+      7,
+      6.6
+     ],
+     "name": "Sofa",
+     "look": [
+      [
+       "player",
+       "A sofa that has been sat on by every guest since 1961. You sink to the floor. The floor is comfortable."
+      ],
+      [
+       "dale",
+       "I'm staying here."
+      ]
+     ]
+    },
+    {
+     "kind": "armchair_grey",
+     "pos": [
+      2.5,
+      6.5
+     ],
+     "name": "Armchair",
+     "look": "Mrs Bannister's chair. A tin of travel sweets, a Radio Times with the bank holiday films ringed, and a hearing aid she doesn't wear when it suits her."
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      10,
+      3.3
+     ],
+     "name": "Television",
+     "look": [
+      [
+       "player",
+       "A television the size of a washing machine. Four channels. One of them is showing snooker."
+      ],
+      [
+       "teddy",
+       "It's always showing snooker. I turned it off and it was still showing snooker."
+      ]
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      5,
+      9.5
+     ],
+     "name": "Bookcase",
+     "look": [
+      [
+       "player",
+       "Maeve Binchy, a guide to the Island's fossils, and twelve years of the Guest House Visitors' Book. 1973 has been read a lot; the spine is cracked there."
+      ],
+      [
+       "ruth",
+       "Somebody else came looking, dear. Before us. Or she reads it herself, at night."
+      ]
+     ]
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      2.5,
+      10.8
+     ],
+     "name": "Our luggage",
+     "look": "The party's bags, lined up against the wall by the door. Ruth's is the one with the hymnal on top. Dale's is the one that smells of plaster."
+    },
+    {
+     "kind": "table",
+     "pos": [
+      8.5,
+      9.5
+     ],
+     "name": "Breakfast table",
+     "look": [
+      [
+       "player",
+       "A table laid for breakfast tomorrow: cereal in Tupperware, a toast rack, a jar labelled MARMITE that none of you will touch twice."
+      ],
+      [
+       "teddy",
+       "I touched it twice. I am a journalist. I regret it."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      7,
+      10.3
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      10,
+      8.6
+     ]
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      12.5,
+      9
+     ]
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      14.5,
+      9
+     ]
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      13.5,
+      7.3
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      13.5,
+      6.9
+     ]
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      13.5,
+      3.5
+     ],
+     "name": "Dresser",
+     "look": "A dresser with a kettle, two cups, and a card: TEA AND COFFEE MAKING FACILITIES. The facilities are the kettle. There is one teabag."
+    },
+    {
+     "kind": "mirror_wall",
+     "pos": [
+      12,
+      1.5
+     ]
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      14.5,
+      1.3
+     ],
+     "name": "Fire notice",
+     "look": "IN CASE OF FIRE, LEAVE BY THE STAIRS. DO NOT USE THE LIFT. There is no lift. There is a drawing of one."
+    },
+    {
+     "kind": "curtain",
+     "pos": [
+      15.5,
+      6
+     ],
+     "name": "Window",
+     "look": [
+      [
+       "player",
+       "A window onto the High Street. Net curtains. You could watch the whole town from here, and somebody does."
+      ],
+      [
+       "june",
+       "The chemist's light is on. Upstairs. It's always on."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "tn_landlady",
+     "name": "Mrs Bannister",
+     "pos": [
+      3,
+      4.3
+     ],
+     "facing": "down",
+     "sprite": "landlady",
+     "when": [
+      "morning",
+      "day",
+      "night"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "tn_register",
+     "name": "The visitors' register",
+     "pos": [
+      3.5,
+      2.6
+     ],
+     "prop": "paper",
+     "text": "The register, open on the hall counter at 1994. The pages are stiff and the book is older than it looks. Flip back and 1973 is still here: RUDD, Mr and Mrs and Colin, Room 2, 26 May to 2 June. MALLORY, Mr and Mrs and Fay, Room 4. And in Room 3 that week, in a looping hand: R. TAPPIN, SUNNYSIDE HOLIDAY CAMP (ENTS). Paid in advance. Left Weds.",
+     "methods": {
+      "photograph": "tn_register_photo",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ],
+   "bed": [
+    13.5,
+    9.5
+   ]
+  },
+  "pub": {
+   "size": [
+    14,
+    9
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark2",
+    "wood_dark"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "bar_counter",
+     "pos": [
+      4,
+      3.2
+     ]
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      3,
+      1.7
+     ],
+     "name": "Optics",
+     "look": [
+      [
+       "player",
+       "Optics: Bells, Gordon's, Bacardi, and a bottle of something green called Chartreuse that nobody has ever ordered. The measure is a twenty-fifth of a gill."
+      ],
+      [
+       "teddy",
+       "A gill. They measure liquor in a word that sounds like part of a fish."
+      ]
+     ]
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      5,
+      1.7
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      2.5,
+      4.3
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      4,
+      4.3
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      5.5,
+      4.3
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      7,
+      1.5
+     ],
+     "name": "Framed photo",
+     "look": [
+      [
+       "player",
+       "Sandown Pier, 1973, in colour. Bunting, the pavilion, and a crowd. On the end of the pier, small, a figure in a tall pointed hat, yellow, waving."
+      ],
+      [
+       "miriam",
+       "Summer season. Every pier had one. A man in a hat is not an anomaly, it's a job."
+      ],
+      [
+       "ruth",
+       "Then where did the job go, dear, in 1974?"
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8.5,
+      1.6
+     ],
+     "name": "Brewery calendar",
+     "look": "A Burts of Ventnor calendar, May 1994. DRAY TUES. DARTS THURS. GOLF CLUB DO FRI, and a phone number for the club secretary with a drawing of a very small man beside it."
+    },
+    {
+     "kind": "jukebox",
+     "pos": [
+      10.5,
+      2.5
+     ],
+     "name": "Jukebox",
+     "look": [
+      [
+       "player",
+       "A jukebox. Three plays for 50p. Somebody has put on Wet Wet Wet and the whole bar has stopped talking in protest."
+      ],
+      [
+       "teddy",
+       "It's been number one for a month, apparently. There's a kind of grief in the room."
+      ]
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      12,
+      1.6
+     ],
+     "name": "Pub poster",
+     "look": "DO NOT ASK FOR CREDIT AS A SMACK IN THE MOUTH OFTEN OFFENDS. Under it, in biro: ASK REG ABOUT THE HAT. Crossed out, hard."
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      12,
+      4.5
+     ],
+     "name": "Corner booth",
+     "look": "The corner booth, where the Sunnyside staff drink after the show. Ashtray overflowing, a tin of greasepaint on the window ledge, and a rota in pencil on a beer mat: RAINBOW: MON WED FRI."
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      8.5,
+      6.2
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      7,
+      7.2
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      10,
+      5.4
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      3,
+      7.2
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      1.5,
+      8.2
+     ]
+    },
+    {
+     "kind": "fireplace",
+     "pos": [
+      12,
+      7.9
+     ],
+     "name": "Fireplace",
+     "look": "An unlit fire with a brass mermaid on the mantel. Someone has given her a Sandown FC scarf."
+    },
+    {
+     "kind": "pie_case",
+     "pos": [
+      6.5,
+      3.2
+     ],
+     "name": "Snack shelf",
+     "look": [
+      [
+       "player",
+       "Crisps. Pork scratchings. Something called a Scotch egg, which is a boiled egg inside a sausage inside breadcrumbs, and it is cold on purpose."
+      ],
+      [
+       "dale",
+       "I had two."
+      ],
+      [
+       "miriam",
+       "Of course you did."
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      1.5,
+      2.3
+     ],
+     "name": "Guest pass",
+     "look": [
+      [
+       "player",
+       "A Sandown Golf Club guest pass, left behind the bar in a glass with the darts chalk. Reg says the club secretary drinks here Fridays and signs them for anyone who buys the round."
+      ],
+      [
+       "teddy",
+       "Eight dollars for a round. That's a bargain anywhere but here."
+      ]
+     ],
+     "pickup": "guest_pass",
+     "price": 8,
+     "restock": false
+    }
+   ],
+   "npcs": [
+    {
+     "id": "tn_publican",
+     "name": "Reg Cheverton",
+     "pos": [
+      4,
+      2.6
+     ],
+     "facing": "down",
+     "sprite": "publican",
+     "when": [
+      "day",
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "tn_regular",
+     "name": "A regular",
+     "pos": [
+      3,
+      5.3
+     ],
+     "facing": "up",
+     "sprite": "regulars",
+     "when": [
+      "day",
+      "night"
+     ]
+    },
+    {
+     "id": "tn_chemist",
+     "name": "Mr Harwood",
+     "pos": [
+      11.5,
+      5.5
+     ],
+     "facing": "left",
+     "sprite": "chemist",
+     "when": [
+      "night"
+     ]
+    },
+    {
+     "id": "tn_newsagent",
+     "name": "Dennis Prior",
+     "pos": [
+      9.5,
+      7.3
+     ],
+     "facing": "up",
+     "sprite": "newsagent",
+     "when": [
+      "dusk"
+     ]
+    },
+    {
+     "id": "tn_archivist",
+     "name": "Miss Jolliffe",
+     "pos": [
+      2.5,
+      8.1
+     ],
+     "facing": "up",
+     "sprite": "archivist",
+     "when": [
+      "night"
+     ]
+    }
+   ]
+  },
+  "newsagent": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "lino",
+    "lino2",
+    "lino"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "counter_l",
+     "pos": [
+      2,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      2.5,
+      1.7
+     ],
+     "name": "Top shelf",
+     "look": [
+      [
+       "player",
+       "The top shelf. Cigarettes in a wall behind the counter, and the magazines you need to be tall for."
+      ],
+      [
+       "teddy",
+       "I'm tall for."
+      ]
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5.5,
+      1.7
+     ],
+     "name": "Sweets",
+     "look": "Sherbet fountains, Black Jacks, Fruit Salads, a jar of cola cubes. The jar lid is sticky and so is everything within a yard of it."
+    },
+    {
+     "kind": "pie_case",
+     "pos": [
+      8.5,
+      2.3
+     ],
+     "name": "Ice cream freezer",
+     "look": "A chest freezer with a sliding lid. Fab, Zoom, Funny Feet. A Funny Foot is an ice cream shaped like a foot. Nobody can explain why."
+    },
+    {
+     "kind": "newspaper_box",
+     "pos": [
+      1.5,
+      6.5
+     ],
+     "name": "Paper rack",
+     "look": [
+      [
+       "player",
+       "The County Press, the Echo, the Mirror, the Sun, and a Times that has been here since Tuesday."
+      ],
+      [
+       "miriam",
+       "Nobody on holiday wants news. They want the weather and the telly."
+      ]
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      3.5,
+      2.7
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      7.5,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "A Rizla calendar. The paper rounds are pencilled in by street. Melville Street has a question mark. The question mark is the BMX."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      9,
+      1.5
+     ],
+     "name": "Window card",
+     "look": "FOR SALE: CARAVAN. WANTED: CLEANER, GOOD RATES. LOST: TORTOISE, ANSWERS TO DEREK. The tortoise card is from 1991 and still up, out of respect."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      7.5,
+      6.5
+     ],
+     "name": "Back issues",
+     "look": "A box of unsold County Presses tied in string, waiting for the recycling that will never come. Dennis keeps the old ones. All the old ones."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      9,
+      5.3
+     ],
+     "name": "Magazine rack",
+     "look": "Smash Hits, Shoot, Just Seventeen, Amateur Radio, and a Fortean Times with the cover torn off so nobody sees him stocking it."
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      6.5,
+      5.2
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "tn_newsagent",
+     "name": "Dennis Prior",
+     "pos": [
+      3.5,
+      2.5
+     ],
+     "facing": "down",
+     "sprite": "newsagent",
+     "when": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "id": "tn_kid_bmx",
+     "name": "A kid on a BMX",
+     "pos": [
+      2,
+      5.5
+     ],
+     "facing": "up",
+     "sprite": "kid",
+     "when": [
+      "dusk"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "tn_press_cuttings",
+     "name": "A folder of cuttings",
+     "pos": [
+      4.5,
+      6.6
+     ],
+     "prop": "paper",
+     "text": "A folder on the counter end, marked 1973 in Dennis's hand. County Press, 1 June 1973: CHILDREN'S FRIGHT ON THE LEVELS. 'Two visiting children, aged seven and eight, reported meeting a tall figure in a yellow hat near the brook on Tuesday. A spokesman for the police said a stray Alsatian had been reported in the area and that the heat may have played a part. Temperatures reached 81F.'",
+     "methods": {
+      "bag": "tn_county_press_1973",
+      "photograph": "tn_county_press_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "tn_flyer",
+     "name": "A flyer in the window",
+     "pos": [
+      9.2,
+      3.6
+     ],
+     "prop": "poster2",
+     "text": "A photocopied flyer, taped inside the window: SUNNYSIDE HOLIDAY CAMP. UNCLE RAINBOW'S FUN HOUR, EVERY AFTERNOON. ALL COLOURS! A man in a pointed hat, striped, with a wand. 1994.",
+     "methods": {
+      "bag": "tn_sunnyside_flyer",
+      "photograph": "tn_sunnyside_flyer",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "charity_shop": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "carpet_navy",
+    "carpet_navy",
+    "diamond_dark"
+   ],
+   "wall": "blue",
+   "props": [
+    {
+     "kind": "counter",
+     "pos": [
+      2.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      4,
+      3
+     ]
+    },
+    {
+     "kind": "costume_rail",
+     "pos": [
+      7.5,
+      2.7
+     ],
+     "name": "Clothes rail",
+     "look": [
+      [
+       "player",
+       "A rail of coats and cagoules, 50p to four pounds, smelling of other people's summers."
+      ],
+      [
+       "ruth",
+       "Every charity shop in Britain has one waxed jacket, dear. It's the law."
+      ]
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      1.5,
+      1.7
+     ],
+     "name": "Books",
+     "look": "Jilly Cooper, Jeffrey Archer, three copies of the same Dick Francis, and a Reader's Digest book of The Unexplained with the Isle of Wight page folded down."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5,
+      1.7
+     ],
+     "name": "Bric-a-brac",
+     "look": "Toby jugs, a fondue set, a brass compass, a tin of 1970s postcards, and a Sandown Zoo ashtray with a tiger on it who has seen better days."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      8.5,
+      1.5
+     ],
+     "name": "Hospice poster",
+     "look": "EARL MOUNTBATTEN HOSPICE. EVERY POUND HELPS. A thermometer poster for a new minibus, coloured in to the top and then a bit past it."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      2.5,
+      6.5
+     ],
+     "name": "Jigsaws",
+     "look": "Jigsaws, taped shut, 1 PIECE MISSING written on four of them in the same hand. The Haywain. Culver Down. A kitten. Culver Down again."
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      6,
+      6.3
+     ],
+     "name": "Records",
+     "look": "A basket of LPs. Jim Reeves, The Seekers, a Max Bygraves, and a 1973 seven-inch by a band called Sunnyside Sound with a man in a pointed hat on the sleeve, 20p."
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      9,
+      5.5
+     ],
+     "name": "Tapes"
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      4.5,
+      5.2
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "tn_volunteer",
+     "name": "Pat",
+     "pos": [
+      3,
+      2.5
+     ],
+     "facing": "down",
+     "sprite": "volunteer",
+     "when": [
+      "morning",
+      "day"
+     ],
+     "shop": "sandown_charity"
+    }
+   ],
+   "clues": [
+    {
+     "id": "tn_vent_tape",
+     "name": "The cassette box",
+     "pos": [
+      9,
+      4.4
+     ],
+     "prop": "clue_cans",
+     "text": "A shoebox of cassettes, 10p each, mostly Val Doonican. One is unlabelled except for a biro cross. The volunteer says it came in with a dead man's things from the pier. Play a second of it on the shop's player and a man's voice is reading nursery rhymes, flat, with silence between the words where the breath should be.",
+     "methods": {
+      "bag": "tn_vent_tape",
+      "photograph": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "chemist": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "tile_white",
+    "tile_white",
+    "tile_grey"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "counter_l",
+     "pos": [
+      2,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      2.5,
+      1.7
+     ],
+     "name": "Dispensary shelves",
+     "look": [
+      [
+       "player",
+       "Brown bottles with white labels in Mr Harwood's copperplate. Everything is in alphabetical order and so, you suspect, is Mr Harwood."
+      ],
+      [
+       "miriam",
+       "I like him already."
+      ]
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5.5,
+      1.7
+     ],
+     "name": "Sun cream",
+     "look": "Ambre Solaire, factor 2, factor 4, and a single bottle of factor 15 with dust on it. The British do not believe in the sun; they go out to meet it as an equal."
+    },
+    {
+     "kind": "cabinet",
+     "pos": [
+      8.5,
+      2.2
+     ],
+     "name": "Film cabinet",
+     "look": "Kodak, Boots own-brand, and a card: FILMS DEVELOPED, 24 HOURS, ASK FAY. Fay does the developing in the back. Of course she does.",
+     "pickup": "film",
+     "price": 4,
+     "restock": true
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      7,
+      1.5
+     ],
+     "name": "Poster",
+     "look": "A hay fever poster with a cartoon nose. Someone has drawn a pointed hat on the nose. Fay has not taken it down, which tells you something."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      9,
+      5.5
+     ],
+     "name": "Prescription ledgers",
+     "look": [
+      [
+       "player",
+       "Prescription ledgers, 1958 to 1994, a shelf of them in order. The 1973 book has a bookmark in it. A chemist's bookmark: a strip of brown paper."
+      ],
+      [
+       "elijah",
+       "He looks at it. Every so often, he takes it down and looks at it and puts it back."
+      ]
+     ]
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      1.5,
+      6.5
+     ],
+     "name": "Bargain basket",
+     "look": "Reduced: a bath sponge shaped like Mickey Mouse, a tube of something for corns, and a box of 'Seasickness Bands' for the hovercraft, which is a bracelet and a promise."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      7,
+      6.6
+     ],
+     "name": "Deliveries",
+     "look": "A box of stock from the wholesaler in Newport, opened neatly with a knife, every item ticked against the sheet in a precise hand. Fay's hand."
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      6.5,
+      5.3
+     ],
+     "name": "Waiting chair",
+     "look": "One chair for waiting. A copy of Woman's Own and a leaflet about the Island Line timetable, folded to the last train."
+    },
+    {
+     "kind": "mirror_wall",
+     "pos": [
+      9.5,
+      1.5
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "fay",
+     "name": "Fay Mallory",
+     "pos": [
+      3,
+      2.5
+     ],
+     "facing": "down",
+     "sprite": "fay",
+     "when": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "id": "tn_chemist",
+     "name": "Mr Harwood",
+     "pos": [
+      8.5,
+      4.3
+     ],
+     "facing": "left",
+     "sprite": "chemist",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    }
+   ]
+  },
+  "library": {
+   "size": [
+    10,
+    10
+   ],
+   "floor": [
+    "carpet_navy",
+    "carpet_navy",
+    "carpet_navy",
+    "diamond_dark"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "desk_wood",
+     "pos": [
+      3,
+      3
+     ],
+     "name": "Issue desk",
+     "look": "The issue desk, with a date stamp set to 14 JUN 1994 and a tin of overdue cards two inches deep. The worst offender is the vicar."
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      3,
+      2.3
+     ]
+    },
+    {
+     "kind": "card_catalog",
+     "pos": [
+      1.5,
+      1.8
+     ],
+     "name": "Card catalogue",
+     "look": [
+      [
+       "player",
+       "The card catalogue. LOCAL STUDIES has its own drawer and the drawer has its own lock and the lock has its own key, on a string round Miss Jolliffe's neck."
+      ],
+      [
+       "ruth",
+       "She's a librarian, dear. They're all like that. It's how the books survive."
+      ]
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      6,
+      1.7
+     ],
+     "name": "Local studies",
+     "look": "Island histories, the Victoria County History, three shelves of Isle of Wight ghost books, all with the same photograph of Knighton Gorges on the cover."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      8.5,
+      1.7
+     ],
+     "name": "Reference",
+     "look": "The Encyclopaedia Britannica, Whitaker's Almanack 1993, and Kelly's Directory of the Isle of Wight 1973, which lists every shop in Sandown and what it sold, and the Sunnyside camp under ENTERTAINMENTS."
+    },
+    {
+     "kind": "microfiche",
+     "pos": [
+      7.5,
+      5.2
+     ],
+     "name": "Microfiche reader",
+     "look": [
+      [
+       "player",
+       "A microfiche reader the size of a small oven, humming, with the County Press from 1884 in a card index beside it. 1973 is out on the desk already."
+      ],
+      [
+       "june",
+       "Somebody was reading it before we came in. The lamp's still warm."
+      ]
+     ]
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      1.5,
+      5.3
+     ],
+     "name": "Cuttings files",
+     "look": "Cuttings files by subject. PIER. ZOO. CULVER. LEVELS (DRAINAGE). LEVELS (OTHER). The OTHER file is thin and the folder is new."
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      1.5,
+      6.3
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      5,
+      7.3
+     ],
+     "name": "Reading table",
+     "look": "A reading table with a jigsaw on it, half done: Sandown Pier from the air. The missing piece is where the pavilion should be."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      4,
+      8.3
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      6,
+      6.4
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      4.5,
+      1.5
+     ],
+     "name": "Notice",
+     "look": "SILENCE. Under it, smaller: EXCEPT ON TUESDAYS (STORY TIME)."
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      9.5,
+      7.5
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      9.5,
+      3.4
+     ],
+     "name": "Clock",
+     "look": "A wall clock, five minutes fast, to get people out by half five."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "tn_archivist",
+     "name": "Miss Jolliffe",
+     "pos": [
+      3,
+      4.2
+     ],
+     "facing": "down",
+     "sprite": "archivist",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "tn_microfiche_1973",
+     "name": "The 1973 fiche on the reader",
+     "pos": [
+      7.5,
+      6.2
+     ],
+     "prop": "paper2",
+     "text": "The County Press, 1 June 1973, on the reader's screen, grey and enormous. CHILDREN'S FRIGHT ON THE LEVELS: the stray Alsatian, the heat, 81F. And under it, in the same column, a four-line notice you did not see in the cuttings: SUNNYSIDE'S NEW SEASON OPENS. 'Entertainments by Mr R. Tappin and company.'",
+     "methods": {
+      "photograph": "tn_county_press_photo",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "church_hall": {
+   "size": [
+    12,
+    12
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2",
+    "wood_warm"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "bulletin_board",
+     "pos": [
+      2,
+      1.8
+     ],
+     "name": "Hall noticeboard",
+     "look": [
+      [
+       "player",
+       "WI THURS. BROWNIES TUES. MOTHER AND TODDLER. A rota for the flowers, a rota for the teas, a rota for the rotas."
+      ],
+      [
+       "ruth",
+       "Put me down for the teas, dear. I'll not be any use in a fight but I can do a tea."
+      ]
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      4.5,
+      1.5
+     ],
+     "name": "Sunday school photo",
+     "look": [
+      [
+       "player",
+       "Sunday school, summer 1973, on the hall steps. Fourteen children. Two of them aren't smiling and they're standing a little apart, and they're holding hands."
+      ],
+      [
+       "elijah",
+       "They didn't let go for a year, Ruth. I'd put money on it."
+      ]
+     ]
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      7,
+      1.6
+     ],
+     "name": "Painting",
+     "look": "A painting of the church by a parishioner, with the spire slightly too tall, out of love."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      9.5,
+      1.6
+     ],
+     "name": "Notice",
+     "look": "HALL HIRE: 5 POUNDS AN HOUR. NO ALCOHOL. NO BOUNCY CASTLES AFTER THE INCIDENT."
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      11,
+      2.4
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      4.6
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      3,
+      6.1
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      8,
+      4.6
+     ]
+    },
+    {
+     "kind": "pew",
+     "pos": [
+      8,
+      6.1
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      5.5,
+      9.2
+     ],
+     "name": "Trestle table",
+     "look": "A trestle table with an urn on it. The urn is on. The urn is always on. There is a biscuit tin and the biscuits are Rich Tea, which are a biscuit in the same way a bus timetable is a novel."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      3,
+      10.2
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      8,
+      8.5
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      10.5,
+      9.5
+     ],
+     "name": "Lost property",
+     "look": [
+      [
+       "player",
+       "The lost property chest. Umbrellas, a cardigan, a Brownie's sash, a single roller skate, and a child's sunhat, yellow, cotton, 1970s, with a name tape: C. RUDD."
+      ],
+      [
+       "miriam",
+       "A sunhat. It's a sunhat, everyone. It is not pointed."
+      ],
+      [
+       "dale",
+       "It's yellow."
+      ],
+      [
+       "miriam",
+       "So is the sun, Dale."
+      ]
+     ]
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      1.5,
+      9.3
+     ],
+     "name": "Parish files",
+     "look": "Parish newsletters, PCC minutes, the christening register. The 1973 newsletters are in a folder on top, out of order, which in this hall is a cry for help."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      1.5,
+      3.3
+     ],
+     "name": "Hymn books",
+     "look": "Hymns Ancient and Modern, a box of them, and the Brownies' handbook, 1971 edition, with the knots."
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      11,
+      6.8
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "tn_vicar",
+     "name": "The Reverend Alan Perry",
+     "pos": [
+      6,
+      3.4
+     ],
+     "facing": "down",
+     "sprite": "vicar",
+     "when": [
+      "morning",
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "tn_volunteer",
+     "name": "Pat",
+     "pos": [
+      5,
+      8.3
+     ],
+     "facing": "up",
+     "sprite": "volunteer",
+     "when": [
+      "dusk"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "tn_newsletter",
+     "name": "The June 1973 newsletter",
+     "pos": [
+      2.5,
+      9.6
+     ],
+     "prop": "paper",
+     "text": "ST JOHN'S PARISH NEWS, JUNE 1973. The vicar's letter, typed and duplicated in purple: 'Two of our Sunday school visitors have had a fright on the Levels, and the town has had a good laugh. I would ask us all to remember that our Lord said suffer the little children, and that He did not say laugh at them. They described a thing that was every colour at once. I have not seen it. I do not therefore know that it was not there.'",
+     "methods": {
+      "bag": "tn_parish_newsletter",
+      "photograph": "tn_newsletter_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "station": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "tile_cream",
+    "tile_cream",
+    "tile_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "counter_l",
+     "pos": [
+      2,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      2,
+      1.6
+     ],
+     "name": "Timetable",
+     "look": [
+      [
+       "player",
+       "ISLAND LINE. RYDE PIER HEAD - SHANKLIN. Every twenty minutes, every day, 'subject to the pier'. The pier is subject to the weather. The weather is subject to nothing."
+      ],
+      [
+       "june",
+       "Last train 22.40. Write that down. Elijah, write it on your hand."
+      ]
+     ]
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      4,
+      1.4
+     ],
+     "name": "Network map",
+     "look": "A London Underground map, 1938, Northern line, left in the carriage when it came and framed here as a joke. Morden to High Barnet, by way of Sandown."
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      6.5,
+      2.4
+     ],
+     "name": "Station clock",
+     "look": "A station clock, correct, which on this island counts as a boast."
+    },
+    {
+     "kind": "pigeonholes",
+     "pos": [
+      8.5,
+      2.1
+     ],
+     "name": "Pigeonholes",
+     "look": "Tickets by destination, in a wooden rack, pink card. RYDE. BRADING. SHANKLIN. And one slot marked PRIVILEGE that is empty, and has been since nationalisation."
+    },
+    {
+     "kind": "bench",
+     "pos": [
+      7,
+      5.5
+     ],
+     "name": "Waiting bench",
+     "look": "A bench the length of the room with a coach party asleep on it, end to end, like books."
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      1.5,
+      6.5
+     ],
+     "name": "Lost property",
+     "look": [
+      [
+       "player",
+       "Lost property. Umbrellas, a bucket, a wedding hat in a box, and a cassette recorder with the tape still in it. The tape has been played to the end and not rewound."
+      ],
+      [
+       "june",
+       "...I'd like a look at that tape. Later. When he's not looking."
+      ]
+     ]
+    },
+    {
+     "kind": "vending",
+     "pos": [
+      9,
+      6.5
+     ],
+     "name": "Chocolate machine",
+     "look": "A chocolate machine that takes 20p and gives a Wispa, sometimes. The 'sometimes' has been added to the sign by hand."
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      5,
+      6.6
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      9.5,
+      1.5
+     ],
+     "name": "Calendar",
+     "look": "A British Rail calendar from 1992 still on the wall, because the trains haven't changed since 1938 so why would the calendar."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "tn_stationmaster",
+     "name": "Mr Attrill",
+     "pos": [
+      3.5,
+      2.5
+     ],
+     "facing": "down",
+     "sprite": "stationmaster",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    },
+    {
+     "id": "tn_coach_party",
+     "name": "A coach party",
+     "pos": [
+      7,
+      6.4
+     ],
+     "facing": "down",
+     "sprite": "holidaymaker",
+     "when": [
+      "morning"
+     ]
+    }
+   ]
+  }
+ }
+}

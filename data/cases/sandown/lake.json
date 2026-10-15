@@ -1,0 +1,403 @@
+{
+ "_doc": "Lake fragment for the Sandown case: Sunnyside Holiday Camp, the camp manager who hired the 1973 entertainer, the caretaker who remembers him, the current Yellowcoat, the night-2 trail sign (the yellow pointed hat in the costume store) and its herring (the hire receipts), the 1973 rota, and the side hook 'The lost Yellowcoat'. Ids are prefixed lk_.",
+ "locations": {
+  "ballroom": "Sunnyside Ballroom",
+  "green_room": "Sunnyside green room",
+  "costume_store": "Sunnyside costume store",
+  "camp_office": "Sunnyside camp office",
+  "chalet_9": "Chalet 9, the staff chalet"
+ },
+ "items": {
+  "camp_office_key": {
+   "name": "Camp office key",
+   "text": "A brass key on a Sunnyside fob.",
+   "kind": "kit",
+   "tier": "local",
+   "price": 0,
+   "reusable": true
+  }
+ },
+ "witnesses": {
+  "lk_camp_boss": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "lk_boss_rota",
+     "title": "Where the 1973 paperwork is",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 8,
+       "prompt": "A camp this size keeps a rota. Where's 1973's?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "lk_camp_boss",
+       "Rotas? Len's got rotas going back to Suez. Grey cabinet in the office, one drawer a year. He'll show you if you ask him nicely and don't touch the mug."
+      ],
+      [
+       "lk_camp_boss",
+       "I don't know what you think a rota's going to tell you. Who was on and who was off. That's all a rota is."
+      ],
+      [
+       "teddy",
+       "That's all we need a rota to be."
+      ]
+     ],
+     "flag": "lk_boss_told_rota"
+    },
+    {
+     "id": "lk_boss_jim",
+     "title": "What Sunny Jim was like",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "check": "rapport",
+       "difficulty": 9,
+       "prompt": "You hired him. You must have liked him once."
+      }
+     ],
+     "lines": [
+      [
+       "lk_camp_boss",
+       "Liked him? Everyone liked him. Tall lad, Portsmouth, could do a voice for anything. Did the kids' club like it was the Palladium."
+      ],
+      [
+       "lk_camp_boss",
+       "Too good for us, if I'm honest. Clever. Clever's trouble in a Yellowcoat; they get bored by June. He got bored by May."
+      ],
+      [
+       "elijah",
+       "He says 'clever' like it's the thing he can't forgive."
+      ]
+     ],
+     "flag": "lk_boss_jim"
+    },
+    {
+     "id": "lk_boss_contra",
+     "title": "Who left first",
+     "gates": [
+      {
+       "contradiction": "lk_jim_wages"
+      }
+     ],
+     "lines": [
+      [
+       "lk_camp_boss",
+       "...All right. All right. He didn't go over wages. He went because I told him to go, Tuesday morning, before the police came round about two kids on the Levels."
+      ],
+      [
+       "lk_camp_boss",
+       "He did a walkabout. Kids' club thing. The Yellow Man: a hat this high, painted up all colours, a voice. He wasn't meant to take it off the camp. He took it off the camp."
+      ],
+      [
+       "lk_camp_boss",
+       "And I was twenty-four and assistant manager and I didn't want it in the Chronicle. So he went, and the hat stayed, and I've run bingo on top of it for twenty-one years."
+      ],
+      [
+       "miriam",
+       "There it is."
+      ]
+     ],
+     "evidence": "lk_boss_walkabout",
+     "flag": "lk_boss_admitted"
+    }
+   ]
+  },
+  "lk_caretaker": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "lk_caretaker_hat",
+     "title": "The hat Jim made",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "You've been here since '71. You'd know a costume from a thing somebody made."
+      },
+      {
+       "show": "lk_hat_photo"
+      },
+      {
+       "show": "lk_hat_lab"
+      }
+     ],
+     "lines": [
+      [
+       "lk_caretaker",
+       "That's not the hire hat. Hire hat goes back to Gieves every September in its box, and it's a daft little thing, a foot high. I pack it myself."
+      ],
+      [
+       "lk_caretaker",
+       "That one Jim built. Green room, three nights, May '73. Lampshade frame off chalet 9 and the baize off the snooker table, and I never got the baize back, and Terry never asked where it went."
+      ],
+      [
+       "dale",
+       "So the receipts are for a different hat."
+      ],
+      [
+       "lk_caretaker",
+       "Receipts are for a hat. That's a hat. There's your difference."
+      ]
+     ],
+     "evidence": "lk_caretaker_jim"
+    },
+    {
+     "id": "lk_caretaker_lights",
+     "title": "The night the stage lit itself",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "check": "lore",
+       "difficulty": 9,
+       "prompt": "Camps have their own stories. The ones the staff tell after the bar shuts."
+      }
+     ],
+     "lines": [
+      [
+       "lk_caretaker",
+       "Wednesday night, after he'd gone. I'd turned the mains off at the stage, I always did. Two in the morning, the floods come on. Red, then blue, then green, then that yellow, round and round."
+      ],
+      [
+       "lk_caretaker",
+       "Mains was off. I had the key to the box in my pocket. I stood by the pool and watched it go round for ten minutes and then it stopped and there was a smell like a struck match."
+      ],
+      [
+       "lk_caretaker",
+       "I've not told Terry that and I'll thank you not to."
+      ],
+      [
+       "june",
+       "Ten minutes, all colours, no power. ...I'd like to see that box."
+      ]
+     ],
+     "evidence": "lk_caretaker_lights"
+    },
+    {
+     "id": "lk_caretaker_lost",
+     "title": "The lost Yellowcoat",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "You kept his things. Under the bed in 9. Why?"
+      },
+      {
+       "show": "lk_rota_1973"
+      }
+     ],
+     "lines": [
+      [
+       "lk_caretaker",
+       "He came back the Wednesday night for his things and I let him in, because he was a lad and he was frightened. Took his mouth-organ and left the rest. Said he'd write for it."
+      ],
+      [
+       "lk_caretaker",
+       "Never did. I rang the Portsmouth number on the rota in '74 and his mum answered and said she'd not heard either. Said it the way you'd say it if you'd said it a lot."
+      ],
+      [
+       "lk_caretaker",
+       "Twenty-one years. Every year I push the box back under the bed. Somebody should've looked for him. Nobody looked for him, same as nobody listened to them kids."
+      ],
+      [
+       "ruth",
+       "We're looking now, love. For all three of them."
+      ]
+     ],
+     "flag": "lk_lost_yellowcoat"
+    }
+   ]
+  },
+  "lk_yellowcoat": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "lk_yc_drawings",
+     "title": "The kids' club drawings",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "You run the kids' club. What are they drawing this week?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "lk_yellowcoat",
+       "Same as every week. Mum, dad, the dog, the pool with water in it. And this week, three of them, a tall yellow thing with a pointed head, all colours down the sides. Three different families. Off three different coaches."
+      ],
+      [
+       "lk_yellowcoat",
+       "I asked. They said it was in the field. I said what field. They said the one with the hut. There isn't a hut."
+      ],
+      [
+       "elijah",
+       "There isn't a hut yet."
+      ]
+     ],
+     "evidence": "lk_kids_drawings"
+    },
+    {
+     "id": "lk_yc_rule",
+     "title": "The rule about walkabouts",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 8,
+       "prompt": "There's a notice in the office. No walkabouts without the manager. Why that rule?"
+      },
+      {
+       "show": "lk_hat_photo"
+      }
+     ],
+     "lines": [
+      [
+       "lk_yellowcoat",
+       "Terry's one rule. You can get drunk, you can get off with the guests, you cannot take a character off site. Never says why. Gaz asked once and got the bar for a week."
+      ],
+      [
+       "lk_yellowcoat",
+       "And there's a hat in the store we're not to touch. I've touched it. It's heavy. Somebody made it; it's not a bought one."
+      ],
+      [
+       "teddy",
+       "A rule with no reason is a reason with a rule on top."
+      ]
+     ],
+     "flag": "lk_yc_rule"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "lk_hat_photo": {
+   "title": "Photo: the yellow hat",
+   "text": "A yellow pointed hat on a 1970s costume rail in the Sunnyside store, as tall as an arm, hand-built on a wire frame, worn grey at the folds. A hat a child would remember as taller than a man.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "lk_hat_fibres": {
+   "title": "Fibres from the hat band",
+   "text": "Fibres and a greasy residue from inside the band of the yellow hat, where it sat on somebody's head for a season.",
+   "lean": "hoax",
+   "weight": 3,
+   "kind": "physical",
+   "reliability": "B",
+   "lab": "lk_hat_lab"
+  },
+  "lk_hat_lab": {
+   "title": "Lab: the hat band",
+   "text": "Wool felt and snooker-table baize on a lampshade wire frame, hand-sewn, not a costumier's. The residue is Leichner stick greasepaint of a type sold until 1979, in six colours, and sweat. A man wore this and he was painted all colours when he did.",
+   "lean": "hoax",
+   "weight": 3,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "lk_hire_receipts"
+   ]
+  },
+  "lk_hire_receipts": {
+   "title": "Costume hire receipts, 1968 to 1993",
+   "text": "Gieves Theatrical, Portsmouth: one conical hat, yellow felt, and sundries, hired every summer from 1968 to 1993. The hat is just the camp's hat. It has been on the rail every year and on anyone's head.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "lk_rota_1973": {
+   "title": "Photo: the 1973 staff rota",
+   "text": "Sunnyside staff rota, May 1973. SUNNY JIM (ENTERTAINMENTS) on every day until the 29th, then a line through the rest and a note: LEFT 29/5. NO FWD ADDRESS. NOT TO BE REHIRED. T.G. The children met the thing on the Levels on the 28th.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "lk_boss_wages": {
+   "title": "Terry on why Jim left",
+   "text": "Terry Gosling's account: Sunny Jim walked out on the Tuesday after the bank holiday over docked wages; the crowd had been thin and Terry had docked him. Nothing to do with any children.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "lk_boss_walkabout": {
+   "title": "Terry admits the Yellow Man",
+   "text": "Terry Gosling, assistant manager in 1973, hired Sunny Jim and sent him off the camp on the Tuesday morning before the police came. Jim's kids' club walkabout was the Yellow Man: a hat a yard high, greasepaint in every colour, a voice. He took it off the camp onto the Levels, and Terry kept it out of the paper.",
+   "lean": "hoax",
+   "weight": 3,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "lk_boss_wages"
+   ]
+  },
+  "lk_caretaker_jim": {
+   "title": "Len on the hat Jim built",
+   "text": "Len Cutmore packed the hired hat back to Portsmouth every September; it is a foot high. The hat on the rail Jim built himself in the green room in May 1973 from a lampshade frame and the baize off the snooker table.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "lk_hire_receipts"
+   ]
+  },
+  "lk_caretaker_lights": {
+   "title": "Len and the stage lights",
+   "text": "The Wednesday night after Jim left, with the mains off and the key in Len's pocket, the outdoor stage floods came on at two in the morning and cycled red, blue, green, yellow for ten minutes, then stopped, and left a smell like a struck match.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "lk_kids_drawings": {
+   "title": "The kids' club drawings",
+   "text": "Three children off three different coaches drew the same thing this week at the Sunnyside kids' club: a tall yellow thing with a pointed head, all colours down the sides, in a field with a hut. There is no hut.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  }
+ },
+ "contradictions": {
+  "lk_jim_wages": {
+   "title": "Who left first",
+   "evidence": [
+    "lk_boss_wages",
+    "lk_rota_1973"
+   ],
+   "witness": "lk_camp_boss",
+   "prompt": "You docked his wages and he walked, Tuesday. Your own rota has him gone Tuesday morning, before any wages were made up, in your handwriting, NOT TO BE REHIRED. Which went first, Terry: him, or the story?"
+  }
+ },
+ "trail": [
+  {
+   "night": 2,
+   "roost": "Sunnyside costume store, Lake",
+   "map": "sandown_lake",
+   "clues": [
+    "lk_yellow_hat"
+   ],
+   "herring": [
+    "lk_hire_box"
+   ]
+  }
+ ]
+}
