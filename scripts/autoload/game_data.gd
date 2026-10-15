@@ -262,8 +262,10 @@ func validate() -> Array[String]:
 				errors.append("map %s prop %s enters unknown room %s" % [map_id, p.kind, p.enter])
 			if p.get("use", "") == "dials" and (not p.has("puzzle") or p.puzzle.get("order", []).is_empty()):
 				errors.append("map %s dials prop has no puzzle order" % map_id)
-			if p.has("travel") and not road.get("legs", {}).has(p.travel):
-				errors.append("map %s prop %s drives unknown leg %s" % [map_id, p.kind, p.travel])
+			if p.has("travel"):
+				for leg_id in (p.travel if p.travel is Array else [p.travel]):
+					if not road.get("legs", {}).has(leg_id):
+						errors.append("map %s prop %s drives unknown leg %s" % [map_id, p.kind, leg_id])
 		for n in npcs:
 			if n.has("appears") and gate(n.appears).is_empty():
 				errors.append("map %s npc %s appears on unknown gate %s" % [map_id, n.id, n.appears])

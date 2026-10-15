@@ -484,6 +484,8 @@ static func unlock_fact(data: Node, state: Node, fact: Dictionary) -> void:
 		state.facts.append(fact.id)
 	if fact.has("evidence"):
 		gain_evidence(data, state, fact.evidence)
+	if fact.has("flag"):
+		state.flags[fact.flag] = true
 
 
 ## Adds evidence, marks anything it exposes as false, and queues samples for the lab.

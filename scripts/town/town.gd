@@ -460,7 +460,12 @@ func _use_hotspot(spot: Node) -> void:
 			_enter(p.enter, true)
 		return
 	if p.has("travel"):
-		_drive(p.travel)
+		if p.travel is Array:
+			var t := TravelTalk.new(_box, p.travel, _toast)
+			t.chosen.connect(_drive)
+			_start_talk(t)
+		else:
+			_drive(p.travel)
 		return
 	if p.has("pickup"):
 		var name: String = GameData.items.get(p.pickup, {}).get("name", p.pickup)

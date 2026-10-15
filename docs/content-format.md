@@ -47,7 +47,7 @@ Rules:
 - A prop `pos` is the bottom-centre tile; a facade `pos` is the bottom-left tile.
 - `look` makes a prop inspectable. A plain string is narration; a list of `[speaker, text]` lines plays as dialogue. Party members only speak their line when they are in the party.
 - `pickup` puts an item from `data/items.json` in the field kit once. New items a district needs go in its case fragment under `"items": {...}` with the same shape as `data/items.json`.
-- A prop with `"use": "<panel>"` and a `name` opens an engine panel when used: `board` (the case board: file a verdict, see the standing evidence), `ledger` (spend budget on Office and car upgrades), `catalog` (the card catalog: evidence archive, verdict history, Drawer S), `radio_log` (stations logged on the road), `shop` (a counter that sells the stock of `"shop": "<shop id>"`). A prop with `"travel": "<leg id>"` and a `name` starts that road leg (the station wagon).
+- A prop with `"use": "<panel>"` and a `name` opens an engine panel when used: `board` (the case board: file a verdict, see the standing evidence), `ledger` (spend budget on Office and car upgrades), `catalog` (the card catalog: evidence archive, verdict history, Drawer S), `radio_log` (stations logged on the road), `shop` (a counter that sells the stock of `"shop": "<shop id>"`). A prop with `"travel": "<leg id>"` and a `name` starts that road leg (the station wagon); a list of leg ids offers the choice.
 - A prop with `"gate": "<gate id>"` and a `name` is a barrier (a fence section, a chained door). Interacting tries the gate; once it opens the prop is gone for good.
 - A facade, house, prop or NPC with `"appears": "<gate id>"` is not there at all until that gate is open (the Hut on the Levels at dusk). Pair it with an `all` gate (below) for "after three signs, at dusk".
 - A prop with `"enter": "<room id>"` and a `name` is a door between rooms of the same building (the Hut's dial room into the colour corridor). Leaving any room by its bottom edge comes out of the door the party went in by.
@@ -72,7 +72,7 @@ Fragments are merged into the case at load: dictionaries (`witnesses`, `evidence
 },
 "trail": [ {"night": 1, "roost": "Abandoned church, Route 62", "map": "point_pleasant_route_62", "clues": ["church_prints", "church_feather"], "herring": ["owl_pellets"]} ],
 "witnesses": {"ham": {"trust": 1, "facts": [ {"id": "ham_log", "title": "The 1966 log", "gates": [ {"check": "tech", "difficulty": 8, "prompt": "..."} | {"show": "evidence_id"} | {"contradiction": "id"} | {"trust": 2} ],
-                                              "lines": [["ham", "..."]], "evidence": "ham_log_1966"} ]}},
+                                              "lines": [["ham", "..."]], "evidence": "ham_log_1966", "flag": "ham_trusts_us"} ]}},
 "evidence": {"ham_log_1966": {"title": "...", "text": "...", "lean": "unexplained", "weight": 2, "kind": "document",
                               "red_herring": false, "exposes": ["other_id"], "lab": "lab_result_id", "reliability": "B"}},
 "contradictions": {"id": {"prompt": "...", "evidence": ["a", "b"], "witness": "ham"}}

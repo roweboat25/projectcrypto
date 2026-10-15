@@ -150,8 +150,9 @@ def main():
                     pz = p.get("puzzle", {})
                     if not pz.get("order") or not pz.get("names") or not pz.get("flag") or any(o not in pz["names"] for o in pz["order"]):
                         err("%s dials prop needs puzzle names, order (from names) and flag" % where)
-                if p.get("travel") and p["travel"] not in road.get("legs", {}):
-                    err("%s prop drives unknown leg %s" % (where, p["travel"]))
+                for leg_id in (p["travel"] if isinstance(p.get("travel"), list) else [p["travel"]]) if p.get("travel") else []:
+                    if leg_id not in road.get("legs", {}):
+                        err("%s prop drives unknown leg %s" % (where, leg_id))
                 if p.get("gate") and p["gate"] not in gates:
                     err("%s prop gate %s unknown" % (where, p["gate"]))
                 if p.get("appears") and p["appears"] not in gates:

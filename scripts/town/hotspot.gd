@@ -16,6 +16,8 @@ func setup(p: Dictionary, p_key: String) -> void:
 		set_meta("prompt", {"board": "The case board", "ledger": "The Office ledger", "catalog": "The card catalog", "radio_log": "The station log", "shop": "Shop"}.get(p.use, "Use") if not p.has("name") else str(p.name))
 	elif p.has("enter"):
 		set_meta("prompt", str(p.get("name", "Through")))
+	elif p.has("travel") and p.travel is Array:
+		set_meta("prompt", str(p.get("name", "The station wagon")))
 	elif p.has("travel"):
 		set_meta("prompt", "Drive: " + str(GameData.road.get("legs", {}).get(p.travel, {}).get("name", p.travel)))
 	elif p.has("pickup") and p.has("price"):
