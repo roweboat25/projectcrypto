@@ -1094,7 +1094,7 @@
    "kind": "bin",
    "pos": [
     44.5,
-    7.6
+    7.8
    ],
    "look": "A library bin. Overdue notices, torn in half. One is addressed to A. Weller, December 1967. Twenty-six years of postage due."
   },
@@ -1157,7 +1157,7 @@
   {
    "kind": "planter",
    "pos": [
-    27,
+    28,
     6.9
    ]
   },
@@ -1260,14 +1260,14 @@
   {
    "kind": "bush_berry",
    "pos": [
-    56,
+    54,
     12.4
    ]
   },
   {
    "kind": "tuft_snow",
    "pos": [
-    58,
+    52,
     12.4
    ]
   },
@@ -1281,8 +1281,8 @@
   {
    "kind": "rock_small",
    "pos": [
-    13,
-    14.5
+    14,
+    13.9
    ]
   },
   {
@@ -1798,9 +1798,9 @@
       5.9
      ],
      "prop": "bin",
-     "text": "The kitchen bin. Grease, grounds, and under the liner where it has been for a very long time, a Rosie's receipt dated 11/17/66: two coffees, one pie. A phone number in pencil on the back. The cook is watching you.",
+     "text": "The kitchen bin. Grease, grounds, and under the liner where it has been for a very long time, a Rosie's check dated 11/17/66: four coffees. A phone number in pencil on the back, 675-2211. The cook is watching you.",
      "methods": {
-      "photograph": "diner_receipt",
+      "photograph": "kitchen_receipt_1966",
       "bag": "spoil",
       "cast": "spoil",
       "measure": "spoil"
@@ -2461,8 +2461,8 @@
      "id": "walt",
      "name": "Walt Pruitt",
      "pos": [
-      6.5,
-      5.6
+      3.5,
+      6.4
      ],
      "facing": "up",
      "when": [
@@ -2931,7 +2931,7 @@
      "kind": "basket",
      "pos": [
       1,
-      5.9
+      4.9
      ],
      "pickup": "lowe_matchbook",
      "look": "A basket of matchbooks. THE LOWE HOTEL, POINT PLEASANT, ON THE OHIO. Take one."

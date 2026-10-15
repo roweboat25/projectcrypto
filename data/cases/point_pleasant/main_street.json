@@ -1,0 +1,532 @@
+{
+ "_doc": "Main Street fragment: Harmon's Variety, the Lowe Hotel lobby and its roped-off 4th floor (side case 'The 4th floor', the founder card), Mason County Library's local studies fiche, the Mason Gas back room where the man in the suit waits by day, First Methodist's basement pantry, and Rosie's kitchen bin. The bin clue gives kitchen_receipt_1966, which the Heights fragment defines and Carol Mason answers to. The night clerk (nightclerk) has a dialogue script. Gate lowe_4th opens on the night clerk's trust (bring him coffee three nights), the 4th floor key he hands over in his script, or an Occultist reading the chalk sigil on the door.",
+ "districts": {
+  "main_street": {
+   "name": "Main Street",
+   "map": "point_pleasant_main_street"
+  }
+ },
+ "locations": {
+  "variety": "Harmon's Variety",
+  "hotel": "The Lowe Hotel",
+  "county_library": "Mason County Library"
+ },
+ "items": {
+  "lowe_matchbook": {
+   "name": "Lowe Hotel matchbook",
+   "text": "THE LOWE HOTEL, POINT PLEASANT, ON THE OHIO. For the jar on the Office counter.",
+   "kind": "charm",
+   "price": 0
+  },
+  "pp_postcard": {
+   "name": "Point Pleasant postcard",
+   "text": "Greetings from Point Pleasant, W. Va. The bridge on the front is the old one. For the corkboard by the Office door.",
+   "kind": "charm",
+   "price": 1
+  }
+ },
+ "gates": {
+  "lowe_4th": {
+   "name": "Stairs to the 4th floor",
+   "locked": "A velvet rope across the back stairs and a chalk mark on the landing door above, old and deliberate. The clerk is watching. Nobody goes up.",
+   "opens": [
+    {
+     "trust": {
+      "npc": "nightclerk",
+      "level": 3
+     }
+    },
+    {
+     "item": "room_key_4"
+    },
+    {
+     "flag": "lowe_key"
+    },
+    {
+     "class": "occultist"
+    }
+   ]
+  }
+ },
+ "witnesses": {
+  "nightclerk": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "nc_register",
+     "title": "The December 1967 register",
+     "gates": [
+      {
+       "show": "the_suits"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "nightclerk",
+       "Register's in the safe, the old ones. December '67. 'A. Weller, Sutton, W. Va. Room 412. Paid through January.' That's her hand, not mine."
+      ],
+      [
+       "nightclerk",
+       "Line under hers, same week. 'W. Penrose, Washington.' He wanted a room facing the bridge. Got 410. Checked out the morning after it fell and left no forwarding."
+      ],
+      [
+       "miriam",
+       "Two rooms apart. For a week."
+      ]
+     ],
+     "evidence": "lowe_register_1967"
+    },
+    {
+     "id": "nc_sigil",
+     "title": "The mark on the door",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "There's a chalk mark on that landing door. The old kind, for keeping things out."
+      },
+      {
+       "check": "arcana",
+       "difficulty": 7,
+       "prompt": "The sigil on the fourth-floor door. Who drew it?"
+      }
+     ],
+     "lines": [
+      [
+       "nightclerk",
+       "She drew it. Last night I saw her. Stood on a chair with a piece of chalk and did it slow, like writing a cheque."
+      ],
+      [
+       "nightclerk",
+       "Said if anybody ever rubbed it out I'd know it wasn't her come back. Twenty-six years. Nobody's rubbed it out. I check."
+      ]
+     ],
+     "evidence": "clerk_sigil"
+    },
+    {
+     "id": "nc_card",
+     "title": "What she was writing",
+     "gates": [
+      {
+       "show": "gus_card_1967"
+      }
+     ],
+     "lines": [
+      [
+       "nightclerk",
+       "That's it. That's the card. She read it to me once, down here at the desk, three in the morning. Just the last line."
+      ],
+      [
+       "nightclerk",
+       "'Not hoax.' She said it like she was arguing with somebody who'd already left the room."
+      ],
+      [
+       "elijah",
+       "He was still in the building."
+      ]
+     ],
+     "evidence": "gus_objection"
+    }
+   ]
+  },
+  "harmon": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "harmon_reflectors",
+     "title": "Who bought the reflectors",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 7,
+       "prompt": "You sold out of red bicycle reflectors in November. Who to?"
+      },
+      {
+       "show": "prank_rumour"
+      }
+     ],
+     "lines": [
+      [
+       "harmon",
+       "Bobby Kessler. Every red reflector in the store, the week before Thanksgiving. Paid in quarters out of a sock."
+      ],
+      [
+       "harmon",
+       "I asked what for. He said 'science.' I wrote it in the book as 'science.'"
+      ],
+      [
+       "teddy",
+       "He's got a book."
+      ]
+     ],
+     "evidence": "reflector_sale"
+    },
+    {
+     "id": "harmon_sign",
+     "title": "Harmon's theory",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "You've been on this street forty years. What do you think they saw?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "harmon",
+       "Low cloud and the Mason Gas sign. Red, tall, blinks. You come down Route 62 on a wet night and it's hanging in the sky over the trees. Scared me once and I knew what it was."
+      ],
+      [
+       "harmon",
+       "Don't print that. Earl's sensitive."
+      ],
+      [
+       "miriam",
+       "That's the first explanation in this town that doesn't need wings. I'm writing it down."
+      ]
+     ],
+     "evidence": "harmon_sign_theory"
+    },
+    {
+     "id": "harmon_gloves",
+     "title": "The gloves",
+     "gates": [
+      {
+       "show": "the_suits"
+      },
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "A pair of new black gloves from your shop turned up in the gas station bin. Who buys gloves in a suit?"
+      }
+     ],
+     "lines": [
+      [
+       "harmon",
+       "Fella in the grey suit. Tuesday. Bought the gloves, a road map, and a box of chalk. Chalk. Asked did I remember him."
+      ],
+      [
+       "harmon",
+       "I said no. He said 'That's all right, Mr Harmon, you did in 1967.' I was eleven in 1967."
+      ]
+     ],
+     "evidence": "harmon_chalk"
+    }
+   ]
+  },
+  "cook": {
+   "trust": 0,
+   "facts": [
+    {
+     "id": "cook_bin",
+     "title": "What's in the bin",
+     "gates": [
+      {
+       "check": "nerve",
+       "difficulty": 8,
+       "prompt": "Turn around and mind your grill. We'll be a minute with your bin."
+      },
+      {
+       "show": "kitchen_receipt_1966"
+      }
+     ],
+     "lines": [
+      [
+       "cook",
+       "You found it, then. The check. Four coffees, November '66, and the number on the back."
+      ],
+      [
+       "cook",
+       "Dwight Mason wrote that number. Marlene fished the check out of the bin that night and she's kept it in the bin ever since, under the liner, like a dog buries a bone it don't want. Don't ask me why. Ask her. Don't ask her."
+      ]
+     ],
+     "evidence": "cook_dwight"
+    },
+    {
+     "id": "cook_sign",
+     "title": "The gas sign",
+     "gates": [
+      {
+       "show": "harmon_sign_theory"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "Harmon says it was the gas sign in low cloud."
+      }
+     ],
+     "lines": [
+      [
+       "cook",
+       "Harmon. That sign hasn't blinked since the flood of '67 shorted it. It was dead in November '66 too. Marlene's daddy shot the bulbs out of it with a .22 the summer before. Everybody knows that but Harmon."
+      ],
+      [
+       "miriam",
+       "...Fine. Crossing it out."
+      ]
+     ],
+     "evidence": "sign_dead"
+    }
+   ]
+  },
+  "ms_dot": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "dot_fiche",
+     "title": "The Register on fiche",
+     "gates": [
+      {
+       "check": "recall",
+       "difficulty": 7,
+       "prompt": "The Register, November '66 through December '67. You keep it on fiche, by year, 1967 filed in front of 1966."
+      },
+      {
+       "show": "original_report"
+      }
+     ],
+     "lines": [
+      [
+       "ms_dot",
+       "Local studies is by request. You're requesting. 1966 and 1967, the Register, and I'll thank you to wind it back when you're done."
+      ],
+      [
+       "ms_dot",
+       "You're not the first this month. A man in a grey suit had '67 out on Tuesday and put it back in front of '66. I noticed. I notice."
+      ]
+     ],
+     "evidence": "fiche_pulled"
+    },
+    {
+     "id": "dot_weller",
+     "title": "A. Weller's library card",
+     "gates": [
+      {
+       "show": "lowe_register_1967"
+      },
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "A woman from Sutton would have wanted the county plat book. The old one, with the bird's field on it."
+      }
+     ],
+     "lines": [
+      [
+       "ms_dot",
+       "Weller. Augusta. I was the junior then. She took out the 1911 plat book on December 12th, 1967, and never brought it back. It's still on her card. I've never cancelled the card."
+      ],
+      [
+       "ms_dot",
+       "She said she'd bring it back when she'd found what was wrong with it. Those words. 'What's wrong with it.'"
+      ],
+      [
+       "ruth",
+       "There was a field on that plat with no name. Everybody around here knows what it was called."
+      ]
+     ],
+     "evidence": "weller_card"
+    }
+   ]
+  },
+  "ms_suit": {
+   "trust": 0,
+   "facts": [
+    {
+     "id": "suit_first",
+     "title": "He got there first",
+     "gates": [
+      {
+       "show": "the_suits"
+      },
+      {
+       "check": "nerve",
+       "difficulty": 9,
+       "prompt": "You've been following us since the pumps. Say what you came to say."
+      }
+     ],
+     "lines": [
+      [
+       "ms_suit",
+       "Mr Penrose has already been through. He asked me to tell you that, so I have. He'd like you to file it as you find it."
+      ],
+      [
+       "ms_suit",
+       "He also says the coffee at the Lowe is better after midnight. He's thoughtful that way."
+      ],
+      [
+       "june",
+       "He didn't blink. The whole time. I counted."
+      ]
+     ],
+     "evidence": "penrose_first"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "gus_card_1967": {
+   "title": "Gus Weller's card, December 1967",
+   "text": "The founder's own case card, unfinished, from room 412 of the Lowe: every line filled but the verdict, and under it, pressed hard: NOT HOAX. W.P. WAS HERE FIRST.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "document",
+   "reliability": "A",
+   "exposes": [
+    "fiche_hoax_verdict"
+   ]
+  },
+  "lowe_register_1967": {
+   "title": "Lowe Hotel register, Dec 1967",
+   "text": "A. Weller, Sutton, room 412, paid through January. Two lines down, W. Penrose, Washington, room 410, checked out the morning after the bridge fell.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "clerk_sigil": {
+   "title": "The chalk mark on 412",
+   "text": "Weller drew a mark on the 4th floor landing door the last night the clerk saw her and told him he'd know her by it. It has not been rubbed out in 26 years.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "gus_objection": {
+   "title": "'Not hoax'",
+   "text": "The night clerk heard Weller read her verdict line aloud at the desk at 3 a.m., arguing with someone who had already left the room.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "penrose_asked": {
+   "title": "Penrose came back for her things",
+   "text": "After Weller vanished a grey-suited man asked the hotel for the contents of room 412. Refused, he said 'That's all right. I got there first.'",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "penrose_first": {
+   "title": "The man at the pumps",
+   "text": "A man in a suit who does not blink says Mr Penrose has already been through Mason Gas and would like the case filed 'as you find it'.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "circled_map": {
+   "title": "The suit's road map",
+   "text": "A 1993 county road map left open at Mason Gas: the TNT area circled in pencil, a tick at the old North Power Plant, initialled W.P.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "harmon_chalk": {
+   "title": "Gloves, a map and chalk",
+   "text": "The man in the grey suit bought black gloves, a road map and a box of chalk from Harmon's on Tuesday, and told Harmon they had met in 1967.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "cook_dwight": {
+   "title": "Dwight wrote the number",
+   "text": "The cook says Dwight Mason wrote the phone number on the 1966 check, and that Marlene has kept the check in the bin under the liner ever since.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rumour_card": {
+   "title": "Corkboard card: lights over the water tower",
+   "text": "An unsigned index card pinned at Rosie's this morning: LIGHTS OVER THE WATER TOWER TUESDAY. NOT KIDS.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "reflector_sale": {
+   "title": "Harmon's ledger: reflectors",
+   "text": "Bobby Kessler bought every red bicycle reflector in Harmon's the week before Thanksgiving 1993, 'for science'.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "harmon_sign_theory": {
+   "title": "The gas sign in low cloud",
+   "text": "Harmon's theory: the tall red Mason Gas sign, blinking under low cloud, seen from Route 62 on a wet night.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "sign_dead": {
+   "title": "The sign was already dead",
+   "text": "The Mason Gas sign had its bulbs shot out in the summer of 1966 and shorted for good in the 1967 flood. It was dark on every night that matters.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "harmon_sign_theory"
+   ]
+  },
+  "fiche_pulled": {
+   "title": "Local studies: the Register on fiche",
+   "text": "Dot Rainey has pulled the Register microfiche for 1966 and 1967. A man in a grey suit had 1967 out on Tuesday.",
+   "lean": "unexplained",
+   "weight": 0,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "fiche_hoax_verdict": {
+   "title": "Register, Dec 18 1967: 'a hoax'",
+   "text": "A two-inch notice three days after the bridge fell: federal investigators conclude the Route 62 sightings a hoax. Signed W. Penrose, Office of Special Inquiry. No such office exists.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B",
+   "red_herring": true
+  },
+  "weller_card": {
+   "title": "A. Weller's library card",
+   "text": "Augusta Weller borrowed the 1911 county plat book on December 12th, 1967, to find 'what's wrong with it'. It was never returned. Her card is still active.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "pantry_cans": {
+   "title": "Punctured cans from the pantry",
+   "text": "Three cans of 1966 peaches from the church pantry floor, each punched through by something three-pointed, grey hair in the holes.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "pantry_cans_lab"
+  },
+  "pantry_cans_lab": {
+   "title": "Lab: the pantry cans",
+   "text": "Raccoon. Teeth, not claws, and the hair is raccoon guard hair. The church has a raccoon and a bad cellar door.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "pantry_cans"
+   ]
+  }
+ }
+}

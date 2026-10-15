@@ -90,7 +90,11 @@ func _apply_debug_query() -> void:
 		elif kv[0] == "at":
 			var xy := kv[1].split(",")
 			if xy.size() == 2:
-				_move_party(Vector2(float(xy[0]), float(xy[1])) * T, outside.actors)
+				var at := Vector2(float(xy[0]), float(xy[1])) * T
+				if inside != "":
+					_move_party(rooms[inside].rect.position + at, rooms[inside].actors)
+				else:
+					_move_party(at, outside.actors)
 		elif kv[0] == "time":
 			time_of_day = float(kv[1])
 
@@ -361,8 +365,13 @@ func _use_hotspot(spot: Node) -> void:
 
 func _use_exit(e: Dictionary) -> void:
 	if e.get("gate", "") != "" and not Investigation.gate_open(GameData, GameState, e.gate, time_of_day):
-		# step back off the exit and explain
-		party[0].global_position += (party[0].global_position - e.rect.get_center()).normalized() * 12
+		# step back off the exit, toward the middle of the map, and explain
+		var back: Vector2 = (outside.rect.get_center() - e.rect.get_center()).normalized()
+		if e.rect.size.x <= e.rect.size.y:
+			back = Vector2(sign(back.x), 0)
+		else:
+			back = Vector2(0, sign(back.y))
+		party[0].global_position += back * 12
 		if not _try_gate(e.gate):
 			return
 	_travel(e, true)
