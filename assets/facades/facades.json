@@ -1,4 +1,15 @@
 {
+ "arcade": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 96,
+  "neon": "neon_red",
+  "solid_h": 96,
+  "w": 256,
+  "wall_h": 64
+ },
  "bait_shop": {
   "door_x": 32,
   "doors": [
@@ -6,6 +17,83 @@
   ],
   "h": 96,
   "neon": "",
+  "solid_h": 96,
+  "w": 160,
+  "wall_h": 64
+ },
+ "ballroom": {
+  "door_x": 160,
+  "doors": [
+   160
+  ],
+  "h": 160,
+  "neon": "neon_red",
+  "solid_h": 160,
+  "w": 384,
+  "wall_h": 96
+ },
+ "battery": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 128,
+  "neon": "",
+  "solid_h": 128,
+  "w": 256,
+  "wall_h": 96
+ },
+ "beach_cafe": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 96,
+  "neon": "neon_red",
+  "solid_h": 96,
+  "w": 224,
+  "wall_h": 64
+ },
+ "camp_office": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 192,
+  "wall_h": 64
+ },
+ "chalet": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 160,
+  "wall_h": 64
+ },
+ "charity_shop": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 160,
+  "wall_h": 64
+ },
+ "chemist": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 96,
+  "neon": "neon_amber",
   "solid_h": 96,
   "w": 160,
   "wall_h": 64
@@ -21,6 +109,17 @@
   "w": 192,
   "wall_h": 128
  },
+ "church_hall": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 128,
+  "neon": "",
+  "solid_h": 128,
+  "w": 256,
+  "wall_h": 64
+ },
  "church_old": {
   "door_x": 64,
   "doors": [
@@ -32,6 +131,61 @@
   "w": 160,
   "wall_h": 96
  },
+ "church_stone": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 288,
+  "neon": "",
+  "solid_h": 192,
+  "w": 192,
+  "wall_h": 128
+ },
+ "clifftop_pub": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 128,
+  "neon": "neon_amber",
+  "solid_h": 128,
+  "w": 256,
+  "wall_h": 64
+ },
+ "clubhouse": {
+  "door_x": 128,
+  "doors": [
+   128
+  ],
+  "h": 128,
+  "neon": "",
+  "solid_h": 128,
+  "w": 288,
+  "wall_h": 64
+ },
+ "coastguard": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 128,
+  "neon": "",
+  "solid_h": 128,
+  "w": 160,
+  "wall_h": 96
+ },
+ "costume_store": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 160,
+  "wall_h": 64
+ },
  "crew_cabin": {
   "door_x": 64,
   "doors": [
@@ -41,6 +195,17 @@
   "neon": "",
   "solid_h": 96,
   "w": 160,
+  "wall_h": 64
+ },
+ "deckchair_hut": {
+  "door_x": 32,
+  "doors": [
+   32
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 128,
   "wall_h": 64
  },
  "diner": {
@@ -98,6 +263,39 @@
   "w": 192,
   "wall_h": 64
  },
+ "green_room": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 160,
+  "wall_h": 64
+ },
+ "groundsman": {
+  "door_x": 32,
+  "doors": [
+   32
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 128,
+  "wall_h": 64
+ },
+ "guest_house": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 160,
+  "neon": "",
+  "solid_h": 160,
+  "w": 256,
+  "wall_h": 96
+ },
  "hardware": {
   "door_x": 96,
   "doors": [
@@ -107,6 +305,17 @@
   "neon": "neon_amber",
   "solid_h": 128,
   "w": 224,
+  "wall_h": 64
+ },
+ "hide": {
+  "door_x": 32,
+  "doors": [
+   32
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 128,
   "wall_h": 64
  },
  "hotel": {
@@ -131,6 +340,17 @@
   "w": 256,
   "wall_h": 96
  },
+ "library_uk": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 160,
+  "neon": "",
+  "solid_h": 160,
+  "w": 256,
+  "wall_h": 96
+ },
  "motel": {
   "door_x": 32,
   "doors": [
@@ -143,6 +363,28 @@
   "solid_h": 128,
   "w": 384,
   "wall_h": 64
+ },
+ "newsagent": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 160,
+  "wall_h": 64
+ },
+ "pavilion": {
+  "door_x": 192,
+  "doors": [
+   192
+  ],
+  "h": 160,
+  "neon": "neon_amber",
+  "solid_h": 160,
+  "w": 448,
+  "wall_h": 96
  },
  "pawn_shop": {
   "door_x": 64,
@@ -177,6 +419,17 @@
   "w": 384,
   "wall_h": 160
  },
+ "pub": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 128,
+  "neon": "neon_amber",
+  "solid_h": 128,
+  "w": 256,
+  "wall_h": 64
+ },
  "pump_house": {
   "door_x": 32,
   "doors": [
@@ -197,6 +450,17 @@
   "neon": "",
   "solid_h": 128,
   "w": 192,
+  "wall_h": 64
+ },
+ "record_shop": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 160,
   "wall_h": 64
  },
  "register": {
@@ -232,6 +496,28 @@
   "w": 224,
   "wall_h": 64
  },
+ "stage_door": {
+  "door_x": 32,
+  "doors": [
+   32
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 128,
+  "wall_h": 64
+ },
+ "station": {
+  "door_x": 128,
+  "doors": [
+   128
+  ],
+  "h": 128,
+  "neon": "",
+  "solid_h": 128,
+  "w": 320,
+  "wall_h": 64
+ },
  "tavern": {
   "door_x": 96,
   "doors": [
@@ -241,6 +527,17 @@
   "neon": "neon_red",
   "solid_h": 128,
   "w": 256,
+  "wall_h": 64
+ },
+ "the_hut": {
+  "door_x": 32,
+  "doors": [
+   32
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 128,
   "wall_h": 64
  },
  "variety": {
@@ -263,6 +560,28 @@
   "neon": "",
   "solid_h": 96,
   "w": 160,
+  "wall_h": 64
+ },
+ "warden_hut": {
+  "door_x": 32,
+  "doors": [
+   32
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 128,
+  "wall_h": 64
+ },
+ "zoo_gate": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 96,
+  "neon": "",
+  "solid_h": 96,
+  "w": 256,
   "wall_h": 64
  }
 }

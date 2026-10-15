@@ -9,10 +9,25 @@
   "solid": 1,
   "w": 32
  },
+ "arcade_machine": {
+  "h": 52,
+  "solid": 1,
+  "w": 32
+ },
+ "arcade_machine_red": {
+  "h": 52,
+  "solid": 1,
+  "w": 32
+ },
  "armchair_grey": {
   "h": 48,
   "solid": 1,
   "w": 64
+ },
+ "bandstand": {
+  "h": 112,
+  "solid": 2,
+  "w": 128
  },
  "bar_counter": {
   "h": 64,
@@ -53,6 +68,26 @@
   "h": 23,
   "solid": 1,
   "w": 32
+ },
+ "battery_door": {
+  "h": 64,
+  "solid": 2,
+  "w": 96
+ },
+ "beach_hut": {
+  "h": 64,
+  "solid": 2,
+  "w": 64
+ },
+ "beach_hut_pink": {
+  "h": 64,
+  "solid": 2,
+  "w": 64
+ },
+ "beach_hut_yellow": {
+  "h": 64,
+  "solid": 2,
+  "w": 64
  },
  "bed_double": {
   "h": 78,
@@ -119,8 +154,43 @@
   "solid": 1,
   "w": 64
  },
+ "bunting": {
+  "h": 24,
+  "solid": 0,
+  "w": 96
+ },
+ "buoy": {
+  "h": 40,
+  "solid": 1,
+  "w": 32
+ },
+ "bush": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
+ },
+ "bush2": {
+  "h": 30,
+  "solid": 1,
+  "w": 32
+ },
  "bush_berry": {
   "h": 29,
+  "solid": 1,
+  "w": 32
+ },
+ "bush_big": {
+  "h": 80,
+  "solid": 1,
+  "w": 96
+ },
+ "bush_dark": {
+  "h": 31,
+  "solid": 1,
+  "w": 32
+ },
+ "bush_dark2": {
+  "h": 32,
   "solid": 1,
   "w": 32
  },
@@ -148,6 +218,11 @@
   "h": 32,
   "solid": 0,
   "w": 32
+ },
+ "camp_sign": {
+  "h": 80,
+  "solid": 1,
+  "w": 96
  },
  "campfire": {
   "h": 24,
@@ -199,6 +274,21 @@
   "solid": 1,
   "w": 32
  },
+ "chalk_cliff": {
+  "h": 64,
+  "solid": 2,
+  "w": 128
+ },
+ "chalk_cliff_end": {
+  "h": 64,
+  "solid": 2,
+  "w": 32
+ },
+ "chalk_cliff_small": {
+  "h": 96,
+  "solid": 2,
+  "w": 64
+ },
  "chest": {
   "h": 32,
   "solid": 1,
@@ -223,6 +313,11 @@
   "h": 71,
   "solid": 1,
   "w": 32
+ },
+ "cloud_big": {
+  "h": 48,
+  "solid": 0,
+  "w": 96
  },
  "clue_bed": {
   "h": 32,
@@ -294,6 +389,11 @@
   "solid": 0,
   "w": 32
  },
+ "coach": {
+  "h": 40,
+  "solid": 1,
+  "w": 96
+ },
  "coffee_maker": {
   "h": 61,
   "solid": 1,
@@ -303,6 +403,11 @@
   "h": 45,
   "solid": 1,
   "w": 64
+ },
+ "costume_rail": {
+  "h": 52,
+  "solid": 1,
+  "w": 96
  },
  "counter": {
   "h": 52,
@@ -334,6 +439,26 @@
   "solid": 0,
   "w": 64
  },
+ "deckchair": {
+  "h": 36,
+  "solid": 1,
+  "w": 32
+ },
+ "deckchair_blue": {
+  "h": 36,
+  "solid": 1,
+  "w": 32
+ },
+ "deckchair_green": {
+  "h": 36,
+  "solid": 1,
+  "w": 32
+ },
+ "deckchair_stack": {
+  "h": 48,
+  "solid": 1,
+  "w": 48
+ },
  "deer": {
   "h": 48,
   "solid": 1,
@@ -354,6 +479,16 @@
   "solid": 2,
   "w": 64
  },
+ "dial_panel": {
+  "h": 48,
+  "solid": 0,
+  "w": 64
+ },
+ "dinghy": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
  "dishes": {
   "h": 12,
   "solid": 0,
@@ -368,6 +503,11 @@
   "h": 16,
   "solid": 0,
   "w": 32
+ },
+ "drawings_wall": {
+  "h": 32,
+  "solid": 0,
+  "w": 64
  },
  "dresser": {
   "h": 40,
@@ -398,6 +538,16 @@
   "h": 95,
   "solid": 1,
   "w": 32
+ },
+ "fern": {
+  "h": 51,
+  "solid": 0,
+  "w": 64
+ },
+ "ferry": {
+  "h": 72,
+  "solid": 1,
+  "w": 160
  },
  "filing_cabinet": {
   "h": 32,
@@ -434,6 +584,21 @@
   "solid": 0,
   "w": 64
  },
+ "flowers_small": {
+  "h": 6,
+  "solid": 0,
+  "w": 32
+ },
+ "flowers_small2": {
+  "h": 6,
+  "solid": 0,
+  "w": 32
+ },
+ "fortune_teller": {
+  "h": 64,
+  "solid": 1,
+  "w": 32
+ },
  "fridge": {
   "h": 64,
   "solid": 1,
@@ -449,6 +614,11 @@
   "solid": 1,
   "w": 32
  },
+ "golf_flag": {
+  "h": 64,
+  "solid": 0,
+  "w": 32
+ },
  "graffiti": {
   "h": 31,
   "solid": 0,
@@ -458,6 +628,16 @@
   "h": 53,
   "solid": 0,
   "w": 32
+ },
+ "gull": {
+  "h": 24,
+  "solid": 0,
+  "w": 32
+ },
+ "gun_mount": {
+  "h": 64,
+  "solid": 2,
+  "w": 96
  },
  "house_brick": {
   "h": 201,
@@ -474,6 +654,16 @@
   "solid": 3,
   "w": 160
  },
+ "hovercraft": {
+  "h": 56,
+  "solid": 1,
+  "w": 128
+ },
+ "ice_cream_cart": {
+  "h": 56,
+  "solid": 1,
+  "w": 64
+ },
  "igloo": {
   "h": 96,
   "solid": 2,
@@ -483,6 +673,11 @@
   "h": 96,
   "solid": 2,
   "w": 128
+ },
+ "jet": {
+  "h": 64,
+  "solid": 1,
+  "w": 176
  },
  "johnboat": {
   "h": 40,
@@ -516,6 +711,11 @@
  },
  "lamp_table": {
   "h": 31,
+  "solid": 0,
+  "w": 32
+ },
+ "lily": {
+  "h": 16,
   "solid": 0,
   "w": 32
  },
@@ -564,6 +764,11 @@
   "solid": 1,
   "w": 64
  },
+ "mower": {
+  "h": 40,
+  "solid": 1,
+  "w": 64
+ },
  "neon_amber": {
   "h": 24,
   "solid": 0,
@@ -583,6 +788,11 @@
   "h": 112,
   "solid": 1,
   "w": 48
+ },
+ "outdoor_stage": {
+  "h": 64,
+  "solid": 2,
+  "w": 128
  },
  "oven": {
   "h": 41,
@@ -604,6 +814,11 @@
   "solid": 0,
   "w": 32
  },
+ "penny_falls": {
+  "h": 48,
+  "solid": 1,
+  "w": 64
+ },
  "pew": {
   "h": 32,
   "solid": 1,
@@ -616,6 +831,11 @@
  },
  "phone_booth": {
   "h": 64,
+  "solid": 1,
+  "w": 32
+ },
+ "phone_box": {
+  "h": 72,
   "solid": 1,
   "w": 32
  },
@@ -634,10 +854,25 @@
   "solid": 1,
   "w": 32
  },
+ "pier_lamp": {
+  "h": 96,
+  "solid": 1,
+  "w": 32
+ },
  "pier_planks": {
   "h": 32,
   "solid": 0,
   "w": 64
+ },
+ "pier_rail": {
+  "h": 32,
+  "solid": 1,
+  "w": 96
+ },
+ "pier_rail_post": {
+  "h": 32,
+  "solid": 1,
+  "w": 32
  },
  "pigeonholes": {
   "h": 40,
@@ -651,6 +886,11 @@
  },
  "pillar": {
   "h": 96,
+  "solid": 1,
+  "w": 32
+ },
+ "pillar_box": {
+  "h": 56,
   "solid": 1,
   "w": 32
  },
@@ -674,6 +914,11 @@
   "solid": 1,
   "w": 96
  },
+ "pine_summer": {
+  "h": 104,
+  "solid": 1,
+  "w": 96
+ },
  "pine_tall": {
   "h": 136,
   "solid": 1,
@@ -683,6 +928,11 @@
   "h": 32,
   "solid": 1,
   "w": 32
+ },
+ "pool_empty": {
+  "h": 96,
+  "solid": 3,
+  "w": 160
  },
  "portrait_wall": {
   "h": 24,
@@ -699,10 +949,25 @@
   "solid": 0,
   "w": 32
  },
+ "punch_judy": {
+  "h": 96,
+  "solid": 1,
+  "w": 64
+ },
  "radio_set": {
   "h": 40,
   "solid": 1,
   "w": 64
+ },
+ "reeds": {
+  "h": 53,
+  "solid": 0,
+  "w": 32
+ },
+ "reeds2": {
+  "h": 53,
+  "solid": 0,
+  "w": 32
  },
  "roadside_cross": {
   "h": 64,
@@ -754,6 +1019,11 @@
   "solid": 1,
   "w": 96
  },
+ "shell_rack": {
+  "h": 48,
+  "solid": 1,
+  "w": 96
+ },
  "shrub_green": {
   "h": 57,
   "solid": 1,
@@ -763,6 +1033,11 @@
   "h": 54,
   "solid": 1,
   "w": 32
+ },
+ "slide": {
+  "h": 64,
+  "solid": 1,
+  "w": 64
  },
  "snowman": {
   "h": 32,
@@ -784,6 +1059,11 @@
   "solid": 1,
   "w": 48
  },
+ "stile": {
+  "h": 48,
+  "solid": 0,
+  "w": 32
+ },
  "stone_slab": {
   "h": 16,
   "solid": 1,
@@ -793,6 +1073,11 @@
   "h": 32,
   "solid": 1,
   "w": 32
+ },
+ "swing": {
+  "h": 64,
+  "solid": 1,
+  "w": 64
  },
  "table": {
   "h": 36,
@@ -839,6 +1124,11 @@
   "solid": 1,
   "w": 96
  },
+ "tree_round": {
+  "h": 84,
+  "solid": 1,
+  "w": 96
+ },
  "tree_snow": {
   "h": 91,
   "solid": 1,
@@ -854,7 +1144,22 @@
   "solid": 1,
   "w": 64
  },
+ "tree_summer": {
+  "h": 93,
+  "solid": 1,
+  "w": 96
+ },
+ "tree_summer2": {
+  "h": 125,
+  "solid": 1,
+  "w": 96
+ },
  "tree_tall": {
+  "h": 160,
+  "solid": 1,
+  "w": 96
+ },
+ "tree_tall_summer": {
   "h": 160,
   "solid": 1,
   "w": 96
@@ -863,6 +1168,21 @@
   "h": 19,
   "solid": 1,
   "w": 64
+ },
+ "tube_carriage": {
+  "h": 48,
+  "solid": 1,
+  "w": 160
+ },
+ "tuft": {
+  "h": 41,
+  "solid": 0,
+  "w": 32
+ },
+ "tuft2": {
+  "h": 41,
+  "solid": 0,
+  "w": 32
  },
  "tuft_snow": {
   "h": 41,
@@ -874,6 +1194,11 @@
   "solid": 0,
   "w": 32
  },
+ "tunnel_mouth": {
+  "h": 96,
+  "solid": 2,
+  "w": 96
+ },
  "tv": {
   "h": 40,
   "solid": 1,
@@ -882,6 +1207,11 @@
  "typewriter": {
   "h": 32,
   "solid": 0,
+  "w": 32
+ },
+ "vacancies_sign": {
+  "h": 56,
+  "solid": 1,
   "w": 32
  },
  "vault_door": {
@@ -914,13 +1244,28 @@
   "solid": 2,
   "w": 96
  },
+ "wave": {
+  "h": 16,
+  "solid": 0,
+  "w": 64
+ },
  "well": {
   "h": 48,
   "solid": 1,
   "w": 48
  },
+ "windbreak": {
+  "h": 40,
+  "solid": 1,
+  "w": 96
+ },
  "workbench": {
   "h": 52,
+  "solid": 2,
+  "w": 96
+ },
+ "zoo_cage": {
+  "h": 64,
   "solid": 2,
   "w": 96
  }
