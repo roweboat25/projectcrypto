@@ -46,7 +46,7 @@ func _ready() -> void:
 	title.add_theme_constant_override("shadow_offset_y", 2)
 	layer.add_child(title)
 	var sub := Label.new()
-	sub.text = "Season 1, 1994: the Sutton Office\n\nSpace to begin"
+	sub.text = "Season 1, 1994: the Sutton Office\n\nSpace to begin · F9 to load a saved game"
 	sub.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
 	sub.offset_top = 70
 	sub.offset_left = -300
@@ -69,8 +69,19 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
-		# a new game starts at the Office in Sutton; debug query strings still pick a map
+	if Input.is_action_just_pressed("load") and GameState.load_game():
+		get_tree().change_scene_to_file("res://scenes/town.tscn")
+	elif Input.is_action_just_pressed("interact"):
+		# a new hire fills in the form first; debug query strings skip it and pick a map
+		if GameState.party.is_empty() and not _has_debug_query():
+			get_tree().change_scene_to_file("res://scenes/creation.tscn")
+			return
 		if GameData.maps.has("sutton_office") and not GameState.flags.has("town_map"):
 			GameState.flags["town_map"] = "sutton_office"
 		get_tree().change_scene_to_file("res://scenes/town.tscn")
+
+
+func _has_debug_query() -> bool:
+	if not OS.has_feature("web"):
+		return false
+	return str(JavaScriptBridge.eval("window.location.search", true)).length() > 1

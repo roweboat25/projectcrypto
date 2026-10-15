@@ -6,6 +6,7 @@ const SAVE_VERSION := 2
 
 var party: Array = []          # roster ids, player character first
 var player_class := "signals"  # the player's own class (roster ids map to classes.json)
+var player_name := ""         # what the new hire wrote on the form
 var levels: Dictionary = {}    # id -> level
 var xp: Dictionary = {}        # id -> xp
 var case_id := "point_pleasant"
@@ -58,7 +59,7 @@ func take_item(id: String, count := 1) -> bool:
 
 func to_dict() -> Dictionary:
 	return {
-		"version": SAVE_VERSION, "party": party, "player_class": player_class, "levels": levels, "xp": xp,
+		"version": SAVE_VERSION, "party": party, "player_class": player_class, "player_name": player_name, "levels": levels, "xp": xp,
 		"case_id": case_id, "day": day, "dread": dread, "evidence": evidence, "exposed": exposed,
 		"spoiled": spoiled, "samples": samples, "facts": facts, "clues_done": clues_done,
 		"trust": trust, "failed_checks": failed_checks, "locked_checks": locked_checks, "items": items,
@@ -71,6 +72,7 @@ func to_dict() -> Dictionary:
 func from_dict(d: Dictionary) -> void:
 	party = d.get("party", [])
 	player_class = d.get("player_class", "signals")
+	player_name = str(d.get("player_name", ""))
 	levels = d.get("levels", {})
 	xp = d.get("xp", {})
 	case_id = d.get("case_id", "point_pleasant")
