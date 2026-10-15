@@ -19,6 +19,8 @@ import json
 import os
 import shutil
 import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import art_extra  # noqa: E402
 
 from PIL import Image, ImageDraw
 
@@ -164,6 +166,7 @@ TILES = {
     "frame_c_bot": ("Structure/Doors/32x48px Doors/Doorframe A.png", 4, 1),
     "void": None,
 }
+TILES.update(art_extra.EXTRA_TILES)
 # painted walls, by colour index (3-column blocks left to right) and row group
 WALL_COLOURS = {
     "grey": wall(3, 0),
@@ -182,6 +185,8 @@ SOLID_PREFIXES = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", 
 
 
 def special_tile(name):
+    if name in art_extra.EXTRA_TILES and isinstance(art_extra.EXTRA_TILES[name], str):
+        return art_extra.special_tile_extra(name, tile)
     if name == "void":
         return Image.new("RGBA", (T, T), (6, 6, 10, 255))
     base = shade(tile(F + "Gritty Dirt.png", 1, 1), 0.42)
@@ -328,6 +333,8 @@ PROPS = {
     "bars": ("Structure/Doors/32x48px Doors/Barred Prison Door A.png", (224, 0, 32, 48), 1),
 }
 
+PROPS.update(art_extra.EXTRA_PROPS)
+
 
 def trim(im):
     bbox = im.getbbox()
@@ -350,7 +357,7 @@ def build_props():
         im = trim(im)
         im.save(os.path.join(out, name + ".png"))
         index[name] = {"w": im.size[0], "h": im.size[1], "solid": solid}
-    for name, (im, solid) in custom_props().items():
+    for name, (im, solid) in list(custom_props().items()) + list(art_extra.extra_custom_props().items()):
         im.save(os.path.join(out, name + ".png"))
         index[name] = {"w": im.size[0], "h": im.size[1], "solid": solid}
     with open(os.path.join(out, "props.json"), "w") as f:
@@ -574,6 +581,8 @@ FACADES = {
     "garage": dict(w=5, h=2, siding="grey", shade=3, roof="grey", roof_h=1, door="dark", door_x=2, windows=[]),
 }
 
+FACADES.update(art_extra.EXTRA_FACADES)
+
 
 def siding_tile(colour, shade, part, row):
     c = SIDING_COLOURS[colour] * 5
@@ -771,6 +780,7 @@ CHARACTERS.update({
     "suit": adult("Porcelain", hair="Short 02 - Parted", hair_colour="Black", shirt=(BUTTONED, "White"), over=(CARDIGAN, "Black"), pants=("Pants 03 - Pants", "Black"), glasses="Iron"),
 })
 KID_HAIR = {"kid": (216, 179, 90)}
+CHARACTERS.update(art_extra.extra_characters(adult, child, LONG, BUTTONED, CARDIGAN))
 
 
 def build_characters():

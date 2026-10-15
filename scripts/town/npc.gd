@@ -16,7 +16,7 @@ func setup(data: Dictionary) -> void:
 	shadow.position = Vector2(0, -2)
 	add_child(shadow)
 	sprite = Sprite2D.new()
-	var path := "res://assets/sprites/%s.png" % npc_id
+	var path := "res://assets/sprites/%s.png" % data.get("sprite", npc_id)
 	sprite.texture = load(path if ResourceLoader.exists(path) else "res://assets/sprites/regulars.png")
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	sprite.hframes = 9

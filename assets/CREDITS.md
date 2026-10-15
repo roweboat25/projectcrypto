@@ -1083,6 +1083,45 @@ Wood Floor B
   DETAILS: Original by Lanea Zimmerman. Edits and recolors by Eliza Wyatt.
 ```
 
+## Structure/Misc
+
+```
+Drain A
+--------------
+  ARTIST(S): Lanea Zimmerman (Sharm), Eliza Wyatt (DeathsDarling)
+  SOURCE: https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+  LICENSE: OGA-BY 3.0
+  DETAILS: Original by Lanea Zimmerman. Recolors by Eliza Wyatt.
+
+Fountain A
+--------------
+  ARTIST(S): Lanea Zimmerman (Sharm), Eliza Wyatt (DeathsDarling)
+  SOURCE: https://opengameart.org/content/lpc-arabic-elements
+  LICENSE: OGA-BY 3.0
+  DETAILS: Original by Lanea Zimmerman. Recolors by Eliza Wyatt.
+
+Pool A
+--------------
+  ARTIST(S): Lanea Zimmerman (Sharm), Eliza Wyatt (DeathsDarling)
+  SOURCE: https://opengameart.org/content/lpc-arabic-elements
+  LICENSE: OGA-BY 3.0
+  DETAILS: Original by Lanea Zimmerman. Recolors by Eliza Wyatt.
+
+Prison A
+--------------
+  ARTIST(S): Lanea Zimmerman (Sharm), Eliza Wyatt (DeathsDarling)
+  SOURCE: https://opengameart.org/content/lpc-dungeon-elements
+  LICENSE: OGA-BY 3.0
+  DETAILS: Original design by Lanea Zimmerman. Expanded and recolored by Eliza Wyatt.
+
+Trellis A
+--------------
+  ARTIST(S): Lanea Zimmerman (Sharm), Eliza Wyatt (DeathsDarling)
+  SOURCE: https://opengameart.org/content/lpc-modified-base-tiles
+  LICENSE: OGA-BY 3.0
+  DETAILS: Original design by Lanea Zimmerman. Expanded and recolored by Eliza Wyatt.
+```
+
 ## Structure/Pillars
 
 ```
@@ -1461,6 +1500,8 @@ Wildflowers
 
 ## Files used
 
+- Characters/Body/Body 01 - Feminine, Thin/Brown/Idle.png
+- Characters/Body/Body 01 - Feminine, Thin/Brown/Walk.png
 - Characters/Body/Body 01 - Feminine, Thin/Peach/Idle.png
 - Characters/Body/Body 01 - Feminine, Thin/Peach/Walk.png
 - Characters/Body/Body 01 - Feminine, Thin/Porcelain/Idle.png
@@ -1497,14 +1538,28 @@ Wildflowers
 - Characters/Clothing/Feminine, Thin/Legs/Pants 03 - Pants/Charcoal/Walk.png
 - Characters/Clothing/Feminine, Thin/Legs/Pants 03 - Pants/Chocolate/Idle.png
 - Characters/Clothing/Feminine, Thin/Legs/Pants 03 - Pants/Chocolate/Walk.png
+- Characters/Clothing/Feminine, Thin/Legs/Pants 03 - Pants/Denim/Idle.png
+- Characters/Clothing/Feminine, Thin/Legs/Pants 03 - Pants/Denim/Walk.png
+- Characters/Clothing/Feminine, Thin/Legs/Pants 03 - Pants/Navy/Idle.png
+- Characters/Clothing/Feminine, Thin/Legs/Pants 03 - Pants/Navy/Walk.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Black/Idle.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Black/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Charcoal/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Charcoal/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Denim/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Denim/Walk.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Forest/Idle.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Forest/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Mauve/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Mauve/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Navy/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Navy/Walk.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Plum/Idle.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Plum/Walk.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Salmon/Idle.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Salmon/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Sky/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Sky/Walk.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Tan/Idle.png
 - Characters/Clothing/Feminine, Thin/Torso 2/Sweater 01 - Cardigan/Tan/Walk.png
 - Characters/Clothing/Feminine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Black/Idle.png
@@ -1515,8 +1570,18 @@ Wildflowers
 - Characters/Clothing/Feminine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Ivory/Walk.png
 - Characters/Clothing/Feminine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Pink/Idle.png
 - Characters/Clothing/Feminine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Pink/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Purple/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Purple/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Lavender/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Lavender/Walk.png
 - Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Mauve/Idle.png
 - Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Mauve/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Mint/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Mint/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Pink/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Pink/Walk.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/White/Idle.png
+- Characters/Clothing/Feminine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/White/Walk.png
 - Characters/Clothing/Masculine, Thin/Feet/Shoes 02 - Boots/Black/Idle.png
 - Characters/Clothing/Masculine, Thin/Feet/Shoes 02 - Boots/Black/Walk.png
 - Characters/Clothing/Masculine, Thin/Legs/Pants 03 - Pants/Black/Idle.png
@@ -1525,6 +1590,10 @@ Wildflowers
 - Characters/Clothing/Masculine, Thin/Legs/Pants 03 - Pants/Charcoal/Walk.png
 - Characters/Clothing/Masculine, Thin/Legs/Pants 03 - Pants/Chocolate/Idle.png
 - Characters/Clothing/Masculine, Thin/Legs/Pants 03 - Pants/Chocolate/Walk.png
+- Characters/Clothing/Masculine, Thin/Legs/Pants 03 - Pants/Denim/Idle.png
+- Characters/Clothing/Masculine, Thin/Legs/Pants 03 - Pants/Denim/Walk.png
+- Characters/Clothing/Masculine, Thin/Legs/Pants 04 - Cuffed Pants/Charcoal/Idle.png
+- Characters/Clothing/Masculine, Thin/Legs/Pants 04 - Cuffed Pants/Charcoal/Walk.png
 - Characters/Clothing/Masculine, Thin/Legs/Pants 04 - Cuffed Pants/Umber/Idle.png
 - Characters/Clothing/Masculine, Thin/Legs/Pants 04 - Cuffed Pants/Umber/Walk.png
 - Characters/Clothing/Masculine, Thin/Legs/Pants 05 - Overalls/Charcoal/Idle.png
@@ -1535,6 +1604,8 @@ Wildflowers
 - Characters/Clothing/Masculine, Thin/Legs/Pants 05 - Overalls/Umber/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Black/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Black/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Bronze/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Bronze/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Charcoal/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Charcoal/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Coffee/Idle.png
@@ -1547,20 +1618,42 @@ Wildflowers
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Oak/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Olivine/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Olivine/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Orange/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Orange/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Plum/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Plum/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Sepia/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Sepia/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Swamp/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso 2/Sweater 01 - Cardigan/Swamp/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Denim/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Denim/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Forest/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Forest/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Garnet/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Garnet/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Navy/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Navy/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Olivine/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Olivine/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Orange/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Orange/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Red/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/Red/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/White/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 01 - Longsleeve Shirt/White/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Beige/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Beige/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Denim/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Denim/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Dove/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Dove/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Garnet/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Garnet/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Ivory/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Ivory/Walk.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Lavender/Idle.png
+- Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Lavender/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Linen/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Linen/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Mint/Idle.png
@@ -1573,40 +1666,74 @@ Wildflowers
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/Tawny/Walk.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/White/Idle.png
 - Characters/Clothing/Masculine, Thin/Torso/Shirt 07 - Buttoned Longsleeve Shirt/White/Walk.png
+- Characters/Hair/Facial Hair 01 - Walrus Mustache/Brown/Idle.png
+- Characters/Hair/Facial Hair 01 - Walrus Mustache/Brown/Walk.png
 - Characters/Hair/Facial Hair 01 - Walrus Mustache/Gray/Idle.png
 - Characters/Hair/Facial Hair 01 - Walrus Mustache/Gray/Walk.png
 - Characters/Hair/Facial Hair 02 - Chevron Mustache/Brown/Idle.png
 - Characters/Hair/Facial Hair 02 - Chevron Mustache/Brown/Walk.png
+- Characters/Hair/Facial Hair 05 - Horseshoe Mustache/Charcoal/Idle.png
+- Characters/Hair/Facial Hair 05 - Horseshoe Mustache/Charcoal/Walk.png
 - Characters/Hair/Facial Hair 06 - Trimmed Beard/Chestnut/Idle.png
 - Characters/Hair/Facial Hair 06 - Trimmed Beard/Chestnut/Walk.png
+- Characters/Hair/Facial Hair 07 - Medium Beard/Blonde/Idle.png
+- Characters/Hair/Facial Hair 07 - Medium Beard/Blonde/Walk.png
 - Characters/Hair/Facial Hair 07 - Medium Beard/Gray/Idle.png
 - Characters/Hair/Facial Hair 07 - Medium Beard/Gray/Walk.png
 - Characters/Hair/Facial Hair 07 - Medium Beard/Orange/Idle.png
 - Characters/Hair/Facial Hair 07 - Medium Beard/Orange/Walk.png
+- Characters/Hair/Facial Hair 07 - Medium Beard/White/Idle.png
+- Characters/Hair/Facial Hair 07 - Medium Beard/White/Walk.png
+- Characters/Hair/Medium 01 - Page/Chestnut/Idle.png
+- Characters/Hair/Medium 01 - Page/Chestnut/Walk.png
 - Characters/Hair/Medium 01 - Page/Raven/Idle.png
 - Characters/Hair/Medium 01 - Page/Raven/Walk.png
+- Characters/Hair/Medium 01 - Page/_Behind/Chestnut/Idle.png
+- Characters/Hair/Medium 01 - Page/_Behind/Chestnut/Walk.png
 - Characters/Hair/Medium 01 - Page/_Behind/Raven/Idle.png
 - Characters/Hair/Medium 01 - Page/_Behind/Raven/Walk.png
+- Characters/Hair/Medium 02 - Curly/Ash Brown/Idle.png
+- Characters/Hair/Medium 02 - Curly/Ash Brown/Walk.png
+- Characters/Hair/Medium 02 - Curly/White/Idle.png
+- Characters/Hair/Medium 02 - Curly/White/Walk.png
 - Characters/Hair/Medium 04 - Bangs & Bun/Blonde/Idle.png
 - Characters/Hair/Medium 04 - Bangs & Bun/Blonde/Walk.png
 - Characters/Hair/Medium 04 - Bangs & Bun/Gray/Idle.png
 - Characters/Hair/Medium 04 - Bangs & Bun/Gray/Walk.png
+- Characters/Hair/Medium 04 - Bangs & Bun/White/Idle.png
+- Characters/Hair/Medium 04 - Bangs & Bun/White/Walk.png
+- Characters/Hair/Medium 07 - Bob, Side Part/Charcoal/Idle.png
+- Characters/Hair/Medium 07 - Bob, Side Part/Charcoal/Walk.png
 - Characters/Hair/Medium 07 - Bob, Side Part/Platinum/Idle.png
 - Characters/Hair/Medium 07 - Bob, Side Part/Platinum/Walk.png
 - Characters/Hair/Medium 08 - Bob, Bangs/Blonde/Idle.png
 - Characters/Hair/Medium 08 - Bob, Bangs/Blonde/Walk.png
+- Characters/Hair/Medium 09 - Twists/Black/Idle.png
+- Characters/Hair/Medium 09 - Twists/Black/Walk.png
 - Characters/Hair/Short 01 - Buzzcut/Brown/Idle.png
 - Characters/Hair/Short 01 - Buzzcut/Brown/Walk.png
+- Characters/Hair/Short 01 - Buzzcut/Charcoal/Idle.png
+- Characters/Hair/Short 01 - Buzzcut/Charcoal/Walk.png
 - Characters/Hair/Short 01 - Buzzcut/Orange/Idle.png
 - Characters/Hair/Short 01 - Buzzcut/Orange/Walk.png
 - Characters/Hair/Short 02 - Parted/Black/Idle.png
 - Characters/Hair/Short 02 - Parted/Black/Walk.png
 - Characters/Hair/Short 02 - Parted/Brown/Idle.png
 - Characters/Hair/Short 02 - Parted/Brown/Walk.png
+- Characters/Hair/Short 02 - Parted/Gray/Idle.png
+- Characters/Hair/Short 02 - Parted/Gray/Walk.png
 - Characters/Hair/Short 02 - Parted/White/Idle.png
 - Characters/Hair/Short 02 - Parted/White/Walk.png
+- Characters/Hair/Short 03 - Curly/Black/Idle.png
+- Characters/Hair/Short 03 - Curly/Black/Walk.png
+- Characters/Hair/Short 03 - Curly/Blonde/Idle.png
+- Characters/Hair/Short 03 - Curly/Blonde/Walk.png
+- Characters/Hair/Short 04 - Cowlick/Black/Idle.png
+- Characters/Hair/Short 04 - Cowlick/Black/Walk.png
 - Characters/Hair/Short 04 - Cowlick/Chestnut/Idle.png
 - Characters/Hair/Short 04 - Cowlick/Chestnut/Walk.png
+- Characters/Hair/Short 05 - Natural/Brown/Idle.png
+- Characters/Hair/Short 05 - Natural/Brown/Walk.png
 - Characters/Hair/Short 05 - Natural/Charcoal/Idle.png
 - Characters/Hair/Short 05 - Natural/Charcoal/Walk.png
 - Characters/Hair/Short 05 - Natural/Gray/Idle.png
@@ -1619,12 +1746,16 @@ Wildflowers
 - Characters/Hair/Short 06 - Balding/White/Walk.png
 - Characters/Hair/Short 07 - Flat Top/Black/Idle.png
 - Characters/Hair/Short 07 - Flat Top/Black/Walk.png
+- Characters/Hair/Short 08 - Flat Top, Fade/Black/Idle.png
+- Characters/Hair/Short 08 - Flat Top, Fade/Black/Walk.png
 - Characters/Head Accessories/Eyewear 01 - Glasses/Brass/Idle.png
 - Characters/Head Accessories/Eyewear 01 - Glasses/Brass/Walk.png
 - Characters/Head Accessories/Eyewear 01 - Glasses/Iron/Idle.png
 - Characters/Head Accessories/Eyewear 01 - Glasses/Iron/Walk.png
 - Characters/Head Accessories/Eyewear 01 - Glasses/Steel/Idle.png
 - Characters/Head Accessories/Eyewear 01 - Glasses/Steel/Walk.png
+- Characters/Head/Head 01 - Feminine/Brown/Idle.png
+- Characters/Head/Head 01 - Feminine/Brown/Walk.png
 - Characters/Head/Head 01 - Feminine/Peach/Idle.png
 - Characters/Head/Head 01 - Feminine/Peach/Walk.png
 - Characters/Head/Head 01 - Feminine/Porcelain/Idle.png
@@ -1637,6 +1768,8 @@ Wildflowers
 - Characters/Head/Head 02 - Masculine/Brown/Walk.png
 - Characters/Head/Head 02 - Masculine/Honey/Idle.png
 - Characters/Head/Head 02 - Masculine/Honey/Walk.png
+- Characters/Head/Head 02 - Masculine/Ivory/Idle.png
+- Characters/Head/Head 02 - Masculine/Ivory/Walk.png
 - Characters/Head/Head 02 - Masculine/Peach/Idle.png
 - Characters/Head/Head 02 - Masculine/Peach/Walk.png
 - Characters/Head/Head 02 - Masculine/Porcelain/Idle.png
@@ -1651,11 +1784,16 @@ Wildflowers
 - Characters/Head/Head 03 - Elderly/Peach/Walk.png
 - Characters/Head/Head 03 - Elderly/Porcelain/Idle.png
 - Characters/Head/Head 03 - Elderly/Porcelain/Walk.png
+- Characters/Head/Head 03 - Elderly/Tawny/Idle.png
+- Characters/Head/Head 03 - Elderly/Tawny/Walk.png
 - Objects/Furniture/Barrel.png
+- Objects/Furniture/Beds/Beds, Double B.png
 - Objects/Furniture/Beds/Beds, Single B.png
 - Objects/Furniture/Beds/Beds, Single C.png
 - Objects/Furniture/Bin.png
 - Objects/Furniture/Cabinet.png
+- Objects/Furniture/Chest.png
+- Objects/Furniture/Christmas Tree.png
 - Objects/Furniture/Clock, Grandfather.png
 - Objects/Furniture/Copy Machine.png
 - Objects/Furniture/Countertop.png
@@ -1665,31 +1803,47 @@ Wildflowers
 - Objects/Furniture/End Table.png
 - Objects/Furniture/Fireplace.png
 - Objects/Furniture/Fridge.png
+- Objects/Furniture/Ladder.png
 - Objects/Furniture/Lighting, Floor.png
 - Objects/Furniture/Lighting, Outdoors.png
 - Objects/Furniture/Mirror, Standing.png
 - Objects/Furniture/Oven, Modern.png
 - Objects/Furniture/Planter.png
 - Objects/Furniture/Rugs/Swirling Vine Rug.png
+- Objects/Furniture/Seating/Bar Stools.png
 - Objects/Furniture/Seating/Chair, Dining E.png
 - Objects/Furniture/Seating/Chair, Office.png
+- Objects/Furniture/Seating/Loveseat, Small - Casual Solid A.png
 - Objects/Furniture/Seating/Sofa, Casual A.png
 - Objects/Furniture/Shelf.png
 - Objects/Furniture/Sink, Countertop.png
 - Objects/Furniture/Stone Slab.png
 - Objects/Furniture/Table, Card.png
 - Objects/Furniture/Table, Rough Wood.png
+- Objects/Furniture/Table, Workshop.png
+- Objects/Furniture/Trough.png
 - Objects/Furniture/Vending Machine.png
 - Objects/Furniture/Water Cooler.png
+- Objects/Furniture/Workbench, Carpentry.png
+- Objects/Small Items/Baskets A.png
 - Objects/Small Items/Boxes.png
+- Objects/Small Items/Buckets.png
 - Objects/Small Items/Coffee Maker.png
 - Objects/Small Items/Dishes A.png
+- Objects/Small Items/Fire, Camp.png
 - Objects/Small Items/Lighting, Table.png
 - Objects/Small Items/Loose Paper.png
+- Objects/Small Items/Lumber.png
+- Objects/Small Items/Pillows.png
 - Objects/Small Items/Rotary Phones.png
+- Objects/Small Items/Tabletop Portraits.png
 - Objects/Wall Items/Curtains.png
+- Objects/Wall Items/Graffiti.png
+- Objects/Wall Items/Lighting, Wall.png
 - Objects/Wall Items/Mailboxes (tiling).png
+- Objects/Wall Items/Mirrors.png
 - Objects/Wall Items/Paintings, Landscape.png
+- Objects/Wall Items/Paintings, Portraits.png
 - Objects/Wall Items/Posters.png
 - Structure/Doors/32x48px Doors/12 Panel Door A.png
 - Structure/Doors/32x48px Doors/Barred Prison Door A.png
@@ -1705,6 +1859,7 @@ Wildflowers
 - Structure/Floor/Tile B.png
 - Structure/Floor/Tile C.png
 - Structure/Floor/Wood Floor A.png
+- Structure/Misc/Drain A.png
 - Structure/Pillars/Stone Pillar A.png
 - Structure/Platforms/Cement Platform A.png
 - Structure/Roofing/Brick Chimney A.png
@@ -1721,4 +1876,5 @@ Wildflowers
 - Terrain/Rocks, Cliffs.png
 - Terrain/plants_winter.png
 - Terrain/terrain_winter.png
+- Terrain/terrain_winter_ice.png
 - Terrain/trees_winter.png

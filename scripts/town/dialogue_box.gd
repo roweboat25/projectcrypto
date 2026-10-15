@@ -9,6 +9,14 @@ signal option_picked(index: int)
 signal cancelled
 
 const PORTRAIT_DIR := "res://assets/portraits/"
+## Inner voices speak in their stat's colour, in small caps, with no portrait.
+const VOICE_COLOURS := {
+	"logic": "7fb2ff", "tech": "7fb2ff", "recall": "7fb2ff",
+	"press": "ffb86b", "rapport": "ffb86b", "bluff": "ffb86b",
+	"nerve": "ff7a6b", "intimidate": "ff7a6b", "fieldcraft": "ff7a6b",
+	"empathy": "c09cff", "lore": "c09cff", "arcana": "c09cff",
+	"static": "9aa0a8",
+}
 
 var _portrait: TextureRect
 var _portrait_frame: PanelContainer
@@ -161,9 +169,20 @@ func _next_line() -> void:
 		lines_finished.emit()
 		return
 	var line: Array = _lines.pop_front()
-	_name.text = _name_of.call(line[0])
+	var speaker := str(line[0])
+	if speaker.begins_with("voice:"):
+		var voice := speaker.trim_prefix("voice:")
+		var colour: String = VOICE_COLOURS.get(voice, "9aa0a8")
+		_name.text = Investigation.VOICE_NAMES.get(voice, voice.to_upper())
+		_name.add_theme_color_override("font_color", Color(colour))
+		_text.text = "[color=%s][i]%s[/i][/color]" % [colour, line[1]]
+		_portrait.texture = null
+		_portrait_frame.visible = false
+		return
+	_name.add_theme_color_override("font_color", Color("e8a64a"))
+	_name.text = _name_of.call(speaker)
 	_text.text = line[1]
-	var path := PORTRAIT_DIR + str(line[0]) + ".png"
+	var path := PORTRAIT_DIR + speaker + ".png"
 	_portrait.texture = load(path) if ResourceLoader.exists(path) else null
 	_portrait_frame.visible = _portrait.texture != null
 

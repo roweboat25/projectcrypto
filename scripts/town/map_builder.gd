@@ -22,7 +22,7 @@ static func load_indexes() -> void:
 ## Builds the outdoor map at tile offset `origin`. Returns the nodes the town needs.
 static func build_district(root: Node2D, map: Dictionary, origin: Vector2i, rng: RandomNumberGenerator) -> Dictionary:
 	load_indexes()
-	var out := {"lamps": [], "neon": [], "npcs": [], "clues": [], "doors": [], "actors": null, "rect": Rect2()}
+	var out := {"lamps": [], "neon": [], "npcs": [], "clues": [], "doors": [], "actors": null, "rect": Rect2(), "exits": []}
 	var size: Array = map.get("size", [40, 30])
 	out.rect = Rect2(Vector2(origin) * T, Vector2(size[0], size[1]) * T)
 	var ground := _layer(root, "Ground")
@@ -50,16 +50,35 @@ static func build_district(root: Node2D, map: Dictionary, origin: Vector2i, rng:
 	for h in map.get("houses", []):
 		var node := prop(actors, h.prop, _px(h.pos, origin))
 		node.name = "house_" + h.id
-		out.doors.append({"id": h.id, "name": h.name, "pos": _px(h.door, origin), "locked": h.get("locked", "")})
-	for p in map.get("props", []):
-		var node := prop(actors, p.kind, _px(p.pos, origin))
-		if p.kind.begins_with("lamp_post"):
-			out.lamps.append(_light(node, Vector2(0, -78), Color("ffb860"), 1.1, 150.0))
+		out.doors.append({"id": h.id, "name": h.name, "pos": _px(h.door, origin), "locked": h.get("locked", ""), "gate": h.get("gate", "")})
+	_props(actors, map.get("props", []), origin, map.get("id", "map"), out)
 	for n in map.get("npcs", []):
 		out.npcs.append(npc(actors, n, _px(n.pos, origin)))
 	for c in map.get("clues", []):
 		out.clues.append(clue(actors, c, _px(c.pos, origin)))
+	for e in map.get("exits", []):
+		var r: Array = e.rect
+		out.exits.append({"rect": Rect2(Vector2(Vector2i(r[0], r[1]) + origin) * T, Vector2(r[2], r[3]) * T),
+			"to": e.to, "at": e.get("at", [2, 2]), "name": e.get("name", e.to), "gate": e.get("gate", "")})
 	return out
+
+
+## Places a list of props; ones with Look text, a pickup or a gate get a hotspot the party can use.
+static func _props(actors: Node2D, list: Array, origin: Vector2i, map_id: String, out: Dictionary) -> void:
+	for i in list.size():
+		var p: Dictionary = list[i]
+		var key := "%s:%d" % [map_id, i]
+		if (p.has("pickup") or p.has("gate")) and key in GameState.picked:
+			continue
+		var node := prop(actors, p.kind, _px(p.pos, origin))
+		if p.kind.begins_with("lamp_post"):
+			out.lamps.append(_light(node, Vector2(0, -78), Color("ffb860"), 1.1, 150.0))
+		if p.has("look") or p.has("pickup") or p.has("gate"):
+			var spot := Area2D.new()
+			spot.set_script(load("res://scripts/town/hotspot.gd"))
+			node.add_child(spot)
+			spot.setup(p, key)
+			spot.set_meta("node", node)
 
 
 ## Builds one room at tile offset `origin`. The exit is the whole bottom edge.
@@ -95,8 +114,7 @@ static func build_room(root: Node2D, id: String, room: Dictionary, origin: Vecto
 	out.rect = Rect2(Vector2(origin - Vector2i(1, 1)) * T, Vector2(w + 2, h + 3) * T)
 	out.exit_y = float(origin.y + h + 1) * T + 8
 	out.entry = Vector2((origin.x + door_x) * T + T / 2.0, (origin.y + h) * T + T / 2.0)
-	for p in room.get("props", []):
-		prop(actors, p.kind, _px(p.pos, origin))
+	_props(actors, room.get("props", []), origin, id, out)
 	for n in room.get("npcs", []):
 		out.npcs.append(npc(actors, n, _px(n.pos, origin)))
 	for c in room.get("clues", []):
@@ -145,7 +163,8 @@ static func prop(parent: Node2D, kind: String, pos: Vector2) -> Node2D:
 
 
 static func _facade(parent: Node2D, f: Dictionary, origin: Vector2i, out: Dictionary) -> void:
-	var info: Dictionary = facades_index.get(f.id, {})
+	var asset: String = f.get("facade", f.id)
+	var info: Dictionary = facades_index.get(asset, {})
 	var w: float = float(info.get("w", 96))
 	var h: float = float(info.get("h", 96))
 	var bottom_left := Vector2(Vector2i(f.pos[0], f.pos[1]) + origin) * T
@@ -153,7 +172,7 @@ static func _facade(parent: Node2D, f: Dictionary, origin: Vector2i, out: Dictio
 	node.name = "facade_" + f.id
 	node.position = bottom_left + Vector2(w / 2.0, 0)
 	var sprite := Sprite2D.new()
-	sprite.texture = load("res://assets/facades/%s.png" % f.id)
+	sprite.texture = load("res://assets/facades/%s.png" % asset)
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	sprite.position = Vector2(0, -h / 2.0)
 	node.add_child(sprite)
@@ -191,7 +210,7 @@ static func _facade(parent: Node2D, f: Dictionary, origin: Vector2i, out: Dictio
 		out.lamps.append(light)
 	parent.add_child(node)
 	for dx in info.get("doors", [info.get("door_x", 0)]):
-		out.doors.append({"id": f.id, "name": f.get("name", f.id), "pos": bottom_left + Vector2(float(dx) + 16, 0), "locked": f.get("locked", "")})
+		out.doors.append({"id": f.id, "name": f.get("name", f.id), "pos": bottom_left + Vector2(float(dx) + 16, 0), "locked": f.get("locked", ""), "gate": f.get("gate", "")})
 
 
 static func npc(parent: Node2D, n: Dictionary, pos: Vector2) -> Node:
@@ -200,6 +219,7 @@ static func npc(parent: Node2D, n: Dictionary, pos: Vector2) -> Node:
 	parent.add_child(node)
 	node.setup(n)
 	node.position = pos
+	node.set_meta("when", n.get("when", []))
 	return node
 
 

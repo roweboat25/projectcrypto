@@ -1,0 +1,296 @@
+{
+ "id": "regulars",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "regulars",
+   "lines": [
+    [
+     "teddy",
+     "Coffee's on me, fellas. What's the real story?"
+    ],
+    [
+     "regulars",
+     "Real story is high school kids. They go out to the igloos with flashlights and those red bicycle reflectors."
+    ],
+    [
+     "regulars",
+     "Scare their girlfriends, scare the papers. Same as every year."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "'Same as every year.' He answered when it started before you asked. Men who have been asked before keep the answer ready."
+    },
+    {
+     "voice": "rapport",
+     "threshold": 6,
+     "line": "Three men, three cups, and a fourth cup turned upside down on its saucer. Somebody belongs in that seat.",
+     "flag": "regulars_fourth"
+    }
+   ],
+   "options": [
+    {
+     "tone": "wry",
+     "text": "Every year? Those kids must be pushing thirty by now.",
+     "next": "years"
+    },
+    {
+     "tone": "kind",
+     "requires": {
+      "flag": [
+       "regulars_fourth"
+      ]
+     },
+     "text": "Who sits there?",
+     "next": "fourth"
+    },
+    {
+     "check": {
+      "voice": "bluff",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "We ran the Kessler garage story in Columbus last month. Just confirming.",
+     "pass": "kessler_bluff",
+     "fail": {
+      "next": "bluff_fail",
+      "trust": {
+       "regulars": -1
+      }
+     }
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "Those reflectors on the truck out front. Same kind?",
+     "pass": "truck",
+     "fail": {
+      "next": "truck_fail"
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Drink your coffee and listen.)",
+     "next": "quiet",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "evidence": "prank_rumour",
+    "flag": "met_regulars"
+   }
+  },
+  "years": {
+   "speaker": "regulars",
+   "lines": [
+    [
+     "regulars",
+     "Different kids. Same reflectors. Harmon's sells 'em ten cents a pair and has since Eisenhower."
+    ],
+    [
+     "regulars",
+     "Hank here saw it in '66. Go on, Hank. Tell 'em what you saw."
+    ],
+    [
+     "regulars",
+     "...A crane. I saw a crane."
+    ],
+    [
+     "miriam",
+     "That pause was three seconds long. I counted."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "Hank did not see a crane. Hank saw the inside of this booth for twenty-eight years with men who say he saw a crane."
+    }
+   ],
+   "next": "hub"
+  },
+  "fourth": {
+   "speaker": "regulars",
+   "lines": [
+    [
+     "regulars",
+     "Lyle. Lyle Beckett. He's on the plaque down by the river, second column."
+    ],
+    [
+     "regulars",
+     "He had the cup turned up the morning of December 15th, 1967. We turned it down the 16th and nobody's touched it."
+    ],
+    [
+     "ruth",
+     "Second column. My uncle's in the third."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "lore",
+     "threshold": 6,
+     "line": "A cup turned down for the dead. Your grandmother did the same with a chair. You do not ask them to move it; you ask them nothing for a minute."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "regulars": 1
+    },
+    "flag": "regulars_lyle"
+   }
+  },
+  "kessler_bluff": {
+   "speaker": "regulars",
+   "lines": [
+    [
+     "regulars",
+     "Columbus. Huh. Well, if it's in Columbus already there's no harm."
+    ],
+    [
+     "regulars",
+     "Bobby Kessler and his cousin. Garage on Sixth Street. The board's hanging on the wall like a deer head."
+    ],
+    [
+     "teddy",
+     "Sixth Street. I'd have got there without the lie, but I'll take it."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "bluff",
+     "threshold": 5,
+     "line": "Columbus was a good choice. Far enough that nobody here reads it, close enough that they believe it exists."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "kessler_name"
+   }
+  },
+  "bluff_fail": {
+   "speaker": "regulars",
+   "lines": [
+    [
+     "regulars",
+     "Columbus. Hank, you hear that? Columbus has got our garage story."
+    ],
+    [
+     "regulars",
+     "Son, nobody in Columbus has ever printed the word 'Kessler'. You want to lie, lie about something we can't check from this booth."
+    ],
+    [
+     "teddy",
+     "...I'll get the check."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "nerve",
+     "threshold": 6,
+     "line": "Shake it off. You got caught by three men with a combined age of two hundred. Sit up, you are not leaving this booth yet."
+    }
+   ],
+   "next": "hub"
+  },
+  "truck": {
+   "speaker": "regulars",
+   "lines": [
+    [
+     "regulars",
+     "Hell, every kid in the county's got 'em. Every truck too. Doesn't make a monster."
+    ],
+    [
+     "regulars",
+     "Monster's in the headlights. Hold one up at head height and it's whatever you came out there to see."
+    ],
+    [
+     "dale",
+     "Hold one up at head height in February for an hour. See how long you last."
+    ]
+   ],
+   "next": "hub"
+  },
+  "truck_fail": {
+   "speaker": "regulars",
+   "lines": [
+    [
+     "regulars",
+     "Them's off my boat trailer, and you're not a boat man, so don't."
+    ],
+    [
+     "regulars",
+     "You want reflectors, there's a kid on the corner by the courthouse with a pocketful. Ask him where he's taking 'em."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 5,
+     "line": "Boat trailer reflectors are oblong. Bicycle ones are round. You did not look before you spoke."
+    }
+   ],
+   "next": "hub"
+  },
+  "quiet": {
+   "speaker": "regulars",
+   "lines": [
+    [
+     "regulars",
+     "...Anyway, Hank's grandson's on the team this year. Guard."
+    ],
+    [
+     "regulars",
+     "He don't go out to the igloos. Says the other boys stopped going too. Says something's been out there since Thursday that ain't reflectors."
+    ],
+    [
+     "regulars",
+     "Kids. You know how they get."
+    ],
+    [
+     "june",
+     "Thursday. Write down Thursday."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "They forgot you were there. That is the only way this booth ever says anything true."
+    }
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "regulars_thursday"
+   }
+  },
+  "hub": {
+   "speaker": "regulars",
+   "repeat": true,
+   "lines": [
+    [
+     "regulars",
+     "You still here? Sit, then. Booth's got room."
+    ]
+   ],
+   "options": [
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Thanks for the coffee, gentlemen."
+    }
+   ]
+  }
+ }
+}

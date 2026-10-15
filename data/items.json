@@ -1,0 +1,20 @@
+{
+ "_doc": "Field kit, consumables and gear. kind: tool, coat, charm, kit, consumable, relic. Reusable kit is not used up.",
+ "film": {"name": "Film (roll of 24)", "text": "Photographs clues and lights.", "kind": "kit", "price": 4},
+ "batteries": {"name": "Batteries", "text": "Scanner, tape and flashlight for a night.", "kind": "kit", "price": 3},
+ "sample_bags": {"name": "Sample bags", "text": "Bags fur, feathers and soil.", "kind": "kit", "price": 2},
+ "plaster": {"name": "Casting plaster", "text": "Casts one print.", "kind": "kit", "price": 8},
+ "salt": {"name": "Salt", "text": "Salt lines and wards.", "kind": "kit", "price": 2},
+ "bolt_cutters": {"name": "Bolt cutters", "text": "Opens chain gates.", "kind": "kit", "price": 40, "reusable": true},
+ "waders": {"name": "Chest waders", "text": "Flooded places.", "kind": "kit", "price": 25, "reusable": true},
+ "coffee": {"name": "Coffee", "text": "Restores Composure.", "kind": "consumable", "price": 1},
+ "flare": {"name": "Flare", "text": "Lights an area for a night.", "kind": "consumable", "price": 6},
+ "sheriff_key": {"name": "Floodgate key", "text": "The deputy's key to the floodgate.", "kind": "kit", "price": 0, "reusable": true},
+ "warden_pass": {"name": "Game warden's pass", "text": "Lets you inside the inner fence.", "kind": "kit", "price": 0, "reusable": true},
+ "room_key_4": {"name": "Lowe Hotel 4th floor key", "text": "The night clerk's key.", "kind": "kit", "price": 0, "reusable": true},
+ "car_battery": {"name": "Car battery", "text": "Runs a pump for an hour.", "kind": "kit", "price": 15, "reusable": true},
+ "bridge_token": {"name": "Silver Bridge memorial token", "text": "+1 Intuition.", "kind": "charm", "price": 12},
+ "river_stone": {"name": "River stone with a hole", "text": "Composure regen.", "kind": "charm", "price": 8},
+ "class_ring": {"name": "1966 class ring", "text": "Locals warm to you.", "kind": "charm", "price": 20},
+ "barn_coat": {"name": "Duck-canvas barn coat", "text": "+1 Grit, resists cold.", "kind": "coat", "price": 35}
+}

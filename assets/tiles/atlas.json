@@ -55,6 +55,10 @@
   10,
   1
  ],
+ "concrete_dark": [
+  13,
+  4
+ ],
  "diamond_dark": [
   10,
   2
@@ -123,9 +127,41 @@
   15,
   3
  ],
+ "gravel": [
+  10,
+  4
+ ],
+ "gravel2": [
+  11,
+  4
+ ],
  "herringbone": [
   11,
   2
+ ],
+ "ice": [
+  5,
+  4
+ ],
+ "ice2": [
+  6,
+  4
+ ],
+ "ice3": [
+  7,
+  4
+ ],
+ "mud": [
+  14,
+  4
+ ],
+ "mud2": [
+  15,
+  4
+ ],
+ "rail": [
+  12,
+  4
  ],
  "snow": [
   0,
@@ -204,99 +240,99 @@
   4
  ],
  "wall_blue_bot": [
-  15,
-  4
+  10,
+  5
  ],
  "wall_blue_mid": [
-  14,
-  4
+  9,
+  5
  ],
  "wall_blue_one": [
-  0,
+  11,
   5
  ],
  "wall_blue_top": [
-  13,
-  4
+  8,
+  5
  ],
  "wall_cream_bot": [
-  11,
-  4
+  6,
+  5
  ],
  "wall_cream_mid": [
-  10,
-  4
+  5,
+  5
  ],
  "wall_cream_one": [
-  12,
-  4
+  7,
+  5
  ],
  "wall_cream_top": [
-  9,
-  4
- ],
- "wall_grey_bot": [
-  7,
-  4
- ],
- "wall_grey_mid": [
-  6,
-  4
- ],
- "wall_grey_one": [
-  8,
-  4
- ],
- "wall_grey_top": [
-  5,
-  4
- ],
- "wall_navy_bot": [
-  7,
-  5
- ],
- "wall_navy_mid": [
-  6,
-  5
- ],
- "wall_navy_one": [
-  8,
-  5
- ],
- "wall_navy_top": [
-  5,
-  5
- ],
- "wall_peach_bot": [
-  11,
-  5
- ],
- "wall_peach_mid": [
-  10,
-  5
- ],
- "wall_peach_one": [
-  12,
-  5
- ],
- "wall_peach_top": [
-  9,
-  5
- ],
- "wall_purple_bot": [
-  3,
-  5
- ],
- "wall_purple_mid": [
-  2,
-  5
- ],
- "wall_purple_one": [
   4,
   5
  ],
- "wall_purple_top": [
+ "wall_grey_bot": [
+  2,
+  5
+ ],
+ "wall_grey_mid": [
   1,
+  5
+ ],
+ "wall_grey_one": [
+  3,
+  5
+ ],
+ "wall_grey_top": [
+  0,
+  5
+ ],
+ "wall_navy_bot": [
+  2,
+  6
+ ],
+ "wall_navy_mid": [
+  1,
+  6
+ ],
+ "wall_navy_one": [
+  3,
+  6
+ ],
+ "wall_navy_top": [
+  0,
+  6
+ ],
+ "wall_peach_bot": [
+  6,
+  6
+ ],
+ "wall_peach_mid": [
+  5,
+  6
+ ],
+ "wall_peach_one": [
+  7,
+  6
+ ],
+ "wall_peach_top": [
+  4,
+  6
+ ],
+ "wall_purple_bot": [
+  14,
+  5
+ ],
+ "wall_purple_mid": [
+  13,
+  5
+ ],
+ "wall_purple_one": [
+  15,
+  5
+ ],
+ "wall_purple_top": [
+  12,
   5
  ],
  "water": [
@@ -310,6 +346,14 @@
  "water3": [
   1,
   1
+ ],
+ "water_red": [
+  8,
+  4
+ ],
+ "water_red2": [
+  9,
+  4
  ],
  "water_snow_top": [
   2,
