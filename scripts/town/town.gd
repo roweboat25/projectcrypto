@@ -20,6 +20,8 @@ var inside := ""                 # room id when indoors
 var _modulate: CanvasModulate
 var _torch: PointLight2D
 var _snow: CPUParticles2D
+var _weather := "snow"
+var _entered_via := ""           # the room whose door the party came in by, for rooms reached from other rooms
 var _prompt: Label
 var _toast_label: Label
 var _hud: Label
@@ -42,6 +44,7 @@ func _ready() -> void:
 	_build_map(start)
 	_spawn_party()
 	_build_snow()
+	_apply_weather()
 	_build_ui()
 	if GameState.flags.has("town_time"):
 		time_of_day = GameState.flags.town_time
@@ -106,8 +109,8 @@ func _process(delta: float) -> void:
 		time_of_day = fmod(time_of_day + delta / CYCLE_SECONDS, 1.0)
 	_apply_time()
 	_toast_label.visible = Time.get_ticks_msec() / 1000.0 < _toast_until
-	_snow.position = party[0].global_position + Vector2(0, -230)
-	_snow.emitting = inside == ""
+	_snow.position = party[0].global_position + (Vector2(0, -30) if _weather == "mist" else Vector2(0, -230))
+	_snow.emitting = inside == "" and _weather != "clear"
 	if _talk != null:
 		_handle_talk_input()
 	elif _file.visible:
@@ -196,10 +199,18 @@ func _move_party(to: Vector2, actors: Node2D) -> void:
 
 func _build_snow() -> void:
 	_snow = CPUParticles2D.new()
+	_snow.emission_shape = CPUParticles2D.EMISSION_SHAPE_RECTANGLE
+	_snow.z_index = 50
+	add_child(_snow)
+
+
+## The map's `weather`: snow (Point Pleasant), clear, mist, rain or a gale.
+func _apply_weather() -> void:
+	_weather = map.get("weather", "snow")
+	var img := Image.create(2, 2, false, Image.FORMAT_RGBA8)
+	img.fill(Color(1, 1, 1, 0.9))
 	_snow.amount = 220
 	_snow.lifetime = 7.0
-	_snow.preprocess = 7.0
-	_snow.emission_shape = CPUParticles2D.EMISSION_SHAPE_RECTANGLE
 	_snow.emission_rect_extents = Vector2(400, 20)
 	_snow.direction = Vector2(0.15, 1)
 	_snow.spread = 12
@@ -208,11 +219,35 @@ func _build_snow() -> void:
 	_snow.initial_velocity_max = 44
 	_snow.scale_amount_min = 1.0
 	_snow.scale_amount_max = 2.0
-	var img := Image.create(2, 2, false, Image.FORMAT_RGBA8)
-	img.fill(Color(0.95, 0.97, 1.0, 0.9))
+	_snow.color = Color.WHITE
+	match _weather:
+		"rain", "gale":
+			img = Image.create(1, 4, false, Image.FORMAT_RGBA8)
+			img.fill(Color(0.75, 0.85, 1.0, 0.7))
+			_snow.amount = 320 if _weather == "rain" else 520
+			_snow.lifetime = 2.5
+			_snow.direction = Vector2(0.3, 1) if _weather == "rain" else Vector2(0.9, 1)
+			_snow.spread = 4
+			_snow.gravity = Vector2(0, 60)
+			_snow.initial_velocity_min = 160
+			_snow.initial_velocity_max = 220
+			_snow.scale_amount_max = 1.0
+		"mist":
+			img = Image.create(8, 8, false, Image.FORMAT_RGBA8)
+			img.fill(Color(0.9, 0.93, 0.96, 0.10))
+			_snow.amount = 60
+			_snow.lifetime = 14.0
+			_snow.emission_rect_extents = Vector2(420, 220)
+			_snow.direction = Vector2(1, 0)
+			_snow.spread = 20
+			_snow.gravity = Vector2.ZERO
+			_snow.initial_velocity_min = 4
+			_snow.initial_velocity_max = 10
+			_snow.scale_amount_min = 6.0
+			_snow.scale_amount_max = 14.0
+	_snow.preprocess = _snow.lifetime
 	_snow.texture = ImageTexture.create_from_image(img)
-	_snow.z_index = 50
-	add_child(_snow)
+	_snow.restart()
 
 
 func _apply_time() -> void:
@@ -238,10 +273,23 @@ func _apply_time() -> void:
 ## Who is about and which signs exist depend on the phase of the day and the night of the case.
 func _apply_phase() -> void:
 	var ph := Investigation.phase(time_of_day)
+	for a in outside.appears:
+		var open: bool = Investigation.gate_open(GameData, GameState, a.gate, time_of_day)
+		a.node.visible = open
+		a.node.process_mode = Node.PROCESS_MODE_INHERIT if open else Node.PROCESS_MODE_DISABLED
+		for child in a.node.get_children():
+			if child.has_meta("hotspot"):
+				child.set_meta("hidden", not open)
+	for d in outside.doors:
+		if d.get("appears", "") != "":
+			d["hidden"] = not Investigation.gate_open(GameData, GameState, d.appears, time_of_day)
 	for n in get_tree().get_nodes_in_group("interactable"):
 		if n.has_meta("when"):
 			var when: Array = n.get_meta("when")
-			n.set_present(when.is_empty() or ph in when)
+			var here: bool = when.is_empty() or ph in when
+			if here and n.has_meta("appears"):
+				here = Investigation.gate_open(GameData, GameState, n.get_meta("appears"), time_of_day)
+			n.set_present(here)
 		elif n.has_meta("clue"):
 			var here := Investigation.clue_visible(GameState, n.data, time_of_day)
 			n.visible = here
@@ -267,6 +315,8 @@ func _update_prompt() -> void:
 			_near = n
 	var doors: Array = outside.doors if inside == "" else []
 	for door in doors:
+		if door.get("hidden", false):
+			continue
 		var d: float = lp.distance_to(door.pos + Vector2(0, 10))
 		if d < best:
 			best = d
@@ -369,7 +419,7 @@ func _door_open(door: Dictionary) -> bool:
 
 ## A shut gate: roll its check if it offers one today, else say why it is shut.
 func _try_gate(gate_id: String) -> bool:
-	var g: Dictionary = Investigation.case_data(GameData, GameState).get("gates", {}).get(gate_id, {})
+	var g: Dictionary = GameData.gate(gate_id)
 	var check := Investigation.gate_check(GameData, GameState, gate_id)
 	if check.is_empty():
 		_toast(g.get("locked", "It's shut."))
@@ -401,6 +451,13 @@ func _use_hotspot(spot: Node) -> void:
 				_start_talk(NarrationTalk.new(_box, _catalog_lines()))
 			"radio_log":
 				_start_talk(NarrationTalk.new(_box, _radio_log_lines()))
+			"dials":
+				_start_talk(DialTalk.new(_box, p.get("name", "The dials"), p.get("puzzle", {}), _toast))
+		return
+	if p.has("enter"):
+		if rooms.has(p.enter):
+			_prompt.visible = false
+			_enter(p.enter, true)
 		return
 	if p.has("travel"):
 		_drive(p.travel)
@@ -461,6 +518,7 @@ func _travel(e: Dictionary, with_fade: bool) -> void:
 		w.get_parent().remove_child(w)
 		keep.add_child(w)
 	_build_map(e.to)
+	_apply_weather()
 	keep.queue_free()
 	var at: Array = e.get("at", map.get("spawn", [2, 2]))
 	_move_party(Vector2(float(at[0]), float(at[1])) * T, outside.actors)
@@ -497,6 +555,8 @@ func _enter(id: String, with_fade: bool) -> void:
 	var room: Dictionary = rooms[id]
 	if with_fade:
 		await _fade_out()
+	if inside == "":
+		_entered_via = id
 	inside = id
 	_move_party(room.entry, room.actors)
 	_set_camera_limits(room.rect)
@@ -508,9 +568,8 @@ func _enter(id: String, with_fade: bool) -> void:
 func _leave() -> void:
 	var door: Dictionary = {}
 	for d in outside.doors:
-		if d.id == inside:
+		if d.id == inside or (door.is_empty() and d.id == _entered_via):
 			door = d
-			break
 	await _fade_out()
 	inside = ""
 	var to: Vector2 = door.pos + Vector2(0, 20) if not door.is_empty() else Vector2(map.spawn[0], map.spawn[1]) * T
@@ -640,7 +699,11 @@ func _hud_tick() -> void:
 		for d in outside.doors:
 			if d.id == inside:
 				where = d.name
-	_hud.text = "%s · %s   Day %d   %d:00 %s (%s)   Dread %d   Evidence %d" % [GameData.cases.get(map.get("case", ""), {}).get("name", "The Casebook"), where, GameState.day, h12, ampm, Investigation.phase(time_of_day), GameState.dread, GameState.evidence.size()]
+	var tide := Investigation.tide_state(GameData, GameState, time_of_day)
+	var tide_text := ""
+	if tide != "":
+		tide_text = "   Tide %s%s" % [tide, "" if tide == "low" else " (low in %dh)" % ceil(Investigation.hours_to_low(GameData, GameState, time_of_day))]
+	_hud.text = "%s · %s   Day %d   %d:00 %s (%s)%s   Dread %d   Evidence %d" % [GameData.cases.get(map.get("case", ""), {}).get("name", "The Casebook"), where, GameState.day, h12, ampm, Investigation.phase(time_of_day), tide_text, GameState.dread, GameState.evidence.size()]
 	if _talk == null:
 		_apply_phase()
 	get_tree().create_timer(0.5).timeout.connect(_hud_tick)

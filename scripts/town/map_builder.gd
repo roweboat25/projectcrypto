@@ -22,7 +22,7 @@ static func load_indexes() -> void:
 ## Builds the outdoor map at tile offset `origin`. Returns the nodes the town needs.
 static func build_district(root: Node2D, map: Dictionary, origin: Vector2i, rng: RandomNumberGenerator) -> Dictionary:
 	load_indexes()
-	var out := {"lamps": [], "neon": [], "npcs": [], "clues": [], "doors": [], "actors": null, "rect": Rect2(), "exits": []}
+	var out := {"lamps": [], "neon": [], "npcs": [], "clues": [], "doors": [], "actors": null, "rect": Rect2(), "exits": [], "appears": []}
 	var size: Array = map.get("size", [40, 30])
 	out.rect = Rect2(Vector2(origin) * T, Vector2(size[0], size[1]) * T)
 	var ground := _layer(root, "Ground")
@@ -50,7 +50,9 @@ static func build_district(root: Node2D, map: Dictionary, origin: Vector2i, rng:
 	for h in map.get("houses", []):
 		var node := prop(actors, h.prop, _px(h.pos, origin))
 		node.name = "house_" + h.id
-		out.doors.append({"id": h.id, "name": h.name, "pos": _px(h.door, origin), "locked": h.get("locked", ""), "gate": h.get("gate", "")})
+		if h.has("appears"):
+			out.appears.append({"node": node, "gate": h.appears})
+		out.doors.append({"id": h.id, "name": h.name, "pos": _px(h.door, origin), "locked": h.get("locked", ""), "gate": h.get("gate", ""), "appears": h.get("appears", "")})
 	_props(actors, map.get("props", []), origin, map.get("id", "map"), out)
 	for n in map.get("npcs", []):
 		out.npcs.append(npc(actors, n, _px(n.pos, origin)))
@@ -71,9 +73,11 @@ static func _props(actors: Node2D, list: Array, origin: Vector2i, map_id: String
 		if (p.has("pickup") or p.has("gate")) and (key in GameState.picked or (p.get("restock", false) and ("%s:%d" % [key, GameState.day]) in GameState.picked)):
 			continue
 		var node := prop(actors, p.kind, _px(p.pos, origin))
+		if p.has("appears"):
+			out.appears.append({"node": node, "gate": p.appears})
 		if p.kind.begins_with("lamp_post"):
 			out.lamps.append(_light(node, Vector2(0, -78), Color("ffb860"), 1.1, 150.0))
-		if p.has("look") or p.has("pickup") or p.has("gate") or p.has("use") or p.has("travel"):
+		if p.has("look") or p.has("pickup") or p.has("gate") or p.has("use") or p.has("travel") or p.has("enter"):
 			var spot := Area2D.new()
 			spot.set_script(load("res://scripts/town/hotspot.gd"))
 			node.add_child(spot)
@@ -209,8 +213,10 @@ static func _facade(parent: Node2D, f: Dictionary, origin: Vector2i, out: Dictio
 		out.neon.append(neon)
 		out.lamps.append(light)
 	parent.add_child(node)
+	if f.has("appears"):
+		out.appears.append({"node": node, "gate": f.appears})
 	for dx in info.get("doors", [info.get("door_x", 0)]):
-		out.doors.append({"id": f.id, "name": f.get("name", f.id), "pos": bottom_left + Vector2(float(dx) + 16, 0), "locked": f.get("locked", ""), "gate": f.get("gate", "")})
+		out.doors.append({"id": f.id, "name": f.get("name", f.id), "pos": bottom_left + Vector2(float(dx) + 16, 0), "locked": f.get("locked", ""), "gate": f.get("gate", ""), "appears": f.get("appears", "")})
 
 
 static func npc(parent: Node2D, n: Dictionary, pos: Vector2) -> Node:
@@ -220,6 +226,8 @@ static func npc(parent: Node2D, n: Dictionary, pos: Vector2) -> Node:
 	node.setup(n)
 	node.position = pos
 	node.set_meta("when", n.get("when", []))
+	if n.has("appears"):
+		node.set_meta("appears", n.appears)
 	return node
 
 

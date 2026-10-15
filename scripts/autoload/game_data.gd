@@ -11,7 +11,9 @@ const VOICES := ["logic", "tech", "recall", "press", "rapport", "bluff", "nerve"
 const PHASES := ["morning", "day", "dusk", "night"]
 const TONES := ["kind", "hard", "wry", "silent"]
 const LEANS := ["hoax", "natural", "unexplained"]
-const USES := ["board", "ledger", "catalog", "radio_log", "shop"]
+const TIDES := ["low", "rising", "high", "falling"]
+const WEATHERS := ["snow", "clear", "mist", "rain", "gale"]
+const USES := ["board", "ledger", "catalog", "radio_log", "shop", "dials"]
 
 var classes: Dictionary = {}
 var roster: Dictionary = {}
@@ -210,6 +212,12 @@ func validate() -> Array[String]:
 					errors.append("case %s gate %s has an unknown class" % [case_id, gid])
 				if cond.has("evidence") and not evidence.has(cond.evidence):
 					errors.append("case %s gate %s needs unknown evidence" % [case_id, gid])
+				if cond.has("tide") and not cond.tide in TIDES:
+					errors.append("case %s gate %s has an unknown tide" % [case_id, gid])
+				if cond.has("tide") and not c.has("tide"):
+					errors.append("case %s gate %s reads a tide the case does not have" % [case_id, gid])
+				if cond.has("signs") and int(cond.signs) > c.get("trail", []).size():
+					errors.append("case %s gate %s asks for more signs than the trail has" % [case_id, gid])
 		for did in c.get("districts", {}):
 			if not maps.has(c.districts[did].get("map", "")):
 				errors.append("case %s district %s has an unknown map" % [case_id, did])
@@ -220,10 +228,14 @@ func validate() -> Array[String]:
 		var c: Dictionary = cases.get(m.get("case", ""), {})
 		var evidence: Dictionary = c.get("evidence", {})
 		var building_ids := []
+		if m.has("weather") and not m.weather in WEATHERS:
+			errors.append("map %s has unknown weather %s" % [map_id, m.weather])
 		for b in m.get("facades", []) + m.get("houses", []):
 			building_ids.append(b.id)
 			if b.has("gate") and gate(b.gate).is_empty():
 				errors.append("map %s building %s uses unknown gate %s" % [map_id, b.id, b.gate])
+			if b.has("appears") and gate(b.appears).is_empty():
+				errors.append("map %s building %s appears on unknown gate %s" % [map_id, b.id, b.appears])
 		for iid in m.get("interiors", {}):
 			if not iid in building_ids:
 				errors.append("map %s interior %s has no facade or house" % [map_id, iid])
@@ -242,11 +254,19 @@ func validate() -> Array[String]:
 				errors.append("map %s prop %s picks up unknown item %s" % [map_id, p.kind, p.pickup])
 			if p.has("gate") and gate(p.gate).is_empty():
 				errors.append("map %s prop %s uses unknown gate %s" % [map_id, p.kind, p.gate])
+			if p.has("appears") and gate(p.appears).is_empty():
+				errors.append("map %s prop %s appears on unknown gate %s" % [map_id, p.kind, p.appears])
 			if p.has("use") and not p.use in USES:
 				errors.append("map %s prop %s has unknown use %s" % [map_id, p.kind, p.use])
+			if p.has("enter") and not m.get("interiors", {}).has(p.enter):
+				errors.append("map %s prop %s enters unknown room %s" % [map_id, p.kind, p.enter])
+			if p.get("use", "") == "dials" and (not p.has("puzzle") or p.puzzle.get("order", []).is_empty()):
+				errors.append("map %s dials prop has no puzzle order" % map_id)
 			if p.has("travel") and not road.get("legs", {}).has(p.travel):
 				errors.append("map %s prop %s drives unknown leg %s" % [map_id, p.kind, p.travel])
 		for n in npcs:
+			if n.has("appears") and gate(n.appears).is_empty():
+				errors.append("map %s npc %s appears on unknown gate %s" % [map_id, n.id, n.appears])
 			if n.has("shop") and shop_stock(n.shop).is_empty():
 				errors.append("map %s npc %s runs shop %s with no stock" % [map_id, n.id, n.shop])
 			for ph in n.get("when", []):
