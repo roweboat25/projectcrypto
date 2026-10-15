@@ -1,0 +1,343 @@
+{
+ "_doc": "Dewey Teague, the younger brother, the brave one, at the big sink by the Hudson in the morning and along the far fence by day. He saw the light last August and went over the fence first, and he will not go in the gully now. Quiet, literal, kind to animals. Opens guarded at trust 0. The red check asks what he found in the gully; Pearl the goat is the soft way in.",
+ "id": "sk_hunter2",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sk_hunter2",
+   "lines": [
+    [
+     "sk_hunter2",
+     "Roy talk to you? Roy talks. I'd as soon you talked to Roy."
+    ],
+    [
+     "sk_hunter2",
+     "Watch the lip there. Grass is green at the edge, that's where it's going next. Stand on the brown."
+    ],
+    [
+     "june",
+     "He's standing on the far side from the ledge. He put the sink between himself and us before he said a word."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "Candle wax on his thumb, white, church-votive white. He has been down on that ledge this morning, and not for a car.",
+     "flag": "sk_hunter2_candle"
+    },
+    {
+     "voice": "lore",
+     "threshold": 9,
+     "line": "He keeps a jar lid in his shirt pocket and touches it when he looks at the Hudson. Somebody's jar. Somebody's lid."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Roy talks for both of you. We came down here to hear you.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "silent",
+     "text": "(Stand on the brown, and wait.)",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "We've been talked at by Roy. We'd like a rest.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_sk_hunter2"
+   }
+  },
+  "hub": {
+   "speaker": "sk_hunter2",
+   "lines": [
+    [
+     "sk_hunter2",
+     "All right. Ask it. I don't tell it good, so don't hurry me."
+    ]
+   ],
+   "repeat": true,
+   "static": {
+    "min_dread": 3,
+    "line": "He went over the fence first. He saw it before Roy did. Whatever Roy says was nothing, this one saw the shape of it. Make him say the shape."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "sk_hunter2_quiet"
+      ]
+     },
+     "tone": "kind",
+     "text": "Why won't you go in the gully now, Dewey? Roy says you're the brave one.",
+     "next": "quiet"
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sk_sink_cold_reading": 1
+      }
+     },
+     "text": "You walk this fence at dark. Where does the ground go cold? Show us on the field.",
+     "pass": "cold_line",
+     "fail": {
+      "next": "cold_no",
+      "dread": 1
+     }
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sk_sink_cold_reading": 2,
+       "sk_cave_draft_reading": 1
+      }
+     },
+     "text": "Fifty-six degrees out of that sink on a ninety-degree day. The cold in the gully. Same cold?",
+     "pass": "same_number",
+     "fail": {
+      "line": "I don't know degrees. I know I could see my breath in August. Ask Harlan, Harlan's got the glass."
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "sk_hunter2_quiet"
+      ],
+      "not_flag": [
+       "sk_hunter2_circle"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "sk_hunter_light": 2,
+       "fm_gully_reading": 2,
+       "fm_gully_photo": 1
+      }
+     },
+     "text": "You went over the fence with the lamp. Roy says there was nothing. Roy wasn't first over. What did you see?",
+     "pass": "circle",
+     "fail": {
+      "next": "circle_no",
+      "trust": {
+       "sk_hunter2": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "sk_sink_bones_lab"
+      ],
+      "not_flag": [
+       "sk_hunter2_pearl"
+      ]
+     },
+     "tone": "kind",
+     "text": "Pearl's back on her ledge. We put the candle back too.",
+     "next": "pearl"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Dewey. Mind the lip."
+    }
+   ]
+  },
+  "quiet": {
+   "speaker": "sk_hunter2",
+   "lines": [
+    [
+     "sk_hunter2",
+     "Brave's Roy's word. I just go first. Somebody's got to go first and Roy's got the gun, so."
+    ],
+    [
+     "sk_hunter2",
+     "I'll go down any sink in this county on a rope. I'll go past Harlan's drop if he'd let me. I won't go in that gully."
+    ],
+    [
+     "sk_hunter2",
+     "It ain't the dark. I like the dark. It's that the gully was looking at me and I couldn't find where from."
+    ],
+    [
+     "elijah",
+     "Looking at him. He didn't say 'something in it.' He said the gully."
+    ]
+   ],
+   "gives": {
+    "flag": "sk_hunter2_quiet",
+    "trust": {
+     "sk_hunter2": 1
+    }
+   },
+   "next": "hub"
+  },
+  "cold_line": {
+   "speaker": "sk_hunter2",
+   "lines": [
+    [
+     "sk_hunter2",
+     "Here. This sink, cold as a springhouse, you can feel it from the fence. The old sink by the Hudson, cold. The cave, cold."
+    ],
+    [
+     "sk_hunter2",
+     "Then nothing for a mile. Warm field, warm road, warm all the way to the Lacy line. Then the gully. Cold again, and no hole in it. I looked."
+    ],
+    [
+     "sk_hunter2",
+     "There's no hole."
+    ],
+    [
+     "sk_hunter2",
+     "Harlan says it's all one rock underneath. Maybe. But every other cold place I can show you the mouth it comes out of."
+    ],
+    [
+     "miriam",
+     "A draft needs an opening. If there isn't one, either he missed it or we need to find it. Either way, we walk the gully with a thermometer."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "sk_hunter2": 1
+    }
+   },
+   "next": "hub"
+  },
+  "cold_no": {
+   "speaker": "sk_hunter2",
+   "lines": [
+    [
+     "sk_hunter2",
+     "Cold's cold. Y'all got a machine for it, go wave it around. I ain't walking you to the gully. I said."
+    ]
+   ],
+   "next": "hub"
+  },
+  "same_number": {
+   "speaker": "sk_hunter2",
+   "lines": [
+    [
+     "sk_hunter2",
+     "Same cold. Same as this. Same as the cave. Like opening a cellar."
+    ],
+    [
+     "sk_hunter2",
+     "Except the cave blows. You stand in the mouth and your hair moves. The gully didn't blow."
+    ],
+    [
+     "sk_hunter2",
+     "It just was cold, standing still, like it had been poured there."
+    ],
+    [
+     "june",
+     "Still air at fifty-six on an August night means it is being held there, or it is being made there. Moving air I can explain."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "sk_hunter2": 1
+    }
+   },
+   "next": "hub"
+  },
+  "circle": {
+   "speaker": "sk_hunter2",
+   "lines": [
+    [
+     "sk_hunter2",
+     "...Grass. Pressed down flat in a ring, big as a truck bed, every blade laid the same way, round, like water had gone round and round in it."
+    ],
+    [
+     "sk_hunter2",
+     "No burn. No smell. Wet, and cold, and in the middle of it the dirt was dry. Dry, with dew on everything else from here to the road."
+    ],
+    [
+     "sk_hunter2",
+     "Roy come over the fence and I'd put my foot in it and I said it's nothing, Roy, and he said all right. He knew I was lying. He let me."
+    ],
+    [
+     "sk_hunter2",
+     "I went back at noon. It was stood up again. All of it. Grass don't do that in a morning."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "A ring of flattened grass, dry at the centre, in the Lacy gully, last August. The burned circle on your trail map is in the same gully. Same place, a year on. Go measure it."
+    }
+   ],
+   "gives": {
+    "flag": "sk_hunter2_circle",
+    "trust": {
+     "sk_hunter2": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "circle_no": {
+   "speaker": "sk_hunter2",
+   "lines": [
+    [
+     "sk_hunter2",
+     "Nothing. Roy said nothing and it was nothing. You want it to be something, go stand in it yourself. It's right there. Go on."
+    ],
+    [
+     "sk_hunter2",
+     "I'm going up to the cabin. Mind the lip."
+    ]
+   ],
+   "end": true
+  },
+  "pearl": {
+   "speaker": "sk_hunter2",
+   "lines": [
+    [
+     "sk_hunter2",
+     "...Y'all did? Candle too?"
+    ],
+    [
+     "sk_hunter2",
+     "She'd come to the fence when the school bus went by. Every day. Then one day the field just opened up under her."
+    ],
+    [
+     "sk_hunter2",
+     "That's all any of it is, round here. Something you had and then the ground took it. Roy'll say I'm soft. Roy fed her out of his hat."
+    ],
+    [
+     "dale",
+     "For the record, I said goat in the first ten seconds and I'm not sorry."
+    ]
+   ],
+   "gives": {
+    "flag": "sk_hunter2_pearl",
+    "trust": {
+     "sk_hunter2": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

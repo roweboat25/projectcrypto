@@ -1,0 +1,319 @@
+{
+ "id": "tn_landlady",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "Breakfast is eight, sharp, and the front door's bolted at eleven, and I don't care what the Americans do at home. Mrs Bannister. You're in 4 and 5."
+    ],
+    [
+     "tn_landlady",
+     "Yes, 4. The Mallory girl's. I thought you'd want it. Most people who come about 1973 want it, though they don't say so till they've seen the wallpaper."
+    ],
+    [
+     "ruth",
+     "She's put us in the child's room on purpose, dear. That's either a kindness or an experiment."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "recall",
+     "threshold": 7,
+     "line": "The register's open on the hall table. Not at this week. At a page whose corner's gone soft as cloth from being turned to.",
+     "flag": "tn_landlady_page"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "She says 'the Mallory girl'. Fay is twenty-seven and works in the chemist a hundred yards away. In this house she's still seven."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Room 4 is fine, Mrs Bannister. Thank you for thinking of it.",
+     "next": "welcome",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "We'll want the register, the room, and breakfast when we say.",
+     "next": "rules"
+    },
+    {
+     "tone": "wry",
+     "text": "The wallpaper's held up well. Has the rest of the story?",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_tn_landlady"
+   }
+  },
+  "welcome": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "Well. You've manners, which is more than the man from the Sunday paper had in '83. He wanted the room too, and he smoked in it."
+    ],
+    [
+     "tn_landlady",
+     "There's a kettle. There's a tide table on the back of the door, which you'll want more than the kettle."
+    ]
+   ],
+   "next": "hub"
+  },
+  "rules": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "You'll want a lot of things. You'll get breakfast at eight. I've had the Rudds, the Mallorys and the Sunday papers, and none of them told me when."
+    ],
+    [
+     "miriam",
+     "We're guests in a house that's seen worse guests than us and liked them less. Pull it in."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "tn_landlady": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "Forty years keeping this house. Full board, half board, and a week in May 1973 I've had to do over in my head every night since. Ask, then, I've the beds to turn."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Mrs Bannister keeps one hand flat on the register.",
+   "options": [
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "tn_landlady_rudds": 1,
+       "fay_statement": 1
+      }
+     },
+     "text": "You put us in Room 4 on purpose. What do you want us to find in it?",
+     "pass": "room4",
+     "fail": {
+      "line": "I put you in it because it's got two singles. Don't read into my beds."
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_register_1973": 2
+      }
+     },
+     "text": "That page is soft at the corner. You read it every night. Read it to us once.",
+     "pass": "page",
+     "fail": {
+      "next": "page_fail"
+     },
+     "requires": {
+      "flag": [
+       "tn_landlady_page"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "fay_drawing": 2,
+       "tn_landlady_rudds": 1
+      }
+     },
+     "text": "Her mother took the crayons on the Thursday. You cleared the breakfast table on the Wednesday. You kept one.",
+     "pass": "drawing",
+     "fail": {
+      "next": "drawing_fail",
+      "trust": {
+       "tn_landlady": -1
+      }
+     }
+    },
+    {
+     "tone": "wry",
+     "text": "Stray Alsatian, eighty-one degrees. Both children at your table. Did the paper ask you?",
+     "next": "paper",
+     "requires": {
+      "evidence": [
+       "tn_county_press_1973"
+      ],
+      "not_flag": [
+       "tn_landlady_paper"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mrs Bannister."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Room 3's key is on the hook with no number on it. She's never let it since. Ask her why the number's gone."
+   }
+  },
+  "room4": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "...Nobody sleeps the night through in it. Twenty-one years of guests, and every one of them down at breakfast saying the room's lovely but did I hear the pier last night."
+    ],
+    [
+     "tn_landlady",
+     "There's no pier on that side. There's the Levels. If you hear it, you'll know what she heard, and you can tell me, because I've never dared sleep in it myself."
+    ],
+    [
+     "elijah",
+     "She's used us as a thermometer. I don't mind. Somebody has to go in and read it."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_landlady_room4",
+    "dread": 1,
+    "trust": {
+     "tn_landlady": 1
+    }
+   },
+   "next": "hub"
+  },
+  "page": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "...Saturday the 26th. Rudd, Mr and Mrs and Colin, Room 2. Mallory, Mr and Mrs and Fay, Room 4. Tappin, R., Sunnyside, Room 3, paid in advance, cash."
+    ],
+    [
+     "tn_landlady",
+     "Cash out of a Sunnyside wage packet, brown, with the camp's stamp on it. I noticed because they never paid their lot till the Friday."
+    ],
+    [
+     "tn_landlady",
+     "He'd been paid on a Saturday. Before he'd done a day."
+    ],
+    [
+     "miriam",
+     "Paid before he'd worked. That's not wages. That's a fee. Somebody at that camp bought a week of him."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_landlady_page_read",
+    "trust": {
+     "tn_landlady": 1
+    }
+   },
+   "next": "hub"
+  },
+  "page_fail": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "I keep the register. I don't perform it. If you want 1973 read aloud, Miss Jolliffe at the library has the paper on the machine and she's paid to."
+    ],
+    [
+     "teddy",
+     "Sent to the library. Politely. She's not refused, she's rationed."
+    ]
+   ],
+   "next": "hub"
+  },
+  "drawing": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "...I kept one. Off the tablecloth, Wednesday, she'd done it in the jam. I copied it onto a card before I washed the cloth. I don't know why. I've never known why."
+    ],
+    [
+     "tn_landlady",
+     "It's dials. A row of them, and every needle pointing the same way, and a tall thing at the end with no face. I've got it in the dresser drawer and I've never shown Fay."
+    ],
+    [
+     "tn_landlady",
+     "Don't tell her I've got it. If she wants it, she can ask me. She's never asked me anything."
+    ],
+    [
+     "ruth",
+     "Twenty-one years in a dresser drawer. She's been keeping it for the child, dear, and the child grew up a hundred yards away and never came."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_landlady_drawing",
+    "trust": {
+     "tn_landlady": 2
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "drawing_fail": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "I cleared a table. I've cleared ten thousand tables. Breakfast is at eight and I'll thank you not to be in my kitchen before it."
+    ],
+    [
+     "miriam",
+     "That was a guess dressed as a fact. She caught it. Fay might know. Fay's the one who drew it."
+    ]
+   ],
+   "end": true
+  },
+  "paper": {
+   "speaker": "tn_landlady",
+   "lines": [
+    [
+     "tn_landlady",
+     "Nobody asked me. A policeman came, and he wrote down 'Alsatian' while I was still talking, and the paper took what he wrote. I'd have said. Nobody asked."
+    ],
+    [
+     "tn_landlady",
+     "I'd have said two children came in off that marsh and neither of them had been near a dog, because I'd have smelt it on them. I smell everything in this house."
+    ],
+    [
+     "teddy",
+     "The one witness who had both kids at her table, and the only question she ever got was from us. Twenty-one years late."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_landlady_paper",
+    "trust": {
+     "tn_landlady": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

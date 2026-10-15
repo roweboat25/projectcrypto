@@ -1,0 +1,377 @@
+{
+ "_doc": "Scooter, the quiet one with the tape recorder. Five cassettes labelled TOWER. Topics on the hub offer his quick fact (what's on tape four).",
+ "id": "teen2",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "Jody said don't talk to you. Jody's not the boss of the whole hill."
+    ],
+    [
+     "teen2",
+     "I've got a tape recorder. A real one, Panasonic, it was my dad's. I record stuff. That's all I do, I record stuff."
+    ],
+    [
+     "teen2",
+     "You can't do anything to a person for recording stuff."
+    ],
+    [
+     "june",
+     "Shoebox recorder, condenser mic taped to the handle. The kid's serious."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 8,
+     "line": "Four fresh AAs in his jacket pocket, still on the card. He's not done recording. He's going back up, or he's afraid he'll have to.",
+     "flag": "teen2_batteries"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "'That's all I do.' He's apologising for the thing he's proudest of. Somebody laughed at the recorder."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Ask him to play it. He'll play it. It's still on the tape, and it knows the tape's in the house."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Nobody's laughing at the recorder, Scooter. What do you record?",
+     "next": "records"
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "static_reading": 1
+      }
+     },
+     "text": "Condenser mic. Did it pick up anything on those tapes your ears didn't?",
+     "pass": "hiss",
+     "fail": {
+      "next": "hiss_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "nerve",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "Play us the end of tape four. Right now. We'll sit with you while it runs.",
+     "pass": "play",
+     "fail": {
+      "next": "play_fail",
+      "dread": 1
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Say nothing. Look at the recorder, not at him.)",
+     "next": "quiet",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_teen2"
+   }
+  },
+  "records": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "Trains. The river under the bridge approach. My grandma, before she... My grandma. And the tower. Five tapes."
+    ],
+    [
+     "teen2",
+     "Jody says I should've recorded the deputy. Jody says a lot."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen2": 1
+    },
+    "flag": "teen2_grandma_tape"
+   },
+   "next": "hub"
+  },
+  "hiss": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "Cassette. ...There's a hum on all five tower tapes that isn't on the train tapes. Sounds like sixty cycles but it's not, it wobbles."
+    ],
+    [
+     "teen2",
+     "Dad says it's the tower pump. The tower doesn't have a pump. I checked. It's gravity."
+    ],
+    [
+     "june",
+     "Not mains. Not the pump. I want those tapes on a scope."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen2": 1
+    },
+    "flag": "teen2_hum"
+   },
+   "next": "hub"
+  },
+  "hiss_fail": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "It's a cassette. It's just a cassette. Don't make it a thing."
+    ],
+    [
+     "teen2",
+     "Mr. Pace up the hill has real gear. Ask him what his gear does. Mine just records."
+    ]
+   ],
+   "next": "hub"
+  },
+  "play": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "...Okay. Okay. Don't talk over it."
+    ],
+    [
+     "teen2",
+     "(Hiss. Wind. Jody, far off: 'is it looking at us'. A clatter. Then, under the hiss, three notes. Three notes. He stops the tape.)"
+    ],
+    [
+     "teen2",
+     "That part's new. The notes. That wasn't on it Friday. I've played it forty times, that wasn't on it."
+    ],
+    [
+     "elijah",
+     "It's not on the tape, Scooter. It's in the room."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen2": 1
+    },
+    "flag": "teen2_played",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "play_fail": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "No. No, I'm not playing it in the house. Not with... No."
+    ],
+    [
+     "teen2",
+     "Ask Jody. Jody heard it live. Jody can do the voice."
+    ]
+   ],
+   "next": "hub"
+  },
+  "quiet": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "..."
+    ],
+    [
+     "teen2",
+     "It's a good recorder. Dad got it in Dayton. The heads are clean, I do them with a Q-tip."
+    ],
+    [
+     "teen2",
+     "...You can ask. Jody's not here."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen2": 1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "teen2",
+   "repeat": true,
+   "prompt": "Jody's gonna kill me. What else.",
+   "lines": [
+    [
+     "teen2",
+     "Jody's gonna kill me. What else."
+    ]
+   ],
+   "options": [
+    {
+     "requires": {
+      "flag": [
+       "teen2_grandma_tape"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "teen_saw_it": 2,
+       "rf_cable_birds": 2
+      }
+     },
+     "text": "You said 'my grandma, before'. Before what, Scooter? What's on her tape?",
+     "pass": "grandma",
+     "fail": {
+      "next": "grandma_fail",
+      "trust": {
+       "teen2": -2
+      }
+     }
+    },
+    {
+     "tone": "hard",
+     "requires": {
+      "evidence": [
+       "teen_confession"
+      ],
+      "not_flag": [
+       "teen2_flashlight"
+      ]
+     },
+     "text": "Jody's already told us about the tape on the tree. You can stop protecting the joke.",
+     "next": "joke"
+    },
+    {
+     "tone": "wry",
+     "requires": {
+      "flag": [
+       "teen2_batteries"
+      ],
+      "not_flag": [
+       "teen2_batteries_asked"
+      ]
+     },
+     "text": "Four fresh AAs. Going somewhere?",
+     "next": "batteries"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Keep the tapes safe, Scooter."
+    }
+   ]
+  },
+  "grandma": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "She was on the bridge in '67. In the line of cars. They pulled her out of the river. She never drove again and never said why till the tape."
+    ],
+    [
+     "teen2",
+     "On the tape she says there were birds on the cables that afternoon. Big ones, sitting. Then she asks me to turn it off. She died in March."
+    ],
+    [
+     "teen2",
+     "I didn't turn it off. I should've. I just wanted her voice."
+    ],
+    [
+     "elijah",
+     "She wanted it kept, Scooter. That's why she said it to a recorder and not to you."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen2": 1
+    },
+    "flag": "teen2_grandma",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "grandma_fail": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "That's my grandma. That's not... that's not tower stuff. Get out of my room."
+    ],
+    [
+     "teen2",
+     "Lyle on the ferry pulled people out in '67. Ask Lyle about birds. Don't ask me."
+    ],
+    [
+     "miriam",
+     "Leave it. He's fourteen and we just put his grandmother in the river in front of him."
+    ]
+   ],
+   "end": true
+  },
+  "joke": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "...It wasn't my joke. I held the flashlight. I held the flashlight and I recorded it, and that's the only reason anybody knows it stood up."
+    ],
+    [
+     "teen2",
+     "Jody says I dropped the recorder. I didn't drop it. I set it down. There's a difference."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen2": 1
+    },
+    "flag": "teen2_flashlight"
+   },
+   "next": "hub"
+  },
+  "batteries": {
+   "speaker": "teen2",
+   "lines": [
+    [
+     "teen2",
+     "...If it comes back I want it on tape. Nobody believed Jody. Everybody believes a tape."
+    ],
+    [
+     "teen2",
+     "Is that stupid."
+    ],
+    [
+     "june",
+     "No. Label it, date it, and don't go alone."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen2": 1
+    },
+    "flag": "teen2_batteries_asked"
+   },
+   "next": "hub"
+  }
+ }
+}

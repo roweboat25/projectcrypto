@@ -1,0 +1,422 @@
+{
+ "_doc": "A hand off the Hardin place, topping tobacco at the field edge in the mornings with a radio on his belt. Thirty, local, his people have fired barns on this road since before 1955. Trust 1, taciturn, working. The red check gets the firing-time story the old hands tell; the Lacy farm's Virgil is the evidence way in.",
+ "id": "kc_hand",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_hand",
+   "lines": [
+    [
+     "kc_hand",
+     "Mind the rows. It's topped, it bruises. Mr Hardin'll have it out of my pay."
+    ],
+    [
+     "kc_hand",
+     "Y'all the ones at the store. Figured. Everybody that comes in August walks this edge sooner or later looking for the gully."
+    ],
+    [
+     "kc_hand",
+     "It's yonder. Past the dead oak. I don't go in it on the clock."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 8,
+     "line": "He's topped every row but the last four by the gully, and those are a day behind. He's been working away from that edge, not toward it.",
+     "flag": "kc_hand_gully"
+    },
+    {
+     "voice": "tech",
+     "threshold": 7,
+     "line": "A transistor radio on his belt, WHOP, the anniversary promo running every half hour. He turns it down when it comes on. Not off. Down.",
+     "flag": "kc_hand_radio"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Hot work. We won't keep you long.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "On the clock. And off it?",
+     "next": "hub"
+    },
+    {
+     "tone": "silent",
+     "text": "(Pick up a knife and top the next plant with him.)",
+     "next": "hub",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_hand"
+   }
+  },
+  "hub": {
+   "speaker": "kc_hand",
+   "repeat": true,
+   "lines": [
+    [
+     "kc_hand",
+     "Go ahead. I can talk and cut. Can't talk and listen to that radio, so it's you or it."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Four rows left by the gully. He won't finish them. Ask him what he saw in the far rows that made him leave them. Ask him in front of the gully."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "kc_hand_hot"
+      ]
+     },
+     "tone": "kind",
+     "text": "What do you do out here when it's a hundred and the field's topped?",
+     "next": "hot"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "You work for Cleve Hardin. What does he pay you not to say?",
+     "pass": "cleve",
+     "fail": {
+      "line": "He pays me to top tobacco. You want Mr Hardin, he's at the house, and he'll say the same.",
+      "trust": {
+       "kc_hand": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_hand_gully"
+      ],
+      "not_flag": [
+       "kc_hand_rows"
+      ]
+     },
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "fm_gully_reading": 1,
+       "lull_field_photo": 2
+      }
+     },
+     "text": "The far four rows by the gully. Something's been through them, and you've stopped cutting toward it.",
+     "pass": "rows",
+     "fail": {
+      "next": "rows_no",
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "kc_hand_firing"
+      ]
+     },
+     "check": {
+      "voice": "lore",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "kc_hardin_dogs": 1,
+       "rt_dogs_under_porch": 1
+      }
+     },
+     "text": "Your people have fired barns here since before 1955. The old hands tell a thing about that week at firing time. Tell it.",
+     "pass": "firing_story",
+     "fail": {
+      "next": "firing_no",
+      "trust": {
+       "kc_hand": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_hand_radio"
+      ],
+      "not_flag": [
+       "kc_hand_whop"
+      ]
+     },
+     "tone": "wry",
+     "text": "WHOP's running the anniversary every half hour. You turn it down, not off.",
+     "next": "radio"
+    },
+    {
+     "requires": {
+      "evidence": [
+       "fm_hand_owls"
+      ],
+      "not_flag": [
+       "kc_hand_owls"
+      ]
+     },
+     "tone": "kind",
+     "text": "Virgil at the Lacy place says the barn owls are thick this year. Same on this side?",
+     "next": "owls_here"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all. Mind the rows."
+    }
+   ]
+  },
+  "hot": {
+   "speaker": "kc_hand",
+   "lines": [
+    [
+     "kc_hand",
+     "Sucker it. Then cut it, spear it, hang it, fire it. Then strip it in November with my hands cracked to the meat. Then do it again."
+    ],
+    [
+     "kc_hand",
+     "Daddy done it on this field, Granddaddy done it on the Lacy side."
+    ],
+    [
+     "kc_hand",
+     "Granddaddy was spearing the day after, in 1955, with the reporters walking the rows asking him did he see anything. He said he seen tobacco."
+    ],
+    [
+     "kc_hand",
+     "That's about the family position."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_hand_hot",
+    "trust": {
+     "kc_hand": 1
+    }
+   },
+   "next": "hub"
+  },
+  "cleve": {
+   "speaker": "kc_hand",
+   "lines": [
+    [
+     "kc_hand",
+     "...Nothing. That's the honest truth. He don't pay me not to say nothing 'cause he's never told me nothing."
+    ],
+    [
+     "kc_hand",
+     "Thirty-nine years and he's never said one word about that night to a hand."
+    ],
+    [
+     "kc_hand",
+     "What he does is he comes out on the step at dusk, every day, and looks up that road till the streetlight comes on. Then he goes in."
+    ],
+    [
+     "kc_hand",
+     "I'd say that's what he pays me not to say, except I just said it."
+    ],
+    [
+     "teddy",
+     "A man who watches a road every dusk for thirty-nine years isn't watching for little men. He's watching for a neighbour."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_hand": 1
+    }
+   },
+   "next": "hub"
+  },
+  "rows": {
+   "speaker": "kc_hand",
+   "lines": [
+    [
+     "kc_hand",
+     "...Monday morning. Them four rows was laid over toward the gully. Not broke."
+    ],
+    [
+     "kc_hand",
+     "Bent, every plant, like something heavy had leaned on the whole field from the house side and the field leaned back."
+    ],
+    [
+     "kc_hand",
+     "No tracks. Dew on everything and no tracks."
+    ],
+    [
+     "kc_hand",
+     "By noon it was stood up again and I told Mr Hardin wind, and he said wind, and we both knew there wasn't none Sunday night."
+    ],
+    [
+     "kc_hand",
+     "I'll cut them rows last. Maybe Saturday. Maybe after."
+    ],
+    [
+     "june",
+     "Bent toward the gully from the house side on the anniversary week, and stood back up by noon."
+    ],
+    [
+     "june",
+     "That's your field photo from the other direction."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_hand_rows",
+    "trust": {
+     "kc_hand": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "rows_no": {
+   "speaker": "kc_hand",
+   "lines": [
+    [
+     "kc_hand",
+     "Deer. Deer come through the far rows every night of the world. Y'all want tracks, go look. I got cutting."
+    ]
+   ],
+   "next": "hub"
+  },
+  "firing_story": {
+   "speaker": "kc_hand",
+   "lines": [
+    [
+     "kc_hand",
+     "...All right. The old hands tell it at firing, when the barns is lit and everybody's sat up with 'em all night."
+    ],
+    [
+     "kc_hand",
+     "The twenty-first of August, 1955, every barn on this road was cold. Too early to fire."
+    ],
+    [
+     "kc_hand",
+     "And about midnight, Granddaddy said, the Lacy barn started smoking. Nobody'd lit it. Nothing in it to light."
+    ],
+    [
+     "kc_hand",
+     "White smoke, out the vents, lying down in the gully like water. And the gully stayed cold under it."
+    ],
+    [
+     "kc_hand",
+     "He walked over at first light and the barn was cold inside and the floor was wet."
+    ],
+    [
+     "kc_hand",
+     "The old hands say that's why you never fire a barn before the twenty-second. Even now. Ask any of 'em why and they'll say tradition."
+    ],
+    [
+     "ruth",
+     "A barn that smoked with nothing in it and a gully that stayed cold under the smoke. That's not a farming story, dear."
+    ],
+    [
+     "ruth",
+     "That's a visitation story wearing overalls."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "Smoke lying in the gully, cold, from a cold barn. The same gully the light came down into. Whatever was there at midnight was breathing out, and the county saw it as smoke."
+    }
+   ],
+   "gives": {
+    "flag": "kc_hand_firing",
+    "trust": {
+     "kc_hand": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "firing_no": {
+   "speaker": "kc_hand",
+   "lines": [
+    [
+     "kc_hand",
+     "What's said at firing is said at firing. Y'all ain't sat up a barn. Come back in October and sit one, and then ask."
+    ],
+    [
+     "kc_hand",
+     "Virgil over at the Lacy place has worked more barns than me. Ask him what his daddy said. He might be in a telling mood. I ain't."
+    ]
+   ],
+   "next": "hub"
+  },
+  "radio": {
+   "speaker": "kc_hand",
+   "lines": [
+    [
+     "kc_hand",
+     "'Thirty-ninth Anniversary Watch, Saturday night at the Lacy farm, bring a lawn chair.' A lawn chair."
+    ],
+    [
+     "kc_hand",
+     "They're selling T-shirts at the fairgrounds."
+    ],
+    [
+     "kc_hand",
+     "I turn it down 'cause I want to hear what they say after it. Weather. If it's going to storm Saturday."
+    ],
+    [
+     "kc_hand",
+     "Granddaddy said it stormed the night of. Over the fort. That's all he'd ever say about the sky."
+    ],
+    [
+     "kc_hand",
+     "I'd like to know if it's going to storm. That's all."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_hand_whop",
+    "trust": {
+     "kc_hand": 1
+    }
+   },
+   "next": "hub"
+  },
+  "owls_here": {
+   "speaker": "kc_hand",
+   "lines": [
+    [
+     "kc_hand",
+     "Thick. Dead oak at the gully's got a nest every year, and this year the young ones sit on the fence at dusk and scream. Sounds like a woman."
+    ],
+    [
+     "kc_hand",
+     "First time you hear it you drop your knife."
+    ],
+    [
+     "kc_hand",
+     "Mr Hardin's cat went up the water tower in June, and I know what took it, and it ain't silver."
+    ],
+    [
+     "kc_hand",
+     "Virgil says the same, does he? Virgil's all right. Virgil don't go in the gully neither."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_hand_owls",
+    "trust": {
+     "kc_hand": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

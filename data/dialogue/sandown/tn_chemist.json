@@ -1,0 +1,342 @@
+{
+ "id": "tn_chemist",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "If it's for Fay, she's on the dispensary and she's busy. If it's for me, I've four minutes, and I'm measuring, so don't jog the bench. Harwood."
+    ],
+    [
+     "tn_chemist",
+     "Yes, that Harwood. My father's name's over the door and my father's hand is in the ledgers, and I know which ledger you want because everybody does."
+    ],
+    [
+     "miriam",
+     "He's stood between us and the hatch to the dispensary without seeming to move there. Good. Somebody in this town is on her side."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "The ledgers run 1958 to now along the shelf in order, except one. 1973 is at the front, out of its year, spine out.",
+     "flag": "tn_chemist_ledger_out"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He said 'she's busy' before he said his own name. Nine years of being the only door she's got."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Four minutes is plenty. We'll not ask for Fay. She'll come to us or she won't.",
+     "next": "minutes",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Four minutes. Does the clock in here run on the tide as well?",
+     "next": "clock"
+    },
+    {
+     "tone": "hard",
+     "text": "We'll talk to Fay when we choose, Mr Harwood. It's a shop, not a convent.",
+     "next": "convent"
+    }
+   ],
+   "gives": {
+    "flag": "met_tn_chemist"
+   }
+  },
+  "minutes": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "...Then you're the first who've said that, and you can have five. Don't tell her I gave you the extra. She'll think I'm going soft."
+    ]
+   ],
+   "next": "hub"
+  },
+  "clock": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "Everything on this island runs on the tide, including me. Low water at three. I shut at half five. Ask quickly."
+    ]
+   ],
+   "next": "hub"
+  },
+  "convent": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "It's a shop. It's my shop. And she's my dispenser, and she's had twenty-one years of people choosing when, so in here she chooses. Three minutes."
+    ],
+    [
+     "ruth",
+     "He's right, dear, and he's right with a prescription counter between us. Let's not make him be right twice."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "tn_chemist": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "Harwood's, chemist, since 1931. I came back from Bath in '79, took it over in '81, took Fay on in '85. Those are the dates. Go on."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Mr Harwood keeps measuring.",
+   "options": [
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_prescription_1973": 2
+      }
+     },
+     "text": "The '73 ledger's at the front of the shelf, out of its year. Somebody had it out this week. Who?",
+     "pass": "ledger_out",
+     "fail": {
+      "next": "ledger_fail"
+     },
+     "requires": {
+      "flag": [
+       "tn_chemist_ledger_out"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_chemist_on_fay": 2,
+       "fay_statement": 1
+      }
+     },
+     "text": "You've never laughed about it. In twenty-one years. She knows that, and it's why she's here.",
+     "pass": "laugh",
+     "fail": {
+      "line": "I don't laugh at much. It's a chemist's. People come in frightened. Next."
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "fay_drawing": 1,
+       "tn_vicar_children": 1
+      }
+     },
+     "text": "A sedative for a seven-year-old, and 'night terrors' written the day it happened. Your father's margin says what she said in the night.",
+     "pass": "terrors",
+     "fail": {
+      "next": "terrors_fail",
+      "trust": {
+       "tn_chemist": -1
+      }
+     },
+     "requires": {
+      "evidence": [
+       "tn_prescription_1973"
+      ]
+     }
+    },
+    {
+     "tone": "kind",
+     "text": "Thank you for giving her the afternoon every year. Somebody should have said it.",
+     "next": "afternoon",
+     "requires": {
+      "not_flag": [
+       "tn_chemist_afternoon"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Harwood."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The hatch to the dispensary is open an inch and nobody's breathing behind it. She's listening. Ask him the thing she can't."
+   }
+  },
+  "ledger_out": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "Fay. Thursday, after we shut. She'd never touched it in nine years and she took it down and read one page standing up, and put it back wrong, and I left it wrong."
+    ],
+    [
+     "tn_chemist",
+     "And before that, 1973. My father's note on the inside cover: a man from the camp came in on the Thursday asking what the children had been given."
+    ],
+    [
+     "tn_chemist",
+     "Father told him nothing and wrote his name down."
+    ],
+    [
+     "tn_chemist",
+     "Tappin. R. Tappin. Father underlined it, and Father didn't underline."
+    ],
+    [
+     "miriam",
+     "A camp man asking a chemist what two children were sedated with, two days after. That's not concern. That's checking they'd sleep."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_chemist_tappin",
+    "trust": {
+     "tn_chemist": 1
+    }
+   },
+   "next": "hub"
+  },
+  "ledger_fail": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "Shelves get knocked. Four minutes is now three. Dr Gale's surgery has his notes, if Dr Gale's successor will let you in, which he won't."
+    ],
+    [
+     "teddy",
+     "A chemist who answers a question about his shelf with a question about a doctor. He knows exactly who had it out."
+    ]
+   ],
+   "next": "hub"
+  },
+  "laugh": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "...I was at Bath. Father sent me the County Press every week and I read it in the digs."
+    ],
+    [
+     "tn_chemist",
+     "I read 'the heat' and I thought: two children, same marsh, same night, and the doctor wrote heat."
+    ],
+    [
+     "tn_chemist",
+     "I was nineteen. I thought, somebody will ask them properly. Nobody did. When she walked in at eighteen with that face, I thought: well. I'll be the one who doesn't ask, then."
+    ],
+    [
+     "elijah",
+     "He decided not to ask her as a kindness and he's kept it nine years. That's a vow. He doesn't know it's a vow."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_chemist_laugh",
+    "trust": {
+     "tn_chemist": 1
+    }
+   },
+   "next": "hub"
+  },
+  "terrors": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "...'Child says it counts. Child says it will count her. Mother says she was laughing.' In his hand, in the margin, by the dose."
+    ],
+    [
+     "tn_chemist",
+     "He never wrote in margins. He wrote that, and he underlined the camp man, and the two are an inch apart on the same page, and I've looked at that inch for thirteen years."
+    ],
+    [
+     "tn_chemist",
+     "If you tell her I read it out, I'll say you broke in. I mean that."
+    ],
+    [
+     "vera",
+     "It counts. The dials. The sheep. A thing that keeps a tally and said so to a seven-year-old, and her mother heard laughter."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_chemist_terrors",
+    "trust": {
+     "tn_chemist": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "terrors_fail": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "That's a patient's record, and the patient is in the next room, and you can leave by the door you came in."
+    ],
+    [
+     "tn_chemist",
+     "Fay. I'm shutting early."
+    ],
+    [
+     "miriam",
+     "That's the end of Harwood's for today. He's right. Dr Gale's dead, the vicar sat with her that week, try him."
+    ]
+   ],
+   "end": true
+  },
+  "afternoon": {
+   "speaker": "tn_chemist",
+   "lines": [
+    [
+     "tn_chemist",
+     "...Nobody has. She hasn't. She doesn't know I know where she goes, or she pretends not to, and I let her."
+    ],
+    [
+     "tn_chemist",
+     "I'll tell you one thing and then I'm measuring. She comes back from the Levels on the 29th with reeds in her spokes, calmer than I've ever seen her."
+    ],
+    [
+     "tn_chemist",
+     "It's not a sad place for her. I don't know what it is."
+    ],
+    [
+     "ruth",
+     "Calmer, dear. A grown woman goes back every year to the place that frightened her and comes home easier. That's not a haunting. That's an appointment."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_chemist_afternoon",
+    "trust": {
+     "tn_chemist": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

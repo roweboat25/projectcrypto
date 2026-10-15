@@ -1,0 +1,371 @@
+{
+ "_doc": "Buford Keel, the little-men dollar, on the store porch mornings and dusks. Made eleven dollars off the reporters in 1955 without seeing a thing, was at Fort Knox in 1956, and has been trying to see one ever since. Trust 1, loud, wants Ott to believe him more than he wants to be right. The red check names the eleven dollars.",
+ "id": "kc_checkers2",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_checkers2",
+   "lines": [
+    [
+     "kc_checkers2",
+     "Buford Keel. I seen one. Ott'll tell you I didn't, and Ott's never seen anything in his life that wasn't on that board."
+    ],
+    [
+     "kc_checkers2",
+     "Silver, big as a child, hands up, and it waved. You can write that down. The Frenchman wrote it down."
+    ],
+    [
+     "kc_checkers1",
+     "The Frenchman wrote down the price of beer, Buford."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He looks at Ott before every claim and after it. He doesn't want you to believe him. He wants Ott to.",
+     "flag": "kc_ck2_wants"
+    },
+    {
+     "voice": "lore",
+     "threshold": 7,
+     "line": "There's a square of kitchen foil in his hatband, old and soft as cloth. A keepsake. Something was wrapped in foil once and he's kept a piece."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'd like to hear it from you, Mr Keel. Not from Ott.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "It waved. We've had three days of this county and nothing's waved at us yet.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_checkers2"
+   }
+  },
+  "hub": {
+   "speaker": "kc_checkers2",
+   "repeat": true,
+   "lines": [
+    [
+     "kc_checkers2",
+     "Ask me anything. Ask me the monkey. Ask him the owls, you'll be here till dark."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Eleven dollars for a thing he never saw. He's been trying to see it ever since to make the money honest. Tell him it's too late for that."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "kc_ck2_proper"
+      ]
+     },
+     "tone": "kind",
+     "text": "Tell us the monkey one. Properly, start to finish.",
+     "next": "monkey_proper"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "Your dollar's been under that cap thirty-nine years. What do you buy with it if you win?",
+     "pass": "win",
+     "fail": {
+      "line": "A Grapette. Two, if the price ain't gone up. Don't look at me like that, it's the principle."
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "kc_ott_knox": 2,
+       "kc_buford_1956": 1
+      }
+     },
+     "text": "Fort Knox, January '56 to spring '58. The after-church one happened after you came home. Which year, Mr Keel, really?",
+     "pass": "which_year",
+     "fail": {
+      "next": "which_no",
+      "trust": {
+       "kc_checkers2": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_ck2_wants"
+      ],
+      "not_flag": [
+       "kc_ck2_honest"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "kc_hardin_reporters": 2
+      }
+     },
+     "text": "Eleven dollars off the reporters and you never saw a thing. Ott knows. You've been trying to see one ever since, so the eleven dollars would be honest.",
+     "pass": "honest",
+     "fail": {
+      "next": "honest_no",
+      "trust": {
+       "kc_checkers2": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "rt_monkey_claim"
+      ],
+      "not_flag": [
+       "kc_ck2_jacket"
+      ]
+     },
+     "tone": "wry",
+     "text": "Kincaid's claim form. A rhesus in a red jacket, loose from the nineteenth. Your monkey had a name, Mr Keel.",
+     "next": "red_jacket"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now. Keep an eye on the corn."
+    }
+   ]
+  },
+  "monkey_proper": {
+   "speaker": "kc_checkers2",
+   "lines": [
+    [
+     "kc_checkers2",
+     "Swann Brothers, or Kincaid's, one of them shows, had the fairgrounds the week of. Monkey got off the train at the siding here."
+    ],
+    [
+     "kc_checkers2",
+     "Dewey's daddy seen the box on the platform, lid off."
+    ],
+    [
+     "kc_checkers2",
+     "Monkey goes up the road. Monkey gets in the Lacy yard at dark and somebody puts a flashlight on it and it does what it's trained, hands up."
+    ],
+    [
+     "kc_checkers2",
+     "Lacys shoot. Monkey goes on the roof. Lacys shoot the roof."
+    ],
+    [
+     "kc_checkers2",
+     "All night. Monkey's quicker than Lacys. Comes morning it's gone in the trees. Where's the hole in that? Show me the hole."
+    ],
+    [
+     "kc_checkers1",
+     "The hole's the part where it's never once been found, Buford. Thirty-nine years. Monkeys don't live thirty-nine years in a tobacco field."
+    ],
+    [
+     "kc_checkers2",
+     "It went back to the show. They're smart."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_ck2_proper",
+    "trust": {
+     "kc_checkers2": 1
+    }
+   },
+   "next": "hub"
+  },
+  "win": {
+   "speaker": "kc_checkers2",
+   "lines": [
+    [
+     "kc_checkers2",
+     "...Nothing. I wouldn't take it. I'd lift the cap and look at it and put the cap back."
+    ],
+    [
+     "kc_checkers2",
+     "Ott and me been on this porch since we was boys. If I win, he's got to say I was right, and then what's he got? What've I got?"
+    ],
+    [
+     "kc_checkers2",
+     "A dollar and a quiet porch."
+    ],
+    [
+     "kc_checkers2",
+     "I'd sooner be wrong with Ott than right by myself. Don't tell him."
+    ],
+    [
+     "ruth",
+     "Oh, honey. He knows. He's known since Eisenhower."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_checkers2": 1
+    }
+   },
+   "next": "hub"
+  },
+  "which_year": {
+   "speaker": "kc_checkers2",
+   "lines": [
+    [
+     "kc_checkers2",
+     "...Fifty-eight. Summer of '58, home two months, after church. Fine. Fifty-eight."
+    ],
+    [
+     "kc_checkers2",
+     "I say '56 'cause '56 is close to the night and '58 is just a man seeing a thing in the corn three years late. It don't sound as good."
+    ],
+    [
+     "kc_checkers2",
+     "It's the same thing I saw."
+    ],
+    [
+     "kc_checkers1",
+     "It was Billy Ray's scarecrow, Buford. In the foil. He put it out for the tourists in '57."
+    ],
+    [
+     "kc_checkers2",
+     "...It had foil on it. I ain't saying it didn't. I'm saying it waved."
+    ],
+    [
+     "miriam",
+     "Fifty-eight, a foil scarecrow, and he's kept a piece of the foil in his hat for thirty-six years."
+    ],
+    [
+     "miriam",
+     "That's the whole of this county in one sentence."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_checkers2": 1
+    }
+   },
+   "next": "hub"
+  },
+  "which_no": {
+   "speaker": "kc_checkers2",
+   "lines": [
+    [
+     "kc_checkers2",
+     "I had leave. A man gets leave. You want my Army papers, go to Fort Knox and ask 'em for 'em, and see how far you get."
+    ],
+    [
+     "kc_checkers2",
+     "Ott put you up to that. Ott, you put 'em up to that."
+    ]
+   ],
+   "next": "hub"
+  },
+  "honest": {
+   "speaker": "kc_checkers2",
+   "lines": [
+    [
+     "kc_checkers2",
+     "...Eleven dollars. I was nineteen."
+    ],
+    [
+     "kc_checkers2",
+     "The Chicago man give me five for saying I seen one in the Hardin tobacco and a Nashville man give me a dollar a time for the rest."
+    ],
+    [
+     "kc_checkers2",
+     "I bought a radio with it."
+    ],
+    [
+     "kc_checkers2",
+     "I listened to that radio for twenty years and every August it'd talk about Kelly and I'd think, that's mine, I made that up."
+    ],
+    [
+     "kc_checkers2",
+     "So I went looking. Every August. Corn, gully, fence line, water tower. I figured if I ever seen one for real it'd square it."
+    ],
+    [
+     "kc_checkers2",
+     "Thirty-nine years. The scarecrow's the closest I got."
+    ],
+    [
+     "kc_checkers1",
+     "...I'd have give you the dollar for that, Buford. Not for the monkey. For that."
+    ],
+    [
+     "elijah",
+     "He's been walking that fence line looking for something to make a lie true. That's a kind of faith. Not the kind with a church."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_ck2_honest",
+    "trust": {
+     "kc_checkers2": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "honest_no": {
+   "speaker": "kc_checkers2",
+   "lines": [
+    [
+     "kc_checkers2",
+     "Cleve Hardin told you about them eleven dollars. Cleve Hardin never made a dime off it and he wants everybody to know. Go on back to Cleve."
+    ],
+    [
+     "kc_checkers2",
+     "I'm done. Ott, you talk to 'em. You like 'em."
+    ]
+   ],
+   "end": true
+  },
+  "red_jacket": {
+   "speaker": "kc_checkers2",
+   "lines": [
+    [
+     "kc_checkers2",
+     "...Red jacket. Hands up for a cap pistol. That's a trained act. I told you. I told Ott. I told the Frenchman."
+    ],
+    [
+     "kc_checkers2",
+     "Ott. OTT. It had a jacket."
+    ],
+    [
+     "kc_checkers1",
+     "I heard. Jacket don't float, Buford. Jacket don't go up. You still got the dollar to win."
+    ],
+    [
+     "kc_checkers2",
+     "Thirty-nine years and I finally got a jacket. Y'all come by any time. Any time at all."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_ck2_jacket",
+    "trust": {
+     "kc_checkers2": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

@@ -1,0 +1,317 @@
+{
+ "id": "cd_pub_landlord",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "Kitchen's shut, the gale's had the gas, and the mild's on. That's the whole menu. Dennis Woolf, and this is the Culver Haven, and you've found it, which is the hard part."
+    ],
+    [
+     "cd_pub_landlord",
+     "If you're after the Levels, you want Alf, and Alf's not in till the light goes. If you're after me, I only know what gets said at the bar."
+    ],
+    [
+     "teddy",
+     "Two glasses out on the bar before we'd got through the door. He wanted company tonight."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "The photo behind the bar has a pin hole at every corner, and then four more. It's been taken down and put back more times than it's been dusted.",
+     "flag": "cd_pub_landlord_photo"
+    },
+    {
+     "voice": "rapport",
+     "threshold": 8,
+     "line": "He says 'what gets said at the bar' like a man who's been the bar for thirty years. He's got the lot. He's deciding if you're a regular."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Two milds, then, and whatever you're having. We're not in a hurry.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "We'll have what gets said at the bar. All of it.",
+     "next": "cold"
+    },
+    {
+     "tone": "silent",
+     "text": "(Sit at the bar. Say nothing. Let the gale do the talking.)",
+     "next": "quiet",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_cd_pub_landlord"
+   }
+  },
+  "cold": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "You'll have what I pour, and I pour slow when I'm spoken to like that. Gale's got the gas, it hasn't got my manners."
+    ],
+    [
+     "miriam",
+     "We came in out of a force eight and opened with a demand. He's right."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "cd_pub_landlord": -1
+    }
+   },
+   "next": "hub"
+  },
+  "quiet": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "...Windows have done that since 1906. Army built the place for the gun crews and never put a window in square."
+    ],
+    [
+     "cd_pub_landlord",
+     "All right. You can sit. People who can sit through that are people I'll talk to."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "Thirty-one years behind this bar. Took it on in '63. Everything that's happened on this point since has been said to me first and the police second, if at all."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Dennis wipes a glass that's already dry.",
+   "options": [
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "cd_fancy_dress_photo": 2
+      }
+     },
+     "text": "That photo comes down a lot. Who takes it down?",
+     "pass": "photo_down",
+     "fail": {
+      "line": "It's a photo. It comes down to be dusted. I'll dust it now if you like."
+     },
+     "requires": {
+      "flag": [
+       "cd_pub_landlord_photo"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "cd_compere_tab": 2,
+       "cd_coastguard_log_1973": 1
+      }
+     },
+     "text": "Len Varley paid off a summer's tab in cash in one week. Where does a camp compere get that?",
+     "pass": "cash",
+     "fail": {
+      "next": "cash_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "cd_compere_tab": 1,
+       "cd_laundry_hat": 1
+      }
+     },
+     "text": "The cone hat at New Year '74. That's Len's hat, and it isn't Len wearing it. Who put it on?",
+     "pass": "newyear",
+     "fail": {
+      "next": "newyear_fail",
+      "trust": {
+       "cd_pub_landlord": -1
+      }
+     },
+     "requires": {
+      "evidence": [
+       "cd_fancy_dress_photo"
+      ]
+     }
+    },
+    {
+     "tone": "kind",
+     "text": "Pour yourself one, Dennis. The gale's not going anywhere and neither are we.",
+     "next": "pour",
+     "requires": {
+      "not_flag": [
+       "cd_pub_landlord_poured"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Dennis."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The photo's watching you from behind the bar. Make him take it down himself. See which way he lays it."
+   }
+  },
+  "photo_down": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "Alf. Every time a stranger comes in he takes it off the wall and puts it under the dartboard, face down, and I put it back when he's gone home."
+    ],
+    [
+     "cd_pub_landlord",
+     "Twenty years. Never says why. Puts it face down like he's putting a cat out. I've stopped asking and started keeping pins in."
+    ],
+    [
+     "ruth",
+     "Face down, dear. You don't put a photograph face down because you don't like it. You do it so it can't see you."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_pub_landlord_photo_told",
+    "trust": {
+     "cd_pub_landlord": 1
+    }
+   },
+   "next": "hub"
+  },
+  "cash": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "He said somebody at the camp paid him to stop doing a turn. Paid him well, and told him to go home to Portsmouth and forget the island."
+    ],
+    [
+     "cd_pub_landlord",
+     "He was laughing when he said it and he wasn't laughing when he finished. Then he asked me if I'd seen a man in a yellow coat come in. I hadn't."
+    ],
+    [
+     "teddy",
+     "Paid to stop. Not sacked, paid. That's a camp that wanted something gone faster than a wage packet could manage."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_pub_landlord_cash",
+    "trust": {
+     "cd_pub_landlord": 1
+    }
+   },
+   "next": "hub"
+  },
+  "cash_fail": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "Where does anybody? Tips. He was a compere, people liked him. Go and ask down at Sunnyside, if there's anybody left there who was there."
+    ],
+    [
+     "miriam",
+     "He's sending us to the camp. That's not an answer. It's a direction, and it's the right one."
+    ]
+   ],
+   "next": "hub"
+  },
+  "newyear": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "...Alf. Alf Mew. He found the hat in the gun pit in the September, in the rain, and he brought it in and said he'd wear it for a laugh at New Year."
+    ],
+    [
+     "cd_pub_landlord",
+     "He had it on an hour. Then he took it off and went out in the car park and stood facing the Levels till I fetched him in, and he was crying, and Alf doesn't."
+    ],
+    [
+     "cd_pub_landlord",
+     "I burned the hat on the fire that night. It burned green. I've told nobody that and I'd thank you to keep it off Alf."
+    ],
+    [
+     "vera",
+     "Green. Felt and greasepaint burn yellow and black. Nothing honest burns green."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_pub_landlord_newyear",
+    "trust": {
+     "cd_pub_landlord": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "newyear_fail": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "That's a private photo in a private bar, and you've had your mild. Alf's at that table from dusk. Ask Alf, and buy him one, and don't buy him two."
+    ],
+    [
+     "elijah",
+     "He didn't say no. He said ask Alf. He wants it out and he wants it to be somebody else's to tell."
+    ]
+   ],
+   "next": "hub"
+  },
+  "pour": {
+   "speaker": "cd_pub_landlord",
+   "lines": [
+    [
+     "cd_pub_landlord",
+     "...Go on, then. Haven't had one on duty since the Jubilee."
+    ],
+    [
+     "cd_pub_landlord",
+     "I'll tell you something for nothing. Nobody on this point laughed at those kiddies. Not one. It was the town did the laughing. Up here we'd seen the Levels."
+    ],
+    [
+     "ruth",
+     "There you are, dear. Everyone says the town laughed. Nobody's ever asked who didn't."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_pub_landlord_poured",
+    "trust": {
+     "cd_pub_landlord": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

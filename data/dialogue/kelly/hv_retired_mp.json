@@ -1,0 +1,372 @@
+{
+ "_doc": "Sarge, retired, fifty-eight, a PFC on the Fort Campbell boundary road in August 1955 and a sergeant in Vietnam after. The corner booth at Cheek's at dusk, a quart of tea, the Louisville paper. Has not talked about 1955 since 1971. Bring a kindness, not a question.",
+ "id": "hv_retired_mp",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_retired_mp",
+   "lines": [
+    [
+     "hv_retired_mp",
+     "I'm eating."
+    ],
+    [
+     "hv_retired_mp",
+     "...Lonnie said you'd come over. Lonnie says that every August. Sit if you're sitting. Don't say the year."
+    ],
+    [
+     "ruth",
+     "'Don't say the year.' He's told us the one rule, dear. Everything else is up to us."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "The paper's folded to the box scores and he hasn't read them; the tea's full. He's been sitting here waiting for you the way a man waits for a dentist."
+    },
+    {
+     "voice": "fieldcraft",
+     "threshold": 9,
+     "line": "He sits with his back to the wall and his eyes on the door, and the booth is the only one in the place where you can see the whole room and the window. He picked it in 1971 and he's never changed it.",
+     "flag": "hv_retired_mp_watches"
+    }
+   ],
+   "options": [
+    {
+     "tone": "silent",
+     "text": "(Sit down. Pick up the other half of his paper. Say nothing.)",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "kind",
+     "text": "We won't say the year. We'll just sit a minute, if that's all right.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "We've read the Army wife's letter. We know you wrote a report. We'd like to hear it.",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_retired_mp"
+   }
+  },
+  "hub": {
+   "speaker": "hv_retired_mp",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_retired_mp",
+     "...Cardinals lost. Hot. What."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Say the year. Say it loud, in the booth, with Lonnie listening. He'll stand up and you'll see his hands, and his hands will tell you more than his mouth has in twenty-three years."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "(Set a slice of pie on his side of the table and go back to the paper.)",
+     "next": "pie",
+     "trust": 1
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_editor_army_letter": 2,
+       "hv_mp_report_1955": 1
+      }
+     },
+     "text": "You were nineteen and the sergeant in the jeep was drunk. You wrote it true anyway. Who was the lieutenant?",
+     "pass": "lieutenant",
+     "fail": {
+      "next": "lieutenant_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sk_flare_casing_lab": 1,
+       "hv_mp_recall": 1
+      }
+     },
+     "text": "Post fourteen. Where is it from the gate, and what's in the tree there?",
+     "pass": "post14",
+     "fail": {
+      "next": "post14_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_retired_mp_watches"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "hv_mp_which_report": 1,
+       "hv_bbq_sober": 1
+      }
+     },
+     "text": "You sat down in this booth in 1971 and stopped talking. Not 1955. 1971. What happened in 1971?",
+     "pass": "seventyone",
+     "fail": {
+      "next": "seventyone_no",
+      "trust": {
+       "hv_retired_mp": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_mp_exercise_1957"
+      ]
+     },
+     "tone": "wry",
+     "text": "The report with the letterhead and the stamp. 'Luminous low-flying objects.' That's the one on television.",
+     "next": "sagebrush"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Enjoy your supper, Sarge."
+    }
+   ]
+  },
+  "pie": {
+   "speaker": "hv_retired_mp",
+   "lines": [
+    [
+     "hv_retired_mp",
+     "..."
+    ],
+    [
+     "hv_retired_mp",
+     "...Chess pie. Lonnie's mama's. Lonnie's is too sweet. Don't tell him."
+    ],
+    [
+     "hv_retired_mp",
+     "Cardinals got no pitching. They had pitching in '55. I listened to 'em on the boundary road on a jeep radio. That's as near the year as I go."
+    ],
+    [
+     "ruth",
+     "He went near it himself, dear. On his own feet. Don't follow him there. Let him come back."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_retired_mp_pie",
+    "trust": {
+     "hv_retired_mp": 1
+    }
+   },
+   "next": "hub"
+  },
+  "lieutenant": {
+   "speaker": "hv_retired_mp",
+   "lines": [
+    [
+     "hv_retired_mp",
+     "...A first lieutenant from Ohio, name of Pruett, two t's. Not local. He read my report and said write it again and I said what do you want it to say, sir. He said never mind. So I didn't. So it's in the box."
+    ],
+    [
+     "hv_retired_mp",
+     "The sergeant was Bonner. He was drunk every night that summer and he's dead and I never wrote that down and I'm not going to write it for you. He drove fine. He drove fine drunk."
+    ],
+    [
+     "hv_retired_mp",
+     "Bonner saw the bird too. Said 'Jesus Christ, Sarge' and I wasn't Sarge yet, I was a PFC, and that's the first time anybody called me it."
+    ],
+    [
+     "dale",
+     "Two men in the jeep and both of them saw the owl. That's a corroborated sighting of a great horned owl at post fourteen, and nobody has ever once typed it up with a stamp."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_mp_fence",
+    "evidence": "hv_mp_recall",
+    "flag": "mp_trusts",
+    "trust": {
+     "hv_retired_mp": 1
+    }
+   },
+   "next": "hub"
+  },
+  "lieutenant_no": {
+   "speaker": "hv_retired_mp",
+   "lines": [
+    [
+     "hv_retired_mp",
+     "I'm eating."
+    ],
+    [
+     "hv_retired_mp",
+     "...The Ledger woman wants my name in the paper. You can tell her I said what I always say."
+    ],
+    [
+     "teddy",
+     "Which is nothing, in a booth, for twenty-three years. The deputy said pie first and questions after. We did it the other way round."
+    ]
+   ],
+   "next": "hub"
+  },
+  "post14": {
+   "speaker": "hv_retired_mp",
+   "lines": [
+    [
+     "hv_retired_mp",
+     "Mile and a quarter from the gate, where the road bends at the creek. Dead oak on the fort side, big one, been dead since I was a boy. That's where it came off."
+    ],
+    [
+     "hv_retired_mp",
+     "Size of a dog. Came off the top of that oak straight at the headlights, wings out, and went over the hood so close Bonner ducked. Eyes like two dimes. Didn't make a sound."
+    ],
+    [
+     "hv_retired_mp",
+     "I've driven past that oak a thousand times since. There's always something in it. Every August I slow down and look and there's always something in it, and I don't stop."
+    ],
+    [
+     "june",
+     "A dead oak at the creek bend, a mile and a quarter in, and something's been roosting in it for forty years. The bird club's notes had a pair near Kelly in a dead oak. Same tree. Has to be."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_retired_mp_post14",
+    "trust": {
+     "hv_retired_mp": 1
+    }
+   },
+   "next": "hub"
+  },
+  "post14_no": {
+   "speaker": "hv_retired_mp",
+   "lines": [
+    [
+     "hv_retired_mp",
+     "It's a post. Fourteenth one from the gate. They're numbered. That's what the numbers are for."
+    ],
+    [
+     "dale",
+     "He answered the question about the post. He didn't answer the one about the tree. He'll answer the tree. Tomorrow, when it's not August yet in his head."
+    ]
+   ],
+   "next": "hub"
+  },
+  "seventyone": {
+   "speaker": "hv_retired_mp",
+   "lines": [
+    [
+     "hv_retired_mp",
+     "...Came home from my second tour in '71. Sat down here because Lonnie's daddy didn't ask me anything. And a man sat down across from me. Suit. Hat on the table."
+    ],
+    [
+     "hv_retired_mp",
+     "Said he knew about the owl, and that it was good I'd never pushed it, and that the family was better off not knowing."
+    ],
+    [
+     "hv_retired_mp",
+     "He said 'the family is better off'. About people he'd never met, to a man he'd never met, in my booth. Very kind about it."
+    ],
+    [
+     "hv_retired_mp",
+     "And I got up and I walked out and I didn't come back for a year, and I never said the year out loud again."
+    ],
+    [
+     "hv_retired_mp",
+     "He was about fifty. He's about fifty now. He checks out of the motor court every August, and I've been sitting here facing the door for twenty-three years in case he sits down again. He hasn't. He will."
+    ],
+    [
+     "elijah",
+     "He's been standing guard. In a barbecue booth. For twenty-three years. Against a man in a suit who was kind to him once."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "Advice. He gives advice. To the editor, to the Office, to a boy in a booth. Every time it's the same advice: file it small, go home. Ask yourself what he's keeping small."
+    }
+   ],
+   "gives": {
+    "flag": "hv_retired_mp_1971",
+    "trust": {
+     "hv_retired_mp": 2
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "seventyone_no": {
+   "speaker": "hv_retired_mp",
+   "lines": [
+    [
+     "hv_retired_mp",
+     "..."
+    ],
+    [
+     "hv_retired_mp",
+     "You said the year. Not that one. The other one. You said it in my booth."
+    ],
+    [
+     "hv_retired_mp",
+     "Lonnie. Pie's on them."
+    ],
+    [
+     "ruth",
+     "He's gone, dear, and he took the one rule with him. Some doors you get to knock on once. We knocked on it with the wrong hand."
+    ]
+   ],
+   "end": true
+  },
+  "sagebrush": {
+   "speaker": "hv_retired_mp",
+   "lines": [
+    [
+     "hv_retired_mp",
+     "Sagebrush. '57. They shot flares off the range for a week and four boys wrote it up for the umpires like Mars had landed, and some fool folded the date under and put it in the box on top of mine."
+    ],
+    [
+     "hv_retired_mp",
+     "Every TV man since has found the one with the stamp, and the stamp's real, and the letterhead's real, and it's flares. Mine's the wet one underneath with no 'e's. Mine's the bird."
+    ],
+    [
+     "hv_retired_mp",
+     "...You went over the wire for that. At night. With the jeeps running. Huh."
+    ],
+    [
+     "june",
+     "Flares, a week of them, two years late. Every 'the Army saw it too' in this county is looking at a flare from 1957. I can tell them apart by the paper. So can he."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_mp_which",
+    "evidence": "hv_mp_which_report",
+    "flag": "hv_retired_mp_sagebrush",
+    "trust": {
+     "hv_retired_mp": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

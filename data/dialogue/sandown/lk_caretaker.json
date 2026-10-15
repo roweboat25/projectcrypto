@@ -1,0 +1,132 @@
+{
+ "id": "lk_caretaker",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "Mind the wet. I've done the step and I'll do it again when Terry's walked on it. Len Cutmore. Caretaker since '71, which makes me the oldest thing here that isn't the boiler."],
+    ["lk_caretaker", "You're the Americans. Terry's told everybody not to talk to you, which is how I know who you are. He'll have told you he's nothing to say. He never has. I pack it."],
+    ["ruth", "A man who packs things away for twenty years knows where every one of them is, dear."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 8, "line": "He said 'since '71' and not 'twenty-three years'. He counts from before. Something in 1973 split his time in two and he's been on the far side of it since."},
+    {"voice": "recall", "threshold": 9, "line": "The chalet keys on his belt are numbered and 9 is worn brighter than the rest. He goes into chalet 9 more than anyone sleeps there.", "flag": "lk_caretaker_nine"}
+   ],
+   "options": [
+    {"tone": "kind", "text": "We'll mind the step. You've kept this place standing a long time.", "next": "kind"},
+    {"tone": "silent", "text": "(Wait on the dry side of the step.)", "next": "silent", "trust": 1},
+    {"tone": "wry", "text": "What's the boiler got to say about 1973?", "next": "wry"}
+   ],
+   "gives": {"flag": "met_lk_caretaker"}
+  },
+  "kind": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "Standing's about the size of it. Terry's had three owners and I've had three boilers and the chalets have had the same damp since Wilson."],
+    ["lk_caretaker", "You're civil. Terry said you'd be pushy. Terry says that about the post."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"lk_caretaker": 1}}
+  },
+  "silent": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "..."],
+    ["lk_caretaker", "Right. You can wait. The last ones couldn't. Two in suits, '73, and they walked straight through my wet step and never looked down."]
+   ],
+   "next": "hub"
+  },
+  "wry": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "The boiler went out the Wednesday that week and came back on at two in the morning with nobody near it. I've never told Terry that either."],
+    ["lk_caretaker", "...You've got me talking. I'd a feeling you would."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "lk_caretaker",
+   "repeat": true,
+   "prompt": "Go on. The bins want doing at eleven and Terry wants me not here, so I'm here.",
+   "lines": [["lk_caretaker", "Go on. The bins want doing at eleven and Terry wants me not here, so I'm here."]],
+   "static": {"min_dread": 3, "line": "Chalet 9. Under the bed. He pushes the box back every year and every year it's an inch nearer the door. Make him open it."},
+   "options": [
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 8, "evidence_bonus": {"lk_rota_1973": 2, "tn_register_1973": 1}},
+     "text": "Sunny Jim's a stage name. You had his real one on paper. What was it, Len?", "pass": "name",
+     "fail": {"line": "Jim. Sunny Jim. That's what he answered to and that's what I called him and I'll not have the other one said in this yard."}},
+    {"check": {"voice": "logic", "kind": "white", "difficulty": 9, "evidence_bonus": {"lk_caretaker_lights": 2}},
+     "text": "The stage mains were off and the key was in your pocket. Who else had a key to that box?", "pass": "key", "fail": {"next": "key_fail"}},
+    {"requires": {"flag": ["lk_caretaker_nine"], "not_flag": ["lk_caretaker_box", "lk_caretaker_box_shut"]},
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 11, "evidence_bonus": {"lk_caretaker_jim": 1, "lk_hat_lab": 1, "lk_boss_walkabout": 2}},
+     "text": "Open the box in 9, Len. We'll look with you. You shouldn't have been the only one.", "pass": "box",
+     "fail": {"next": "box_fail", "trust": {"lk_caretaker": -1}, "dread": 1}},
+    {"requires": {"evidence": ["tn_register_1973"]},
+     "text": "R. Tappin, Sunnyside. Room 3 at the Seaview, the week of the 26th. Same man?", "next": "register"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll let you get to the bins."}
+   ]
+  },
+  "name": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "...Tappin. Robert Tappin. Rob to his mum, Jim to the kiddies, and nothing to Terry, who had him down as SUNNY JIM on every sheet so there'd be nobody to look for."],
+    ["lk_caretaker", "Twenty, from Fratton. Could do a voice for anything. Did the Queen for me once in the boiler room and I nearly stood up."],
+    ["miriam", "Robert Tappin. A real name on a rota is a man you can find. Thank you."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lk_caretaker_name", "trust": {"lk_caretaker": 1}}
+  },
+  "key": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "Nobody. One key, mine, on this ring. I've thought about that every night since and it's always nobody."],
+    ["lk_caretaker", "When it stopped I went to the box with the torch and the padlock was on and the box was warm. Warm like a hand's been on it. Mains off. Padlock on. Warm."],
+    ["june", "A dead board that runs ten minutes and leaves heat. I want that box more than I want my dinner."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lk_caretaker_key", "dread": 1, "trust": {"lk_caretaker": 1}}
+  },
+  "key_fail": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "Keys. Everybody's got a key to something on a camp. Terry's got a drawer of them he's never counted."],
+    ["lk_caretaker", "Kerry runs the kids' club. She's touched things she's not meant to. Ask her what's heavy in the store."]
+   ],
+   "next": "hub"
+  },
+  "box": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "...Mind your head, the ceiling's low in 9. ...There. Under. Pull it, it sticks."],
+    ["lk_caretaker", "Greasepaint, six sticks, the blue's worn to nothing. A shirt. A photo of his mum. And this, which he never came back for, and it's why I've not thrown the rest."],
+    ["lk_caretaker", "A postcard. The pier. Addressed to nobody, stamped, never sent. On the back he's written 'Mum, it talks when I don't. Coming home Weds.' He didn't."],
+    ["elijah", "'It talks when I don't.' He put the hat on and something else did the act. He was trying to tell her."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lk_caretaker_box", "dread": 1, "trust": {"lk_caretaker": 1}}
+  },
+  "box_fail": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "No. ...No. It's his. He said he'd write for it and till he writes it's his and it stays under the bed."],
+    ["lk_caretaker", "You can put me down as unhelpful. Terry'll be pleased. First time in twenty years."],
+    ["teddy", "We asked him to open a grave with the bins due at eleven. He said no. I'd have said no."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lk_caretaker_box_shut"}
+  },
+  "register": {
+   "speaker": "lk_caretaker",
+   "lines": [
+    ["lk_caretaker", "...Room 3. He wasn't in 9 that week, he said the chalet was damp. I said they're all damp, lad. He said not like 9."],
+    ["lk_caretaker", "So he took a room at the Seaview with his own money, with the two families either side of him, and he'd done the Levels walkabout the Monday. He put himself next door to them."],
+    ["lk_caretaker", "Terry doesn't know that. Terry thinks he slept here. I've let Terry think a lot of things."],
+    ["dale", "He went and slept between the kids he'd frightened. That's either guilt or it's guarding. I don't like either."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lk_caretaker_register", "dread": 1, "trust": {"lk_caretaker": 1}}
+  }
+ }
+}

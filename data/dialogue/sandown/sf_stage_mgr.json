@@ -1,0 +1,132 @@
+{
+ "id": "sf_stage_mgr",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sf_stage_mgr",
+   "lines": [
+    ["sf_stage_mgr", "Mind the flat. It's got nails in it and so have I. Maureen Keel, stage manager, and if you're the Americans you can hold this end."],
+    ["sf_stage_mgr", "Twice nightly, a matinee Tuesday, and the pier moves under you when the tide's in. You get used to it. You get used to anything down here."],
+    ["teddy", "She said 'you get used to anything' to the flat, not to us."]
+   ],
+   "passives": [
+    {"voice": "logic", "threshold": 8, "line": "Three layers of pins on the call board, and the bottom layer holds something older than the rest. Nobody pins over a thing they mean to throw away."},
+    {"voice": "empathy", "threshold": 9, "line": "She looked at the change booth on her way in. She looks at it every morning, and she has never once gone over.", "flag": "sf_stage_mgr_booth"}
+   ],
+   "options": [
+    {"tone": "kind", "text": "We'll hold it. Tell us about the summer seasons.", "next": "season"},
+    {"tone": "wry", "text": "Nails in the flat and nails in you. Which came first?", "next": "wry"},
+    {"tone": "silent", "text": "(Take the end of the flat and say nothing.)", "next": "silent", "trust": 1}
+   ],
+   "gives": {"flag": "met_sf_stage_mgr"}
+  },
+  "season": {
+   "speaker": "sf_stage_mgr",
+   "lines": [
+    ["sf_stage_mgr", "Twenty-two of them. Comics, sopranos, a dog act, a man who ate glass. The camp sends its lot over on Tuesdays, always has, for the coach parties."],
+    ["sf_stage_mgr", "You strike it all on the Tuesday night and you build it again Wednesday. Twenty-two years. The sea's the only set that stays up."],
+    ["ruth", "She counts the years like a woman who's counted them before, dear."]
+   ],
+   "next": "hub"
+  },
+  "wry": {
+   "speaker": "sf_stage_mgr",
+   "lines": [
+    ["sf_stage_mgr", "The flat. The flat always comes first. That's the job."],
+    ["sf_stage_mgr", "Ha. All right. You can stay. Most people who come backstage want a photo with the cardboard sea."]
+   ],
+   "next": "hub"
+  },
+  "silent": {
+   "speaker": "sf_stage_mgr",
+   "lines": [
+    ["sf_stage_mgr", "...Up a bit. There. Hold it."],
+    ["sf_stage_mgr", "You've done this before. Or you've stood still before. Same muscles. Right, it's up, ask your questions."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "sf_stage_mgr",
+   "repeat": true,
+   "prompt": "Go on. The matinee's at two and I've a cyc to drop.",
+   "lines": [["sf_stage_mgr", "Go on. The matinee's at two and I've a cyc to drop."]],
+   "static": {"min_dread": 3, "line": "The cyc is still back there. The sea with the mud on it. She's stood in front of it every day for twenty-one years. Make her turn round."},
+   "options": [
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 8, "evidence_bonus": {"sf_stage_mgr_1973": 1, "tn_station_trunk": 1}},
+     "text": "You struck that big set every Tuesday in '73. Who built it?", "pass": "builder", "fail": {"next": "builder_fail"}},
+    {"check": {"voice": "logic", "kind": "white", "difficulty": 9},
+     "text": "There's something under the pins on your call board. Older than the rest.", "pass": "pins",
+     "fail": {"line": "There's twenty years of pins on that board. You'll find a bus timetable and a dead moth. Leave it."}},
+    {"requires": {"evidence": ["colin_dials_sea"], "not_flag": ["sf_stage_mgr_shut", "sf_stage_mgr_confessed"]},
+     "check": {"voice": "press", "kind": "red", "difficulty": 11, "evidence_bonus": {"sf_programme_1973": 2, "sf_programme_photo": 1, "fay_drawing": 1}},
+     "text": "Colin described a wall of dials with the sea behind it. He described your set, Maureen. Say it.", "pass": "confess",
+     "fail": {"next": "shut", "trust": {"sf_stage_mgr": -1}, "dread": 1}},
+    {"tone": "hard", "requires": {"evidence": ["lk_rota_1973"]},
+     "text": "Sunny Jim. Off the camp rota on the 29th. He did your Tuesday matinee. Where did he go after?", "next": "jim"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll let you get the cyc down."}
+   ]
+  },
+  "builder": {
+   "speaker": "sf_stage_mgr",
+   "lines": [
+    ["sf_stage_mgr", "Himself. The lad in the act. Three nights in our scene dock with a borrowed jigsaw and the camp's paint, and he sang while he did it. Mouth-organ in the breaks."],
+    ["sf_stage_mgr", "Lovely hands. Rotten carpenter. The flats never sat square and the dials were painted on with a kitchen brush, and from row F it was the best thing I ever lit."],
+    ["june", "He built the dials himself. So the dials are his, not the camp's."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_stage_mgr_builder", "trust": {"sf_stage_mgr": 1}}
+  },
+  "builder_fail": {
+   "speaker": "sf_stage_mgr",
+   "lines": [
+    ["sf_stage_mgr", "The camp built it. The camp builds everything and sends us the bill for the nails."],
+    ["sf_stage_mgr", "Ask Terry Gosling at Sunnyside. He signed for it. He signed for a lot that year."]
+   ],
+   "next": "hub"
+  },
+  "pins": {
+   "speaker": "sf_stage_mgr",
+   "lines": [
+    ["sf_stage_mgr", "...You can photograph it. You can't have it. It's held that board up since before you were shaving."],
+    ["sf_stage_mgr", "Don't move the top pins. Just the corner. There. Halfway down the bill. Don't read it out loud, the walls are hardboard."],
+    ["miriam", "A programme. 1973. A novelty act, by arrangement with the holiday camp."]
+   ],
+   "next": "hub",
+   "gives": {"evidence": "sf_programme_photo", "flag": "sf_stage_mgr_pins"}
+  },
+  "confess": {
+   "speaker": "sf_stage_mgr",
+   "lines": [
+    ["sf_stage_mgr", "...Flats painted with dials. Floor to flies. A cyc behind with the sea on it, lit from the back so it looked like a window. From the stalls you'd swear."],
+    ["sf_stage_mgr", "It went back to the camp in September and the cyc had marsh mud on the bottom foot of it. I wrote RETURNED DAMAGED. I didn't write where the mud came from."],
+    ["sf_stage_mgr", "He described my set. For ten pence a go, twenty-one years, and I sold him his first pint in '82 and never said a word."],
+    ["elijah", "She's put it down now. You can see it in her shoulders."]
+   ],
+   "next": "hub",
+   "gives": {"evidence": "sf_stage_mgr_set", "fact": "sf_stage_mgr_set", "flag": "sf_stage_mgr_confessed", "trust": {"sf_stage_mgr": 1}}
+  },
+  "shut": {
+   "speaker": "sf_stage_mgr",
+   "end": true,
+   "lines": [
+    ["sf_stage_mgr", "Say it. Say it, she says. In my own dock, with the matinee at two."],
+    ["sf_stage_mgr", "I've nothing to say and a cyc to drop. Pass door's that way. Mind the nails."],
+    ["teddy", "She didn't say no. She said she'd nothing to say. Different thing, and we've lost the day on it."]
+   ],
+   "gives": {"flag": "sf_stage_mgr_shut"}
+  },
+  "jim": {
+   "speaker": "sf_stage_mgr",
+   "lines": [
+    ["sf_stage_mgr", "Sunny Jim. Nobody's said that name to me since the second comic went to Blackpool."],
+    ["sf_stage_mgr", "He didn't go anywhere after the pier. That's the thing. He did the Tuesday matinee and he was on the Ryde train the next morning, Terry said, and nobody saw him on it."],
+    ["sf_stage_mgr", "He left his mouth-organ in my dock. I've still got it. It's in the drawer under the board with the fuses, and I've never played it."],
+    ["vera", "A man leaves his instrument and his hat and his set. He didn't leave. He was left."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_stage_mgr_jim", "dread": 1}
+  }
+ }
+}

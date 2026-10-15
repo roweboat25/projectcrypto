@@ -1,0 +1,145 @@
+{
+ "id": "r62_hunter",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "You're on my ground. Didn't post it, but it's mine, and that's the chapel's, and nobody's on that."],
+    ["r62_hunter", "Deer come through the gap by the culvert. Forty years. I know what comes through the gap."],
+    ["dale", "Stand faces the chapel. Deer come through the gap. He's not watching the gap."]
+   ],
+   "passives": [
+    {"voice": "fieldcraft", "threshold": 7, "line": "Four shells under the stand, not two. You don't say it yet.", "flag": "r62_hunter_four_shells"},
+    {"voice": "nerve", "threshold": 8, "line": "His safety's off. He isn't pointing it anywhere. He hasn't put it on in days."},
+    {"voice": "empathy", "threshold": 9, "line": "He says 'my ground' the way a man says it when the ground's stopped feeling like his."}
+   ],
+   "options": [
+    {"tone": "hard", "text": "What are you really hunting, Carl?", "next": "hunting"},
+    {"check": {"voice": "fieldcraft", "kind": "white", "difficulty": 8, "evidence_bonus": {"spent_shells": 1, "church_prints_photo": 1}},
+     "text": "That stand's twenty yards off the chapel. You could hit the roof from there.", "pass": "twenty",
+     "fail": {"line": "You could. I could. Ain't nobody said anybody did. Deer come through the gap."}},
+    {"tone": "silent", "text": "(Climb up beside him. Say nothing.)", "next": "climb", "trust": 1}
+   ],
+   "gives": {"flag": "met_r62_hunter"}
+  },
+  "hunting": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "Deer."],
+    ["r62_hunter", "...Something stood up on that roof Monday like a man off his knees. I put the glass on it. It put its eyes on me."],
+    ["r62_hunter", "They lit with nothing to light 'em. Deer. Say deer when you write it down."],
+    ["dale", "Eyeshine needs a source. There's no source out there."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hunter_sighting", "evidence": "hunter_sighting", "flag": "r62_hunter_told", "trust": {"r62_hunter": 1}}
+  },
+  "twenty": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "Twenty yards. Yeah. I measured it with a tape, Tuesday, in daylight, 'cause I needed to know I hadn't missed."],
+    ["r62_hunter", "I hadn't missed."],
+    ["teddy", "He measured it. In daylight. With a tape."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_hunter_measured", "trust": {"r62_hunter": 1}}
+  },
+  "climb": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "..."],
+    ["r62_hunter", "(The stand creaks. He shifts over without looking.)"],
+    ["r62_hunter", "Roof's bare. Every roof on 62 has snow but that one. Watch it a while. Then tell me about deer."],
+    ["june", "Bare and steaming. In February. I want a thermometer on that roof."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_hunter_saw_roof"}
+  },
+  "hub": {
+   "speaker": "r62_hunter",
+   "repeat": true,
+   "prompt": "He keeps the glass on the roof.",
+   "lines": [
+    ["r62_hunter", "Talk quiet. It hears quiet fine, but talk quiet."]
+   ],
+   "static": {"min_dread": 3, "line": "His finger's inside the guard. It's been inside the guard since you climbed up. Don't move sudden and don't ask him why."},
+   "options": [
+    {"requires": {"flag": ["r62_hunter_four_shells"]},
+     "check": {"voice": "nerve", "kind": "white", "difficulty": 9, "evidence_bonus": {"spent_shells": 2}},
+     "text": "Four shells, Carl. You went back.", "pass": "back",
+     "fail": {"next": "back_fail", "trust": {"r62_hunter": -1}}},
+    {"tone": "kind",
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 10, "evidence_bonus": {"hunter_sighting": 1, "farmer_dog": 1}},
+     "text": "It never turned around. That's what scares you. Not that it was there.", "pass": "never_turned",
+     "fail": {"next": "never_fail", "trust": {"r62_hunter": -2}, "dread": 1}},
+    {"requires": {"evidence": ["church_prints_cast"], "not_flag": ["r62_hunter_prints"]}, "text": "The prints stop at the wall.", "next": "prints"},
+    {"tone": "wry", "requires": {"not_flag": ["r62_hunter_season"]}, "text": "Deer season's been over since December.", "next": "season"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll climb down."}
+   ]
+  },
+  "back": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "...Tuesday. I went back Tuesday. Two more. It was on the roof again and it never even turned."],
+    ["r62_hunter", "Thing about twenty yards is you can't say you missed. So I've got nothing to say."],
+    ["june", "The roof was steaming. He hasn't said that yet. He will."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hunter_second_night", "evidence": "hunter_second_night", "flag": "r62_hunter_admitted", "trust": {"r62_hunter": 1}}
+  },
+  "back_fail": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "Two. I said two."],
+    ["r62_hunter", "Pick 'em up and count 'em if you want. Then put 'em back where you found 'em, 'cause they're mine."]
+   ],
+   "next": "hub"
+  },
+  "never_turned": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "(He takes the glass down.)"],
+    ["r62_hunter", "Yeah."],
+    ["r62_hunter", "I shot it twice and it didn't care. That's not being hunted. That's not being anything. I've put down dogs that looked at me more."],
+    ["r62_hunter", "I keep coming up here 'cause if it looks at me once, just once, I'll know I'm here."],
+    ["elijah", "He's not hunting it. He's asking it to see him."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hunter_no_blood", "evidence": "hunter_no_blood", "flag": "r62_hunter_broke", "trust": {"r62_hunter": 2}}
+  },
+  "never_fail": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "Get down off my stand."],
+    ["r62_hunter", "You want to know what scares a man, go stand on that roof and wait. Ab Whitmore's dog waited on his barn roof. Ask Ab how that went."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 5, "line": "You named the thing before he could. A man wants to be the one to say it. The ladder's cold on the way down."}
+   ],
+   "end": true
+  },
+  "prints": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "(He looks at the cast a long time.) Nine feet. I paced it. Nine feet and then nothing, like it went up the wall."],
+    ["r62_hunter", "It went up the wall. I watched it go up the wall Monday, and I told myself it went round."],
+    ["r62_hunter", "Ab's got barn owls in that steeple. Ab'll tell you owls. Ab wasn't on this stand."],
+    ["ruth", "Owls don't pace nine feet, dear. Neither does anything else on this road."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_hunter_prints", "trust": {"r62_hunter": 1}}
+  },
+  "season": {
+   "speaker": "r62_hunter",
+   "lines": [
+    ["r62_hunter", "Since December. Warden knows. Drove by Wednesday and waved and kept driving."],
+    ["r62_hunter", "Nobody on this road wants me to come down. I'm the one watching. Long as I'm watching, they can sleep."],
+    ["teddy", "A one-man neighbourhood watch, for a neighbourhood that won't say what it's watching for."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_hunter_season", "trust": {"r62_hunter": 1}}
+  }
+ }
+}

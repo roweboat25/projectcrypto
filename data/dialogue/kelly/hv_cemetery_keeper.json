@@ -1,0 +1,377 @@
+{
+ "_doc": "The Riverside Cemetery keeper, seventies, out among the stones mornings and days with a push mower and a bucket. Turns the pennies on Cayce's grave heads up on Mondays, takes the August readings to Mrs. Dade, cuts Harriet Bowles's grass by hand because she was his teacher. Knows which graves the Lacy case is really about and says he's too old to start.",
+ "id": "hv_cemetery_keeper",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_cemetery_keeper",
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "Cayce's over yonder by the big cedar, you can't miss it, there's pennies. Mind the sprinkler. It's on a timer and the timer's older than you."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "I don't know anything about little men and I'm too old to start. I cut grass. Some of it I cut by hand."
+    ],
+    [
+     "ruth",
+     "'Some of it I cut by hand', dear. That's the sentence to come back to. A man that age doesn't kneel for just anybody."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "There's a track through the dew from the north gate to the Cayce plot and back, one set, this morning, before he mowed. Somebody comes before him. Somebody comes early."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He said 'I cut grass' and looked two rows past the cedar at a small stone with no pennies on it, mown so close it's nearly bare. That's the grave he's keeping. The famous one's just his job.",
+     "flag": "hv_cemetery_keeper_harriet"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll mind the sprinkler. We didn't come for the pennies. We came to ask about your teacher.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Too old to start is the best reason anybody's given us. We'll keep it short.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "Somebody leaves a typed page on that grave every August. You take it down. You've seen who.",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_cemetery_keeper"
+   }
+  },
+  "hub": {
+   "speaker": "hv_cemetery_keeper",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "Walk with me, then. Mower don't stop for talk."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He's got a shovel on the cart. Harriet Bowles is two rows past the cedar and the ground's dry. Whatever she knew, she took with her, and the ground's dry."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Why heads up? The pennies.",
+     "next": "pennies"
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "hv_cayce_grave_note": 2,
+       "hv_librarian_cayce": 1
+      }
+     },
+     "text": "There's a track in the dew from the north gate before you mowed. Somebody comes early. Who?",
+     "pass": "track",
+     "fail": {
+      "next": "track_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_owl_survey": 2
+      }
+     },
+     "text": "Miss Bowles. She told you an owl could carry a cat. What else did she show you?",
+     "pass": "harriet",
+     "fail": {
+      "next": "harriet_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_cemetery_keeper_harriet"
+      ]
+     },
+     "check": {
+      "voice": "lore",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "hv_owl_survey": 1,
+       "hv_sgt_birdshot": 1,
+       "fm_pellets_lab": 1
+      }
+     },
+     "text": "She took you to the oak at Kelly. She stood under it and wouldn't say why. You know why. What's under that tree?",
+     "pass": "buried",
+     "fail": {
+      "next": "buried_no",
+      "trust": {
+       "hv_cemetery_keeper": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_clerk_the_man"
+      ]
+     },
+     "tone": "silent",
+     "text": "(Walk to the row where the neighbour's sister is buried. Say nothing.)",
+     "next": "sister"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll let you mow. Thank you."
+    }
+   ]
+  },
+  "pennies": {
+   "speaker": "hv_cemetery_keeper",
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "Folks leave 'em tails up for luck and I turn 'em heads up Mondays because tails up looks like a man's been throwed down. He was a Sunday school teacher. He'd want to look neat."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "Forty, fifty dollars a year in pennies. Goes to the church. He'd have liked that better than the readings. Mrs. Dade gets the readings. She's got a drawer."
+    ],
+    [
+     "vera",
+     "He tends a stranger's dignity with his hands, on a schedule, for nothing. One has met priests who did less."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_keeper_pennies",
+    "flag": "hv_cemetery_keeper_pennies",
+    "trust": {
+     "hv_cemetery_keeper": 1
+    }
+   },
+   "next": "hub"
+  },
+  "track": {
+   "speaker": "hv_cemetery_keeper",
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "...Four in the morning, the week of. Every year. On foot from the north gate, which is locked, which don't seem to matter to him. A hat. A suit, in August, at four in the morning. He don't hurry."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "He don't leave the reading. I thought he did, first few years."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "He stands at the stone with his hat off like he knew the man, a good long while, and then he goes to the small one two rows past, Harriet's, and he stands there too, and then he goes out the way he come."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "I've never spoke to him. I'm up at four because of my water, not because I'm brave. The reading's there when I get to it and he never had nothing in his hands."
+    ],
+    [
+     "elijah",
+     "He visits a prophet and a bird-club schoolteacher, with his hat off, before the town's awake. Those are the two people in this county who knew what it was. He pays his respects to the ones who knew."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_cemetery_keeper_track",
+    "trust": {
+     "hv_cemetery_keeper": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "track_no": {
+   "speaker": "hv_cemetery_keeper",
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "Deer. Deer come through the north gate, there's a gap. I've told the county. The county's told me."
+    ],
+    [
+     "dale",
+     "Deer don't walk in a straight line to one grave and back. He knows that. He's got the mower running so he doesn't have to hear himself say it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "harriet": {
+   "speaker": "hv_cemetery_keeper",
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "Fifth grade, 1958. She took the whole class out to Kelly in the church bus to look at a nest. Dead oak by the gully behind the Lacy place."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "Two big owls up top and she had us look through her glasses one at a time."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "She said a horned owl can carry a cat. She said it'll come at a light."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "She said if ever we was out at night and seen two eyes come at us with no face round 'em, to stand still, because it was a bird, and it was more scared than us, and it wasn't."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "And then she sent us back to the bus and she stood under that tree by herself and cried. Fifth graders don't forget a teacher crying."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "I asked her why on the bus and she said 'it's the pollen', and it was August."
+    ],
+    [
+     "ruth",
+     "She taught a busload of children exactly what the family saw, dear, in 1958, under the very tree, and nobody has ever once thought to ask the children."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_cemetery_keeper_oak",
+    "trust": {
+     "hv_cemetery_keeper": 1
+    }
+   },
+   "next": "hub"
+  },
+  "harriet_no": {
+   "speaker": "hv_cemetery_keeper",
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "She was my teacher and she's dead and I cut her grass. That's the whole of it. Mrs. Dade at the library's got her papers if you want papers."
+    ],
+    [
+     "teddy",
+     "The librarian again. Everyone in this town points at the same three doors. We've been in two."
+    ]
+   ],
+   "next": "hub"
+  },
+  "buried": {
+   "speaker": "hv_cemetery_keeper",
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "...A feed sack. She told me the last time I cut her grass alive, 1961, in the spring."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "She said: 'Under the oak at Kelly, on the gully side, a foot down, there's a feed sack with two young owls in it and the Lacys' shot in them, and I put them there on the 22nd of August 1955 and I never told a soul.'"
+    ],
+    [
+     "hv_cemetery_keeper",
+     "She said she buried 'em so the family wouldn't have to see what they'd shot. She said the chief's boy was coming with a lantern and she had maybe ten minutes and she did it with her hands."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "She said 'I should have told them, Earl. It would have been owls by morning and they'd have had their lives back.'"
+    ],
+    [
+     "hv_cemetery_keeper",
+     "And then she said to tell nobody till it couldn't hurt the family, and I've waited thirty-three years for somebody to tell me when that is. I reckon it's you."
+    ],
+    [
+     "dale",
+     "Two juvenile great horned owls, bird shot in them, a foot down on the gully side of a dead oak, since 1955. That's not a story. That's a dig. That's the only physical evidence in this whole case that was never found because somebody hid it out of kindness."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "Under the oak. On the gully side. A foot from a nine-foot circle of baked clay that nothing burned in. She buried the owls where the light came down. Ask yourself which one of those things is under the other."
+    }
+   ],
+   "gives": {
+    "flag": "hv_cemetery_keeper_sack",
+    "trust": {
+     "hv_cemetery_keeper": 2
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "buried_no": {
+   "speaker": "hv_cemetery_keeper",
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "Roots. Roots is under a tree. I'm seventy-three years old and I've got forty stones to do before the heat, and I'll thank you to let a dead woman cry in peace."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "Go see Mrs. Dade. Mrs. Dade talks."
+    ],
+    [
+     "ruth",
+     "He's got something under that tree, dear, and he's decided today's not the day he gives it up. Some things you only get to ask the once, and that was the once."
+    ]
+   ],
+   "end": true
+  },
+  "sister": {
+   "speaker": "hv_cemetery_keeper",
+   "lines": [
+    [
+     "hv_cemetery_keeper",
+     "...Yeah. That's her. 1989. She never married."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "She put him there next to her in '77 and she had the stone cut with just the name and the dates, and she asked me the one thing anybody's ever asked me in this job."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "She said: 'Earl, keep the pennies off him.' Folks had started leaving pennies on the drunk from the Kelly yard, for a joke. So I keep 'em off. Every Monday. Before Cayce."
+    ],
+    [
+     "hv_cemetery_keeper",
+     "I didn't know where he was that night. I know where he is now. That's the most I can do for a man, and I do it."
+    ],
+    [
+     "elijah",
+     "The county's favourite explanation is buried two rows from its favourite prophet, and a man with a mower has been keeping the joke off him for seventeen years. Nobody will ever print that. We will."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_cemetery_keeper_sister",
+    "trust": {
+     "hv_cemetery_keeper": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

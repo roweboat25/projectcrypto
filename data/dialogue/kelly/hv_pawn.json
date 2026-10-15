@@ -1,0 +1,381 @@
+{
+ "_doc": "Royce Ladd, Pennyrile Pawn and Gun, forties, sells rope, nets, a forty-dollar 'genuine' photograph and his daddy's shell-box story. A salesman who tells you it's cardboard and sells it anyway. His father's sales book from 1955 is under the counter and it has more names in it than he lets on.",
+ "id": "hv_pawn",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_pawn",
+   "lines": [
+    [
+     "hv_pawn",
+     "Come in, come in, it's cooler in here, that's the only true thing I'll say all day. Royce Ladd. Rope's on the wall, nets are in the crate, the photograph's forty dollars and it's cardboard."
+    ],
+    [
+     "hv_pawn",
+     "I tell everybody. They buy it."
+    ],
+    [
+     "hv_pawn",
+     "Y'all are the Office. Dub called. I've got a shell box on a nail you'll want to see and a story about it you'll want to hear, and the story's free."
+    ],
+    [
+     "teddy",
+     "He said 'the story's free' the way a man says 'the first one's free'. Note the nail, note the price, note which one he showed us first."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "The shell box on the nail is dated in grease pencil, 8/20/55, in a hand that isn't his. He didn't date it for the tourists. His father dated it for himself."
+    },
+    {
+     "voice": "bluff",
+     "threshold": 9,
+     "line": "There's a ledger under the counter with a 1955 spine and he's set a catalogue on it since you came in. A salesman hides the one thing he doesn't want to sell.",
+     "flag": "hv_pawn_ledger"
+    }
+   ],
+   "options": [
+    {
+     "tone": "wry",
+     "text": "Cardboard, forty dollars, and you tell everybody. That's the most honest shop in Kentucky.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "kind",
+     "text": "We'll hear the free one first, Mr Ladd. We're on a budget.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "We're not buying. Start with what's under the catalogue.",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_pawn"
+   }
+  },
+  "hub": {
+   "speaker": "hv_pawn",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_pawn",
+     "What'll it be. Rope, net, story or photograph. I've got all four and I'll throw in the weather."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Guns on the wall, shells under the glass. He'd sell you both. Buy the 12-gauge for tonight. Ask yourself why you haven't already."
+   },
+   "options": [
+    {
+     "tone": "wry",
+     "text": "Go on. Sell us the photograph. We want to hear how it goes.",
+     "next": "pitch"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "hv_shell_box_photo": 2,
+       "rt_shell_book_1955": 1
+      }
+     },
+     "text": "Your daddy dated that box himself. What else did he write down that week that wasn't for sale?",
+     "pass": "book",
+     "fail": {
+      "next": "book_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "hv_pawn_photo": 1,
+       "hv_motel_penrose": 1
+      }
+     },
+     "text": "Who buys the photograph? Not the tourists. The one who buys it every year.",
+     "pass": "buyer",
+     "fail": {
+      "next": "buyer_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_pawn_ledger"
+      ]
+     },
+     "check": {
+      "voice": "bluff",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "hv_founder_signature": 2,
+       "hv_motel_register": 1
+      }
+     },
+     "text": "The Office has an account here. Since 1955. Open the ledger to it; we'd like to settle up.",
+     "pass": "account",
+     "fail": {
+      "next": "account_no",
+      "trust": {
+       "hv_pawn": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_pawn_photo_admits"
+      ]
+     },
+     "tone": "kind",
+     "text": "Your cousin, 1975, cardboard and a flash. You've been selling his joke for nineteen years. Does he get a cut?",
+     "next": "cousin"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll think about the rope, Mr Ladd."
+    }
+   ]
+  },
+  "pitch": {
+   "speaker": "hv_pawn",
+   "lines": [
+    [
+     "hv_pawn",
+     "Genuine 1955 photograph, Kelly, Kentucky. Little fella in the yard at night, eyes like two dimes, hands up."
+    ],
+    [
+     "hv_pawn",
+     "Forty dollars, frame included, and I'll tell you right now it's cardboard, my cousin made it in '75, the Courier-Journal ran it and then ran a correction."
+    ],
+    [
+     "hv_pawn",
+     "Now. Folks hear 'cardboard' and buy it anyway, because they want to own the thing the paper got wrong. That's the trade, right there. That's this whole town. I'm just the one with a cash register."
+    ],
+    [
+     "miriam",
+     "He's describing the economics of belief with a price tag on it. I've read worse papers on the subject."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_pawn_admits",
+    "evidence": "hv_pawn_photo_admits",
+    "flag": "hv_pawn_pitched"
+   },
+   "next": "hub"
+  },
+  "book": {
+   "speaker": "hv_pawn",
+   "lines": [
+    [
+     "hv_pawn",
+     "...Daddy kept a sales book. Twentieth: J. W. Lacy, one box number six, crow shot, something taking the chickens. Daddy wrote 'told him horned owl' in the margin."
+    ],
+    [
+     "hv_pawn",
+     "He wrote that before the night, you understand. Before."
+    ],
+    [
+     "hv_pawn",
+     "Twenty-second: J. W. Lacy, four boxes number six, one padlock, one flashlight, cash. Twenty-third: J. W. Lacy, one Kodak Brownie, on credit, never paid."
+    ],
+    [
+     "hv_pawn",
+     "Twenty-fifth: one 'NO TRESPASSING', painted, fifty cents."
+    ],
+    [
+     "hv_pawn",
+     "A padlock and a sign and a camera, in three days. That's a family that got told it was a joke and decided to charge admission before somebody else did."
+    ],
+    [
+     "teddy",
+     "The 'horned owl' note is dated the day before the night. That's the only piece of paper in this case that was written before anybody knew there'd be a case."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_pawn_shells",
+    "evidence": "hv_pawn_owls",
+    "flag": "hv_pawn_book",
+    "trust": {
+     "hv_pawn": 1
+    }
+   },
+   "next": "hub"
+  },
+  "book_no": {
+   "speaker": "hv_pawn",
+   "lines": [
+    [
+     "hv_pawn",
+     "Daddy wrote down what he sold and what he was owed and he's dead and that's a private book. The box is on the nail. Look at the box."
+    ],
+    [
+     "ruth",
+     "He's got a price on that book, dear, and it isn't money. Come back when you've bought something."
+    ]
+   ],
+   "next": "hub"
+  },
+  "buyer": {
+   "speaker": "hv_pawn",
+   "lines": [
+    [
+     "hv_pawn",
+     "...Every August. Man in a suit, about fifty, very polite, pays cash. Forty dollars, and he never haggles, and he never asks if it's real. He knows it's cardboard."
+    ],
+    [
+     "hv_pawn",
+     "He says 'thank you, Mr Ladd' like I'd done him a favour."
+    ],
+    [
+     "hv_pawn",
+     "Last Tuesday. Paid with two twenties, and one of them was a silver certificate. 1957 series. Crisp. I've got it in the drawer, I didn't bank it. Who carries a crisp 1957 twenty?"
+    ],
+    [
+     "hv_pawn",
+     "He said he was from where you're from. He asked what day you'd be in. I said I didn't know, and he said 'Thursday', and here you are."
+    ],
+    [
+     "june",
+     "He's buying one a year. Of a thing he knows is fake. Either he's got a wall of them somewhere, or he's making sure one less is out in the world. I don't like either."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_pawn_buyer",
+    "trust": {
+     "hv_pawn": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "buyer_no": {
+   "speaker": "hv_pawn",
+   "lines": [
+    [
+     "hv_pawn",
+     "Tourists. Louisville, Nashville, a man from Japan once. I don't keep a list of who buys a forty-dollar photograph, I keep the forty dollars."
+    ],
+    [
+     "hv_pawn",
+     "Ask Dorene at the motor court who's in town. She keeps a list. It's called a register."
+    ],
+    [
+     "teddy",
+     "Dorene again. Every road in this town runs past the motor court office."
+    ]
+   ],
+   "next": "hub"
+  },
+  "account": {
+   "speaker": "hv_pawn",
+   "lines": [
+    [
+     "hv_pawn",
+     "...Well, hell. All right. Page nine. 'August 22, 1955. G. Weller, Sutton, W. Va. One card file box, tin. One flashlight. One box number six, on account.' Daddy underlined 'on account'."
+    ],
+    [
+     "hv_pawn",
+     "Nobody ever paid it. Thirty-nine years."
+    ],
+    [
+     "hv_pawn",
+     "And under it, in a different pencil: 'Dec. 1967. W. Penrose, same. Settled.' He paid her account."
+    ],
+    [
+     "hv_pawn",
+     "Twelve years late, in cash, and Daddy wrote 'settled' and drew a box round it like he didn't believe it either."
+    ],
+    [
+     "hv_pawn",
+     "That's a dollar eighty. You want to settle it again, I'll take it. I'd rather you told me who they were."
+    ],
+    [
+     "miriam",
+     "She bought a flashlight and bird shot four hours after the family and never came back for the bill. And he came and paid it the month she disappeared. Somebody at the Office knew this. Somebody didn't tell us."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "Bird shot. Number six. Gus Weller bought the same load the family did, the same morning. She wasn't buying it for a man. She'd already decided what she was going out there to look at."
+    }
+   ],
+   "gives": {
+    "flag": "hv_pawn_account",
+    "trust": {
+     "hv_pawn": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "account_no": {
+   "speaker": "hv_pawn",
+   "lines": [
+    [
+     "hv_pawn",
+     "The Office has got no account here. I'd know. I know every account on this square and half of 'em are my cousins."
+    ],
+    [
+     "hv_pawn",
+     "You're bluffing a pawnbroker. That's a thing people try about twice a week and I'm still here and most of them aren't. Buy something or don't."
+    ],
+    [
+     "dale",
+     "He didn't say 'what office'. He knew what we meant. He's just not selling it today, and we showed him our hand for nothing."
+    ]
+   ],
+   "next": "hub"
+  },
+  "cousin": {
+   "speaker": "hv_pawn",
+   "lines": [
+    [
+     "hv_pawn",
+     "Ten dollars a print, and he's in Clarksville selling the same thing to the Tennessee side, so between us we've got the whole state covered. He's the one with the crease in his negative."
+    ],
+    [
+     "hv_pawn",
+     "I've only got the crease in my conscience."
+    ],
+    [
+     "hv_pawn",
+     "...Tell you what. Take one. No charge. Put it in your file next to the real ones and see if anybody at your office can tell the difference. Mine can't. Mine's been buying it nineteen years."
+    ],
+    [
+     "teddy",
+     "A free fake for the file. I'm going to label it very carefully and I'm going to enjoy it."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_pawn_cousin",
+    "trust": {
+     "hv_pawn": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

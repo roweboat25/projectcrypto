@@ -1,0 +1,126 @@
+{
+ "id": "hollis",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "Bragg. Dam crew. I do your wagon's oil 'cause Dot pays in pie and I'm cheap."],
+    ["hollis", "You're the new team. Good. Last one left the tank on a quarter and the ashtray full. I don't care about the ashtray."],
+    ["june", "He's got a tuning fork on his key ring. A dam man with a tuning fork."]
+   ],
+   "passives": [
+    {"voice": "tech", "threshold": 7, "line": "Tuning fork on the key ring. He's been checking the hum against a note. He's not as sure as he says.", "flag": "sutton_hollis_fork"},
+    {"voice": "logic", "threshold": 8, "line": "The wagon's oil is clean. He changed it today, before anyone said you were going. He knew."}
+   ],
+   "options": [
+    {"tone": "wry", "text": "Pie's a good rate.", "next": "rate"},
+    {"check": {"voice": "tech", "kind": "white", "difficulty": 7, "evidence_bonus": {"dam_tone": 2}},
+     "text": "Forty-minute cycle. Does the hum hold pitch?", "pass": "pitch",
+     "fail": {"line": "It's a pipe. Pipes sing. You want music, the diner's got a jukebox."}},
+    {"tone": "kind", "text": "What do we need to know about the wagon?", "next": "wagon"}
+   ],
+   "gives": {"flag": "met_sutton_hollis"}
+  },
+  "rate": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "Best rate in Braxton County. Don't tell the county."],
+    ["hollis", "Thirty years I've come by this dock. Gus was under the hood the first time. Said hand me the nine-sixteenths. I did. Never left."],
+    ["dale", "That's how it gets you. One wrench."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"hollis": 1}}
+  },
+  "pitch": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "...Holds pitch. Shouldn't. Hydraulics drift with the temperature, and it's been the same note since '74."],
+    ["hollis", "(He holds up the fork.) A. It's an A. I check it. Don't tell Pearl."],
+    ["june", "An A. Three notes, and the first one's an A. I'll want the other two."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hollis_gates", "evidence": "hollis_gates", "flag": "sutton_hollis_pitch", "trust": {"hollis": 1}}
+  },
+  "wagon": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "Second gear sticks cold. Choke's touchy. Heater works if you kick the box under the dash, and only there."],
+    ["hollis", "And the radio. Don't fiddle with the dial on the road at night. Gus's rule, not mine. I just never took it off."],
+    ["miriam", "A rule about a radio dial. I'll file it under maintenance."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sutton_hollis_radio_rule", "trust": {"hollis": 1}}
+  },
+  "hub": {
+   "speaker": "hollis",
+   "repeat": true,
+   "prompt": "Hollis wipes his hands.",
+   "lines": [
+    ["hollis", "Go on. I've a shift at the dam at three and the wagon's done."]
+   ],
+   "static": {"min_dread": 3, "line": "He changed the oil before you said you were going. Ask who told him. Ask if it was the radio."},
+   "options": [
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 8, "evidence_bonus": {"dot_on_gus": 1}},
+     "text": "Why didn't you ever leave, Hollis?", "pass": "stayed",
+     "fail": {"next": "stayed_fail"}},
+    {"tone": "hard", "requires": {"flag": ["sutton_hollis_fork"]},
+     "check": {"voice": "press", "kind": "red", "difficulty": 10, "evidence_bonus": {"dam_tone": 2, "hollis_gates": 1}},
+     "text": "Same three notes, same pitch, twenty years. You don't think it's the gates.", "pass": "gates_truth",
+     "fail": {"next": "gates_fail", "trust": {"hollis": -1}, "dread": 1}},
+    {"tone": "wry", "requires": {"flag": ["sutton_hollis_radio_rule"], "not_flag": ["sutton_hollis_dial"]}, "text": "What happens if you fiddle with the dial?", "next": "dial"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll bring it back full."}
+   ]
+  },
+  "stayed": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "Nowhere else had a garage and a woman who'd listen to me about pipes."],
+    ["hollis", "Then she didn't come back, and somebody had to keep the wagon running for when she did. Dot kept the counter. I kept the wagon."],
+    ["teddy", "That's the whole staff list, isn't it."],
+    ["hollis", "That's the Office."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"hollis": 1}}
+  },
+  "stayed_fail": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "Work's here. Dam's here. That's a question for people who leave."],
+    ["hollis", "Pearl's the one who talks about leaving. Go ask Pearl why she never did either."]
+   ],
+   "next": "hub"
+  },
+  "gates_truth": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "...No."],
+    ["hollis", "I think it's the gates 'cause I've got to think something and go down in that spillway every week. Think anything else, you don't come up."],
+    ["hollis", "Gus stood on the bank and listened for the rest of it. I listen for the gates. We're both right. Mine lets me sleep."],
+    ["elijah", "He's not wrong. He's just chosen which half to hear."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sutton_hollis_admitted", "trust": {"hollis": 1}}
+  },
+  "gates_fail": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "It's the gates."],
+    ["hollis", "You've been in this town a day. I've been in that spillway twenty years. Go drive your case."]
+   ],
+   "next": "hub"
+  },
+  "dial": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "Nothing you'd put in a report. Gus said the dial finds a station that ain't there, nights, and once it's found it, it don't let go."],
+    ["hollis", "I never fiddled. I'm not the fiddling kind. The last team did, and they came back and didn't go out again."],
+    ["miriam", "I'll note it as a superstition. Then I'll leave the dial alone."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sutton_hollis_dial", "trust": {"hollis": 1}}
+  }
+ }
+}

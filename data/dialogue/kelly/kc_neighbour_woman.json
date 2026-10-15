@@ -1,0 +1,410 @@
+{
+ "_doc": "Odessa Pettit, in the Pettit front room across the road from the Lacy place, morning through dusk, her brother Royce in the back room in the mornings. 'I saw them too', polished smooth over thirty-nine years, with a lantern on the mantel she never lights. Trust 1, friendly and rehearsed. The red check asks her to tell it in front of Royce; the logic check catches the porch line.",
+ "id": "kc_neighbour_woman",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_neighbour_woman",
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "Sit. There's tea. You're the West Virginia people, Dewey said, and I'll tell you what I tell all of them: I saw them too."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Right there off the end of that porch. Two on the fence, one on the roof, hands up like a holdup."
+    ],
+    [
+     "kc_neighbour_woman",
+     "All night, till the sun came up and they went in the trees."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Write it down however you like. The Lacys never were liars and neither am I."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "From the end of that porch you'd see the Hardin barn and the treeline. The Lacy roof is behind the oaks. Nobody saw anything on a roof from that swing.",
+     "flag": "kc_nw_porchline"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "A kerosene lantern on the mantel, polished, wick trimmed, no soot on the chimney. She has kept it ready for thirty-nine years and never lit it."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Thank you, Mrs Pettit. We'd like to hear the rest of it, the part you don't tell all of them.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "silent",
+     "text": "(Take the tea. Let her tell it the way she tells it.)",
+     "next": "rehearsed",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Hands up like a holdup. You've told it enough times to have the good lines in order.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_neighbour_woman"
+   }
+  },
+  "hub": {
+   "speaker": "kc_neighbour_woman",
+   "repeat": true,
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "Go on, then. I've had the Chicago man and the Frenchman. I can have you."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The brother is in the back room. One raised voice and he'll come to the door, and she will say anything to keep him from hearing you say it first. Raise your voice."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "kc_nw_worst"
+      ]
+     },
+     "tone": "kind",
+     "text": "You kept the clippings. Show us the one you like least.",
+     "next": "worst_clipping"
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_nw_porchline"
+      ],
+      "not_flag": [
+       "kc_nw_caught"
+      ]
+     },
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "kc_train_register": 2,
+       "kc_hardin_shooting": 1
+      }
+     },
+     "text": "From the end of your porch you can see the Hardin barn and the oaks. The Lacy roof is behind the oaks. You never saw a roof.",
+     "pass": "porch_caught",
+     "fail": {
+      "next": "porch_no",
+      "trust": {
+       "kc_neighbour_woman": -1
+      }
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "The lantern on the mantel. You keep the wick trimmed.",
+     "pass": "lantern",
+     "fail": {
+      "line": "It was Mama's. A woman can keep a lantern. Drink your tea.",
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "kc_nw_in_front"
+      ]
+     },
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "kc_hardin_shooting": 1,
+       "kc_sk_royce_shells": 1,
+       "kc_train_register": 1,
+       "kc_agent_lull": 1
+      }
+     },
+     "text": "Royce is in the back room, and he's sober this morning. Say it the way you'd say it in front of him, Mrs Pettit.",
+     "pass": "in_front",
+     "fail": {
+      "next": "in_front_no",
+      "trust": {
+       "kc_neighbour_woman": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "kc_royce_road"
+      ],
+      "not_flag": [
+       "kc_nw_royce_said"
+      ]
+     },
+     "tone": "kind",
+     "text": "Royce told us. The road, the gun, the eyes in the tobacco. He said some nights he thinks he was the thing on the fence.",
+     "next": "royce_said"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mrs Pettit. Thank you for the tea."
+    }
+   ]
+  },
+  "rehearsed": {
+   "speaker": "kc_neighbour_woman",
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "They came up out of the gully first. Then the fence. One got on the roof and walked it, I could hear the tin."
+    ],
+    [
+     "kc_neighbour_woman",
+     "The Lacys shot and shot and the shot went right through them like smoke."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Toward morning they just went. Into the trees. Like the end of a picture show when the lights come up and you don't remember walking out."
+    ],
+    [
+     "kc_neighbour_woman",
+     "...That's it. That's the whole of what I saw. You can ask me again tomorrow and it'll be the same."
+    ],
+    [
+     "teddy",
+     "It will. It's word for word the Ledger's 1955 piece, down to 'like smoke'. She's told their story so long it's hers."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_neighbour_woman": 1
+    }
+   },
+   "next": "hub"
+  },
+  "worst_clipping": {
+   "speaker": "kc_neighbour_woman",
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "This one. Louisville, the Thursday. 'Kelly Farm Family Had Been Drinking, Neighbors Say.'"
+    ],
+    [
+     "kc_neighbour_woman",
+     "Neighbors. There's three houses on this road."
+    ],
+    [
+     "kc_neighbour_woman",
+     "The Hardins didn't say it and I didn't say it, so you work out which neighbor said the Lacys were drunk, and what he'd had himself."
+    ],
+    [
+     "kc_neighbour_woman",
+     "I kept it so I'd stay mad. It's worked."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "press",
+     "threshold": 8,
+     "line": "She just told you the drunk neighbour was her brother, in a sentence built so she never said his name. She's good. She's had the practice."
+    }
+   ],
+   "gives": {
+    "flag": "kc_nw_worst",
+    "trust": {
+     "kc_neighbour_woman": 1
+    }
+   },
+   "next": "hub"
+  },
+  "porch_caught": {
+   "speaker": "kc_neighbour_woman",
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "...The oaks were smaller in '55."
+    ],
+    [
+     "kc_neighbour_woman",
+     "No. No, they weren't. They were the same oaks."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Dewey's daddy said the same thing to me in 1956 and I told him the oaks were smaller and he let me."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Everybody on this crossroads has let me. Thirty-nine years of being let."
+    ],
+    [
+     "kc_neighbour_woman",
+     "You're the first ones who wouldn't, and I don't know yet if I'm grateful."
+    ],
+    [
+     "miriam",
+     "Don't apologise. She needed one person to say it out loud. It just had to be a stranger."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_nw_caught",
+    "trust": {
+     "kc_neighbour_woman": 1
+    }
+   },
+   "next": "hub"
+  },
+  "porch_no": {
+   "speaker": "kc_neighbour_woman",
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "You stood on my porch for one minute in daylight and you'll tell me what I saw from it at midnight in 1955?"
+    ],
+    [
+     "kc_neighbour_woman",
+     "The Chicago man had better manners."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Virgil Sisk at the depot keeps a book of everything that ever crossed his road. Go bother him. He likes it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "lantern": {
+   "speaker": "kc_neighbour_woman",
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "...I trim it every Saturday. I fill it every August. I have never lit it since."
+    ],
+    [
+     "kc_neighbour_woman",
+     "I carried it four hours one night and I never want to see what it shows me again. That's all you're getting from a lantern."
+    ],
+    [
+     "elijah",
+     "Four hours. That's eleven to three. That's the lull and the train and the road, with a light in her hand the whole time."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_neighbour_woman": 1
+    }
+   },
+   "next": "hub"
+  },
+  "in_front": {
+   "speaker": "kc_neighbour_woman",
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "...Royce. Come out here."
+    ],
+    [
+     "kc_drunk",
+     "Dessie, don't."
+    ],
+    [
+     "kc_neighbour_woman",
+     "I was in the road. In my nightgown, with Mama's lantern, from eleven till the train, looking for you. I never saw a silver thing."
+    ],
+    [
+     "kc_neighbour_woman",
+     "I saw your shirt in the tobacco and the flash every time you fired."
+    ],
+    [
+     "kc_neighbour_woman",
+     "And I said I was on the porch because somebody who wasn't drunk and wasn't a Lacy had to have seen them."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Or they'd have put that family in Western State."
+    ],
+    [
+     "kc_neighbour_woman",
+     "So I saw them. There. In front of him."
+    ],
+    [
+     "kc_drunk",
+     "...Thirty-nine years, Dessie."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Thirty-nine years. Now sit down, both of you, and somebody drink that tea before it's wasted."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_nw_in_front",
+    "evidence": "kc_odessa_admits",
+    "fact": "kc_nw_admits",
+    "trust": {
+     "kc_neighbour_woman": 1
+    }
+   },
+   "next": "hub"
+  },
+  "in_front_no": {
+   "speaker": "kc_neighbour_woman",
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "You will not use my brother on me in my own front room. The Frenchman tried that. I put the Frenchman in the road."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Finish your tea on the porch. You can see the Lacy place from the end of it, if you lean."
+    ]
+   ],
+   "end": true
+  },
+  "royce_said": {
+   "speaker": "kc_neighbour_woman",
+   "lines": [
+    [
+     "kc_neighbour_woman",
+     "...He said that? The fence?"
+    ],
+    [
+     "kc_neighbour_woman",
+     "He's never said it to me. Thirty-nine years in the same house and he says it to West Virginia."
+    ],
+    [
+     "kc_neighbour_woman",
+     "Well. Then I'll say mine to West Virginia too, and we'll see if the house falls down. It won't. It's held up worse."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_nw_royce_said",
+    "trust": {
+     "kc_neighbour_woman": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

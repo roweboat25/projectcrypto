@@ -1,0 +1,363 @@
+{
+ "_doc": "Ott Blane, the owls dollar, on the store porch mornings and dusks across a checkerboard that has not moved since 1955. Trust 1, dry, plays to the crowd, never left this porch and was on it that night. The red check asks whether the dollar is still under the cap because he's afraid Buford is right.",
+ "id": "kc_checkers1",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_checkers1",
+   "lines": [
+    [
+     "kc_checkers1",
+     "Don't jog the board. Thirty-nine years and a dog ain't jogged it, I'll not have West Virginia do it."
+    ],
+    [
+     "kc_checkers2",
+     "They're here about the little men, Ott."
+    ],
+    [
+     "kc_checkers1",
+     "Everybody's here about the little men. The flies is here about the little men. Sit on the rail if you want. Don't touch the cap."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "The checkers are stuck to the board with thirty-nine years of porch dust and spilled pop. Nobody's moved a piece because nobody can. The game ended in 1955. The arguing didn't."
+    },
+    {
+     "voice": "rapport",
+     "threshold": 8,
+     "line": "He waits for the laugh before the next line. He's been the porch's act since Truman, and he's good at it, and he's tired of it.",
+     "flag": "kc_ck1_crowd"
+    }
+   ],
+   "options": [
+    {
+     "tone": "wry",
+     "text": "We'll sit on the rail. Who's black?",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "kind",
+     "text": "We won't jog it, Mr Blane. We've been told about the dollar.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_checkers1"
+   }
+  },
+  "hub": {
+   "speaker": "kc_checkers1",
+   "repeat": true,
+   "lines": [
+    [
+     "kc_checkers1",
+     "Well? It's your move, and it has been since you sat down."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The dollar's still under the cap because he's never dared lift it. Lift it for him. See what he does with his hands."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "kc_ck1_move"
+      ]
+     },
+     "tone": "wry",
+     "text": "Make a move, Mr Blane. Any move.",
+     "next": "move"
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "kc_pellets_lab": 2,
+       "sk_owl_pellets_lab": 1,
+       "kc_kid_owl": 1
+      }
+     },
+     "text": "Owls. Make the case. Not the joke. The case.",
+     "pass": "owl_case",
+     "fail": {
+      "next": "owl_case_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "kc_sk_royce_shells": 1
+      }
+     },
+     "text": "You've always been on this porch. So you were on it that night. What came up the road at eleven?",
+     "pass": "road_night",
+     "fail": {
+      "line": "I was fourteen and in bed by nine, same as Dewey Oates, and if he's told you different he's older than me and remembers worse.",
+      "trust": {
+       "kc_checkers1": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_ck1_crowd"
+      ],
+      "not_flag": [
+       "kc_ck1_afraid"
+      ]
+     },
+     "check": {
+      "voice": "bluff",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "kc_hardin_dogs": 1,
+       "kc_agent_light": 1
+      }
+     },
+     "text": "You'd have paid that dollar by 1956 if you'd been sure. You've been afraid he's right since the first night. That's why nobody's moved.",
+     "pass": "afraid",
+     "fail": {
+      "next": "afraid_no",
+      "trust": {
+       "kc_checkers1": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "kc_monkey_claim_1955"
+      ],
+      "not_flag": [
+       "kc_ck1_monkey"
+      ]
+     },
+     "tone": "kind",
+     "text": "The freight claim. One monkey short, Kelly siding, August 1955. Buford's monkey was real, Mr Blane.",
+     "next": "monkey_real"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now. Don't let him win."
+    }
+   ]
+  },
+  "move": {
+   "speaker": "kc_checkers1",
+   "lines": [
+    [
+     "kc_checkers1",
+     "Can't. Pieces is glued down with thirty-nine years of Nehi. Buford knows it. Buford spilled the Nehi."
+    ],
+    [
+     "kc_checkers2",
+     "That was 1961 and it was a Grapette."
+    ],
+    [
+     "kc_checkers1",
+     "The game's over, is what I'm saying. Black had him in three."
+    ],
+    [
+     "kc_checkers1",
+     "He knows it, I know it, and the only thing keeping him on that chair is the dollar and the only thing keeping me is him."
+    ],
+    [
+     "teddy",
+     "That's a marriage. I've seen worse ones with a license."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_ck1_move",
+    "trust": {
+     "kc_checkers1": 1
+    }
+   },
+   "next": "hub"
+  },
+  "owl_case": {
+   "speaker": "kc_checkers1",
+   "lines": [
+    [
+     "kc_checkers1",
+     "All right. Dead oak at the head of the gully, great horned, since my daddy's time. August, the young ones are out and loud."
+    ],
+    [
+     "kc_checkers1",
+     "You walk under with a light and they come down on you, ears up, wings up, quiet."
+    ],
+    [
+     "kc_checkers1",
+     "Three foot tall with the wings up. Silver underneath in a flashlight. Eyes give it back yellow."
+    ],
+    [
+     "kc_checkers1",
+     "You shoot and it goes up, not down, and you say it rolled up and run."
+    ],
+    [
+     "kc_checkers1",
+     "Eleven people, a dark yard, four guns and a pint, and a tree full of them twenty yards off. That's my dollar."
+    ],
+    [
+     "kc_checkers1",
+     "I've never once needed a monkey."
+    ],
+    [
+     "dale",
+     "That's the case. That's the entire case, from a man on a porch with a bottle cap. I could go home."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_checkers1": 1
+    }
+   },
+   "next": "hub"
+  },
+  "owl_case_no": {
+   "speaker": "kc_checkers1",
+   "lines": [
+    [
+     "kc_checkers1",
+     "Owls is owls. I don't need to make a case. I'm not the one with the monkey."
+    ],
+    [
+     "kc_checkers2",
+     "He can't make it 'cause there ain't one. Thirty-nine years I been waiting on it."
+    ],
+    [
+     "kc_checkers1",
+     "...Go ask the boy on the bicycle. He's got one in the water tower eating cats. He'll make it better than me."
+    ]
+   ],
+   "next": "hub"
+  },
+  "road_night": {
+   "speaker": "kc_checkers1",
+   "lines": [
+    [
+     "kc_checkers1",
+     "...Royce Pettit. In his shirt, with his daddy's gun, walking up the middle of the road like a parade."
+    ],
+    [
+     "kc_checkers1",
+     "I was at Daddy's window over the store. Dewey was at the next one."
+    ],
+    [
+     "kc_checkers1",
+     "We didn't say nothing to each other then and we ain't said nothing since. You don't tell on a crossroads. You just know."
+    ],
+    [
+     "kc_checkers1",
+     "Odessa come after with the lantern. That's when I got back in bed. A boy can watch a drunk. A boy can't watch that."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_checkers1": 1
+    }
+   },
+   "next": "hub"
+  },
+  "afraid": {
+   "speaker": "kc_checkers1",
+   "lines": [
+    [
+     "kc_checkers1",
+     "...Half past seven, the night it started, I was on the rail here and the sun was still up. And a light come down over the Lacy place."
+    ],
+    [
+     "kc_checkers1",
+     "Slow. No noise. I was fourteen and I thought, shooting star, and it wasn't, 'cause it went down, and stars go across."
+    ],
+    [
+     "kc_checkers1",
+     "I've got owls for all the rest. I ain't got an owl for that."
+    ],
+    [
+     "kc_checkers1",
+     "So the dollar stays under the cap, and Buford stays in his chair, and we're both still here. That's the bet."
+    ],
+    [
+     "kc_checkers2",
+     "...Ott. You never said."
+    ],
+    [
+     "kc_checkers1",
+     "You never asked. You just hollered monkey."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_ck1_afraid",
+    "trust": {
+     "kc_checkers1": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "afraid_no": {
+   "speaker": "kc_checkers1",
+   "lines": [
+    [
+     "kc_checkers1",
+     "Son, I been needled by professionals. Buford's been at it since Eisenhower. You ain't going to turn my dollar with a face."
+    ],
+    [
+     "kc_checkers1",
+     "Go on and talk to him. He's been waiting on somebody new to tell it to since the Frenchman."
+    ]
+   ],
+   "next": "hub"
+  },
+  "monkey_real": {
+   "speaker": "kc_checkers1",
+   "lines": [
+    [
+     "kc_checkers1",
+     "...Well, I'll be. A real monkey."
+    ],
+    [
+     "kc_checkers2",
+     "I TOLD you."
+    ],
+    [
+     "kc_checkers1",
+     "One monkey, Buford. One. Loose two days up the highway."
+    ],
+    [
+     "kc_checkers1",
+     "You can have your monkey and I'll have my tree full of owls and the Lacys can have the both of 'em, and the dollar stays where it is."
+    ],
+    [
+     "kc_checkers1",
+     "...But it was real. Huh. Thirty-nine years."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_ck1_monkey",
+    "trust": {
+     "kc_checkers1": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

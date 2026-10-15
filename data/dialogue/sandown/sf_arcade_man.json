@@ -1,0 +1,131 @@
+{
+ "id": "sf_arcade_man",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "Change for a pound, no notes in the falls, and if the claw drops it, it's dropped. Len Garside. I own the noise."],
+    ["sf_arcade_man", "You're the ones been in Colin's booth. Ten pence, was it? He gives it you for ten pence and I've given him twenty-one years of rent-free."],
+    ["dale", "Every machine in here is tilted a hair toward the sea. I'd bet the floor's gone, not the machines."]
+   ],
+   "passives": [
+    {"voice": "press", "threshold": 7, "line": "He put the ten pence sign up. He said so before you asked. A man who confesses to a joke is keeping the thing that isn't one."},
+    {"voice": "logic", "threshold": 9, "line": "The penny falls on the end are 1973 stock and they are the only machines in here he has not replaced. Nobody keeps a loser that long for the takings.", "flag": "sf_arcade_man_falls"}
+   ],
+   "options": [
+    {"tone": "wry", "text": "Rent-free's a good rate. What's the catch?", "next": "wry"},
+    {"tone": "kind", "text": "He's a good booth man. Everyone says so.", "next": "kind"},
+    {"tone": "hard", "text": "We're not here for the falls, Mr Garside.", "next": "hard"}
+   ],
+   "gives": {"flag": "met_sf_arcade_man"}
+  },
+  "wry": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "The catch is he's Colin. You get the story with the change, and the coach parties come for the story and stay for the falls."],
+    ["sf_arcade_man", "Nobody on this pier loses on Colin Rudd. That's the catch."]
+   ],
+   "next": "hub"
+  },
+  "kind": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "Best on the south coast. Never short, never late, never drunk on the boards. I've had lads from Portsmouth couldn't say the same."],
+    ["sf_arcade_man", "He's a good lad. He was a good lad at eight and all. That's what nobody puts in the paper."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"sf_arcade_man": 1}}
+  },
+  "hard": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "No. You're here for 1973, same as the Chronicle, same as the two in suits, same as the woman with the card."],
+    ["sf_arcade_man", "Fine. You get it the same as the kiddies. Short, and over the counter."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "sf_arcade_man",
+   "repeat": true,
+   "prompt": "Ask. The claw's doing a line of kids and I've a float to count.",
+   "lines": [["sf_arcade_man", "Ask. The claw's doing a line of kids and I've a float to count."]],
+   "static": {"min_dread": 3, "line": "The falls on the end. Listen to them. There's a coin in there that has been sliding since 1973 and it has never dropped. Ask him why he keeps them."},
+   "options": [
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 7, "evidence_bonus": {"colin_statement": 1}},
+     "text": "What's Colin like when the pier's shut and there's no one to tell it to?", "pass": "colin_after",
+     "fail": {"line": "Same as anyone. Goes home. Don't make him a case, he's a man with a booth."}},
+    {"check": {"voice": "recall", "kind": "white", "difficulty": 9, "evidence_bonus": {"sf_arcade_wizard": 2, "tn_publican_pier_man": 1}},
+     "text": "Pirates, a gorilla, a wizard. The wizard never took the hat off. Did he ever speak?", "pass": "wizard_voice", "fail": {"next": "wizard_fail"}},
+    {"requires": {"not_flag": ["sf_arcade_man_sign", "sf_arcade_man_bluffed"]},
+     "check": {"voice": "bluff", "kind": "red", "difficulty": 10, "evidence_bonus": {"lk_boss_wages": 1, "sf_cafe_gossip": 1}},
+     "text": "Terry Gosling told us. The ten pence sign was his idea. Make it a joke and nobody files it.", "pass": "sign",
+     "fail": {"next": "bluff_fail", "trust": {"sf_arcade_man": -1}, "dread": 1}},
+    {"requires": {"evidence": ["lk_hat_photo"], "flag": ["sf_arcade_man_falls"]},
+     "text": "This hat. From the camp store. Is it the wizard's?", "next": "hat_shown"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll leave you to the float."}
+   ]
+  },
+  "colin_after": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "Sits on the end rail. Every night, when I've cashed up. Looks at the Levels, not the sea. I've asked him what he's looking for and he says the hut."],
+    ["sf_arcade_man", "He says it like you'd say the bus. Twenty-one years and he still thinks it's coming."],
+    ["elijah", "He's not watching for it. He's keeping it company."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_arcade_man_colin_rail", "trust": {"sf_arcade_man": 1}}
+  },
+  "wizard_voice": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "Once. A kiddie dropped her pennies and he picked them up and said 'that's the way to do it' in a voice like a tin whistle. Flat. No breath in it."],
+    ["sf_arcade_man", "The kiddie cried. He laughed, out of the hat, and he had a mouth-organ in his sleeve, I saw the shine of it."],
+    ["june", "A tin voice. That's not a throat, that's a reed. The Punch man on the beach would know what."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_arcade_man_wizard_voice"}
+  },
+  "wizard_fail": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "Did he speak? It was 1973 and the falls were going. Nobody spoke, son, you couldn't hear yourself lose."],
+    ["sf_arcade_man", "Try the deckchair man. Wilf. Nothing moves on that beach without Wilf writing it in a book."]
+   ],
+   "next": "hub"
+  },
+  "sign": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "...Terry said that? Terry said it. All right. 1985. He came in white as the float and said make it a turn, Len, make it ten pence, make it funny."],
+    ["sf_arcade_man", "Because Fay Mallory had been up at the camp that summer, and she'd found something, and Terry wanted it a joke before it was a thing."],
+    ["sf_arcade_man", "Colin never knew it was Terry's idea. He thought it was mine. I let him. Put that in your file and see how it reads."],
+    ["teddy", "The joke was built. Somebody ordered it, like the set."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_arcade_man_sign", "trust": {"sf_arcade_man": 1}}
+  },
+  "bluff_fail": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "Terry Gosling hasn't set foot on this pier since the donkey. If he told you anything he told you from the bingo, and that's a long shout."],
+    ["sf_arcade_man", "You've had your change. Go and lose it."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_arcade_man_bluffed"}
+  },
+  "hat_shown": {
+   "speaker": "sf_arcade_man",
+   "lines": [
+    ["sf_arcade_man", "...That's it. Sun and moon were on the front, they've worn. That's it and I've not seen it since the Tuesday."],
+    ["sf_arcade_man", "The falls on the end. The ones I never changed. There's a penny in there from that week with a notch filed in it, and he put it in, and it's never dropped."],
+    ["sf_arcade_man", "I could tip the machine. I've never tipped the machine."],
+    ["vera", "He's kept the machine as an altar and never once admitted what to."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_arcade_man_hat_seen", "dread": 1, "trust": {"sf_arcade_man": 1}}
+  }
+ }
+}

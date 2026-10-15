@@ -1,0 +1,355 @@
+{
+ "_doc": "Opal Thacker, Thacker Bait and Tackle on the riverfront. Fourteen in 1966, she carried the lanterns for the search parties. Topics on the hub offer her quick facts (the search, no cranes in November, the suits' waders).",
+ "id": "rf_bait",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "Minnows are two dollars a dozen and the nightcrawlers are froze, so it's minnows. You're not here for minnows."
+    ],
+    [
+     "rf_bait",
+     "Photo on the wall is the '66 search. I'm the one with the lanterns. Everybody asks, so there. I've said it."
+    ],
+    [
+     "rf_bait",
+     "River's at eleven feet and dropping, ice on the eddies. Don't go on the point after dark, and not because of any bird."
+    ],
+    [
+     "dale",
+     "Two crane decoys on the shelf. Nobody hunts cranes in West Virginia."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 8,
+     "line": "Behind the counter, a 12-gauge and a new box of shells with four gone. She's been shooting at something this week, or ready to.",
+     "flag": "rf_bait_shells"
+    },
+    {
+     "voice": "lore",
+     "threshold": 9,
+     "line": "'Not because of any bird,' before you asked. River people name a thing by what it isn't."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "She was fourteen with the lanterns. Ask what the lanterns showed. Ask what the men wouldn't turn round for."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll take a dozen minnows, Mrs. Thacker. And the time of day.",
+     "next": "minnows"
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "rf_bank_prints_cast": 2,
+       "rf_bank_prints_photo": 1
+      }
+     },
+     "text": "Two-metre stride, straight out of the water. What walks out of the Ohio in January?",
+     "pass": "stride",
+     "fail": {
+      "next": "stride_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "Who taught you the river?",
+     "pass": "daddy",
+     "fail": {
+      "line": "The river taught me. Daddy taught me to make change. Chalmer's on the pier if you want somebody who likes to talk."
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Look at the photo on the wall.)",
+     "next": "photo",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_rf_bait"
+   }
+  },
+  "minnows": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "Miss. Thacker's my daddy's name and the shop's. Minnows are in the back tank, net's on the nail."
+    ],
+    [
+     "rf_bait",
+     "Time of day's free. It's a quarter past too late for the point and an hour early for the pier. Ask."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_bait": 1
+    }
+   },
+   "next": "hub"
+  },
+  "stride": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "...Nothing walks out of it. Things fall in it. I've pulled three out myself and none of 'em walked."
+    ],
+    [
+     "rf_bait",
+     "Those prints were on the point in '66 too. Same spot, same toes turned in. I was fourteen and I put my boot in one and it was still soft."
+    ],
+    [
+     "dale",
+     "Same spot, twenty-eight years apart. That's not a crane. That's a habit."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_bait": 1
+    },
+    "flag": "rf_bait_prints_66"
+   },
+   "next": "hub"
+  },
+  "stride_fail": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "Heron. Big heron. The deputy's got a whole speech on it, go get it from him, he likes giving it."
+    ],
+    [
+     "rf_bait",
+     "Minnows are two dollars."
+    ]
+   ],
+   "next": "hub"
+  },
+  "daddy": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "Daddy. Forty years of bait and two nights of search party. He went out both nights in '66 and never said a word about it after."
+    ],
+    [
+     "rf_bait",
+     "And he said words about everything. He put those decoys up the week after. Said if it was a crane it'd come to a crane. It never did."
+    ],
+    [
+     "ruth",
+     "A man sets a decoy for what he hopes it is."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_bait": 1
+    },
+    "flag": "rf_bait_decoys"
+   },
+   "next": "hub"
+  },
+  "photo": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "..."
+    ],
+    [
+     "rf_bait",
+     "That's Daddy with the shotgun. Sheriff Lusk with the dog. Me on the end with the two lanterns."
+    ],
+    [
+     "rf_bait",
+     "The man beside me is the only one looking the wrong way. He's the only one of them that moved out of the county after."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_bait": 1
+    },
+    "flag": "rf_bait_photo"
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "rf_bait",
+   "repeat": true,
+   "prompt": "Tank pump's loud. Ask it plain.",
+   "lines": [
+    [
+     "rf_bait",
+     "Tank pump's loud. Ask it plain."
+    ]
+   ],
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "rf_bait_lanterns"
+      ]
+     },
+     "check": {
+      "voice": "lore",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "rf_search_parties": 2,
+       "rf_crane_season": 1
+      }
+     },
+     "text": "The lanterns showed something the second night. The men went home relieved. You didn't.",
+     "pass": "lanterns",
+     "fail": {
+      "next": "lanterns_fail",
+      "trust": {
+       "rf_bait": -2
+      }
+     }
+    },
+    {
+     "tone": "hard",
+     "requires": {
+      "evidence": [
+       "rf_suits_waders"
+      ],
+      "not_flag": [
+       "rf_bait_sent_wrong"
+      ]
+     },
+     "text": "You sold the suits waders and told them to ask the county. Which way does the current run, Opal?",
+     "next": "current"
+    },
+    {
+     "tone": "wry",
+     "requires": {
+      "flag": [
+       "rf_bait_shells"
+      ],
+      "not_flag": [
+       "rf_bait_shells_asked"
+      ]
+     },
+     "text": "Four shells gone from a new box.",
+     "next": "shells"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll take the minnows and go."
+    }
+   ]
+  },
+  "lanterns": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "...Second night. I was down at the water filling a lantern and the light went out over the river and came back."
+    ],
+    [
+     "rf_bait",
+     "Something went over me. Twenty men with their backs turned and it went over me, low, no wingbeat, looking down at the lantern. Not me."
+    ],
+    [
+     "rf_bait",
+     "I didn't tell. I was fourteen and I'd have been sent home. I'm forty-two and I'm telling you in a bait shop. That's the river for you."
+    ],
+    [
+     "elijah",
+     "It still looks at lights. Ask the widow on the hill."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_bait": 1
+    },
+    "flag": "rf_bait_lanterns",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "lanterns_fail": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "I carried lanterns. That's all a girl got to carry. Minnows are two dollars and the door's where you left it."
+    ],
+    [
+     "miriam",
+     "She'll not say it twice. Not to us."
+    ]
+   ],
+   "next": "hub"
+  },
+  "current": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "Down. Toward the bridge. Always toward the bridge, everything on this river ends up there."
+    ],
+    [
+     "rf_bait",
+     "I told 'em up. They thanked me in those flat new bills and went up. If they're looking in the water, they're looking in the wrong water."
+    ],
+    [
+     "teddy",
+     "She sent two federal-looking men the wrong way on purpose. I'm in love."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_bait": 1
+    },
+    "flag": "rf_bait_sent_wrong"
+   },
+   "next": "hub"
+  },
+  "shells": {
+   "speaker": "rf_bait",
+   "lines": [
+    [
+     "rf_bait",
+     "Coons in the minnow tank."
+    ],
+    [
+     "rf_bait",
+     "...Something was on the roof Wednesday night. I fired up the stovepipe hole, twice, and it didn't leave till it wanted to. Coons."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_bait": 1
+    },
+    "flag": "rf_bait_shells_asked",
+    "dread": 1
+   },
+   "next": "hub"
+  }
+ }
+}

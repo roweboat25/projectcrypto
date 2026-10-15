@@ -1,0 +1,132 @@
+{
+ "id": "lv_birder",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "Shh. ...No. Gone. Reed warbler, the third this week, and the third time it's gone up before I've got the glasses settled. Bridget Quick. Sit, you're in the slot."],
+    ["lv_birder", "You'll be the Office. Len said. I've nothing against the Office, I've just never had it in my hide, and the hide's small."],
+    ["june", "The slot faces the sarsen, not the water. She's set up to watch the one place on the marsh with no birds."]
+   ],
+   "passives": [
+    {"voice": "recall", "threshold": 7, "line": "The log on the shelf is open at a page from the night you arrived. The entry stops halfway through a word. She has not touched it since."},
+    {"voice": "empathy", "threshold": 9, "line": "She underlined 'did not fly' twice, and the second line goes through the paper. That was not for a reader. That was for her.", "flag": "lv_birder_underline"}
+   ],
+   "options": [
+    {"tone": "kind", "text": "We'll keep our voices down. Twenty years of logs is a long watch.", "next": "kind"},
+    {"tone": "silent", "text": "(Sit. Look through the slot where she's looking.)", "next": "silent", "trust": 1},
+    {"tone": "wry", "text": "The warbler's got the right idea.", "next": "wry"}
+   ],
+   "gives": {"flag": "met_lv_birder"}
+  },
+  "kind": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "Twenty-one. I took it over from the warden in '73, the summer it happened, and I've missed four days for a hip."],
+    ["lv_birder", "Every bird on this marsh is in that bookcase. Every one. Which is why I know when something in it isn't a bird."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"lv_birder": 1}}
+  },
+  "silent": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "..."],
+    ["lv_birder", "The sarsen. Yes. You've found it. Most people look at the water, because that's where the birds are. I stopped looking at the water on Thursday."]
+   ],
+   "next": "hub",
+   "gives": {"dread": 1}
+  },
+  "wry": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "The warbler weighs half an ounce and has been to Africa and back. It has the right idea about everything."],
+    ["lv_birder", "Sit. You're letting the light in."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "lv_birder",
+   "repeat": true,
+   "prompt": "Ask. Quietly. The mist keeps sound in and I'd rather it didn't hear us.",
+   "lines": [["lv_birder", "Ask. Quietly. The mist keeps sound in and I'd rather it didn't hear us."]],
+   "static": {"min_dread": 3, "line": "She counted to ten with the glasses on it. She is still counting. Ask her what came after ten."},
+   "options": [
+    {"check": {"voice": "logic", "kind": "white", "difficulty": 8, "evidence_bonus": {"lv_birder_figure": 2, "lv_hide_log": 1}},
+     "text": "'Did not fly.' If the log made you put a species to it, what would you have written?", "pass": "species",
+     "fail": {"line": "Unidentified. That's a species. It's the one I've used three times in twenty years and I'd rather not make it four."}},
+    {"requires": {"flag": ["lv_birder_underline"]},
+     "check": {"voice": "empathy", "kind": "white", "difficulty": 8},
+     "text": "The entry stops halfway through a word. You've had that page open since Thursday.", "pass": "page", "fail": {"next": "page_fail"}},
+    {"requires": {"not_flag": ["lv_birder_dusk", "lv_birder_dusk_shut"]},
+     "check": {"voice": "nerve", "kind": "red", "difficulty": 10, "evidence_bonus": {"lv_glove_photo": 1, "lv_marsh_shed": 1, "lv_ring_photo": 1}},
+     "text": "Come out to the sarsen with us at dusk. With the glasses. Count to ten with us this time.", "pass": "dusk",
+     "fail": {"next": "dusk_fail", "trust": {"lv_birder": -1}}},
+    {"requires": {"evidence": ["lv_glove_lab"]},
+     "text": "The print on your glass is greasepaint. Cobalt. A stage brand.", "next": "grease"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll leave you the warbler."}
+   ]
+  },
+  "species": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "...A man. I'd have written 'man', and then I'd have had to write what kind, and the kind of man that's taller than the reeds and doesn't disturb the water isn't in Collins."],
+    ["lv_birder", "The warden wrote 'yellowhammer' for the children in '73 because it was the nearest thing in the book. I understand him better than I did."],
+    ["miriam", "She wants it in a field guide. So do I. That's the honest version of this job."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lv_birder_species", "trust": {"lv_birder": 1}}
+  },
+  "page": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "...Here. 'Dusk. Sarsen. Tall. Did not fly. Stepped down, no water sound. Then it tur-' and that's where I stopped, because it turned."],
+    ["lv_birder", "It turned round and it looked at the hide. At the slot. At me, with the glasses up. And it put its hand on the glass, from forty yards away, and the print's still there."],
+    ["lv_birder", "I've not finished the word. I'm not going to. Len can finish it if he wants to come in here, and he won't."],
+    ["elijah", "Forty yards and it touched the glass. Distance isn't a thing to it. Write that in your own book."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lv_birder_page", "dread": 1, "trust": {"lv_birder": 1}}
+  },
+  "page_fail": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "The pencil broke. Pencils do. I've a box of them and I've not got round to it, and that's all there is on that page."],
+    ["lv_birder", "The groundsman's seen a shed in the reeds, twice. Ask him about his shed. He'll not ask you about my page."]
+   ],
+   "next": "hub"
+  },
+  "dusk": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "...Half past eight. The stile, not the hide. Wellingtons, no torches, and if I say back we go back and nobody argues."],
+    ["lv_birder", "I'll bring the good glasses. The ones I had on it. If it's there, I'd like to get past ten this time."],
+    ["ruth", "Good girl. Nobody should have to count alone."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lv_birder_dusk", "dread": 1, "trust": {"lv_birder": 1}}
+  },
+  "dusk_fail": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "No. I'm sixty-one and I've a hip and I've done my ten. You go. Len Dabell knows the dry way and he's got the dog."],
+    ["lv_birder", "Don't bring it back to the hide. Whatever you count. I've enough on the glass."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lv_birder_dusk_shut"}
+  },
+  "grease": {
+   "speaker": "lv_birder",
+   "lines": [
+    ["lv_birder", "Greasepaint. ...Oh, thank God. A man. A man in a costume with paint on his hands, from the camp, for the kiddies. Of course. Of course it was."],
+    ["lv_birder", "...A man in greasepaint doesn't step down into a foot of water without a sound. I'd like the lab to explain that one and I don't suppose it can."],
+    ["dale", "Half of it's a man. Every time. It's the other half we keep walking into."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "lv_birder_grease", "trust": {"lv_birder": 1}}
+  }
+ }
+}

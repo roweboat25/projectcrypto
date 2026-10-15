@@ -428,6 +428,13 @@ func _voice_checks(data) -> Array[String]:
 	if int(copy.bond.get("teddy", 0)) != 1:
 		errors.append("the bond should survive a save")
 	copy.free()
+	# an option can require trust
+	state.trust["marlene"] = 1
+	if Investigation.option_available(data, state, {"requires": {"trust": 2}}, "marlene"):
+		errors.append("trust 1 should not meet a trust 2 requirement")
+	state.trust["marlene"] = 2
+	if not Investigation.option_available(data, state, {"requires": {"trust": 2}}, "marlene"):
+		errors.append("trust 2 should meet a trust 2 requirement")
 	# the quick-facts menu shows odds in its labels
 	for o in Investigation.witness_options(data, state, "marlene"):
 		if o.kind == "check" and not o.label.contains("%]"):

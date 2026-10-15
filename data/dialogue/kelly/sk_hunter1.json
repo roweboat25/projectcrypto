@@ -1,0 +1,372 @@
+{
+ "_doc": "Roy Teague, the older Teague brother, at the cave shack by day and the Teague field in the morning. Shoots the roost for Nashville feather money, hates wardens, loves his brother. Opens hostile at trust 0. The red check asks for his grandmother's version of Clell's lantern night; the hound on the stile wire is the soft way in.",
+ "id": "sk_hunter1",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sk_hunter1",
+   "lines": [
+    [
+     "sk_hunter1",
+     "Y'all the wardens? You ain't the wardens. Wardens come in a green truck and they come alone."
+    ],
+    [
+     "sk_hunter1",
+     "Whatever y'all are, that's my field, that's my fence, and that sack on the stoop is turkey feathers. Say otherwise and we're done."
+    ],
+    [
+     "dale",
+     "He's got down on both sleeves. Barred. That's not turkey."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 8,
+     "line": "Owl down on his cuffs, the fine stuff that comes off a breast when you pluck it. He plucked this morning. The sack is full and he knows you know.",
+     "flag": "sk_hunter1_sack"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "He looks at the stile before he looks at you. Somebody usually comes over it behind him. Nobody is."
+    }
+   ],
+   "options": [
+    {
+     "tone": "wry",
+     "text": "We're not wardens. We've got a cryptozoologist, which is worse.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "Turkey feathers don't float. We don't care about the sack.",
+     "next": "hub"
+    },
+    {
+     "tone": "kind",
+     "text": "We're from an office in West Virginia, Mr Teague. Owls are the least of what we're here about.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_sk_hunter1"
+   }
+  },
+  "hub": {
+   "speaker": "sk_hunter1",
+   "repeat": true,
+   "lines": [
+    [
+     "sk_hunter1",
+     "Say it, then. I got birds to clean and it's ninety in the shade and there ain't no shade."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The warden's cousin. One phone call and the field is yours to walk at night. He'd give you anything to keep that call from going out. Anything."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "sk_hunter1_easy"
+      ]
+     },
+     "tone": "wry",
+     "text": "Forty dollars a bird. The Nashville man ever ask what the bird did before it died?",
+     "next": "easy"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sk_guide_poachers": 1
+      }
+     },
+     "text": "Harlan Tapp says you two are the only men who've been in the Lacy gully at night since 1955.",
+     "pass": "gully",
+     "fail": {
+      "line": "Harlan Tapp says a lot from behind that rail. Ask him what's past the drop. Ask him why he keeps a dog bucket.",
+      "trust": {
+       "sk_hunter1": -1
+      }
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "sk_cabin_news_photo": 2,
+       "sk_owl_pellets_lab": 1
+      }
+     },
+     "text": "The warden's column, August 1955. 'A reader at Kelly reports one that came at his lantern.' That reader was a Teague.",
+     "pass": "column",
+     "fail": {
+      "next": "column_no",
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "sk_hunter1_easy"
+      ],
+      "not_flag": [
+       "sk_hunter1_grandmama"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "sk_guide_lantern": 2,
+       "sk_hunter2_hudson": 1
+      }
+     },
+     "text": "Your grandmama told it different. What did she tell you boys, the version without the laughing?",
+     "pass": "grandmama",
+     "fail": {
+      "next": "grandmama_no",
+      "trust": {
+       "sk_hunter1": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "sk_stile_hair_lab"
+      ],
+      "not_flag": [
+       "sk_hunter1_hound"
+      ]
+     },
+     "tone": "kind",
+     "text": "The hair on your stile wire is a blue-tick hound. Old one. Where is he?",
+     "next": "hound"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Roy."
+    }
+   ]
+  },
+  "easy": {
+   "speaker": "sk_hunter1",
+   "lines": [
+    [
+     "sk_hunter1",
+     "He asks what the hackle's like. That's all a fly man asks. He don't ask did it scream and he don't ask did it come at me."
+    ],
+    [
+     "sk_hunter1",
+     "I'll tell you for free. It comes at you. Every one. Wings up and that beak going like a man snapping his fingers in a bucket."
+    ],
+    [
+     "sk_hunter1",
+     "...Y'all ain't laughing. Most folks laugh."
+    ],
+    [
+     "miriam",
+     "We've had a week of it. Nobody's laughing any more."
+    ]
+   ],
+   "gives": {
+    "flag": "sk_hunter1_easy",
+    "trust": {
+     "sk_hunter1": 1
+    }
+   },
+   "next": "hub"
+  },
+  "gully": {
+   "speaker": "sk_hunter1",
+   "lines": [
+    [
+     "sk_hunter1",
+     "Three times. Coon season, following the dog, and the dog won't go past the dead oak so we'd go round."
+    ],
+    [
+     "sk_hunter1",
+     "Twice we come out the far side and it was fine."
+    ],
+    [
+     "sk_hunter1",
+     "Third time the dog sat down in the road and howled and wouldn't go in at all. August. Last August. That's the night Dewey was on the stile."
+    ],
+    [
+     "sk_hunter1",
+     "I ain't saying what he saw. He can say. I'm saying a blue-tick that'll go down a sink after a coon sat in the road and cried."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 8,
+     "line": "He gave you the dog, not the brother. A man protects what talks. The dog can't be asked twice."
+    }
+   ],
+   "gives": {
+    "trust": {
+     "sk_hunter1": 1
+    }
+   },
+   "next": "hub"
+  },
+  "column": {
+   "speaker": "sk_hunter1",
+   "lines": [
+    [
+     "sk_hunter1",
+     "...Granddaddy. Clell."
+    ],
+    [
+     "sk_hunter1",
+     "He wrote the warden a letter the Monday after, and the warden put it in the paper under the little men, and the whole store laughed."
+    ],
+    [
+     "sk_hunter1",
+     "Clell said it was an owl come at his lantern in the gully. He said it to the warden and he said it sober, once."
+    ],
+    [
+     "sk_hunter1",
+     "After that he told it drunk and it got funnier."
+    ],
+    [
+     "sk_hunter1",
+     "You read that page and you got the whole thing. Owl at a lantern. Little men. Same page, same week, and nobody put it together but a drunk."
+    ],
+    [
+     "teddy",
+     "The one sober telling went to the warden. Every drunk one went to the store. Nobody ever quoted the sober one."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "sk_hunter1": 1
+    },
+    "flag": "sk_hunter1_column"
+   },
+   "next": "hub"
+  },
+  "column_no": {
+   "speaker": "sk_hunter1",
+   "lines": [
+    [
+     "sk_hunter1",
+     "A reader at Kelly. Half the county's a reader at Kelly. Go ask the Hardins, they read."
+    ],
+    [
+     "sk_hunter1",
+     "That paper's in my wall keeping the wind out, and that's all it's keeping."
+    ]
+   ],
+   "next": "hub"
+  },
+  "grandmama": {
+   "speaker": "sk_hunter1",
+   "lines": [
+    [
+     "sk_hunter1",
+     "...She never laughed. Thirty years at the store he told it funny, and she'd sit in the truck with the window up."
+    ],
+    [
+     "sk_hunter1",
+     "She told it to us once, me and Dewey, the winter after he died."
+    ],
+    [
+     "sk_hunter1",
+     "He come home that night with no lantern and no jar and his shirt wet through, and he sat in the kitchen till it was light."
+    ],
+    [
+     "sk_hunter1",
+     "And he said, Mae, something went by me in the tobacco and it wasn't a hog and it wasn't an owl and it never touched the ground."
+    ],
+    [
+     "sk_hunter1",
+     "And then he never said it sober again."
+    ],
+    [
+     "sk_hunter1",
+     "She said the funny version was so he could keep going to the store. That's all. That's what she had."
+    ],
+    [
+     "ruth",
+     "A man builds a joke to live inside. Same as his neighbour built a porch. Lord, this crossroads."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "No lantern. He went into the gully carrying a light and came out without one, and the family story has a light going down. Count the lights in that gully. Count them twice."
+    }
+   ],
+   "gives": {
+    "flag": "sk_hunter1_grandmama",
+    "trust": {
+     "sk_hunter1": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "grandmama_no": {
+   "speaker": "sk_hunter1",
+   "lines": [
+    [
+     "sk_hunter1",
+     "Grandmama's dead and what she said is hers. You want a version, Dewey's got one. Dewey's down at the big sink talking to a goat."
+    ],
+    [
+     "sk_hunter1",
+     "Go on. I got birds to clean."
+    ]
+   ],
+   "end": true
+  },
+  "hound": {
+   "speaker": "sk_hunter1",
+   "lines": [
+    [
+     "sk_hunter1",
+     "...Blue. Thirteen year old. He's under the cabin."
+    ],
+    [
+     "sk_hunter1",
+     "He don't come out much since last August, and he don't go over that stile at all now, he goes under the wire like a pup."
+    ],
+    [
+     "sk_hunter1",
+     "Y'all bagged his hair off my fence and sent it to a lab. That's the most anybody's ever done for that dog."
+    ],
+    [
+     "sk_hunter1",
+     "Come by the cabin after dark if you want. Holler from the stile. He'll bay, and Dewey'll make coffee, and Dewey's coffee is a sin."
+    ]
+   ],
+   "gives": {
+    "flag": "sk_hunter1_hound",
+    "trust": {
+     "sk_hunter1": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

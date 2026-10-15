@@ -205,8 +205,10 @@ static func trust_of(data: Node, state: Node, witness_id: String) -> int:
 	return int(state.trust.get(witness_id, w.get("trust", 0)))
 
 
-static func option_available(data: Node, state: Node, o: Dictionary) -> bool:
+static func option_available(data: Node, state: Node, o: Dictionary, witness_id := "") -> bool:
 	var req: Dictionary = o.get("requires", {})
+	if req.has("trust") and witness_id != "" and trust_of(data, state, witness_id) < int(req.trust):
+		return false
 	for e in req.get("evidence", []):
 		if not state.has_evidence(e):
 			return false

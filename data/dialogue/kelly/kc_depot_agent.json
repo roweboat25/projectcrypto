@@ -1,0 +1,444 @@
+{
+ "_doc": "Virgil Sisk, seventy-eight, the L&N agent on nights in 1955, still in the old Kelly depot with the train register open. Writes everything down. Trust 1, dry, exact, railroad time. The red check asks who drove the second car with no lights; the sergeant's walker on US-41 is the evidence way in.",
+ "id": "kc_depot_agent",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_depot_agent",
+   "lines": [
+    [
+     "kc_depot_agent",
+     "Door's open because it's August, not because I'm receiving. But you've walked up the platform and I've seen you, so."
+    ],
+    [
+     "kc_depot_agent",
+     "Virgil Sisk, agent. Was. The L&N pulled the agency in '68 and left me the building, the clock and the register, and I've kept all three."
+    ],
+    [
+     "kc_depot_agent",
+     "Ask what you came to ask. I'll tell you what I wrote down, and I'll tell you what I didn't, and the second list is shorter."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 7,
+     "line": "The regulator clock on the wall is four minutes ahead of your watch. Railroad time, kept wound for twenty-six years with no railroad. Every time in this room is to that clock."
+    },
+    {
+     "voice": "recall",
+     "threshold": 9,
+     "line": "The register's open to August 1955 and one line is a different ink. Blue-black, the rest black. Written later, by the same hand.",
+     "flag": "kc_da_pen"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Both lists, Mr Sisk. We'd be grateful.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "A clock, a book and a building. You've got better records than the sheriff.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "We've read the register. We're here for the second list.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_depot_agent"
+   }
+  },
+  "hub": {
+   "speaker": "kc_depot_agent",
+   "repeat": true,
+   "lines": [
+    [
+     "kc_depot_agent",
+     "Go on. Mind the clock; I take my supper at six by it, not by yours."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He logged two cars at 2:25 and he heard one engine. He knows it. He's known it for thirty-nine years and written round it. Make him say what the second car sounded like."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "kc_da_rule"
+      ]
+     },
+     "tone": "wry",
+     "text": "A freight at 2:05 gets logged. A light at half past seven doesn't. What's the rule?",
+     "next": "rule"
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_police_log_1955": 1,
+       "hv_police_log_copy": 1
+      }
+     },
+     "text": "The wire. Did Hopkinsville send anything down the line that night, before the Lacys ever drove in?",
+     "pass": "wire",
+     "fail": {
+      "next": "wire_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_da_pen"
+      ],
+      "not_flag": [
+       "kc_da_pen_told"
+      ]
+     },
+     "check": {
+      "voice": "recall",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "kc_train_register": 2
+      }
+     },
+     "text": "There's a line in blue-black ink on a black-ink page. Written later. What did you add, and when?",
+     "pass": "pen",
+     "fail": {
+      "line": "A man's allowed two pens in a lifetime. Read what's written, not what it's written with.",
+      "trust": {
+       "kc_depot_agent": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "kc_da_second"
+      ]
+     },
+     "check": {
+      "voice": "logic",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "kc_agent_lull": 1,
+       "kc_train_register": 1,
+       "hv_sgt_unknown_walker": 2
+      }
+     },
+     "text": "Two cars toward town, no lights on the second. You log what crosses. Who drove the second car, Mr Sisk?",
+     "pass": "second_car",
+     "fail": {
+      "next": "second_no",
+      "trust": {
+       "kc_depot_agent": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_sgt_unknown_walker"
+      ],
+      "not_flag": [
+       "kc_da_walker"
+      ]
+     },
+     "tone": "kind",
+     "text": "The desk sergeant's log has a man walking US-41 at three in the morning. Toward the crossing, or away from it?",
+     "next": "walker"
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "kc_da_odessa_kind"
+      ]
+     },
+     "tone": "kind",
+     "text": "Odessa Pettit. You've never required her to speak to you. Would you like her to?",
+     "next": "odessa_kind"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Sisk. Mind your supper."
+    }
+   ]
+  },
+  "rule": {
+   "speaker": "kc_depot_agent",
+   "lines": [
+    [
+     "kc_depot_agent",
+     "The rule is the register is the railroad's. Trains, cars, cattle on the right-of-way, a woman with a lantern at the crossing."
+    ],
+    [
+     "kc_depot_agent",
+     "Things that cross the line get logged."
+    ],
+    [
+     "kc_depot_agent",
+     "A light in the sky never crossed anything. So it isn't in the book. I've thought since that was a lawyer's answer, and I'm not a lawyer."
+    ],
+    [
+     "kc_depot_agent",
+     "I'll tell you what I'd tell the L&N. I saw it. I didn't log it. Both are true and I'm not proud of the second one."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_da_rule",
+    "trust": {
+     "kc_depot_agent": 1
+    }
+   },
+   "next": "hub"
+  },
+  "wire": {
+   "speaker": "kc_depot_agent",
+   "lines": [
+    [
+     "kc_depot_agent",
+     "One message. 11:40. Hopkinsville to all points: 'Report any disturbance at Kelly.' Before the Lacys ever left the house."
+    ],
+    [
+     "kc_depot_agent",
+     "Before anybody had telephoned anybody."
+    ],
+    [
+     "kc_depot_agent",
+     "I keyed back 'shooting at Lacy place since 11' and they keyed 'noted'."
+    ],
+    [
+     "kc_depot_agent",
+     "Somebody in town knew to ask about Kelly twenty minutes after it started, and I've never found out who."
+    ],
+    [
+     "june",
+     "Somebody in Hopkinsville had a reason to ask about Kelly before the family had a reason to drive there. That's not a drunk neighbour."
+    ],
+    [
+     "june",
+     "That's a schedule."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "The desk log in town starts at two in the morning when the family arrives. The wire says the station was asking at 11:40. There's a page missing in Hopkinsville, or a man."
+    }
+   ],
+   "gives": {
+    "trust": {
+     "kc_depot_agent": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "wire_no": {
+   "speaker": "kc_depot_agent",
+   "lines": [
+    [
+     "kc_depot_agent",
+     "Wire traffic was the railroad's and it went to Louisville and got burned in '70 with everything else."
+    ],
+    [
+     "kc_depot_agent",
+     "What I remember of it I'd want to be sure of before I said it to strangers."
+    ],
+    [
+     "kc_depot_agent",
+     "The police kept a desk log in town. Start there. If the sergeant lets you read it, come back and tell me what time it begins."
+    ]
+   ],
+   "next": "hub"
+  },
+  "pen": {
+   "speaker": "kc_depot_agent",
+   "lines": [
+    [
+     "kc_depot_agent",
+     "...1978. The week Mrs Lacy died."
+    ],
+    [
+     "kc_depot_agent",
+     "I came down here at night and I wrote what I'd left out in 1955, because she'd gone and there wasn't anybody left to protect from it."
+    ],
+    [
+     "kc_depot_agent",
+     "'7:30 PM, light descending W toward Lacy, slow, no sound, not a flare.' Twenty-three years late, in the wrong ink."
+    ],
+    [
+     "kc_depot_agent",
+     "It's the only entry in that book I ever back-dated and I signed it so nobody could say I didn't."
+    ],
+    [
+     "kc_depot_agent",
+     "A railroad man who back-dates a register ought to be fired. I fired myself. I kept the building."
+    ],
+    [
+     "miriam",
+     "He corrected the record and signed the correction. Most people just change the story. That line's worth the whole book."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_da_pen_told",
+    "trust": {
+     "kc_depot_agent": 1
+    }
+   },
+   "next": "hub"
+  },
+  "second_car": {
+   "speaker": "kc_depot_agent",
+   "lines": [
+    [
+     "kc_depot_agent",
+     "...I heard one engine."
+    ],
+    [
+     "kc_depot_agent",
+     "The Lacys' Ford came over the crossing with every light on and every window down and I could see the children's heads."
+    ],
+    [
+     "kc_depot_agent",
+     "And behind it, twenty yards, something crossed the rails with no lights, and no engine, and it did not bump."
+    ],
+    [
+     "kc_depot_agent",
+     "Every car bumps on that crossing. I wrote 'two cars' because what else does a railroad man write."
+    ],
+    [
+     "kc_depot_agent",
+     "I've never been able to tell you what the second one was. It followed them to town."
+    ],
+    [
+     "kc_depot_agent",
+     "The sergeant's log will say two cars came in. Ask him how many drove home."
+    ],
+    [
+     "vera",
+     "Something followed the family to the police station, over the rails, without touching them. And sat outside while they told it."
+    ],
+    [
+     "vera",
+     "I want the desk log more than I have wanted anything in this state."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "It did not land at half past seven. It did not bump at twenty past two. Whatever it was, in nine hours it never once touched the ground at Kelly."
+    }
+   ],
+   "gives": {
+    "flag": "kc_da_second",
+    "trust": {
+     "kc_depot_agent": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "second_no": {
+   "speaker": "kc_depot_agent",
+   "lines": [
+    [
+     "kc_depot_agent",
+     "Two cars. The register says two cars. I was seventy yards off in the dark and I counted what I counted."
+    ],
+    [
+     "kc_depot_agent",
+     "If you want more than the book says, the desk sergeant in town has his own book and his own reasons. I'd try him. I'm going to my supper."
+    ]
+   ],
+   "end": true
+  },
+  "walker": {
+   "speaker": "kc_depot_agent",
+   "lines": [
+    [
+     "kc_depot_agent",
+     "Toward."
+    ],
+    [
+     "kc_depot_agent",
+     "I had the platform lamp on and he came up the highway from the south about ten to three, on foot."
+    ],
+    [
+     "kc_depot_agent",
+     "Stood at the crossing and looked at the depot."
+    ],
+    [
+     "kc_depot_agent",
+     "Hat, coat, in August. Didn't come in. Didn't cross. Walked on north toward the Lacy place with the family still in town."
+    ],
+    [
+     "kc_depot_agent",
+     "I didn't log him because he never crossed the line. I've regretted that one too."
+    ],
+    [
+     "kc_depot_agent",
+     "The hotel in town had a man in a suit that week. I'd ask there before I asked the sky."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_da_walker",
+    "trust": {
+     "kc_depot_agent": 1
+    }
+   },
+   "next": "hub"
+  },
+  "odessa_kind": {
+   "speaker": "kc_depot_agent",
+   "lines": [
+    [
+     "kc_depot_agent",
+     "...I would."
+    ],
+    [
+     "kc_depot_agent",
+     "I'd like to tell her I never told a soul what I wrote about that night till the register was a museum piece and you people came asking."
+    ],
+    [
+     "kc_depot_agent",
+     "I'd like to tell her I thought she was the bravest thing I saw that night, in a nightgown with a lantern, walking toward the shooting."
+    ],
+    [
+     "kc_depot_agent",
+     "I never had the chance. She crossed the road when she saw me."
+    ],
+    [
+     "kc_depot_agent",
+     "You see her. You might say Virgil Sisk said that. I won't be offended if you don't."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_da_odessa_kind",
+    "trust": {
+     "kc_depot_agent": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

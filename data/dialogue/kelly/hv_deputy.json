@@ -1,0 +1,350 @@
+{
+ "_doc": "Deputy Hollis Pyle, thirty, Hopkinsville police. Mornings on the square by the lawn cannon, then the station, then the night desk alone with the scanner. Grew up here, climbed the Fort Campbell fence as a boy, tells you what not to do in the voice of a man giving directions.",
+ "id": "hv_deputy",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_deputy",
+   "lines": [
+    [
+     "hv_deputy",
+     "Morning. Hollis Pyle. Don't park on the square side after four, they tow for the band concert. And don't go up to the fort wire after dark. I'm telling everybody that this week. I'm telling you twice."
+    ],
+    [
+     "hv_deputy",
+     "Dub says you're not laughing. That's new. Most of 'em are laughing before they're out of the car."
+    ],
+    [
+     "teddy",
+     "He said 'after dark' and then he said 'twice'. He's going to keep telling us the time until we hear it."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 7,
+     "line": "A hand scanner on his belt, turned down, not off. It's on a channel the police don't use. He listens to the fort at night."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "He grew up here. Every August of his life has been this. He's the age the chief's boy was in 1955, and he's walking the same square telling strangers the same things.",
+     "flag": "hv_deputy_local"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're not laughing, Deputy. We're asking. Where do we start?",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "After dark, twice. We heard you. What's the fence like in daylight?",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "We're not here for the band concert. Where's the MP log box?",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_deputy"
+   }
+  },
+  "hub": {
+   "speaker": "hv_deputy",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_deputy",
+     "I've got a minute. The sergeant's got the book and I've got the minute. Go on."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He's got the fort's channel on his belt. He'll go to the washroom before his shift ends. The scanner stays on the desk. Nobody counts scanners."
+   },
+   "options": [
+    {
+     "tone": "wry",
+     "text": "So the fence is a fence by day and a problem by night. Which hours, exactly, is it a fence?",
+     "next": "fence"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "hv_mp_recall": 1,
+       "hv_editor_army_letter": 1
+      }
+     },
+     "text": "Sarge at the barbecue. You've known him all your life. How do we sit down at that booth without him getting up?",
+     "pass": "sarge",
+     "fail": {
+      "next": "sarge_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "rt_cb_chatter": 1,
+       "sk_flare_casing_lab": 1
+      }
+     },
+     "text": "The scanner on your belt isn't on a police channel. What does the fort say to itself in August?",
+     "pass": "channel",
+     "fail": {
+      "next": "channel_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_deputy_local"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "hv_mp_which_report": 2,
+       "hv_mp_exercise_1957": 1
+      }
+     },
+     "text": "You've been over that wire yourself. As a boy. You've had your hands in the log box. Say what's in it.",
+     "pass": "box",
+     "fail": {
+      "next": "box_no",
+      "trust": {
+       "hv_deputy": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_mp_report_1955"
+      ]
+     },
+     "tone": "kind",
+     "text": "We found the carbon. The bad typewriter. 'Large bird, probably owl.' That's Sarge's, isn't it.",
+     "next": "carbon"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all, Deputy. We'll stay off the wire."
+    }
+   ]
+  },
+  "fence": {
+   "speaker": "hv_deputy",
+   "lines": [
+    [
+     "hv_deputy",
+     "Sunup to about eight at night it's a fence. Chain link, a sign in two colours, and nobody. The MPs don't run the boundary road in daylight; there's nothing on it but hay."
+    ],
+    [
+     "hv_deputy",
+     "Eight on, it's the Army. Jeep every forty minutes, and in August every twenty, because every August somebody calls in lights, and every August it's y'all."
+    ],
+    [
+     "hv_deputy",
+     "I'm not telling you anything. I'm telling you the time. I'm real careful about that."
+    ],
+    [
+     "june",
+     "Every forty minutes, every twenty in August. He just gave us the patrol interval. That's the window."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_dep_fence",
+    "flag": "hv_deputy_fence"
+   },
+   "next": "hub"
+  },
+  "sarge": {
+   "speaker": "hv_deputy",
+   "lines": [
+    [
+     "hv_deputy",
+     "Don't ask him anything. Don't say 'Fort Campbell' and don't say '1955'. Buy a pie. Set it on the table. Sit down and read the other half of his paper and don't look at him."
+    ],
+    [
+     "hv_deputy",
+     "He's been in that booth since '71. He talks about the Cardinals and the weather and that's it, and if you give him the weather long enough, he'll give you the rest, because nobody ever let him."
+    ],
+    [
+     "hv_deputy",
+     "And don't bring the Ledger woman. He thinks she wants his name in the paper. She does. She's right that it'd help, and he's right that he doesn't want it."
+    ],
+    [
+     "ruth",
+     "A pie and the sports page, dear. We've opened harder doors with less."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_deputy_sarge",
+    "trust": {
+     "hv_deputy": 1
+    }
+   },
+   "next": "hub"
+  },
+  "sarge_no": {
+   "speaker": "hv_deputy",
+   "lines": [
+    [
+     "hv_deputy",
+     "You don't. He gets up. He's got up on better than you. Ask Lonnie Cheek, it's his booth."
+    ],
+    [
+     "teddy",
+     "He's protecting the old man from us, which means the old man's worth protecting. Ask the barbecue, like he says."
+    ]
+   ],
+   "next": "hub"
+  },
+  "channel": {
+   "speaker": "hv_deputy",
+   "lines": [
+    [
+     "hv_deputy",
+     "...It's the gate net. Thirty-eight nine, in the clear, they never changed it. I listen because my daddy listened. He was the chief's boy. The one who found the shot in the trees."
+    ],
+    [
+     "hv_deputy",
+     "August, it's flares. They shoot illumination off the range every August, have since '57, Exercise something, and every August the lights go up over the treeline and somebody in Kelly calls the law."
+    ],
+    [
+     "hv_deputy",
+     "You hear 'em call it on the net ten minutes before the phone rings here. Ten minutes. I could set the station clock by it."
+    ],
+    [
+     "june",
+     "Thirty-eight point nine. If the gully light on the twenty-first is a flare, it'll be on that net ten minutes before. If it isn't on that net, it isn't a flare. That's a test. We can run it."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_deputy_channel",
+    "trust": {
+     "hv_deputy": 1
+    }
+   },
+   "next": "hub"
+  },
+  "channel_no": {
+   "speaker": "hv_deputy",
+   "lines": [
+    [
+     "hv_deputy",
+     "It's a scanner. It scans. I'm a police officer, I listen to things. Mostly it's the Greyhound dispatcher."
+    ],
+    [
+     "hv_deputy",
+     "Sarge could tell you what the Army says to itself. If Sarge was talking. Which he's not."
+    ],
+    [
+     "miriam",
+     "That's two witnesses pointing at the same booth. The booth's the lead, not the scanner."
+    ]
+   ],
+   "next": "hub"
+  },
+  "box": {
+   "speaker": "hv_deputy",
+   "lines": [
+    [
+     "hv_deputy",
+     "...Twelve. 1976. Me and the Ladd boy went over the wire on a bet and the box was right there on the old gate post, and it opens, and it's full. Nobody's cleaned it since Korea. Nobody's going to."
+    ],
+    [
+     "hv_deputy",
+     "Two reports everybody finds. One's got letterhead and a stamp and says 'luminous objects' and it's been on the TV every August since I was a kid, and it's from '57, and it's flares."
+    ],
+    [
+     "hv_deputy",
+     "The other one's a carbon off a bad typewriter, folded under it, and it's wet, and it says owl. I read it standing on a gate post at twelve years old."
+    ],
+    [
+     "hv_deputy",
+     "I've known it was owls since I was twelve and I've never said so, because Sarge wrote it and Sarge doesn't want it said."
+    ],
+    [
+     "dale",
+     "He's known for eighteen years. In a police uniform. In this town. And he kept his mouth shut for an old man in a booth. I don't know whether to shake his hand or arrest him."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_dep_tangle",
+    "flag": "hv_deputy_box",
+    "trust": {
+     "hv_deputy": 1
+    }
+   },
+   "next": "hub"
+  },
+  "box_no": {
+   "speaker": "hv_deputy",
+   "lines": [
+    [
+     "hv_deputy",
+     "I've never been over that wire and if I had I'd have been twelve and you'd be asking a police officer to admit to trespass on federal land in front of the sergeant's door."
+    ],
+    [
+     "hv_deputy",
+     "Dorene's got rooms. Go lie down. It's hot."
+    ],
+    [
+     "miriam",
+     "'If I had I'd have been twelve.' He answered the question and denied it in the same breath. Leave him his uniform. The box is still on the gate post."
+    ]
+   ],
+   "next": "hub"
+  },
+  "carbon": {
+   "speaker": "hv_deputy",
+   "lines": [
+    [
+     "hv_deputy",
+     "...Yeah. That's his. That's the typewriter in the guard shack, it dropped every 'e'. You went over the wire. I didn't hear that."
+    ],
+    [
+     "hv_deputy",
+     "Don't take it to him. Take it to the Ledger. Let her put the owl next to the family's name the way he wants, and let him read it in the paper like it came from somewhere else. He can live with that."
+    ],
+    [
+     "hv_deputy",
+     "He can't live with having said it."
+    ],
+    [
+     "elijah",
+     "He's just told us how to give an old man his dignity back without making him stand up for it. That's the best advice anybody's given us in Kentucky."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_deputy_carbon",
+    "trust": {
+     "hv_deputy": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

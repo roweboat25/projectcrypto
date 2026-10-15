@@ -1,0 +1,341 @@
+{
+ "id": "lk_yellowcoat",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "Hiya! Kerry. Kids' club, the donkey derby, and the glamorous granny on Fridays, which is a job and a half. You're not with a coach. Are you the Americans?"
+    ],
+    [
+     "lk_yellowcoat",
+     "Terry said don't talk to the Americans, so obviously. Have a lolly, they're free, they're for the kids, you look like you need one."
+    ],
+    [
+     "lk_yellowcoat",
+     "Don't tell Terry about the lolly."
+    ],
+    [
+     "dale",
+     "Twenty-two, three weeks into the season, and she's already got a list of things not to tell Terry. Good."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "The smile is real and she has been using it on frightened children all week. There is something under it she's been smiling at too."
+    },
+    {
+     "voice": "tech",
+     "threshold": 9,
+     "line": "A kids' club cassette recorder hangs off her shoulder with a tape in it, wound back. She has been listening to something and rewinding it.",
+     "flag": "lk_yellowcoat_tape"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll take a lolly. How's the kids' club this week?",
+     "next": "kind"
+    },
+    {
+     "tone": "wry",
+     "text": "What else aren't we telling Terry?",
+     "next": "wry"
+    },
+    {
+     "tone": "hard",
+     "text": "The notice in the office. No walkabouts without the manager. Why?",
+     "next": "hard"
+    }
+   ],
+   "gives": {
+    "flag": "met_lk_yellowcoat"
+   }
+  },
+  "kind": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "Busy. Forty on the register, three sick, one bit a donkey. Normal. Mostly normal."
+    ],
+    [
+     "lk_yellowcoat",
+     "Three of them won't go on the field. Different coaches, different mums, and they all want to stay in the ballroom with the lights on. In May. That's not normal."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "lk_yellowcoat": 1
+    }
+   }
+  },
+  "wry": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "Loads. The fruit machine pays out if you hit it on the left. Gaz does Uncle Rainbow's voice better than Uncle Rainbow. There's a hat in the store we're not to touch."
+    ],
+    [
+     "lk_yellowcoat",
+     "...I've touched it. Don't tell Terry. That's going to be a long list with you lot, isn't it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hard": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "Oh, that one. Terry's one rule. Nobody knows why and nobody asks twice, because Gaz asked twice."
+    ],
+    [
+     "lk_yellowcoat",
+     "You're direct. That's fine. I do forty six-year-olds a day, I can do four of you."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "lk_yellowcoat",
+   "repeat": true,
+   "prompt": "Go on, ask. Kids' club's at two and I've got the donkeys till then.",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "Go on, ask. Kids' club's at two and I've got the donkeys till then."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The tape. She's rewound it to the same place twice since you walked up. There's a voice on it that isn't a child's. Make her play it."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "lk_kids_drawings": 1
+      }
+     },
+     "text": "What's the kids' club singing this week? There's always a song.",
+     "pass": "song",
+     "fail": {
+      "line": "The Birdie Song, and if you make me do the actions I'll never speak to you again. Next question."
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "lk_rota_1973": 1
+      }
+     },
+     "text": "Gaz got barred for asking twice. What did he ask the second time?",
+     "pass": "gaz",
+     "fail": {
+      "next": "gaz_fail"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "lk_yellowcoat_tape"
+      ],
+      "not_flag": [
+       "lk_yellowcoat_played",
+       "lk_yellowcoat_chewed"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "tn_phone_voice": 1,
+       "sf_professor_swazzle": 1
+      }
+     },
+     "text": "Play us the tape, Kerry. The bit you keep rewinding to.",
+     "pass": "tape",
+     "fail": {
+      "next": "tape_fail",
+      "trust": {
+       "lk_yellowcoat": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "lk_hat_lab"
+      ]
+     },
+     "text": "The hat band's got Brylcreem in it. Somebody wore it a whole season.",
+     "next": "lab"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll let you get back to the donkeys."
+    }
+   ]
+  },
+  "song": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "That's the thing. I didn't teach them one. Monday they were all singing it anyway, the three off the field and then the rest."
+    ],
+    [
+     "lk_yellowcoat",
+     "'Come and see the dials, come and see the dials.' To the tune of nothing."
+    ],
+    [
+     "lk_yellowcoat",
+     "I asked who taught them. They said the yellow man. I said Uncle Rainbow? They said no. The other one."
+    ],
+    [
+     "elijah",
+     "Children learn a song from whoever sings it to them. Somebody sang it to them."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lk_yellowcoat_song",
+    "dread": 1
+   }
+  },
+  "gaz": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "First time he asked why no walkabouts and Terry said because I said. Second time he'd found the rota in Len's office. He said, who's Sunny Jim, Terry, and what did he do?"
+    ],
+    [
+     "lk_yellowcoat",
+     "Terry went the colour of the ballroom carpet and barred him for a week and bought him a drink the same night. Both. Gaz said it was like being told off by somebody drowning."
+    ],
+    [
+     "teddy",
+     "Barred and bought a drink. That's a man paying for silence and apologising for the price."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lk_yellowcoat_gaz",
+    "trust": {
+     "lk_yellowcoat": 1
+    }
+   }
+  },
+  "gaz_fail": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "Dunno. Something about the bar. Gaz asks about the bar a lot."
+    ],
+    [
+     "lk_yellowcoat",
+     "Len would know. Len knows what everyone asked and when. He's in the office when Terry isn't and the other way round."
+    ]
+   ],
+   "next": "hub"
+  },
+  "tape": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "...Okay. Okay. It's the kids doing the song, Tuesday, I taped it to show Terry. Listen under them. Right there. Hear that?"
+    ],
+    [
+     "lk_yellowcoat",
+     "That's not a kid. That's not Gaz. It's flat, like a kazoo, and it's doing the song a beat ahead of them. Like it's leading. There was nobody in the room. I'd have seen."
+    ],
+    [
+     "lk_yellowcoat",
+     "I've rewound it about fifty times. It's there every time. I thought if I played it enough it'd be a kid."
+    ],
+    [
+     "june",
+     "A beat ahead. It's not on the tape by accident. It's on the tape because it wanted to be."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lk_yellowcoat_played",
+    "dread": 1,
+    "trust": {
+     "lk_yellowcoat": 1
+    }
+   }
+  },
+  "tape_fail": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "...It's chewed. It's chewed it. The machine's just eaten the... that's the only one. That was the only one."
+    ],
+    [
+     "lk_yellowcoat",
+     "Just go. Please. Go and ask Len, go and ask anybody, I've got donkeys."
+    ],
+    [
+     "vera",
+     "The machine didn't chew it. Something took it back."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lk_yellowcoat_chewed",
+    "dread": 1
+   }
+  },
+  "lab": {
+   "speaker": "lk_yellowcoat",
+   "lines": [
+    [
+     "lk_yellowcoat",
+     "Brylcreem. Right. Twenty-one years in a store and it's still greasy, I know, I've had it on my hands."
+    ],
+    [
+     "lk_yellowcoat",
+     "Here's the thing. It was greasy on Monday and it's greasier now. Like somebody's wearing it. And the store's padlocked and the padlock's new and I've not got the key."
+    ],
+    [
+     "ruth",
+     "Somebody is wearing it, love. Just not while you're looking."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lk_yellowcoat_lab",
+    "dread": 1,
+    "trust": {
+     "lk_yellowcoat": 1
+    }
+   }
+  }
+ }
+}

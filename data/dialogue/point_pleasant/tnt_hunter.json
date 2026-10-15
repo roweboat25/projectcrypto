@@ -1,0 +1,149 @@
+{
+ "id": "tnt_hunter",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "Sit if you're sitting. Fire's small on purpose. Warden don't come past the fence, but he's got eyes."],
+    ["tnt_hunter", "Ducks ain't moving. Ducks ain't moved since January. Still, a man sits where he sits."],
+    ["dale", "Twelve-gauge, a thermos, and no decoys out. He's not hunting."]
+   ],
+   "passives": [
+    {"voice": "fieldcraft", "threshold": 7, "line": "No decoys. No blind. He's facing the plant, not the pond. He's keeping watch and calling it hunting.", "flag": "tnt_hunter_watching"},
+    {"voice": "logic", "threshold": 9, "line": "The firewood's stacked for a week. He isn't going home nights.", "flag": "tnt_hunter_sleeps_out"},
+    {"voice": "arcana", "threshold": 10, "line": "Every duck on the pond is facing the same way. Toward the plant. Ducks don't do that."}
+   ],
+   "static": {"min_dread": 3, "line": "He's facing the plant because the plant is facing him. Turn around. Now turn back and don't say what you saw."},
+   "options": [
+    {"tone": "kind", "text": "Cold night for ducks.", "next": "cold"},
+    {"check": {"voice": "fieldcraft", "kind": "white", "difficulty": 8, "evidence_bonus": {"marlene_tnt": 1, "warden_lets_hunter": 1}},
+     "text": "You're facing the plant, Lyle. Not the pond.", "pass": "facing",
+     "fail": {"next": "facing_fail"}},
+    {"tone": "silent", "text": "(Sit by the fire and say nothing.)", "next": "sit", "trust": 1}
+   ],
+   "gives": {"flag": "met_tnt_hunter"}
+  },
+  "cold": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "Cold night for anything. Coffee's got something in it, you want it."],
+    ["tnt_hunter", "My wife thinks I'm at my brother's. My brother thinks I'm home. The ducks know where I am."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"tnt_hunter": 1}}
+  },
+  "facing": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "...Yeah. Since January. Something comes up off that roof at dusk and I want to see it come down. It never comes down."],
+    ["tnt_hunter", "Goes over the north pond and the ducks go up like a hawk's on 'em. Then they land, and they all face the plant. Every one."],
+    ["dale", "Prey animals face the threat. They know where it went."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hunter_lights", "evidence": "hunter_plant_lights", "flag": "tnt_hunter_told_lights", "trust": {"tnt_hunter": 1}}
+  },
+  "facing_fail": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "I'm facing where I'm facing. Pond's that way, plant's that way, I got two eyes."],
+    ["tnt_hunter", "You want to know what comes off the plant, ask the warden. He'll tell you nothing does, from inside the fence."]
+   ],
+   "next": "hub"
+  },
+  "sit": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "..."],
+    ["tnt_hunter", "(He pours a second cup without looking and sets it on the log beside you.)"],
+    ["tnt_hunter", "Most folks talk. You'd be surprised what you see when you don't."],
+    ["elijah", "He's been waiting for company that doesn't talk."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "tnt_hunter",
+   "repeat": true,
+   "prompt": "Fire's warm.",
+   "lines": [
+    ["tnt_hunter", "Say your piece. Ducks ain't listening and I'm barely."]
+   ],
+   "options": [
+    {"check": {"voice": "logic", "kind": "white", "difficulty": 8, "evidence_bonus": {"hunter_vest": 1, "igloo_glyph_photo": 1}},
+     "text": "A kid would've taken the vest. Who leaves orange and stacks cans?", "pass": "cans",
+     "fail": {"next": "cans_fail"}},
+    {"tone": "hard", "requires": {"flag": ["tnt_hunter_watching"]},
+     "check": {"voice": "nerve", "kind": "red", "difficulty": 10, "evidence_bonus": {"vest_photo": 1, "three_note_tone": 1}},
+     "text": "Come into igloo 7 with us. Now.", "pass": "igloo",
+     "fail": {"next": "igloo_fail", "trust": {"tnt_hunter": -1}, "dread": 1}},
+    {"requires": {"evidence": ["vest_photo"], "not_flag": ["tnt_hunter_photo"]}, "text": "Two red eyes in the flash, Lyle. It's your vest.", "next": "photo"},
+    {"tone": "wry", "requires": {"not_flag": ["tnt_hunter_brother"]}, "text": "Your brother's going to find out.", "next": "brother"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "Keep the fire small."}
+   ]
+  },
+  "cans": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "Not a kid. Kid takes the orange and leaves the cans. This took nothing and left 'em in a row like it was counting."],
+    ["tnt_hunter", "Twelve cans. I drank twelve. It knew. That's what I can't get past. It counted."],
+    ["miriam", "Or a bored game warden with a boot and an evening."],
+    ["tnt_hunter", "Warden don't go in 7. Ask him why."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hunter_cans", "evidence": "hunter_cans", "trust": {"tnt_hunter": 1}}
+  },
+  "cans_fail": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "Kids. Sure. Kids with a ruler."],
+    ["tnt_hunter", "Go on and look yourself. I ain't going in."]
+   ],
+   "next": "hub"
+  },
+  "igloo": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "...All right."],
+    ["tnt_hunter", "(He stands, and he's older than he looked sitting down. He leaves the gun by the fire. On purpose.)"],
+    ["tnt_hunter", "It don't like guns. I think it don't like 'em. I think it don't care, which is worse."],
+    ["tnt_hunter", "Door's on the left. I'll go first. If I stop, you stop."],
+    ["june", "He left the gun. Write that down. He left the gun."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "tnt_hunter_went_in", "trust": {"tnt_hunter": 2}, "dread": 1}
+  },
+  "igloo_fail": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "No."],
+    ["tnt_hunter", "I had a vest in there two years and I ain't fetched it. You go in. You come out and tell me what the wall says."],
+    ["tnt_hunter", "I'll believe you more than I believe me."]
+   ],
+   "next": "hub"
+  },
+  "photo": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "(He holds it close to the fire.) That's the tape. Reflective, on the collar. My wife sewed it on in '89."],
+    ["tnt_hunter", "Yeah. That's two eyes. Two years I thought the eyes was the vest."],
+    ["tnt_hunter", "Thing is, mister. Tape don't shine without a light on it. And there's no light in 7."],
+    ["miriam", "There was a flash. That's the light. ...Though the flash was at the door, and the eyes are at head height."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hunter_vest", "evidence": "vest_owner", "flag": "tnt_hunter_photo", "trust": {"tnt_hunter": 1}}
+  },
+  "brother": {
+   "speaker": "tnt_hunter",
+   "lines": [
+    ["tnt_hunter", "He knows. Drove out Sunday and sat where you're sitting and said 'Lyle, what are you doing.' And I showed him."],
+    ["tnt_hunter", "He went home and ain't called since. That's a brother for you."],
+    ["tnt_hunter", "He saw it. He'll say he didn't. He saw it."],
+    ["teddy", "Another witness who'll say he didn't. I could fill a paper with them."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "tnt_hunter_brother", "trust": {"tnt_hunter": 1}}
+  }
+ }
+}

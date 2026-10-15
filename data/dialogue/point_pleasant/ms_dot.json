@@ -1,0 +1,137 @@
+{
+ "id": "ms_dot",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "Local studies is by request. Coats on the rack, not the chairs. Voices down; this is a library, not the Register."],
+    ["ms_dot", "You'll want 1966. Everybody wants 1966. I'll tell you now the fiche is scratched where everybody stops the reel."],
+    ["ruth", "She's catalogued the scratches. I'd put money on it."]
+   ],
+   "passives": [
+    {"voice": "lore", "threshold": 9, "line": "The nameplate says Rainey. You know a Dot Rainey. She's two hundred miles away behind a different counter.", "flag": "ms_dot_name"},
+    {"voice": "logic", "threshold": 7, "line": "The return cart has a slip for a 1911 plat book and no book. Somebody asked for it this week and she hasn't stopped thinking about it.", "flag": "ms_dot_plat_slip"}
+   ],
+   "options": [
+    {"tone": "kind", "text": "We'll keep our voices down.", "next": "voices"},
+    {"check": {"voice": "recall", "kind": "white", "difficulty": 8, "evidence_bonus": {"original_report": 1, "lowe_register_1967": 1}},
+     "text": "Not 1966. December 1967. The week after the bridge.", "pass": "dec67",
+     "fail": {"line": "The bridge is the 15th. Everybody knows the 15th. Sit down and wind the reel like the rest of them."}},
+    {"tone": "wry", "text": "Where do people stop the reel?", "next": "scratches"}
+   ],
+   "gives": {"flag": "met_ms_dot"}
+  },
+  "voices": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "See that you do. The last pair didn't. Grey suits, Tuesday, talking across the reader like it was a lunch counter."],
+    ["ms_dot", "I shushed them. The tall one apologised like he'd been shushed before. By me."],
+    ["teddy", "By her. Not in this building, I'd guess."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"ms_dot": 1}}
+  },
+  "dec67": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "...The 18th. Nobody asks for the 18th. They ask for the 15th, and they cry, and I bring the tissues."],
+    ["ms_dot", "The 18th has a two-inch notice on page six. You'll want page six. I'll have the reel on."],
+    ["teddy", "Page six is where you bury a thing you had to print."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "dot_fiche", "evidence": "fiche_pulled", "flag": "ms_dot_page_six", "trust": {"ms_dot": 1}}
+  },
+  "scratches": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "Front page, November 16th, 1966. Worn white at the headline and clean underneath. Nobody reads past the picture."],
+    ["ms_dot", "And one more place. December '67, deep in. One person stopped there, over and over, until I asked her to stop."],
+    ["vera", "Ask her who."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "ms_dot_second_scratch"}
+  },
+  "hub": {
+   "speaker": "ms_dot",
+   "repeat": true,
+   "prompt": "Local studies.",
+   "lines": [
+    ["ms_dot", "Request what you're requesting. I've a cart to shelve."]
+   ],
+   "static": {"min_dread": 3, "line": "Her hand keeps going to the desk drawer. Not the card file. The drawer. Ask her what's in it before she locks it."},
+   "options": [
+    {"requires": {"flag": ["ms_dot_plat_slip"]},
+     "check": {"voice": "lore", "kind": "white", "difficulty": 9, "evidence_bonus": {"old_name": 1, "weller_card": 1}},
+     "text": "There's a slip for the 1911 plat book on the cart and no book.", "pass": "plat",
+     "fail": {"next": "plat_fail"}},
+    {"tone": "kind", "requires": {"flag": ["ms_dot_name"]},
+     "check": {"voice": "rapport", "kind": "red", "difficulty": 10, "evidence_bonus": {"gus_card_1967": 1, "lowe_register_1967": 1}},
+     "text": "Do you know a Dot Rainey in Sutton?", "pass": "rainey",
+     "fail": {"next": "rainey_fail", "trust": {"ms_dot": -1}, "dread": 1}},
+    {"requires": {"evidence": ["gus_card_1967"], "not_flag": ["ms_dot_saw_card"]}, "text": "She wrote 'not hoax'. You knew her.", "next": "gus_card"},
+    {"tone": "silent", "requires": {"not_flag": ["ms_dot_rewound"]}, "text": "(Wind the reel back without being asked.)", "next": "rewind", "trust": 1},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll wind it back."}
+   ]
+  },
+  "plat": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "The suit requested it. I told him it was out. He asked since when, and I told him, and he wrote it down and thanked me by name."],
+    ["ms_dot", "Then he asked for the card. Her card. I said library cards are not public record. He said, 'They are where I work.'"],
+    ["ms_dot", "He didn't get it. It's in my desk, not the file. Has been since 1968."],
+    ["miriam", "A card out of the file for twenty-six years. That's not procedure. That's a vigil."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "ms_dot_card_in_desk", "trust": {"ms_dot": 1}}
+  },
+  "plat_fail": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "A slip is a slip. Things get requested. Shelve your own curiosity."],
+    ["ms_dot", "The plat's in the county clerk's too, if you want to bother him instead."]
+   ],
+   "next": "hub"
+  },
+  "rainey": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "...There's a Rainey in every county in this state. Common as fence posts."],
+    ["ms_dot", "She wrote me once. 1968. Asked had a woman named Weller been in. I wrote back that the card was still open and I'd not cancel it."],
+    ["ms_dot", "She never wrote again. Neither did I. That's how Raineys are."],
+    ["elijah", "Two women keeping one card open for twenty-six years, and neither one will say why."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "dot_weller", "evidence": "weller_card", "flag": "ms_dot_rainey_told", "trust": {"ms_dot": 1}}
+  },
+  "rainey_fail": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "I know a great many people, and I don't discuss them with strangers across my own desk."],
+    ["ms_dot", "You'll find the fiche where it was. Wind it back when you're done."]
+   ],
+   "next": "hub"
+  },
+  "gus_card": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "(She reads it with her glasses off, close to her face.) Not hoax. That's her hand. She wrote a complaint about our heating in that hand."],
+    ["ms_dot", "She sat at that reader three days. She found what she wanted on the second and stayed the third anyway. I never knew why."],
+    ["ruth", "She was waiting for someone to come in and tell her she was wrong."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "ms_dot_saw_card", "trust": {"ms_dot": 1}}
+  },
+  "rewind": {
+   "speaker": "ms_dot",
+   "lines": [
+    ["ms_dot", "...Thank you. Nobody does that."],
+    ["ms_dot", "You can keep the reader till closing. The 1967 reel's already on it. Somebody put it there and I haven't taken it off."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "ms_dot_rewound"}
+  }
+ }
+}

@@ -1,0 +1,142 @@
+{
+ "id": "harmon",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "Harmon's. Anything you can't find I've got in the back, and if I haven't, Lonnie across the street has it used."],
+    ["harmon", "You're the Sutton folks. Marlene sends everybody over for film and I'm out of film. The suits took the last of it."],
+    ["teddy", "He's got a book on the counter. Look at the book."]
+   ],
+   "passives": [
+    {"voice": "logic", "threshold": 8, "line": "The ledger on the counter is open to November 1966. His father's hand, not his. He's been reading it, not writing in it.", "flag": "harmon_ledger_1966"},
+    {"voice": "empathy", "threshold": 9, "line": "Eleven in 1967. He was on this street when the bridge went. He talks fast so nobody asks."}
+   ],
+   "options": [
+    {"tone": "kind", "text": "Slow week?", "next": "slow"},
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 8}, "text": "Your dad kept this store before you.", "pass": "father",
+     "fail": {"line": "Dad kept it. Now I keep it. That's the family history; you want more, there's a plaque at the courthouse."}},
+    {"tone": "silent", "text": "(Stand at the counter and say nothing.)", "next": "counter_quiet", "trust": 1}
+   ],
+   "gives": {"flag": "met_harmon"}
+  },
+  "slow": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "Slow since Tuesday. Suits came through and bought gloves, a map, chalk. Then Dwight Mason came in and bought nothing."],
+    ["harmon", "Stood by the batteries ten minutes. Then said 'Tell Harmon's boy I said goodbye.' I'm Harmon's boy. He was looking right at me."],
+    ["elijah", "He was saying goodbye to the store. Not to you."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"harmon": 1}, "flag": "harmon_dwight_goodbye"}
+  },
+  "father": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "Dad. Forty-one years. He ran it through the '66 business and the bridge and the flood, and he kept the book the whole way."],
+    ["harmon", "Wrote down what everybody bought. Said in a town this size the book's the only honest newspaper."],
+    ["miriam", "A ledger is a primary source. I'll take a ledger over a headline."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"harmon": 1}}
+  },
+  "counter_quiet": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "...You're not buying anything, are you."],
+    ["harmon", "Fine. Nobody does. Stand there, it's warm."],
+    ["miriam", "He's relieved. Look at his shoulders."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "harmon",
+   "repeat": true,
+   "prompt": "What'll it be?",
+   "lines": [
+    ["harmon", "Well. Batteries are by the door and the book's on the counter, and only one of 'em's for sale."]
+   ],
+   "static": {"min_dread": 3, "line": "He said forty-one years and his eyes went to December. There's a page he doesn't turn. Make him turn it."},
+   "options": [
+    {"tone": "wry", "requires": {"not_flag": ["harmon_science"]}, "text": "'Science', he said. And you wrote 'science'.", "next": "science"},
+    {"requires": {"flag": ["harmon_ledger_1966"]},
+     "check": {"voice": "recall", "kind": "white", "difficulty": 9, "evidence_bonus": {"original_report": 1, "reflector_sale": 1}},
+     "text": "That page is November 1966. Who bought reflectors that November?", "pass": "ledger_1966",
+     "fail": {"next": "ledger_fail", "trust": {"harmon": -1}}},
+    {"tone": "hard",
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 10, "evidence_bonus": {"harmon_chalk": 1}},
+     "text": "You were eleven. Where were you when the bridge went?", "pass": "bridge_truth",
+     "fail": {"next": "bridge_fail", "trust": {"harmon": -1}, "dread": 1}},
+    {"requires": {"evidence": ["circled_map"], "not_flag": ["harmon_map_shown"]}, "text": "This map came off your rack. Who marked the plant?", "next": "map"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll let you get back to it."}
+   ]
+  },
+  "science": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "Bobby Kessler. Science. Kid couldn't spell it, so I spelled it for him and he copied it onto his hand."],
+    ["harmon", "Every red reflector on the shelf. I ordered more. They haven't sold. Nobody in this town wants a red light on their bike now."],
+    ["teddy", "That's a detail. That's a good detail."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "harmon_science", "trust": {"harmon": 1}}
+  },
+  "ledger_1966": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "...Ray Kessler. Bobby's daddy. A dozen red reflectors and a sheet of plywood. Dad wrote 'a project'."],
+    ["harmon", "Look at the date. The 18th. The Register ran the two couples on the 16th. Ray bought his the week after."],
+    ["harmon", "He made a joke of it. He didn't start it. Dad underlined the date. I don't think he liked what it meant either."],
+    ["miriam", "Then the board explains the joke, and nothing before the 16th. Noted."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "harmon_ray_reflectors", "trust": {"harmon": 1}}
+  },
+  "ledger_fail": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "That's my dad's hand and my dad's business. The page was open because I was looking, not because you were."],
+    ["harmon", "Lonnie keeps books too. Go read his."]
+   ],
+   "next": "hub"
+  },
+  "bridge_truth": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "At the register. Dad went out the door at the sound and I stayed with the drawer because he told me to."],
+    ["harmon", "He came back at midnight with his hands wrong. Never said a word about it. The book's got nothing for December 15th."],
+    ["harmon", "Only blank page in forty-one years. I look at it sometimes. That's all. I look at it."],
+    ["ruth", "A blank page is a kind of marker, dear. Some people can't carve one."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "harmon_blank_page", "trust": {"harmon": 1}}
+  },
+  "bridge_fail": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "...No."],
+    ["harmon", "You come in here for batteries, buy batteries. You come in for that, there's a memorial on the riverbank with forty-six names on it."],
+    ["harmon", "Go read it. Go on."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 5, "line": "That was the right question and the wrong day. You hear the bell on the door and it's you going out."}
+   ],
+   "end": true
+  },
+  "map": {
+   "speaker": "harmon",
+   "lines": [
+    ["harmon", "That's my map. Dollar ninety-five, pencil mark's free. The suit bought it Tuesday with the gloves and the chalk."],
+    ["harmon", "Opened it on the counter and circled the plant before he'd paid. Didn't look for it. Knew where it was."],
+    ["harmon", "Asked did I remember him. I was eleven in 1967. I said no. He said 'That's all right, Mr Harmon. You did.'"],
+    ["june", "He didn't blink when he said it, did he."],
+    ["harmon", "...No. No, he didn't."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "harmon_gloves", "evidence": "harmon_chalk", "flag": "harmon_map_shown", "trust": {"harmon": 1}}
+  }
+ }
+}

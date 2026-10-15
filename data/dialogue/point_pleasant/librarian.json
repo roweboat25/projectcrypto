@@ -1,0 +1,346 @@
+{
+ "_doc": "Opal Fry, high school librarian, on the 1967 yearbook staff. She wrote the caption 'Our new mascot?'. Topics on the hub offer her quick facts (the mascot photo, the class of '66).",
+ "id": "librarian",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "Shh. Not you, the heat register. It bangs if you talk over it."
+    ],
+    [
+     "librarian",
+     "Yearbooks are on the low shelf, 1948 to last June. Nobody checks them out. Everybody looks at the same two pages."
+    ],
+    [
+     "librarian",
+     "You'll want '66 and '67. Take them to the window table, the light's better and I can see what you're doing."
+    ],
+    [
+     "ruth",
+     "She knows which pages. She's watched this town turn to them for thirty years."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "recall",
+     "threshold": 8,
+     "line": "The '67 spine is broken at one page, and the thumbprint in the gutter is an adult's. She's opened it there more than any student.",
+     "flag": "librarian_spine"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "'I can see what you're doing.' She means what you're thinking. She's been judged by one caption since she was seventeen."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "She wrote 'Our new mascot?' with a question mark. Ask her what the question was."
+   },
+   "options": [
+    {
+     "tone": "wry",
+     "text": "Which two pages?",
+     "next": "pages"
+    },
+    {
+     "check": {
+      "voice": "recall",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "yearbook_photo": 2,
+       "yearbook_staff_note": 1
+      }
+     },
+     "text": "The mascot photo. The caption's got a question mark on it. You wrote that caption.",
+     "pass": "caption",
+     "fail": {
+      "next": "caption_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "A librarian who shelves these by hand knows every face. Who's missing from the '67 book?",
+     "pass": "missing",
+     "fail": {
+      "line": "Everybody's in it. That's what a yearbook is for. The Register's microfiche is on Main Street, if you want the paper's version."
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Take the yearbooks to the window table and wait.)",
+     "next": "window",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_librarian"
+   }
+  },
+  "pages": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "The mascot, and the Chevy. Page 41 and page 12."
+    ],
+    [
+     "librarian",
+     "You'd be surprised how many look at the Chevy and never ask who's on it. They want the bird. The bird's the easy page."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "librarian": 1
+    }
+   },
+   "next": "hub"
+  },
+  "caption": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "...I did. I was seventeen and on the staff and I'd watched Harlan Kessler go up the ladder with his mother's sheet."
+    ],
+    [
+     "librarian",
+     "I put the question mark in for the night after. When there was no sheet and no Harlan and the thing on the catwalk turned its head."
+    ],
+    [
+     "miriam",
+     "A question mark. Twenty-seven years of this town, and that's the most honest punctuation in it."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "librarian": 1
+    },
+    "flag": "librarian_question"
+   },
+   "next": "hub"
+  },
+  "caption_fail": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "The caption was a committee. Ask the Kesslers. They take credit for everything on this hill, they'll take that."
+    ],
+    [
+     "librarian",
+     "Bobby Kessler's garage is on Sixth Street. He'll show you the sheet if you ask nicely. He's proud of it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "missing": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "Patty Rayburn. Left the week after the car and never came back for a photo. And Gene Lusk's senior portrait."
+    ],
+    [
+     "librarian",
+     "Gene came in one Tuesday in 1980, drunk, and cut himself out with a penknife. I let him. I'd have done the same in his place."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "librarian": 1
+    },
+    "flag": "librarian_missing"
+   },
+   "next": "hub"
+  },
+  "window": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "..."
+    ],
+    [
+     "librarian",
+     "You read. Most of them just look at the pictures and leave the book open on the table for me to close."
+    ],
+    [
+     "librarian",
+     "Fine. Ask."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "librarian": 1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "librarian",
+   "repeat": true,
+   "prompt": "Heat register's quiet. Ask while it lasts.",
+   "lines": [
+    [
+     "librarian",
+     "Heat register's quiet. Ask while it lasts."
+    ]
+   ],
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "librarian_knew"
+      ]
+     },
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "yearbook_staff_note": 2,
+       "heights_hoax_theory": 1
+      }
+     },
+     "text": "You've let this town believe it was a sheet and a ladder for twenty-seven years. You knew better.",
+     "pass": "knew",
+     "fail": {
+      "next": "knew_fail",
+      "trust": {
+       "librarian": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "tone": "kind",
+     "requires": {
+      "evidence": [
+       "yearbook_1966"
+      ],
+      "not_flag": [
+       "librarian_patty"
+      ]
+     },
+     "text": "Patty Rayburn's on the Chevy hood. Her niece doesn't know. Should she?",
+     "next": "patty"
+    },
+    {
+     "tone": "wry",
+     "requires": {
+      "flag": [
+       "librarian_spine"
+      ],
+      "not_flag": [
+       "librarian_spine_asked"
+      ]
+     },
+     "text": "The '67 spine's broken at one page. That's your thumb in the gutter.",
+     "next": "spine"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll put the yearbooks back."
+    }
+   ]
+  },
+  "knew": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "I knew better the night after. I went back up with Harlan's ladder to take the sheet down for him."
+    ],
+    [
+     "librarian",
+     "The sheet was already down. Folded, on the catwalk, neat as laundry. Something was sitting on it. It didn't get up. It didn't need to."
+    ],
+    [
+     "librarian",
+     "I shelve books. I don't say that. I've never once said that, and I've been waiting twenty-seven years for somebody rude enough to make me."
+    ],
+    [
+     "teddy",
+     "...Folded. That's the detail. Nobody makes up folded."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "librarian": 1
+    },
+    "flag": "librarian_knew",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "knew_fail": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "A hoax is a kindness, young man. Ask Ada Mercer whether she wants it to be real. Ask Carol Mason."
+    ],
+    [
+     "librarian",
+     "Then come back and lecture me about what this town believes. Quietly. The register."
+    ]
+   ],
+   "next": "hub"
+  },
+  "patty": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "Jody? ...No. Yes. I don't know. Nobody told the children anything, and look what they do with not knowing. They tape reflectors to trees."
+    ],
+    [
+     "librarian",
+     "If you tell her, tell her kindly. Tell her Patty was the one who laughed in the car. Somebody ought to remember that part."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "librarian": 1
+    },
+    "flag": "librarian_patty"
+   },
+   "next": "hub"
+  },
+  "spine": {
+   "speaker": "librarian",
+   "lines": [
+    [
+     "librarian",
+     "...Page 41. I open it once a year, the sixteenth of November, and I close it."
+    ],
+    [
+     "librarian",
+     "That's my church. Everybody on this hill has one. Virgil's is a thermostat."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "librarian": 1
+    },
+    "flag": "librarian_spine_asked"
+   },
+   "next": "hub"
+  }
+ }
+}

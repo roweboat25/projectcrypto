@@ -1,0 +1,339 @@
+{
+ "id": "sf_deckchair_man",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "Two hundred and twelve. Don't talk till I've got to the end of the row, I lose the count and the count's the job. ...Twelve. Right."
+    ],
+    [
+     "sf_deckchair_man",
+     "Wilf Dyer. Chairs, windbreaks, and the ledger. Fifty pence a chair, a pound with the stripes, and every one of them faces the sea because I set them so."
+    ],
+    [
+     "dale",
+     "He set them facing the sea and he checked. Every chair. He wasn't checking the chairs."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "The chairs are set a hair off the wind, every one, the way you'd set a tent. He has been correcting for a wind that isn't blowing for twenty-one years."
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "The ledger is open on the hut shelf at a crossed-out page, and under the ink there is pencil. He crossed out words, not an afternoon.",
+     "flag": "sf_deckchair_man_ledger"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll wait for the count. Lovely morning for it.",
+     "next": "kind"
+    },
+    {
+     "tone": "hard",
+     "text": "1973. The Tuesday. You were on this sand.",
+     "next": "hard"
+    },
+    {
+     "tone": "wry",
+     "text": "Two hundred and twelve. Do they ever come up short?",
+     "next": "wry"
+    }
+   ],
+   "gives": {
+    "flag": "met_sf_deckchair_man"
+   }
+  },
+  "kind": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "It is. Flat sea, no fog. You'd not think it ever did anything but this."
+    ],
+    [
+     "sf_deckchair_man",
+     "You've manners. The Chronicle lad hadn't. Sit on one if you like, no charge, you're the first that waited."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "sf_deckchair_man": 1
+    }
+   }
+  },
+  "hard": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "I was on this sand in 1953 and I'll be on it in 2003 if the knees hold. Pick a Tuesday."
+    ],
+    [
+     "sf_deckchair_man",
+     "...I know which Tuesday. Ask it properly and I'll tell it properly."
+    ]
+   ],
+   "next": "hub"
+  },
+  "wry": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "Never short. Over, once. Two hundred and thirteen, August '78, and I never found out whose the extra was."
+    ],
+    [
+     "sf_deckchair_man",
+     "It's in the ledger. Everything's in the ledger. That's the point of a ledger."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "sf_deckchair_man",
+   "repeat": true,
+   "prompt": "Go on then. The tide's out till three and nobody wants a chair till it's in.",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "Go on then. The tide's out till three and nobody wants a chair till it's in."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Two hundred chairs turned to look at the Levels. He has never sat in one and looked. Make him. Sit in it with him."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "nerve",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sf_deckchair_chairs": 2
+      }
+     },
+     "text": "Sit in one with us, Wilf. Face the Levels. Tell us what you see.",
+     "pass": "sit",
+     "fail": {
+      "line": "I face the sea. That's the job. You sit where you like, I've a row to set."
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "sf_deckchair_man_ledger"
+      ]
+     },
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "Under the crossing-out. Pencil. What did you write first, before WIND?",
+     "pass": "pencil",
+     "fail": {
+      "next": "pencil_fail"
+     }
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "sf_deckchair_man_brother",
+       "sf_deckchair_man_brother_shut"
+      ]
+     },
+     "check": {
+      "voice": "rapport",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "tn_volunteer_dyer": 2,
+       "tn_vent_tape_lab": 1,
+       "sf_professor_swazzle": 1
+      }
+     },
+     "text": "Your brother did the voices on the pier. Thirty years. Did he lend a voice out, that summer?",
+     "pass": "brother",
+     "fail": {
+      "next": "brother_fail",
+      "trust": {
+       "sf_deckchair_man": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "tn_county_press_1973"
+      ]
+     },
+     "text": "The County Press says eighty-one degrees and no wind. Your ledger says WIND.",
+     "next": "paper"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll let you set the row."
+    }
+   ]
+  },
+  "sit": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "...All right. Just the one. Mind the strut, it's the '73 stock."
+    ],
+    [
+     "sf_deckchair_man",
+     "The stile. From here you can see the stile and the reeds past it and nothing else, and that's what two hundred people looked at for an hour with their ice creams going soft."
+    ],
+    [
+     "sf_deckchair_man",
+     "Something was on the stile. Not tall. Sat. Like a man waiting for a bus. ...Get me up. I've sat long enough."
+    ],
+    [
+     "elijah",
+     "He saw it sitting. Everyone else has it standing. Sitting's worse."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_deckchair_man_sat",
+    "dread": 1,
+    "trust": {
+     "sf_deckchair_man": 1
+    }
+   }
+  },
+  "pencil": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "...'They all looked at once.' That's what I wrote. Half four, two hundred and twelve chairs, they all looked at once."
+    ],
+    [
+     "sf_deckchair_man",
+     "Then I thought, Wilf, that's not a ledger, that's a confession."
+    ],
+    [
+     "sf_deckchair_man",
+     "So I put WIND over it in the biro and crossed the lot. The pencil's still there. Pencil always is."
+    ],
+    [
+     "miriam",
+     "Two hundred people turned at the same second. That's a stimulus, not a sighting. Noted, and I don't like it."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_deckchair_man_pencil",
+    "trust": {
+     "sf_deckchair_man": 1
+    }
+   }
+  },
+  "pencil_fail": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "Pencil? It's a ledger. You rule a line and you write the takings. There's no pencil."
+    ],
+    [
+     "sf_deckchair_man",
+     "If you want 1973 off a page, Bridget at the hide keeps a book that goes back to the war. Try her."
+    ]
+   ],
+   "next": "hub"
+  },
+  "brother": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "...Dennis. Thirty years on the pier with a doll on his knee and never moved his lips. Him and his tapes."
+    ],
+    [
+     "sf_deckchair_man",
+     "The camp lad came to him that May. Wanted the trick. Wanted to throw a voice so it came out of the hat and not him. Dennis showed him in an afternoon, said he had the knack."
+    ],
+    [
+     "sf_deckchair_man",
+     "Came back the Wednesday white as a sheet and gave Dennis his swazzle back and said it kept talking after he'd stopped. Dennis laughed. I didn't."
+    ],
+    [
+     "vera",
+     "The voice outlived the man who threw it. That's not a knack. That's a door he opened."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_deckchair_man_brother",
+    "dread": 1,
+    "trust": {
+     "sf_deckchair_man": 1
+    }
+   }
+  },
+  "brother_fail": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "My brother's dead two years and his tapes went to the charity shop in a shoebox. You leave him be."
+    ],
+    [
+     "sf_deckchair_man",
+     "You want voices, there's a Punch man on the sand who'll do you one for a pound. Go and bother him."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_deckchair_man_brother_shut"
+   }
+  },
+  "paper": {
+   "speaker": "sf_deckchair_man",
+   "lines": [
+    [
+     "sf_deckchair_man",
+     "The paper's never been on this sand. Eighty-one in the shade and the shade was mine. No wind. I know there was no wind. I wrote WIND because the ledger wanted a reason."
+    ],
+    [
+     "sf_deckchair_man",
+     "You can put that down. Wilf Dyer lied to his own book. First time, last time."
+    ],
+    [
+     "teddy",
+     "A man who lies to his ledger once is a man who's telling the truth to us."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_deckchair_man_paper",
+    "trust": {
+     "sf_deckchair_man": 1
+    }
+   }
+  }
+ }
+}

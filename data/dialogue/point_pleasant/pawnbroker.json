@@ -1,0 +1,143 @@
+{
+ "id": "pawnbroker",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "Riverside Pawn. Buy, sell, loan. No guns to anybody I don't know, and I don't know you."],
+    ["pawnbroker", "You want the Hallicrafters, it's two hundred and I won't come down, 'cause I know what it is."],
+    ["june", "It's an SX-100. Two hundred is a steal. Don't tell him."]
+   ],
+   "passives": [
+    {"voice": "tech", "threshold": 8, "line": "The radio on the shelf is still warm. Someone had it on this morning, and the dial's on no station you know.", "flag": "pawn_radio_warm"},
+    {"voice": "empathy", "threshold": 8, "line": "A class ring sits alone under the glass with no tag. He's not selling it. He's keeping it.", "flag": "pawn_ring_untagged"}
+   ],
+   "options": [
+    {"tone": "wry", "text": "No guns. What about shotgun shells?", "next": "shells"},
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 7, "evidence_bonus": {"three_note_tone": 1}},
+     "text": "Somebody had that radio on this morning. Who?", "pass": "radio",
+     "fail": {"line": "A man can listen to his own stock. You want to buy it, two hundred."}},
+    {"tone": "kind", "text": "Looks like a slow winter.", "next": "slow"}
+   ],
+   "gives": {"flag": "met_pawnbroker"}
+  },
+  "shells": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "Carl Ridge. Box of twelve-gauge Monday and another Wednesday. Carl don't shoot deer in February."],
+    ["pawnbroker", "I asked what he was after. He said 'nothing that bleeds.' Carl's funny when he's scared."],
+    ["dale", "Two boxes. Four shells under his stand. He's got more than he's saying."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "pawn_carl_shells", "trust": {"pawnbroker": 1}}
+  },
+  "radio": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "Me. Dwight said it picks up something at ten past two, and I didn't believe him, so I sat up with it."],
+    ["pawnbroker", "Three notes. Then nothing. Then I unplugged it, and it did it again."],
+    ["june", "Unplugged. I need that in writing, Lonnie."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "pawn_three_notes", "trust": {"pawnbroker": 1}}
+  },
+  "slow": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "Slow? Busiest February I've had. Half this town's selling what their daddies left 'em, the other half's buying it in a suit."],
+    ["pawnbroker", "I don't like busy. Busy means somebody's leaving."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"pawnbroker": 1}}
+  },
+  "hub": {
+   "speaker": "pawnbroker",
+   "repeat": true,
+   "prompt": "Buy, sell, or talk?",
+   "lines": [
+    ["pawnbroker", "Case is open, register's shut. Go on."]
+   ],
+   "static": {"min_dread": 3, "line": "There's a key under the register. His hand's gone to it twice. Make him give you the key."},
+   "options": [
+    {"requires": {"flag": ["pawn_ring_untagged"]},
+     "check": {"voice": "press", "kind": "white", "difficulty": 8, "evidence_bonus": {"pawn_suits_1967": 1, "dwight_returns": 1}},
+     "text": "That ring's got no tag, Lonnie. You're not selling it.", "pass": "ring",
+     "fail": {"next": "ring_fail", "trust": {"pawnbroker": -1}}},
+    {"tone": "hard",
+     "check": {"voice": "bluff", "kind": "red", "difficulty": 10, "evidence_bonus": {"the_suits": 1, "penrose_first": 2}},
+     "text": "Penrose sent us for the ring.", "pass": "bluff_ring",
+     "fail": {"next": "bluff_fail", "trust": {"pawnbroker": -2}, "dread": 1}},
+    {"requires": {"evidence": ["dwight_returns"], "not_flag": ["pawn_dwight_early"]}, "text": "Dwight's driven out to the plant every Thursday since '66.", "next": "thursdays"},
+    {"tone": "kind", "requires": {"not_flag": ["pawn_coat_back"]}, "text": "You could give the coat back.", "next": "coat_back"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll leave the radio."}
+   ]
+  },
+  "ring": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "...No. I'm not. Class of '66, Point Pleasant High, Dwight Mason inside the band."],
+    ["pawnbroker", "The suits wanted it before he brought it in. That's not business, that's knowing. I'm holding it till he comes back for it."],
+    ["pawnbroker", "He'll come back."],
+    ["elijah", "He won't. He knows it. So does Lonnie."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "pawn_barn_coat", "evidence": "pawn_dwight_coat", "flag": "pawn_ring_held", "trust": {"pawnbroker": 1}}
+  },
+  "ring_fail": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "Everything's for sale in here. That's the sign. Read the sign."],
+    ["pawnbroker", "Dwight's wife is out on the Heights, you want to talk rings. I don't."]
+   ],
+   "next": "hub"
+  },
+  "bluff_ring": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "(He goes very still.) ...So he's got a name now."],
+    ["pawnbroker", "Tell Penrose it's gone. Sold it to a fella from Gallipolis, and I don't remember the fella, 'cause I'm good at not remembering."],
+    ["pawnbroker", "(He slides a key across the counter.) Back room, bottom drawer. What they bought, I kept a list. You didn't get it here."],
+    ["teddy", "He kept a list. Of course he kept a list."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "pawn_suits_salvage", "evidence": "pawn_suits_1967", "flag": "pawn_bluffed"}
+  },
+  "bluff_fail": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "Penrose. Huh."],
+    ["pawnbroker", "The suits never said that name. Not once in three visits. You just said it in my shop with the door open."],
+    ["pawnbroker", "Get out. Come back when you're not working for him. I'll know if you are."]
+   ],
+   "passives": [
+    {"voice": "bluff", "threshold": 5, "line": "That was the right name in the wrong mouth. You hear the bell over the door and it rings like a till."}
+   ],
+   "end": true
+  },
+  "thursdays": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "Thursdays. I know. He drives past here at dusk every Thursday with the headlights off till the county line."],
+    ["pawnbroker", "This Tuesday he pawned the coat, the ring, his daddy's radio, and said 'Not where I'm going, Lonnie.' Tuesday ain't Thursday."],
+    ["pawnbroker", "He was early. Twenty-eight years and he was early."],
+    ["teddy", "Something moved it up. Something told him the day."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "pawn_dwight_early", "trust": {"pawnbroker": 1}}
+  },
+  "coat_back": {
+   "speaker": "pawnbroker",
+   "lines": [
+    ["pawnbroker", "Give it back. I would. I tried. Drove it out to the Mason place Wednesday and Carol wouldn't open the door."],
+    ["pawnbroker", "Said through it, 'He's not cold. He told me he's not cold.' And I drove home with the coat on the seat."],
+    ["pawnbroker", "It's on the rack. It's not for sale. The sign's a liar."],
+    ["ruth", "She's keeping the door shut on more than the weather, dear."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "pawn_coat_back", "trust": {"pawnbroker": 1}}
+  }
+ }
+}

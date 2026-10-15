@@ -1,0 +1,126 @@
+{
+ "id": "pearl",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "pearl",
+   "lines": [
+    ["pearl", "There you are. Dot said you'd be the new ones. You've got the look. Gus's teams always had it, like you'd been out in weather."],
+    ["pearl", "I'm Pearl. I'm across the street and I'm in and out, and nobody's asked me to leave in thirty years, so don't start."],
+    ["teddy", "She brought a pie. There's a pie on the counter."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 7, "line": "She looks at the wagon through the window every time she passes it. Not at you. At the wagon.", "flag": "pearl_wagon"},
+    {"voice": "lore", "threshold": 9, "line": "Dodrill. There's a Dodrill on the Flatwoods witness list, in Gus's hand, 1952. She'd have been a girl.", "flag": "pearl_flatwoods"}
+   ],
+   "options": [
+    {"tone": "kind", "text": "Thank you for the pie.", "next": "pie"},
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 7, "evidence_bonus": {"dot_on_gus": 1}},
+     "text": "You've seen a lot of teams go out that door.", "pass": "teams",
+     "fail": {"line": "Enough to know not to say which ones I liked. Eat your pie."}},
+    {"tone": "wry", "text": "Does Dot let you in, or do you let yourself?", "next": "dot"}
+   ],
+   "gives": {"flag": "met_pearl"}
+  },
+  "pie": {
+   "speaker": "pearl",
+   "lines": [
+    ["pearl", "Apple. It's February, so it's last year's apples, and you'll not know the difference."],
+    ["pearl", "Gus liked apple. I made one every time she drove out and one every time she came back. I've one in the freezer still."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "pearl_pie", "trust": {"pearl": 1}}
+  },
+  "teams": {
+   "speaker": "pearl",
+   "lines": [
+    ["pearl", "Nine. Dot counts seven that came back the same. I count different. I count the ones that came back and didn't go out again."],
+    ["pearl", "You'll go out. The question's the second time."],
+    ["miriam", "That's a better metric than Dot's. Don't tell Dot I said so."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"pearl": 1}}
+  },
+  "dot": {
+   "speaker": "pearl",
+   "lines": [
+    ["pearl", "Dot lets me in. Dot lets me think I let myself in. That's thirty years of Dot."],
+    ["pearl", "She's softer than the counter. Don't tell her I said. She'll say I'm wrong, and she'll be right."],
+    ["ruth", "Two women have run this town between them and neither one would admit it."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "pearl",
+   "repeat": true,
+   "prompt": "Pearl settles in.",
+   "lines": [
+    ["pearl", "Well. I've all afternoon, and so has the pie."]
+   ],
+   "static": {"min_dread": 3, "line": "The pie's her reason to be in the building. Ask her the real one."},
+   "options": [
+    {"requires": {"flag": ["pearl_flatwoods"]},
+     "check": {"voice": "lore", "kind": "white", "difficulty": 8, "evidence_bonus": {"dot_on_gus": 1, "weller_rule_card": 1}},
+     "text": "Dodrill. You were on the hill at Flatwoods.", "pass": "flatwoods",
+     "fail": {"next": "flatwoods_fail"}},
+    {"tone": "kind", "requires": {"flag": ["pearl_wagon"]},
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 10, "evidence_bonus": {"pearl_last_morning": 1, "dot_on_gus": 1}},
+     "text": "You look at the wagon every time, Pearl. Why?", "pass": "wagon",
+     "fail": {"next": "wagon_fail", "trust": {"pearl": -1}, "dread": 1}},
+    {"tone": "wry", "requires": {"flag": ["pearl_pie"], "not_flag": ["pearl_freezer"]}, "text": "One in the freezer. For her.", "next": "freezer"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll save you a slice."}
+   ]
+  },
+  "flatwoods": {
+   "speaker": "pearl",
+   "lines": [
+    ["pearl", "I was twelve. My brother dragged me up. Everybody says the smell and the lights, and I'll say it too."],
+    ["pearl", "What I remember is after. A man in a hat told my mother I'd been scared by an owl, and she thanked him, and I stopped talking for a year."],
+    ["pearl", "Gus was the one who asked me what I'd seen. First and only. I've been across the street from her ever since."],
+    ["elijah", "That's the rule. Before the rule had a card."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "pearl_told_flatwoods", "trust": {"pearl": 1}}
+  },
+  "flatwoods_fail": {
+   "speaker": "pearl",
+   "lines": [
+    ["pearl", "There's Dodrills all over Braxton County. I was a child. Eat."],
+    ["pearl", "Ask the Rainey kid about Flatwoods, if you want it from somebody who'll talk. Everybody else here paints it out."]
+   ],
+   "next": "hub"
+  },
+  "wagon": {
+   "speaker": "pearl",
+   "lines": [
+    ["pearl", "...Because it's hers. Same wagon. They brought it back from Gallipolis on a flatbed, and Walter said sell it, and Dot said no."],
+    ["pearl", "Every time it goes out I think, this is the one that brings her back. It's a silly thing for an old woman to think."],
+    ["pearl", "Bring it back with the tank full. That's all I ask."],
+    ["teddy", "That's all she asks. Pearl, that's not a small ask."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "pearl_car", "evidence": "gallipolis_car", "flag": "pearl_wagon_told", "trust": {"pearl": 2}}
+  },
+  "wagon_fail": {
+   "speaker": "pearl",
+   "lines": [
+    ["pearl", "I look at a car. People look at cars."],
+    ["pearl", "You've a case to drive to. Dot's got the letter. Go on, before the pie goes cold on you."]
+   ],
+   "next": "hub"
+  },
+  "freezer": {
+   "speaker": "pearl",
+   "lines": [
+    ["pearl", "For her. I know she's not coming. I knew in '68."],
+    ["pearl", "You keep a pie for someone, it's not for them. It's so you've something to do with your hands the day you hear."],
+    ["teddy", "Pearl, I'm going to need to write that down."],
+    ["pearl", "Write it down, then. Somebody should."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "pearl_freezer", "trust": {"pearl": 1}}
+  }
+ }
+}

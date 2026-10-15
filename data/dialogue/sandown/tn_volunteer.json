@@ -1,0 +1,337 @@
+{
+ "id": "tn_volunteer",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "Everything on the rail's a pound, books are twenty pence, tapes are ten and I'll not haggle, the Lifeboat needs it more than you do. I'm Pat."
+    ],
+    [
+     "tn_volunteer",
+     "If you're after the box of cassettes, somebody's been through it already this week. Left it tidy. Nobody leaves it tidy."
+    ],
+    [
+     "june",
+     "A tidy box. Whoever was in before us knew which tape they wanted and put the rest back in order."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "There's a stack of things behind the counter, priced and never put on the floor. She's labelled them because that's the job. She can't sell them.",
+     "flag": "tn_volunteer_behind"
+    },
+    {
+     "voice": "arcana",
+     "threshold": 9,
+     "line": "The dummy on the high shelf has its head turned to the door. When you came in it was facing the room. You think."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Ten pence a tape is a bargain, Pat. We'll not haggle. Mind if we ask about the box?",
+     "next": "jigsaw",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "We'll haggle for the Lifeboat's sake, then. Call it fifteen.",
+     "next": "haggle"
+    },
+    {
+     "tone": "hard",
+     "text": "Who went through the box? We'll need a name.",
+     "next": "name"
+    }
+   ],
+   "gives": {
+    "flag": "met_tn_volunteer"
+   }
+  },
+  "jigsaw": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "You can ask. I'm doing the jigsaws, they've all got a piece missing and it's always the sky, I don't know why it's always the sky."
+    ]
+   ],
+   "next": "hub"
+  },
+  "haggle": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "...Fifteen. Go on. You're the first in twenty years to haggle up. Sit on the stool, it only wobbles the one way."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "tn_volunteer": 1
+    }
+   },
+   "next": "hub"
+  },
+  "name": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "You'll need a name. I'll need a receipt from the Pope. It's a charity shop, love, I don't sign them in. A woman. Good coat. Didn't buy."
+    ],
+    [
+     "miriam",
+     "A charity shop volunteer with a wobbly stool, and we asked her for a name like she's a desk sergeant."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "tn_volunteer": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "Tuesdays and Thursdays, me. Mondays it's Jean and she'd tell you nothing because she knows nothing, so you've picked your day."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Pat prices a jigsaw and doesn't look up.",
+   "options": [
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "tn_volunteer_dyer": 1
+      }
+     },
+     "text": "The things behind the counter. They're priced. You've not put them out.",
+     "pass": "behind",
+     "fail": {
+      "line": "Those are waiting for a shelf. Everything's waiting for a shelf. Have a look at the books."
+     },
+     "requires": {
+      "flag": [
+       "tn_volunteer_behind"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "recall",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sf_programme_1973": 2,
+       "sf_professor_swazzle": 1
+      }
+     },
+     "text": "Dyer and Dennis, thirty years on the pier. Was he on the bill in '73?",
+     "pass": "pier73",
+     "fail": {
+      "next": "pier73_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "arcana",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "tn_vent_tape": 1,
+       "tn_phone_voice": 1
+      }
+     },
+     "text": "The dummy's turned round since we came in. You've seen it move. You've told somebody.",
+     "pass": "dennis",
+     "fail": {
+      "next": "dennis_fail",
+      "trust": {
+       "tn_volunteer": -1
+      }
+     }
+    },
+    {
+     "tone": "kind",
+     "text": "We bought the tape. We'd like to tell you what's on it before anyone else does.",
+     "next": "tape",
+     "requires": {
+      "evidence": [
+       "tn_vent_tape"
+      ],
+      "not_flag": [
+       "tn_volunteer_tape"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Pat."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The dummy's mouth is open a quarter inch. It wasn't. Don't price the tapes. Ask her who she's been talking to after closing."
+   }
+  },
+  "behind": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "...Dennis. The dummy. And a scrapbook of the act, and a hat with a bell on. His sister said sell the lot."
+    ],
+    [
+     "tn_volunteer",
+     "I've priced it. I can't put him on the floor with the Tupperware."
+    ],
+    [
+     "tn_volunteer",
+     "He's not creepy. People say they're creepy. He's got a kind face. It's just that his face is the only one left of Mr Dyer and I'd be selling it for a pound."
+    ],
+    [
+     "elijah",
+     "She's priced a dead man's face and can't let it go. That's not superstition. That's a wake nobody held."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_volunteer_behind_told",
+    "trust": {
+     "tn_volunteer": 1
+    }
+   },
+   "next": "hub"
+  },
+  "pier73": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "He was. Twice daily, and that summer the camp borrowed him. Sent a tall one up to him for lessons in the voice, the no-breath voice, four afternoons in the Pavilion."
+    ],
+    [
+     "tn_volunteer",
+     "He came back off the fourth afternoon and wouldn't do the children's matinee for a month. Said the lad learned it too fast. Said he learned it like he'd already known it."
+    ],
+    [
+     "june",
+     "Four afternoons to learn a technique that takes years. Either he was a natural, or he wasn't learning. He was being checked."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_volunteer_lesson",
+    "trust": {
+     "tn_volunteer": 1
+    }
+   },
+   "next": "hub"
+  },
+  "pier73_fail": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "'73? Love, I was in Southampton with my first husband in '73 and I'd not have remembered the pier if it had fallen in."
+    ],
+    [
+     "tn_volunteer",
+     "Ask the Professor. The Punch man. He knows every act since the war."
+    ],
+    [
+     "teddy",
+     "The Punch man. A ventriloquist's voice, and a Punch and Judy man who'd know how it's done. That's the pier, next."
+    ]
+   ],
+   "next": "hub"
+  },
+  "dennis": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "...I turn him to the wall when I lock up. Every night since March. And every morning he's facing the door, and the shutter's down, and I've got the only key."
+    ],
+    [
+     "tn_volunteer",
+     "I told the vicar. He came and stood in here and said a thing over him, and Dennis faced the wall for a week, and then he didn't. The vicar said he'd come back. He hasn't."
+    ],
+    [
+     "tn_volunteer",
+     "I don't think it's Mr Dyer. I'd not mind if it was Mr Dyer. I think it's something that's learned the trick of him."
+    ],
+    [
+     "vera",
+     "A dead man's voice on the tape, a dead man's face on the shelf, and something practising both. It is learning a part."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_volunteer_dennis",
+    "trust": {
+     "tn_volunteer": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "dennis_fail": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "Ha! Move! He's wood, love. It's a shop. Things get knocked. Jean knocks everything."
+    ],
+    [
+     "tn_volunteer",
+     "...That'll be fifteen for the tapes, since you said. Mind the stool."
+    ],
+    [
+     "ruth",
+     "That laugh was a door shutting, dear. She's seen it. She'll say it to the vicar before she says it to us."
+    ]
+   ],
+   "next": "hub"
+  },
+  "tape": {
+   "speaker": "tn_volunteer",
+   "lines": [
+    [
+     "tn_volunteer",
+     "The rhymes. It'll be the rhymes, he always did the rhymes to warm up. 'Hickory dickory.' Without his chest moving. Used to frighten the Brownies silly."
+    ],
+    [
+     "tn_volunteer",
+     "Put it back in the box when you're done with it. His sister might want it one day, and I'd like to be able to say it's here."
+    ],
+    [
+     "june",
+     "She told us what's on it before we could. She's heard it. She listened to that tape alone in here, after hours, and she's still opening up on Tuesdays."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_volunteer_tape",
+    "trust": {
+     "tn_volunteer": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

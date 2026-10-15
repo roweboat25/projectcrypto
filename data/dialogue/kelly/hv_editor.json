@@ -1,0 +1,383 @@
+{
+ "_doc": "Marjorie Quisenberry, editor of the Pennyrile Ledger, sixties, in the chair in front of the morgue. She was a girl on the police station steps on 22 August 1955. Sharp, dry, allergic to pens in the morgue, and on the family's side in a town that laughed.",
+ "id": "hv_editor",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_editor",
+   "lines": [
+    [
+     "hv_editor",
+     "No. Whatever it is, no, and then we'll talk. Quisenberry. I own the paper, I set the paper, I sweep the paper. Those are the bound volumes behind me and that's why I'm sitting here."
+    ],
+    [
+     "hv_editor",
+     "You'll be the Office. You're the first ones since 1967 to come in without a camera and I've been curious for twenty-seven years what that would look like."
+    ],
+    [
+     "teddy",
+     "She said 'since 1967'. She remembers the last one by the year. Editors remember by the year."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "press",
+     "threshold": 7,
+     "line": "The 1955 volume is on the desk, not on the shelf. Open to the week of the 22nd. She was reading it before you came in, and she didn't put it away when she heard the bell."
+    },
+    {
+     "voice": "lore",
+     "threshold": 9,
+     "line": "There's a child's drawing in a frame over the light table: a house, a porch, a little figure with its hands up, and a date in a grown-up's hand: 8/22/55. A child drew that the morning after. She was that child.",
+     "flag": "hv_editor_child"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'd like to see the week of the 22nd, Mrs. Quisenberry. Whenever you say. No pens.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "No, and then we'll talk. That's the best offer a newspaper's ever made us.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "You've got a carbon of a police record in a private morgue. We'd like it on the table.",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_editor"
+   }
+  },
+  "hub": {
+   "speaker": "hv_editor",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_editor",
+     "Ask. I'll say no first and then I'll see how I feel."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The morgue door's on a latch, not a lock. She goes to the copier for ninety seconds at a time. The carbon is in the 1955 volume, in the back, loose."
+   },
+   "options": [
+    {
+     "tone": "wry",
+     "text": "Tell us what a weekly is. We've only ever been lied to by dailies.",
+     "next": "weekly"
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_ledger_front_page": 2,
+       "kc_clippings_1955": 1
+      }
+     },
+     "text": "Your front page says twelve little men. Your own margin says nobody said it. Walk us from the family's words to the wire's.",
+     "pass": "wire",
+     "fail": {
+      "next": "wire_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "hv_police_log_1955": 2,
+       "hv_sgt_sober": 1
+      }
+     },
+     "text": "The carbon isn't the Ledger's. It's the chief's secretary's, typed for the public, never run. Running it late is still running it.",
+     "pass": "morgue",
+     "fail": {
+      "next": "morgue_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_editor_child"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "hv_bbq_sober": 1,
+       "hv_penrose_photo_1955": 1
+      }
+     },
+     "text": "The drawing over the light table. You were on those steps. You were a child, and you drew it that morning. What did you see?",
+     "pass": "steps",
+     "fail": {
+      "next": "steps_no",
+      "trust": {
+       "hv_editor": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_penrose_photo_1955"
+      ]
+     },
+     "tone": "kind",
+     "text": "The man at the edge of the crowd in the steps photograph. He's in room 3 at the motor court. Do you know him?",
+     "next": "suit"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mrs. Quisenberry."
+    }
+   ]
+  },
+  "weekly": {
+   "speaker": "hv_editor",
+   "lines": [
+    [
+     "hv_editor",
+     "A weekly comes out on Tuesday. It came out on Tuesday in 1955. The night was a Sunday."
+    ],
+    [
+     "hv_editor",
+     "By Tuesday the Nashville wire had been to Kelly, left, and told the whole country what happened, and we had eight pages to fill and a town that was already a joke."
+    ],
+    [
+     "hv_editor",
+     "So my predecessor ran the wire. Green, twelve, spaceship. Because it was Tuesday. That's not a conspiracy, that's a deadline."
+    ],
+    [
+     "hv_editor",
+     "I've been correcting it one inch at a time ever since and I'm about a column in."
+    ],
+    [
+     "teddy",
+     "One Tuesday. The whole shape of the story was fixed by what day of the week a weekly comes out. I've seen it a hundred times and it still makes me want to lie down."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_editor_weekly"
+   },
+   "next": "hub"
+  },
+  "wire": {
+   "speaker": "hv_editor",
+   "lines": [
+    [
+     "hv_editor",
+     "The family said 'little men'. The family said 'silver' and 'shining'. The police log says 'small men with lights'. That's it. That's every word they gave anybody that night."
+    ],
+    [
+     "hv_editor",
+     "By Monday noon the Nashville desk had a man who read paperbacks on it and they were green and there were twelve, and twelve made the headline, and the headline made the country laugh."
+    ],
+    [
+     "hv_editor",
+     "Nobody in that house ever said twelve to a reporter. One of them said 'twelve or fifteen' once, to a policeman, at three in the morning."
+    ],
+    [
+     "hv_editor",
+     "Everything that makes it a joke got added in forty-eight hours in other people's newsrooms. The family's been paying for other people's adjectives for thirty-nine years."
+    ],
+    [
+     "miriam",
+     "So the silliest parts aren't theirs. That doesn't make it true. It makes it a different story, and the different story has never once been printed."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_ed_green",
+    "evidence": "hv_editor_green",
+    "trust": {
+     "hv_editor": 1
+    },
+    "flag": "hv_editor_wire"
+   },
+   "next": "hub"
+  },
+  "wire_no": {
+   "speaker": "hv_editor",
+   "lines": [
+    [
+     "hv_editor",
+     "It's a front page. It says what it says. If you want to know how it got that way, buy a subscription, I've been explaining it for thirty years at twelve dollars a year."
+    ],
+    [
+     "ruth",
+     "She's not refusing, dear. She's selling. There's a difference and it's twelve dollars."
+    ]
+   ],
+   "next": "hub"
+  },
+  "morgue": {
+   "speaker": "hv_editor",
+   "lines": [
+    [
+     "hv_editor",
+     "...Running it late is still running it. Yes. I've said that to myself about once a year since I took the chair, and I haven't, because the family asked us not to in 1955 and nobody's unasked."
+    ],
+    [
+     "hv_editor",
+     "The morgue's through there. One volume at a time. No pens."
+    ],
+    [
+     "hv_editor",
+     "The carbon's loose in the back of 1955 and if you put it back in 1956 I'll know, because I'm the only person who has ever put anything in there."
+    ],
+    [
+     "hv_editor",
+     "If you run it, you run the chief's line with it. The underlined one. That's the condition. That's the only condition."
+    ],
+    [
+     "miriam",
+     "She'll open a thirty-nine-year-old door on the condition that the one honest sentence goes through it first. I can work with that woman."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_ed_morgue",
+    "flag": "ledger_morgue",
+    "trust": {
+     "hv_editor": 1
+    }
+   },
+   "next": "hub"
+  },
+  "morgue_no": {
+   "speaker": "hv_editor",
+   "lines": [
+    [
+     "hv_editor",
+     "It's a carbon of a police record in my morgue. Dub Cansler's got the original under his hand. Go argue with his hand. His hand's bigger than mine."
+    ],
+    [
+     "june",
+     "Two doors to the same page. If hers is shut today, his might not be. The radio log goes by call sign; he'll answer to that."
+    ]
+   ],
+   "next": "hub"
+  },
+  "steps": {
+   "speaker": "hv_editor",
+   "lines": [
+    [
+     "hv_editor",
+     "...I was nine. My father brought me because he was the photographer, he took that picture."
+    ],
+    [
+     "hv_editor",
+     "The family came out of the station at six and the little boys were asleep in a woman's arms and the old man couldn't get his hat on. His hands."
+    ],
+    [
+     "hv_editor",
+     "I drew the house because a boy on the steps told me what it looked like. He was about my age."
+    ],
+    [
+     "hv_editor",
+     "He said the thing stood in the yard with its hands up like it wanted to be picked up, and then he cried, and I never found out which one of them he was."
+    ],
+    [
+     "hv_editor",
+     "And there was a man at the edge of the crowd in a suit who looked at my father's camera and not at the family. Everybody looked at the family."
+    ],
+    [
+     "hv_editor",
+     "He looked at the camera, like he was checking it was there."
+    ],
+    [
+     "elijah",
+     "A child who told another child what it looked like. That's the one telling that never went through a newsroom, and she's kept it in a frame for thirty-nine years."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "'Like it wanted to be picked up.' Hands up, arms out, toward a light. Every version of this story agrees on the hands, and nobody ever asks what the hands were for."
+    }
+   ],
+   "gives": {
+    "flag": "hv_editor_steps",
+    "trust": {
+     "hv_editor": 2
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "steps_no": {
+   "speaker": "hv_editor",
+   "lines": [
+    [
+     "hv_editor",
+     "That's a drawing. Children draw. I keep it because my father framed it, and my father's dead, and that's the end of what you get about my father."
+    ],
+    [
+     "hv_editor",
+     "The morgue's still there. I'm still in front of it."
+    ],
+    [
+     "ruth",
+     "We touched the one thing in this room that isn't a record, dear. She'll forgive it. Tomorrow."
+    ]
+   ],
+   "next": "hub"
+  },
+  "suit": {
+   "speaker": "hv_editor",
+   "lines": [
+    [
+     "hv_editor",
+     "...He came in here in 1967. December. He wanted the week of the 22nd and he wanted to know if a woman named Weller had been in to see it. I said no to both."
+    ],
+    [
+     "hv_editor",
+     "He said thank you and that I'd done the right thing and I've never been so sure I hadn't."
+    ],
+    [
+     "hv_editor",
+     "He looked the same. He looks the same."
+    ],
+    [
+     "hv_editor",
+     "I'm sixty-one years old and I've been watching a man not age at the edge of my father's photograph since I was nine, and I don't put that in the paper, because I'm a newspaper."
+    ],
+    [
+     "hv_editor",
+     "If he's in room 3, don't let him tell you what to file. He told my predecessor. He told my father. He's very kind about it."
+    ],
+    [
+     "vera",
+     "One has seen this before. A figure at the margin of every record, who advises. One advises against taking his advice."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_editor_suit",
+    "trust": {
+     "hv_editor": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  }
+ }
+}

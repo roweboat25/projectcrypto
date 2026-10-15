@@ -1,0 +1,391 @@
+{
+ "_doc": "Mrs. Oma Dade, Hopkinsville public librarian, sixties, the desk Miss Hattie Bowles had before her. Keeps the Cayce index, the Kentucky Warbler, a card cross-referenced to OWLS that nobody has asked for, and a Remington on the reading table that types the August grave notes. Precise, protective, tired of being a joke's reference desk.",
+ "id": "hv_librarian",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_librarian",
+   "lines": [
+    [
+     "hv_librarian",
+     "Local history is the shelf by the window, the Cayce material is behind this desk and stays behind this desk, and if you've come about the grave, the keeper's already brought me this year's page."
+    ],
+    [
+     "hv_librarian",
+     "Oma Dade. You may sit."
+    ],
+    [
+     "hv_librarian",
+     "Every August I'm the reference desk for a joke. I'd like it known that I'm aware of that."
+    ],
+    [
+     "miriam",
+     "A librarian who files the joke under its proper heading. We're going to get along."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "The Remington on the reading table has a fresh ribbon and a sheet in the platen, and the type on the grave note you've seen has the same dropped tail on the 'y'. The notes are typed here."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "She said 'the keeper's already brought me this year's page' before you asked, and her hand went to the drawer and stopped. She knows who types them. She has for a long time.",
+     "flag": "hv_librarian_knows"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We didn't come about the grave, Mrs. Dade. We came about the card that says OWLS.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "A reference desk for a joke. We're the field office for one. We should compare notes.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "The Cayce file, the Warbler, and the catalogue. All of it on the table, please.",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_librarian"
+   }
+  },
+  "hub": {
+   "speaker": "hv_librarian",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_librarian",
+     "Go on. Quietly. There's a child in the periodicals and she's reading, which is more than most."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The CAYCE, SPURIOUS folder's in the bottom drawer. Thirty-nine pages in the same type. Take one. Leave it on the grave tonight. See who comes to collect it."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "hv_owl_survey": 1,
+       "fm_pellets_lab": 1
+      }
+     },
+     "text": "Your catalogue cross-references Kelly to four headings. Owls is one. What are the other three, and who typed them?",
+     "pass": "catalog",
+     "fail": {
+      "next": "catalog_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_cayce_grave_note": 1,
+       "hv_cayce_file": 1
+      }
+     },
+     "text": "He was born out past Beverly. He read for sick people. Tell us the Cayce this town actually had, before the trees.",
+     "pass": "cayce",
+     "fail": {
+      "next": "cayce_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_librarian_knows"
+      ]
+     },
+     "check": {
+      "voice": "logic",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "hv_cayce_grave_note": 2,
+       "hv_librarian_cayce": 1
+      }
+     },
+     "text": "The grave notes are typed on that Remington. You lock the door at five. Nobody's breaking in to use a library typewriter, Mrs. Dade.",
+     "pass": "types",
+     "fail": {
+      "next": "types_no",
+      "trust": {
+       "hv_librarian": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_owl_survey"
+      ]
+     },
+     "tone": "kind",
+     "text": "The Warbler, fall 1955. 'A pair with two large young in a dead oak near Kelly, the 20th.' That's Miss Bowles's note. What did she see on the 22nd?",
+     "next": "hattie"
+    },
+    {
+     "tone": "silent",
+     "text": "(Wait while she stamps the returns.)",
+     "next": "stamps",
+     "trust": 1
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Thank you, Mrs. Dade. We'll be quiet on the way out."
+    }
+   ]
+  },
+  "catalog": {
+   "speaker": "hv_librarian",
+   "lines": [
+    [
+     "hv_librarian",
+     "KELLY INCIDENT, 1955: see OWLS. See FORT CAMPBELL, EXERCISES. See HOAXES, LOCAL. See CAYCE, SPURIOUS. The first three are Miss Bowles's hand, 1955 to 1961. The last is mine."
+    ],
+    [
+     "hv_librarian",
+     "She typed OWLS the week after, on this machine, because she'd been under that tree on the twentieth with her field glasses. Nobody has asked for that card in thirty-nine years."
+    ],
+    [
+     "hv_librarian",
+     "People ask for the clippings. The clippings are under HOAXES, LOCAL, and that's where the magazine man found them before he stole the 1955 run."
+    ],
+    [
+     "hv_librarian",
+     "A catalogue is an argument. Hers was that it was owls. Mine's that it's filed correctly."
+    ],
+    [
+     "dale",
+     "A trained bird-club observer with glasses on a horned owl nest the night before, and her field card's been sitting in a drawer in alphabetical order since Eisenhower. I need to sit down."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_lib_owls",
+    "flag": "hv_librarian_catalog",
+    "trust": {
+     "hv_librarian": 1
+    }
+   },
+   "next": "hub"
+  },
+  "catalog_no": {
+   "speaker": "hv_librarian",
+   "lines": [
+    [
+     "hv_librarian",
+     "The catalogue is open to the public. It's a cabinet with drawers. You pull the drawer. I'm not a drawer."
+    ],
+    [
+     "teddy",
+     "Fair. She's told us where to look, which is more than the catalogue would have."
+    ]
+   ],
+   "next": "hub"
+  },
+  "cayce": {
+   "speaker": "hv_librarian",
+   "lines": [
+    [
+     "hv_librarian",
+     "A farm boy from the Beverly road who couldn't stay awake in school and could, asleep, tell a doctor what was wrong with a stranger in another state."
+    ],
+    [
+     "hv_librarian",
+     "Whatever you make of that, that's what he did, for forty years, for people who wrote him letters."
+    ],
+    [
+     "hv_librarian",
+     "He never once said 'Kelly'. He died in 1945."
+    ],
+    [
+     "hv_librarian",
+     "Every August somebody types him a new reading about the trees and leaves it on his stone with a penny, and it goes in my folder, and he can't say a word about it. That's what I object to."
+    ],
+    [
+     "hv_librarian",
+     "Not the believing. The putting words in a dead man's mouth."
+    ],
+    [
+     "hv_librarian",
+     "He was a Sunday school teacher. He'd have been mortified."
+    ],
+    [
+     "vera",
+     "One withdraws the question. He was used in life by the living and he is used in death by the same. One has some sympathy."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_lib_cayce",
+    "evidence": "hv_librarian_cayce",
+    "flag": "hv_librarian_cayce_told",
+    "trust": {
+     "hv_librarian": 1
+    }
+   },
+   "next": "hub"
+  },
+  "cayce_no": {
+   "speaker": "hv_librarian",
+   "lines": [
+    [
+     "hv_librarian",
+     "There's a biography on the local shelf. Two, actually. One is accurate. I'll let you work out which, since you're investigators."
+    ],
+    [
+     "ruth",
+     "She's testing us, dear. Pick the thinner one. The thick one's the one with the trees in it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "types": {
+   "speaker": "hv_librarian",
+   "lines": [
+    [
+     "hv_librarian",
+     "..."
+    ],
+    [
+     "hv_librarian",
+     "Since 1978. The year the television people came for the first time and stood at that family's gate for a week."
+    ],
+    [
+     "hv_librarian",
+     "The second year, I typed a page and put it on his grave, and they stood at the grave instead."
+    ],
+    [
+     "hv_librarian",
+     "One day a year I give them something to point at that isn't a family. A dead man who can't be hurt by it, instead of a live one who can."
+    ],
+    [
+     "hv_librarian",
+     "I file it under SPURIOUS so that anybody who asks the library gets the truth, and nobody ever asks the library."
+    ],
+    [
+     "hv_librarian",
+     "I'm not proud of it. I'd do it again Monday. You may write it down. You may not print it until I'm dead, and I'm in good health."
+    ],
+    [
+     "miriam",
+     "A hoax run by a librarian, correctly catalogued, as a decoy to protect witnesses. I have never respected a hoaxer before. I'm going to have to update my position."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_librarian_types",
+    "trust": {
+     "hv_librarian": 2
+    }
+   },
+   "next": "hub"
+  },
+  "types_no": {
+   "speaker": "hv_librarian",
+   "lines": [
+    [
+     "hv_librarian",
+     "This library has a Remington because the county bought one in 1952. So did the courthouse, the Ledger and the police."
+    ],
+    [
+     "hv_librarian",
+     "Match the 'y' on all four and come back with a warrant, and until then you may use the reading room like anyone else."
+    ],
+    [
+     "hv_librarian",
+     "Quietly."
+    ],
+    [
+     "june",
+     "She's right about the Remingtons. It's a county purchase order. I'd have checked that before saying it out loud, and I didn't, and it's cost us the desk."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hattie": {
+   "speaker": "hv_librarian",
+   "lines": [
+    [
+     "hv_librarian",
+     "...She went back on the 22nd. Nobody knew to stop her; the police were at the farm and she walked in along the creek. The nest was empty. The two young ones were on the ground under the oak. Shot. Number six."
+    ],
+    [
+     "hv_librarian",
+     "She didn't put that in the Warbler. She said the family had enough on them without a bird club saying they'd shot two owls out of a tree."
+    ],
+    [
+     "hv_librarian",
+     "She put it on a card and she filed it, and she told me when I was nine, and she told me not to tell. I've kept that thirty-three years. I'm telling the Office."
+    ],
+    [
+     "hv_librarian",
+     "She said the young ones stand their ground in a light. She said they'd have come toward the porch. She said she'd have shot them too, in the dark, with children in the house. She wasn't a cruel woman. She was a precise one."
+    ],
+    [
+     "dale",
+     "Two juvenile great horned owls dead under the roost the morning after, with the family's shot in them. That's not a theory any more. That's a necropsy nobody performed."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "She said 'I'm telling the Office' and not 'I'm telling you'. She's handing it to an institution so it isn't her who broke the promise. Let her have that."
+    }
+   ],
+   "gives": {
+    "flag": "hv_librarian_hattie",
+    "trust": {
+     "hv_librarian": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "stamps": {
+   "speaker": "hv_librarian",
+   "lines": [
+    [
+     "hv_librarian",
+     "...Thank you. Most people talk while I do this."
+    ],
+    [
+     "hv_librarian",
+     "Harriet Bowles is in Riverside, two rows from the Cayce plot. The keeper cuts her grass. If you go out there, don't leave a penny. She hated pennies on graves. She said birds eat them."
+    ],
+    [
+     "ruth",
+     "Two rows from the famous grave, dear, and the keeper cuts hers by hand. That's the one to stand at."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_librarian_stamps",
+    "trust": {
+     "hv_librarian": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

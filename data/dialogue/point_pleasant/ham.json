@@ -1,0 +1,151 @@
+{
+ "_doc": "Orville Pace, the ham on the hill. Radio shack, on the air since 1958, parked on 3.885 since November 1966. Topics on the hub offer his quick facts (sunspots, the log, the antenna, the bearings).",
+ "id": "ham",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "Mind the coax. Sit on the ammo box, the chair's got a spring through it."],
+    ["ham", "You're the Sutton people. Somebody in your outfit was on two metres this morning. Good fist. Clean."],
+    ["ham", "Everybody comes up this hill for sunspots. I'll give you sunspots if that's what you drove for."],
+    ["june", "Collins KWM-2. He's kept it aligned thirty years. You don't do that for sunspots."]
+   ],
+   "passives": [
+    {"voice": "tech", "threshold": 8, "line": "The rig's on 3.885 and there's dust on the dial. He hasn't moved it off that frequency in a long time.", "flag": "ham_dial_parked"},
+    {"voice": "empathy", "threshold": 9, "line": "He says 'sunspots' like a man handing you a wrong coat he's worn for years because it was the one on the hook."}
+   ],
+   "static": {"min_dread": 3, "line": "The receiver's on. Nobody's keyed it. Listen. It's counting to three."},
+   "options": [
+    {"tone": "kind", "text": "We'll take the sunspots. Then we'll take the rest.", "next": "shack"},
+    {"check": {"voice": "tech", "kind": "white", "difficulty": 8, "evidence_bonus": {"three_note_tone": 2}},
+     "text": "3.885, no carrier. You've kept the dial parked there since '66.",
+     "pass": "log",
+     "fail": {"next": "log_fail"}},
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 7},
+     "text": "Who else on this hill has a receiver? Somebody heard it with you.",
+     "pass": "lyle",
+     "fail": {"next": "lyle_fail", "trust": {"ham": -1}}},
+    {"tone": "silent", "text": "(Sit on the ammo box. Wait.)", "next": "quiet", "trust": 1}
+   ],
+   "gives": {"flag": "met_ham"}
+  },
+  "shack": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "November '66 was solar max. Whistlers, dawn chorus, the whole low band singing. I wrote 'propagation' in the log and went to bed."],
+    ["ham", "That's the answer I give the paper. It's a good answer. It's just not what I heard."],
+    ["miriam", "Solar max is real. So is the look on his face."]
+   ],
+   "gives": {"trust": {"ham": 1}},
+   "next": "hub"
+  },
+  "log": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "...Since the fifteenth of November, ten past two in the morning. Bottom drawer. Don't bend the spine, it's the only one."],
+    ["ham", "Three notes, 3.885, no carrier under them. Not QRM. Not me. Six nights. I wrote 'not me' because I checked."],
+    ["june", "Same interval as igloo 7. I'd put my licence on it."]
+   ],
+   "gives": {"evidence": "ham_log_1966", "trust": {"ham": 1}, "flag": "ham_showed_log"},
+   "next": "hub"
+  },
+  "log_fail": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "A man parks his dial where he likes. It's a logbook, not a confession."],
+    ["ham", "Go ask the Rayburn kids what their radios did Thursday night. Then come back and say 3.885 to me again."]
+   ],
+   "next": "hub"
+  },
+  "lyle": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "Lyle Dent. Hunts the north pond off the plant, CB in the truck. He had it on channel 9 Thursday and near put a shell through his own dash."],
+    ["ham", "He won't say so to a stranger. He'll say so to me on the air at two in the morning, which is how I know."]
+   ],
+   "gives": {"flag": "ham_named_lyle", "trust": {"ham": 1}},
+   "next": "hub"
+  },
+  "lyle_fail": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "Nobody. Nobody on this hill listens to anything but the Reds and the weather."],
+    ["ham", "You want company, go stand under the water tower with the kids. They'll hear whatever you tell them to."]
+   ],
+   "next": "hub"
+  },
+  "quiet": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "..."],
+    ["ham", "(The speaker hisses. Under it, faint, three notes. Three notes. Three notes. He doesn't touch the dial.)"],
+    ["ham", "There. You heard that. Don't say sunspots to me. I've said it enough to myself."],
+    ["elijah", "It's not coming from the radio. It's coming through it."]
+   ],
+   "gives": {"trust": {"ham": 1}, "flag": "ham_heard_it", "dread": 1},
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "ham",
+   "repeat": true,
+   "prompt": "Go on. Band's dead till dark anyhow.",
+   "lines": [
+    ["ham", "Go on. Band's dead till dark anyhow."]
+   ],
+   "options": [
+    {"check": {"voice": "nerve", "kind": "red", "difficulty": 10, "evidence_bonus": {"static_reading": 2, "ham_log_1966": 1}},
+     "text": "Pull the antenna lead. Right now, with us here. Let's hear what propagation does.",
+     "pass": "antenna",
+     "fail": {"next": "antenna_fail", "trust": {"ham": -1}, "dread": 1}},
+    {"tone": "hard", "requires": {"evidence": ["ham_triangulation"]},
+     "text": "The bearings walked north at one in the morning. You didn't just sit here and log it.",
+     "next": "north"},
+    {"tone": "wry", "requires": {"not_flag": ["ham_asked_chair"]},
+     "text": "What's the chair done to deserve the spring?",
+     "next": "chair"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll let you get back to the band."}
+   ]
+  },
+  "antenna": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "...All right. All right. Hold the box steady."],
+    ["ham", "(He reaches behind the Collins and the lead comes out with a click. The S-meter drops to nothing. The three notes don't.)"],
+    ["ham", "Dead receiver. Nothing in but the line cord. Same as the third night in '66. You tell me what sky does that."],
+    ["miriam", "...Nothing. Nothing does that. Plug it back in, please."]
+   ],
+   "gives": {"evidence": "ham_antenna_note", "trust": {"ham": 1}, "dread": 1},
+   "next": "hub"
+  },
+  "antenna_fail": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "You don't touch a man's rig. You don't ask him to, in his own shack, with the band open."],
+    ["ham", "Come back when you've heard it yourself and not off my speaker. Ask Ada Mercer what sings. She'll tell you, if you knock right."]
+   ],
+   "next": "hub"
+  },
+  "north": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "No. I put my boots on and I stood at the end of the lane with a handheld and I didn't go one step further."],
+    ["ham", "I'm sixty-eight. The needle pointed at the plant and I pointed my boots at the house. That's the whole of my courage."],
+    ["dale", "That's more than the county managed."]
+   ],
+   "gives": {"flag": "ham_stood_at_lane", "trust": {"ham": 1}},
+   "next": "hub"
+  },
+  "chair": {
+   "speaker": "ham",
+   "lines": [
+    ["ham", "That's the chair I was in when I pulled the lead in '66. Spring went that same week. I never fixed it."],
+    ["ham", "Don't sit in it after dark. I don't. Ha. Listen to me."]
+   ],
+   "gives": {"flag": "ham_asked_chair", "trust": {"ham": 1}},
+   "next": "hub"
+  }
+ }
+}

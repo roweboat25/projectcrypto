@@ -1,0 +1,132 @@
+{
+ "id": "sf_cafe_woman",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "Sit anywhere but the window, love, that's Fay's on a Thursday and it's Thursday somewhere. Brenda. Tea's stewed, I'll do you a fresh."],
+    ["sf_cafe_woman", "You're the Americans. The whole front knows. Wilf said you'd been at the chairs, and Len said you'd been at the falls, and I said well they'll want a tea."],
+    ["sf_cafe_woman", "So. Ask me about the Rudd boy and I'll tell you what everyone knows, and then I'll tell you what I know, which is more."],
+    ["teddy", "She's already got the pot in her hand. We're not leaving before it's drunk."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 7, "line": "She talks fast to the window and slow to the counter. The gossip is the front of the shop. Something lives in the back."},
+    {"voice": "logic", "threshold": 9, "line": "TIGERS 3AM on the calendar, four days running, and under it in smaller pencil: AND THE OTHER. She stopped writing the other thing.", "flag": "sf_cafe_woman_calendar"}
+   ],
+   "options": [
+    {"tone": "kind", "text": "A fresh pot would be lovely. Tell us the what-everyone-knows first.", "next": "kind"},
+    {"tone": "wry", "text": "The whole front knows. Does the whole front ever get anything right?", "next": "wry"},
+    {"tone": "silent", "text": "(Sit down, not at the window. Wait for the tea.)", "next": "silent", "trust": 1}
+   ],
+   "gives": {"flag": "met_sf_cafe_woman"}
+  },
+  "kind": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "Heat and a dog and a dad who wanted his name in the Echo. That's the front. Alf Rudd in the Mermaid doing the hat voice for a pint, years."],
+    ["sf_cafe_woman", "I've told that a thousand times. It fits on a saucer. Milk?"]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"sf_cafe_woman": 1}}
+  },
+  "wry": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "Oh, never. That's what it's for. If the front got it right we'd have to do something about it."],
+    ["sf_cafe_woman", "You're sharp. Sharp gets a biscuit."]
+   ],
+   "next": "hub"
+  },
+  "silent": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "...Not the window. Good. Most people sit in the window."],
+    ["sf_cafe_woman", "There. Let it stand a minute. You're quiet ones. Fay's a quiet one. Colin wasn't, till he was."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "sf_cafe_woman",
+   "repeat": true,
+   "prompt": "Go on, love. I've the urn on and nobody comes in till the tide's turned.",
+   "lines": [["sf_cafe_woman", "Go on, love. I've the urn on and nobody comes in till the tide's turned."]],
+   "static": {"min_dread": 3, "line": "She lives over the shop. At three in the morning she hears what the tiger hears. She wrote it down and then she stopped. Ask her what AND THE OTHER is."},
+   "options": [
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 7, "evidence_bonus": {"tn_landlady_rudds": 2, "colin_father": 1}},
+     "text": "Fifty-one years on the front. Who told it first, Brenda, honestly? Alf, or the kiddies?", "pass": "first", "fail": {"next": "first_fail"}},
+    {"requires": {"flag": ["sf_cafe_woman_calendar"]},
+     "check": {"voice": "empathy", "kind": "white", "difficulty": 8, "evidence_bonus": {"sf_keeper_three_am": 1}},
+     "text": "'And the other.' You stopped writing it. You're not sleeping.", "pass": "other",
+     "fail": {"line": "The other what? It's a calendar, love, not a diary. The other thing's the bins. Drink your tea."}},
+    {"requires": {"not_flag": ["sf_cafe_woman_85", "sf_cafe_woman_85_shut"]},
+     "check": {"voice": "press", "kind": "red", "difficulty": 10, "evidence_bonus": {"tn_chemist_on_fay": 1, "fay_on_colin": 2}},
+     "text": "1985. Something was said between Fay and Colin. You hear everything in here. What was it?", "pass": "eighty_five",
+     "fail": {"next": "eighty_five_fail", "trust": {"sf_cafe_woman": -1}}},
+    {"requires": {"evidence": ["colin_fay_hat"]},
+     "text": "Fay worked a season at Sunnyside in '85. She found a hat.", "next": "hat_known"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "Thanks for the tea, Brenda."}
+   ]
+  },
+  "first": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "...The kiddies. Tuesday teatime, both of them in here with their mums, Colin white and Fay not saying a word, and he told it to the whole cafe before his beans."],
+    ["sf_cafe_woman", "Alf's joke was the Wednesday. In the Mermaid. After. I've had it the wrong way round for twenty years because the wrong way round's funnier."],
+    ["miriam", "Children first, father second. That reverses the thing the whole town's been leaning on."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_cafe_woman_first", "trust": {"sf_cafe_woman": 1}}
+  },
+  "first_fail": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "Alf. Alf, Alf, Alf. I've said Alf to the Chronicle and the vicar and the two in the suits and I'll say Alf to you."],
+    ["sf_cafe_woman", "If you want it from somebody who was in the breakfast room, go and ask Mrs Bannister at the Seaview. She keeps a book."]
+   ],
+   "next": "hub"
+  },
+  "other": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "...At three the tiger starts. And under the tiger, from the sand, there's a voice. Reading. Like the shipping forecast, but it's not the forecast, it's the Rudd boy's story."],
+    ["sf_cafe_woman", "Word for word. 'A man taller than a man.' In a voice with no breath in it. I wrote it on the Friday and then I thought, Brenda, you're sixty-eight, and I stopped."],
+    ["elijah", "She's not mad. I can hear the shape of it in her, where it sat."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_cafe_woman_other", "dread": 1, "trust": {"sf_cafe_woman": 1}}
+  },
+  "eighty_five": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "...The window table. August '85. Fay came in from the camp in her Yellowcoat and sat with him and said, Colin, I've found it. On a rail. It's a hat."],
+    ["sf_cafe_woman", "And he said, I know. He said, I've always known, Fay, it was a man, it smelt of Brylcreem. And she said, then why did you let them laugh at me for twelve years."],
+    ["sf_cafe_woman", "He hasn't sat with her since. She faces the wall. I serve them both and I've never said. I'm saying now because you're leaving on Monday."],
+    ["ruth", "There it is, dear. Not the hat. The twelve years."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_cafe_woman_85", "trust": {"sf_cafe_woman": 1}}
+  },
+  "eighty_five_fail": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "I don't know, and if I did I'd not tell it to a stranger for a cup of my own tea."],
+    ["sf_cafe_woman", "That's Fay's and Colin's. Ask her. She's at Harwood's. Don't sit in her window when you do."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_cafe_woman_85_shut"}
+  },
+  "hat_known": {
+   "speaker": "sf_cafe_woman",
+   "lines": [
+    ["sf_cafe_woman", "She told you. Well. Then you know what she did with it, which is nothing, because Terry Gosling put her on the Ryde train with her wages the same week."],
+    ["sf_cafe_woman", "Same as the other one. Twelve years apart and the same train. That camp's got one answer for everything."],
+    ["dale", "Terry's got a train for every problem. Worth asking how many he's put on it."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_cafe_woman_hat", "trust": {"sf_cafe_woman": 1}}
+  }
+ }
+}

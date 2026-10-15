@@ -1,0 +1,149 @@
+{
+ "id": "hollis",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "Jerky's two dollars, coffee's free with jerky, and I don't do directions. Everybody wants directions."],
+    ["hollis", "...You ain't lost, are you. You're the ones. Marlene's people."],
+    ["june", "CB's on 19 and the squelch is wide open. He's listening to static on purpose."]
+   ],
+   "passives": [
+    {"voice": "tech", "threshold": 8, "line": "The CB's clock reads 2:10 and it's past noon. He's set it to the only time he cares about.", "flag": "hollis_clock"},
+    {"voice": "logic", "threshold": 8, "line": "The logbook under the counter has a pencil in it worn to nothing. He writes in it every night.", "flag": "hollis_logbook"},
+    {"voice": "empathy", "threshold": 9, "line": "He says 'ain't lost' like he was once. Like he's been lost on this road since he was nine."}
+   ],
+   "static": {"min_dread": 3, "line": "He's watching the clock, not you. Ask him what happens at ten past two and watch what his hands do."},
+   "options": [
+    {"tone": "kind", "text": "Two dollars. We'll take three.", "next": "buy", "trust": 1},
+    {"check": {"voice": "tech", "kind": "white", "difficulty": 8, "evidence_bonus": {"three_note_tone": 2, "teletype_bells": 1}},
+     "text": "Squelch is wide open. You're not listening for truckers.", "pass": "squelch",
+     "fail": {"next": "squelch_fail", "trust": {"hollis": -1}}},
+    {"tone": "hard", "text": "We don't want directions. We want your logbook.", "next": "logbook_hard"}
+   ],
+   "gives": {"flag": "met_hollis"}
+  },
+  "buy": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "Six dollars. Deer, not beef. Don't tell the health man."],
+    ["hollis", "...Huh. Most folks talk me down. You just paid. I'll remember that."]
+   ],
+   "next": "hub"
+  },
+  "squelch": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "Truckers don't come down 62 no more. Not since the bridge."],
+    ["hollis", "I'm listening for ten past two. Something comes on every band at ten past two, and I've heard it since I was nine on my daddy's set."],
+    ["june", "Every band. That's not a transmitter. A transmitter has a band."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hollis_tone", "evidence": "hollis_tone", "flag": "hollis_told_tone", "trust": {"hollis": 1}}
+  },
+  "squelch_fail": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "I listen to what I listen to. It's my set."],
+    ["hollis", "You want radio, Orville up on the Heights has a tower. Go bother Orville."]
+   ],
+   "next": "hub"
+  },
+  "logbook_hard": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "You want nothing of mine. Get your jerky or get on."],
+    ["hollis", "(He puts a hand flat on the counter, over the book.)"],
+    ["miriam", "Well. Now we know where the book is."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "hollis_pushed", "trust": {"hollis": -1}}
+  },
+  "hub": {
+   "speaker": "hollis",
+   "repeat": true,
+   "prompt": "Hollis keeps a hand near the book.",
+   "lines": [
+    ["hollis", "Jerky, coffee, or what."]
+   ],
+   "options": [
+    {"requires": {"flag": ["hollis_logbook"], "not_flag": ["hollis_showed_book"]},
+     "check": {"voice": "rapport", "kind": "white", "difficulty": 8, "evidence_bonus": {"hunter_plant_lights": 1, "marlene_tnt": 1}},
+     "text": "A man ought to keep times. Show us the times.", "pass": "times",
+     "fail": {"next": "times_fail"}},
+    {"tone": "hard",
+     "check": {"voice": "bluff", "kind": "red", "difficulty": 10, "evidence_bonus": {"the_suits": 2, "penrose_first": 1}},
+     "text": "The two men in the sedan. They told us you'd cooperate.", "pass": "sedan",
+     "fail": {"next": "sedan_fail", "trust": {"hollis": -2}, "dread": 1}},
+    {"requires": {"evidence": ["three_note_tone"], "not_flag": ["hollis_tape"]}, "text": "We've got it on tape. Three notes, strongest in igloo 7.", "next": "tape"},
+    {"tone": "silent", "requires": {"not_flag": ["hollis_listened"]}, "text": "(Sit at the counter and listen to the static with him.)", "next": "listen", "trust": 1},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll get on."}
+   ]
+  },
+  "times": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "(He opens the book.) Ten past two. Ten past two. Ten past two. Eleven, that was once, in '89, and I'd had a beer."],
+    ["hollis", "Two lights, red, over the TNT ridge, moving against the wind. Six years of nights. You're the first to look."],
+    ["miriam", "Six years of the same minute. Either he's right or his clock's wrong, and I'd like to check the clock."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hollis_lights", "evidence": "hollis_lights", "flag": "hollis_showed_book", "trust": {"hollis": 1}}
+  },
+  "times_fail": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "It's a private book. A man's times are his own."],
+    ["hollis", "Carl Ridge keeps his in his head. Go ask Carl what time it stands up."]
+   ],
+   "next": "hub"
+  },
+  "sedan": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "...They said that?"],
+    ["hollis", "Never said a word to me. Sat in that car two nights, engine off, never came in for coffee. I wrote the plates. There weren't none."],
+    ["hollis", "Monday and Tuesday. Watched the chapel roof like Carl. Left at ten past two both nights, same as the lights."],
+    ["teddy", "They leave when it leaves. They're not watching the roof. They're watching the clock."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "hollis_car", "evidence": "hollis_car", "flag": "hollis_bluffed"}
+  },
+  "sedan_fail": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "They never told you nothing, 'cause they never talk. And now I know you're a liar."],
+    ["hollis", "Jerky's four dollars for liars. Get on."]
+   ],
+   "passives": [
+    {"voice": "bluff", "threshold": 5, "line": "You borrowed the suits' credit and it bounced. The bell on his door sounds like a cash drawer shutting."}
+   ],
+   "end": true
+  },
+  "tape": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "(He listens with his eyes shut.) That's it. That's it. Igloo 7."],
+    ["hollis", "I was nine. Daddy's set, the night the two couples came in off 62. Three notes, carrier dropped, Daddy pulled the plug, it kept going."],
+    ["hollis", "I've never told nobody that. The unplugged part."],
+    ["june", "Lonnie at the pawn said the same thing. Unplugged. That's two sets and no power."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "hollis_tape", "trust": {"hollis": 2}}
+  },
+  "listen": {
+   "speaker": "hollis",
+   "lines": [
+    ["hollis", "..."],
+    ["hollis", "(The static rises and falls. At some point he pours you a coffee you didn't pay for.)"],
+    ["hollis", "Ten past two's a long way off. You can come back. Most don't."],
+    ["elijah", "He means it. He's counting on it, a little."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "hollis_listened"}
+  }
+ }
+}

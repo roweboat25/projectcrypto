@@ -1,0 +1,348 @@
+{
+ "_doc": "Carol Mason, nee Teel. Night nurse, one of the four in the 1966 car. Her kitchen on the Heights, blinds down. Topics on the hub offer her quick facts (the number on the receipt, Dwight's Thursdays).",
+ "id": "carol",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "Wipe your boots. Dwight's not home, and if he was he wouldn't be home, if you follow me."
+    ],
+    [
+     "carol",
+     "I work nights at Pleasant Valley. I've got forty minutes before I have to sleep, so say what you came to say."
+    ],
+    [
+     "carol",
+     "I know what you came to say. The whole hill's known since '66. They just don't say it in my kitchen."
+    ],
+    [
+     "teddy",
+     "Scrubs under the cardigan. She came straight off a shift to be here for this."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "Two cups on the drainer. One dry, one still wet. Somebody left before dawn and didn't come back for breakfast.",
+     "flag": "carol_two_cups"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "'If he was he wouldn't be home.' She's been living with an empty chair that has a man in it."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Four went out in the car. Ask her how many came back. Ask her if she's sure it was Dwight."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll be quick, Mrs. Mason. We're not here to laugh.",
+     "next": "kitchen"
+    },
+    {
+     "check": {
+      "voice": "recall",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "kitchen_receipt_1966": 2,
+       "yearbook_1966": 1
+      }
+     },
+     "text": "Four of you. Dwight, you, Gene Lusk, Patty Rayburn. On the hood of a Chevy at the pull-off.",
+     "pass": "four",
+     "fail": {
+      "next": "four_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "You're a nurse. You've written things on a chart that didn't add up.",
+     "pass": "nurse",
+     "fail": {
+      "line": "I've written ordinary things, mostly. Don't make me special. Virgil Haught's seen more than me. Go stand in his cold room."
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Say nothing. Let her pour the coffee.)",
+     "next": "pour",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_carol"
+   }
+  },
+  "kitchen": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "Sit. Not that one. I was seventeen. I was Carol Teel, I had a curfew and I broke it, and that's the only part my mother ever cared about."
+    ],
+    [
+     "carol",
+     "Four in the car. I'm the one who screamed. I've had a whole life of being the one who screamed."
+    ],
+    [
+     "ruth",
+     "Every town picks a girl to carry it. It's never the boys."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "carol": 1
+    }
+   },
+   "next": "hub"
+  },
+  "four": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "...You've seen the yearbook. Patty left the next week. Gene drinks. Dwight and me married because who else would have us, knowing."
+    ],
+    [
+     "carol",
+     "Four of us, and I'm the only one who says it. In my kitchen. With the blinds down."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "carol": 1
+    },
+    "flag": "carol_named_four"
+   },
+   "next": "hub"
+  },
+  "four_fail": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "Patty Rayburn wasn't in any car. Patty moved to Columbus. Ask her family, they'll say the same. They've said it for twenty-eight years."
+    ],
+    [
+     "miriam",
+     "Rehearsed. That whole line was rehearsed."
+    ]
+   ],
+   "next": "hub"
+  },
+  "nurse": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "On a chart it says 'hypothermia' and you write the number and the doctor signs it. I've written numbers that weren't possible."
+    ],
+    [
+     "carol",
+     "There was a man off the bridge in '67. I was a candy striper. He never came up to temperature. Virgil had him after. Ask Virgil, not me."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "carol": 1
+    },
+    "flag": "carol_cold_man"
+   },
+   "next": "hub"
+  },
+  "pour": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "..."
+    ],
+    [
+     "carol",
+     "You're the first ones in this kitchen who didn't start with the bird. Milk's in the door."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "carol": 1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "carol",
+   "repeat": true,
+   "prompt": "Forty minutes. Thirty, now.",
+   "lines": [
+    [
+     "carol",
+     "Forty minutes. Thirty, now."
+    ]
+   ],
+   "options": [
+    {
+     "requires": {
+      "evidence": [
+       "dwight_returns"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "marlene_tnt": 2,
+       "dwight_account": 1
+      }
+     },
+     "text": "You followed him twice. The second time you didn't just watch him sit in the car.",
+     "pass": "hood",
+     "fail": {
+      "next": "hood_fail",
+      "trust": {
+       "carol": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "tone": "hard",
+     "requires": {
+      "evidence": [
+       "pawn_dwight_coat"
+      ]
+     },
+     "text": "He sold his coat Tuesday. He told the pawnbroker he wouldn't need one where he was going.",
+     "next": "coat"
+    },
+    {
+     "tone": "wry",
+     "requires": {
+      "flag": [
+       "carol_two_cups"
+      ],
+      "not_flag": [
+       "carol_cups_asked"
+      ]
+     },
+     "text": "Who takes the other cup, mornings?",
+     "next": "cups"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Get your sleep, Mrs. Mason."
+    }
+   ]
+  },
+  "hood": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "...It was on the hood. Sitting on my husband's hood like a dog waits on a porch, and the windshield going white from the inside."
+    ],
+    [
+     "carol",
+     "It didn't look at him. It looked past him, down the road, at me. At my headlights. I backed up a quarter mile before I turned around."
+    ],
+    [
+     "carol",
+     "I've slept with the hall light on since. He thinks it's for him. Let him."
+    ],
+    [
+     "elijah",
+     "It knows the car. Now it knows hers."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "carol": 1
+    },
+    "flag": "carol_saw_hood",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "hood_fail": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "I watched my husband sit in a car. That's all I'll say, and I shouldn't have said that much."
+    ],
+    [
+     "carol",
+     "I've got to sleep. If you want somebody who talks, Marlene at the diner watches the same road I do."
+    ]
+   ],
+   "end": true
+  },
+  "coat": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "...He said the cleaners."
+    ],
+    [
+     "carol",
+     "(She sets the cup down very carefully, like it's full.) Thursday. He means Thursday. He always means Thursday."
+    ],
+    [
+     "carol",
+     "Be out there. I can't. It looked at me once, and if I go he'll get out of the car to stand in front of me. Be out there instead."
+    ],
+    [
+     "teddy",
+     "...We'll be there, Carol."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "carol": 1
+    },
+    "flag": "carol_knows_coat",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "cups": {
+   "speaker": "carol",
+   "lines": [
+    [
+     "carol",
+     "Dwight. He's up at four and out the door. Says the house is too warm. The house is fifty-eight degrees, I set the thermostat myself."
+    ],
+    [
+     "carol",
+     "He drinks it standing at the window. Facing north. Then he goes."
+    ]
+   ],
+   "gives": {
+    "flag": "carol_cups_asked",
+    "trust": {
+     "carol": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}
