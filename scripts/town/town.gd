@@ -15,7 +15,7 @@ var outside: Dictionary
 var rooms: Dictionary = {}       # id -> built room
 var party: Array[CharacterBody2D] = []
 var camera: Camera2D
-var time_of_day := 0.80          # 0..1, 0.25 = noon, 0.75 = midnight
+var time_of_day := 0.10          # 0..1, 0.25 = noon, 0.75 = midnight; a new hire arrives in the morning
 var inside := ""                 # room id when indoors
 var _modulate: CanvasModulate
 var _torch: PointLight2D
@@ -25,6 +25,8 @@ var _entered_via := ""           # the room whose door the party came in by, for
 var _prompt: Label
 var _toast_label: Label
 var _hud: Label
+var _strip: PartyStrip = null
+var _minimap: Minimap = null
 var _fade: ColorRect
 var _box: DialogueBox
 var _file: EvidencePanel
@@ -196,6 +198,7 @@ func _spawn_party() -> void:
 
 
 func _set_camera_limits(rect: Rect2) -> void:
+	_refresh_minimap()
 	camera.limit_left = int(rect.position.x)
 	camera.limit_top = int(rect.position.y)
 	camera.limit_right = int(rect.end.x)
@@ -789,6 +792,12 @@ func _build_ui() -> void:
 	_hud.add_theme_constant_override("shadow_offset_x", 1)
 	_hud.add_theme_constant_override("shadow_offset_y", 1)
 	root.add_child(_hud)
+	_strip = PartyStrip.new()
+	root.add_child(_strip)
+	_strip.build(GameState.party)
+	_minimap = Minimap.new()
+	root.add_child(_minimap)
+	_refresh_minimap()
 	var help := Label.new()
 	help.text = "WASD walk · Space talk/look · Tab case file · G gear · T day/night · H timed hits · F5 save · F9 load"
 	help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
@@ -855,7 +864,20 @@ func _hud_tick() -> void:
 	_hud.text = "%s · %s   Day %d   %d:00 %s (%s)%s   Dread %d   Evidence %d" % [GameData.cases.get(map.get("case", ""), {}).get("name", "The Casebook"), where, GameState.day, h12, ampm, Investigation.phase(time_of_day), tide_text, GameState.dread, GameState.evidence.size()]
 	if _talk == null:
 		_apply_phase()
+	if _strip != null:
+		_strip.refresh()
 	get_tree().create_timer(0.5).timeout.connect(_hud_tick)
+
+
+## Redraws the corner map for wherever the party is now: the district, or the room.
+func _refresh_minimap() -> void:
+	if _minimap == null or party.is_empty():
+		return
+	if inside != "":
+		var room: Dictionary = rooms[inside]
+		_minimap.build(_world.get_node_or_null("Ground_" + inside), _world.get_node_or_null("Walls_" + inside), room.rect, room.actors, [], [], room.npcs, party[0])
+	else:
+		_minimap.build(_world.get_node_or_null("Ground"), _world.get_node_or_null("Walls"), outside.rect, outside.actors, outside.exits, outside.doors, outside.npcs, party[0])
 
 
 func _toast(text: String) -> void:
