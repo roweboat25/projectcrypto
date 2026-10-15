@@ -1,0 +1,1225 @@
+{
+ "_doc": "Hopkinsville fragment for the Kelly case: the desk sergeant and the 1955 log, the Ledger's editor and her morgue (the flag ledger_morgue is the other way into the skeleton's police_log gate, and opens the morgue copy behind hv_morgue), the Western State records clerk (fixed id records_clerk; her script is data/dialogue/kelly/records_clerk.json; the lead clears the neighbour the county calls the drunk), the retired MP at the barbecue (his fact sets mp_trusts, which makes the mp_letter pickup appear), the pawn man, the barbecue owner, the librarian, the motel owner, Penrose checking out on day 2, and the evidence they give. Ids are prefixed hv_ except records_clerk. Skeleton gates reused: police_log, hospital_records, mp_report.",
+ "locations": {
+  "hv_police_station": "Hopkinsville police station",
+  "hv_library": "Hopkinsville public library",
+  "hv_bbq": "Cheek's Bar-B-Q",
+  "hv_pawn": "Pennyrile Pawn and Gun",
+  "hv_cemetery": "Riverside Cemetery",
+  "hv_fort_fence": "The Fort Campbell boundary road",
+  "hv_motel_room": "The Pennyrile Motor Court, room 1"
+ },
+ "items": {},
+ "gates": {
+  "hv_morgue": {
+   "name": "The Ledger's morgue",
+   "locked": "The bound volumes are behind the editor's chair, and the editor is in it. NO PENS IN THE MORGUE, says the card, and under it, smaller, NO YOU.",
+   "opens": [
+    {
+     "flag": "ledger_morgue"
+    }
+   ]
+  },
+  "hv_mp_letter_offered": {
+   "name": "Sarge's letter",
+   "locked": "",
+   "opens": [
+    {
+     "flag": "mp_trusts"
+    }
+   ]
+  },
+  "hv_penrose_checkout": {
+   "name": "Checkout morning",
+   "locked": "",
+   "opens": [
+    {
+     "day": 2
+    }
+   ]
+  },
+  "hv_records_open": {
+   "name": "The records office door",
+   "locked": "The blind is down and a card is taped to the glass in a careful hand: CLOSED TO THE OFFICE OF SPECIAL INQUIRY. NOT TODAY. NOT THIS WEEK. You did that.",
+   "opens": [
+    {
+     "not_flag": "hv_records_barred"
+    }
+   ]
+  }
+ },
+ "witnesses": {
+  "hv_sergeant": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_sgt_night",
+     "title": "The call at two in the morning",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 7,
+       "prompt": "You weren't born. But the station remembers. Tell it the way the station tells it."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "hv_sergeant",
+       "Two-thirty in the morning, eight of them come through that door, white as flour, two little boys asleep on their feet. The chief and the sergeant and four cars went out with the state police, and they found pellet holes in the screens and a dog under the house and not one thing else."
+      ],
+      [
+       "hv_sergeant",
+       "The chief wrote one line about it that he underlined, and the station's been living on that line ever since. There wasn't a drop of liquor in any of them. He'd have smelt it. He had a nose like a judge."
+      ],
+      [
+       "miriam",
+       "A police chief who went looking for the easy answer and wrote down that he didn't find it. That's the most honest thing anybody has said about this case in thirty-nine years."
+      ]
+     ],
+     "evidence": "hv_sgt_sober"
+    },
+    {
+     "id": "hv_sgt_birdshot",
+     "title": "Where the shots went",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "Four boxes of shells fired and nothing hit. The station kept the casings. Where were the holes?"
+      },
+      {
+       "trust": 3
+      }
+     ],
+     "lines": [
+      [
+       "hv_sergeant",
+       "High. Every one of them. The chief's boy went out in daylight and found the shot in the oak limbs and the barn roof and the top of the chicken house. Number six birdshot, the whole night, fired up."
+      ],
+      [
+       "hv_sergeant",
+       "You don't shoot up at a man. You shoot up at something in a tree. He wrote that down too, and then he crossed it out, because the family was sitting right there."
+      ],
+      [
+       "dale",
+       "Birdshot, high, into trees. I could end this case right here and I'm not going to, because I want to see the house."
+      ]
+     ],
+     "evidence": "hv_sgt_birdshot"
+    },
+    {
+     "id": "hv_sgt_walker",
+     "title": "The man on the road",
+     "gates": [
+      {
+       "show": "hv_admission_record"
+      },
+      {
+       "show": "hv_clerk_confirms"
+      }
+     ],
+     "lines": [
+      [
+       "hv_sergeant",
+       "...Well. The cars passed a man walking US-41 at three that morning, no light, headed north. Everybody decided afterward it was him, and he was in no shape to say different, and it went in the story like that."
+      ],
+      [
+       "hv_sergeant",
+       "If he was where that card says he was, then I don't know who was on the road. And in 1955 these boys knew every man in the county by his walk."
+      ],
+      [
+       "elijah",
+       "Somebody walking north toward the farm at three in the morning, in the dark, who nobody knew. He's just given us that and he's sorry he did."
+      ]
+     ],
+     "evidence": "hv_sgt_unknown_walker"
+    }
+   ]
+  },
+  "hv_deputy": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_dep_fence",
+     "title": "The Fort Campbell fence",
+     "gates": [
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "hv_deputy",
+       "The boundary road's a mile south. Don't go up to the wire after dark. The MPs run it at night and they do not care who you are or what you're writing. They'll put you on the shoulder till a lieutenant feels like driving out."
+      ],
+      [
+       "hv_deputy",
+       "Daytime they're not there. Daytime it's just a fence. I'm not telling you anything. I'm telling you the time."
+      ],
+      [
+       "teddy",
+       "He just told us when to go. In the voice of a man telling us when not to."
+      ]
+     ]
+    },
+    {
+     "id": "hv_dep_tangle",
+     "title": "After the fence",
+     "gates": [
+      {
+       "show": "hv_mp_report_1955"
+      },
+      {
+       "show": "hv_mp_exercise_1957"
+      }
+     ],
+     "lines": [
+      [
+       "hv_deputy",
+       "You got into the log box. Huh. There's two reports in there everybody finds, and one of 'em's on the TV every August and it's the wrong one. Sarge at the barbecue can tell you which. He wrote the other one."
+      ]
+     ]
+    }
+   ]
+  },
+  "hv_editor": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_ed_morgue",
+     "title": "The morgue, the week of the 22nd",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 8,
+       "prompt": "You've got the only complete run of 1955 in the county and a carbon of the desk log in it. We'd like the week of the 22nd."
+      },
+      {
+       "trust": 3
+      }
+     ],
+     "lines": [
+      [
+       "hv_editor",
+       "I've got the only complete run because the library's was stolen in 1975 by a man from a magazine, and I've got the carbon because the chief's secretary typed it for my predecessor and he never ran it. He thought it would hurt the family. It would have helped them."
+      ],
+      [
+       "hv_editor",
+       "The morgue's through there. No pens. One volume at a time. And if you put anything back in the wrong year I will know, because I am the only person who has ever put anything in it."
+      ],
+      [
+       "teddy",
+       "She said 'helped them'. She's on their side. She's been on their side for thirty-nine years in a town that laughed."
+      ]
+     ],
+     "flag": "ledger_morgue"
+    },
+    {
+     "id": "hv_ed_green",
+     "title": "Nobody said green",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "Your front page says twelve little men. Your own hand in the margin says nobody said it. Which Ledger do we believe?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "hv_editor",
+       "The family said 'little men' and 'silver' and 'shining'. The wire desk in Nashville had a man who'd read too many paperbacks and by morning they were green and there were twelve. We took the wire story because we were a weekly and it was Tuesday. That's the whole conspiracy."
+      ],
+      [
+       "hv_editor",
+       "Everything that's wrong with this story got wrong in forty-eight hours, in other people's newsrooms, and the family has been answering for it since."
+      ],
+      [
+       "miriam",
+       "So the silliest parts, the parts that make it a joke, aren't theirs. That doesn't make it true. It makes it a different story."
+      ]
+     ],
+     "evidence": "hv_editor_green"
+    },
+    {
+     "id": "hv_ed_letter",
+     "title": "The letter from the post",
+     "gates": [
+      {
+       "show": "hv_police_log_1955"
+      },
+      {
+       "show": "hv_police_log_copy"
+      },
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "A paper gets letters for a year after a thing like that. One of them you kept. Which?"
+      }
+     ],
+     "lines": [
+      [
+       "hv_editor",
+       "An Army wife from the post, September '55, no name. Her husband was on the boundary road that night with the military police and came home and said he'd written a report and been told to write it again. She wanted us to know the Army had men out there. We didn't run it. We couldn't stand it up."
+      ],
+      [
+       "hv_editor",
+       "I've stood it up since. There's a log box on the old gate post past the wire that nobody has cleaned out since Korea. I'm an editor. I can't climb a fence. You're not editors."
+      ],
+      [
+       "june",
+       "Two reports. The one he wrote and the one he was told to write. If both are in that box, we can tell which is which by the paper."
+      ]
+     ],
+     "evidence": "hv_editor_army_letter"
+    },
+    {
+     "id": "hv_ed_monkey",
+     "title": "The monkey",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "A travelling show lost a monkey that week. A weekly runs lost-and-found. Did it?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "hv_editor",
+       "The Ledger of the 18th, page six: LOST, FROM THE SHOW AT THE FAIRGROUNDS, ONE MONKEY, 'MAJOR', IN A RED JACKET, REWARD. Three days before. The show pulled out on the 20th. Ask the fairgrounds whether the monkey went with them. I never found out."
+      ],
+      [
+       "hv_editor",
+       "A monkey in a jacket at night with its hands up. I'm not saying it. I'm saying I ran the ad."
+      ],
+      [
+       "ruth",
+       "A monkey, dear, would have bitten somebody. They always do. Nobody got bitten."
+      ]
+     ],
+     "evidence": "hv_editor_monkey"
+    },
+    {
+     "id": "hv_ed_retraction",
+     "title": "The man in the sheet",
+     "gates": [
+      {
+       "show": "hv_ledger_confession"
+      }
+     ],
+     "lines": [
+      [
+       "hv_editor",
+       "Oh, him. He confessed to that in '57, to a bank in Clarksville in '58, and to the Lindbergh baby in '61, at which point we stopped running him. The retraction's on page nine the week after. Page nine is where we keep him."
+      ],
+      [
+       "teddy",
+       "A serial confessor. Every case has one. They're the most reliable thing in it."
+      ]
+     ],
+     "evidence": "hv_editor_retraction"
+    }
+   ]
+  },
+  "records_clerk": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "rc_why_kept",
+     "title": "Why the office keeps 1955",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "You keep every year the same. But you know which drawer this is. Why?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "records_clerk",
+       "Because every August somebody comes in and says his name like it's a punchline. The drunk at the farm. The crazy man in the yard. And he was here, in a bed, with a nurse counting him at eleven and at three, and that's all a records office can say for anybody, and it's not nothing."
+      ],
+      [
+       "records_clerk",
+       "I don't open the drawer for the ones who laugh. I'm deciding about you."
+      ],
+      [
+       "elijah",
+       "She's not guarding the hospital. She's guarding him. Be worth it."
+      ]
+     ]
+    },
+    {
+     "id": "rc_confirms",
+     "title": "What the card says",
+     "gates": [
+      {
+       "show": "hv_admission_record"
+      }
+     ],
+     "lines": [
+      [
+       "records_clerk",
+       "That's it. That's everything. Nineteenth to the thirtieth, present at every count. The night nurse was my aunt. She didn't miscount in forty years."
+      ],
+      [
+       "records_clerk",
+       "So whoever the county's been calling the drunk in the yard, it wasn't him. It's not my job to say who. It's my job to say who it wasn't."
+      ],
+      [
+       "miriam",
+       "She just took away the easiest answer in the case and she did it with a file card. That's how it should be done."
+      ]
+     ],
+     "evidence": "hv_clerk_confirms"
+    }
+   ]
+  },
+  "hv_retired_mp": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_mp_fence",
+     "title": "The boundary road, 1955",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "You were nineteen and on the boundary road that night. Nobody has asked you properly. We're asking properly."
+      },
+      {
+       "show": "hv_editor_army_letter"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "hv_retired_mp",
+       "Nineteen, and a PFC, and in a jeep with a sergeant who was drunk, which I did not write down. Call came in about lights at nine-thirty. We ran the road to Kelly station and back and the only thing in my headlights all night was an owl the size of a dog that came off post fourteen and went over the hood."
+      ],
+      [
+       "hv_retired_mp",
+       "I wrote it down. Bird, probably owl, no lights observed. The lieutenant read it and said write it again and I said what do you want it to say, sir, and he said never mind. So it's in the box. The one I wrote. Under the other one."
+      ],
+      [
+       "hv_retired_mp",
+       "I'll write you a letter for the gate. Not for you. For the family. Somebody ought to put the owl next to their name instead of the other thing."
+      ],
+      [
+       "dale",
+       "An owl over the hood of a jeep. Great horned, has to be. They'll do that. They'll hit a windshield to prove a point."
+      ]
+     ],
+     "evidence": "hv_mp_recall",
+     "flag": "mp_trusts"
+    },
+    {
+     "id": "hv_mp_which",
+     "title": "Which report",
+     "gates": [
+      {
+       "show": "hv_mp_report_1955"
+      },
+      {
+       "show": "hv_mp_exercise_1957"
+      },
+      {
+       "trust": 3
+      }
+     ],
+     "lines": [
+      [
+       "hv_retired_mp",
+       "The one with the letterhead and the stamp is from '57. Exercise Sagebrush. They flew flares off the post for a week and wrote it up like a Martian landing for the umpires. The date's folded under because somebody wanted it folded under."
+      ],
+      [
+       "hv_retired_mp",
+       "Mine's the carbon with the bad typewriter. Mine's the one that's true. Nobody's ever put mine on television, and that's how you can tell."
+      ],
+      [
+       "june",
+       "Flares. A week of them, in 1957. Every 'Army saw it too' story in this county is two years late and looking at a flare."
+      ]
+     ],
+     "evidence": "hv_mp_which_report"
+    }
+   ]
+  },
+  "hv_pawn": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_pawn_shells",
+     "title": "The shell box",
+     "gates": [
+      {
+       "show": "hv_shell_box_photo"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "That box on the nail. You didn't hang it there for the tourists."
+      }
+     ],
+     "lines": [
+      [
+       "hv_pawn",
+       "My daddy sold them that box the day before. Number six. They came in for crow shot because something was taking the chickens, and he told them a horned owl would do that and sold them bird shot for it. Then the next night they shot the whole box at the owl's cousins."
+      ],
+      [
+       "hv_pawn",
+       "That's my daddy's story. I'm not saying it's right. I'm saying nobody in that house loaded for men."
+      ],
+      [
+       "dale",
+       "Chickens going missing the week before. Owls. Big ones. It's a chain and every link is a bird."
+      ]
+     ],
+     "evidence": "hv_pawn_owls"
+    },
+    {
+     "id": "hv_pawn_rumour",
+     "title": "What folks say",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "Everybody in this town has a version. What's the one you sell?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "hv_pawn",
+       "You want the one everybody knows? The neighbour. He'd had a jug that night and he was in their yard with a flashlight looking for his dog, and eleven people shot at him and missed, and he was so drunk he went home and slept through it. That's what the county says. The county's said it since '55."
+      ],
+      [
+       "hv_pawn",
+       "I'll sell you that one for free. The photograph's forty dollars."
+      ],
+      [
+       "miriam",
+       "Everybody knows it, which means nobody checked it. Write it down and go find out where he actually was."
+      ]
+     ],
+     "evidence": "hv_drunk_rumour"
+    },
+    {
+     "id": "hv_pawn_admits",
+     "title": "The photograph",
+     "gates": [
+      {
+       "show": "hv_pawn_photo"
+      },
+      {
+       "check": "press",
+       "difficulty": 9,
+       "prompt": "That photograph has a fold in it. Things that were standing in a yard don't have folds."
+      }
+     ],
+     "lines": [
+      [
+       "hv_pawn",
+       "...My cousin made that in '75 for a man from the Courier-Journal. Cardboard and a flash, in his own yard, for fifty dollars. The man ran it. Then he ran a story saying he'd been had. Now I sell it for forty, and I tell everybody it's cardboard, and they buy it anyway."
+      ],
+      [
+       "hv_pawn",
+       "You'd be surprised what people want to be true for forty dollars."
+      ],
+      [
+       "teddy",
+       "I wouldn't. I'd be surprised if it was fifty."
+      ]
+     ],
+     "evidence": "hv_pawn_photo_admits"
+    }
+   ]
+  },
+  "hv_bbq": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_bbq_sarge",
+     "title": "Sarge",
+     "gates": [
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "hv_bbq",
+       "Sarge comes in at dusk and sits under the fan with a quart of tea and the Louisville paper, and you don't talk to him till he's eaten. He was on the boundary road that night in '55 and he's been not talking about it in that booth since 1971. Bring him a kindness, not a question."
+      ],
+      [
+       "ruth",
+       "A kindness, dear. Not a question. Write that on your hand."
+      ]
+     ]
+    },
+    {
+     "id": "hv_bbq_sober",
+     "title": "The morning after",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "Your daddy ran this counter in 1955. The family came to town that morning. Did they come here?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "hv_bbq",
+       "Eight of them, at the counter, at six in the morning, and my daddy fed every one of them for nothing because the children were crying. He said afterward not one of them had a drop on them. Daddy could smell a beer across the square. He'd have said."
+      ],
+      [
+       "hv_bbq",
+       "He also said the old man's hands wouldn't hold a cup. That's a thing I remember him saying. A grown man's hands."
+      ],
+      [
+       "elijah",
+       "Not drunk, and shaking at six in the morning. Whatever they saw, they saw it."
+      ]
+     ],
+     "evidence": "hv_bbq_sober"
+    },
+    {
+     "id": "hv_bbq_spaceman",
+     "title": "The spaceman act",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "A show camped at the fairgrounds that week. Every carnival has one act the town remembers. What was theirs?"
+      },
+      {
+       "show": "hv_editor_monkey"
+      }
+     ],
+     "lines": [
+      [
+       "hv_bbq",
+       "The spaceman. A little fella in a silver suit with a big head that lit up, and he'd come out of a tent with smoke and the kids would scream. My daddy took me. I was five. I screamed."
+      ],
+      [
+       "hv_bbq",
+       "Silver suit, big head, hands up. And the show was at the fairgrounds that week. You tell me."
+      ],
+      [
+       "teddy",
+       "A carnival spaceman seven miles from the farm. If that act was still in town on the 21st, this is a different case."
+      ]
+     ],
+     "evidence": "hv_bbq_spaceman"
+    },
+    {
+     "id": "hv_bbq_concedes",
+     "title": "When the show left",
+     "gates": [
+      {
+       "contradiction": "hv_spaceman_dates"
+      }
+     ],
+     "lines": [
+      [
+       "hv_bbq",
+       "...The twentieth. They pulled out the twentieth, that's right, because the monkey ad ran the eighteenth and the show was gone before anybody could claim the reward. Daddy said so. I forgot it because I liked the other way better."
+      ],
+      [
+       "hv_bbq",
+       "Silver suit was in Paducah by the night of. Well. Shoot."
+      ],
+      [
+       "miriam",
+       "He liked the other way better. That's the whole county in one sentence."
+      ]
+     ],
+     "evidence": "hv_bbq_concession"
+    }
+   ]
+  },
+  "hv_librarian": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_lib_cayce",
+     "title": "Readings that don't exist",
+     "gates": [
+      {
+       "show": "hv_cayce_grave_note"
+      },
+      {
+       "show": "hv_cayce_file"
+      }
+     ],
+     "lines": [
+      [
+       "hv_librarian",
+       "There is no reading 3976-A. There is no reading about Kelly. The Association in Virginia Beach has every one indexed and I have the index, and every August somebody types a new one and leaves it on his grave, and the keeper brings it to me, and I file it under CAYCE, SPURIOUS."
+      ],
+      [
+       "hv_librarian",
+       "He was a good man who read for sick people. He never said a word about the trees. Leave him be."
+      ],
+      [
+       "vera",
+       "One withdraws the question. He has been used enough."
+      ]
+     ],
+     "evidence": "hv_librarian_cayce"
+    },
+    {
+     "id": "hv_lib_owls",
+     "title": "Filed under owls",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 7,
+       "prompt": "Your catalog cross-references the incident to OWLS. Somebody did that in 1955. Who?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "hv_librarian",
+       "Miss Hattie Bowles, who had this desk before me and the bird club before that. She was out at Kelly on the twentieth looking at a nest. She wrote it up for the Warbler and she typed that card the week after and nobody has ever once asked for it."
+      ],
+      [
+       "hv_librarian",
+       "She said the young ones stand their ground in a light. She said it to me when I was nine. I've never forgotten it and I've never been able to do a thing with it."
+      ],
+      [
+       "dale",
+       "A birder on the farm road the night before with her glasses on a horned owl nest. That's not a lead, that's a witness. She's dead, isn't she."
+      ],
+      [
+       "hv_librarian",
+       "1961. Harriet. She's in Riverside."
+      ]
+     ]
+    }
+   ]
+  },
+  "hv_motel_owner": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_motel_suit",
+     "title": "The man in room 3",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "Room 3. Black Buick. Who is he?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "hv_motel_owner",
+       "Checked in Tuesday, paid the week in cash, asked for the room with no phone, and I don't have a room with no phone so I unplugged it for him. Polite. Tired. Said he was from the same place you're from, so I put you next door, which I'm now thinking was a mistake."
+      ],
+      [
+       "hv_motel_owner",
+       "He asked what day you'd be arriving. Before you'd called."
+      ],
+      [
+       "miriam",
+       "He got here first. He always gets here first."
+      ]
+     ],
+     "evidence": "hv_motel_penrose"
+    },
+    {
+     "id": "hv_motel_1955",
+     "title": "Mother's book",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "This place was here in 1955. Your mother kept the book. Who was in it that week?"
+      },
+      {
+       "show": "hv_penrose_photo_1955"
+      }
+     ],
+     "lines": [
+      [
+       "hv_motel_owner",
+       "Mother said a man in a suit took room 3 the night of, before the family had even driven to town, and paid in cash, and left the morning the paper came out. She told it like a ghost story. The book burned in '71 with the old office so I can't show you."
+      ],
+      [
+       "hv_motel_owner",
+       "She said he was about fifty. She said he was very polite."
+      ],
+      [
+       "elijah",
+       "Room 3. Same room. Don't say it, Miriam."
+      ],
+      [
+       "miriam",
+       "I wasn't going to say anything."
+      ]
+     ],
+     "evidence": "hv_motel_1955_suit"
+    }
+   ]
+  },
+  "hv_county_clerk": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_clerk_book",
+     "title": "The book under the glass",
+     "gates": [
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "hv_county_clerk",
+       "The visitors' book is under the glass because people kept trying to tear the page out. Both kinds of people. Read it there. It says what it says and I was not here in 1955 so I will not be explaining it."
+      ],
+      [
+       "teddy",
+       "Both kinds of people. She means the ones who want it to say hoax and the ones who want it not to."
+      ]
+     ]
+    }
+   ]
+  },
+  "hv_penrose": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_penrose_checkout",
+     "title": "Checking out",
+     "gates": [
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "hv_penrose",
+       "Good morning. You're the Office. I was the Office, once; Gus and I. You'll have found my name in a book or two by now and I'd rather you heard it from me."
+      ],
+      [
+       "hv_penrose",
+       "Some advice, which you'll ignore, because she did. A family, a jug, a hot night, a lot of owls. File it natural and go home before the twenty-first. There is nothing at that house for you but a long night."
+      ],
+      [
+       "hv_penrose",
+       "I'm checking out. I never stay for the night itself. I did once."
+      ],
+      [
+       "elijah",
+       "He said owls. He wants us to say natural. He's never once wanted us to say the true thing before."
+      ],
+      [
+       "miriam",
+       "Or he's finally telling the truth and it sounds exactly like the lie. Either way, we're staying."
+      ]
+     ],
+     "evidence": "hv_penrose_advice"
+    }
+   ]
+  },
+  "hv_cemetery_keeper": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hv_keeper_pennies",
+     "title": "The pennies",
+     "gates": [
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "hv_cemetery_keeper",
+       "I turn the pennies heads up on Mondays. I take the readings off and give them to Mrs. Dade. I cut Harriet Bowles's grass because she was my teacher and she told me a horned owl could carry a cat. I don't know anything about little men and I'm too old to start."
+      ],
+      [
+       "ruth",
+       "A horned owl can, dear. Carry a cat. She wasn't lying to you."
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "hv_police_log_1955": {
+   "title": "The desk log, 22 August 1955",
+   "text": "The Hopkinsville police desk log: 0230, eight persons, small men with lights, shots fired, four cars and the state police to the scene, nothing found but shell casings and pellet marks. The chief's margin, underlined twice: NO EVIDENCE OF DRINKING. NOT ONE OF THEM. At 0530 the family came back: lights at the house again after the police left.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "A",
+   "key": true
+  },
+  "hv_police_log_copy": {
+   "title": "The Ledger's carbon of the desk log",
+   "text": "A carbon of the 22 August 1955 desk log, typed for the Ledger by the chief's secretary and never run: eight persons, small men with lights, shots fired, nothing found, NO EVIDENCE OF DRINKING, and the family back at the station at 0530 with the lights at the house again.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "hv_founder_signature": {
+   "title": "G. Weller in the visitors' column",
+   "text": "The police log's visitors' column for 22 August 1955, 0610, before the newspapers or the Army: 'G. WELLER, SUTTON W.VA. RE: KELLY. CARD FILE.' The Office's founder was at this counter four hours after the family, with a card file, and nobody had told her yet.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "B",
+   "key": true
+  },
+  "hv_penrose_photo_1955": {
+   "title": "Photo: the man at the edge of the crowd, 1955",
+   "text": "A framed newspaper photograph of the police station steps on 22 August 1955. At the edge of the crowd, a man in a dark suit and narrow tie, about fifty, looking at the camera. The man in room 3 at the motor court is about fifty.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "hv_sgt_sober": {
+   "title": "The station's own story",
+   "text": "The desk sergeant, telling it the way the station has told it since 1955: eight people white as flour at two-thirty in the morning, and the chief's one underlined line, no liquor on any of them, from a man with a nose like a judge.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "hv_sgt_birdshot": {
+   "title": "Every shot went high",
+   "text": "The chief's son found the family's shot in daylight: number six birdshot in the oak limbs, the barn roof and the top of the chicken house. Every shot of the night was fired upward, at something in a tree. The chief wrote it down and crossed it out with the family in the room.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "hv_sgt_unknown_walker": {
+   "title": "A man on US-41 at three",
+   "text": "The cars passed a man walking north on US-41 at three in the morning with no light. The county decided afterward it was the neighbour. It was not the neighbour. In 1955 the deputies knew every man in the county by his walk, and they did not know this one.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "hv_ledger_front_page": {
+   "title": "Front page: 12 little men",
+   "text": "The Ledger's front page of 23 August 1955: STORY OF SPACE SHIP, 12 LITTLE MEN PROBED BY POLICE. The 'twelve to fifteen' is attributed once, to 'a member of the family'. Twelve little men is the number the whole country laughed at.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "hv_editor_green": {
+   "title": "Nobody said green, nobody said twelve",
+   "text": "The family said little men, silver, shining. The Nashville wire desk made them green and twelve by morning, and the weekly Ledger ran the wire because it was Tuesday. Everything that makes the story a joke was added in other people's newsrooms inside forty-eight hours.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "hv_ledger_front_page"
+   ]
+  },
+  "hv_editor_army_letter": {
+   "title": "The Army wife's letter, 1955",
+   "text": "An unsigned letter to the Ledger from an Army wife, September 1955: her husband was on the boundary road with the military police that night, wrote a report, and was told to write it again. The Ledger could not stand it up and did not run it. The editor says the patrol log box on the old gate post has never been cleaned out.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C"
+  },
+  "hv_editor_monkey": {
+   "title": "The lost monkey ad",
+   "text": "The Ledger of 18 August 1955, page six: LOST, FROM THE SHOW AT THE FAIRGROUNDS, ONE MONKEY, 'MAJOR', IN A RED JACKET, REWARD. Three days before the night. The show pulled out on the 20th.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C"
+  },
+  "hv_ledger_confession": {
+   "title": "1957: 'It was me in a bedsheet'",
+   "text": "A 1957 clipping: a tobacco hand from Crofton says he and a cousin came up out of the gully in sheets with flashlights under their chins. A name, a date, and a photograph of a man holding a sheet.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "hv_editor_retraction": {
+   "title": "The serial confessor",
+   "text": "The man in the sheet confessed to Kelly in 1957, to a Clarksville bank in 1958 and to the Lindbergh kidnapping in 1961. The Ledger's retraction ran on page nine a week after the confession, and page nine is where the editor keeps him.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "B",
+   "exposes": [
+    "hv_ledger_confession"
+   ]
+  },
+  "hv_admission_record": {
+   "title": "Western State admission, 19 to 30 August 1955",
+   "text": "An admissions card: the neighbour the county has called the drunk in the yard for thirty-nine years was admitted on the 19th by his sister, chronic alcohol, Ward B; present at the 2300 and 0300 counts on the night of the 21st; discharged the 30th. He was in a bed seven miles away, sober. The easiest answer in the case was never true.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "A",
+   "key": true,
+   "exposes": [
+    "hv_drunk_rumour"
+   ]
+  },
+  "hv_clerk_confirms": {
+   "title": "The night nurse's count",
+   "text": "The records clerk confirms the card: nineteenth to the thirtieth, present at every count, and the night nurse was her aunt, who did not miscount in forty years. It is a records office's job to say who it wasn't.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "hv_drunk_rumour"
+   ]
+  },
+  "hv_clerk_the_man": {
+   "title": "Nineteen Augusts",
+   "text": "The neighbour was a tobacco man who dried out at Western State every August, voluntary, his sister driving. The one August the world was looking at that road, he was in the bed. He never said a word about it, because he would have had to say where he was.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "hv_drunk_rumour": {
+   "title": "The drunk in the yard",
+   "text": "What the county says: the neighbour had a jug that night, was in the family's yard with a flashlight looking for his dog, was shot at by eleven people and missed, and went home and slept through it.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "hv_mp_recall": {
+   "title": "The MP's owl",
+   "text": "A retired military policeman, nineteen in 1955: called out for lights at 2130, ran the boundary road to Kelly station and back, and the only thing in his headlights all night was an owl the size of a dog that came off post fourteen and went over the hood. He wrote it down. The lieutenant told him to write it again.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "hv_mp_which_report": {
+   "title": "Which report is which",
+   "text": "The report with the letterhead and the stamp is from Exercise Sagebrush, 1957, a week of flares written up like a landing for the umpires, with the date folded under. The carbon with the bad typewriter is the one from 1955, and nobody has ever put it on television.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "hv_mp_exercise_1957"
+   ]
+  },
+  "hv_mp_report_1955": {
+   "title": "Patrol report, 21 August 1955",
+   "text": "The boundary road patrol's carbon for 21 August 1955, 2130: report of lights from a civilian by telephone; patrolled to Kelly station; a large bird, probably an owl, in the headlights at post 14, flew; no lights observed; no further.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B",
+   "key": true
+  },
+  "hv_mp_exercise_1957": {
+   "title": "'Unidentified low-flying objects, luminous'",
+   "text": "An official-looking report on letterhead with a stamp: luminous low-flying objects over the boundary road, four personnel, objects descended into the treeline near Kelly. It looks more like the real thing than the real thing. The date line is folded under.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "hv_shell_box_photo": {
+   "title": "Photo: the shell box, 8/20/55",
+   "text": "An empty box of 12-gauge No. 6 shot from the pawn man's nail, 'LACY, 8/20/55' in grease pencil. Number six is bird shot: crows, doves, owls. Nobody in that house loaded for men.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "hv_pawn_owls": {
+   "title": "Crow shot for the chickens",
+   "text": "The pawn man's father sold the family bird shot the day before because something was taking their chickens, and told them a horned owl would do that. The next night they fired the whole box at something in the trees.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "hv_pawn_photo": {
+   "title": "'Genuine 1955 photograph'",
+   "text": "A framed photograph for sale at $40: a small long-armed figure with a big head in a yard at night, eyes two white dots in the flash, GENUINE 1955, KELLY KY. The figure is very flat and has a crease across its middle.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "hv_pawn_photo_admits": {
+   "title": "Cardboard and a flash, 1975",
+   "text": "The pawn man's cousin made the photograph in 1975 for a Courier-Journal reporter, out of cardboard, in his own yard, for fifty dollars. The paper ran it and then ran a story saying it had been had.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "A",
+   "exposes": [
+    "hv_pawn_photo"
+   ]
+  },
+  "hv_bbq_sober": {
+   "title": "Eight at the counter at six",
+   "text": "Cheek's father fed the whole family at six in the morning on the 22nd for nothing because the children were crying. Not one of them had a drop on them, and the old man's hands would not hold a cup.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "hv_bbq_spaceman": {
+   "title": "The carnival spaceman",
+   "text": "The travelling show at the fairgrounds had a spaceman act: a little man in a silver suit with a big head that lit up, coming out of a tent in smoke with his hands up. Seven miles from the farm, the week of.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "hv_bbq_concession": {
+   "title": "The show left on the 20th",
+   "text": "The show pulled out of the fairgrounds on the 20th; the monkey ad ran on the 18th and the show was gone before anyone could claim the reward. The silver suit was in Paducah on the night of the 21st.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "hv_bbq_spaceman"
+   ]
+  },
+  "hv_cayce_file": {
+   "title": "'A reading on the Kelly visitors'",
+   "text": "A typed, undated, unnumbered page from the library's Cayce file, a copy of a copy: the sleeping prophet speaks of 'the small ones, the watchers from the trees, who come when the people have stopped looking up.'",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "hv_cayce_grave_note": {
+   "title": "The page on the grave",
+   "text": "A typed page left under the penny jar on Edgar Cayce's grave this week, numbered 3976-A and dated 1931: 'there shall come to the lowlands about the Kentucky line the small ones that watch from the trees.' Somebody leaves one every August.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "hv_librarian_cayce": {
+   "title": "There is no reading 3976-A",
+   "text": "The librarian has the Association's complete index: there is no reading 3976-A and no reading about Kelly. Every August somebody types a new one and leaves it on the grave, and she files it under CAYCE, SPURIOUS.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "A",
+   "exposes": [
+    "hv_cayce_file",
+    "hv_cayce_grave_note"
+   ]
+  },
+  "hv_owl_survey": {
+   "title": "The Kentucky Warbler, fall 1955",
+   "text": "The state bird club's field notes for August 1955: an unusual number of great horned owls along the Pond River and Little River bottoms after the dry summer, and a pair with two large young in a dead oak near Kelly, observed on the 20th, the young birds 'very bold' and standing their ground in a flashlight beam.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B",
+   "key": true
+  },
+  "hv_courthouse_book": {
+   "title": "The courthouse visitors' book, August 1955",
+   "text": "25 August: J. W. Lacy, re: permit, exhibition of premises, admission 50 cents. 26 August: permit denied, re: parking on US-41. 29 August: re: damages, Fort Campbell, referred to the county attorney. Three days after the night the family was at the counter trying to charge for it.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "hv_motel_register": {
+   "title": "The motor court register",
+   "text": "Tuesday: W. PENROSE, SUTTON, W.VA., room 3, cash, no car listed. The address under Sutton is the Office's own.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C"
+  },
+  "hv_motel_penrose": {
+   "title": "He asked when you'd arrive",
+   "text": "The man in room 3 paid the week in cash, had the phone unplugged, and asked the owner what day the Office would be arriving before the Office had called.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "hv_motel_1955_suit": {
+   "title": "Room 3, 1955",
+   "text": "The owner's mother told it like a ghost story: a man in a suit, about fifty, very polite, took room 3 on the night of the 21st before the family had driven to town, paid cash, and left the morning the paper came out. The book burned in 1971.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D"
+  },
+  "hv_penrose_advice": {
+   "title": "Penrose says file it natural",
+   "text": "Walter Penrose, checking out of room 3: a family, a jug, a hot night, a lot of owls. File it natural and go home before the twenty-first. He never stays for the night itself. He did once.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  }
+ },
+ "contradictions": {
+  "hv_spaceman_dates": {
+   "title": "The spaceman and the monkey",
+   "evidence": [
+    "hv_bbq_spaceman",
+    "hv_editor_monkey"
+   ],
+   "witness": "hv_bbq",
+   "prompt": "You said the silver suit was at the fairgrounds the week of. The Ledger's monkey ad ran on the 18th and says the show pulled out on the 20th. Was the spaceman in Kelly on the night of the 21st, or in Paducah?"
+  }
+ },
+ "trail": []
+}

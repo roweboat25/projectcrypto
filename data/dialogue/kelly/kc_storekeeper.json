@@ -1,0 +1,378 @@
+{
+ "_doc": "Dewey Oates, who keeps the Kelly general store his father kept. Fourteen in August 1955, he opened up at six the morning after and sold the Lacys ice, and the night before he watched from the upstairs window while Royce Pettit walked the road with a shotgun. He has the 1955 ledger, the cousin's key on a nail, and thirty-nine years of not saying who the fifth gun was. The red check says Royce's name to his face; failing it shuts the store till morning.",
+ "id": "kc_storekeeper",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "Y'all the ones from West Virginia. Virgil said. Virgil sees everything that crosses and I hear about it before it's finished crossing."
+    ],
+    [
+     "kc_storekeeper",
+     "Tea's in the box, a dollar a quart, and the lamp oil's by the door if you're going where I think you're going. What else."
+    ],
+    [
+     "teddy",
+     "He wiped the counter when he saw us coming. The counter was clean."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "He said 'where I think you're going' and looked at the door, not at you. He's done this before. Reporters, every August. He has a speech. Don't let him give it."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He was a boy here in '55. Everything in this store is where his father put it. He's not keeping a store, he's keeping a room the way it was the night before.",
+     "flag": "kc_sk_boy"
+    },
+    {
+     "voice": "lore",
+     "threshold": 7,
+     "line": "A general store keeps a ledger, and a ledger is a parish register for people who don't go to church. Who bought shells. Who bought whiskey. Who bought film."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're from an office in Sutton, Mr Oates. We're here for the anniversary, and we'd rather hear it from the people who were here.",
+     "next": "menu"
+    },
+    {
+     "tone": "wry",
+     "text": "A quart of tea, then, and whatever it is you tell the reporters, we'll skip.",
+     "next": "menu",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "We're here about the Lacys. We know you sold them the shells.",
+     "next": "menu",
+     "dread": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_storekeeper"
+   }
+  },
+  "menu": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "Well. Go on, then. The flies ain't going anywhere and neither am I."
+    ]
+   ],
+   "repeat": true,
+   "static": {
+    "min_dread": 3,
+    "line": "Say the name. The real one, the one that was on the road with the gun. He's been not saying it since you walked in and it's eating a hole in him you could put your fist through. Say it."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "The morning after. They came in here first, didn't they?",
+     "next": "morning"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "kc_sk_morning_after": 1,
+       "kc_prayer_list_1955": 1
+      }
+     },
+     "text": "You were fourteen. You'd have been on this porch that night, or at that window. Boys don't sleep through shooting.",
+     "pass": "porch",
+     "fail": {
+      "next": "porch_no",
+      "trust": {
+       "kc_storekeeper": -1
+      }
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "kc_prayer_list_1955": 1,
+       "kc_hardin_shooting": 1
+      }
+     },
+     "text": "A store keeps a book. Your father kept one, and August 1955 is in it, and it says who bought what. We'd like to see the week.",
+     "pass": "ledger",
+     "fail": {
+      "next": "ledger_no"
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "kc_ledger_1955"
+      ]
+     },
+     "check": {
+      "voice": "intimidate",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "kc_train_register": 2,
+       "kc_hardin_shooting": 1,
+       "kc_odessa_admits": 2
+      }
+     },
+     "text": "Royce Pettit bought a box of fours and a pint on the twentieth. It's in your father's hand. He was the fifth gun, and you watched him. Say his name, Mr Oates. Out loud, in your own store.",
+     "pass": "royce",
+     "fail": {
+      "next": "shut",
+      "trust": {
+       "kc_storekeeper": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "trust": 3
+     },
+     "tone": "kind",
+     "text": "The cousin leaves a key here. We'd like to be the ones who open that door, and we'd like to do it with your blessing.",
+     "next": "key"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Oates. Thank you for the tea."
+    }
+   ]
+  },
+  "morning": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "Six o'clock, the 22nd. I'd opened up because Daddy hadn't come in off the porch, and the whole family came in, two cars, children asleep on each other in the back like puppies."
+    ],
+    [
+     "kc_storekeeper",
+     "The old man bought coffee and a sack of ice and he couldn't get the money out of his pocket. His hands. I'd never seen a grown man's hands do that and I've seen it twice since, both times at the funeral home."
+    ],
+    [
+     "kc_storekeeper",
+     "He said, Dewey, don't you go out there. That's all. He never said what. And then they went to town and told the police and the police told the paper and the paper told the world, and nobody in the world ever asked me."
+    ],
+    [
+     "elijah",
+     "Hands, then the warning. He's never told it in that order. He's telling it to you in the order it happened."
+    ]
+   ],
+   "gives": {
+    "evidence": "kc_sk_morning_after",
+    "fact": "kc_sk_morning"
+   },
+   "next": "menu"
+  },
+  "porch": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "...The window. Upstairs, over the porch, the one with the screen out. Daddy was on the porch with his gun across his knees and I was at the window with my chin on the sill, and we both of us heard it start about eleven."
+    ],
+    [
+     "kc_storekeeper",
+     "Shotguns, from the Lacy place. Four hours. And the dogs. And the streetlight wasn't there then, so it was dark as the inside of a cow, and you could see the flashes over the tobacco, yellow, two at a time."
+    ],
+    [
+     "kc_storekeeper",
+     "And you could see somebody in the road. Going toward it. I'm not going to say who. I was fourteen. I'm fifty-three and I'm still not going to say who, not till somebody says it to me first."
+    ],
+    [
+     "miriam",
+     "'Not till somebody says it first.' He's handed you the rule. Now find the name."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He wants you to say it. He has wanted somebody to say it since he was fourteen. He just needs it not to be him."
+    }
+   ],
+   "gives": {
+    "flag": "kc_sk_porch",
+    "trust": {
+     "kc_storekeeper": 1
+    }
+   },
+   "next": "menu"
+  },
+  "porch_no": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "Fourteen-year-olds sleep. I slept. Ask anybody."
+    ],
+    [
+     "teddy",
+     "Ask anybody. In a town of eleven people, that's a dare."
+    ]
+   ],
+   "next": "menu"
+  },
+  "ledger": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "Books are private. ...They're also forty years old, and he's dead, and you asked for the week and not for the whole thing, which is more than the Nashville man did."
+    ],
+    [
+     "kc_storekeeper",
+     "The 19th: Lacy, two boxes of fours and a quart. The 20th: R. Pettit, a box of fours and a pint. The 21st, the day of: Lacy, a quart and two boxes of sixes. The 22nd: C. Hardin, a box of fours, 'for the posse', and Lacy, coffee and ice, paid cash, which they never did. The 23rd: Billy Ray Lacy, four rolls of film and flashbulbs and a carton of Luckies for the reporters."
+    ],
+    [
+     "kc_storekeeper",
+     "That's the week. Shells, whiskey, shells, film. You can read it however you want to read it. I've read it every way there is."
+    ],
+    [
+     "miriam",
+     "Shells and whiskey before. Film after. It's the whole county in five lines."
+    ]
+   ],
+   "gives": {
+    "evidence": "kc_ledger_1955"
+   },
+   "next": "menu"
+  },
+  "ledger_no": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "Books are private. There's a sign. There's been a sign since 1931."
+    ],
+    [
+     "teddy",
+     "There's a sign about the pickles, too. I don't think the signs are the problem."
+    ]
+   ],
+   "next": "menu"
+  },
+  "royce": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "..."
+    ],
+    [
+     "kc_storekeeper",
+     "Royce Pettit. There. Royce Pettit was in the road with Daddy's old pump gun, because his own was in hock to the pawn shop in town, and a pint of Four Roses I sold him myself, and he was firing at the Lacy place, and at the sky, and at the tobacco, and his sister was behind him in her nightgown with a lantern calling him like you'd call a dog."
+    ],
+    [
+     "kc_storekeeper",
+     "The Lacys were shooting at him and he was shooting at them and neither one of them ever knew it or ever said it, and the next morning I sold them ice. And Odessa told the paper she saw them too, so the Lacys wouldn't go to Western State, and I let her. I was fourteen. I've been fourteen about it ever since."
+    ],
+    [
+     "kc_storekeeper",
+     "That's the name. You've had it said to you in Kelly, in Oates' store, by an Oates. You can go now, or you can sit down. Either one."
+    ],
+    [
+     "elijah",
+     "Sit down. Sit down and let him look at you not leaving."
+    ]
+   ],
+   "gives": {
+    "evidence": "kc_sk_royce_shells",
+    "fact": "kc_sk_royce",
+    "trust": {
+     "kc_storekeeper": 1
+    }
+   },
+   "next": "soft"
+  },
+  "shut": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "Get out."
+    ],
+    [
+     "kc_storekeeper",
+     "Get out of my store. You don't come into a man's store and say a name he's kept for thirty-nine years like it's a thing on the shelf. Get out and don't come back till I've unlocked the door, and I unlock it mornings, and I might not."
+    ],
+    [
+     "teddy",
+     "...Well. We found where the floor is. It's right there."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_store_shut"
+   },
+   "end": true
+  },
+  "key": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "The cousin leaves it here because he'd lose it and because he doesn't like to be the one that opens that door. Neither do I. It's on the nail by the till. Bread tag says LACY."
+    ],
+    [
+     "kc_storekeeper",
+     "You bring it back here and not to him. And you shut that door behind you when you come out, whatever time it is. Whatever time it is, you hear me."
+    ],
+    [
+     "ruth",
+     "He means at night, dear. He's telling you to be out of that house by dark and he can't say so in his own store."
+    ]
+   ],
+   "gives": {
+    "flag": "key_offered",
+    "fact": "kc_sk_key"
+   },
+   "next": "menu"
+  },
+  "soft": {
+   "speaker": "kc_storekeeper",
+   "lines": [
+    [
+     "kc_storekeeper",
+     "...I'll tell you something. Every August the reporters come, and every August I give them the speech, and every August not one of them has asked who was in the road. Thirty-nine years. They want the little men. Nobody wants the big one."
+    ],
+    [
+     "kc_storekeeper",
+     "Tea's on the house. Don't tell Buford."
+    ],
+    [
+     "ruth",
+     "There. That's a man who's set something down. Let him have the quiet for a minute before you pick it back up."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_sk_soft",
+    "trust": {
+     "kc_storekeeper": 1
+    }
+   },
+   "next": "menu"
+  }
+ }
+}

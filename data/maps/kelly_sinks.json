@@ -1,0 +1,3483 @@
+{
+ "_doc": "Kelly, the Pennyrile Sinks: the oak woods and karst east of the Crossroads and the Farm, where sinkholes open in the fields in August, a dry creek winds down from under the cave, great horned owls roost in the dead oaks, and the cave mouth breathes cold air at the top of the limestone. The Teague brothers' hunting cabin is in the south-east woods (empty and searchable by day; the poachers knock you back at dusk and night unless Roy has been talked round at the cave hut), the guide's shack stands beside the cave mouth, and the cave's first chamber leads past the drop (gate cave_deep) to the deep chamber with the 1955 flashlight, the child's shoe, the breath and the glass eye. The Fort Campbell boundary fence turns its corner in the south-east. Mist all day, the only misty map in Kelly. Positions are in 32px tiles.",
+ "id": "kelly_sinks",
+ "name": "Pennyrile Sinks",
+ "case": "kelly",
+ "district": "sinks",
+ "size": [
+  56,
+  56
+ ],
+ "spawn": [
+  47,
+  13
+ ],
+ "ground": "dry_grass",
+ "weather": "mist",
+ "encounter_rate": 0.04,
+ "fills": [
+  {
+   "rect": [
+    0,
+    0,
+    56,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    55,
+    56,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    55,
+    1,
+    1,
+    54
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    1,
+    1,
+    7
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    16,
+    1,
+    8
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    32,
+    1,
+    23
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    2,
+    1,
+    30,
+    21
+   ],
+   "tiles": [
+    "grass",
+    "grass2",
+    "grass",
+    "grass3"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    22,
+    24,
+    8
+   ],
+   "tiles": [
+    "grass",
+    "grass2",
+    "grass3",
+    "dry_grass"
+   ]
+  },
+  {
+   "rect": [
+    32,
+    40,
+    20,
+    12
+   ],
+   "tiles": [
+    "grass",
+    "grass2",
+    "dry_grass",
+    "grass3"
+   ]
+  },
+  {
+   "rect": [
+    32,
+    1,
+    22,
+    20
+   ],
+   "tiles": [
+    "limestone",
+    "limestone2",
+    "limestone",
+    "dry_grass3"
+   ]
+  },
+  {
+   "rect": [
+    40,
+    5,
+    14,
+    9
+   ],
+   "tiles": [
+    "limestone",
+    "limestone2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    12,
+    4,
+    2
+   ],
+   "tiles": [
+    "earth",
+    "earth2",
+    "earth3"
+   ]
+  },
+  {
+   "rect": [
+    4,
+    12,
+    2,
+    16
+   ],
+   "tiles": [
+    "earth",
+    "earth2",
+    "earth3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    27,
+    30,
+    2
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2",
+    "red_clay"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    13,
+    2,
+    16
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2",
+    "red_clay"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    13,
+    17,
+    2
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2",
+    "red_clay"
+   ]
+  },
+  {
+   "rect": [
+    26,
+    29,
+    2,
+    6
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2",
+    "red_clay"
+   ]
+  },
+  {
+   "rect": [
+    26,
+    35,
+    18,
+    2
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2",
+    "red_clay"
+   ]
+  },
+  {
+   "rect": [
+    44,
+    16,
+    2,
+    4
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    38,
+    20,
+    8,
+    2
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    38,
+    22,
+    2,
+    5
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    32,
+    27,
+    8,
+    2
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    32,
+    29,
+    2,
+    3
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    22,
+    32,
+    12,
+    2
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    20,
+    34,
+    2,
+    10
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    10,
+    44,
+    12,
+    2
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    8,
+    46,
+    2,
+    6
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    3,
+    52,
+    7,
+    2
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    10,
+    36,
+    7,
+    6
+   ],
+   "tiles": "sink_edge"
+  },
+  {
+   "rect": [
+    11,
+    37,
+    5,
+    4
+   ],
+   "tiles": "sink_pit"
+  },
+  {
+   "rect": [
+    22,
+    43,
+    7,
+    6
+   ],
+   "tiles": [
+    "limestone2",
+    "dry_grass",
+    "dry_grass2",
+    "limestone"
+   ]
+  },
+  {
+   "rect": [
+    28,
+    38,
+    5,
+    4
+   ],
+   "tiles": [
+    "limestone",
+    "dry_grass2",
+    "limestone2"
+   ]
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    2,
+    1,
+    30,
+    24
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2",
+    "earth",
+    "grass3"
+   ],
+   "chance": 0.1
+  },
+  {
+   "rect": [
+    2,
+    30,
+    30,
+    24
+   ],
+   "tiles": [
+    "dry_grass2",
+    "dry_grass3",
+    "grass_tuft2",
+    "earth2"
+   ],
+   "chance": 0.12
+  },
+  {
+   "rect": [
+    32,
+    1,
+    22,
+    20
+   ],
+   "tiles": [
+    "limestone2",
+    "dry_grass2",
+    "earth3"
+   ],
+   "chance": 0.1
+  },
+  {
+   "rect": [
+    32,
+    30,
+    22,
+    24
+   ],
+   "tiles": [
+    "grass_tuft",
+    "dry_grass3",
+    "earth"
+   ],
+   "chance": 0.1
+  }
+ ],
+ "facades": [
+  {
+   "id": "sk_guide_shack",
+   "facade": "cave_entrance_hut",
+   "name": "The cave shack",
+   "pos": [
+    38,
+    11
+   ]
+  },
+  {
+   "id": "sk_cabin",
+   "facade": "hunting_cabin",
+   "name": "The Teague cabin",
+   "pos": [
+    40,
+    34
+   ],
+   "gate": "sk_cabin_door"
+  }
+ ],
+ "houses": [],
+ "props": [
+  {
+   "kind": "owl_tree",
+   "pos": [
+    13,
+    8
+   ],
+   "name": "The roost oak",
+   "look": [
+    [
+     "player",
+     "A dead white oak with a hollow at the fork, big enough to put your head in. You do not put your head in. The bark under the hollow is whitewashed to the ground."
+    ],
+    [
+     "dale",
+     "Great horned. That's a nest tree, used every spring for twenty years. Look at the ground."
+    ],
+    [
+     "ruth",
+     "My mother called them hoot owls and would not have one talked about after dark. Now I know why she never said what they look like up close."
+    ]
+   ]
+  },
+  {
+   "kind": "owl_tree",
+   "pos": [
+    19,
+    10
+   ],
+   "name": "A second dead oak",
+   "look": [
+    [
+     "player",
+     "Another dead oak, the top gone, a hollow halfway up. Something in it turns its head all the way round to look at you and then turns it back."
+    ],
+    [
+     "teddy",
+     "I'm going to need a longer lens and a shorter life."
+    ]
+   ]
+  },
+  {
+   "kind": "owl_tree",
+   "pos": [
+    10,
+    14
+   ],
+   "name": "The third oak",
+   "look": [
+    [
+     "player",
+     "A dead oak with a woodpecker's work all down one side and, at the foot of it, a tidy pile of what owls do not want."
+    ],
+    [
+     "miriam",
+     "Pellets. Fur, bone, feather, in a parcel. The owl is the most honest witness in this county."
+    ]
+   ]
+  },
+  {
+   "kind": "owl_tree",
+   "pos": [
+    24,
+    6
+   ],
+   "name": "The oak with the ears",
+   "look": [
+    [
+     "player",
+     "Two tufts against the sky on a bare limb, and under them two eyes that take the mist and give it back yellow."
+    ],
+    [
+     "june",
+     "It hasn't moved in four minutes. I timed it."
+    ],
+    [
+     "elijah",
+     "It is looking at us the way we are looking at it. One of us is going to blink."
+    ]
+   ]
+  },
+  {
+   "kind": "owl_pellets",
+   "pos": [
+    13,
+    9.6
+   ],
+   "name": "Pellets",
+   "look": "Grey parcels of fur and small bones under the roost oak, dozens, in every stage from fresh to crumbling. The ground is a bone yard a foot across."
+  },
+  {
+   "kind": "owl_pellets",
+   "pos": [
+    19,
+    11.6
+   ]
+  },
+  {
+   "kind": "owl_pellets",
+   "pos": [
+    10,
+    15.6
+   ]
+  },
+  {
+   "kind": "owl_pellets",
+   "pos": [
+    24,
+    7.6
+   ],
+   "name": "More pellets",
+   "look": [
+    [
+     "player",
+     "More pellets, and a rabbit's foot with nothing lucky left on it."
+    ],
+    [
+     "dale",
+     "They can take a skunk. They can take a cat. A great horned owl doesn't care what it weighs."
+    ]
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    16,
+    5
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    22,
+    13
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    9,
+    10
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    15,
+    11.5
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    12,
+    12.5
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    21,
+    8.5
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    17,
+    9
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    11,
+    7
+   ]
+  },
+  {
+   "kind": "deer",
+   "pos": [
+    26,
+    11
+   ],
+   "name": "A doe",
+   "look": [
+    [
+     "player",
+     "A doe, flat-eared, standing in the fern pretending she is a stump."
+    ],
+    [
+     "ruth",
+     "Don't you worry, honey, we're only passing."
+    ],
+    [
+     "dale",
+     "She's heard that before."
+    ]
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    3,
+    4
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    6,
+    5
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    29,
+    4
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    3,
+    9
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    7,
+    8
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    28,
+    8
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    8,
+    17
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    12,
+    19
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    16,
+    18
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    20,
+    17
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    24,
+    18
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    27,
+    15
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    29,
+    19
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    8,
+    22
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    11,
+    24
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    15,
+    23
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    19,
+    25
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    23,
+    24
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    27,
+    23
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    6,
+    25
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    9,
+    20
+   ],
+   "name": "Kudzu",
+   "look": [
+    [
+     "player",
+     "Kudzu, over a stump, over a fence post, over a whole fallen oak, in the shape of the things it has eaten."
+    ],
+    [
+     "teddy",
+     "The South is one plant wearing a lot of costumes."
+    ]
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    18,
+    21
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    25,
+    21
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    13,
+    16
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    21,
+    20
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    5,
+    19
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    26,
+    17
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    10,
+    26
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    22,
+    26.5
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    14,
+    26
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    28,
+    12
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    7,
+    14
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    17,
+    15
+   ]
+  },
+  {
+   "kind": "sinkhole_small",
+   "pos": [
+    22,
+    22
+   ],
+   "name": "An old sink",
+   "look": [
+    [
+     "player",
+     "A dimple in the woods floor two yards across, leaves in the bottom of it, a sapling growing out of it at a lean."
+    ],
+    [
+     "ruth",
+     "That one's been there since before the oaks, dear. The ground here forgets it's ground."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    5,
+    23
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    27,
+    20
+   ]
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    3,
+    26.5
+   ],
+   "name": "A mailbox on a track",
+   "look": [
+    [
+     "player",
+     "A rural mailbox on a cedar post where the track comes out of the Crossroads woods: TEAGUE, in reflector letters, two of them missing. The flag is up and has been up a long time."
+    ],
+    [
+     "miriam",
+     "Nobody collects. Nobody delivers. The flag is a flag."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    7,
+    11.4
+   ],
+   "name": "Fence along the farm line",
+   "look": [
+    [
+     "player",
+     "A wire fence with kudzu for a coat, running back toward the Lacy place. The wire is older than the vine and the vine is older than you."
+    ],
+    [
+     "dale",
+     "Hog wire. Nobody's kept a hog this side in thirty years."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    10,
+    11.4
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    8,
+    11.9
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    7,
+    13.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    10,
+    13.4
+   ]
+  },
+  {
+   "kind": "stile",
+   "pos": [
+    5.5,
+    12.6
+   ],
+   "name": "The stile",
+   "look": [
+    [
+     "player",
+     "Two steps of split cedar over the fence where the footpath from the Farm comes through. The top step is worn to a dish by a hundred years of boots and one pair of yours."
+    ],
+    [
+     "june",
+     "The Lacys used this. Their kids ran this to the sinks. Every scary thing in this county is a twenty-minute walk from a kitchen."
+    ]
+   ]
+  },
+  {
+   "kind": "tobacco_sticks",
+   "pos": [
+    24,
+    29.6
+   ],
+   "name": "Tobacco sticks",
+   "look": "A stack of tobacco sticks left at the track side, split hickory, four feet, for hanging the cut leaf. Somebody meant to come back for them in 1991."
+  },
+  {
+   "kind": "pickup_old",
+   "pos": [
+    12,
+    30.6
+   ],
+   "name": "A truck with no wheels",
+   "look": [
+    [
+     "player",
+     "A 1950s pickup on blocks at the edge of the track, cab glass gone, a wasp nest in the dash and the tailgate chained shut on nothing."
+    ],
+    [
+     "teddy",
+     "Somebody chained the tailgate. On a truck with no wheels. I respect the optimism."
+    ],
+    [
+     "dale",
+     "Owl's been roosting on the cab. Look at the whitewash."
+    ]
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    17,
+    30.5
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    18,
+    30.5
+   ],
+   "name": "Hay bales",
+   "look": "Two round bales gone grey and soft, left at the track since the first cutting. Something has been sleeping in the lee of them: the grass is pressed flat in a shape about the size of a coyote."
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    29,
+    24
+   ],
+   "name": "A limestone boulder",
+   "look": [
+    [
+     "player",
+     "A boulder of grey limestone at the fork in the track, pitted like a sponge, a fossil shell in it the size of your palm."
+    ],
+    [
+     "vera",
+     "This country was a sea. Everything under your feet is what the sea left when it went."
+    ],
+    [
+     "miriam",
+     "Three hundred million years ago. Not the kind of thing that leaves a forwarding address."
+    ]
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    26.5,
+    33.6
+   ],
+   "name": "The ford",
+   "look": [
+    [
+     "player",
+     "Where the track crosses the dry creek: flat stones laid for wheels, the creek bed bone-white and the mist sitting in it like water that forgot to be wet."
+    ],
+    [
+     "june",
+     "It'll run in October, he says. Right now it's a road for things with feet."
+    ]
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    45,
+    18.5
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    41,
+    21.5
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    38.8,
+    25.2
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    35,
+    28.6
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    33,
+    31.2
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    29,
+    33.6
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    21,
+    38.4
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    20.5,
+    42.3
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    15,
+    45.6
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    9,
+    49.5
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    6,
+    53.3
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    36,
+    27
+   ],
+   "name": "The creek's bank",
+   "look": [
+    [
+     "player",
+     "A ledge of limestone the creek cut when it was a creek. Water-stains two feet up it. Something rubbed the stains off one corner, low down, going by in the dark."
+    ],
+    [
+     "dale",
+     "Hog. Or something that walks like a hog. Nothing here walks like a hog."
+    ]
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    23,
+    31
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    34,
+    30
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    19,
+    36
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    21.5,
+    43.5
+   ],
+   "name": "Cattails in a dry creek",
+   "look": [
+    [
+     "player",
+     "Cattails in the creek bed, waist-high, standing in dust."
+    ],
+    [
+     "ruth",
+     "They remember water, dear. Everything here does. The whole county is waiting for October."
+    ]
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    11,
+    45.5
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    9,
+    52.5
+   ]
+  },
+  {
+   "kind": "rusted_car",
+   "pos": [
+    13.5,
+    41.5
+   ],
+   "name": "The car in the sink",
+   "look": [
+    [
+     "player",
+     "A 1950s Hudson, nose down in the sinkhole, the rear bumper at the rim like a swimmer going under. Rust the colour of the clay. The back window is full of leaves and one plastic doll's arm."
+    ],
+    [
+     "teddy",
+     "Somebody drove it in. You don't push a Hudson."
+    ],
+    [
+     "elijah",
+     "Somebody was driving away from something, very fast, in the dark. The car remembers that. It is still doing it."
+    ]
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    9.5,
+    38.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    17,
+    42
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    11,
+    43
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    16,
+    37
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    9,
+    41
+   ]
+  },
+  {
+   "kind": "sinkhole",
+   "pos": [
+    25,
+    48
+   ],
+   "name": "The Teague sink",
+   "look": [
+    [
+     "player",
+     "A sinkhole thirty feet across and deeper than it looks, the rim in a crust of limestone, the sides going down to a black that does not finish. A rope is tied to a cedar at the edge and goes down into it. It is not a new rope."
+    ],
+    [
+     "dale",
+     "Somebody climbs this. Regular. For what?"
+    ],
+    [
+     "vera",
+     "For what is in it. One does not climb into the dark for the exercise."
+    ]
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    28,
+    46
+   ]
+  },
+  {
+   "kind": "rope_coil",
+   "pos": [
+    27,
+    47.5
+   ],
+   "name": "A rope into the sink",
+   "look": [
+    [
+     "player",
+     "A rope knotted to the cedar and run over the lip into the dark. The knots are a hunter's. The rope is nylon, new this spring."
+    ],
+    [
+     "june",
+     "It's got a bell on it. A little brass bell, up here, so you can ring it from the bottom."
+    ],
+    [
+     "teddy",
+     "So somebody up here knows you're still alive down there. That's a system."
+    ]
+   ]
+  },
+  {
+   "kind": "sinkhole_small",
+   "pos": [
+    31,
+    41
+   ],
+   "name": "The new sink",
+   "look": [
+    [
+     "player",
+     "A hole in the field that was not a hole last week. The grass at the lip is still green and the roots hang over the edge in the air, surprised. Cold comes up out of it, steady, like a cellar door left open."
+    ],
+    [
+     "miriam",
+     "The water table dropped in the drought and the roof of a cave came down. It happens every August. It is in the newspaper every August."
+    ],
+    [
+     "elijah",
+     "Something came up this way. Not out of it. Through it."
+    ]
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    33,
+    39.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    29,
+    42
+   ]
+  },
+  {
+   "kind": "sinkhole_small",
+   "pos": [
+    48,
+    44
+   ],
+   "name": "A sink by the fence",
+   "look": [
+    [
+     "player",
+     "A small sink opening right up against the Army fence, as if the ground were trying to get under it."
+    ],
+    [
+     "june",
+     "The fence goes over it. They just strung the wire across the hole. Nobody wanted to be the one to tell the Army there was a hole."
+    ]
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    4,
+    37
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    4,
+    45
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    6,
+    41
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    24,
+    38
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    14,
+    48
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    14,
+    50
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    18,
+    51
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    26,
+    52
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    30,
+    50
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    12,
+    53
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    29,
+    44
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    2.5,
+    49
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    7,
+    36.5
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    18,
+    47
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    3,
+    41
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    22,
+    52
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    12,
+    34
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    23,
+    41
+   ]
+  },
+  {
+   "kind": "trash_pile_burned",
+   "pos": [
+    7,
+    32.6
+   ],
+   "name": "A burn pile",
+   "look": [
+    [
+     "player",
+     "A farmer's burn pile at the track side: fence wire, a mattress spring, cans, the ash gone to grey paste in the mist."
+    ],
+    [
+     "vera",
+     "Nothing was summoned here. Something was tidied."
+    ]
+   ]
+  },
+  {
+   "kind": "tractor",
+   "pos": [
+    5,
+    35.5
+   ],
+   "name": "A tractor in the weeds",
+   "look": [
+    [
+     "player",
+     "A red tractor with the hood up and a bird's nest in the engine. The seat is a pan of rust with a feed sack folded on it."
+    ],
+    [
+     "ruth",
+     "Somebody's granddaddy sat on that sack every morning of his life. You can tell by how neat it's folded."
+    ]
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    6,
+    32
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    10,
+    31
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    14,
+    33
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    35,
+    30
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    46,
+    31
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    50,
+    30
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    53,
+    25
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    50,
+    24
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    45,
+    24
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    36,
+    24
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    33,
+    23
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    42,
+    27
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    34,
+    18
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    48,
+    27.5
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    39,
+    29
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    52,
+    28
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    44,
+    29
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    31,
+    25
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    34,
+    25.4
+   ],
+   "name": "A fence under kudzu",
+   "look": [
+    [
+     "player",
+     "A fence that is all kudzu now, a green wall with the shape of a fence inside it, like a thing wearing a sheet."
+    ],
+    [
+     "teddy",
+     "Boo."
+    ],
+    [
+     "miriam",
+     "Teddy."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    37,
+    25.4
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    35.5,
+    25.9
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    47,
+    22
+   ]
+  },
+  {
+   "kind": "cave_mouth",
+   "pos": [
+    47,
+    11
+   ],
+   "name": "The cave mouth",
+   "enter": "sk_cave_first"
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    43,
+    10.5
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    51.5,
+    10.5
+   ],
+   "name": "The lip of the cave",
+   "look": [
+    [
+     "player",
+     "Limestone at the mouth, grey and wet on a dry day. The air coming out of the dark is fifty-six degrees and the air you are standing in is ninety-two, and where they meet the mist boils up out of the hole and lies down on the ground."
+    ],
+    [
+     "june",
+     "Fourteen miles an hour, out. It's exhaling. Caves do that when the pressure drops. A storm's coming, somewhere."
+    ],
+    [
+     "elijah",
+     "It breathed in, once. He said so. You can hear it in how he doesn't say it."
+    ]
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    44,
+    6
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    50,
+    5.5
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    33,
+    8
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    36,
+    16
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    47.5,
+    19.5
+   ]
+  },
+  {
+   "kind": "limestone_rock",
+   "pos": [
+    52,
+    15
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    41,
+    15
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    52,
+    12
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    35,
+    12.5
+   ],
+   "name": "A boulder with a name on it",
+   "look": [
+    [
+     "player",
+     "A boulder carved with names and dates in the way of boulders near caves: R.T. 1961. J.W. and D.W. 1948. SUE + MIKE. One line is scratched out so hard the stone is gouged, and under it, deeper than the rest: 8-21-55."
+    ],
+    [
+     "ruth",
+     "Somebody wrote the date and somebody else didn't want it written. Both of them had a knife and a long evening."
+    ]
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    34,
+    4
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    38,
+    3
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    52,
+    4
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    53,
+    16
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    50,
+    17
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    41,
+    19
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    45,
+    3
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    42,
+    12.5
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    50,
+    13
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    36,
+    14
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    44,
+    17
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    33,
+    19
+   ]
+  },
+  {
+   "kind": "lantern_hung",
+   "pos": [
+    42.5,
+    9
+   ],
+   "name": "A lantern on a post",
+   "look": [
+    [
+     "player",
+     "A kerosene lantern on a cedar post by the shack, lit at dusk and left lit, the glass smoked black on the cave side."
+    ],
+    [
+     "june",
+     "He lights it for the cave. Not for himself. For the cave. So it knows where the door is."
+    ]
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    41,
+    12.4
+   ],
+   "name": "The bucket",
+   "look": [
+    [
+     "player",
+     "A galvanised bucket by the shack step with a skin of water in it, and on the water a skin of ice. It is August in Kentucky and there is ice in a bucket at four in the afternoon."
+    ],
+    [
+     "miriam",
+     "Cave draft. Fifty-six degrees and evaporation. It's physics."
+    ],
+    [
+     "miriam",
+     "It is still ice in August and I would like it noted that I don't love it."
+    ]
+   ]
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    44,
+    15.6
+   ],
+   "name": "The guide's table",
+   "look": [
+    [
+     "player",
+     "A picnic table by the shack where the cave guide eats his lunch and sells nothing to nobody. Carved in the top, deep, by one hand over many years: a map of the cave, with the first chamber, the drop, and past the drop, a question mark, and past the question mark, nothing."
+    ],
+    [
+     "vera",
+     "He stopped drawing where he stopped going. The honest kind of map."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    46,
+    16
+   ]
+  },
+  {
+   "kind": "porch_post",
+   "pos": [
+    40.5,
+    34.5
+   ]
+  },
+  {
+   "kind": "rocking_chair",
+   "pos": [
+    44.5,
+    34.6
+   ],
+   "name": "A rocking chair",
+   "look": [
+    [
+     "player",
+     "A rocker on the cabin stoop with a coffee can beside it full of rifle brass and cigarette ends, and a feed-store cap on the seat."
+    ],
+    [
+     "teddy",
+     "Two men, one chair. That's a long-running negotiation."
+    ]
+   ]
+  },
+  {
+   "kind": "gun_rack",
+   "pos": [
+    36,
+    33.6
+   ],
+   "name": "A deer stand's ladder",
+   "look": "A deer stand's ladder against the oak by the cabin, and on the rungs, drying, three great horned owl wings, spread with clothes pegs. Nobody hunts deer with an owl wing. Somebody ties flies with the feathers, and gets forty dollars a bird in Nashville for them."
+  },
+  {
+   "kind": "feed_sacks",
+   "pos": [
+    38,
+    36.5
+   ],
+   "name": "Feed sacks",
+   "look": [
+    [
+     "player",
+     "Feed sacks on the stoop, the top one tied with twine. Something inside it has feathers and is no longer a bird."
+    ],
+    [
+     "dale",
+     "Don't open that. I'll tell you what's in it. Owls. Four, maybe five, and a hawk they shot by mistake and kept anyway."
+    ]
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    47,
+    37.5
+   ],
+   "name": "The Teagues' truck",
+   "look": [
+    [
+     "player",
+     "A Ford pickup, mud to the door handles, a rifle rack in the back window and a cooler in the bed held down with a cinder block. The tag is from a county that is not this one."
+    ],
+    [
+     "miriam",
+     "A truck is parked by day. The cabin is empty by day. They walk to wherever they walk."
+    ]
+   ]
+  },
+  {
+   "kind": "campfire",
+   "pos": [
+    43,
+    38.6
+   ],
+   "name": "A fire ring",
+   "look": [
+    [
+     "player",
+     "A ring of limestone around a fire that was lit last night: the coals are still warm under the ash, and the bones in it are small."
+    ],
+    [
+     "dale",
+     "Rabbit. Squirrel. One of those is a cat and I don't want to talk about it."
+    ]
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    37,
+    38.4
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    48,
+    33.5
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    37,
+    32
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    47,
+    30
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    49,
+    35
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    35,
+    39.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    38,
+    39.4
+   ]
+  },
+  {
+   "kind": "stile",
+   "pos": [
+    41,
+    39.5
+   ],
+   "name": "The cabin stile",
+   "look": [
+    [
+     "player",
+     "A stile over the clearing fence, cedar steps, the top one silver with use. On the barbed wire beside it, where a coat would catch: hair, silver-grey, a hand's width of it."
+    ],
+    [
+     "dale",
+     "Hound. Or hog. Or somebody's goat. Or—"
+    ],
+    [
+     "ruth",
+     "Dale, honey, just bag it."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    44,
+    39.4
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    47,
+    39.4
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    36.5,
+    39.9
+   ]
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    45.5,
+    39.9
+   ],
+   "name": "Kudzu on the cabin fence",
+   "look": [
+    [
+     "player",
+     "Kudzu over the fence at the cabin, and over a hand-painted sign in it: KEEP OUT THIS MEANS YOU. The vine agrees."
+    ],
+    [
+     "teddy",
+     "Signed, the kudzu."
+    ]
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    34,
+    43
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    38,
+    45
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    42,
+    43
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    46,
+    47
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    36,
+    49
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    41,
+    48
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    51,
+    48
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    32,
+    47
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    33,
+    51
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    44,
+    46
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    39,
+    50
+   ]
+  },
+  {
+   "kind": "fern",
+   "pos": [
+    48,
+    50
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    50,
+    41.5
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    35,
+    46
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    43,
+    50.5
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    40,
+    45
+   ]
+  },
+  {
+   "kind": "fort_fence",
+   "pos": [
+    37.5,
+    52.6
+   ]
+  },
+  {
+   "kind": "fort_fence",
+   "pos": [
+    40.5,
+    52.6
+   ]
+  },
+  {
+   "kind": "fort_fence",
+   "pos": [
+    43.5,
+    52.6
+   ]
+  },
+  {
+   "kind": "fort_fence",
+   "pos": [
+    46.5,
+    52.6
+   ]
+  },
+  {
+   "kind": "fort_fence",
+   "pos": [
+    49.5,
+    52.6
+   ]
+  },
+  {
+   "kind": "fort_fence",
+   "pos": [
+    52.5,
+    52.6
+   ],
+   "name": "The Fort Campbell corner",
+   "look": [
+    [
+     "player",
+     "Where the Sinks end and the Army begins: a chain fence with a sign in two colours, US ARMY FORT CAMPBELL MILITARY RESERVATION, NO TRESPASSING, and under it, smaller, the number to call if you find something that goes off. The fence turns the corner here and goes on into the mist both ways."
+    ],
+    [
+     "june",
+     "There's a jeep track inside. Fresh. They drive this corner every night. Every single night, for forty years, somebody has driven this corner."
+    ],
+    [
+     "miriam",
+     "That's what a boundary is. You keep driving it or it stops being one."
+    ],
+    [
+     "teddy",
+     "The fence fight is somebody else's story. I'd like to keep it that way."
+    ]
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    53.5,
+    50.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    53.5,
+    47.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    53.5,
+    44.5
+   ]
+  },
+  {
+   "kind": "chain_fence_v",
+   "pos": [
+    53.5,
+    41.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    50,
+    51
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "sk_guide",
+   "name": "Harlan Tapp",
+   "pos": [
+    40.5,
+    13
+   ],
+   "facing": "down",
+   "sprite": "cave_guide",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "sk_hunter1",
+   "name": "Roy Teague",
+   "pos": [
+    43.5,
+    12.8
+   ],
+   "facing": "left",
+   "sprite": "hunter_ky",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sk_hunter1",
+   "name": "Roy Teague",
+   "pos": [
+    28,
+    31.5
+   ],
+   "facing": "left",
+   "sprite": "hunter_ky",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "sk_hunter2",
+   "name": "Dewey Teague",
+   "pos": [
+    18.5,
+    42.4
+   ],
+   "facing": "left",
+   "sprite": "hunter_ky2",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "sk_hunter2",
+   "name": "Dewey Teague",
+   "pos": [
+    41,
+    41.5
+   ],
+   "facing": "up",
+   "sprite": "hunter_ky2",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sk_hunters",
+   "name": "The Teague brothers",
+   "pos": [
+    42.5,
+    36.2
+   ],
+   "facing": "down",
+   "sprite": "hunter_ky",
+   "when": [
+    "dusk",
+    "night"
+   ],
+   "appears": "sk_hunters_home",
+   "prompt": "Knock",
+   "fight": {
+    "foes": [
+     "the_hunters"
+    ],
+    "flag": "hunters_run_off",
+    "intro": [
+     [
+      "narrator",
+      "The door opens before the second knock. Roy Teague has a lamp in one hand and a rifle in the other, and behind him Dewey has the other rifle, and the cabin smells of feathers and coffee."
+     ],
+     [
+      "narrator",
+      "\"Y'all lost?\" Roy says. The lamp comes up into your eyes."
+     ],
+     [
+      "dale",
+      "Nobody shoot anybody. Everybody's going to feel real stupid in the morning."
+     ]
+    ],
+    "win": "The rifle comes down. Roy looks at it as if somebody else had been holding it. \"Hell,\" he says. \"Hell. Dewey, get the truck.\" They go down the track toward the Crossroads with the lamp swinging, and the cabin door stands open behind them.",
+    "lose": "You go back down the track in the dark the way they told you to, and nobody says anything until the mailbox, and then Teddy says \"Y'all lost?\" in Roy's voice and nobody laughs and then everybody does."
+   }
+  }
+ ],
+ "clues": [
+  {
+   "id": "sk_owl_pellets",
+   "name": "The ground under the roost",
+   "pos": [
+    16,
+    12.6
+   ],
+   "prop": "clue_pellets",
+   "text": "Under the dead oaks the ground is paved with pellets, the grey parcels an owl brings up after a meal: fur, feather, the small skulls of mice and rats and a rabbit, the leg of a crow, whole, and a skull with a jaw that Dale picks up and puts down and picks up again. Everything that lives in this field has been to the top of this tree in the dark, and come down like this.",
+   "methods": {
+    "bag": "sk_owl_pellets_bag",
+    "photograph": "sk_owl_roost_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "sk_sink_bones",
+   "name": "Bones in the sink",
+   "pos": [
+    15.5,
+    40.4
+   ],
+   "prop": "clue_fur",
+   "text": "On the ledge inside the rim of the big sink, below the Hudson's bumper, bones: a long skull with two horn cores, four long legs, ribs, lying where they lay down. Small for a cow. Big for a dog. The teeth are a grazer's, flat and worn. Somebody has set a jar candle beside the skull and burned it to the bottom.",
+   "methods": {
+    "bag": "sk_sink_bones_bag",
+    "photograph": "sk_sink_bones_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "sk_creek_prints",
+   "name": "Prints in the creek silt",
+   "pos": [
+    20.5,
+    40.6
+   ],
+   "prop": "clue_prints",
+   "text": "Where the creek bed holds a skin of fine silt, prints: a palm, five long fingers, the size of a child's hand, pressed deep, one after another up the middle of the bed in pairs. No heel. No claw marks that you can see in this light. They go under the cattails and come out the other side and stop at the limestone.",
+   "methods": {
+    "cast": "sk_creek_cast",
+    "measure": "sk_creek_stride",
+    "photograph": "spoil",
+    "bag": "spoil"
+   }
+  },
+  {
+   "id": "sk_flare_casing",
+   "name": "A casing in the kudzu",
+   "pos": [
+    51,
+    50.6
+   ],
+   "prop": "clue_cans",
+   "text": "In the kudzu inside the fence corner, an aluminium tube a foot long, burned black at one end, with a parachute shroud still knotted to it and a stencilled lot number half scorched off. A flare. The kind that comes down slow on a little chute, lighting up a field white for a minute and then going out.",
+   "methods": {
+    "bag": "sk_flare_casing_bag",
+    "photograph": "sk_flare_casing_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "sk_sink_new",
+   "name": "The breath of the new sink",
+   "pos": [
+    31,
+    42.5
+   ],
+   "prop": "clue_cold",
+   "text": "Kneel at the lip of the new sink and the cold comes up over your hands like water. The grass at the rim leans in. June has the thermometer out, Teddy has the camera up, and the mist that comes out of the hole stands in the lens and will not be focused.",
+   "methods": {
+    "measure": "sk_sink_cold_reading",
+    "photograph": "sk_sink_new_photo",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "sk_stile_hair",
+   "name": "Hair on the wire",
+   "pos": [
+    42.5,
+    40.6
+   ],
+   "prop": "clue_fur",
+   "text": "On the top strand of the barbed wire beside the cabin stile, a tuft of silver-grey hair a hand's width across, caught where something went over or under at a height of about three feet. Coarse, straight, pale at the roots. Dale says one word and Miriam says another and neither of them is the word you are thinking.",
+   "methods": {
+    "bag": "sk_stile_hair_bag",
+    "photograph": "spoil",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    0,
+    24,
+    1,
+    8
+   ],
+   "to": "kelly_crossroads",
+   "at": [
+    37,
+    16
+   ],
+   "name": "Kelly Crossroads"
+  },
+  {
+   "rect": [
+    0,
+    8,
+    1,
+    8
+   ],
+   "to": "kelly_farm",
+   "at": [
+    45,
+    24
+   ],
+   "name": "The Lacy farm"
+  }
+ ],
+ "encounters": [
+  {
+   "foes": [
+    "coyote"
+   ],
+   "phase": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "weight": 3,
+   "intro": "A coyote comes up out of the creek bed with its head low, and it is not afraid of you, which is the wrong way round.",
+   "win": "It goes off through the dry grass the way it came, looking back once, in no hurry."
+  },
+  {
+   "foes": [
+    "owl_wrong_ky"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 2,
+   "intro": "Something comes off the dead oak without a sound and the mist folds behind it. The eyes come first, yellow, and then the rest.",
+   "win": "It lifts over the oaks and is gone, and the woods go back to cicadas as if nothing had happened, which is what the woods always say."
+  },
+  {
+   "foes": [
+    "eyeshine"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 1,
+   "intro": "Two points of yellow in the kudzu at the height of a child's head. They do not blink. The flashlight finds nothing behind them.",
+   "win": "The yellow goes out. The kudzu is kudzu. June keeps the recorder running for another full minute and nobody tells her to stop."
+  },
+  {
+   "foes": [
+    "hound_pack"
+   ],
+   "phase": [
+    "day"
+   ],
+   "weight": 1,
+   "intro": "Dogs, three of them, out of the cabin woods baying, somebody's hounds loose and glad of it.",
+   "win": "They lose interest the way hounds do, all at once, and go off down the creek after something better."
+  }
+ ],
+ "interiors": {
+  "sk_guide_shack": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2",
+    "wood_dark"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "curtain",
+     "pos": [
+      8,
+      1.9
+     ],
+     "name": "The back door, into the rock",
+     "enter": "sk_cave_first"
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      3,
+      1.8
+     ],
+     "name": "The cave log",
+     "look": [
+      [
+       "player",
+       "A shelf of ledgers, one a decade, every visitor to the cave since 1946 in pencil: name, town, how far they went. Nobody has gone past 'the drop' in any volume. The 1955 book falls open at August and the August page has been cut out with a razor, clean, and the stub signed H.T."
+      ],
+      [
+       "miriam",
+       "He cut it out himself. He wants you to know he cut it out himself. That's a man keeping a secret and a receipt for it."
+      ]
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      6,
+      1.9
+     ],
+     "name": "A barometer",
+     "look": [
+      [
+       "player",
+       "A ship's barometer in a brass case, screwed to the wall of a shack two hundred miles from any sea, the needle at FALLING and tapping on it does nothing."
+      ],
+      [
+       "june",
+       "That's how he knows when the cave will breathe out. The cave knows before the radio does."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8.5,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "A Hopkinsville feed store calendar, August 1994. The 21st is circled in pencil, lightly, the way you circle a thing you would rather not have circled."
+    },
+    {
+     "kind": "table_rough",
+     "pos": [
+      4.5,
+      4.4
+     ],
+     "name": "His table",
+     "look": [
+      [
+       "player",
+       "A table with a kerosene lamp, a tin of tobacco, a jar of cave pearls like a jar of cloudy marbles, and a map of the cave on butcher paper, the first chamber, the drop, and nothing past it."
+      ],
+      [
+       "vera",
+       "Cave pearls. The water makes them in the dark, grain by grain, over a thousand years. He keeps them in a pickle jar."
+      ],
+      [
+       "ruth",
+       "Where else would you keep them, dear."
+      ]
+     ]
+    },
+    {
+     "kind": "kerosene_lamp",
+     "pos": [
+      5.5,
+      3.8
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      3.5,
+      5.6
+     ]
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      1.5,
+      6.8
+     ],
+     "name": "The guide's bunk",
+     "look": "An Army cot with a quilt folded square on it and a pair of boots under it laced together, so that whoever takes them in the night takes both."
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      8.5,
+      6.8
+     ],
+     "name": "The chest",
+     "look": [
+      [
+       "player",
+       "A footlocker. Inside: a coil of good rope with a card on it, NOT FOR SALE NOT FOR LOAN, a carbide lamp from before the war, a child's shoe box, empty, and a photograph of a boy of twelve holding a dog by the collar in front of this shack, 1955 in pencil on the back. The dog is looking at something out of the frame."
+      ],
+      [
+       "elijah",
+       "The dog didn't come back. He never got another one. There's no bowl in this shack and there's been no bowl in it for thirty-nine years."
+      ]
+     ]
+    },
+    {
+     "kind": "lantern_hung",
+     "pos": [
+      1,
+      2
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      7,
+      5.5
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "sk_guide",
+     "name": "Harlan Tapp",
+     "pos": [
+      5,
+      6
+     ],
+     "facing": "down",
+     "sprite": "cave_guide",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    }
+   ],
+   "clues": []
+  },
+  "sk_cabin": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark2",
+    "wood_grey"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "boarded_window",
+     "pos": [
+      1,
+      1.9
+     ]
+    },
+    {
+     "kind": "gun_rack",
+     "pos": [
+      2.5,
+      1.9
+     ],
+     "name": "The gun rack",
+     "look": [
+      [
+       "player",
+       "A gun rack with two empty cradles and a third holding a single-shot .22 with a cracked stock. The two that matter are wherever the brothers are."
+      ],
+      [
+       "dale",
+       "Twelve gauge and a deer rifle. You could tell from the brass in the coffee can. You could tell from the owls."
+      ]
+     ]
+    },
+    {
+     "kind": "shotgun",
+     "pos": [
+      4,
+      1.9
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      6.5,
+      1.8
+     ],
+     "name": "The shelf",
+     "look": [
+      [
+       "player",
+       "Canned beans, a coffee can of fish hooks, a tobacco tin of owl feathers sorted by size, a fly-tying vice, a stack of Louis L'Amour, and a bottle with no label a third down."
+      ],
+      [
+       "teddy",
+       "Somebody in here reads. Somebody in here ties a very neat fly. I'd like to know which brother and I'd bet money it's the same one."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8.7,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "A Nashville fly shop's calendar, 1994, with prices pencilled on August: GHO wings 40, hackle 12 the pair, 'they want the ear tufts now.'"
+    },
+    {
+     "kind": "lantern_hung",
+     "pos": [
+      9.4,
+      2.1
+     ]
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      1.5,
+      3.4
+     ],
+     "name": "The stove",
+     "look": "A wood stove with a coffee pot on it still warm at noon. They were here an hour ago. They are somewhere in these woods, and the woods are not big."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      1,
+      5.6
+     ],
+     "name": "A crate of jars",
+     "look": "Mason jars, a dozen, each with a label: TEAGUE SINK 1990, TEAGUE SINK 1991, up to this year. In each jar, a little limestone, a little black silt, and a bone or two. Somebody goes down that rope every August and brings up a jar."
+    },
+    {
+     "kind": "lamp_oil_can",
+     "pos": [
+      1.2,
+      7.3
+     ],
+     "pickup": "lamp_oil"
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      4.5,
+      3.6
+     ]
+    },
+    {
+     "kind": "table_rough",
+     "pos": [
+      4.5,
+      5.0
+     ],
+     "name": "The table",
+     "look": [
+      [
+       "player",
+       "A table with a fly-tying vice clamped to it, a lamp, a skinned owl wing pinned out on a board, and a stack of little envelopes marked GHO BARRED, GHO TUFT, GHO BREAST, with a price on each."
+      ],
+      [
+       "miriam",
+       "Great horned owl. Three letters. He's very organised for a man committing a federal crime."
+      ]
+     ]
+    },
+    {
+     "kind": "kerosene_lamp",
+     "pos": [
+      5.5,
+      4.4
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      3.5,
+      6.3
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      8.5,
+      3.8
+     ],
+     "name": "The footlocker",
+     "look": [
+      [
+       "player",
+       "A footlocker with a hasp and no lock. Inside: a case of shotgun shells, a coon-hunter's headlamp, a thermos, two pairs of socks, and a Kentucky hunting licence in the name of a third brother who is not here and whose licence ran out in 1989."
+      ],
+      [
+       "ruth",
+       "There's three of them on the licence and two of them in the cabin. Don't ask about the third one unless you're asked, dear."
+      ]
+     ]
+    },
+    {
+     "kind": "bed_wood",
+     "pos": [
+      6.5,
+      7.4
+     ],
+     "name": "Roy's bunk",
+     "look": "A bunk with a quilt on it and under the pillow, where you look because Miriam always looks, a paperback about Roswell with every other page folded down."
+    },
+    {
+     "kind": "bed_wood",
+     "pos": [
+      8.6,
+      7.4
+     ],
+     "name": "Dewey's bunk",
+     "look": [
+      [
+       "player",
+       "A bunk made Army-tight, a Bible on the blanket, and on the log wall beside it a child's drawing of a man with big ears and his hands up, in crayon, framed in a cigar box lid. Signed DEWEY, AGE 6."
+      ],
+      [
+       "elijah",
+       "Somebody told him the story when he was six and he drew it and he kept it. He's been waiting for the thing in the drawing to come back and say it was real."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "sk_hunter1",
+     "name": "Roy Teague",
+     "pos": [
+      6.5,
+      3.4
+     ],
+     "facing": "down",
+     "sprite": "hunter_ky",
+     "when": [
+      "dusk",
+      "night"
+     ],
+     "appears": "sk_hunters_friendly"
+    },
+    {
+     "id": "sk_hunter2",
+     "name": "Dewey Teague",
+     "pos": [
+      2.6,
+      6.6
+     ],
+     "facing": "right",
+     "sprite": "hunter_ky2",
+     "when": [
+      "dusk",
+      "night"
+     ],
+     "appears": "sk_hunters_friendly"
+    }
+   ],
+   "clues": [
+    {
+     "id": "sk_cabin_insulation",
+     "name": "The wall behind the stove",
+     "pos": [
+      2.8,
+      2.8
+     ],
+     "prop": "paper",
+     "text": "Behind the stove the chinks in the logs are stuffed with newspaper, the way a cabin is insulated when nobody is going to look. The paper is the Pennyrile Ledger, August 1955, a week of it, and the page that faces out is the 23rd: LITTLE MEN SIEGE KELLY FARMHOUSE, FAMILY FLEES TO HOPKINSVILLE. Under the fold, the same page: the game warden's column. 'Horned owls are thick this year and bold. A reader at Kelly reports one that came at his lantern.' Between the paper and the logs, pushed in with it, owl feathers. Hundreds. The whole wall is lined with them.",
+     "methods": {
+      "photograph": "sk_cabin_news_photo",
+      "bag": "sk_cabin_feathers",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "sk_cave_first": {
+   "size": [
+    16,
+    12
+   ],
+   "floor": [
+    "cave_floor",
+    "cave_floor2",
+    "cave_floor"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      0.1,
+      6.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      1.9,
+      6.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      3.7,
+      6.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      5.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "rock_cliff",
+     "pos": [
+      8,
+      6.5
+     ],
+     "name": "The drop",
+     "gate": "cave_deep"
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      10.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      12.3,
+      6.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      14.1,
+      6.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      15.9,
+      6.5
+     ]
+    },
+    {
+     "kind": "tunnel_mouth",
+     "pos": [
+      8,
+      4.6
+     ],
+     "name": "Down past the drop",
+     "enter": "sk_cave_deep"
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      1.5,
+      9.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      14.5,
+      10
+     ]
+    },
+    {
+     "kind": "rock_small",
+     "pos": [
+      5,
+      8.5
+     ]
+    },
+    {
+     "kind": "rock_small",
+     "pos": [
+      11,
+      9
+     ]
+    },
+    {
+     "kind": "dry_creek_rocks",
+     "pos": [
+      3.5,
+      11
+     ],
+     "name": "The creek's beginning",
+     "look": [
+      [
+       "player",
+       "A channel of dry stones comes out from under the wall and runs out of the mouth: this is where the creek starts, when there is a creek. In August it is a road of white stones into the dark."
+      ],
+      [
+       "june",
+       "It runs out of the cave in October, he says. Everything in the county drains through here. Rain in Hopkinsville comes out of this hole a week later."
+      ]
+     ]
+    },
+    {
+     "kind": "kerosene_lamp",
+     "pos": [
+      12.5,
+      11
+     ],
+     "name": "A lamp left burning",
+     "look": [
+      [
+       "player",
+       "A kerosene lamp on a flat stone, turned low, lit. He lights it in the morning and puts it out at night. It is the only warm thing in here."
+      ],
+      [
+       "ruth",
+       "A light left for somebody. You don't do that for thirty-nine years because you expect them. You do it because you'd be ashamed if they came and it was dark."
+      ]
+     ]
+    },
+    {
+     "kind": "clue_glyph",
+     "pos": [
+      13.5,
+      8
+     ],
+     "name": "Names on the wall",
+     "look": [
+      [
+       "player",
+       "Names smoked onto the ceiling with candles, the way people have signed caves since there were caves: 1911, 1946, R.T. 1961 again. And in the corner near the drop, small, in a child's hand, in pencil, 8-21-55, with a drawing under it of a thing with its hands up. The pencil is on the rock. Somebody held a child up to write it."
+      ],
+      [
+       "elijah",
+       "A child wrote the date and a man held him up to do it. That's the night. That's the two of them, right here."
+      ],
+      [
+       "miriam",
+       "Or any child, any year, who'd read the paper. Pencil doesn't date."
+      ]
+     ]
+    },
+    {
+     "kind": "fern",
+     "pos": [
+      7,
+      10.5
+     ]
+    }
+   ],
+   "npcs": [],
+   "clues": [
+    {
+     "id": "sk_cave_cold",
+     "name": "The breath of the cave",
+     "pos": [
+      8,
+      9
+     ],
+     "prop": "clue_cold",
+     "text": "Stand in the middle of the first chamber and the air moves past you toward the mouth, steady, cold enough to see. It comes from the drop, where the floor goes away into black. June's thermometer and anemometer go into it and the numbers hold still, which numbers in this county have not done since you arrived. Teddy's flash goes off and the mist in the frame has a shape in it.",
+     "methods": {
+      "measure": "sk_cave_draft_reading",
+      "photograph": "sk_cave_mouth_photo",
+      "bag": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  },
+  "sk_cave_deep": {
+   "size": [
+    12,
+    10
+   ],
+   "floor": [
+    "cave_floor2",
+    "cave_floor",
+    "cave_floor2"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      0.9,
+      6.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      2.7,
+      6.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      4.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "rock_cliff",
+     "pos": [
+      7,
+      6.5
+     ],
+     "name": "The cold in the gap",
+     "gate": "sk_breath_passage"
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      9.5,
+      6.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      11.3,
+      6.5
+     ]
+    },
+    {
+     "kind": "clue_cold",
+     "pos": [
+      7,
+      7.6
+     ],
+     "name": "The breath",
+     "fight": {
+      "foes": [
+       "cave_breath"
+      ],
+      "no_flee": true,
+      "flag": "cave_breath_faced",
+      "intro": [
+       [
+        "narrator",
+        "The cold in the gap stands up. That is the only way to say it: the mist that has lain in the passage gathers itself to the height of a man and breathes in, and the lamp flame leans toward it, and your breath goes with it."
+       ],
+       [
+        "narrator",
+        "It has a face for one second. It is somebody you know."
+       ],
+       [
+        "vera",
+        "Hold. It is not a thing. It is a place that has learned to stand. Hold your ground and it will have to kneel."
+       ]
+      ],
+      "win": "The breath goes out of the gap the way breath goes out of a man, all at once, and the lamp stands straight. The passage ahead is only a passage. It is still very cold.",
+      "lose": "You come up the rope without remembering the rope. Harlan Tapp is at the mouth with the lantern and does not ask, and that is somehow the worst of it."
+     }
+    },
+    {
+     "kind": "rock_small",
+     "pos": [
+      1.5,
+      9
+     ]
+    },
+    {
+     "kind": "rock_small",
+     "pos": [
+      10.5,
+      8.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      11,
+      3.5
+     ]
+    },
+    {
+     "kind": "limestone_rock",
+     "pos": [
+      1,
+      3.2
+     ]
+    },
+    {
+     "kind": "dry_creek_rocks",
+     "pos": [
+      5,
+      3.2
+     ],
+     "name": "The channel",
+     "look": [
+      [
+       "player",
+       "The dry channel runs on past the lamp into a crack you could put a hand in and not an arm. The air comes out of it. Whatever is past here is past everyone."
+      ],
+      [
+       "june",
+       "Fifty-six degrees. Steady. Fourteen miles an hour. It's the same number as the mouth. It's the same number as the gully at the Farm."
+      ],
+      [
+       "dale",
+       "You didn't say that out loud."
+      ],
+      [
+       "june",
+       "No."
+      ]
+     ]
+    },
+    {
+     "kind": "clue_glow",
+     "pos": [
+      9.5,
+      3.9
+     ],
+     "name": "Something yellow in the gravel",
+     "pickup": "kelly_eye"
+    },
+    {
+     "kind": "fern",
+     "pos": [
+      3,
+      9.5
+     ]
+    }
+   ],
+   "npcs": [],
+   "clues": [
+    {
+     "id": "sk_deep_flashlight",
+     "name": "A flashlight on the floor",
+     "pos": [
+      2.5,
+      8.6
+     ],
+     "prop": "clue_glow",
+     "text": "Below the drop, on the floor where you land, a flashlight. An Eveready two-cell, the 1955 pattern with the ribbed barrel, the switch pushed to ON, the batteries long since gone to white crust. It is lying as if it was set down, not dropped: handle toward the passage, lens toward the way out. Nobody has been below the drop since 1946, says the log. Says the man who cut a page out of the log.",
+     "methods": {
+      "bag": "sk_deep_flashlight_bag",
+      "photograph": "sk_deep_flashlight_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "sk_deep_shoe",
+     "name": "A child's shoe",
+     "pos": [
+      4,
+      4.2
+     ],
+     "prop": "clue_bed",
+     "text": "Past the gap, on a flat stone beside the dry channel, a child's shoe. A buckle shoe, brown, a size two, the leather dry and curled and the buckle bright. One shoe. Set on the stone squarely, toe toward the crack the air comes from, the way you set a shoe down when you mean to come back for it. Ruth has sat down on the floor of the cave and nobody has asked her to get up.",
+     "methods": {
+      "bag": "sk_deep_shoe_bag",
+      "photograph": "sk_deep_shoe_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  }
+ }
+}

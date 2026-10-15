@@ -1,0 +1,372 @@
+{
+ "_doc": "Harlan Tapp, the cave guide at the Pennyrile Sinks. Twelve in August 1955, out past the sink with his father and the dog the night the light came down; he has kept the cave, the log and the lamp ever since and sells nothing to nobody. Slow, exact, kind under it, and he will tell the night once.",
+ "id": "sk_guide",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sk_guide",
+   "lines": [
+    [
+     "sk_guide",
+     "Cave's open. Tour's free. I don't sell nothing and I don't go past the drop, and if y'all want to go past the drop you'll want a rope and a lamp and a better reason than you've got."
+    ],
+    [
+     "teddy",
+     "He said all that without looking up from the whittling. That's a man who's said it to a lot of station wagons."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "lore",
+     "threshold": 7,
+     "line": "He keeps the cave the way a sexton keeps a churchyard. Lamp lit, log kept, nobody past the rail. This is a man tending something, not showing it."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He looked at the dog's bucket by the step before he looked at you. There's no dog. There hasn't been a dog in a long time."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're from an office in West Virginia, Mr Tapp. We're here about the Lacy place, and we'd rather hear it from somebody who was here.",
+     "next": "menu"
+    },
+    {
+     "tone": "wry",
+     "text": "We've got a rope. We've got a lamp. The reason's the part we're still working on.",
+     "next": "menu",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "The anniversary's Sunday. You know why we're here.",
+     "next": "menu"
+    }
+   ],
+   "gives": {
+    "flag": "met_sk_guide"
+   }
+  },
+  "menu": {
+   "speaker": "sk_guide",
+   "repeat": true,
+   "lines": [
+    [
+     "sk_guide",
+     "Well. Ask. The cave ain't going nowhere and neither am I, which is the whole of my arrangement with it."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The dog went into the cave. He's still waiting for it. You could tell him you heard it down there. You could. It would be so easy."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Tell us about the Sinks. The ground, the holes, the creek that isn't.",
+     "next": "karst"
+    },
+    {
+     "tone": "wry",
+     "text": "Owls. Dale says owls. Say it's owls so he'll stop.",
+     "next": "owls"
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sk_cave_draft_reading": 1,
+       "sk_sink_cold_reading": 1
+      }
+     },
+     "text": "The cave breathes. Your grandmother's word for it, not the geology. What did it do on a hot night in August 1955?",
+     "pass": "cold_story",
+     "fail": {
+      "next": "cold_no",
+      "dread": 1
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "sk_cabin_feathers_lab": 1,
+       "sk_owl_pellets_lab": 1
+      }
+     },
+     "text": "The Teague boys. What are they shooting in your woods, and what did their granddaddy shoot his mouth off about?",
+     "pass": "poachers",
+     "fail": {
+      "next": "poachers_no",
+      "trust": {
+       "sk_guide": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "sk_guide_twelve"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "sk_guide_cold": 1,
+       "sk_deep_shoe_bag": 2,
+       "sk_deep_flashlight_bag": 1
+      }
+     },
+     "text": "You were twelve. You were out that night. Tell it once, Mr Tapp, and we'll never ask you again.",
+     "pass": "night_1955",
+     "fail": {
+      "next": "night_no",
+      "trust": {
+       "sk_guide": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Tapp."
+    }
+   ]
+  },
+  "karst": {
+   "speaker": "sk_guide",
+   "lines": [
+    [
+     "sk_guide",
+     "Limestone, top to bottom, and water under it. The Pennyrile's a roof. Every field you drove past is a roof, and in a dry August the water drops and the roof comes down somewhere and that's your sink. One a year. The Teague field went on the eleventh. Sounded like a barn door shutting under the ground."
+    ],
+    [
+     "sk_guide",
+     "Creek runs out of the cave October to June and under it the rest. Everything in the county drains through this hole. Rain in Hopkinsville comes out my front door a week later."
+    ],
+    [
+     "sk_guide",
+     "And the cave breathes. Out when the glass falls, in when it rises. Cold as a cellar either way. Folks feel that in a gully at night and they want it to be something. It's the ground."
+    ],
+    [
+     "miriam",
+     "Thank you. Nobody in this state has said 'it's the ground' to us in three days."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 8,
+     "line": "He said 'the Teague field.' Not 'the Teagues' field.' The Teagues don't own it. Somebody lets them use it, and he knows who."
+    }
+   ],
+   "gives": {
+    "evidence": "sk_guide_karst",
+    "fact": "sk_guide_karst_told"
+   },
+   "next": "menu"
+  },
+  "owls": {
+   "speaker": "sk_guide",
+   "lines": [
+    [
+     "sk_guide",
+     "It's owls. Them dead oaks have had great horned owls in 'em since before I was born. August, the young ones are out, and they're loud: hiss and clack, like a man snapping his fingers in a tin bucket."
+    ],
+    [
+     "sk_guide",
+     "Put a lamp on one and it don't fly off. Comes at the light. Wings up like a man surrendering, ears up, and it don't flap, it floats down off the limb, and the eyes give the lamp back yellow. I had one in my face at nine years old and I'll tell you it don't feel like a bird. It feels like being chose."
+    ],
+    [
+     "sk_guide",
+     "The owls was loud that summer. Loudest I ever heard 'em. My daddy said so, and he'd heard sixty summers."
+    ],
+    [
+     "dale",
+     "Thank you. I'm going to go stand by the car and feel something."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "'That summer.' He was nine when the owl hit him, and he's about fifty now, and he said 'that summer' about 1955 like it's a room he keeps. He was out in it. Twelve years old. He's told you without telling you.",
+     "flag": "sk_guide_twelve"
+    }
+   ],
+   "gives": {
+    "evidence": "sk_guide_owls",
+    "fact": "sk_guide_owls_told"
+   },
+   "next": "menu"
+  },
+  "cold_story": {
+   "speaker": "sk_guide",
+   "lines": [
+    [
+     "sk_guide",
+     "...Breathes. All right. That's Mama's word and it's the right one."
+    ],
+    [
+     "sk_guide",
+     "The twenty-first was a Sunday and the glass fell all afternoon. Storm coming up over Campbell. By ten the cave was breathing out so hard the lamp on the post laid flat and the bucket on the step had ice on it. Ice, in August. Daddy wrote it in the log. Ten o'clock, ice on the bucket."
+    ],
+    [
+     "sk_guide",
+     "Seven miles of hollow rock between here and the Lacy porch and every bit of it breathing out the same cold at the same hour. That's what come up that gully at them. I believe that. I've believed it thirty-nine years and I'll tell you it's a thin kind of believing."
+    ],
+    [
+     "june",
+     "Fifty-six degrees, fourteen miles an hour. The same number I got in the gully. He's right. He's right and he doesn't like it any more than we do."
+    ]
+   ],
+   "gives": {
+    "evidence": "sk_guide_cold",
+    "fact": "sk_guide_cold_told",
+    "trust": {
+     "sk_guide": 1
+    }
+   },
+   "next": "menu"
+  },
+  "cold_no": {
+   "speaker": "sk_guide",
+   "lines": [
+    [
+     "sk_guide",
+     "It breathes. Cold air. Pressure. You can read it in any library in Hopkinsville and I'd sooner you did than stood on my step saying 'grandmother' at me like it was a password."
+    ],
+    [
+     "ruth",
+     "Well. That's me told. Come back tomorrow and let somebody else do the asking, dear."
+    ]
+   ],
+   "next": "menu"
+  },
+  "poachers": {
+   "speaker": "sk_guide",
+   "lines": [
+    [
+     "sk_guide",
+     "Roy and Dewey shoot the roost. Owls, for the feathers. Nashville man ties flies with 'em, pays forty dollars a bird, and the warden's been told and the warden's their cousin."
+    ],
+    [
+     "sk_guide",
+     "Their granddaddy was Clell Teague, and Clell told the little-men story at the store for thirty years as a joke on the Lacys. He had a lantern in it. He had himself in that yard with a lantern and a quart jar, and the whole store laughing. Their grandmama told it different, and she wasn't laughing."
+    ],
+    [
+     "sk_guide",
+     "I don't hold with the boys. I hold with the owls. But you asked me what their granddaddy said, and that's what he said, drunk, every Saturday, until he died."
+    ],
+    [
+     "teddy",
+     "A joke on the family. For thirty years. At the store they bought their bread at."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "press",
+     "threshold": 8,
+     "line": "He gave you the warden's name without being asked. He wants somebody to use it. That's a man handing you a rock and pointing at a window."
+    }
+   ],
+   "gives": {
+    "evidence": "sk_guide_poachers",
+    "flag": "guide_told_poachers",
+    "fact": "sk_guide_poachers_told"
+   },
+   "next": "menu"
+  },
+  "poachers_no": {
+   "speaker": "sk_guide",
+   "lines": [
+    [
+     "sk_guide",
+     "What's in my woods is my business and the warden's, and what a dead man said drunk at a store is between him and the Lord. Ask me about the cave."
+    ]
+   ],
+   "next": "menu"
+  },
+  "night_1955": {
+   "speaker": "sk_guide",
+   "lines": [
+    [
+     "sk_guide",
+     "...Once."
+    ],
+    [
+     "sk_guide",
+     "We was out past the Teague sink, me and Daddy and the dog, after a coon, ten o'clock. Glass falling, cave breathing out behind us so hard you could lean on it. And a light come down. West, toward the Lacy place. Slow. No sound. Not a flare, Daddy knew flares, not a plane. It went down behind the treeline like it was being set down, and it didn't come up."
+    ],
+    [
+     "sk_guide",
+     "And the owls stopped. All of 'em, all at once, like a hand went over 'em. And the cave breathed in."
+    ],
+    [
+     "sk_guide",
+     "I don't mean the wind turned. I mean all the mist in that field, every bit of it, went into the mouth at once, like it was pulled, and the lamp on the post stood straight up, and it was warm. For one breath. August warm. And the dog went in after it, and Daddy hollered, and the dog didn't come out."
+    ],
+    [
+     "sk_guide",
+     "Daddy went in to the drop with the carbide lamp and stood there till morning and I stood with him. Nothing come up. He cut the page out of the log so nobody'd read it and think he was a fool, and he never got me another dog, and I keep the lamp lit. That's it. That's the once."
+    ],
+    [
+     "elijah",
+     "Thank you, Mr Tapp."
+    ],
+    [
+     "sk_guide",
+     "Don't thank me. Go find my dog."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "In. The cave breathed in when the light came down. Everything else that night went outward: the shots, the family, the car to town. One thing drew. You will want to stand where it drew, and you will not want to."
+    }
+   ],
+   "gives": {
+    "evidence": "sk_guide_1955",
+    "fact": "sk_guide_1955_told",
+    "flag": "sk_guide_told_1955",
+    "trust": {
+     "sk_guide": 1
+    }
+   },
+   "next": "menu"
+  },
+  "night_no": {
+   "speaker": "sk_guide",
+   "lines": [
+    [
+     "sk_guide",
+     "No."
+    ],
+    [
+     "sk_guide",
+     "I've had forty years of people wanting that night off me for a newspaper, and you come closer than most, and that's why it's no. Cave's open. Tour's free. I'm going in."
+    ],
+    [
+     "ruth",
+     "Let him go, honey. Some doors you only get to knock on the once."
+    ]
+   ],
+   "end": true
+  }
+ }
+}

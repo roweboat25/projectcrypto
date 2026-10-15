@@ -1,0 +1,701 @@
+{
+ "_doc": "Sinks fragment for the Kelly case: the cave guide Harlan Tapp (script in data/dialogue/kelly/sk_guide.json), the Teague brothers (poachers of great horned owls, the mini-boss at their cabin at dusk and night, talked round by day at the cave shack), the owl roost pellets (the strongest natural card), the bones and the car in the big sink, the prints in the dry creek, the flare casing at the Fort Campbell corner, the new sink's breath, the hair on the stile, the cabin's 1955 newspaper and feathers, the cave's cold draft, and below the drop the 1955 flashlight, the child's shoe and the breath. Ids are prefixed sk_. Gate cave_deep and the relic kelly_eye are the skeleton's; sk_cabin_door, sk_hunters_home, sk_hunters_friendly and sk_breath_passage are defined here. No trail signs in this district.",
+ "locations": {
+  "sk_shack": "The cave shack, the Pennyrile Sinks",
+  "sk_cabin": "The Teague cabin, the Pennyrile Sinks",
+  "sk_cave_deep": "The cave, below the drop",
+  "sk_roost": "The owl roost, the Pennyrile Sinks"
+ },
+ "items": {},
+ "gates": {
+  "sk_cabin_door": {
+   "name": "The cabin door",
+   "locked": "A bar across the door from the inside, lamplight in the chinks, two voices and the click of a bolt. Not by knocking, and not tonight.",
+   "opens": [
+    {
+     "phase": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "flag": "hunters_run_off"
+    },
+    {
+     "flag": "hunters_friend"
+    }
+   ]
+  },
+  "sk_hunters_home": {
+   "name": "The Teagues at home",
+   "locked": "",
+   "opens": [
+    {
+     "all": [
+      {
+       "phase": [
+        "dusk",
+        "night"
+       ]
+      },
+      {
+       "not_flag": "hunters_run_off"
+      },
+      {
+       "not_flag": "hunters_friend"
+      }
+     ]
+    }
+   ]
+  },
+  "sk_hunters_friendly": {
+   "name": "The Teagues, friendly",
+   "locked": "",
+   "opens": [
+    {
+     "flag": "hunters_friend"
+    }
+   ]
+  },
+  "sk_breath_passage": {
+   "name": "The gap past the breath",
+   "locked": "The cold stands in the gap at the height of a man and does not move aside. You will have to go through it.",
+   "opens": [
+    {
+     "flag": "cave_breath_faced"
+    }
+   ]
+  }
+ },
+ "witnesses": {
+  "sk_guide": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "sk_guide_sinks_fact",
+     "title": "Which sink is new",
+     "gates": [
+      {
+       "check": "fieldcraft",
+       "difficulty": 8,
+       "prompt": "Walk him through the field: which sink opened this month?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "sk_guide",
+       "The one in the Teague field with the green grass at the lip. Opened the eleventh. I heard it go from the shack, like a barn door shutting under the ground."
+      ],
+      [
+       "sk_guide",
+       "One a year, about, when the table drops in a dry August. 1955 was a dry August. There's a sink opened that week too, behind the Lacy place in the gully, and it's in the paper, page six, under the little men."
+      ],
+      [
+       "miriam",
+       "Page six. I want page six."
+      ]
+     ],
+     "evidence": "sk_guide_newsink"
+    },
+    {
+     "id": "sk_guide_flares_fact",
+     "title": "The Army's flares",
+     "gates": [
+      {
+       "show": "sk_flare_casing_bag"
+      },
+      {
+       "show": "sk_flare_casing_photo"
+      }
+     ],
+     "lines": [
+      [
+       "sk_guide",
+       "Training flare. They drop them on that corner every month of the world, and twice in August when the new boys come in. Lights the whole field white and comes down on a little parachute."
+      ],
+      [
+       "sk_guide",
+       "In 1955 the post was half the size and the flares were red and nobody dropped one north of the highway. I'd know. I was twelve and I counted everything."
+      ],
+      [
+       "june",
+       "He counted. Of course he counted."
+      ]
+     ],
+     "evidence": "sk_guide_flares"
+    },
+    {
+     "id": "sk_guide_lantern_fact",
+     "title": "Old Teague's lantern",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "check": "rapport",
+       "difficulty": 9,
+       "prompt": "Every county has a man who was there and shouldn't have been. Who was yours?"
+      }
+     ],
+     "lines": [
+      [
+       "sk_guide",
+       "Roy and Dewey's granddaddy. Clell Teague. He'd lost a hog that evening, or said he had, and he went looking for it with a lantern and a quart jar, and the looking took him up the Lacy gully about ten o'clock."
+      ],
+      [
+       "sk_guide",
+       "He swore till the day he died he was in that yard with the lantern when the shooting started, and he lay down in the tobacco and crawled home. He told it funny. He told it drunk. Nobody ever asked the Lacys if there was a lantern."
+      ],
+      [
+       "teddy",
+       "A drunk man with a lantern in a gully. That's a light coming down, if you're twelve and scared."
+      ],
+      [
+       "ruth",
+       "Or it's a drunk man with a lantern, honey, and the light was something else. Both of those can be in one yard."
+      ]
+     ],
+     "evidence": "sk_guide_lantern"
+    }
+   ]
+  },
+  "sk_hunter1": {
+   "trust": 0,
+   "facts": [
+    {
+     "id": "sk_hunter_stand_down",
+     "title": "The cabin, tonight",
+     "gates": [
+      {
+       "check": "intimidate",
+       "difficulty": 9,
+       "prompt": "Four owl wings on a ladder is a federal charge. We're not the wardens. We'd like to not be anybody."
+      },
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "You've got a Roswell paperback under your pillow. So does Dale. Talk to us."
+      }
+     ],
+     "lines": [
+      [
+       "sk_hunter1",
+       "...Hell. All right. All right. You come by the cabin after dark, you holler TEAGUE from the stile, and nobody picks up a rifle. Dewey'll make coffee. Dewey makes terrible coffee."
+      ],
+      [
+       "sk_hunter1",
+       "And you don't say owl to the warden and we don't say nothing to nobody about what y'all are, which I ain't worked out yet."
+      ],
+      [
+       "dale",
+       "Deal. The coffee's not part of the deal."
+      ]
+     ],
+     "flag": "hunters_friend"
+    },
+    {
+     "id": "sk_hunter_owls_fact",
+     "title": "What the owls do",
+     "gates": [
+      {
+       "show": "sk_owl_pellets_lab"
+      },
+      {
+       "show": "sk_cabin_feathers_lab"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "sk_hunter1",
+       "Great horned. We shoot 'em because they take the turkey poults, and because a Nashville man pays forty dollars a bird for the feathers, and I'll tell the warden the first part."
+      ],
+      [
+       "sk_hunter1",
+       "You want to know what one does when you put a lamp on it? It don't fly off. It comes AT the lamp. Wings up, ears up, hissing, clacking that beak, and it floats. Don't flap. Floats. Eyes like two pennies in the light. First time it happened to me I was fifteen and I shot the lamp."
+      ],
+      [
+       "sk_hunter1",
+       "If that's your little man, I got six of him in a feed sack on the stoop."
+      ],
+      [
+       "dale",
+       "That's the most useful thing anybody has said to us in this state."
+      ]
+     ],
+     "evidence": "sk_hunter_owl_trade"
+    },
+    {
+     "id": "sk_hunter_light_fact",
+     "title": "The light Dewey saw",
+     "gates": [
+      {
+       "check": "bluff",
+       "difficulty": 9,
+       "prompt": "The MPs told us about the light last August. Tell us your side before they tell it again."
+      },
+      {
+       "trust": 3
+      }
+     ],
+     "lines": [
+      [
+       "sk_hunter1",
+       "The MPs didn't tell you a damn thing, but all right. Last August. Anniversary week. Dewey was on the stile at full dark and a light come down in the Lacy gully, slow, no sound. Not a flare. We know flares. No chute, no hiss, and it went down behind the treeline and didn't come up."
+      ],
+      [
+       "sk_hunter1",
+       "We went over the fence with the lamp. Wasn't nothing in the gully but cold. Cold like the cave. In August."
+      ],
+      [
+       "sk_hunter1",
+       "Dewey won't go in the gully now. Dewey's the brave one."
+      ]
+     ],
+     "evidence": "sk_hunter_light"
+    },
+    {
+     "id": "sk_hunter_both_fact",
+     "title": "Owls, or something that lands",
+     "gates": [
+      {
+       "contradiction": "sk_owls_vs_light"
+      }
+     ],
+     "lines": [
+      [
+       "sk_hunter1",
+       "Both. I never said they was the same thing. The owls are owls, and I'll stand in court and say what one does with a lamp on it. The light I don't know."
+      ],
+      [
+       "sk_hunter1",
+       "You come from West Virginia to tell a man the two things he seen with his own eyes got to be one thing. They don't."
+      ],
+      [
+       "miriam",
+       "...No. They don't. Write that down exactly the way he said it."
+      ]
+     ],
+     "evidence": "sk_hunter_both"
+    }
+   ]
+  },
+  "sk_hunter2": {
+   "trust": 0,
+   "facts": [
+    {
+     "id": "sk_hunter2_hudson_fact",
+     "title": "Granddaddy's Hudson",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 7,
+       "prompt": "That's not just a car in a hole to you."
+      }
+     ],
+     "lines": [
+      [
+       "sk_hunter2",
+       "That's Granddaddy's Hudson. Clell Teague. He drove it in there in '56, the next August, drunk as a lord, with Grandmama in the passenger seat hollering. Said the little men was after him. Said it till he died."
+      ],
+      [
+       "sk_hunter2",
+       "Grandmama said he was after a jar he'd hid in the sink. Both of 'em told it at Thanksgiving every year and neither one ever give an inch."
+      ],
+      [
+       "teddy",
+       "Thirty-eight Thanksgivings. That's a cold war."
+      ]
+     ],
+     "evidence": "sk_hunter2_hudson"
+    },
+    {
+     "id": "sk_hunter2_goat_fact",
+     "title": "The bones in the sink",
+     "gates": [
+      {
+       "show": "sk_sink_bones_bag"
+      },
+      {
+       "show": "sk_sink_bones_photo"
+      }
+     ],
+     "lines": [
+      [
+       "sk_hunter2",
+       "That's Pearl. That's our goat. She went in the sink in '79 and I was nine and I put the candle down there for her. Y'all bagged Pearl?"
+      ],
+      [
+       "sk_hunter2",
+       "...Put her back when you're done. She liked it down there."
+      ],
+      [
+       "dale",
+       "Goat. I said goat. Somebody write down that I said goat first."
+      ]
+     ],
+     "evidence": "sk_hunter2_goat"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "sk_owl_pellets_bag": {
+   "title": "Pellets from the roost",
+   "text": "A sample of the pellets paved under the dead oaks: fur, feather, small skulls, a rabbit's foot, bagged with the whitewash they lay in.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "B",
+   "lab": "sk_owl_pellets_lab"
+  },
+  "sk_owl_pellets_lab": {
+   "title": "Lab: the roost pellets",
+   "text": "Great horned owl, Bubo virginianus, at least three adults and this year's young, roosting in those oaks for years. Prey: cotton rat, vole, rabbit, crow, a skunk, a cat. A bird that takes a cat at night, silently, from a tree, with yellow eyes that give a lantern back and a habit of coming at the light with its wings up. The roost is a twenty-minute walk from the Lacy porch.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "A",
+   "key": true
+  },
+  "sk_owl_roost_photo": {
+   "title": "Photo: the roost",
+   "text": "Four dead oaks in the mist, and in one of them two tufts and two points of yellow, the flash in them. Fogged at the edges. Clear in the middle, where it counts.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "sk_sink_bones_bag": {
+   "title": "Bones from the big sink",
+   "text": "Bone from the ledge inside the big sink, below the Hudson: a horned skull the size of a child's, four long legs, a jar candle burned to the bottom beside them.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "sk_sink_bones_lab"
+  },
+  "sk_sink_bones_lab": {
+   "title": "Lab: the sink bones",
+   "text": "A domestic goat, female, old, dead fifteen years or so. The candle is a church votive, 1970s wax. Somebody loved the goat.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "sk_sink_bones_bag",
+    "sk_sink_bones_photo"
+   ]
+  },
+  "sk_sink_bones_photo": {
+   "title": "Photo: the bones in the sink",
+   "text": "A horned skull on a limestone ledge in the mist with a Hudson's bumper over it. Looks like anything. Looks like the thing on the paper's front page, if you squint, and everybody squints.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "sk_creek_cast": {
+   "title": "Cast: the creek prints",
+   "text": "A plaster cast of one print from the dry creek silt: a palm and five long fingers, the size of a child's hand, no heel, no claws in the cast. Dale says a raccoon's hind foot has a heel and this has none, and then he says nothing for a while.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "sk_creek_stride": {
+   "title": "Reading: the creek stride",
+   "text": "Measured along the bed: the prints go in pairs, twelve inches between pairs, the pairs offset. That is a raccoon's gallop, exactly, from the field guide, in a raccoon's own creek.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B",
+   "exposes": [
+    "sk_creek_cast"
+   ]
+  },
+  "sk_flare_casing_bag": {
+   "title": "A flare casing from the fence",
+   "text": "An aluminium parachute-flare casing from the kudzu inside the Fort Campbell corner, the lot number half burned off. The kind of light that comes down slow into a field and goes out.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B",
+   "red_herring": true,
+   "lab": "sk_flare_casing_lab"
+  },
+  "sk_flare_casing_lab": {
+   "title": "Lab: the flare casing",
+   "text": "An illumination flare, white, a 1988 lot, Army training issue. Thirty-three years too young to have lit anything in 1955, and the wrong colour for the post's 1955 stock, which was red.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "sk_flare_casing_bag",
+    "sk_flare_casing_photo"
+   ]
+  },
+  "sk_flare_casing_photo": {
+   "title": "Photo: the flare casing",
+   "text": "A burned tube and a tangle of shroud lines in the kudzu by an Army fence. A light that comes down slow, explained, if you don't read the lot number.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "sk_sink_cold_reading": {
+   "title": "Reading: the new sink",
+   "text": "Fifty-six degrees out of the new sink, steady, a measurable draft against a ninety-two degree afternoon. The ground in this county is hollow and the hollow has one temperature. A cold spot in a gully on an August night is the county breathing, not a visitor.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "sk_sink_new_photo": {
+   "title": "Photo: the new sink",
+   "text": "A hole in the Teague field with the roots hanging over the lip, opened in the anniversary week. The mist stands in the frame like something getting up.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "sk_stile_hair_bag": {
+   "title": "Hair from the stile wire",
+   "text": "A tuft of coarse silver-grey hair from the barbed wire by the cabin stile, caught at about three feet.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "sk_stile_hair_lab"
+  },
+  "sk_stile_hair_lab": {
+   "title": "Lab: the stile hair",
+   "text": "Dog. A blue-tick hound, elderly, going grey, who goes under that wire every day of its life.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "sk_stile_hair_bag"
+   ]
+  },
+  "sk_cabin_news_photo": {
+   "title": "Photo: the Ledger in the wall",
+   "text": "The Pennyrile Ledger for 23 August 1955, stuffed in the chinks of a poacher's cabin: the little men above the fold and, below it, the game warden's column. 'Horned owls are thick this year and bold. A reader at Kelly reports one that came at his lantern.' The same page, the same week, forty years before anyone put them together.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "sk_cabin_feathers": {
+   "title": "Feathers from the cabin wall",
+   "text": "Owl feathers from behind the newspaper in the cabin wall, hundreds, barred and soft, the kind that make no sound.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "lab": "sk_cabin_feathers_lab"
+  },
+  "sk_cabin_feathers_lab": {
+   "title": "Lab: the cabin feathers",
+   "text": "Great horned owl, at least a dozen birds, shot, the flight quills cut for fly-tying and the rest stuffed in the wall. The Teagues have been shooting the roost for years. The roost is still full. There is no shortage of great horned owls at Kelly and there was none in 1955.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B"
+  },
+  "sk_cave_draft_reading": {
+   "title": "Reading: the cave's breath",
+   "text": "Fifty-six degrees, fourteen miles an hour, out of the drop and out of the mouth, holding steady for the ten minutes June gave it. A cave breathes out when the pressure falls ahead of a storm; the barometer in the shack says FALLING. What the Lacys felt coming up the gully on a hot night was the county's lung.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B",
+   "exposes": [
+    "sk_cave_mouth_photo"
+   ]
+  },
+  "sk_cave_mouth_photo": {
+   "title": "Photo: the first chamber",
+   "text": "The flash in the mist of the first chamber. The mist has a shape in it, upright, arms out, standing between the camera and the drop. The second frame has nothing.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "sk_deep_flashlight_bag": {
+   "title": "The flashlight below the drop",
+   "text": "An Eveready two-cell, 1955 pattern, switch ON, batteries dead to crust, found set down on the floor below the drop that nobody has crossed since 1946 by the cave log. Handle toward the dark, lens toward the way out.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B"
+  },
+  "sk_deep_flashlight_photo": {
+   "title": "Photo: the flashlight",
+   "text": "A flashlight on a cave floor, the ribbed barrel, the old switch. Dated by its pattern and nothing else.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "sk_deep_shoe_bag": {
+   "title": "The child's shoe",
+   "text": "A child's brown buckle shoe, size two, dry and curled, found set squarely on a flat stone past the breath, toe toward the crack the cold comes from, forty feet underground in a passage the cave log says nobody has entered in forty-eight years. The Lacys had children at the house that night. Nobody reported a shoe. Nobody reported a child. Everybody came home.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "physical",
+   "reliability": "A",
+   "key": true
+  },
+  "sk_deep_shoe_photo": {
+   "title": "Photo: the shoe on the stone",
+   "text": "One small shoe on a flat stone in a cave, the buckle catching the flash. Ruth is in the corner of the frame, sitting on the floor.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "sk_guide_karst": {
+   "title": "Harlan Tapp on the ground",
+   "text": "The whole Pennyrile is limestone over water: the fields are a roof, the sinks are where the roof falls in, the creek runs underground nine months of the year and the cave is the lung the county breathes through. Cold air out of the ground on a hot night is Tuesday.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sk_guide_owls": {
+   "title": "Harlan Tapp on the owls",
+   "text": "The dead oaks have held great horned owls as long as he has been alive. In August the young are out and loud, they hiss and clack and float down off a limb with the wings up, and in a lamp the eyes shine yellow. He has been attacked by one. It does not feel like a bird.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sk_guide_cold": {
+   "title": "The cold-air story",
+   "text": "The cave breathes out when the barometer falls, and on the night of 21 August 1955 it breathed out hard enough to frost the bucket at the shack by ten o'clock, with a thunderstorm coming over Fort Campbell. The cold the Lacys felt in the yard came up out of the same ground, the same hour, seven miles of hollow rock away.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sk_guide_poachers": {
+   "title": "The Teagues and the roost",
+   "text": "Roy and Dewey Teague shoot the roost oaks for feathers and sell them in Nashville. Their grandfather told the little-men story as a joke on the Lacys at the store for thirty years, with a lantern in it, and their grandmother told a different one.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "sk_guide_1955": {
+   "title": "The night in 1955, told once",
+   "text": "Harlan Tapp, twelve, was out past the sink with his father and the dog at ten o'clock on 21 August 1955 when a light came down toward the Lacy place, slow, with no sound, and the owls went quiet, and the cave behind them breathed in: all the mist in the field went into the mouth at once. The dog went in after it and did not come out. His father cut the page from the log. He will not tell it twice.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sk_guide_newsink": {
+   "title": "A sink opened in 1955 too",
+   "text": "Sinks open in dry Augusts; one opened the week of the eleventh this year, and one opened behind the Lacy place in the gully in the week of the 1955 night. The Ledger had it on page six, under the little men.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "sk_sink_new_photo"
+   ]
+  },
+  "sk_guide_flares": {
+   "title": "The Army's flares, then and now",
+   "text": "Fort Campbell drops white training flares on the Sinks corner monthly, and twice in August. In 1955 the post's flares were red and none were dropped north of the highway; a twelve-year-old boy who counted everything is sure of it.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "sk_flare_casing_bag",
+    "sk_flare_casing_photo"
+   ]
+  },
+  "sk_guide_lantern": {
+   "title": "Clell Teague's lantern",
+   "text": "Clell Teague, drunk, with a lantern and a quart jar, went up the Lacy gully after a lost hog at ten o'clock on the night of 21 August 1955 and lay down in the tobacco when the shooting started. He told it as a joke until he died. Nobody ever asked the family about a lantern.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "sk_hunter_owl_trade": {
+   "title": "Roy Teague on a lamped owl",
+   "text": "A great horned owl in a lamp does not fly off: it comes at the light, wings up, ears up, hissing and clacking, floating, eyes like two pennies. Roy Teague shot a lamp at fifteen because of one. He has six of them in a feed sack.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sk_hunter_light": {
+   "title": "The light last August",
+   "text": "Dewey Teague, on the stile at full dark in the anniversary week of 1993, saw a light come down slow and silent into the Lacy gully, no chute, no hiss, not a flare. The brothers went over with a lamp and found nothing in the gully but cold, like the cave, in August.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "sk_hunter_both": {
+   "title": "Two things, not one",
+   "text": "Roy Teague will swear to what an owl does in a lamp and will not swear to what the light was, and refuses to let anyone make the two into one thing. The owls are owls. The light he does not know.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sk_hunter2_hudson": {
+   "title": "The Hudson in the sink",
+   "text": "Clell Teague drove his Hudson into the big sink in August 1956 saying the little men were after him, and said it until he died. His wife said he was after a jar he had hidden in the sink. Neither gave an inch in thirty-eight Thanksgivings.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "sk_hunter2_goat": {
+   "title": "Pearl",
+   "text": "The bones on the ledge in the big sink are Pearl, the Teagues' goat, who went in in 1979; Dewey, nine, lit the candle for her. He would like her put back.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "A",
+   "exposes": [
+    "sk_sink_bones_bag",
+    "sk_sink_bones_photo"
+   ]
+  }
+ },
+ "contradictions": {
+  "sk_owls_vs_light": {
+   "title": "Owls in the lamp, a light in the gully",
+   "evidence": [
+    "sk_hunter_owl_trade",
+    "sk_hunter_light"
+   ],
+   "witness": "sk_hunter1",
+   "prompt": "You said what came at your lamp was an owl and you've got six of him in a sack. You said a light came down the gully with no flare and no sound. Which is it, Roy: owls, or something that lands?"
+  }
+ },
+ "trail": []
+}

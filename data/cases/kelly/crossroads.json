@@ -1,0 +1,1288 @@
+{
+ "_doc": "Crossroads fragment for the Kelly case: Oates' store and its 1955 ledger and the cousin's key, Kelly Baptist and the prayer list, the Pettit house (Odessa who 'saw them too' and her brother Royce, the fifth gun, drunk on the porch at dusk and sober in the morning), the Hardin house, the old L&N depot and its train register, and the checkers men on the store porch. Ids are prefixed kc_. No trail signs here. The gates kc_key_offered, kc_drunk_wild, kc_drunk_calm and kc_store_open are defined here; the item cousin_key is the skeleton's.",
+ "locations": {
+  "kc_church": "Kelly Baptist Church",
+  "kc_vestry": "Kelly Baptist Church, the vestry",
+  "kc_pettit_house": "The Pettit house",
+  "kc_hardin_house": "The Hardin house",
+  "kc_depot": "The old L&N depot, Kelly"
+ },
+ "items": {},
+ "gates": {
+  "kc_key_offered": {
+   "name": "The nail by the till",
+   "locked": "A nail by the till with nothing on it that is any of your business.",
+   "opens": [
+    {
+     "flag": "key_offered"
+    }
+   ]
+  },
+  "kc_drunk_wild": {
+   "name": "Royce on the porch",
+   "locked": "",
+   "opens": [
+    {
+     "not_flag": "drunk_calmed"
+    }
+   ]
+  },
+  "kc_drunk_calm": {
+   "name": "Royce, after",
+   "locked": "",
+   "opens": [
+    {
+     "flag": "drunk_calmed"
+    }
+   ]
+  },
+  "kc_store_open": {
+   "name": "The store door",
+   "locked": "The CLOSED sign is turned, and Dewey Oates is standing behind the glass with his arms folded, not looking at you. He unlocks it mornings. He has not unlocked it for you.",
+   "opens": [
+    {
+     "not_flag": "kc_store_shut"
+    },
+    {
+     "phase": [
+      "morning"
+     ]
+    }
+   ]
+  }
+ },
+ "witnesses": {
+  "kc_storekeeper": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_sk_morning",
+     "title": "The morning after",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "The morning after. They came in here first, didn't they? Before the police."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "kc_storekeeper",
+       "Six in the morning, the 22nd. I was fourteen and I'd opened up because Daddy hadn't come in from the porch. The whole family, two cars, the children asleep on each other. The old man bought coffee and a sack of ice and he couldn't get the money out of his pocket. His hands."
+      ],
+      [
+       "kc_storekeeper",
+       "He said, Dewey, don't you go out there. That's all he said to me. He never said what. And then they went to town."
+      ],
+      [
+       "elijah",
+       "He's never told that in that order before. Hands, then the warning. He's been telling it the other way round for thirty-nine years."
+      ]
+     ],
+     "evidence": "kc_sk_morning_after"
+    },
+    {
+     "id": "kc_sk_film_fact",
+     "title": "Film, the day after that",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "show": "kc_ledger_1955"
+      }
+     ],
+     "lines": [
+      [
+       "kc_storekeeper",
+       "The 23rd. Here. The cousin's daddy, Billy Ray. Four rolls of film and a box of flashbulbs, on the book, and a carton of Luckies for the reporters. First film that family ever bought in this store."
+      ],
+      [
+       "kc_storekeeper",
+       "I'm not saying anything by it. I'm saying it's on the page."
+      ],
+      [
+       "miriam",
+       "Film on the 23rd. The thing was over on the 22nd. Either they expected it back or they expected the reporters."
+      ]
+     ],
+     "evidence": "kc_sk_film"
+    },
+    {
+     "id": "kc_sk_royce",
+     "title": "Royce's shells",
+     "gates": [
+      {
+       "show": "kc_odessa_admits"
+      },
+      {
+       "show": "kc_train_register"
+      },
+      {
+       "trust": 3
+      }
+     ],
+     "lines": [
+      [
+       "kc_storekeeper",
+       "...All right. You've got it from somebody else so you'll have it from me. Royce Pettit. The 20th, a box of fours and a pint, and he was already into the pint on the porch before he was off it."
+      ],
+      [
+       "kc_storekeeper",
+       "He was on the road that night. He had Daddy's old gun, not his own, because his own was in hock. Odessa was behind him with a lantern calling him home like a dog. I was fourteen and I watched it from the upstairs window and I have never said so to a living soul."
+      ],
+      [
+       "kc_storekeeper",
+       "And in the morning I sold the Lacys ice. That's Kelly. That's the whole of it."
+      ]
+     ],
+     "evidence": "kc_sk_royce_shells"
+    },
+    {
+     "id": "kc_sk_key",
+     "title": "The cousin's key",
+     "gates": [
+      {
+       "trust": 3
+      }
+     ],
+     "lines": [
+      [
+       "kc_storekeeper",
+       "The cousin leaves the padlock key here because he'd lose it and because he doesn't like to be the one that opens that door. It's on the nail by the till. Bread tag says LACY."
+      ],
+      [
+       "kc_storekeeper",
+       "You bring it back here and not to him. And you shut that door behind you when you come out, whatever time it is. Whatever time it is."
+      ]
+     ],
+     "flag": "key_offered"
+    }
+   ]
+  },
+  "kc_preacher": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_pr_light",
+     "title": "What his father saw from the steps",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 9,
+       "prompt": "Your father was the pastor here in 1955. He saw something from these steps that night, and he never preached it."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "kc_preacher",
+       "He saw a light. He was locking up after prayer meeting, about half past seven, still light in the west, and a light came down over the Lacy place. Not fast. The way a leaf comes down. Round, he said, and no colour you could put a name to, and it went down into the gully behind the house and that was all."
+      ],
+      [
+       "kc_preacher",
+       "He told my mother and he told me when I was ordained and he told the Lord, I expect. He did not tell the congregation. He said a pastor's job was to steady people, not to join them."
+      ],
+      [
+       "elijah",
+       "Half past seven. Three hours before the first shot. That's the part that doesn't go away, however you file the rest."
+      ]
+     ],
+     "evidence": "kc_preacher_light"
+    },
+    {
+     "id": "kc_pr_deathbed",
+     "title": "What Mrs Lacy said at the end",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "A pastor sits with the dying. The Lacy mother would have had something to say about that night, at the end."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "kc_preacher",
+       "1978. The hospital in town. She had the whole family to say goodbye to and she sent them out and kept me. I thought it was the usual. It was not the usual."
+      ],
+      [
+       "kc_preacher",
+       "She said, Brother Amos, we saw what we saw and we saw it sober, whatever they say, and I want it on the record with God that I never once changed it. And then she said, except for how many. We never knew how many. We said twelve because the man from the paper wanted a number."
+      ],
+      [
+       "ruth",
+       "Oh, that's the truest thing anybody's said in this county. She gave the paper its number and kept the rest."
+      ]
+     ],
+     "evidence": "kc_preacher_deathbed"
+    },
+    {
+     "id": "kc_pr_scorch",
+     "title": "The back pew",
+     "gates": [
+      {
+       "show": "kc_pew_scorch_photo"
+      },
+      {
+       "show": "kc_pew_scorch_reading"
+      }
+     ],
+     "lines": [
+      [
+       "kc_preacher",
+       "Deacon Ferrell's lamp. Christmas Eve, 1962, the lights went out in the ice storm and he brought a kerosene lamp from his truck and set it on the pew and fell asleep in the carol. It's in the minutes. We've sanded it three times and it comes back through the varnish like a sin."
+      ],
+      [
+       "kc_preacher",
+       "People will tell you otherwise. People will tell you it was there the Sunday after, in 1955. It was not. I have the minutes, and I have the deacon, who is ninety-one and would like to be remembered for something else."
+      ],
+      [
+       "miriam",
+       "1962. Kerosene. Thank you. That's one fewer."
+      ]
+     ],
+     "evidence": "kc_pr_scorch_lamp"
+    },
+    {
+     "id": "kc_pr_notice",
+     "title": "The anniversary service",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "The notice on the board. 'What we saw and what we say.' Whose idea was that?"
+      }
+     ],
+     "lines": [
+      [
+       "kc_preacher",
+       "Mine. The deacons wanted 'A Night of Deliverance.' I said we were not going to stand up in front of that family's grandchildren and call it a deliverance when nobody has yet agreed what it was a deliverance from."
+      ],
+      [
+       "kc_preacher",
+       "Thirty-nine. Not forty. I'm sixty-two and Virgil Sisk is seventy-eight and Odessa Pettit does not leave the house. I thought we had better say it while there was anybody left to hear it said wrong."
+      ],
+      [
+       "teddy",
+       "Press included, cameras not. He's thought about us, too."
+      ]
+     ]
+    }
+   ]
+  },
+  "kc_neighbour_woman": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_nw_saw",
+     "title": "She saw them too",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "You were here that night, Mrs Pettit. You're the only one who was and still is."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "kc_neighbour_woman",
+       "I saw them too. I was on my porch, right there, and you can see the Lacy place from the end of it if you lean, and I leaned. Little silver things in the yard, with their hands up. Two of them on the fence. One on the roof. All night."
+      ],
+      [
+       "kc_neighbour_woman",
+       "I never left the porch. I never left it till the sun came up and they went in the trees. You put that in your book. The Lacys never were liars and neither am I."
+      ],
+      [
+       "miriam",
+       "'Right there.' She pointed at the swing and looked at the road."
+      ]
+     ],
+     "evidence": "kc_odessa_saw"
+    },
+    {
+     "id": "kc_nw_admits",
+     "title": "Where she really was",
+     "gates": [
+      {
+       "contradiction": "kc_odessa_porch"
+      },
+      {
+       "show": "kc_sk_royce_shells"
+      }
+     ],
+     "lines": [
+      [
+       "kc_neighbour_woman",
+       "...Virgil. Virgil wrote that down. Of course he did. He writes down the weather."
+      ],
+      [
+       "kc_neighbour_woman",
+       "I was in the road. I was in the road in my nightgown with a lantern from eleven o'clock till the train, looking for my brother, who had our daddy's gun and a pint of whiskey and the idea that the Lacys needed help. I never saw a silver thing in my life. I saw Royce's shirt, going in and out of the tobacco, and I saw the flash every time he fired, and I prayed it was at the sky."
+      ],
+      [
+       "kc_neighbour_woman",
+       "I said I was on the porch because somebody had to have seen them who wasn't drunk and wasn't a Lacy, or they'd have put that family in Western State. So I saw them. For thirty-nine years I saw them. You can write that down too."
+      ],
+      [
+       "elijah",
+       "She did it for them. She built them a witness out of herself and she's been living inside it ever since."
+      ]
+     ],
+     "evidence": "kc_odessa_admits"
+    },
+    {
+     "id": "kc_nw_clippings",
+     "title": "The clippings",
+     "gates": [
+      {
+       "show": "kc_clippings_1955"
+      }
+     ],
+     "lines": [
+      [
+       "kc_neighbour_woman",
+       "I kept every one. They got it wrong, every one of them. Twelve. Nobody in that house ever said twelve till the Chicago man said it first. You read them in order and you can watch the story grow like a tobacco worm."
+      ],
+      [
+       "kc_neighbour_woman",
+       "The ones that say 'a neighbour woman saw them too,' those I kept twice."
+      ]
+     ]
+    }
+   ]
+  },
+  "kc_neighbour_man": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_nm_shooting",
+     "title": "Where the shooting came from",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "You were seventy yards from it. Where did the shooting come from, Mr Hardin? Not what. Where."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "kc_neighbour_man",
+       "I was thirty-one and I'd been in the Pacific, so I know what a gun sounds like from which side of a house. The Lacys were shooting out of the house. Shotguns, and a .22 somebody couldn't work. That's maybe four guns."
+      ],
+      [
+       "kc_neighbour_man",
+       "And there was a fifth gun. It was out on the road, on our side, and it was walking. It fired toward the house and then it fired toward the sky and then it fired toward the Lord knows. The Lacys never once in thirty-nine years mentioned a fifth gun, and I never once in thirty-nine years asked them to."
+      ],
+      [
+       "dale",
+       "A gun on the road firing at the house. From the house that's muzzle flash in the tobacco at head height. Yellow. Round. Two at a time if he's got both barrels."
+      ]
+     ],
+     "evidence": "kc_hardin_shooting"
+    },
+    {
+     "id": "kc_nm_dogs",
+     "title": "What the dogs did",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "Every dog in Kelly has an opinion. What did the dogs say that night?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "kc_neighbour_man",
+       "Every dog on this road went off at eleven and stayed off. Mine went under the house and wouldn't come. Then at two in the morning, all at once, every dog in Kelly shut up like somebody'd hit a switch. The Lacys' shooting stopped the same minute. The same minute."
+      ],
+      [
+       "kc_neighbour_man",
+       "You can explain a dog barking. You explain to me every dog in a county stopping at once, and I'll listen."
+      ],
+      [
+       "ruth",
+       "Dogs know, dear. What they know is another question."
+      ]
+     ],
+     "evidence": "kc_hardin_dogs"
+    },
+    {
+     "id": "kc_nm_reporters",
+     "title": "The reporters",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 7,
+       "prompt": "You've talked to reporters before. We're not reporters. Tell us about the ones you did talk to."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "kc_neighbour_man",
+       "Forty of them by the Tuesday. Nashville, Louisville, Chicago, a Frenchman. They paid for every beer in Oates' store for a week and they'd pay a dollar for a little man and five for a photograph of one, and Buford Keel made eleven dollars that week and never saw a thing."
+      ],
+      [
+       "kc_neighbour_man",
+       "Billy Ray Lacy charged fifty cents a car to park in the field. I'm not saying it against him. His daddy had just shot every window out of the house. A man has to make the glass money somewhere."
+      ],
+      [
+       "teddy",
+       "Fifty cents a car. By the Tuesday. That's not a hoax, that's a franchise."
+      ]
+     ],
+     "evidence": "kc_hardin_reporters"
+    },
+    {
+     "id": "kc_nm_shells",
+     "title": "The box in the cabinet",
+     "gates": [
+      {
+       "show": "kc_hardin_shells_photo"
+      }
+     ],
+     "lines": [
+      [
+       "kc_neighbour_man",
+       "Bought them the morning after, for the posse. The posse was two reporters, a deputy who wanted to go home, and a man from Nashville with a tape recorder the size of a suitcase. We walked the gully at noon and found a lot of shells and a lot of glass and nothing silver."
+      ],
+      [
+       "kc_neighbour_man",
+       "Never opened them. Never needed to. Whatever it was, it never came back, which is more than I can say for the reporters."
+      ]
+     ]
+    }
+   ]
+  },
+  "kc_drunk": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_dr_road",
+     "title": "Where he was",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "You were out that night, Mr Pettit. You don't have to say where. You could, though."
+      },
+      {
+       "trust": 2
+      },
+      {
+       "show": "kc_sk_royce_shells"
+      }
+     ],
+     "lines": [
+      [
+       "kc_drunk",
+       "I was on the road. I had Daddy's gun and I'd had the pint and I heard the first shots from the Lacy place and I thought, they need help, Royce, and I went to help them."
+      ],
+      [
+       "kc_drunk",
+       "I don't know what I shot at. I shot at what they were shooting at. I seen the flashes from the house and I seen eyes in the tobacco and I shot at the eyes. I don't know whose eyes. I been not knowing for thirty-nine years. Some nights I think it was me they were shooting at. Some nights I think I was the thing on the fence."
+      ],
+      [
+       "kc_drunk",
+       "The Lacys never said. Odessa never said. Dewey never said. The whole crossroads has been not saying it so long I started to think maybe I wasn't there."
+      ],
+      [
+       "elijah",
+       "He was there. He was the fifth gun. And he's the only one in Kelly who's sorry."
+      ]
+     ],
+     "evidence": "kc_royce_road"
+    },
+    {
+     "id": "kc_dr_owl",
+     "title": "The owl in the gully oak",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "A man who's walked this road drunk for forty years knows what lives on it. What lives in the gully oak?"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "kc_drunk",
+       "Hoot owl. Big as a dog, lives in the dead oak at the head of the gully, been one there since my daddy's time and his daddy's. Comes down on you if you walk under it at night. Eyes like two cigarettes. Ears on it."
+      ],
+      [
+       "kc_drunk",
+       "I'm not saying that's what it was. I shot at the eyes and the eyes didn't go out. You tell me what that was."
+      ],
+      [
+       "dale",
+       "Great horned owl, generations of them in the same tree. Ears. Three feet of wing. Comes down silent on anything that walks under. He's just described the whole case and he doesn't know it."
+      ]
+     ],
+     "evidence": "kc_royce_owl"
+    },
+    {
+     "id": "kc_dr_sister",
+     "title": "His sister",
+     "gates": [
+      {
+       "show": "kc_odessa_admits"
+      }
+     ],
+     "lines": [
+      [
+       "kc_drunk",
+       "She told you. ...Good. Good. She's been standing in front of me for thirty-nine years with that lantern. Thirty-nine years I let her."
+      ],
+      [
+       "kc_drunk",
+       "You tell her I said she can set it down now."
+      ]
+     ]
+    }
+   ]
+  },
+  "kc_depot_agent": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_da_lull",
+     "title": "The 2:05 freight and the lull",
+     "gates": [
+      {
+       "check": "tech",
+       "difficulty": 8,
+       "prompt": "You logged that freight to the minute. You'd have logged the night to the minute, too."
+      },
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "You were on nights in 1955. You're the only one who was awake on purpose."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "kc_depot_agent",
+       "Extra 1418 south, forty-one cars, 2:05, no stop. I had the order board and I had the window open for the heat and I had been listening to the Lacy place shoot for three hours. The shooting quit when 1418 came through. I set my watch by it and I set the register by my watch."
+      ],
+      [
+       "kc_depot_agent",
+       "It did not start again. The Lacys drove past the crossing toward town about twenty minutes after. Two cars, no lights on the second one. I logged that too. You log what crosses."
+      ],
+      [
+       "june",
+       "A forty-one car freight through a crossing at two in the morning. Horn, bell, ground shake, every dog on the road losing its mind. Whatever was in that yard, it left when the train came."
+      ]
+     ],
+     "evidence": "kc_agent_lull"
+    },
+    {
+     "id": "kc_da_light",
+     "title": "The light he took for a flare",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "Railroad men watch the sky for weather. You watched it that evening, before any of it started."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "kc_depot_agent",
+       "Half past seven, dusk, I came on shift and there was a light going down over toward the Lacy place. Slow. I took it for a flare off the fort; they'd been shooting flares all that summer, you'd see them nights from the platform. But a flare drifts and a flare's red, and this went straight down and it wasn't any colour. And the fort's twelve miles the other way."
+      ],
+      [
+       "kc_depot_agent",
+       "I did not log it. A light's not a train. I've thought since that I should have."
+      ],
+      [
+       "june",
+       "Half past seven. That's twice now, from two men who don't drink and don't talk to each other."
+      ]
+     ],
+     "evidence": "kc_agent_light"
+    },
+    {
+     "id": "kc_da_odessa",
+     "title": "Mrs Pettit at the crossing",
+     "gates": [
+      {
+       "show": "kc_train_register"
+      }
+     ],
+     "lines": [
+      [
+       "kc_depot_agent",
+       "Mrs Pettit. At the crossing with a lantern in her nightgown, twenty past two, asking had I seen Royce. I had not. I had heard him, which is a different thing, and I said so, and she went on up the road toward the Lacy place with the lantern, and I wrote it down because I write things down."
+      ],
+      [
+       "kc_depot_agent",
+       "She has not spoken to me since 1955. I have not required her to."
+      ]
+     ]
+    }
+   ]
+  },
+  "kc_checkers1": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_ck_bet",
+     "title": "The dollar on the board",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "Who's winning?"
+      }
+     ],
+     "lines": [
+      [
+       "kc_checkers1",
+       "Black. Black's been winning since Truman. There's a dollar on it. Buford's dollar says little men, my dollar says owls, and the dollar's been under that bottle cap since September of '55."
+      ],
+      [
+       "kc_checkers2",
+       "It was never owls. You never seen an owl that size in your life, Ott."
+      ],
+      [
+       "kc_checkers1",
+       "I never seen a little man in my life neither, and I've seen a lot of owls."
+      ],
+      [
+       "teddy",
+       "Thirty-nine years and nobody's moved a piece. That's not a game, that's a grudge with a board."
+      ]
+     ]
+    },
+    {
+     "id": "kc_ck_knox",
+     "title": "Where Buford was in 1956",
+     "gates": [
+      {
+       "show": "kc_buford_1956"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "kc_checkers1",
+       "Buford saw one in the Lacy corn in '56. After church. Buford was at Fort Knox from January of '56 to the spring of '58 peeling potatoes for the United States Army, and the closest he got to Kelly was a letter. Ask him what the government men looked like. He's got them in a suit one day and a uniform the next."
+      ],
+      [
+       "kc_checkers2",
+       "I had leave."
+      ],
+      [
+       "kc_checkers1",
+       "You had KP."
+      ],
+      [
+       "miriam",
+       "Fort Knox. Thank you, Mr Blane. That's one witness I can file under the bottle cap."
+      ]
+     ],
+     "evidence": "kc_ott_knox"
+    }
+   ]
+  },
+  "kc_checkers2": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_ck_monkey",
+     "title": "The monkey",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "You've got a theory. Everybody on this porch has got a theory."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "kc_checkers2",
+       "Monkey. Swann Brothers had a show at the fairgrounds that week and they lost a monkey off the train, and a monkey in the dark with its hands up is a little man, and you can take that to the bank."
+      ],
+      [
+       "kc_checkers1",
+       "One monkey. They shot at it four hours and it went up on the roof and come back down and never got hit once."
+      ],
+      [
+       "kc_checkers2",
+       "It was a quick monkey."
+      ],
+      [
+       "dale",
+       "Rhesus. Three feet standing, long arms, hands up when it's scared, climbs a roof like a stair. Eyes shine green in a flashlight. I'm not laughing. I'm the only one on this porch not laughing."
+      ]
+     ],
+     "evidence": "kc_checkers_monkey"
+    },
+    {
+     "id": "kc_ck_1956",
+     "title": "What Buford saw after church",
+     "gates": [
+      {
+       "check": "bluff",
+       "difficulty": 7,
+       "prompt": "Tell him you've seen one yourself. Up home."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "kc_checkers2",
+       "You too? Well. I seen one in '56. After church, in the Lacy corn, silver suit, big as a child, it waved at me. I waved back. I'm a Christian."
+      ],
+      [
+       "kc_checkers2",
+       "Don't you let Ott tell you different. Ott's never seen anything in his life that wasn't on a board."
+      ],
+      [
+       "teddy",
+       "It waved. He waved back. I want that on the front page and I want it to be true."
+      ]
+     ],
+     "evidence": "kc_buford_1956"
+    },
+    {
+     "id": "kc_ck_payoff",
+     "title": "The government men",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 7,
+       "prompt": "Who came after the reporters left? There's always somebody after."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "kc_checkers2",
+       "Two men in a black car, the Thursday. Suits. One of them never took his hat off in the store, which Dewey's daddy didn't hold with. They went out to the Lacy place and they come back and the Lacys had a new truck by Christmas. You figure it."
+      ],
+      [
+       "kc_checkers1",
+       "It was a used truck and it was Billy Ray's parking money."
+      ],
+      [
+       "kc_checkers2",
+       "You weren't there."
+      ],
+      [
+       "kc_checkers1",
+       "I was on this porch, Buford. I have always been on this porch."
+      ]
+     ],
+     "evidence": "kc_buford_payoff"
+    },
+    {
+     "id": "kc_ck_concede",
+     "title": "Fort Knox",
+     "gates": [
+      {
+       "contradiction": "kc_buford_knox"
+      }
+     ],
+     "lines": [
+      [
+       "kc_checkers2",
+       "...It might have been '58. It was after church, whatever year it was. Something waved."
+      ],
+      [
+       "kc_checkers1",
+       "A scarecrow waved, Buford. Billy Ray put a scarecrow in a foil suit out for the tourists and charged a quarter to photograph it."
+      ],
+      [
+       "kc_checkers2",
+       "Well, it waved."
+      ],
+      [
+       "miriam",
+       "A foil scarecrow for the tourists. Of course there was. Of course there was."
+      ]
+     ]
+    }
+   ]
+  },
+  "kc_kid": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_kid_owl",
+     "title": "The thing in the water tower",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "What's the biggest thing you ever saw around here?"
+      }
+     ],
+     "lines": [
+      [
+       "kc_kid",
+       "The owl in the water tower. It's big as me. It took Mr Hardin's cat. Not the cat under the tractor, the other cat. It comes out when the streetlight comes on and it looks at you with its eyes."
+      ],
+      [
+       "kc_kid",
+       "My mamaw says it's the same owl as 1955 and owls don't live that long so it's a ghost owl. Y'all want to see where it eats? There's bones."
+      ],
+      [
+       "dale",
+       "Yes. Yes, we do."
+      ]
+     ],
+     "evidence": "kc_kid_owl"
+    }
+   ]
+  },
+  "kc_hand": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kc_hand_barns",
+     "title": "Firing the barns",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "When do you cut?"
+      }
+     ],
+     "lines": [
+      [
+       "kc_hand",
+       "Week after next, if it don't rain, and it won't. Then we hang it and fire it. Sawdust and slabs on the barn floor, smouldering, six weeks. Every barn in the county smoking at once, and nights you'll see the light through the cracks, orange, and the smoke lying in the bottoms like a river."
+      ],
+      [
+       "kc_hand",
+       "Folks from off come through and think the county's on fire. It's just August."
+      ],
+      [
+       "ruth",
+       "Light in the cracks and smoke lying in the gully. Write that down next to the other lights, dear, and don't decide yet."
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "kc_sk_morning_after": {
+   "title": "The morning after, at the store",
+   "text": "At six on the morning of 22 August 1955 the whole Lacy family stopped at Oates' store on the way to town. The father could not get the money out of his pocket for coffee; his hands shook. He told the boy at the counter, 'Don't you go out there,' and nothing else.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "kc_sk_film": {
+   "title": "Film on the 23rd",
+   "text": "The store ledger for 23 August 1955: Billy Ray Lacy, four rolls of film, a box of flashbulbs and a carton of cigarettes 'for the reporters', on credit. The first film the family ever bought there.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "kc_sk_royce_shells": {
+   "title": "Royce Pettit on the road",
+   "text": "Dewey Oates, fourteen in 1955, sold Royce Pettit a box of number four shot and a pint on the 20th, and watched from an upstairs window on the night of the 21st as Royce walked the road with his father's shotgun, firing, with his sister behind him calling him home with a lantern.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "A"
+  },
+  "kc_ledger_1955": {
+   "title": "The store ledger, August 1955",
+   "text": "Oates' ledger, in the father's hand. 19 Aug: Lacy, 2 bx shells No. 4, 1 qt. 20 Aug: R. Pettit, 1 bx No. 4, 1 pt. 21 Aug: Lacy, 1 qt, 2 bx No. 6. 22 Aug: C. Hardin, 1 bx No. 4 'for the posse'; Lacy, coffee, ice, paid cash. 23 Aug: B.R. Lacy, 4 rolls film, flashbulbs, 1 ctn Luckies.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B",
+   "exposes": [
+    "kc_hardin_shells_photo"
+   ]
+  },
+  "kc_souvenir_card": {
+   "title": "Photo: the 1956 postcard",
+   "text": "KELLY, KY. HOME OF THE LITTLE MEN. A 1956 postcard of a big-eared thing waving from a tobacco row and a farmhouse with every window lit. Fifteen cents. Four hundred of them never sold.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "kc_prayer_list_1955": {
+   "title": "The prayer list, 28 August 1955",
+   "text": "Kelly Baptist's typed prayer list for the Sunday after: the Lacy family 'for their trouble and for the talk'; R. Pettit 'for his drinking and his nerves'; the Hardin baby; the boys at Fort Campbell. In pencil under it: 'and for the owls, Lord, that they go somewhere else.'",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "kc_preacher_light": {
+   "title": "The light the pastor saw",
+   "text": "Brother J.T. Tilley, locking the church at half past seven on 21 August 1955, saw a round light of no colour come down slow as a leaf over the Lacy place and into the gully behind the house. He never preached it.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "kc_preacher_deathbed": {
+   "title": "Mrs Lacy, 1978",
+   "text": "On her deathbed the Lacy mother told the pastor: 'We saw what we saw and we saw it sober, and I never once changed it. Except for how many. We said twelve because the man from the paper wanted a number.'",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "kc_pew_scorch_photo": {
+   "title": "Photo: the scorched pew",
+   "text": "The back pew of Kelly Baptist, burned black along the seat in a shape that is a shape, sanded and come back through the varnish three times.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "kc_pew_scorch_reading": {
+   "title": "Reading: the scorched pew",
+   "text": "A tape measure and a thumbnail: the scorch is the footprint of a round-based kerosene lamp, eight inches across, with the drip ring. Lamp oil, not anything else. Under the varnish the wood is only thirty years dark.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B",
+   "exposes": [
+    "kc_pew_scorch_photo"
+   ]
+  },
+  "kc_pr_scorch_lamp": {
+   "title": "Deacon Ferrell's lamp, 1962",
+   "text": "The scorch on the back pew is a kerosene lamp set down in the ice storm on Christmas Eve 1962 by a deacon who fell asleep in the carol. It is in the church minutes, and the deacon is ninety-one.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "A",
+   "exposes": [
+    "kc_pew_scorch_photo"
+   ]
+  },
+  "kc_odessa_saw": {
+   "title": "'I saw them too'",
+   "text": "Odessa Pettit says she watched from her porch all night on 21 August 1955 and saw little silver things with their hands up in the Lacy yard, two on the fence and one on the roof, until the sun came up and they went into the trees.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "kc_odessa_admits": {
+   "title": "Odessa in the road",
+   "text": "Odessa Pettit was not on her porch. She was in the road in her nightgown with a lantern from eleven until the train, looking for her brother Royce, who was in the tobacco with their father's shotgun and a pint, firing at what the Lacys were firing at. She said she was on the porch so that somebody sober who was not a Lacy would have seen them.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "kc_odessa_saw"
+   ]
+  },
+  "kc_clippings_1955": {
+   "title": "Photo: the clippings",
+   "text": "Every 1955 clipping, with TWELVE underlined in each and 'nobody said twelve' in the margin in the same hand. The count grew paper by paper, from 'several' to 'twelve or fifteen', and the neighbour who 'saw them too' first appears in the Chicago one.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C"
+  },
+  "kc_royce_road": {
+   "title": "Royce Pettit's night",
+   "text": "Royce Pettit went up the road with his father's gun and a pint to help the Lacys. He fired at the flashes from the house and at eyes in the tobacco that did not go out when he shot at them. He does not know whose eyes. He thinks some nights he was the thing on the fence.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "kc_royce_owl": {
+   "title": "The owl in the gully oak",
+   "text": "A great horned owl has lived in the dead oak at the head of the Lacy gully for three generations of Pettits. It comes down on anything that walks under it at night. 'Eyes like two cigarettes. Ears on it.'",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "kc_hardin_shooting": {
+   "title": "The fifth gun",
+   "text": "Cleve Hardin, seventy yards away and a Pacific veteran, heard four guns firing out of the Lacy house and a fifth gun on the road, walking, firing toward the house, then toward the sky, then anywhere. The Lacys never mentioned a fifth gun.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "kc_hardin_dogs": {
+   "title": "Every dog stopped at once",
+   "text": "Every dog on the road barked from eleven and all of them stopped in the same minute at two in the morning, the minute the shooting stopped, 'like somebody'd hit a switch.'",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "kc_hardin_reporters": {
+   "title": "Fifty cents a car",
+   "text": "Forty reporters by the Tuesday, paying a dollar for a little man and five for a photograph. Billy Ray Lacy charged fifty cents a car to park in the field, for the glass money.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "kc_hardin_shells_photo": {
+   "title": "Photo: the unopened shells",
+   "text": "A box of number four shot bought at Oates' on 22 August 1955 and never opened, kept thirty-nine years in a glass cabinet. He says whatever it was never came back.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "kc_train_register": {
+   "title": "The train register, 21 August 1955",
+   "text": "Extra 1418 south through Kelly at 2:05 a.m., forty-one cars, no stop. In the remarks: the shooting at the Lacy place quit when the train came through and did not start again; the dogs quit the same minute; Mrs O. Pettit at the crossing with a lantern at 2:20 asking after Royce.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B",
+   "exposes": [
+    "kc_hardin_dogs"
+   ]
+  },
+  "kc_agent_lull": {
+   "title": "The lull, by the register",
+   "text": "The depot agent set his watch by the 2:05 freight and the register by his watch. The shooting stopped as the train came through and never started again; the Lacys drove past the crossing toward town twenty minutes after, the second car with no lights.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "kc_agent_light": {
+   "title": "The light from the platform",
+   "text": "Virgil Sisk, coming on shift at half past seven on 21 August 1955, saw a light going straight down over the Lacy place, slow and no colour. He took it for a Fort Campbell flare, but flares drift and are red, and the fort is twelve miles the other way. He did not log it.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "kc_monkey_claim_1955": {
+   "title": "Freight claim: one monkey short",
+   "text": "L&N freight claim, 23 August 1955: Swann Bros. Traveling Show, one crate rhesus monkeys, six shipped, five received, crate damaged. Denied: the crate was signed for intact at Kelly on the 19th. 'Fifth one bit the conductor. Sixth one is not my problem.'",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "kc_checkers_monkey": {
+   "title": "Buford's monkey",
+   "text": "Swann Brothers' show lost a monkey off the train that week, and a monkey in the dark with its hands up is a little man. Ott says they shot at it four hours and never hit it once. 'It was a quick monkey.'",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D"
+  },
+  "kc_buford_1956": {
+   "title": "Buford's little man, 1956",
+   "text": "Buford Keel saw a silver-suited thing the size of a child in the Lacy corn after church in 1956. It waved. He waved back.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "kc_buford_payoff": {
+   "title": "The men in the black car",
+   "text": "Two men in suits came to Kelly the Thursday after, one who never took his hat off in the store, and went out to the Lacy place, and the Lacys had a new truck by Christmas.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "kc_ott_knox": {
+   "title": "Buford was at Fort Knox",
+   "text": "Buford Keel was at Fort Knox from January 1956 to spring 1958. He was not in Kelly to see anything wave, and the 'new truck' was a used one bought with Billy Ray's parking money. The government men change clothes every time he tells it.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "exposes": [
+    "kc_buford_1956",
+    "kc_buford_payoff"
+   ]
+  },
+  "kc_kid_owl": {
+   "title": "The owl in the water tower",
+   "text": "A boy on a bicycle says an owl as big as he is lives in the Kelly water tower, took Mr Hardin's cat, and comes out when the streetlight comes on. His mamaw says it is the same owl as 1955.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D"
+  },
+  "kc_pellets_sample": {
+   "title": "Owl pellets from the water tower",
+   "text": "Felted grey pellets bagged from under the water tower ladder, one with a jawbone and a rabbit's foot in it.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "lab": "kc_pellets_lab"
+  },
+  "kc_pellets_lab": {
+   "title": "Lab: the water tower pellets",
+   "text": "Great horned owl, and a big one: cottontail, two voles, a rat and a barn cat's collar bell. A bird with a four-and-a-half-foot wingspan that hunts from the tower every night and has done, by the depth of the midden, for decades.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "A"
+  },
+  "kc_pellets_photo": {
+   "title": "Photo: the owl's midden",
+   "text": "The white-streaked ladder of the water tower and the pile of pellets and bones at its foot, a predator's kitchen in the middle of the crossroads.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D"
+  },
+  "kc_crossbuck_photo": {
+   "title": "Photo: shot in the crossbuck",
+   "text": "The crossing post peppered with old shot from a man's shoulder down, the holes rusted, tight on the road side and wide on the field side.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "kc_crossbuck_spread": {
+   "title": "Reading: the crossbuck shot",
+   "text": "The spread and the angle put the gun in the middle of the road about twenty yards south, at a man's shoulder, fired at the sign, more than once, from the same spot. Number four shot, by the holes. Somebody stood in the road one night and shot a railroad sign, and came back and did it again.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "kc_silver_foil": {
+   "title": "Silver from under the boxcar",
+   "text": "A crumpled scrap of something silver, bright as a fish, bagged from the ballast under the siding boxcar where the kudzu has not reached.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "kc_silver_lab"
+  },
+  "kc_silver_lab": {
+   "title": "Lab: the silver scrap",
+   "text": "Aluminium foil from a cigarette pack, the inner wrapper, a brand sold at the Fort Campbell PX in the 1980s, with the glue still on it. Somebody smoked under the boxcar in the last ten years. Somebody from the fort.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "kc_silver_foil",
+    "kc_silver_photo"
+   ]
+  },
+  "kc_silver_photo": {
+   "title": "Photo: the glint under the boxcar",
+   "text": "Something silver in the ballast under the siding boxcar, catching the light where nothing should.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "kc_clay_print": {
+   "title": "Cast: the print in the clay",
+   "text": "A plaster cast from the red clay at the road's edge: three long toes and a pad, spread like fingers, too big for a raccoon and the wrong shape for a dog, going toward the oak and stopping at the ditch.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "kc_clay_print_measure": {
+   "title": "Reading: the print in the clay",
+   "text": "Measured, the print has a fourth toe dragged out behind it where the clay was soft, and the pad is a hound's, split, with the nail marks ahead of the toes. The Hardins' redbone, running, in clay that spread every toe. The ditch is where it jumped.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B",
+   "exposes": [
+    "kc_clay_print",
+    "kc_clay_print_photo"
+   ]
+  },
+  "kc_clay_print_photo": {
+   "title": "Photo: prints in the clay",
+   "text": "Three-toed prints in red clay at the crossroads, spread like a hand, going toward the oak.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  }
+ },
+ "contradictions": {
+  "kc_odessa_porch": {
+   "title": "On the porch, or at the crossing",
+   "evidence": [
+    "kc_odessa_saw",
+    "kc_train_register"
+   ],
+   "witness": "kc_neighbour_woman",
+   "prompt": "You said you never left your porch till sunrise. The depot register has you at the railroad crossing at twenty past two with a lantern, asking Virgil Sisk after Royce. Which was it, Mrs Pettit?"
+  },
+  "kc_buford_knox": {
+   "title": "After church in 1956, from Fort Knox",
+   "evidence": [
+    "kc_buford_1956",
+    "kc_ott_knox"
+   ],
+   "witness": "kc_checkers2",
+   "prompt": "You saw it wave after church in 1956. You were at Fort Knox from January 1956 to 1958. That's a long walk to church, Mr Keel."
+  }
+ },
+ "trail": []
+}

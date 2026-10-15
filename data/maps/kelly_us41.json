@@ -1,0 +1,2154 @@
+{
+ "_doc": "Kelly, US-41 north: the seven-mile corridor between Hopkinsville and Kelly Crossroads in the August of 1994. A two-lane highway runs north to south down the middle with gravel shoulders, dark-fired tobacco either side, barns firing at dusk, a creek ford across the road, the county fairgrounds where Kincaid's travelling show lost its monkey in 1955, a truck stop, a feed store, a dead oak at the seventh mile and a railroad crossing at the north end. The combat route: dogs at dusk, coyotes and the wrong owl at night. Positions are in 32px tiles.",
+ "id": "kelly_us41",
+ "name": "US-41",
+ "case": "kelly",
+ "district": "us41",
+ "size": [
+  24,
+  96
+ ],
+ "spawn": [
+  12,
+  93
+ ],
+ "ground": "dry_grass",
+ "weather": "clear",
+ "encounter_rate": 0.04,
+ "fills": [
+  {
+   "rect": [
+    0,
+    0,
+    8,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    16,
+    0,
+    8,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    95,
+    8,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    16,
+    95,
+    8,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    1,
+    1,
+    94
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    23,
+    1,
+    1,
+    94
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    8,
+    0,
+    1,
+    96
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    14,
+    0,
+    1,
+    96
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    9,
+    0,
+    5,
+    96
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    11,
+    0,
+    1,
+    96
+   ],
+   "tiles": "asphalt_line"
+  },
+  {
+   "rect": [
+    1,
+    6,
+    22,
+    1
+   ],
+   "tiles": "railbed"
+  },
+  {
+   "rect": [
+    8,
+    6,
+    7,
+    1
+   ],
+   "tiles": "rail"
+  },
+  {
+   "rect": [
+    1,
+    12,
+    7,
+    6
+   ],
+   "tiles": [
+    "tobacco_field",
+    "tobacco_field2"
+   ]
+  },
+  {
+   "rect": [
+    16,
+    12,
+    7,
+    11
+   ],
+   "tiles": [
+    "tobacco_field",
+    "tobacco_field2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    31,
+    7,
+    1
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2"
+   ]
+  },
+  {
+   "rect": [
+    15,
+    29,
+    8,
+    1
+   ],
+   "tiles": [
+    "red_clay",
+    "red_clay2"
+   ]
+  },
+  {
+   "rect": [
+    15,
+    39,
+    8,
+    3
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    50,
+    22,
+    2
+   ],
+   "tiles": "creek_bed"
+  },
+  {
+   "rect": [
+    15,
+    56,
+    8,
+    11
+   ],
+   "tiles": [
+    "earth",
+    "earth2",
+    "earth3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    61,
+    7,
+    3
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    67,
+    7,
+    11
+   ],
+   "tiles": "tobacco_cut"
+  },
+  {
+   "rect": [
+    15,
+    71,
+    8,
+    5
+   ],
+   "tiles": "motel_lot"
+  },
+  {
+   "rect": [
+    16,
+    79,
+    7,
+    10
+   ],
+   "tiles": [
+    "tobacco_field",
+    "tobacco_field2"
+   ]
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    1,
+    7,
+    94
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2"
+   ],
+   "chance": 0.04
+  },
+  {
+   "rect": [
+    15,
+    1,
+    8,
+    94
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2"
+   ],
+   "chance": 0.04
+  }
+ ],
+ "facades": [
+  {
+   "id": "feed_store",
+   "facade": "feed_store",
+   "name": "Kelly Feed and Seed",
+   "pos": [
+    15,
+    38
+   ]
+  },
+  {
+   "id": "fairgrounds_office",
+   "facade": "fairgrounds_office",
+   "name": "Christian County Fairgrounds, office",
+   "pos": [
+    2,
+    60
+   ]
+  },
+  {
+   "id": "truck_stop",
+   "facade": "truck_stop",
+   "name": "The Pennyrile Truck Stop",
+   "pos": [
+    15,
+    70
+   ]
+  }
+ ],
+ "houses": [],
+ "props": [
+  {
+   "kind": "railroad_crossing_sign",
+   "pos": [
+    7,
+    5.6
+   ],
+   "name": "Crossbuck",
+   "look": [
+    [
+     "player",
+     "RAILROAD CROSSING, two tracks, and a sign under it: LOOK OUT FOR THE CARS. Somebody has shot the O out of LOOK."
+    ],
+    [
+     "june",
+     "L&N line. One freight a night, about eleven. You can set a watch by it, if you wanted to be awake at eleven."
+    ]
+   ]
+  },
+  {
+   "kind": "railroad_crossing_sign",
+   "pos": [
+    15,
+    7.6
+   ]
+  },
+  {
+   "kind": "rail_car",
+   "pos": [
+    19,
+    6.9
+   ],
+   "name": "A freight car on the siding",
+   "look": [
+    [
+     "player",
+     "A boxcar on the siding, doors open, nothing in it but heat and the smell of tobacco dust. Chalk on the side: KELLY AUG 55 and a little man with his hands up, drawn by somebody who could not draw."
+    ],
+    [
+     "teddy",
+     "That's the earliest piece of fan art in the county. I'm having it framed."
+    ]
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    3,
+    4.5
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    20,
+    3.5
+   ]
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    7,
+    10.5
+   ],
+   "name": "Mailbox",
+   "look": "A mailbox on a welded chain, so the next drunk takes the post and not the box. The flag is up. The flag has been up since Easter."
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    2,
+    9.5
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    17,
+    10.3
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    20,
+    9.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    7.5,
+    13.5
+   ],
+   "name": "Dark-fired tobacco",
+   "look": [
+    [
+     "player",
+     "Tobacco to the horizon on both sides, waist high and darker than any green you grew up with. The air over it moves like water."
+    ],
+    [
+     "ruth",
+     "Dark-fired, honey. They hang it in the barn and smoke it for weeks. This whole county smells like a pipe in September."
+    ],
+    [
+     "dale",
+     "It's August. It smells like a wet dog in a sauna."
+    ]
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    7.5,
+    15.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    7.5,
+    17.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    15.5,
+    13.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    15.5,
+    15.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    15.5,
+    17.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    15.5,
+    19.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    15.5,
+    21.5
+   ]
+  },
+  {
+   "kind": "tractor",
+   "pos": [
+    19,
+    16.5
+   ],
+   "name": "A tractor in the rows",
+   "look": [
+    [
+     "player",
+     "A red tractor stopped in the rows with the key in it and a thermos on the seat. Nobody in sight. Nobody worried."
+    ],
+    [
+     "miriam",
+     "Keys in the ignition. This is either the safest county in America or everybody knows the tractor won't start."
+    ]
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    18.5,
+    20.5
+   ]
+  },
+  {
+   "kind": "water_tower",
+   "pos": [
+    4,
+    21.5
+   ],
+   "name": "Water tower",
+   "look": [
+    [
+     "player",
+     "KELLY in letters you could read from the moon, and under it, smaller and newer: CLASS OF 94. The ladder has a cage on it that starts at ten feet, which is to say above the part anybody climbs."
+    ],
+    [
+     "teddy",
+     "Class of '94. There's a kid in this county who's going to be mayor and he's going to deny this."
+    ]
+   ]
+  },
+  {
+   "kind": "oak_summer",
+   "pos": [
+    4,
+    24.5
+   ]
+  },
+  {
+   "kind": "tobacco_barn_smoke",
+   "pos": [
+    4,
+    30
+   ],
+   "name": "A tobacco barn, firing",
+   "look": [
+    [
+     "player",
+     "A black board barn with the slats cracked open and smoke coming out of every crack, slow, like the building is breathing out. At dusk the whole road is a line of these, each one leaking smoke into the last of the light."
+    ],
+    [
+     "june",
+     "No flame you can see. Sawdust and slabs smouldering on the dirt floor under the hanging leaf, for days. That's the dusk haze. That's half the lights people see from this road."
+    ],
+    [
+     "elijah",
+     "It's warm from here. The barn, I mean. I think I mean the barn."
+    ]
+   ]
+  },
+  {
+   "kind": "tobacco_sticks",
+   "pos": [
+    7,
+    32.5
+   ],
+   "name": "Tobacco sticks",
+   "look": "A stack of tobacco sticks, split oak, four feet long, sharp at one end. A thousand of them. Dale has picked one up and put it down again and picked it up again."
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    2,
+    32.5
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    3,
+    32.5
+   ]
+  },
+  {
+   "kind": "tobacco_barn",
+   "pos": [
+    19,
+    27
+   ],
+   "name": "A tobacco barn, cold",
+   "look": [
+    [
+     "player",
+     "The barn across the road is not firing yet. Its doors are open on rows of hanging leaf, brown going to gold, and a dark that starts a foot inside and goes all the way back."
+    ],
+    [
+     "dale",
+     "Rafters. Open slats. Dark all day, mice on the floor. If I were a great horned owl I'd pay rent on that."
+    ],
+    [
+     "vera",
+     "If you were a great horned owl, Dale, you would be a great deal easier to work with."
+    ]
+   ]
+  },
+  {
+   "kind": "pickup_old",
+   "pos": [
+    18,
+    31.5
+   ],
+   "name": "An old pickup",
+   "look": [
+    [
+     "player",
+     "A 1950s pickup on the barn track, green under the red dust, bed full of sticks. It runs. Everything out here runs; nothing out here is new."
+    ],
+    [
+     "teddy",
+     "That truck was here that night. I'd bet the paper on it. It's just not going to say anything."
+    ]
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    16,
+    33.5
+   ]
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    15,
+    25.5
+   ]
+  },
+  {
+   "kind": "oak_summer2",
+   "pos": [
+    3,
+    36
+   ]
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    7,
+    35.5
+   ],
+   "name": "Mailbox",
+   "look": "A mailbox shaped like a largemouth bass. The mail goes in the mouth. Ruth has photographed it and will not say why."
+  },
+  {
+   "kind": "kudzu",
+   "pos": [
+    4.5,
+    40.3
+   ],
+   "name": "Kudzu",
+   "look": [
+    [
+     "player",
+     "Kudzu, a green wave frozen over a fence, a car, most of a tree and the first six feet of a telephone pole. It grows a foot a day in August. You can hear it, if the trucks stop."
+    ],
+    [
+     "ruth",
+     "Cover a thing in the South and in three summers nobody remembers it was there, dear. Works on cars. Works on stories."
+    ]
+   ]
+  },
+  {
+   "kind": "rusted_car",
+   "pos": [
+    4,
+    41.6
+   ],
+   "name": "A car under the kudzu",
+   "look": [
+    [
+     "player",
+     "The nose of a car, 1950s, no glass, sunk to its axles in red clay and vine. A thermos on the dash. Somebody meant to come back for it."
+    ],
+    [
+     "dale",
+     "Raccoons in the back seat. Three generations of them, by the smell. That's the Kelly aliens, right there, if you want the easy answer."
+    ],
+    [
+     "miriam",
+     "I want the easy answer. Nobody ever lets me have the easy answer."
+    ]
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    2,
+    44
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    16,
+    39.5
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    16,
+    42.5
+   ]
+  },
+  {
+   "kind": "feed_sacks",
+   "pos": [
+    21.5,
+    40.6
+   ],
+   "name": "Feed sacks",
+   "look": [
+    [
+     "player",
+     "Fifty-pound sacks of layer feed stacked under the eave, and one of rock salt split along the seam. The salt is for the deer, the clerk will say, and it is not for the deer."
+    ],
+    [
+     "vera",
+     "Rock salt on every sill, the night of the twenty-first. Somebody in that house had a grandmother."
+    ]
+   ]
+  },
+  {
+   "kind": "tree_summer2",
+   "pos": [
+    3,
+    48
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    20,
+    48.5
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    6,
+    49.5
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    17,
+    49.5
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    1.5,
+    51.5
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    3,
+    52.4
+   ],
+   "name": "The ford",
+   "look": [
+    [
+     "player",
+     "The creek crosses the road here, or did: white stones, cracked mud, a tyre, a crawdad hole every yard. The highway dips through it on a concrete apron with a depth gauge painted up the side to three feet. The gauge is a lie in August and a promise in March."
+    ],
+    [
+     "dale",
+     "Raccoon, possum, heron, deer, dog, a cat the size of a dog. Every print in the county is in this mud. A good place to find exactly what you went looking for."
+    ],
+    [
+     "ruth",
+     "Running water, honey. Nothing that means you harm will cross it. Nothing has to, this month; it can walk."
+    ]
+   ]
+  },
+  {
+   "kind": "dry_creek_rocks",
+   "pos": [
+    20,
+    52.4
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    6.5,
+    53.6
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    18,
+    54.5
+   ]
+  },
+  {
+   "kind": "flag",
+   "pos": [
+    7,
+    58.5
+   ],
+   "name": "The fair flag",
+   "look": "The county fair flag, and under it a hand-painted board: CHRISTIAN CO. FAIR AUG 15-20. MONKEY SHOW NIGHTLY. NO REFUNDS. The monkey show is one monkey. The county has been clear about this since 1955."
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    5.5,
+    66.5
+   ],
+   "name": "Picnic table",
+   "look": [
+    [
+     "player",
+     "A picnic table carved to lace: initials, hearts, a date in every decade since the war. Nearest the end, fresh: WE SAW THEM TOO, 8-21-93."
+    ],
+    [
+     "teddy",
+     "Last year's anniversary crowd. Somebody drove all the way out here to carve a lie into a table. I respect the commitment."
+    ]
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    18,
+    57.4
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    15.5,
+    58.5
+   ]
+  },
+  {
+   "kind": "fair_tent",
+   "pos": [
+    18,
+    60
+   ],
+   "name": "The show tent",
+   "look": [
+    [
+     "player",
+     "A striped tent gone the colour of weak tea, pegged where tents have been pegged since the fair began. Inside: folding chairs, a stage a foot high, a poster of a monkey in a red jacket riding a dog. PETE. HE KNOWS WHAT YOU'RE THINKING."
+    ],
+    [
+     "elijah",
+     "He doesn't. I checked. He's thinking about peanuts."
+    ]
+   ]
+  },
+  {
+   "kind": "fair_tent",
+   "pos": [
+    20,
+    65.5
+   ]
+  },
+  {
+   "kind": "monkey_cage",
+   "pos": [
+    16.5,
+    64.5
+   ],
+   "name": "The monkey cage",
+   "look": [
+    [
+     "player",
+     "An iron show cage on wagon wheels, older than everything around it, the bars worn bright at hand height. A brass plate: KINCAID'S WONDERS OF THE WORLD. The door is open. The door is always open; the latch broke in 1955 and nobody has fixed it since."
+    ],
+    [
+     "miriam",
+     "Thirty-nine years and nobody has fixed a latch. Either that's the laziest county in Kentucky or that latch is the best story they've got."
+    ]
+   ]
+  },
+  {
+   "kind": "honeysuckle",
+   "pos": [
+    21,
+    58.5
+   ],
+   "name": "Something in the honeysuckle",
+   "appears": "rt_monkey_dusk",
+   "fight": {
+    "foes": [
+     "fair_monkey"
+    ],
+    "flag": "monkey_caught",
+    "intro": [
+     [
+      "narrator",
+      "The honeysuckle on the fair fence shakes, and something thin in a red jacket drops out of it onto the cage roof and screams at you."
+     ],
+     [
+      "dale",
+      "Rhesus. Somebody get the net. Nobody hit anything."
+     ]
+    ],
+    "win": "Dale gets the net over it on the third try and it sits down in the mesh like it has been waiting all day for somebody to be good at this. The fair manager comes out of the office at a run, says 'Pete,' and takes him home under one arm like a loaf of bread.",
+    "lose": "It takes a camera strap and a packet of sample bags up the tent pole and sits there eating the bags. The manager will get it down in the morning. He always does."
+   }
+  },
+  {
+   "kind": "box",
+   "pos": [
+    17,
+    66.5
+   ],
+   "name": "A cigar box under the cage",
+   "pickup": "kelly_ticket",
+   "appears": "rt_ticket_box"
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    7,
+    69.5
+   ]
+  },
+  {
+   "kind": "corn_crib",
+   "pos": [
+    4,
+    72
+   ],
+   "name": "Corn crib",
+   "look": "A slatted corn crib full of last year's corn and this year's rats. Something inside it stops moving when you stop moving. It is a rat. Elijah says it is a rat. He says it twice."
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    6,
+    74.5
+   ]
+  },
+  {
+   "kind": "hay_bale",
+   "pos": [
+    7,
+    75.5
+   ]
+  },
+  {
+   "kind": "tobacco_sticks",
+   "pos": [
+    2,
+    75.5
+   ]
+  },
+  {
+   "kind": "roadside_cross",
+   "pos": [
+    7,
+    77.5
+   ],
+   "name": "A roadside cross",
+   "look": [
+    [
+     "player",
+     "A white cross on the shoulder, plastic flowers, a tin plate: D.W., 2-14-91. Where the road straightens after the ford and the trucks let go."
+    ],
+    [
+     "june",
+     "Not the first thing to come out of the dark on this road and not the last. Just the one with a name."
+    ]
+   ]
+  },
+  {
+   "kind": "phone_booth",
+   "pos": [
+    16,
+    71.5
+   ],
+   "name": "Pay phone",
+   "look": [
+    [
+     "player",
+     "A pay phone that takes quarters and gives nothing back. Scratched into the paint at eye level: 1955 WAS REAL. Under it, in a different hand: SO WAS 1976."
+    ],
+    [
+     "teddy",
+     "Someone, somewhere, is still mad about 1976."
+    ]
+   ]
+  },
+  {
+   "kind": "gas_pump",
+   "pos": [
+    21.5,
+    72.5
+   ],
+   "name": "The pumps",
+   "look": "Regular 1.09, Diesel 1.04. The numbers are plastic and the 9 is upside down. A sign on the pump: PAY FIRST AFTER DARK. WE KNOW WHO YOU ARE."
+  },
+  {
+   "kind": "gas_pump",
+   "pos": [
+    22.5,
+    72.5
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    22,
+    71.5
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    16.5,
+    74.6
+   ],
+   "name": "A pickup at the pumps",
+   "look": [
+    [
+     "player",
+     "A farm pickup with a dog in the bed and a shotgun in the rack. The dog is asleep. The shotgun is not, as far as you know."
+    ],
+    [
+     "dale",
+     "Every truck on this road has a gun in it and a dog on it. If anything did land out here in '55 it picked the one county that was ready."
+    ]
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    21.5,
+    75.6
+   ]
+  },
+  {
+   "kind": "gas_sign",
+   "pos": [
+    15.5,
+    76.5
+   ],
+   "name": "The truck stop sign",
+   "look": [
+    [
+     "player",
+     "PENNYRILE TRUCK STOP. EAT. DIESEL. SHOWERS. And on the reader board under it, in letters that do not quite match: WELCOME ANNIVERSARY VISITERS. CHESS PIE. NO ALIENS SERVED."
+    ],
+    [
+     "miriam",
+     "Visiters. I'd like to meet whoever spells it that way and leave them a tip."
+    ]
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    2,
+    80
+   ]
+  },
+  {
+   "kind": "owl_tree",
+   "pos": [
+    5,
+    85
+   ],
+   "name": "A dead oak",
+   "look": [
+    [
+     "player",
+     "A dead white oak at the seventh mile, all bone, with a hollow in the trunk a man could stand in and a dark streak of droppings down the bark under one limb. Fur, feathers and small bones in the grass under it."
+    ],
+    [
+     "dale",
+     "Great horned owl roost. Look at the whitewash, look at the pellets. That's a bird with a four-foot wingspan and eyes the size of yours, and it sits on a fence post at headlight height and it does not blink."
+    ],
+    [
+     "ruth",
+     "In my grandmother's county that tree would have a name and nobody would park under it. Here it has a mile marker."
+    ]
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    2,
+    88.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    7,
+    88
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    15.5,
+    80.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    15.5,
+    84.5
+   ]
+  },
+  {
+   "kind": "tobacco_plant",
+   "pos": [
+    15.5,
+    87.5
+   ]
+  },
+  {
+   "kind": "grain_silo",
+   "pos": [
+    20,
+    83
+   ],
+   "name": "Grain silo",
+   "look": [
+    [
+     "player",
+     "A tin silo, silver in the heat, with a ladder up the side and a rust bloom at the top where a bolt wept for thirty years. The tallest thing for a mile. The only thing for a mile that shines."
+    ],
+    [
+     "june",
+     "Silver, three storeys, catches every headlight on the road at the one angle where the trees open. Write down the angle. I want to come back at midnight and see what it looks like from the Lacy porch."
+    ]
+   ]
+  },
+  {
+   "kind": "mailbox_rural",
+   "pos": [
+    15,
+    86.5
+   ],
+   "name": "Mailbox",
+   "look": "A mailbox with the name sanded off and painted over, twice. The newest paint says NO. Just NO."
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    3,
+    93
+   ]
+  },
+  {
+   "kind": "cedar",
+   "pos": [
+    20,
+    92.5
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    6,
+    91.5
+   ],
+   "name": "A painted rock",
+   "look": [
+    [
+     "player",
+     "A boulder on the shoulder painted white, and on it, in green, by a steady hand: HOPKINSVILLE 7. KELLY 0. And under that, in red, by a hand that was not steady: THEY'RE STILL HERE."
+    ],
+    [
+     "teddy",
+     "Kelly nil. Somebody's been keeping score."
+    ],
+    [
+     "elijah",
+     "I'd like to not stand next to this one, if that's all right."
+    ]
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    17,
+    90.5
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    21,
+    94.5
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "rt_hand",
+   "name": "A tobacco hand",
+   "pos": [
+    6,
+    14.5
+   ],
+   "facing": "right",
+   "sprite": "tobacco_hand",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "rt_hand2",
+   "name": "A man tending the fire",
+   "pos": [
+    7,
+    29.5
+   ],
+   "facing": "left",
+   "sprite": "tobacco_hand2",
+   "when": [
+    "dusk",
+    "night"
+   ]
+  },
+  {
+   "id": "rt_feed_clerk",
+   "name": "Lonnie Stokes",
+   "pos": [
+    20.5,
+    40.5
+   ],
+   "facing": "left",
+   "sprite": "feed_clerk",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "rt_fair_kid",
+   "name": "A kid with a corn dog",
+   "pos": [
+    16,
+    61.5
+   ],
+   "facing": "down",
+   "sprite": "kid",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "rt_fair_manager",
+   "name": "Harlan Boyd",
+   "pos": [
+    19.5,
+    62.5
+   ],
+   "facing": "left",
+   "sprite": "fair_manager",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "rt_trucker",
+   "name": "Royce",
+   "pos": [
+    19.5,
+    74.6
+   ],
+   "facing": "down",
+   "sprite": "trucker",
+   "when": [
+    "dusk"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "rt_ford_prints",
+   "name": "Small prints in the creek mud",
+   "pos": [
+    16,
+    51.6
+   ],
+   "prop": "raccoon_prints",
+   "text": "In the last wet mud below the apron, a line of small prints coming out of the tobacco and going down the creek bed: five long fingers, a palm no wider than a child's, two of them side by side like something that walked on its hands. Dale has gone quiet. Dale going quiet is worse than Dale talking.",
+   "methods": {
+    "cast": "rt_ford_cast",
+    "photograph": "rt_ford_prints_photo",
+    "bag": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "rt_cage_fur",
+   "name": "Fur in the cage wire",
+   "pos": [
+    16.5,
+    64.9
+   ],
+   "prop": "clue_fur",
+   "text": "Tufts of fine brown fur caught in the cage bars at the hinge side, where something squeezed past the broken latch. Some of it is grey at the root. Some of it is not fur at all but red thread.",
+   "methods": {
+    "bag": "rt_cage_fur",
+    "photograph": "rt_cage_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "rt_cross_flowers",
+   "name": "The flowers at the cross",
+   "pos": [
+    7,
+    77.9
+   ],
+   "prop": "flowers_small",
+   "text": "Plastic roses wired to the cross, and tucked into them a card in a sandwich bag, written this week: THEY CAME BACK FOR HIM TOO. Under the card, a quarter and a shotgun shell, unfired.",
+   "methods": {
+    "photograph": "rt_cross_note",
+    "bag": "spoil",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  },
+  {
+   "id": "rt_owl_pellets",
+   "name": "Pellets under the dead oak",
+   "pos": [
+    5,
+    85.6
+   ],
+   "prop": "owl_pellets",
+   "text": "Owl pellets in the dry grass under the hollow limb, a dozen of them, grey, the size of a thumb, and when Dale breaks one open with a stick: a jaw, a skull no bigger than a pecan, a claw. Above you, in the hollow, two shapes that could be bark.",
+   "methods": {
+    "bag": "rt_owl_pellet_sample",
+    "photograph": "rt_owl_tree_photo",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    8,
+    95,
+    8,
+    1
+   ],
+   "to": "kelly_hopkinsville",
+   "at": [
+    32,
+    2
+   ],
+   "name": "Hopkinsville"
+  },
+  {
+   "rect": [
+    8,
+    0,
+    8,
+    1
+   ],
+   "to": "kelly_crossroads",
+   "at": [
+    20,
+    29
+   ],
+   "name": "Kelly Crossroads"
+  }
+ ],
+ "encounters": [
+  {
+   "foes": [
+    "coyote"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 3,
+   "intro": "A coyote crosses the road in the headlights of a truck that is not slowing down, and then the truck is gone and it is on the shoulder, looking at you.",
+   "win": "It goes back into the tobacco the way it came. Somewhere in the rows something yips twice and stops."
+  },
+  {
+   "foes": [
+    "hound_pack"
+   ],
+   "phase": [
+    "dusk",
+    "night"
+   ],
+   "weight": 2,
+   "intro": "Farm dogs, three of them, down a red clay track from a barn at a dead run, baying like you owe them money.",
+   "win": "A porch light comes on half a mile off and somebody whistles once. The dogs go. The light goes out."
+  },
+  {
+   "foes": [
+    "owl_wrong_ky"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 1,
+   "intro": "Two yellow points at headlight height on a fence post. Then the post is empty, and the air over the road has a shape in it.",
+   "win": "It goes up. Dale says 'owl' and nobody argues, and nobody looks up either."
+  }
+ ],
+ "interiors": {
+  "truck_stop": {
+   "size": [
+    16,
+    10
+   ],
+   "floor": [
+    "lino",
+    "lino",
+    "lino2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "fridge",
+     "pos": [
+      1,
+      2.6
+     ]
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      2,
+      2.6
+     ]
+    },
+    {
+     "kind": "sink",
+     "pos": [
+      3,
+      2.6
+     ]
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      2,
+      3.3
+     ]
+    },
+    {
+     "kind": "time_clock",
+     "pos": [
+      1,
+      5.9
+     ],
+     "name": "Time clock",
+     "look": "A time clock with one card in it, DOT, punched in at 5:02 a.m. every day this month and never punched out."
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      6.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      8.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      10.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      12,
+      3
+     ]
+    },
+    {
+     "kind": "coffee_maker",
+     "pos": [
+      6,
+      2.4
+     ],
+     "name": "Coffee",
+     "look": "Two pots, one with an orange handle. Nobody in the history of truck stops has ever been served from the orange one."
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      9,
+      2.3
+     ]
+    },
+    {
+     "kind": "pie_case",
+     "pos": [
+      13,
+      2.6
+     ],
+     "name": "Pie case",
+     "look": [
+      [
+       "player",
+       "Chess pie, pecan, a coconut cream that has seen things. A card in the glass: CHESS PIE $2. ALIENS HALF PRICE WITH ID."
+      ],
+      [
+       "teddy",
+       "Chess pie. I've already decided. I decided in the car."
+      ]
+     ]
+    },
+    {
+     "kind": "jukebox",
+     "pos": [
+      15,
+      2.6
+     ],
+     "name": "Jukebox",
+     "look": [
+      [
+       "player",
+       "A jukebox that takes quarters and plays Conway Twitty whatever you pick. B7 is 'Hello Darlin'. B8 is also 'Hello Darlin'."
+      ],
+      [
+       "ruth",
+       "That's a well-run establishment, dear."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      4.5,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "AUGUST 1994. The 21st is circled in red and somebody has written BIG NIGHT and somebody else has written NO IT AIN'T."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      14,
+      1.6
+     ],
+     "name": "Corkboard",
+     "look": "Hay for sale, a lost beagle named Governor, a scanner for sale ('hears everything'), a Fort Campbell softball schedule and, pinned over all of it, this week's flyer."
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      12.5,
+      2.3
+     ],
+     "name": "The counter phone",
+     "look": "A phone with a cord long enough to reach the kitchen and a list taped under it: SHERIFF, VET, WRECKER, MAMA. In that order."
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      5,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      6,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      7,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      8,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      9,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      10,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      11,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      12,
+      4.2
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      2,
+      9.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      5,
+      9.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      11.5,
+      9.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      14.5,
+      9.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      14.5,
+      7.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      14.5,
+      5.3
+     ],
+     "name": "The truckers' booth",
+     "look": [
+      [
+       "player",
+       "The booth nearest the window, where a man can watch his rig. A CB handset on the table, a road atlas open to Kentucky, and a coffee cup that has been refilled so often the ring on the table is a county seat."
+      ],
+      [
+       "june",
+       "Channel 19 on the handset. Squelch all the way open. He listens to everything and says nothing, which is the right way to run a radio."
+      ]
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      3,
+      5.9
+     ],
+     "name": "Kitchen bin",
+     "look": "Grounds, eggshells, a Ledger from Tuesday with the anniversary piece torn out. The cook is watching you. The cook is always watching you."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "rt_waitress",
+     "name": "Dot",
+     "pos": [
+      8.5,
+      3.4
+     ],
+     "facing": "down",
+     "sprite": "truck_stop_waitress",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ],
+     "shop": "kelly_truckstop"
+    },
+    {
+     "id": "rt_cook",
+     "name": "The cook",
+     "pos": [
+      2.5,
+      4.4
+     ],
+     "facing": "down",
+     "sprite": "cook",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "rt_coop_men",
+     "name": "Two men from the co-op",
+     "pos": [
+      5,
+      8.3
+     ],
+     "facing": "up",
+     "sprite": "regulars",
+     "when": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "id": "rt_trucker",
+     "name": "Royce",
+     "pos": [
+      13,
+      6.3
+     ],
+     "facing": "left",
+     "sprite": "trucker",
+     "when": [
+      "morning",
+      "night"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "rt_show_photo",
+     "name": "A photograph over the counter",
+     "pos": [
+      8.5,
+      1.9
+     ],
+     "prop": "painting",
+     "text": "A framed photograph, black and white, gone brown: three painted wagons on the fairground, KINCAID'S WONDERS OF THE WORLD, a man in a straw boater, and on the last wagon an iron cage with the door standing open and nothing inside it. In pencil on the mount: Kelly fairgrounds, Aug 19 1955, taken by R. Haskins. Two days before.",
+     "methods": {
+      "photograph": "rt_show_photo_1955",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    },
+    {
+     "id": "rt_watch_flyer",
+     "name": "This week's flyer",
+     "pos": [
+      14,
+      2.0
+     ],
+     "prop": "paper",
+     "text": "A photocopied flyer, pinned fresh: 39TH ANNIVERSARY WATCH. SAT AUG 21. MEET AT THE KELLY STORE AT DUSK. BRING LAWN CHAIRS, FLASHLIGHTS, NO FIREARMS. 'THEY CAME ONCE. THEY'LL COME AGAIN.' A phone number with a Nashville area code.",
+     "methods": {
+      "photograph": "rt_watch_flyer",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "fairgrounds_office": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "filing_tall",
+     "pos": [
+      2,
+      2.6
+     ],
+     "name": "Filing cabinet",
+     "look": "Four drawers: ENTRIES, PREMIUMS, VENDORS, and one that says 1950s in grease pencil and will not shut all the way."
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      3.5,
+      1.9
+     ],
+     "name": "Bookcase",
+     "look": [
+      [
+       "player",
+       "Premium books back to 1948, a Kentucky Farm Bureau almanac for every year, and the 4-H livestock judging manual, which somebody has used to prop up the shelf."
+      ],
+      [
+       "miriam",
+       "Forty years of blue ribbons for the biggest pumpkin. This county keeps records of everything except the one night everybody talks about."
+      ]
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      5.5,
+      1.6
+     ],
+     "name": "The fair poster",
+     "look": "CHRISTIAN COUNTY FAIR 1994. Tractor pull, demolition derby, Miss Pennyrile, the Fort Campbell band, PETE THE WONDER MONKEY (nightly), and in very small type at the bottom: the fair is not responsible for lost items, weather, or acts of God or others."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      7.5,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "August 1994 from the feed store, a tobacco barn on it. The fair week is crossed through day by day, and the 21st has a monkey drawn on it by somebody who can draw a monkey."
+    },
+    {
+     "kind": "bulletin_board",
+     "pos": [
+      9,
+      1.9
+     ],
+     "name": "Ribbons",
+     "look": "Blue ribbons, red ribbons, a white one from 1961 for Best Monkey, which the fair has not awarded since, since it stopped being a category when it stopped being a contest."
+    },
+    {
+     "kind": "desk_wood",
+     "pos": [
+      6.5,
+      4
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      6,
+      3.3
+     ],
+     "name": "The manager's desk",
+     "look": [
+      [
+       "player",
+       "Entry forms, a cash box, a clipboard that says PETE: FED, in capitals, with a column of ticks and one day this week with no tick."
+      ],
+      [
+       "elijah",
+       "He got out again. He gets out every August. He goes where he went the first time."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      6.5,
+      2.9
+     ]
+    },
+    {
+     "kind": "water_cooler",
+     "pos": [
+      9,
+      5.9
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      2,
+      6.5
+     ],
+     "name": "A box of show bills",
+     "look": "Handbills from every travelling show that ever pitched here, loose in a liquor box. The 1955 one is on top. It is always on top; it is the one everybody asks for."
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      8.5,
+      6.2
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      8,
+      3.4
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "rt_fair_manager",
+     "name": "Harlan Boyd",
+     "pos": [
+      6.5,
+      5.2
+     ],
+     "facing": "down",
+     "sprite": "fair_manager",
+     "when": [
+      "morning",
+      "day"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "rt_show_file",
+     "name": "The 1950s drawer",
+     "pos": [
+      1,
+      2.9
+     ],
+     "prop": "filing_cabinet",
+     "text": "The drawer that will not shut, because of a folder that will not lie flat: KINCAID'S WONDERS, AUG 1955. A vendor contract, a receipt for the tent pitch, and a claim form filed with the fair on the 22nd of August: ONE RHESUS MONKEY, MALE, RED JACKET, ANSWERS TO PETE, LOST FROM CAGE ON OR ABOUT THE 19TH. REWARD $5. Clipped to it, a note from the sheriff's office: 'Seen north of Kelly. Do not shoot.'",
+     "methods": {
+      "photograph": "rt_monkey_claim",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "feed_store": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "shelf",
+     "pos": [
+      2,
+      1.7
+     ],
+     "name": "Shelves",
+     "look": "Fly spray, hog rings, fence staples by the pound, a rat poison with a cartoon rat on it who looks like he knows."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5,
+      1.7
+     ]
+    },
+    {
+     "kind": "gun_rack",
+     "pos": [
+      8.5,
+      1.9
+     ],
+     "name": "The shell rack",
+     "look": [
+      [
+       "player",
+       "Shotgun shells behind the counter by gauge and shot size, and a hand-lettered card: NO SALES AFTER DARK ON THE 21ST. STORE POLICY SINCE 1956."
+      ],
+      [
+       "dale",
+       "A feed store with a policy about one night a year. That's the most honest exhibit in this case."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      7,
+      1.6
+     ],
+     "name": "The feed store calendar",
+     "look": [
+      [
+       "player",
+       "KELLY FEED AND SEED, 1994, a different barn every month. They have given one away every January since 1949. The one in the Lacy kitchen, the cousin says, still says August 1955."
+      ],
+      [
+       "ruth",
+       "A calendar nobody turns is a clock somebody stopped, honey. On purpose or not."
+      ]
+     ]
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      4,
+      4
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      5.5,
+      4
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      7,
+      4
+     ]
+    },
+    {
+     "kind": "scanner_radio",
+     "pos": [
+      7,
+      3.4
+     ],
+     "name": "The scanner",
+     "look": [
+      [
+       "player",
+       "A police scanner on the counter, on, turned low. Sheriff, state police, the fire board, and the Fort Campbell gate channel, which is not a channel a feed store is supposed to have."
+      ],
+      [
+       "june",
+       "Everybody in this county is listening to everybody else. Nobody's talking. It's the quietest surveillance state in America."
+      ]
+     ]
+    },
+    {
+     "kind": "feed_sacks",
+     "pos": [
+      1.5,
+      6.4
+     ]
+    },
+    {
+     "kind": "salt_sack",
+     "pos": [
+      3,
+      6.3
+     ],
+     "name": "Rock salt",
+     "look": "Fifty-pound sacks of rock salt. For the stock, in August, and for the doorsteps, says nobody, out loud."
+    },
+    {
+     "kind": "rope_coil",
+     "pos": [
+      9,
+      6.3
+     ]
+    },
+    {
+     "kind": "lamp_oil_can",
+     "pos": [
+      8.5,
+      5.4
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      9,
+      7.2
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      1,
+      3.0
+     ],
+     "name": "Caps",
+     "look": "A box of feed-store caps, green, free with a hundred-pound order or six dollars to a tourist. Dale is already wearing one."
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      9.5,
+      2.1
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "rt_feed_clerk",
+     "name": "Lonnie Stokes",
+     "pos": [
+      5.5,
+      3.2
+     ],
+     "facing": "down",
+     "sprite": "feed_clerk",
+     "when": [
+      "morning",
+      "day"
+     ],
+     "shop": "kelly_feed"
+    }
+   ],
+   "clues": [
+    {
+     "id": "rt_shell_book",
+     "name": "The shell book",
+     "pos": [
+      4.5,
+      3.5
+     ],
+     "prop": "paper",
+     "text": "A ledger on the counter, the kind a store kept before anybody made it: every box of shells sold, to whom, since 1949. August 1955, in the grandfather's hand. Aug 20: LACY, 2 bx No. 6, 12 ga. Aug 21: a second name, smudged under a thumb, 1 bx 00 buck, and in the margin, 'cash, on his way home, already had some.' Aug 22: LACY, 4 bx No. 6, 'paid by the sheriff.'",
+     "methods": {
+      "photograph": "rt_shell_book_1955",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  }
+ }
+}

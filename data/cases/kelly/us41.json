@@ -1,0 +1,641 @@
+{
+ "_doc": "US-41 fragment for the Kelly case: the truck stop (Dot and the trucker Royce), the fairgrounds (Harlan Boyd and the 1955 show's paperwork: the escaped-monkey theory, a real lead), the feed store (Lonnie Stokes and the shell book), the ford prints and the pellets under the dead oak. Ids are prefixed rt_. The relic kelly_ticket is a pickup under the monkey cage that appears on gate rt_ticket_box (the monkey caught at dusk, or the manager's word). No trail signs on the route.",
+ "locations": {
+  "truck_stop": "The Pennyrile Truck Stop, US-41",
+  "feed_store": "Kelly Feed and Seed, US-41",
+  "ford": "The creek ford on US-41",
+  "dead_oak": "The dead oak at the seventh mile",
+  "crossing": "The L&N crossing north of the fairgrounds"
+ },
+ "items": {
+  "chess_pie": {
+   "name": "Chess pie, a slice",
+   "text": "Sugar, butter, eggs and a little cornmeal. Restores Composure and most of your faith in Kentucky.",
+   "kind": "consumable",
+   "price": 2,
+   "shop": [
+    "kelly_truckstop"
+   ],
+   "restore": {
+    "composure": 10
+   },
+   "case": "kelly"
+  }
+ },
+ "gates": {
+  "rt_ticket_box": {
+   "name": "The cigar box under the cage",
+   "locked": "A cigar box wired to the axle under the monkey cage. It is not yours to open, yet.",
+   "opens": [
+    {
+     "flag": "monkey_caught"
+    },
+    {
+     "flag": "rt_ticket_told"
+    }
+   ]
+  },
+  "rt_monkey_dusk": {
+   "name": "Something in the honeysuckle",
+   "locked": "",
+   "opens": [
+    {
+     "all": [
+      {
+       "phase": [
+        "dusk"
+       ]
+      },
+      {
+       "not_flag": "monkey_caught"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "witnesses": {
+  "rt_waitress": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "rt_wt_trade",
+     "title": "The anniversary trade",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 7,
+       "prompt": "Busy week? Every August?"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "rt_waitress",
+       "Every August. Nashville plates, Louisville plates, a man from Ohio with a van that says PARANORMAL on it, and they all want the booth by the window and they all want to know did I see anything."
+      ],
+      [
+       "rt_waitress",
+       "I was born in '58, hon. The ones who've seen the most have had the most to drink, and I serve the drink, so I'd know."
+      ],
+      [
+       "teddy",
+       "She's got a count. I'd bet she's got a count by state."
+      ]
+     ],
+     "evidence": "rt_anniversary_trade"
+    },
+    {
+     "id": "rt_wt_showman",
+     "title": "The man in the straw boater",
+     "gates": [
+      {
+       "show": "rt_show_photo_1955"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "That photo over the counter. Somebody in your family took it."
+      }
+     ],
+     "lines": [
+      [
+       "rt_waitress",
+       "Daddy took that. He had the counter then. The morning of the twenty-second, before the police had even been out to the farm, the show's man came in here in that boater asking had anybody seen a monkey."
+      ],
+      [
+       "rt_waitress",
+       "Paid for his coffee with a fair ticket. Daddy kept it in the register for luck. Luck ran out about 1970, but the ticket's around somewhere."
+      ],
+      [
+       "miriam",
+       "Before the police had been out. He was looking for it before anybody was looking for anything else."
+      ]
+     ],
+     "evidence": "rt_showman_coffee"
+    },
+    {
+     "id": "rt_wt_four_am",
+     "title": "Four in the morning, 1955",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "Your mother would have been here that night. What did she tell you, when you were old enough?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "rt_waitress",
+       "Mama had the counter nights. The Lacy men came in at four in the morning on their way back from town with a police car behind them, and she gave them coffee and would not take money for it."
+      ],
+      [
+       "rt_waitress",
+       "She said they were sober as deacons and grey as ash, and the old man's hands shook so he had to hold the cup in both of them. She said that every year until she died and she did not say it for the tourists."
+      ],
+      [
+       "elijah",
+       "Grey as ash. That's not a drunk man's colour. I've seen both."
+      ]
+     ],
+     "evidence": "rt_sober_at_four"
+    }
+   ]
+  },
+  "rt_trucker": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "rt_tr_channel",
+     "title": "Channel 19 in August",
+     "gates": [
+      {
+       "check": "tech",
+       "difficulty": 8,
+       "prompt": "You keep the squelch open on 19. What do the drivers say about this stretch?"
+      }
+     ],
+     "lines": [
+      [
+       "rt_trucker",
+       "Every August. 'Eyes at the seventh mile.' 'Watch the ford.' 'They're out.' Half of it's boys egging each other on and the other half's boys who heard the first half."
+      ],
+      [
+       "rt_trucker",
+       "I don't key up. I just listen. You learn more."
+      ],
+      [
+       "june",
+       "A rumour with a carrier wave. It sounds like evidence because it comes out of a speaker."
+      ]
+     ],
+     "evidence": "rt_cb_chatter"
+    },
+    {
+     "id": "rt_tr_oak",
+     "title": "The seventh mile",
+     "gates": [
+      {
+       "check": "fieldcraft",
+       "difficulty": 7,
+       "prompt": "A driver knows his road by the mile. Where, exactly?"
+      }
+     ],
+     "lines": [
+      [
+       "rt_trucker",
+       "Mile seven. The dead oak on the west side, the one with the hollow. The eyes are on the fence post under it or on the limb over it, every time, and they're gone when I hit the brights."
+      ],
+      [
+       "rt_trucker",
+       "I ain't said owl. You said owl. I'm just telling you where."
+      ],
+      [
+       "dale",
+       "He's telling us where the roost is. He's been telling people where the roost is for nine years and calling it eyes."
+      ]
+     ],
+     "evidence": "rt_mile_marker"
+    }
+   ]
+  },
+  "rt_fair_manager": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "rt_fm_show",
+     "title": "Kincaid's Wonders, August 1955",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 7,
+       "prompt": "The show that was here in 1955. You've got the paperwork; everybody says you've got the paperwork."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "rt_fair_manager",
+       "Kincaid's Wonders of the World. Three wagons, a strongman, a lady who sawed herself in half, and a monkey show. Daddy ran the fair then. They pitched on the nineteenth, pulled out on the twentieth, and the morning of the twenty-second Kincaid came back in a borrowed car asking after a monkey."
+      ],
+      [
+       "rt_fair_manager",
+       "A rhesus. Little, thin, long arms, in a red jacket. Taught to put its hands up when the lady pointed a cap pistol at it. That's the act. That was the whole act."
+      ],
+      [
+       "miriam",
+       "Hands up. Three feet tall. Long arms. Silver in a flashlight, if it's grey at the root. Go on."
+      ],
+      [
+       "rt_fair_manager",
+       "I'm not saying what it was, ma'am. I'm saying what was loose."
+      ]
+     ],
+     "evidence": "rt_monkey_theory"
+    },
+    {
+     "id": "rt_fm_claim",
+     "title": "The claim form",
+     "gates": [
+      {
+       "contradiction": "rt_cage_empty"
+      },
+      {
+       "show": "rt_show_photo_1955"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "rt_fair_manager",
+       "All right. The claim's dated the twenty-second, but the cage was empty on the nineteenth. Daddy wrote it up late because the sheriff asked him to write it up at all. It was loose two full days before that night, and it was loose north of here."
+      ],
+      [
+       "rt_fair_manager",
+       "There's a cigar box wired under the cage. Kincaid's ticket roll is in it, the one he paid Daddy with. Take one. Nobody's bought one since 1955 and I'd as soon it went somewhere it meant something."
+      ],
+      [
+       "teddy",
+       "A ticket to the night it happened. Admit one."
+      ]
+     ],
+     "evidence": "rt_monkey_claim",
+     "flag": "rt_ticket_told"
+    },
+    {
+     "id": "rt_fm_pete",
+     "title": "Pete, 1994",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 7,
+       "prompt": "The cage door's open. The clipboard says he wasn't fed Tuesday. Where's your monkey, Mr Boyd?"
+      },
+      {
+       "show": "rt_cage_fur_lab"
+      }
+     ],
+     "lines": [
+      [
+       "rt_fair_manager",
+       "Out. He's out. He is the fourth Pete and every one of them has got out the week of the fair, it's in the blood or it's in the latch, and he'll be in the honeysuckle on the back fence at dusk because that's where the last three went."
+      ],
+      [
+       "rt_fair_manager",
+       "If your people find fur in that wire it's his and it's this summer's. Don't send it anywhere. Don't put it in the paper."
+      ],
+      [
+       "dale",
+       "Rhesus fur in the cage is this year's monkey. Noted. The cage isn't evidence of anything but a bad latch."
+      ]
+     ],
+     "evidence": "rt_pete_1994"
+    }
+   ]
+  },
+  "rt_feed_clerk": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "rt_fc_book",
+     "title": "The shell book, August 1955",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "A store this old keeps its books. Every box of shells since the war, I'd guess."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "rt_feed_clerk",
+       "Granddaddy wrote down every box. Aug 20, '55: Lacy, two boxes of sixes. Aug 21: a neighbour of theirs, one box of double-ought, cash, on his way home from town, and Granddaddy wrote 'already had some' in the margin, which is not about shells."
+      ],
+      [
+       "rt_feed_clerk",
+       "Aug 22: Lacy again, four boxes, and the sheriff paid. The sheriff paid. You can read it yourself; I'm not going to say what it means."
+      ],
+      [
+       "miriam",
+       "Two guns on that road that night. One of them was drunk, and the sheriff was buying shells the morning after. Nobody has ever said that out loud in thirty-nine years."
+      ]
+     ],
+     "evidence": "rt_shell_book_1955"
+    },
+    {
+     "id": "rt_fc_calendar",
+     "title": "The calendar that never turned",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "Every farm kitchen on this road has one of your calendars. One of them stopped."
+      }
+     ],
+     "lines": [
+      [
+       "rt_feed_clerk",
+       "The Lacy kitchen. August 1955, a barn on it, and nobody took it down. The cousin won't. Says it's not his to turn. I gave him a new one every January for eleven years and he hung every one of them in the smokehouse."
+      ],
+      [
+       "ruth",
+       "A calendar on a wall is a clock a family stopped, dear. You don't turn it because turning it means the night's over, and for them it isn't."
+      ]
+     ],
+     "evidence": "rt_calendar_story"
+    },
+    {
+     "id": "rt_fc_dogs",
+     "title": "The dogs on this road",
+     "gates": [
+      {
+       "check": "fieldcraft",
+       "difficulty": 7,
+       "prompt": "Farm dogs run loose at dusk along here. They were loose that night too."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "rt_feed_clerk",
+       "Every farm on 41 keeps three dogs and none of them on a chain. They'll bay at a tractor. They'll bay at the moon."
+      ],
+      [
+       "rt_feed_clerk",
+       "That night, Granddaddy said, every dog on this road went under its porch and stayed there till morning. The Lacys' dog first. He sold a lot of shells the next week and not one box to a man who'd have told you his dog was a coward."
+      ],
+      [
+       "dale",
+       "Dogs under the porch is a great horned owl. Or a thunderstorm. Or a shotgun going off in the yard every ten minutes. I'd go under the porch."
+      ]
+     ],
+     "evidence": "rt_dogs_under_porch"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "rt_show_photo_1955": {
+   "title": "Photo: Kincaid's wagons, 19 August 1955",
+   "text": "A photograph of the travelling show's three wagons on the Kelly fairground on the 19th of August 1955, two days before the night. On the last wagon an iron cage with the door standing open and nothing inside it.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "rt_watch_flyer": {
+   "title": "The 39th Anniversary Watch flyer",
+   "text": "A photocopied flyer for an 'anniversary watch' on the night of the 21st, meet at the Kelly store at dusk, lawn chairs and flashlights, a Nashville phone number. 'They came once. They'll come again.'",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "rt_shell_book_1955": {
+   "title": "The shell book, August 1955",
+   "text": "The feed store's ammunition ledger. 20 Aug 1955: Lacy, two boxes of No. 6. 21 Aug: a neighbour, name smudged, one box of 00 buck, cash, 'on his way home, already had some.' 22 Aug: Lacy, four boxes, 'paid by the sheriff.'",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "A",
+   "key": true
+  },
+  "rt_monkey_claim": {
+   "title": "The lost-monkey claim, 22 August 1955",
+   "text": "Kincaid's claim form filed with the fair: one rhesus monkey, male, red jacket, answers to Pete, lost from its cage on or about the 19th, reward $5. Clipped to it, a note from the sheriff's office: 'Seen north of Kelly. Do not shoot.'",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "A",
+   "key": true
+  },
+  "rt_monkey_theory": {
+   "title": "What was loose that week",
+   "text": "Harlan Boyd's father ran the fair in 1955. Kincaid's show lost a rhesus monkey, thin, long-armed, in a red jacket, trained to put its hands up when a cap pistol was pointed at it. It was loose north of the fairgrounds the night of the 21st.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rt_showman_coffee": {
+   "title": "The showman's coffee, 22 August 1955",
+   "text": "The morning of the 22nd, before the police had been out to the farm, the show's owner came into the truck stop asking after a monkey and paid for his coffee with a fair ticket.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rt_anniversary_trade": {
+   "title": "The anniversary trade",
+   "text": "Every August the truck stop fills with out-of-state plates and people who want the window booth and to be asked what they saw. The ones who have seen the most have had the most to drink, and Dot serves the drink.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rt_sober_at_four": {
+   "title": "Sober as deacons, grey as ash",
+   "text": "Dot's mother had the night counter in 1955. The Lacy men came in at four in the morning with a police car behind them, sober, grey, the old man's hands shaking so he held the cup in both. She said it every year until she died and never for the tourists.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rt_calendar_story": {
+   "title": "The calendar that never turned",
+   "text": "The feed store calendar in the Lacy kitchen still says August 1955. The cousin hangs every new one in the smokehouse and will not turn the old one, because it is not his to turn.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "rt_dogs_under_porch": {
+   "title": "Every dog under its porch",
+   "text": "The feed clerk's grandfather said every dog on US-41 went under its porch the night of the 21st and stayed there till morning, the Lacys' dog first. Farm dogs that bay at tractors.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rt_owl_pellet_sample": {
+   "title": "Pellets from under the dead oak",
+   "text": "A dozen owl pellets from the grass under the hollow limb of the dead oak at the seventh mile, grey, thumb-sized, with a jaw and a skull the size of a pecan in the one Dale broke open.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "B",
+   "lab": "rt_owl_pellet_lab"
+  },
+  "rt_owl_pellet_lab": {
+   "title": "Lab: the pellets under the dead oak",
+   "text": "Great horned owl, and a well-fed one: cottontail, cotton rat, a mockingbird, a young cat. A bird with a four-foot wingspan that roosts low, sits on posts at headlight height, hunts the open ground along a road, and whose eyes throw back a flashlight the colour of a road sign. The roost is in use.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "A"
+  },
+  "rt_owl_tree_photo": {
+   "title": "Photo: the dead oak",
+   "text": "The dead oak at the seventh mile by flash: whitewash down the bark under one limb, and in the hollow, two shapes that are bark until the flash goes, and then are two yellow points, and then are bark.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "rt_ford_cast": {
+   "title": "Cast: prints in the creek mud",
+   "text": "A plaster cast of two small prints side by side in the mud below the ford apron: five long fingers, a narrow palm, like something that walked on its hands.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "rt_ford_cast_lab"
+  },
+  "rt_ford_cast_lab": {
+   "title": "Lab: the ford prints",
+   "text": "Raccoon, hind feet, an adult of about fifteen pounds, walking slowly in soft mud, which spreads the toes and lengthens the print by a third. The lab has enclosed a diagram and, unprompted, a note that says 'everybody does this one.'",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "rt_ford_cast",
+    "rt_ford_prints_photo"
+   ]
+  },
+  "rt_ford_prints_photo": {
+   "title": "Photo: prints at the ford",
+   "text": "A line of small five-fingered prints coming out of the tobacco and going down the dry creek bed, two of them side by side.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "rt_cage_fur": {
+   "title": "Fur from the cage wire",
+   "text": "Tufts of fine brown fur, some grey at the root, and a red thread, caught in the hinge side of the 1955 show cage where something squeezed past the broken latch.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "rt_cage_fur_lab"
+  },
+  "rt_cage_fur_lab": {
+   "title": "Lab: the cage fur",
+   "text": "Rhesus macaque, and recent: shed this summer, with the oils still in it. The thread is polyester, which did not exist in a red jacket in 1955. This is the fair's current monkey. The cage is evidence of a bad latch.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "rt_cage_fur",
+    "rt_cage_photo"
+   ]
+  },
+  "rt_cage_photo": {
+   "title": "Photo: the show cage",
+   "text": "Kincaid's iron show cage on the Kelly fairground, door open, fur in the hinge, a brass plate: WONDERS OF THE WORLD.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "rt_pete_1994": {
+   "title": "Pete, the fourth",
+   "text": "The fair's current monkey is the fourth Pete and gets out every fair week; he is in the honeysuckle on the back fence at dusk. Any fur in the 1955 cage is his and this summer's.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "rt_cage_fur",
+    "rt_cage_photo"
+   ]
+  },
+  "rt_cross_note": {
+   "title": "The note at the roadside cross",
+   "text": "A card in a sandwich bag tucked into the plastic roses on a 1991 roadside cross on US-41, written this week: THEY CAME BACK FOR HIM TOO. A quarter and an unfired shotgun shell under it.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "rt_cb_chatter": {
+   "title": "Channel 19 in August",
+   "text": "Every August the CB fills with 'eyes at the seventh mile' and 'watch the ford.' Half of it is drivers egging each other on and the other half is drivers who heard the first half.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "rt_mile_marker": {
+   "title": "The seventh mile",
+   "text": "Royce has seen the eyes for nine years in one place: the fence post under the dead oak on the west side at mile seven, or the limb over it, two at a time, at headlight height, gone when he hits the brights.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rt_trucker_owls": {
+   "title": "Royce knows what they are",
+   "text": "'Owls. I know it's owls. I've known it was owls for nine years.' He drives it anyway with the brights on and the window up, and he does not want Dot told.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "rt_mirror_story": {
+   "title": "Something in the sleeper, 1991",
+   "text": "Once, in 1991, Royce looked in the cab mirror south of the ford and something was sitting in the sleeper behind him, small, with its hands up. He pulled into the truck stop and nothing was there, and he has not slept in the cab on this road since.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "rt_fell_asleep": {
+   "title": "The rumble strip",
+   "text": "Royce had been driving nineteen hours. He hit the rumble strip south of the ford, woke, and the thing in the mirror was the dream he woke out of. He has never said so, because Dot was the one who found him shaking at the pumps.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "rt_mirror_story"
+   ]
+  }
+ },
+ "contradictions": {
+  "rt_cage_empty": {
+   "title": "A claim dated the 22nd, a cage empty on the 19th",
+   "evidence": [
+    "rt_monkey_claim",
+    "rt_show_photo_1955"
+   ],
+   "witness": "rt_fair_manager",
+   "prompt": "Your file says Kincaid reported the monkey lost on the 22nd. This photo from the 19th shows the cage already empty. It was loose for two days before that night, wasn't it, Mr Boyd?"
+  }
+ },
+ "trail": []
+}
