@@ -1,5 +1,5 @@
 {
- "_doc": "Point Pleasant, West Virginia. Ported from the browser slice; the full case expands these into districts, gated witnesses and the trail (design doc: Systems v2).",
+ "_doc": "Point Pleasant, West Virginia. leads are the open statements (Milestone 1). witnesses hold gated facts (Milestone 2): each fact unlocks by any one of its gates: a speech check {check, difficulty}, showing evidence {show}, holding two conflicting pieces {contradiction}, or trust {trust}. Evidence can be a red herring (exposed by evidence that lists it in exposes) and samples with a lab entry come back as the result evidence after a night's sleep.",
  "id": "point_pleasant",
  "name": "Point Pleasant",
  "place": "Point Pleasant, West Virginia",
@@ -14,7 +14,10 @@
   "gas": "Mason Gas",
   "motel": "Riverview Motel",
   "river": "Riverbank memorial",
-  "tnt": "The TNT Area"
+  "tnt": "The TNT Area",
+  "church": "First Methodist",
+  "walt": "Walt Pruitt's house",
+  "street": "Main Street"
  },
  "leads": [
   {
@@ -264,7 +267,8 @@
    "text": "Locals blame teenagers with reflectors at the TNT igloos.",
    "lean": "hoax",
    "weight": 1,
-   "kind": "testimony"
+   "kind": "testimony",
+   "red_herring": true
   },
   "original_report": {
    "title": "Original report, Nov 1966",
@@ -278,7 +282,8 @@
    "text": "Proposes a sandhill crane: man-tall, red crown, far off course.",
    "lean": "natural",
    "weight": 2,
-   "kind": "document"
+   "kind": "document",
+   "red_herring": true
   },
   "deputy_bird": {
    "title": "Deputy's grey bird",
@@ -321,6 +326,218 @@
    "lean": "unexplained",
    "weight": 1,
    "kind": "testimony"
+  },
+  "suits_at_diner": {
+   "title": "The suits at the diner",
+   "text": "The two men asked Marlene whether the lights were red or red-orange.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony"
+  },
+  "marlene_tnt": {
+   "title": "Marlene at igloo 7",
+   "text": "Marlene saw it rise from the roof of igloo 7 at the TNT area, silently.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "testimony"
+  },
+  "kessler_name": {
+   "title": "The Kessler boys",
+   "text": "Bobby Kessler and his cousin run the reflector prank from a garage on Sixth Street.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony"
+  },
+  "no_such_biologist": {
+   "title": "No such biologist",
+   "text": "The university never employed the letter's author. The crane letter is a plant.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "exposes": [
+    "biologist_letter"
+   ]
+  },
+  "teletype_bells": {
+   "title": "Teletype bells, 1966",
+   "text": "The Register's teletype rang three bells with no copy for days in November 1966.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document"
+  },
+  "call_log": {
+   "title": "Dispatch call log",
+   "text": "Marlene's call: 2:40 AM, from the TNT gatehouse phone.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document"
+  },
+  "board_timeline": {
+   "title": "The board can't be 1966",
+   "text": "The deputy confirms the Kessler prank, but the boys were eight in 1966.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "exposes": [
+    "prank_rumour"
+   ]
+  },
+  "old_name": {
+   "title": "The bird's field",
+   "text": "The TNT ground was called the bird's field before the plant existed.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony"
+  },
+  "room_14_key": {
+   "title": "Key to room 14",
+   "text": "The clerk's key. Second floor, end of the walk.",
+   "lean": "unexplained",
+   "weight": 0,
+   "kind": "document",
+   "key": true
+  },
+  "kid_dog": {
+   "title": "The dog with the wrong legs",
+   "text": "The kid was paid to lie about the lights, but saw a large wrong-legged dog behind the church.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony"
+  },
+  "dream_list": {
+   "title": "The pastor's dream list",
+   "text": "Thirteen parishioners dreamed the Silver Bridge fell before it did.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "red_herring": true
+  },
+  "dreams_after": {
+   "title": "Dreams told after the fact",
+   "text": "Every bridge dream was reported after the collapse. The list proves grief, not warning.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "exposes": [
+    "dream_list"
+   ]
+  },
+  "walt_fur": {
+   "title": "Fur from Walt's fence",
+   "text": "Grey fur caught on the wire where something took a hen.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "red_herring": true,
+   "lab": "walt_fur_lab"
+  },
+  "walt_fur_lab": {
+   "title": "Lab: Walt's fur",
+   "text": "German shepherd. Walt's neighbour owns two.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "exposes": [
+    "walt_fur"
+   ]
+  },
+  "fence_fur": {
+   "title": "Fur on the church fence",
+   "text": "A tuft of grey fur on the fence behind the church, two metres up.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "lab": "fence_fur_lab"
+  },
+  "fence_fur_lab": {
+   "title": "Lab: church fence fur",
+   "text": "Not dog. Not any bird in the key. Keratin structure unknown.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "physical"
+  },
+  "fur_photo": {
+   "title": "Photo of fur on the fence",
+   "text": "Grey fur on a fence, too high for a dog to reach.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording"
+  },
+  "scorch_reading": {
+   "title": "Counter reading, scorch ring",
+   "text": "A burned ring behind the church reads four times background on the Geiger counter.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording"
+  },
+  "scorch_photo": {
+   "title": "Photo of the scorch ring",
+   "text": "A ring of burned grass behind the church, two metres across.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording"
+  },
+  "runoff_sample": {
+   "title": "Glowing runoff",
+   "text": "Faintly glowing water in the ditch behind Mason Gas.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "red_herring": true,
+   "lab": "runoff_lab"
+  },
+  "runoff_lab": {
+   "title": "Lab: ditch water",
+   "text": "Phosphorus runoff from the old plant. It has glowed since the war.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "exposes": [
+    "runoff_sample"
+   ]
+  },
+  "dropped_film": {
+   "title": "Dropped roll of film",
+   "text": "An exposed roll of film in the snow behind the motel.",
+   "lean": "unexplained",
+   "weight": 0,
+   "kind": "recording",
+   "lab": "developed_film"
+  },
+  "developed_film": {
+   "title": "Developed film, frame 12",
+   "text": "Something on the motel roofline. Overexposed. Two points of light where the eyes would be.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "recording"
+  },
+  "boot_tell": {
+   "title": "Bootprints under the claw marks",
+   "text": "Clawed tracks near the Kessler house with a bootprint pressed under each one.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "recording"
+  },
+  "boot_cast": {
+   "title": "Cast of the claw marks",
+   "text": "A plaster cast of a three-toed track. The toes are too even.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "physical"
+  },
+  "window_scratches": {
+   "title": "Scratches on the window of room 14",
+   "text": "Three parallel scratches on the outside of a second-floor window with no balcony.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording"
+  },
+  "prints_cast": {
+   "title": "Cast of the riverbank prints",
+   "text": "Three toes, long, and a stride no bird could make.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "physical"
   }
  },
  "observations": [
@@ -348,5 +565,395 @@
    "text": "It is watching you. Only you",
    "lean": "unexplained"
   }
- ]
+ ],
+ "speech_tags": [
+  "logic",
+  "press",
+  "tech",
+  "lore",
+  "empathy",
+  "intimidate",
+  "arcana"
+ ],
+ "witnesses": {
+  "marlene": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "marlene_suits",
+     "title": "The two men",
+     "gates": [
+      {
+       "show": "the_suits"
+      }
+     ],
+     "lines": [
+      [
+       "marlene",
+       "Those two came in here Tuesday. Ordered coffee and never drank it."
+      ],
+      [
+       "marlene",
+       "Asked me if the lights had been red, or 'red-orange'. Like it mattered. Like there was a right answer."
+      ]
+     ],
+     "evidence": "suits_at_diner"
+    },
+    {
+     "id": "marlene_tnt",
+     "title": "Where she really was",
+     "gates": [
+      {
+       "contradiction": "marlene_time"
+      },
+      {
+       "check": "empathy",
+       "difficulty": 9,
+       "prompt": "You weren't coming home from your sister's, were you."
+      }
+     ],
+     "lines": [
+      [
+       "marlene",
+       "...No. I was out at the TNT area. With Dwight Mason, and his wife don't know, and now you do."
+      ],
+      [
+       "marlene",
+       "It came up off the roof of igloo 7 like it had been sitting there. Waiting on something. Two red lights, and then it was over the car and there was no sound at all."
+      ],
+      [
+       "miriam",
+       "Igloo 7. June's tone was strongest there."
+      ]
+     ],
+     "evidence": "marlene_tnt"
+    }
+   ]
+  },
+  "regulars": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "regulars_names",
+     "title": "Who the kids are",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 6,
+       "prompt": "Which kids? Off the record."
+      },
+      {
+       "check": "intimidate",
+       "difficulty": 7,
+       "prompt": "Names. Now."
+      }
+     ],
+     "lines": [
+      [
+       "regulars",
+       "Fine. Bobby Kessler and his cousin. Garage on Sixth Street, you can't miss the bicycle reflectors."
+      ],
+      [
+       "teddy",
+       "Sixth Street. Noted."
+      ]
+     ],
+     "evidence": "kessler_name"
+    }
+   ]
+  },
+  "editor": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "editor_crane",
+     "title": "The crane letter",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "Did you ever verify that biologist?"
+      }
+     ],
+     "lines": [
+      [
+       "editor",
+       "I did, in '67. The university has no biologist by that name. Never had."
+      ],
+      [
+       "editor",
+       "Somebody wanted us to print 'crane'. I nearly did."
+      ]
+     ],
+     "evidence": "no_such_biologist"
+    },
+    {
+     "id": "editor_teletype",
+     "title": "The newsroom teletype",
+     "gates": [
+      {
+       "show": "three_note_tone"
+      }
+     ],
+     "lines": [
+      [
+       "editor",
+       "Three notes. We had that on the newsroom teletype in November '66. Three bells and no copy, over and over."
+      ],
+      [
+       "editor",
+       "The operator quit. Left the machine running and walked out."
+      ]
+     ],
+     "evidence": "teletype_bells"
+    }
+   ]
+  },
+  "deputy": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "deputy_log",
+     "title": "The call log",
+     "gates": [
+      {
+       "check": "tech",
+       "difficulty": 6,
+       "prompt": "Your dispatcher logs every call, right? Time and line?"
+      },
+      {
+       "show": "the_suits"
+      }
+     ],
+     "lines": [
+      [
+       "deputy",
+       "Dispatcher logs everything. Marlene's call came in 2:40 in the morning."
+      ],
+      [
+       "deputy",
+       "From the TNT gatehouse phone. That's not on the way home from anybody's sister."
+      ]
+     ],
+     "evidence": "call_log"
+    },
+    {
+     "id": "deputy_board",
+     "title": "The Kessler boys",
+     "gates": [
+      {
+       "contradiction": "board_age"
+      }
+     ],
+     "lines": [
+      [
+       "deputy",
+       "Kessler boys. I've taken that board off 'em twice."
+      ],
+      [
+       "deputy",
+       "Doesn't explain November '66, though. Those boys were eight years old."
+      ]
+     ],
+     "evidence": "board_timeline"
+    }
+   ]
+  },
+  "earl": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "earl_name",
+     "title": "The old name",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 6,
+       "prompt": "What did people call that ground before the plant?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "earl",
+       "My granddad called it the bird's field. Before the war, before there was a plant on it."
+      ],
+      [
+       "earl",
+       "Said the Shawnee wouldn't camp there. Said nobody with sense would."
+      ]
+     ],
+     "evidence": "old_name"
+    }
+   ]
+  },
+  "clerk": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "clerk_key",
+     "title": "The key to room 14",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 6,
+       "prompt": "You don't have to go up. Just give us the key."
+      },
+      {
+       "check": "press",
+       "difficulty": 7,
+       "prompt": "We'll say the motel cooperated fully."
+      }
+     ],
+     "lines": [
+      [
+       "clerk",
+       "Take it. Don't bring it back, I don't want it."
+      ],
+      [
+       "clerk",
+       "Second floor, end of the walk. Don't open the curtains."
+      ]
+     ],
+     "evidence": "room_14_key"
+    }
+   ]
+  },
+  "kid": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kid_dollar",
+     "title": "Bobby's dollar",
+     "gates": [
+      {
+       "show": "prank_rumour"
+      },
+      {
+       "check": "press",
+       "difficulty": 5,
+       "prompt": "Somebody paying you to say that?"
+      }
+     ],
+     "lines": [
+      [
+       "kid",
+       "Bobby gives me a dollar to say I saw it. I didn't see it."
+      ],
+      [
+       "kid",
+       "I saw the dog, though. The big one with the wrong legs. Out behind the church."
+      ]
+     ],
+     "evidence": "kid_dog"
+    }
+   ]
+  },
+  "pastor": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "pastor_dreams",
+     "title": "The bridge dreams",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "The old stories say a warning comes before a loss."
+      },
+      {
+       "check": "empathy",
+       "difficulty": 7,
+       "prompt": "You lost people on the bridge."
+      }
+     ],
+     "lines": [
+      [
+       "pastor",
+       "Thirteen people in this congregation told me they dreamed the bridge fell. Before it fell."
+      ],
+      [
+       "pastor",
+       "I wrote the names down. I keep the list in my Bible and I have never shown it to anyone."
+      ]
+     ],
+     "evidence": "dream_list"
+    },
+    {
+     "id": "pastor_after",
+     "title": "When the dreams were told",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "When did they tell you? Before the collapse, or after?"
+      }
+     ],
+     "lines": [
+      [
+       "pastor",
+       "...After. Every one of them told me after."
+      ],
+      [
+       "pastor",
+       "Grief needs a reason. I gave them one. God forgive me."
+      ]
+     ],
+     "evidence": "dreams_after"
+    }
+   ]
+  },
+  "walt": {
+   "trust": 0,
+   "facts": [
+    {
+     "id": "walt_fur",
+     "title": "The fur on the fence",
+     "gates": [
+      {
+       "check": "intimidate",
+       "difficulty": 6,
+       "prompt": "You've got fur on your fence and a story you're not telling."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "walt",
+       "Something come over my fence Thursday night. Left that on the wire. Took a hen."
+      ],
+      [
+       "walt",
+       "You want it, bag it. I ain't touching it."
+      ]
+     ],
+     "evidence": "walt_fur"
+    }
+   ]
+  }
+ },
+ "contradictions": {
+  "marlene_time": {
+   "title": "Marlene's timeline",
+   "evidence": [
+    "marlene_statement",
+    "call_log"
+   ],
+   "witness": "marlene",
+   "prompt": "Route 62 at eleven, you said. The sheriff logged your call at 2:40 from the TNT gatehouse."
+  },
+  "board_age": {
+   "title": "The board and 1966",
+   "evidence": [
+    "reflector_board",
+    "original_report"
+   ],
+   "witness": "deputy",
+   "prompt": "Reflectors on a board explain this winter. Who was holding one in 1966?"
+  }
+ }
 }

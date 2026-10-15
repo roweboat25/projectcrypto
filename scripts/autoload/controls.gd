@@ -10,6 +10,8 @@ const ACTIONS := {
 	"rotate_right": [KEY_E],
 	"interact": [KEY_SPACE, KEY_ENTER, KEY_Z],
 	"toggle_time": [KEY_T],
+	"evidence": [KEY_TAB, KEY_I],
+	"cancel": [KEY_ESCAPE, KEY_X],
 	"save": [KEY_F5],
 	"load": [KEY_F9],
 }
