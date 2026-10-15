@@ -16,6 +16,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("interact"):
+		get_tree().change_scene_to_file("res://scenes/town.tscn")
+		return
 	_orbit += delta * 0.08
 	_camera.position = Vector3(sin(_orbit) * 17.0, 9.0, cos(_orbit) * 17.0)
 	_camera.look_at(Vector3(0, 1.2, 0))
@@ -185,7 +188,7 @@ func _build_ui() -> void:
 	layer.add_child(root)
 
 	_prompt = Label.new()
-	_prompt.text = "Milestone 0 build. The walkable town arrives in Milestone 1."
+	_prompt.text = "Press Space to walk Main Street"
 	_prompt.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
 	_prompt.position = Vector2(-400, -90)
 	_prompt.size = Vector2(800, 30)

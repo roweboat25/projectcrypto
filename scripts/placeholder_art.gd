@@ -62,3 +62,59 @@ static func _outline(img: Image) -> void:
 				if p.x >= 0 and p.y >= 0 and p.x < img.get_width() and p.y < img.get_height() and src.get_pixelv(p).a > 0.0:
 					img.set_pixel(x, y, OUTLINE)
 					break
+
+
+## A 4x3 sheet of 32x48 frames: columns face down, left, right, up;
+## rows are idle, walk A, walk B. Used by Sprite3D with hframes=4, vframes=3.
+static func investigator_sheet(coat: Color, hair: Color, skin: Color, hat := false) -> ImageTexture:
+	var img := Image.create(128, 144, false, Image.FORMAT_RGBA8)
+	img.fill(Color(0, 0, 0, 0))
+	for dir in 4:
+		for step in 3:
+			var frame := Image.create(32, 48, false, Image.FORMAT_RGBA8)
+			frame.fill(Color(0, 0, 0, 0))
+			_draw_body(frame, dir, step, coat, hair, skin, hat)
+			_outline(frame)
+			img.blit_rect(frame, Rect2i(0, 0, 32, 48), Vector2i(dir * 32, step * 48))
+	return ImageTexture.create_from_image(img)
+
+
+static func _draw_body(img: Image, dir: int, step: int, coat: Color, hair: Color, skin: Color, hat: bool) -> void:
+	var pants := coat.darkened(0.55)
+	var side := dir == 1 or dir == 2
+	var lift_a := 2 if step == 1 else 0
+	var lift_b := 2 if step == 2 else 0
+	var bob := 1 if step != 0 else 0
+	if side:
+		var fwd := -1 if dir == 1 else 1
+		_rect(img, 14 + fwd * (2 if step == 1 else 0), 36, 4, 10 - lift_a, pants)
+		_rect(img, 14 - fwd * (2 if step == 2 else 0), 36, 4, 10 - lift_b, pants.darkened(0.2))
+		_rect(img, 11, 20 + bob, 10, 18, coat)
+		_rect(img, 14 + fwd * 2, 22 + bob, 3, 12, coat.darkened(0.2))
+		_rect(img, 11, 7 + bob, 10, 12, skin)
+		_rect(img, 10, 5 + bob, 12, 5, hair)
+		if dir == 1:
+			_rect(img, 17, 8 + bob, 4, 8, hair)
+			_rect(img, 12, 12 + bob, 2, 2, OUTLINE)
+		else:
+			_rect(img, 11, 8 + bob, 4, 8, hair)
+			_rect(img, 18, 12 + bob, 2, 2, OUTLINE)
+	else:
+		_rect(img, 12, 36, 3, 10 - lift_a, pants)
+		_rect(img, 17, 36, 3, 10 - lift_b, pants)
+		_rect(img, 9, 20 + bob, 14, 18, coat)
+		_rect(img, 7, 21 + bob + lift_b, 3, 13, coat.darkened(0.15))
+		_rect(img, 22, 21 + bob + lift_a, 3, 13, coat.darkened(0.15))
+		_rect(img, 11, 7 + bob, 10, 12, skin)
+		_rect(img, 10, 5 + bob, 12, 5, hair)
+		if dir == 0:
+			_rect(img, 15, 20 + bob, 2, 16, coat.darkened(0.3))
+			_rect(img, 10, 9 + bob, 2, 6, hair)
+			_rect(img, 20, 9 + bob, 2, 6, hair)
+			_rect(img, 13, 12 + bob, 2, 2, OUTLINE)
+			_rect(img, 17, 12 + bob, 2, 2, OUTLINE)
+		else:
+			_rect(img, 10, 5 + bob, 12, 12, hair)
+	if hat:
+		_rect(img, 8, 5 + bob, 16, 2, coat.darkened(0.6))
+		_rect(img, 11, 1 + bob, 10, 5, coat.darkened(0.6))
