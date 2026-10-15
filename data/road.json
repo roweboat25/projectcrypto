@@ -378,6 +378,216 @@
     "night_desk",
     "numbers_2"
    ]
+  },
+  "sutton_to_kelly": {
+   "name": "Sutton to Kelly",
+   "from": "sutton",
+   "to": "kelly",
+   "arrive_map": "kelly_hopkinsville",
+   "arrive_at": [
+    30,
+    26
+   ],
+   "hours": 10,
+   "season": "summer",
+   "arrive_day": "You come into %s on 41 with the windows down, past the tobacco warehouses and the stockyard smell, and park on the courthouse square under a Greyhound sign that has not had a bus under it all day.",
+   "arrive_night": "You come into %s after dark. The courthouse clock is lit, the square is empty, and the Greyhound sign buzzes over a bench with nobody on it. For the last ten miles something in the hedgerows along 41 kept pace with the headlights. Dread rises.",
+   "stops": [
+    {
+     "name": "Gassaway",
+     "text": "August, and the wagon pulls out of Sutton with every window down because the heater is stuck on and has been since February. The back seat is tape stock, two coolers and a box of Kelly clippings from 1955 that Ruth will not let anyone sit on. Gassaway's on-ramp shimmers. Nine hours by the interstates, twelve by the back roads, and the Buick's gas gauge is already arguing with itself.",
+     "highway": "I-79 south to Charleston",
+     "back": "WV-4 down the Elk through Clay and Clendenin",
+     "sights": "The Elk low and green between its rocks, a boy on a bridge rail with a cane pole, Queen Anne's lace in the ditches, and the courthouse clock in Sutton wrong behind you as always.",
+     "events": [
+      "fruit_stand",
+      "fireworks_stand",
+      "church_sign"
+     ]
+    },
+    {
+     "name": "Charleston",
+     "text": "The capitol dome comes up gold over the Kanawha in a haze you can taste. I-64 west takes the river's north bank on concrete stilts past the chemical plants, each with its own weather. The back road is US-60 along the water, through St. Albans and Nitro, where every third building was something to do with the war once.",
+     "highway": "I-64 west through Charleston and Teays Valley",
+     "back": "US-60 down the Kanawha through St. Albans and Hurricane",
+     "sights": "The capitol dome, a chemical plant breathing white into a white sky, a towboat pushing nine barges of coal downriver, and a billboard for a Sternwheel Regatta that was last month.",
+     "events": [
+      "state_trooper",
+      "payphone",
+      "fireworks_stand"
+     ]
+    },
+    {
+     "name": "The Ohio crossing",
+     "text": "Huntington is brick and rail yards and a river that is suddenly the Ohio, wide and brown and slow. The interstate jumps the Big Sandy into Kentucky without ceremony; the back road is US-60 through Ashland, past the Armco stacks and the steel town's Saturday faces. Somewhere in the middle of the bridge the car is in a different state and nobody says anything.",
+     "highway": "I-64 west over the Big Sandy into Kentucky",
+     "back": "US-60 through Huntington and Ashland along the river",
+     "sights": "Marshall's green roofs, the Ashland steelworks with one stack going, a barge tow longer than the bridge, and thunderheads building over Ohio like a second range of hills.",
+     "events": [
+      "ohio_storm",
+      "truck_stop_cb",
+      "hitchhiking_soldier"
+     ]
+    },
+    {
+     "name": "Mount Sterling",
+     "text": "The hills give out past Morehead and the land goes to pasture, limestone and white plank fence. Horse country, with the fences running for miles and the barns painted better than the houses. Lexington sits on the interstate like a city that expects you; the back road is US-60 through Mount Sterling and Winchester, the Bluegrass Parkway's poorer cousin, two lanes and tobacco on either side.",
+     "highway": "I-64 west past Lexington",
+     "back": "US-60 through Mount Sterling and Winchester, the old road",
+     "sights": "White fences to the horizon, a yearling standing in the shade of one tree, a sign for a bourbon distillery tour, and the first tobacco cut and speared in the field.",
+     "events": [
+      "loose_horse",
+      "cantaloupe_man",
+      "hitchhiker"
+     ]
+    },
+    {
+     "name": "Elizabethtown",
+     "text": "The Bluegrass Parkway runs out at Elizabethtown and the Western Kentucky Parkway takes over, a toll road with the tolls recently gone and the booths still standing. Bowling Green is an hour south with a Corvette plant and a museum nearly built. The back road drops through Leitchfield into caves country, where the ground is hollow and every farm has a sinkhole it does not talk about.",
+     "highway": "The Western Kentucky Parkway west from Elizabethtown",
+     "back": "KY-259 through Leitchfield and the caves country",
+     "sights": "An empty toll booth with a wasp nest in it, a Fort Knox tank on a flatbed, a hand-lettered sign for a cave tour, and heat lightning in the south with no thunder behind it.",
+     "events": [
+      "radar_trap",
+      "corvette_billboard",
+      "tobacco_wagon"
+     ]
+    },
+    {
+     "name": "Pembroke",
+     "text": "The Pennyrile Parkway brings you down to US-41 on the far side of Hopkinsville and the last leg is the old road in. Tobacco barns start, black and slatted, smoke coming out of the eaves where the dark-fired crop is curing. Fort Campbell's traffic shares the road: pickups with post stickers, a Humvee, a bus full of soldiers with their heads against the glass. Kelly is a crossroads eight miles up 41 and nobody wants to pass it first in the dark.",
+     "highway": "US-41 north into Hopkinsville",
+     "back": "The Fairview road past the Jefferson Davis obelisk, then in by Pembroke",
+     "sights": "Tobacco barns smoking in the heat, a 351-foot concrete obelisk standing in a cornfield for no reason anyone can explain, a Fort Campbell bus, and a stretch of hedgerow where the cicadas stop.",
+     "events": [
+      "tobacco_wagon",
+      "hitchhiking_soldier",
+      "fireworks_stand"
+     ]
+    }
+   ],
+   "deck": [
+    "fruit_stand",
+    "fireworks_stand",
+    "church_sign",
+    "payphone",
+    "motel_night",
+    "ohio_storm",
+    "hitchhiking_soldier",
+    "loose_horse",
+    "cantaloupe_man",
+    "radar_trap",
+    "corvette_billboard",
+    "tobacco_wagon"
+   ],
+   "stations": [
+    "wsgb_1490",
+    "wchs_580",
+    "wvpn_885",
+    "wklc_1051",
+    "wqbe_975",
+    "wkee_1005",
+    "night_desk",
+    "numbers_1",
+    "tone",
+    "whop_1230",
+    "wkdz_1110",
+    "whas_840",
+    "fort_campbell_1600",
+    "shortwave_preacher",
+    "numbers_pennyrile"
+   ]
+  },
+  "kelly_to_sutton": {
+   "name": "Kelly to Sutton",
+   "from": "kelly",
+   "to": "sutton",
+   "arrive_map": "sutton_office",
+   "arrive_at": [
+    14.5,
+    20
+   ],
+   "hours": 10,
+   "season": "summer",
+   "arrive_day": "You come into %s late in the afternoon with the windows down and Kentucky dust on everything, past the courthouse, and the Office looks small and exactly where you left it.",
+   "arrive_night": "You come into %s after midnight with the Buick ticking and the courthouse clock wrong. The Office is dark. Nobody has slept properly in days. Dread rises.",
+   "stops": [
+    {
+     "name": "Hopkinsville",
+     "text": "The case boxes go in the back, the coolers go in empty, and the wagon pulls off the courthouse square with the Greyhound sign in the mirror. Nobody looks at the Kelly turn as 41 goes past it. The Pennyrile Parkway north is empty and straight and the heat is already up at eight in the morning. It is a long way home and everyone in the car is tired in a way sleep has not fixed.",
+     "highway": "The Pennyrile Parkway north to the Western Kentucky Parkway",
+     "back": "US-41 north through Crofton and Madisonville",
+     "sights": "Tobacco barns smoking, a Fort Campbell convoy going the other way, a sinkhole pond with a dead tree standing in it, and the sign for Kelly going by without anyone reading it out.",
+     "events": [
+      "tobacco_wagon",
+      "hitchhiking_soldier",
+      "cantaloupe_man"
+     ]
+    },
+    {
+     "name": "Elizabethtown",
+     "text": "The Western Kentucky Parkway runs east through the knobs with the heat haze lying on it like water. Elizabethtown is gas, coffee and a payphone. The back road is US-62 through Leitchfield, slower and shaded, with the caves country under it and the cicadas going like a bearing about to fail.",
+     "highway": "The Western Kentucky Parkway east, then the Bluegrass Parkway",
+     "back": "US-62 through Leitchfield and the knobs",
+     "sights": "An empty toll booth, a Fort Knox tank on a flatbed going the other way now, a drive-in with the screen holed by weather, and a sky in the east the colour of a bruise.",
+     "events": [
+      "radar_trap",
+      "corvette_billboard",
+      "motel_night"
+     ]
+    },
+    {
+     "name": "Lexington",
+     "text": "Horse country again, the white fences running for miles and nobody in the car saying anything about them this time. Lexington on the interstate, then the long easy grade toward Winchester and the hills. The back road is US-60 through Mount Sterling, the old road, with the tobacco mostly cut now and hanging in the barns.",
+     "highway": "I-64 east past Lexington toward Morehead",
+     "back": "US-60 through Winchester and Mount Sterling",
+     "sights": "White fences, a horse van with its ramp down in a gateway, a bourbon warehouse black with the angels' share, and a pair of headlights that keep the same distance.",
+     "events": [
+      "loose_horse",
+      "black_sedan",
+      "fruit_stand"
+     ]
+    },
+    {
+     "name": "The Ohio crossing",
+     "text": "The sky over Ohio has been building all afternoon and it breaks at the river. The Big Sandy bridge in rain, Huntington's rail yards steaming, the wipers losing. Then West Virginia, Charleston's dome in the wet dusk, and I-79 north through the hills in the dark with the case boxes shifting on the curves and the sorting room waiting.",
+     "highway": "I-64 east over the Big Sandy, then I-79 north from Charleston",
+     "back": "US-60 through Ashland and Huntington, then WV-4 up the Elk",
+     "sights": "Lightning walking down the Ohio, the Ashland stacks lit by it, a towboat holding station mid-river with its searchlight on the water, and the Braxton County line sign in the headlights at last.",
+     "events": [
+      "ohio_storm",
+      "state_trooper",
+      "payphone"
+     ]
+    }
+   ],
+   "deck": [
+    "black_sedan",
+    "motel_night",
+    "payphone",
+    "fruit_stand",
+    "ohio_storm",
+    "radar_trap",
+    "fireworks_stand",
+    "hitchhiking_soldier",
+    "loose_horse",
+    "cantaloupe_man"
+   ],
+   "stations": [
+    "whop_1230",
+    "wkdz_1110",
+    "whas_840",
+    "fort_campbell_1600",
+    "shortwave_preacher",
+    "numbers_pennyrile",
+    "wkee_1005",
+    "wchs_580",
+    "wklc_1051",
+    "wsgb_1490",
+    "night_desk",
+    "numbers_2",
+    "tone"
+   ]
   }
  },
  "events": {
@@ -1648,6 +1858,374 @@
      "line": "The bag moves beside you for three stations and the man gets off at Brading with a nod. It is apparently the most normal thing that will happen all day."
     }
    ]
+  },
+  "tobacco_wagon": {
+   "title": "A tobacco wagon across the road",
+   "text": "A flatbed wagon stacked with speared tobacco, the sticks leaning like a haystack with a comb through it, has stalled crossways on the two-lane with a tractor in front of it and a man under the tractor. Two boys on the load look at the wagon the way people look at a parade float. There is no way round and no hurry anywhere in the county.",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Get out and help push",
+     "line": "Four of you and the two boys and the wagon rolls far enough to let a car by. The man comes out from under the tractor with grease to the elbow and a jar of sweet tea from the cooler, which is the only pay he has. He says Kelly like it is just the next town, which it is.",
+     "gives": {
+      "item": "sweet_tea",
+      "hours": 1,
+      "composure": 5
+     }
+    },
+    {
+     "text": "Ask what's wrong with the tractor",
+     "check": {
+      "voice": "tech",
+      "difficulty": 8
+     },
+     "line": "A fuel line, sucked flat where it goes over the manifold. Teddy has the tape stock out before the man finishes the sentence, and the tractor starts on the second pull. 'You all from the government?' 'Sutton.' He thinks that over and tells you the Suttons on his mother's side saw the things in '55.",
+     "gives": {
+      "flag": "tobacco_wagon_fixed",
+      "hours": 1
+     },
+     "fail": {
+      "line": "You hand him tools for forty minutes while he says 'no, the other one' and the heat comes off the road in sheets. In the end it is a fuel line and his boy fixes it.",
+      "gives": {
+       "hours": 2,
+       "composure": -10
+      }
+     }
+    },
+    {
+     "text": "Wait it out",
+     "line": "An hour on the shoulder with the windows down, listening to the cicadas and a boy on the load whistling the same four notes. The tractor catches eventually. The whistling stops before it does.",
+     "gives": {
+      "hours": 1,
+      "dread": 1
+     }
+    }
+   ]
+  },
+  "radar_trap": {
+   "title": "A radar trap outside Elizabethtown",
+   "text": "A Kentucky State Police cruiser sits under an overpass with the radar gun resting on the mirror, where the parkway comes down a grade and everyone is doing seventy-five. The lights come on for the wagon. Out-of-state plates, antennas, a roof rack, and a trooper in a grey Stetson who takes his time walking up through the heat.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "highway"
+   ],
+   "options": [
+    {
+     "text": "Be straight with him",
+     "line": "Investigators, Sutton, West Virginia, going to Hopkinsville on a case. He says 'Kelly' before you do, like a man naming a disease. He writes nothing, says the fair traffic on 41 is worse than any aliens, and watches you leave.",
+     "gives": {
+      "flag": "trooper_warned",
+      "hours": 1
+     }
+    },
+    {
+     "text": "Tell him you're a film crew",
+     "check": {
+      "voice": "bluff",
+      "difficulty": 9
+     },
+     "line": "Documentary, the Western Kentucky State Fair, public television. He asks which station and you say the one in Bowling Green. He has a cousin there. He loses interest and lets you go with a warning about the grade.",
+     "gives": {
+      "hours": 1
+     },
+     "fail": {
+      "line": "He asks which station and you name a Louisville one that does not do documentaries. The ticket is for seventy-four in a sixty-five, the lecture is about honesty in the Commonwealth, and both take a while in the sun.",
+      "gives": {
+       "cash": -45,
+       "hours": 1,
+       "composure": -10
+      }
+     }
+    },
+    {
+     "text": "Kill the scanner before he reaches the window",
+     "requires": {
+      "flag": [
+       "car_scanner"
+      ]
+     },
+     "line": "The scanner goes dark a second before his hand finds the door. He looks at the box, then at you. 'Kentucky doesn't mind those,' he says, 'but Tennessee does,' and lets it go.",
+     "gives": {
+      "composure": -5,
+      "flag": "trooper_warned"
+     }
+    }
+   ]
+  },
+  "corvette_billboard": {
+   "title": "A billboard with a hole in it",
+   "text": "NATIONAL CORVETTE MUSEUM, BOWLING GREEN, OPENING LABOR DAY, with a yellow '94 coupe painted eight feet long across it. Something has gone through the sign just behind the car's rear wheel: a hole the size of a dinner plate with the plywood splintered outward, as if whatever made it came from behind. Birds have been using it. The field behind the sign is nothing but cut hay.",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Pull over and look",
+     "line": "Ruth walks the field behind the sign while the others wait in the shade of it. Nothing. No tracks, no shell, no stone. The hole is clean and the splinters all point toward the road. Teddy photographs it anyway, because the Office photographs things.",
+     "gives": {
+      "flag": "corvette_billboard",
+      "hours": 1
+     }
+    },
+    {
+     "text": "Ask at the gas station up the road",
+     "line": "The man at the pump says it has been like that since June. 'Kids,' he says, and then, because you have not moved, 'well, somebody.' He gives you a map of Bowling Green with the museum on it and a cup of coffee that has been on the burner since dawn.",
+     "gives": {
+      "item": "coffee",
+      "cash": -1,
+      "flag": "corvette_billboard"
+     }
+    },
+    {
+     "text": "Drive on",
+     "line": "The yellow car and the hole go by. Somebody says it was probably a deer. Somebody else says deer do not hit things eight feet off the ground."
+    }
+   ]
+  },
+  "ohio_storm": {
+   "title": "A storm over the Ohio",
+   "text": "The thunderheads that have been standing over Ohio all day come across the river at once. The sky goes green, then black, and the bridge is suddenly a tunnel of water with the rails invisible and the wipers doing nothing. Lightning walks down the river. The radio is all static and under the static something that is not static.",
+   "when": [
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Pull under the overpass and wait it out",
+     "line": "Twenty minutes with the hazards on and the rain coming sideways, three trucks and a hearse waiting with you. It passes the way these things pass, all at once, and the river is steaming when you come out. The ones who get across fastest are the ones who sat still.",
+     "gives": {
+      "hours": 1,
+      "composure": 5
+     }
+    },
+    {
+     "text": "Drive through it",
+     "check": {
+      "voice": "nerve",
+      "difficulty": 8
+     },
+     "line": "Twenty miles an hour with the window down to see the line, the river roaring under the deck and lightning close enough to smell. Then it is behind you and the sun is out on wet asphalt and the whole car breathes.",
+     "gives": {
+      "composure": 5
+     },
+     "fail": {
+      "line": "Hydroplane, a long slow slide, the guardrail coming up and then not. The wagon stops crossways on the shoulder with everyone white. Nobody says anything for a mile.",
+      "gives": {
+       "composure": -15,
+       "dread": 1,
+       "gas": -1
+      }
+     }
+    },
+    {
+     "text": "Turn the radio up",
+     "line": "Under the static, between the lightning crashes, three notes. Low, lower, a step up. Ruth reaches over and turns it off, and the storm goes on without it.",
+     "gives": {
+      "flag": "tone_in_storm",
+      "dread": 1
+     }
+    }
+   ]
+  },
+  "hitchhiking_soldier": {
+   "title": "A soldier with his thumb out",
+   "text": "A young man in BDUs with a duffel at his feet stands on the shoulder with his thumb out, not hopeful, just out, the 101st patch on his shoulder and a haircut that says he has been in the field a week. Fort Campbell is the direction you are going. He looks at the West Virginia plates like they are a flag from home.",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Give him a ride",
+     "line": "He folds into the back with the duffel across his knees and talks for fifty miles, about Haiti maybe, about a sergeant, about a girl in Clarksville. Near Hopkinsville he goes quiet and says the post has a standing joke about Kelly, and the joke is that nobody from Charlie Company will take the 41 cutoff after dark, and it is not a joke.",
+     "gives": {
+      "flag": "soldier_lead",
+      "hours": 1
+     }
+    },
+    {
+     "text": "Ask him about the post first",
+     "check": {
+      "voice": "rapport",
+      "difficulty": 8
+     },
+     "line": "He says the division is on alert for somewhere hot and he would rather not say where. He says there are things the MPs log and things they do not, and gives you a name at the post gate and the number of a bar in Oak Grove. Then he takes the ride anyway and sleeps.",
+     "gives": {
+      "flag": "soldier_lead",
+      "hours": 1
+     },
+     "fail": {
+      "line": "He looks at the Office lettering on the door and decides you are reporters. The thumb comes down. 'Sir, I can't talk to the press,' he says, and means it.",
+      "gives": {
+       "composure": -5
+      }
+     }
+    },
+    {
+     "text": "Drive on",
+     "line": "He gets smaller in the mirror, standing very straight."
+    }
+   ]
+  },
+  "fireworks_stand": {
+   "title": "A fireworks stand with the flaps down",
+   "text": "A plywood shed on the shoulder, FIREWORKS in red on every side, LAST CHANCE, the Fourth six weeks gone and the stock half price. A man in a lawn chair with a shotgun across his knees and a radio going. Mortar tubes, bottle rockets, Roman candles, and a box of the big ones with no label at all.",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Buy a box of the big ones",
+     "line": "Ten dollars for a box that would be illegal in three of the states you have driven through. The man says they are for scaring crows. 'Or whatever,' he says. The box goes in the back next to the tape stock, which nobody is happy about.",
+     "gives": {
+      "cash": -10,
+      "flag": "road_fireworks"
+     }
+    },
+    {
+     "text": "Ask what he's heard about Kelly",
+     "line": "He turns the radio down. 'Every August,' he says. 'Every August somebody drives through asking.' He sells more Roman candles to Kelly folks in a week than to the rest of the county all summer, and he does not think it is for the Fourth.",
+     "gives": {
+      "cash": -2,
+      "flag": "fireworks_kelly"
+     }
+    },
+    {
+     "text": "Drive on",
+     "line": "The flaps go down behind you and the radio goes up."
+    }
+   ]
+  },
+  "loose_horse": {
+   "title": "A horse loose on the road",
+   "text": "A horse stands in the middle of the Bluegrass road, a bay with a halter and no lead, looking back the way it came. The white fence runs unbroken on both sides for a mile and there is no gate open. It does not move for the wagon. Behind it, the field it should be in is empty, and the grass is flat in a circle wide enough to park in.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Walk it back to the fence",
+     "check": {
+      "voice": "empathy",
+      "difficulty": 8
+     },
+     "line": "Ruth gets out slow with her hand low and the horse lets her take the halter. It walks with her to the fence and stands there shaking. The farm woman who comes down the lane in a truck says the gate has not been open since Tuesday and gives you a Thermos of coffee and a look that says she will be thinking about that for a while.",
+     "gives": {
+      "item": "coffee",
+      "flag": "loose_horse",
+      "hours": 1
+     },
+     "fail": {
+      "line": "The horse backs, wheels and goes down the road at a dead run, and keeps going. The farm woman who comes down the lane does not thank you. It takes an hour to find it and nobody mentions the circle in the grass to her.",
+      "gives": {
+       "hours": 2,
+       "composure": -10,
+       "flag": "loose_horse"
+      }
+     }
+    },
+    {
+     "text": "Photograph the field first",
+     "line": "Teddy gets the circle in the grass from the fence rail, three frames, before the horse decides to move on its own. It is probably a horse that rolled. It is a big horse. The circle is bigger.",
+     "gives": {
+      "flag": "loose_horse_circle",
+      "dread": 1
+     }
+    },
+    {
+     "text": "Ease past it",
+     "line": "Two wheels on the verge, the horse watching the car and not the road, and then it is behind you, still standing there, still looking back the way it came.",
+     "gives": {
+      "dread": 1
+     }
+    }
+   ]
+  },
+  "cantaloupe_man": {
+   "title": "A man selling cantaloupes",
+   "text": "A pickup backed into a church lot with a tailgate full of cantaloupes and a cardboard sign, 3 FOR $2. The man has a straw hat and a face that has done fifty summers of this. He waves the wagon in with the hat. Before the window is down he has seen the lettering on the door and has something to say.",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Buy three and let him talk",
+     "line": "'My brother saw them,' he says, thumbing a melon. 'Fifty-five. He was eleven. Said they come across the field like they was walking on a floor you couldn't see.' He puts the cantaloupes in the car and will not take more than two dollars and will not say the brother's name. 'He don't want it in a book.'",
+     "gives": {
+      "cash": -2,
+      "flag": "cantaloupe_man",
+      "composure": 5
+     }
+    },
+    {
+     "text": "Press him for the brother's name",
+     "check": {
+      "voice": "press",
+      "difficulty": 9
+     },
+     "line": "He looks at the road and says a name, and a church, and that the brother is a deacon there and will deny it. He takes the two dollars and says the melons are a dollar extra for that, and they are.",
+     "gives": {
+      "cash": -3,
+      "flag": "cantaloupe_man"
+     },
+     "fail": {
+      "line": "He puts the melon down. 'You all are the fourth this summer,' he says, and the hat comes off and the tailgate goes up and that is the end of the cantaloupes.",
+      "gives": {
+       "composure": -5
+      }
+     }
+    },
+    {
+     "text": "Drive on",
+     "line": "He waves the hat at the next car before you are out of the lot."
+    }
+   ]
   }
  },
  "stations": {
@@ -1913,6 +2491,93 @@
    "text": "A south coast phone-in after midnight, the host tired and kind. A woman from Shanklin says her husband saw lights over Culver Down in '73 and would not talk about it until the day he died, and then did, and the host lets the silence sit. A man from Gosport rings to say it was the Navy. 'It's always the Navy, Terry,' the host says. 'Next caller.'",
    "gives": {
     "flag": "late_lines_heard"
+   }
+  },
+  "whop_1230": {
+   "name": "WHOP 1230 Hopkinsville",
+   "band": "am",
+   "freq": 1230,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "'...WHOP news on the hour. The Western Kentucky State Fair opens its gates tonight at the fairgrounds on Richard Street with the tractor pull at seven, and Christian County marks another August 21st this weekend with a quiet the Chamber calls, quote, respectful. The Sutton family asks that visitors stay off the farm road. Dark-fired prices firm at the Pembroke warehouse. Ninety-four tomorrow, chance of storms after dark. WHOP, Hopkinsville, the Pennyrile's own.'",
+   "gives": {
+    "flag": "heard_whop_fair"
+   }
+  },
+  "wkdz_1110": {
+   "name": "WKDZ 1110 Cadiz",
+   "band": "am",
+   "freq": 1110,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day"
+   ],
+   "text": "The farm report, slow as the heat: 'Burley steady, dark-fired firm, feeder steers off a dollar at Guthrie. Corn's burning up in Trigg County and the Extension says don't bother with a second cutting. Lost: a bay gelding with a halter, Fairview road, call the number. Found: nothing yet. Hog futures after this from Ford of Cadiz.' Then a hymn, in full, because the next record is not cued.",
+   "gives": {
+    "flag": "heard_farm_report"
+   }
+  },
+  "whas_840": {
+   "name": "WHAS 840 Louisville",
+   "band": "am",
+   "freq": 840,
+   "kind": "callin",
+   "when": [
+    "dusk",
+    "night"
+   ],
+   "text": "Fifty thousand watts of clear channel from Louisville, strong as a station in the car: the Reds, if there are Reds tonight, the strike talk louder than the game. Between innings the host takes calls. A man from Oak Grove says the post has gone quiet and the buses are running at night, and a woman from Elkton says her dogs have not stopped since Monday. 'That's Christian County for you,' the host says, and goes to a break for a Louisville Chevy dealer.",
+   "gives": {
+    "flag": "heard_whas"
+   }
+  },
+  "fort_campbell_1600": {
+   "name": "Fort Campbell Post Information, 1600 AM",
+   "band": "am",
+   "freq": 1600,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "A loop on the top of the dial, a flat sergeant's voice over a hum: 'This is the Fort Campbell post information station. Gate 4 is closed to civilian traffic until further notice. Soldiers of the 101st Airborne Division, Air Assault, are reminded that the off-limits list has been updated; see your first sergeant. Range 41 is hot tonight. Civilians on US-41: expect convoy traffic after 2200. Do not stop for lights on the roadway. Repeat, do not stop for lights on the roadway.' Then the hum, then the loop again.",
+   "gives": {
+    "flag": "heard_post_notice"
+   }
+  },
+  "shortwave_preacher": {
+   "name": "Shortwave skip, 1570 AM",
+   "band": "am",
+   "freq": 1570,
+   "kind": "callin",
+   "when": [
+    "dusk",
+    "night"
+   ],
+   "text": "A preacher bleeding in from the shortwave bands, somewhere in the Ozarks or on a mountain in Tennessee, the signal swelling and sinking like breathing: '...and they shall come up out of the earth, brother, and they shall have faces, and I'm telling you it has HAPPENED, it has happened in this country, in the state of Kentucky, in the year of our Lord nineteen and fifty-five, and the papers LAUGHED...' A card can be sent to a post office box in Nashville. The signal goes under and does not come back.",
+   "gives": {
+    "flag": "heard_preacher"
+   }
+  },
+  "numbers_pennyrile": {
+   "name": "Unmarked, 1480 AM",
+   "band": "am",
+   "freq": 1480,
+   "kind": "numbers",
+   "when": [
+    "night"
+   ],
+   "text": "A woman's voice, Southern, unhurried, as if reading a grocery list to someone she loves: 'Eight. Two. One. Five. Five. Eight. Two. One. Five. Five.' A tone between each group, a chime between each pair. Teddy says eight twenty-one fifty-five before anyone else does. The voice does not care. It says it again.",
+   "gives": {
+    "flag": "numbers_pennyrile"
    }
   }
  }
