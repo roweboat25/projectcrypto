@@ -105,14 +105,14 @@ static func build_room(root: Node2D, id: String, room: Dictionary, origin: Vecto
 	# the doorway in the bottom edge
 	var door_x: int = w / 2
 	_erase(walls, origin + Vector2i(door_x, h + 1))
-	_tile(ground, origin + Vector2i(door_x, h + 1), "void")
+	_tile(ground, origin + Vector2i(door_x, h + 1), "concrete_dark")   # a walkable threshold: void tiles are solid
 	var actors := Node2D.new()
 	actors.name = "Actors_" + id
 	actors.y_sort_enabled = true
 	root.add_child(actors)
 	out.actors = actors
 	out.rect = Rect2(Vector2(origin - Vector2i(1, 1)) * T, Vector2(w + 2, h + 3) * T)
-	out.exit_y = float(origin.y + h + 1) * T + 8
+	out.exit_y = float(origin.y + h + 1) * T + 4
 	out.entry = Vector2((origin.x + door_x) * T + T / 2.0, (origin.y + h) * T + T / 2.0)
 	_props(actors, room.get("props", []), origin, id, out)
 	for n in room.get("npcs", []):
