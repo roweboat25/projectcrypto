@@ -137,13 +137,6 @@
      "I'll take that as a compliment to the profession."
     ]
    ],
-   "passives": [
-    {
-     "voice": "rapport",
-     "threshold": 6,
-     "line": "He is tipping you, not telling you. The night log. Ask him about it when the sheriff is not in."
-    }
-   ],
    "next": "hub",
    "gives": {
     "trust": {
@@ -182,13 +175,6 @@
      "Threes. On a police band. I need that frequency."
     ]
    ],
-   "passives": [
-    {
-     "voice": "tech",
-     "threshold": 7,
-     "line": "Three keys, no carrier. Not a mic. Whatever is doing it is doing it to the band itself."
-    }
-   ],
    "next": "hub",
    "gives": {
     "flag": "deputy_static_threes",
@@ -207,13 +193,6 @@
      "You want radio, there's a ham up on the Heights who logs every squeak. Talks more than me, too."
     ]
    ],
-   "passives": [
-    {
-     "voice": "tech",
-     "threshold": 5,
-     "line": "CB does not bleed onto a police band. He knows that. He gave you the ham instead, which is a kindness, so take it."
-    }
-   ],
    "next": "hub"
   },
   "coffee": {
@@ -231,13 +210,6 @@
      "elijah",
      "He poured you one. That's an answer."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "empathy",
-     "threshold": 6,
-     "line": "He poured without asking. A man on the night desk who pours you coffee is a man who has decided to talk and is waiting to be let."
-    }
    ],
    "next": "hub"
   },
@@ -304,18 +276,6 @@
      "teddy",
      "On the record. Thank you, Deputy. That one's going in exactly like you said it."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "intimidate",
-     "threshold": 7,
-     "line": "You got it out of him and it cost him something to give. Do not thank him twice; he will hear the second one as pity."
-    },
-    {
-     "voice": "nerve",
-     "threshold": 6,
-     "line": "Men in suits read a deputy's report before his own sheriff, in 1966. That is not a bird. Keep your face still."
-    }
    ],
    "next": "hub",
    "gives": {

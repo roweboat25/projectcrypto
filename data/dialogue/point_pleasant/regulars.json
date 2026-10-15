@@ -131,13 +131,6 @@
      "Second column. My uncle's in the third."
     ]
    ],
-   "passives": [
-    {
-     "voice": "lore",
-     "threshold": 6,
-     "line": "A cup turned down for the dead. Your grandmother did the same with a chair. You do not ask them to move it; you ask them nothing for a minute."
-    }
-   ],
    "next": "hub",
    "gives": {
     "trust": {
@@ -161,13 +154,6 @@
      "teddy",
      "Sixth Street. I'd have got there without the lie, but I'll take it."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "bluff",
-     "threshold": 5,
-     "line": "Columbus was a good choice. Far enough that nobody here reads it, close enough that they believe it exists."
-    }
    ],
    "next": "hub",
    "gives": {
@@ -229,13 +215,6 @@
      "You want reflectors, there's a kid on the corner by the courthouse with a pocketful. Ask him where he's taking 'em."
     ]
    ],
-   "passives": [
-    {
-     "voice": "fieldcraft",
-     "threshold": 5,
-     "line": "Boat trailer reflectors are oblong. Bicycle ones are round. You did not look before you spoke."
-    }
-   ],
    "next": "hub"
   },
   "quiet": {
@@ -257,13 +236,6 @@
      "june",
      "Thursday. Write down Thursday."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "empathy",
-     "threshold": 7,
-     "line": "They forgot you were there. That is the only way this booth ever says anything true."
-    }
    ],
    "next": "hub",
    "gives": {

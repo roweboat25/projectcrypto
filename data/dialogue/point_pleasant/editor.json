@@ -96,13 +96,6 @@
      "Dots are a confession. Every editor knows that."
     ]
    ],
-   "passives": [
-    {
-     "voice": "logic",
-     "threshold": 7,
-     "line": "He blames the dots, not the facts. He still believes the facts. Note that; it is rarer than it sounds."
-    }
-   ],
    "next": "hub"
   },
   "typed": {
@@ -140,13 +133,6 @@
      "editor",
      "The deputy took the statement. I took the quote. You want the statement, go two doors down and ask him what he wrote and what he was told to write."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "recall",
-     "threshold": 5,
-     "line": "You guessed at the date and he heard the guess. Still, 'told to write' is a door, and he opened it on his way out."
-    }
    ],
    "next": "hub"
   },
@@ -186,13 +172,6 @@
      "That was pushy. I'm allowed to say that. I'm the pushy one."
     ]
    ],
-   "passives": [
-    {
-     "voice": "press",
-     "threshold": 5,
-     "line": "You leaned, and he is a man who has been leaned on by better. Tomorrow. Bring him something to print."
-    }
-   ],
    "end": true
   },
   "page": {
@@ -210,13 +189,6 @@
      "ruth",
      "Letters to the editor are the county's diary, honey. Read them properly."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "empathy",
-     "threshold": 6,
-     "line": "He offered the file because you did not ask for it. That is how it works with this one."
-    }
    ],
    "next": "letters"
   },
@@ -242,16 +214,12 @@
      "threshold": 8,
      "line": "A biologist who writes to a weekly the same week, with a species, a height and a colour. Letters from scientists are never that tidy. Letters from somebody who wants a word printed are.",
      "flag": "editor_tidy_letter"
-    },
-    {
-     "voice": "tech",
-     "threshold": 7,
-     "line": "Typed on an IBM, not a university typewriter. Universities in 1966 did not hand out Selectrics to biologists."
     }
    ],
    "next": "hub",
    "gives": {
-    "evidence": "biologist_letter"
+    "evidence": "biologist_letter",
+    "flag": "editor_gave_letters"
    }
   },
   "hub": {
@@ -323,18 +291,6 @@
      "Sutton. A woman from Sutton, in December 1967. That is the Office. That is Gus."
     ]
    ],
-   "passives": [
-    {
-     "voice": "arcana",
-     "threshold": 8,
-     "line": "A man in a grey suit who never spoke. You know a name for that shape and you will not say it in a newspaper office."
-    },
-    {
-     "voice": "bluff",
-     "threshold": 6,
-     "line": "He does not believe you are the state. He opened the drawer anyway. Remember that this one is on your side and has been since 1966."
-    }
-   ],
    "next": "hub",
    "gives": {
     "flag": "editor_gus_1967",
@@ -356,13 +312,6 @@
      "miriam",
      "He's not wrong. I am the state. I'd rather he didn't find out from the deputy."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "nerve",
-     "threshold": 7,
-     "line": "He is dialling. Walk, do not run, and do not look back at the drawer. You will not get a second swing at this one."
-    }
    ],
    "end": true
   }

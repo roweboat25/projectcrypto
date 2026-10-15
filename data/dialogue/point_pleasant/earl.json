@@ -110,13 +110,6 @@
      "Because she never came home, Earl. And we are the ones who still keep her desk."
     ]
    ],
-   "passives": [
-    {
-     "voice": "recall",
-     "threshold": 7,
-     "line": "Sutton. 1967. The Office's founder was in this town the week the bridge fell. The suits asked about her before they asked about you."
-    }
-   ],
    "next": "hub",
    "gives": {
     "flag": "earl_sutton_woman",
@@ -140,13 +133,6 @@
      "june",
      "Nose out. Lights off. That's a car that's waiting for somebody to come out of a room."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "fieldcraft",
-     "threshold": 7,
-     "line": "No salt on a car in February means it has not been on a road in February. You do not know where it has been instead."
-    }
    ],
    "next": "hub",
    "gives": {
@@ -184,13 +170,6 @@
      "Stop. Earl, stop. We're not them. I'm sorry. We're not them."
     ]
    ],
-   "passives": [
-    {
-     "voice": "empathy",
-     "threshold": 6,
-     "line": "You did that to him. It worked. Now you know what the suits told him to do, and he will never pour your coffee the same way."
-    }
-   ],
    "next": "hub",
    "gives": {
     "flag": "earl_has_number",
@@ -215,13 +194,6 @@
      "He's reciting. We just taught him we're not worth the real one."
     ]
    ],
-   "passives": [
-    {
-     "voice": "logic",
-     "threshold": 7,
-     "line": "He gave you the crane because the crane is the safe answer, the one that was printed. You walked out with the official story and called it a lead."
-    }
-   ],
    "next": "hub",
    "gives": {
     "evidence": "biologist_letter"
@@ -242,13 +214,6 @@
      "earl",
      "You're the first ones who didn't look. The reverend looked. Looked right at 'em and then went to bed for two days."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "nerve",
-     "threshold": 6,
-     "line": "You held. Two minutes with your back to an empty forecourt and you held. That is the whole job, some days."
-    }
    ],
    "next": "hub"
   },
@@ -341,18 +306,6 @@
      "june",
      "No plates. Going north. He got here before us."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "nerve",
-     "threshold": 6,
-     "line": "You looked, and it was only a car, and the car was only leaving. Your hands are fine. Your hands are absolutely fine."
-    },
-    {
-     "voice": "arcana",
-     "threshold": 8,
-     "line": "A tired man in a hat, older than his car, polite. He was not here for the gas and he did not come for Earl."
-    }
    ],
    "next": "hub",
    "gives": {

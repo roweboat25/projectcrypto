@@ -1,0 +1,423 @@
+{
+ "_doc": "Lyle Boggs, deckhand on the towboat Kanawha Belle. He was under the Silver Bridge in November 1966 and in December 1967. He wants to talk and will not say so.",
+ "id": "rf_deckhand",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "You're the ones from the Office. Deputy said. He said be polite, so this is me being polite."
+    ],
+    [
+     "teddy",
+     "He's splicing a line and not looking at us."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "He looks at the river between every word. Not at you. He's checking it's still there."
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "That line is already spliced. Busy hands, nothing to do. He wants to talk and he wants it to be your idea.",
+     "flag": "rf_lyle_wants"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We can come back when the Belle's tied up.",
+     "next": "menu",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "You're being polite like a man who's been told to.",
+     "next": "menu"
+    },
+    {
+     "tone": "hard",
+     "text": "The deputy also said you saw something in '66.",
+     "next": "lights"
+    }
+   ],
+   "gives": {
+    "flag": "met_lyle",
+    "fact": "rf_deckhand_open"
+   }
+  },
+  "menu": {
+   "speaker": "rf_deckhand",
+   "repeat": true,
+   "lines": [
+    [
+     "rf_deckhand",
+     "Ask. I've got till the ice lets go of the barge."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He already knows what you're going to ask. Ask the other thing."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "What did you see in November '66?",
+     "next": "lights"
+    },
+    {
+     "tone": "silent",
+     "text": "(Look at the gap where the bridge was.)",
+     "next": "bridge"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "deputy_bird": 1
+      }
+     },
+     "text": "The Belle crosses every morning. Nobody would count four more on the barge.",
+     "pass": "ferry_yes",
+     "fail": {
+      "next": "ferry_no",
+      "trust": {
+       "rf_deckhand": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "three_note_tone"
+      ]
+     },
+     "tone": "wry",
+     "text": "June wants to know about the long antenna on your boat.",
+     "next": "radio"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Lyle."
+    }
+   ]
+  },
+  "lights": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "November '66. Night tow, downbound, coming under the bridge. Two red lights on the water ahead of us, low, where a boat's lights would be."
+    ],
+    [
+     "rf_deckhand",
+     "No bow light. No stern light. And they were going upstream. Against the current. Nothing goes against this current without a diesel, and I'd have heard a diesel."
+    ],
+    [
+     "rf_deckhand",
+     "Skipper put the spot on them. There wasn't anything there to put a spot on. The lights went up the bank and went out."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 8,
+     "line": "Two lights, no running lights, against the current. Not a boat. Not a bird, either, he's leaving that word out on purpose."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Did you tell anyone?",
+     "next": "told"
+    },
+    {
+     "tone": "wry",
+     "text": "Two red lights going the wrong way, and you finished the tow?",
+     "next": "told"
+    }
+   ],
+   "gives": {
+    "evidence": "rf_lights_1966",
+    "fact": "rf_deckhand_lights"
+   }
+  },
+  "told": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "Told the Register. They had a crane man by then, so I was a crane man too, in the paper. I'm not a crane man."
+    ],
+    [
+     "rf_deckhand",
+     "Told the deputy. He bought shells. I finished the tow because the tow doesn't care what I saw."
+    ],
+    [
+     "dale",
+     "Write the lights down exactly like he said it. Low, red, upstream."
+    ]
+   ],
+   "next": "menu"
+  },
+  "bridge": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "December fifteenth, '67. We were tied up right there, under it, waiting on the lock. Five o'clock, rush hour, the bridge full both ways."
+    ],
+    [
+     "rf_deckhand",
+     "It made a noise like a chain going through a hawsehole. Then it was in the river with us."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "He's never said the word 'fell'. Not once. 'The bridge went.' Like a dog goes."
+    }
+   ],
+   "static": {
+    "min_dread": 2,
+    "line": "He was under it. He was under it and he's going to tell you it was quick. Don't let him."
+   },
+   "options": [
+    {
+     "tone": "silent",
+     "text": "(Say nothing.)",
+     "next": "bridge_quiet",
+     "trust": 1
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "rf_lights_1966": 1
+      }
+     },
+     "text": "You pulled somebody out.",
+     "pass": "bridge_pulled",
+     "fail": {
+      "next": "bridge_shut",
+      "trust": {
+       "rf_deckhand": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "tone": "kind",
+     "text": "I'm sorry. We'll leave it.",
+     "next": "menu"
+    }
+   ],
+   "gives": {
+    "fact": "rf_deckhand_bridge"
+   }
+  },
+  "bridge_quiet": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "...All afternoon the radio had been doing a thing. Channel 16. Three notes and a quiet and three notes. Skipper said Gallipolis was testing something."
+    ],
+    [
+     "rf_deckhand",
+     "It stopped when the bridge went. I noticed that. I noticed that before I noticed anything else, and I've never told anybody, because what kind of a man notices the radio."
+    ],
+    [
+     "elijah",
+     "The kind who was listening. That's all. The kind who was listening."
+    ]
+   ],
+   "gives": {
+    "flag": "rf_lyle_radio",
+    "trust": {
+     "rf_deckhand": 1
+    }
+   },
+   "next": "menu"
+  },
+  "bridge_pulled": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "One. A woman off the Ohio side, in a green coat, and I got her over the gunwale and she wasn't even cold yet."
+    ],
+    [
+     "rf_deckhand",
+     "She asked me were the birds still there. I said what birds. She said the ones on the cable, the big ones, the ones that were sitting on the cable when it went."
+    ],
+    [
+     "rf_deckhand",
+     "There weren't any birds on the cable. I'd been looking at that bridge all afternoon. There weren't any birds."
+    ],
+    [
+     "elijah",
+     "...She saw them. He didn't. Both of those are true."
+    ]
+   ],
+   "gives": {
+    "evidence": "rf_cable_birds",
+    "dread": 1,
+    "trust": {
+     "rf_deckhand": 1
+    }
+   },
+   "next": "menu"
+  },
+  "bridge_shut": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "No. No, we're not doing that one. You can have the lights and you can have the river. You don't get that."
+    ],
+    [
+     "teddy",
+     "Fair."
+    ]
+   ],
+   "next": "menu"
+  },
+  "ferry_yes": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "First light. We cross for the Ohio-side mail and a crewman. You stand on the barge, you hold the rail, you don't touch anything, and you don't tell the company."
+    ],
+    [
+     "rf_deckhand",
+     "You miss first light, you wait for tomorrow. The river doesn't do afternoons."
+    ],
+    [
+     "teddy",
+     "Gallipolis by boat. Gus Weller's car was found in Gallipolis."
+    ]
+   ],
+   "gives": {
+    "evidence": "rf_ferry_run",
+    "fact": "rf_deckhand_ferry",
+    "flag": "rf_ferry"
+   },
+   "next": "menu"
+  },
+  "ferry_no": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "Company boat. Company rules. You want across, there's a bridge now, and I hear it's a good one."
+    ],
+    [
+     "miriam",
+     "He'll come round. Men who say 'company rules' never mean it the second time."
+    ]
+   ],
+   "next": "menu"
+  },
+  "radio": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "june",
+     "The long whip on the cabin roof. That's not a marine antenna."
+    ],
+    [
+     "rf_deckhand",
+     "No, ma'am. That's mine. Channel 16, every night, and a logbook since '67. Company thinks it's for weather."
+    ],
+    [
+     "june",
+     "What are you listening for?"
+    ]
+   ],
+   "options": [
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "three_note_tone": 2,
+       "teletype_bells": 1
+      }
+     },
+     "text": "Show her the log for December '67. She'll know what she's looking at.",
+     "pass": "radio_log",
+     "fail": {
+      "next": "radio_why"
+     }
+    },
+    {
+     "tone": "kind",
+     "text": "You don't have to say.",
+     "next": "radio_why"
+    }
+   ]
+  },
+  "radio_log": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "...Page one. December fifteenth, 1967. 1600 hours: three tones, channel 16, repeating. 1704: stopped."
+    ],
+    [
+     "rf_deckhand",
+     "Page two is January. There's a lot of pages. It's come back twice. November of '76, and this week."
+    ],
+    [
+     "june",
+     "This week. Lyle, what time this week?"
+    ],
+    [
+     "rf_deckhand",
+     "Every night since you people came to town. Starts about the time the gate shuts."
+    ]
+   ],
+   "gives": {
+    "evidence": "rf_towboat_radio",
+    "fact": "rf_deckhand_radio",
+    "trust": {
+     "rf_deckhand": 1
+    }
+   },
+   "next": "menu"
+  },
+  "radio_why": {
+   "speaker": "rf_deckhand",
+   "lines": [
+    [
+     "rf_deckhand",
+     "For it to stop."
+    ],
+    [
+     "rf_deckhand",
+     "That's all. For it to stop, and for me to be listening when it does."
+    ]
+   ],
+   "next": "menu"
+  }
+ }
+}

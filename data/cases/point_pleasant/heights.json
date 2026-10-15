@@ -1,0 +1,986 @@
+{
+ "_doc": "The Heights fragment: the hill above the river. Witnesses: Orville Pace (ham), Ada Mercer (widow, has a dialogue script), Carol and Dwight Mason (the receipt chain), the Rayburn teens (reflector hoax), Virgil Haught (undertaker), Opal Fry (librarian). Night 2 roost: the water tower. The receipt evidence kitchen_receipt_1966 is defined here and should be given by Rosie's kitchen bin clue on Main Street.",
+ "districts": {
+  "heights": {
+   "name": "The Heights",
+   "map": "point_pleasant_heights"
+  }
+ },
+ "locations": {
+  "heights": "The Heights",
+  "water_tower": "The water tower",
+  "widow_house": "The Mercer house",
+  "radio_den": "Orville's radio shack",
+  "funeral": "Haught Funeral Home",
+  "library": "High school library"
+ },
+ "items": {
+  "tower_key": {
+   "name": "County tower key",
+   "text": "Orville's spare. Opens the water tower gate.",
+   "kind": "kit",
+   "price": 0,
+   "reusable": true
+  }
+ },
+ "gates": {
+  "tower_fence": {
+   "name": "The water tower gate",
+   "locked": "County padlock on the gate. The fence is eight feet with barbed wire on top.",
+   "opens": [
+    {
+     "item": "tower_key"
+    },
+    {
+     "item": "bolt_cutters"
+    },
+    {
+     "check": {
+      "voice": "nerve",
+      "difficulty": 8,
+      "prompt": "Go over the wire where it's pulled down"
+     }
+    },
+    {
+     "trust": {
+      "npc": "ham",
+      "level": 2
+     }
+    }
+   ]
+  },
+  "funeral_hours": {
+   "name": "Funeral home hours",
+   "locked": "Haught Funeral Home. Closed. A card in the window gives a number for emergencies, and this isn't one.",
+   "opens": [
+    {
+     "phase": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    }
+   ]
+  },
+  "library_hours": {
+   "name": "Library hours",
+   "locked": "The library is locked. Hours 8 to 5, says the board.",
+   "opens": [
+    {
+     "phase": [
+      "morning",
+      "day"
+     ]
+    }
+   ]
+  }
+ },
+ "trail": [
+  {
+   "night": 2,
+   "roost": "Water tower, The Heights",
+   "map": "point_pleasant_heights",
+   "clues": [
+    "tower_static",
+    "tower_dog"
+   ],
+   "herring": [
+    "tower_reflectors"
+   ]
+  }
+ ],
+ "evidence": {
+  "kitchen_receipt_1966": {
+   "title": "Rosie's receipt, 1966",
+   "text": "A diner receipt dated Nov 1966 from the kitchen bin: four coffees, and a phone number in pencil, 675-2211.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C"
+  },
+  "carol_number": {
+   "title": "Carol's number",
+   "text": "675-2211 was the Teel house in 1966. Carol Teel, now Mason, was in the car with Dwight, Gene and Patty the night it chased them.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "dwight_account": {
+   "title": "Dwight's account, 1966",
+   "text": "It was at the pull-off before they were. It paced the Chevy at a hundred, never flapped, and when Carol screamed it turned its head to look at her and not the road.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "testimony",
+   "reliability": "A"
+  },
+  "dwight_returns": {
+   "title": "Dwight goes back",
+   "text": "Dwight has driven out to the TNT area most Thursdays since 1966. He says it knows his car.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "ham_log_1966": {
+   "title": "Orville's log, Nov 1966",
+   "text": "Station log: 15 Nov 1966, 0210, a three-note tone on 3.885 MHz, no carrier, six nights running. The same tone as igloo 7.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "ham_log_photo": {
+   "title": "Photo of the 1966 log page",
+   "text": "A log page: 'Tone, three notes, repeating, 3.885, no carrier. Not QRM. Not me.' Six nights.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "ham_sunspots": {
+   "title": "Sunspots, says Orville",
+   "text": "Orville's first answer: November 1966 was a solar maximum. Tones and whistlers on the low bands are normal in a storm.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "ham_antenna_note": {
+   "title": "Antenna disconnected",
+   "text": "Night three of the 1966 tone, Orville pulled the antenna lead. The tone stayed. Nothing from the sky gets into a receiver with no antenna.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "ham_sunspots"
+   ]
+  },
+  "ham_triangulation": {
+   "title": "Orville's bearings",
+   "text": "Bearings on last night's static from the shack, the tower and the hunter's CB cross at the water tower catwalk. Then they move north.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "widow_porch": {
+   "title": "The porch light",
+   "text": "Ada Mercer has left her porch light on every night since 15 December 1967. Carl asked her to.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "carl_last_words": {
+   "title": "What Carl said",
+   "text": "The week before the bridge fell Carl saw something on the top chord that 'sang three notes' and looked at him. He told Ada to leave the porch light on so he could find the house.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "carl_eyebar": {
+   "title": "The eyebar memo",
+   "text": "Carl Mercer's copy of the 1967 state inspection: a cracked eyebar on the Ohio side, flagged and not fixed. The bridge fell for a reason you can hold.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "A",
+   "red_herring": true
+  },
+  "ada_letter": {
+   "title": "Ada's letter, December 1993",
+   "text": "The one letter Ada did not burn, to Carl, dated 15 Dec 1993: 'It was on the water tower last night. It looked at the house. I think it is looking for you too.'",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "C"
+  },
+  "porch_switch_photo": {
+   "title": "Photo of the porch switch",
+   "text": "A light switch taped ON in layers, the oldest cloth tape from the sixties.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "undertaker_cold": {
+   "title": "Two of the forty-six",
+   "text": "Virgil Haught prepared the Silver Bridge dead. Two had no water in the lungs and stayed cold for thirty-six hours in a warm room.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "undertaker_antifreeze": {
+   "title": "Antifreeze, says Virgil",
+   "text": "Dogs die on this hill every winter from drinking antifreeze out of the gutters. No marks, stiff, eyes open. Nothing to it.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B",
+   "red_herring": true
+  },
+  "ledger_photo": {
+   "title": "Photo of the 1967 ledger",
+   "text": "Margins of the preparation ledger: 'no water in lungs', 'temp would not rise, 36 hrs', and a drawing of a wing.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "yearbook_photo": {
+   "title": "The 1967 yearbook photo",
+   "text": "A dusk photo of the water tower with a dark winged shape on the catwalk. Caption: 'Our new mascot?'",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "yearbook_staff_note": {
+   "title": "The yearbook staff page",
+   "text": "The 1967 staff page thanks 'Harlan Kessler, for the sheet and the ladder'. The mascot photo was a prank by the senior class.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "A",
+   "exposes": [
+    "yearbook_photo"
+   ]
+  },
+  "yearbook_1966": {
+   "title": "The class of 1966",
+   "text": "The 1966 yearbook: Dwight Mason, Carol Teel, Gene Lusk and Patty Rayburn on a Chevy hood at the pull-off. Taken the week before. Patty Rayburn is Jody's aunt.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "heights_hoax_theory": {
+   "title": "It's all kids",
+   "text": "The Rayburn teens say everything on the hill, the reflectors, the sheet, the lights on the tower, has been kids since before they were born.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "teen_confession": {
+   "title": "The reflector tree",
+   "text": "Jody and Scooter taped the reflectors to the sycamore on Thursday to scare the Mason kid. They had nothing to do with the dog or the radios.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "reflector_tree": {
+   "title": "Reflectors from the tree",
+   "text": "Two bicycle reflectors and the tape that held them, bagged from the sycamore by the lane.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "B",
+   "red_herring": true,
+   "lab": "tape_lab"
+  },
+  "reflector_tree_photo": {
+   "title": "Photo of the reflector tree",
+   "text": "Red reflectors at head height on a tree by the tower lane.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true
+  },
+  "tape_lab": {
+   "title": "Lab: the tape",
+   "text": "Duct tape, manufactured 1993 by the batch code. Whoever taped the tree was not around in 1966, and tape doesn't jam radios.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "reflector_tree",
+    "heights_hoax_theory"
+   ]
+  },
+  "teen_saw_it": {
+   "title": "What the teens saw",
+   "text": "Thursday night, after the reflectors, something stood up on the catwalk and every reflector on the hill lit red with no headlights near. They ran.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "dog_photo": {
+   "title": "Photo of the dog",
+   "text": "A hound under a county tarp by the tower fence. No marks. The snow under it hasn't melted.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "dog_cold_reading": {
+   "title": "The dog's temperature",
+   "text": "Core reading on the dog: eighteen degrees below the air, two hours after it was found. Bodies don't do that.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B",
+   "exposes": [
+    "undertaker_antifreeze"
+   ]
+  },
+  "static_reading": {
+   "title": "Static at the tower",
+   "text": "Every radio in the block hissing at once. Field strength at the tower leg off the scale, with no transmitter in sight.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "pulloff_cans": {
+   "title": "Cans at the pull-off",
+   "text": "Beer cans in a ring in the gravel at the 1966 parking spot.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "D",
+   "red_herring": true,
+   "lab": "pulloff_cans_lab"
+  },
+  "pulloff_cans_lab": {
+   "title": "Lab: the cans",
+   "text": "Busch, 1993 batch. A ring is what cans make when kids kick them. Nothing older than last summer.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "pulloff_cans"
+   ]
+  }
+ },
+ "witnesses": {
+  "ham": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "ham_sunspots",
+     "title": "His first explanation",
+     "gates": [
+      {
+       "check": "tech",
+       "difficulty": 6,
+       "prompt": "You've been on the air since '58. What's the low band do in a storm?"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "ham",
+       "November '66? Solar max. Whistlers, tones, the whole band sings in a geomagnetic storm. I logged it as propagation and went to bed."
+      ],
+      [
+       "ham",
+       "That's what I tell the paper, anyhow."
+      ],
+      [
+       "june",
+       "He's telling us the answer he's ashamed of."
+      ]
+     ],
+     "evidence": "ham_sunspots"
+    },
+    {
+     "id": "ham_log",
+     "title": "The 1966 log",
+     "gates": [
+      {
+       "check": "tech",
+       "difficulty": 8,
+       "prompt": "3.885, no carrier, three notes. You logged it. Show me."
+      },
+      {
+       "show": "three_note_tone"
+      }
+     ],
+     "lines": [
+      [
+       "ham",
+       "Fifteenth of November, ten past two in the morning. Three notes on 75 metres, no carrier under them. Six nights. I've got it on paper and I've got it on tape."
+      ],
+      [
+       "ham",
+       "It's the same tone you've got on yours, isn't it. I can see it on your face."
+      ],
+      [
+       "june",
+       "Same interval. Same three. I'd stake my licence on it."
+      ]
+     ],
+     "evidence": "ham_log_1966"
+    },
+    {
+     "id": "ham_antenna",
+     "title": "The night he pulled the plug",
+     "gates": [
+      {
+       "contradiction": "static_vs_sunspots"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "ham",
+       "Third night I pulled the antenna lead right out of the back of the Collins. Dead receiver. Nothing in but the line cord."
+      ],
+      [
+       "ham",
+       "The tone kept going. You tell me what propagation does that."
+      ],
+      [
+       "miriam",
+       "...Nothing. Nothing does that."
+      ]
+     ],
+     "evidence": "ham_antenna_note"
+    },
+    {
+     "id": "ham_bearings",
+     "title": "Last night's bearings",
+     "gates": [
+      {
+       "show": "static_reading"
+      },
+      {
+       "check": "tech",
+       "difficulty": 9,
+       "prompt": "Three receivers in a block. You took bearings, didn't you."
+      }
+     ],
+     "lines": [
+      [
+       "ham",
+       "Shack, tower, and Lyle's CB in his truck. Three bearings. They crossed on the catwalk at eleven, and by one they'd walked off north. Toward the plant."
+      ],
+      [
+       "ham",
+       "Something's got a schedule. I'd like to know who wrote it."
+      ]
+     ],
+     "evidence": "ham_triangulation"
+    }
+   ]
+  },
+  "widow": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "widow_light",
+     "title": "The porch light",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 6,
+       "prompt": "The light's been on a long time, hasn't it."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "widow",
+       "Since the fifteenth of December, 1967. Five o'clock. I was putting the bulb in when the phone rang."
+      ],
+      [
+       "widow",
+       "He asked me to. The week before. So I do."
+      ]
+     ],
+     "evidence": "widow_porch"
+    },
+    {
+     "id": "widow_carl",
+     "title": "What Carl saw on the bridge",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 9,
+       "prompt": "He asked you to leave it on. Why?"
+      },
+      {
+       "show": "undertaker_cold"
+      }
+     ],
+     "lines": [
+      [
+       "widow",
+       "Carl was a toll man on the Silver Bridge. The week before, on a night shift, he saw something on the top of the bridge. On the chord, up where the cables are. It looked down at him and it sang. Three notes, he said, like a doorbell."
+      ],
+      [
+       "widow",
+       "He came home grey and he said, Ada, leave the porch light on, so I can find the house. And I laughed at him."
+      ],
+      [
+       "elijah",
+       "...He's not angry about the laugh. I thought you'd want to know that."
+      ]
+     ],
+     "evidence": "carl_last_words"
+    },
+    {
+     "id": "widow_memo",
+     "title": "Carl's papers",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 7,
+       "prompt": "Did Carl keep anything from the bridge? Paperwork?"
+      },
+      {
+       "show": "carl_last_words"
+      }
+     ],
+     "lines": [
+      [
+       "widow",
+       "His copy of the state inspection. There was a crack on the Ohio side, he told them, and they wrote it down and did nothing. That's what killed him. A crack and a form."
+      ],
+      [
+       "miriam",
+       "That's the truth of it, Mrs. Mercer. I'm sorry it's so small."
+      ]
+     ],
+     "evidence": "carl_eyebar"
+    }
+   ]
+  },
+  "carol": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "carol_number",
+     "title": "The number on the receipt",
+     "gates": [
+      {
+       "show": "kitchen_receipt_1966"
+      },
+      {
+       "check": "recall",
+       "difficulty": 8,
+       "prompt": "You were Carol Teel. 675-2211, the night of the fifteenth."
+      }
+     ],
+     "lines": [
+      [
+       "carol",
+       "That's my daddy's number. Dwight wrote it on the back of a diner check so Gene could call us about the drive-in."
+      ],
+      [
+       "carol",
+       "We never went to the drive-in. We went to the pull-off, and then we went to the TNT road, and then it was in the car's mirror."
+      ],
+      [
+       "carol",
+       "Four of us. Dwight, me, Gene Lusk, Patty Rayburn. I'm the only one who'll still say it out loud, and I say it in my kitchen."
+      ]
+     ],
+     "evidence": "carol_number"
+    },
+    {
+     "id": "carol_thursdays",
+     "title": "Thursdays",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "Where does Dwight go on Thursdays, Carol?"
+      },
+      {
+       "show": "marlene_tnt"
+      }
+     ],
+     "lines": [
+      [
+       "carol",
+       "He says bowling. He's not bowled since 1980. He drives north with the headlights off for the last mile. I've followed him twice."
+      ],
+      [
+       "carol",
+       "He parks at the plant and sits. I think he's waiting for it to come and finish the conversation."
+      ],
+      [
+       "teddy",
+       "She didn't say the waitress's name. She knows it, though."
+      ]
+     ],
+     "evidence": "dwight_returns"
+    }
+   ]
+  },
+  "dwight": {
+   "trust": 0,
+   "facts": [
+    {
+     "id": "dwight_account",
+     "title": "What he saw in 1966",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 9,
+       "prompt": "You were nineteen and it looked at you. Nobody's asked how that felt."
+      },
+      {
+       "show": "marlene_tnt"
+      }
+     ],
+     "lines": [
+      [
+       "dwight",
+       "It was at the pull-off before we got there. Standing by the guardrail like it was waiting on a ride. We thought it was a man in a coat."
+      ],
+      [
+       "dwight",
+       "Then we were on the TNT road doing a hundred and it was over the hood. Never flapped. Not once. Carol screamed and it turned its head and looked at her and not at the road."
+      ],
+      [
+       "dwight",
+       "I've been going back to apologise for twenty-eight years and I don't know for what."
+      ],
+      [
+       "elijah",
+       "...He does know. He just can't say it in this house."
+      ]
+     ],
+     "evidence": "dwight_account"
+    },
+    {
+     "id": "dwight_thursdays",
+     "title": "Thursday nights",
+     "gates": [
+      {
+       "contradiction": "dwight_thursdays"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "dwight",
+       "Thursdays I drive out to the plant. I park where we turned around. It knows the car. It came and sat on the hood once, '79, and the radio played three notes and I wet myself. I was thirty-two years old."
+      ],
+      [
+       "dwight",
+       "Don't tell Carol about Marlene. Carol already knows about the other thing."
+      ]
+     ],
+     "evidence": "dwight_returns"
+    }
+   ]
+  },
+  "teen": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "teen_hoax",
+     "title": "It's all kids",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 5,
+       "prompt": "Off the record. Who's behind the tower stuff?"
+      }
+     ],
+     "lines": [
+      [
+       "teen",
+       "Everybody. Us, Bobby Kessler, Scooter's brother, my aunt's whole class in '67. There's a sheet in every attic on this hill."
+      ],
+      [
+       "teen2",
+       "Mothman's a Rayburn family business."
+      ],
+      [
+       "miriam",
+       "Finally. Someone with a theory I can type."
+      ]
+     ],
+     "evidence": "heights_hoax_theory"
+    },
+    {
+     "id": "teen_confession",
+     "title": "The reflectors",
+     "gates": [
+      {
+       "check": "bluff",
+       "difficulty": 8,
+       "prompt": "The lab already matched the tape to your desk. Save us the afternoon."
+      },
+      {
+       "check": "intimidate",
+       "difficulty": 8,
+       "prompt": "Reflectors on county property. You want the deputy up here?"
+      },
+      {
+       "show": "tape_lab"
+      }
+     ],
+     "lines": [
+      [
+       "teen",
+       "Fine! Fine. We taped them Thursday. To get the Mason kid, he's such a baby about the tower."
+      ],
+      [
+       "teen2",
+       "But we didn't do the dog. And we didn't do the radios. We can't do radios."
+      ],
+      [
+       "teen",
+       "Nobody can do radios."
+      ]
+     ],
+     "evidence": "teen_confession"
+    },
+    {
+     "id": "teen_saw",
+     "title": "What happened after",
+     "gates": [
+      {
+       "contradiction": "teen_timeline"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 9,
+       "prompt": "You joined a bird-watching club in February. Tell me why."
+      }
+     ],
+     "lines": [
+      [
+       "teen",
+       "We were done taping. Scooter was holding the flashlight. And something stood up on the catwalk. Stood up, like it had been sitting."
+      ],
+      [
+       "teen2",
+       "Every reflector on the hill went red. The bikes, the mailboxes, our tree. There weren't any headlights. There wasn't any light at all."
+      ],
+      [
+       "teen",
+       "We ran. I'm not doing the tower again. I'm doing birds. Birds are fine."
+      ],
+      [
+       "dale",
+       "Birds are fine. That wasn't a bird."
+      ]
+     ],
+     "evidence": "teen_saw_it"
+    }
+   ]
+  },
+  "teen2": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "scooter_tapes",
+     "title": "The TOWER tapes",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "Five tapes labelled TOWER under the bed. What's on number four?"
+      },
+      {
+       "show": "teen_confession"
+      }
+     ],
+     "lines": [
+      [
+       "teen2",
+       "Static, mostly. On four Jody says 'is it looking at us' and I dropped the recorder. It was. It stood up on the catwalk and every reflector on the hill went red and there was no light to make them."
+      ],
+      [
+       "teen2",
+       "I'm not going back up. Jody says birds. Fine. Birds."
+      ],
+      [
+       "june",
+       "I want that tape. Carefully."
+      ]
+     ],
+     "evidence": "teen_saw_it"
+    }
+   ]
+  },
+  "undertaker": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "undertaker_dog",
+     "title": "The dog by the tower",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 5,
+       "prompt": "You've seen dogs die on this hill. What kills them?"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "undertaker",
+       "Antifreeze. They drink it off the gutters every winter and lie down and that's that. No marks, stiff as a board. The county tarps them and calls it a mystery."
+      ],
+      [
+       "undertaker",
+       "I'd save your film."
+      ]
+     ],
+     "evidence": "undertaker_antifreeze"
+    },
+    {
+     "id": "undertaker_cold",
+     "title": "Two of the forty-six",
+     "gates": [
+      {
+       "contradiction": "dog_antifreeze"
+      },
+      {
+       "check": "empathy",
+       "difficulty": 9,
+       "prompt": "You prepared them all. Which ones do you still think about?"
+      },
+      {
+       "check": "lore",
+       "difficulty": 9,
+       "prompt": "The old stories say the ones it marks don't warm."
+      }
+     ],
+     "lines": [
+      [
+       "undertaker",
+       "Forty-six. My father and I did them all, in this building, in three days. Forty-four drowned. Two did not."
+      ],
+      [
+       "undertaker",
+       "No water in them. And cold. We kept the room at seventy and they would not come up. Thirty-six hours. I wrote it in the margin and I drew what I'd seen on the chord of that bridge the week before, and I have never once said it out loud till now."
+      ],
+      [
+       "elijah",
+       "...Thank you. They heard you."
+      ]
+     ],
+     "evidence": "undertaker_cold"
+    }
+   ]
+  },
+  "librarian": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "librarian_mascot",
+     "title": "The mascot photo",
+     "gates": [
+      {
+       "check": "recall",
+       "difficulty": 7,
+       "prompt": "The 1967 staff page. Who did they thank?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "librarian",
+       "Harlan Kessler, for the sheet and the ladder. The seniors climbed the tower with a bedsheet and the yearbook staff printed it as a joke. I was on the staff. I wrote the caption."
+      ],
+      [
+       "librarian",
+       "The Kesslers have been doing this to this town since before the Kesslers you've met were born."
+      ],
+      [
+       "miriam",
+       "A dynasty."
+      ]
+     ],
+     "evidence": "yearbook_staff_note"
+    },
+    {
+     "id": "librarian_class",
+     "title": "The class of '66",
+     "gates": [
+      {
+       "check": "recall",
+       "difficulty": 8,
+       "prompt": "Four seniors on a Chevy. Name them for me."
+      },
+      {
+       "show": "carol_number"
+      }
+     ],
+     "lines": [
+      [
+       "librarian",
+       "Dwight Mason, Carol Teel, Gene Lusk, Patty Rayburn. Most likely to leave town. Patty did, the next week. Gene drinks in Gallipolis. Dwight and Carol married and never left this hill."
+      ],
+      [
+       "librarian",
+       "Patty is Jody Rayburn's aunt. Jody doesn't know she was in the car. Nobody told the children anything."
+      ]
+     ],
+     "evidence": "yearbook_1966"
+    }
+   ]
+  }
+ },
+ "contradictions": {
+  "static_vs_sunspots": {
+   "title": "Sunspots and last night",
+   "evidence": [
+    "ham_sunspots",
+    "static_reading"
+   ],
+   "witness": "ham",
+   "prompt": "Solar max in 1966, fine. Last night every radio on this hill hissed at once and the sun's been quiet for a week."
+  },
+  "dog_antifreeze": {
+   "title": "Antifreeze and eighteen degrees",
+   "evidence": [
+    "undertaker_antifreeze",
+    "dog_cold_reading"
+   ],
+   "witness": "undertaker",
+   "prompt": "Antifreeze doesn't put a dog eighteen degrees below the air. You've seen a body do that before, haven't you."
+  },
+  "teen_timeline": {
+   "title": "The tape and the catwalk",
+   "evidence": [
+    "teen_confession",
+    "static_reading"
+   ],
+   "witness": "teen",
+   "prompt": "You taped a tree Thursday. Something jammed every radio on the hill last night. One of those isn't you."
+  },
+  "dwight_thursdays": {
+   "title": "Dwight's Thursdays",
+   "evidence": [
+    "marlene_tnt",
+    "carol_number"
+   ],
+   "witness": "dwight",
+   "prompt": "Marlene says you were at igloo 7. Carol says you were in the car in 1966. You keep going back to the same ground, Dwight."
+  }
+ }
+}

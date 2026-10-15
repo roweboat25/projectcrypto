@@ -104,11 +104,6 @@
      "voice": "fieldcraft",
      "threshold": 7,
      "line": "A heron takes three wingbeats to clear a car. She is describing something that did not need any."
-    },
-    {
-     "voice": "logic",
-     "threshold": 8,
-     "line": "The first phone she could find. On Route 62 that is the Night Owl. She did not say the Night Owl."
     }
    ],
    "next": "hub"
@@ -142,13 +137,6 @@
      "marlene",
      "Tell him Marlene sent you. See if he laughs then."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "press",
-     "threshold": 6,
-     "line": "You pushed, and she pushed you out the door. Earl will hear you coming before you get there."
-    }
    ],
    "next": "hub"
   },
@@ -187,13 +175,6 @@
      "The Register waited a week. By then it was somebody else's bird."
     ]
    ],
-   "passives": [
-    {
-     "voice": "recall",
-     "threshold": 5,
-     "line": "You had the wrong paper. The right one is across the river, and the editor here waited a week. Why a week?"
-    }
-   ],
    "next": "hub"
   },
   "refill": {
@@ -211,13 +192,6 @@
      "elijah",
      "Thank you, Marlene."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "empathy",
-     "threshold": 6,
-     "line": "She refills your cup without being asked. That is the whole of what she wanted: a full cup and a shut mouth across from it."
-    }
    ],
    "next": "hub"
   },
@@ -289,13 +263,6 @@
      "See, that's how you do it."
     ]
    ],
-   "passives": [
-    {
-     "voice": "rapport",
-     "threshold": 7,
-     "line": "Half a smile. You bought that with one joke; do not spend it on a second one."
-    }
-   ],
    "next": "hub",
    "gives": {
     "trust": {
@@ -322,13 +289,6 @@
      "miriam",
      "Igloo 7. June's tone was strongest there."
     ]
-   ],
-   "passives": [
-    {
-     "voice": "empathy",
-     "threshold": 7,
-     "line": "She is not ashamed of Dwight. She is ashamed that the lie is the only part anyone ever caught her in."
-    }
    ],
    "next": "hub",
    "gives": {
