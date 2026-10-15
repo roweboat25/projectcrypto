@@ -1,0 +1,352 @@
+{
+ "_doc": "Point Pleasant, West Virginia. Ported from the browser slice; the full case expands these into districts, gated witnesses and the trail (design doc: Systems v2).",
+ "id": "point_pleasant",
+ "name": "Point Pleasant",
+ "place": "Point Pleasant, West Virginia",
+ "original_year": 1966,
+ "visit_year": 1994,
+ "truth": "unexplained",
+ "days": 3,
+ "locations": {
+  "diner": "Rosie's Diner",
+  "register": "The Register",
+  "sheriff": "Sheriff's Office",
+  "gas": "Mason Gas",
+  "motel": "Riverview Motel",
+  "river": "Riverbank memorial",
+  "tnt": "The TNT Area"
+ },
+ "leads": [
+  {
+   "id": "marlene",
+   "location": "diner",
+   "title": "Marlene, night-shift waitress",
+   "speaker": "marlene",
+   "dread": 0,
+   "lines": [
+    [
+     "marlene",
+     "I'll tell it once more and that's it. Route 62, past the old TNT plant, coming home from my sister's."
+    ],
+    [
+     "marlene",
+     "Two red lights in my headlights. Then they went up. Up, mister. Whatever had them was bigger than my Buick."
+    ],
+    [
+     "teddy",
+     "She checks the door every time it opens. Every time."
+    ]
+   ],
+   "evidence": "marlene_statement"
+  },
+  {
+   "id": "regulars",
+   "location": "diner",
+   "title": "The regulars' booth",
+   "speaker": "regulars",
+   "dread": 0,
+   "lines": [
+    [
+     "teddy",
+     "Coffee's on me, fellas. What's the real story?"
+    ],
+    [
+     "regulars",
+     "Real story is high school kids. They go out to the igloos with flashlights and those red bicycle reflectors."
+    ],
+    [
+     "regulars",
+     "Scare their girlfriends, scare the papers. Same as every year."
+    ]
+   ],
+   "evidence": "prank_rumour",
+   "class_bonus": "journalist"
+  },
+  {
+   "id": "clippings",
+   "location": "register",
+   "title": "Back issues, November 1966",
+   "speaker": "editor",
+   "dread": 0,
+   "lines": [
+    [
+     "editor",
+     "November 16th, 1966. Two couples, the TNT area, 'a large white creature' with red eyes that chased their car."
+    ],
+    [
+     "editor",
+     "We ran it on the front page. I've regretted the headline every day since. Not the story. The headline."
+    ]
+   ],
+   "evidence": "original_report",
+   "class_bonus": "folklorist"
+  },
+  {
+   "id": "biologist",
+   "location": "register",
+   "title": "The editor's letter file",
+   "speaker": "editor",
+   "dread": 0,
+   "lines": [
+    [
+     "teddy",
+     "Anyone write in who wasn't scared?"
+    ],
+    [
+     "editor",
+     "A university biologist. Says a sandhill crane, way off its migration. Tall as a man, grey, and a red patch on the head."
+    ],
+    [
+     "miriam",
+     "Red patch. Car headlights. That would do it."
+    ]
+   ],
+   "evidence": "biologist_letter",
+   "class_bonus": "crypto"
+  },
+  {
+   "id": "deputy",
+   "location": "sheriff",
+   "title": "Deputy on the night desk",
+   "speaker": "deputy",
+   "dread": 0,
+   "lines": [
+    [
+     "deputy",
+     "Those kids were scared, I'll give 'em that. Shaking. Couldn't find tracks, ground was froze."
+    ],
+    [
+     "deputy",
+     "Spring before, I saw a big grey bird down by the river. Five, six foot across. Ugly thing. Red on its head."
+    ]
+   ],
+   "evidence": "deputy_bird",
+   "class_bonus": "journalist"
+  },
+  {
+   "id": "earl",
+   "location": "gas",
+   "title": "Earl, the attendant",
+   "speaker": "earl",
+   "dread": 1,
+   "lines": [
+    [
+     "earl",
+     "Two fellas in black suits came by Tuesday. Asked which folks saw the bird. Asked about the bridge too."
+    ],
+    [
+     "earl",
+     "Paid in bills so new they stuck together. Car had no plates. Smiled like they'd read about smiling."
+    ],
+    [
+     "june",
+     "Earl. Are they here now?"
+    ],
+    [
+     "earl",
+     "...Don't look at the pumps."
+    ]
+   ],
+   "evidence": "the_suits",
+   "class_bonus": "medium"
+  },
+  {
+   "id": "river",
+   "location": "river",
+   "title": "The riverbank by the piers",
+   "speaker": "miriam",
+   "dread": 0,
+   "lines": [
+    [
+     "miriam",
+     "The bridge piers stand in the river like headstones. The town comes down here and doesn't talk."
+    ],
+    [
+     "miriam",
+     "Prints in the frozen mud. Three toes, long. And a grey feather, nearly a foot."
+    ],
+    [
+     "miriam",
+     "Bird. A big one. I'm writing it down before anyone tells me otherwise."
+    ]
+   ],
+   "evidence": "feather_prints",
+   "class_bonus": "crypto"
+  },
+  {
+   "id": "tone",
+   "location": "tnt",
+   "title": "Igloo 7, with the receiver",
+   "speaker": "june",
+   "dread": 1,
+   "lines": [
+    [
+     "june",
+     "Every band I tune, same thing. Three notes, then nothing, then three notes."
+    ],
+    [
+     "june",
+     "Strongest inside igloo 7. There's no power out here. There hasn't been since the war."
+    ],
+    [
+     "teddy",
+     "Turn it off."
+    ],
+    [
+     "june",
+     "I'm recording it first."
+    ]
+   ],
+   "evidence": "three_note_tone",
+   "class_bonus": "signals"
+  },
+  {
+   "id": "board",
+   "location": "tnt",
+   "title": "Behind the igloos",
+   "speaker": "teddy",
+   "dread": 0,
+   "lines": [
+    [
+     "teddy",
+     "Beer cans, a bedsheet, and look at this. Two red bicycle reflectors nailed to a board."
+    ],
+    [
+     "miriam",
+     "Hold it up at head height in somebody's headlights and you've got a monster."
+    ],
+    [
+     "teddy",
+     "Or you've got kids who heard about a monster and wanted one of their own."
+    ]
+   ],
+   "evidence": "reflector_board",
+   "class_bonus": "skeptic"
+  },
+  {
+   "id": "clerk",
+   "location": "motel",
+   "title": "The motel clerk",
+   "speaker": "clerk",
+   "dread": 1,
+   "lines": [
+    [
+     "clerk",
+     "Couple from Ohio checked out at three in the morning. Said something tapped on their window."
+    ],
+    [
+     "clerk",
+     "Room 14. Second floor. No balcony."
+    ],
+    [
+     "june",
+     "Can we see the room?"
+    ],
+    [
+     "clerk",
+     "I don't go up there now."
+    ]
+   ],
+   "evidence": "room_14",
+   "class_bonus": "medium"
+  }
+ ],
+ "evidence": {
+  "marlene_statement": {
+   "title": "Marlene's statement",
+   "text": "Red eyes in headlights, Route 62. Rose above the car.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony"
+  },
+  "prank_rumour": {
+   "title": "Prank rumour",
+   "text": "Locals blame teenagers with reflectors at the TNT igloos.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony"
+  },
+  "original_report": {
+   "title": "Original report, Nov 1966",
+   "text": "Two couples chased near the TNT area by a winged figure with red eyes.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document"
+  },
+  "biologist_letter": {
+   "title": "Biologist's letter",
+   "text": "Proposes a sandhill crane: man-tall, red crown, far off course.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document"
+  },
+  "deputy_bird": {
+   "title": "Deputy's grey bird",
+   "text": "Saw a large grey bird with red on its head by the river.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony"
+  },
+  "the_suits": {
+   "title": "The suits",
+   "text": "Two men in black suits questioning witnesses. Car with no plates.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony"
+  },
+  "feather_prints": {
+   "title": "Grey feather and prints",
+   "text": "Three-toed tracks and a foot-long grey feather at the riverbank.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "physical"
+  },
+  "three_note_tone": {
+   "title": "The three-note tone",
+   "text": "A repeating tone on every band, strongest in igloo 7.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording"
+  },
+  "reflector_board": {
+   "title": "Reflector board",
+   "text": "Red reflectors nailed to a board, beer cans, a sheet.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "physical"
+  },
+  "room_14": {
+   "title": "Room 14",
+   "text": "Guests heard tapping on a second-floor window with no balcony.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony"
+  }
+ },
+ "observations": [
+  {
+   "text": "Eyes lit red, with no light on them",
+   "lean": "unexplained"
+  },
+  {
+   "text": "Taller than a man. Grey? Hard to say",
+   "lean": "natural"
+  },
+  {
+   "text": "Wings move. No wingbeat sound at all",
+   "lean": "unexplained"
+  },
+  {
+   "text": "The receiver picks up the three-note tone",
+   "lean": "unexplained"
+  },
+  {
+   "text": "Smells cold, like the inside of igloo 7",
+   "lean": "unexplained"
+  },
+  {
+   "text": "It is watching you. Only you",
+   "lean": "unexplained"
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+  "_doc": "Foes. weak/resist list damage types. kind: animal, human, uncanny, anomaly.",
+  "stray_dog": {"name": "Stray dog", "kind": "animal", "level": 2, "composure": 24, "attack": [5, 8], "xp": 8, "weak": ["physical"], "resist": ["reason"], "moves": ["Snarls", "Lunges"]},
+  "shotgun_man": {"name": "Man with a shotgun", "kind": "human", "level": 3, "composure": 32, "attack": [6, 9], "xp": 12, "weak": ["reason"], "resist": ["spirit"], "moves": ["\"Get off my land\"", "Racks the shotgun"]},
+  "dark_suit": {"name": "Man in a dark suit", "kind": "uncanny", "level": 4, "composure": 34, "attack": [7, 10], "xp": 16, "weak": ["spirit", "signal"], "resist": ["reason"], "moves": ["Stares too long", "Says your name"]},
+  "wrong_owl": {"name": "Night owl, wrong", "kind": "animal", "level": 3, "composure": 22, "attack": [5, 9], "xp": 10, "weak": ["physical", "signal"], "resist": [], "moves": ["Too many eyes open", "Silent dive"]},
+  "igloo_crawler": {"name": "Igloo crawler", "kind": "uncanny", "level": 4, "composure": 30, "attack": [6, 10], "xp": 14, "weak": ["arcane", "physical"], "resist": ["reason"], "moves": ["Dust burst", "Clings"]},
+  "static_shade": {"name": "Static shade", "kind": "uncanny", "level": 5, "composure": 28, "attack": [8, 11], "xp": 18, "weak": ["signal", "spirit"], "resist": ["physical"], "moves": ["Flickers", "Says it in your voice"]},
+  "mothman": {"name": "???", "kind": "anomaly", "level": 0, "composure": 999, "attack": [10, 14], "xp": 0, "weak": [], "resist": [], "moves": ["Red glare", "Shriek", "Wings open"], "phases": 3}
+}

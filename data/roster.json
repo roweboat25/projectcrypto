@@ -1,0 +1,10 @@
+{
+  "_doc": "Recruitable partners, one per class. Look notes match the art brief.",
+  "miriam": {"name": "Dr. Miriam Hale", "class": "skeptic"},
+  "teddy": {"name": "Teddy Voss", "class": "journalist"},
+  "june": {"name": "June Castellano", "class": "signals"},
+  "ruth": {"name": "Ruth Ann Pike", "class": "folklorist"},
+  "elijah": {"name": "Elijah Brandt", "class": "medium"},
+  "dale": {"name": "Dale Kowalski", "class": "crypto"},
+  "vera": {"name": "Vera Lindqvist", "class": "occultist"}
+}

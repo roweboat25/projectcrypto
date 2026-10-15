@@ -1,0 +1,73 @@
+{
+  "_doc": "Seven investigator classes (design doc: Systems v2). stats are starting values for Reason, Charm, Grit, Intuition. Skills unlock at the given level; damage types are physical, signal, spirit, reason, arcane.",
+  "skeptic": {
+    "name": "Skeptic", "blurb": "A physicist. Catches lies, exposes hoaxes and shields the team from fear.",
+    "stats": {"reason": 4, "charm": 1, "grit": 2, "intuition": 1}, "composure": 58, "focus": 20,
+    "speech": "logic", "field": "field_lab", "role": "Debuffer",
+    "skills": [
+      {"id": "reason", "name": "Reason", "type": "damage", "damage": "reason", "power": [9, 13], "target": "foe", "level": 1},
+      {"id": "disbelieve", "name": "Disbelieve", "type": "shield", "target": "ally", "evidence_cost": 1, "level": 1},
+      {"id": "steady", "name": "Steady", "type": "heal", "amount": 14, "target": "ally", "level": 3}
+    ]
+  },
+  "journalist": {
+    "name": "Field Journalist", "blurb": "Gets people talking. Documents threats until they weaken.",
+    "stats": {"reason": 1, "charm": 4, "grit": 2, "intuition": 1}, "composure": 46, "focus": 20,
+    "speech": "press", "field": "camera", "role": "Exposer",
+    "skills": [
+      {"id": "question", "name": "Question", "type": "damage", "damage": "reason", "power": [8, 12], "target": "foe", "level": 1},
+      {"id": "exposure", "name": "Exposure", "type": "status", "status": "exposed", "target": "foe", "evidence_gain": 1, "level": 1},
+      {"id": "flash", "name": "Flash", "type": "status", "status": "blinded", "target": "foe", "focus_cost": 4, "level": 3}
+    ]
+  },
+  "signals": {
+    "name": "Signals Tech", "blurb": "Radios, tape and static. Hits every enemy at once and jams their turns.",
+    "stats": {"reason": 3, "charm": 1, "grit": 1, "intuition": 3}, "composure": 48, "focus": 24,
+    "speech": "tech", "field": "scanner", "role": "Controller",
+    "skills": [
+      {"id": "feedback", "name": "Feedback", "type": "damage", "damage": "signal", "power": [6, 9], "target": "all_foes", "level": 1},
+      {"id": "jam", "name": "Jam", "type": "status", "status": "jammed", "target": "foe", "level": 1},
+      {"id": "broadcast", "name": "Broadcast", "type": "damage", "damage": "signal", "power": [10, 14], "target": "all_foes", "evidence_cost": 3, "level": 3}
+    ]
+  },
+  "folklorist": {
+    "name": "Folklorist", "blurb": "Knows the old stories. Wards the team and finds the weak point in a legend.",
+    "stats": {"reason": 1, "charm": 3, "grit": 1, "intuition": 3}, "composure": 50, "focus": 22,
+    "speech": "lore", "field": "read_signs", "role": "Support",
+    "skills": [
+      {"id": "old_story", "name": "Old Story", "type": "damage", "damage": "spirit", "power": [8, 12], "target": "foe", "level": 1},
+      {"id": "salt_line", "name": "Salt Line", "type": "shield", "target": "ally", "evidence_cost": 1, "level": 1},
+      {"id": "hymn", "name": "Hymn", "type": "heal", "amount": 8, "target": "all_allies", "level": 3}
+    ]
+  },
+  "medium": {
+    "name": "Medium", "blurb": "Hears what others miss. Calms the team and reads the anomaly.",
+    "stats": {"reason": 1, "charm": 2, "grit": 1, "intuition": 4}, "composure": 44, "focus": 26,
+    "speech": "empathy", "field": "psychometry", "role": "Healer",
+    "skills": [
+      {"id": "unsettle", "name": "Unsettle", "type": "damage", "damage": "spirit", "power": [7, 11], "target": "foe", "level": 1},
+      {"id": "calm", "name": "Calm", "type": "heal", "amount": 16, "target": "ally", "level": 1},
+      {"id": "channel", "name": "Channel", "type": "status", "status": "bound", "target": "foe", "evidence_cost": 2, "level": 3}
+    ]
+  },
+  "crypto": {
+    "name": "Cryptozoologist", "blurb": "Tracker and field biologist. Handles animals and reads the ground.",
+    "stats": {"reason": 2, "charm": 1, "grit": 4, "intuition": 1}, "composure": 54, "focus": 18,
+    "speech": "intimidate", "field": "tracking", "role": "Bruiser",
+    "skills": [
+      {"id": "track", "name": "Track", "type": "damage", "damage": "physical", "power": [9, 13], "target": "foe", "level": 1},
+      {"id": "net", "name": "Net", "type": "status", "status": "bound", "target": "foe", "level": 1},
+      {"id": "field_kit", "name": "Field Kit", "type": "heal", "amount": 12, "target": "ally", "evidence_gain": 1, "level": 3}
+    ]
+  },
+  "occultist": {
+    "name": "Occultist", "blurb": "The true spellcaster. Salt, Silver, Iron and Sigil, at the cost of Dread.",
+    "stats": {"reason": 3, "charm": 1, "grit": 1, "intuition": 3}, "composure": 42, "focus": 30,
+    "speech": "arcana", "field": "rituals", "role": "Wizard",
+    "skills": [
+      {"id": "silver_word", "name": "Silver Word", "type": "damage", "damage": "arcane", "power": [10, 14], "target": "foe", "focus_cost": 5, "level": 1},
+      {"id": "iron_bind", "name": "Iron Bind", "type": "status", "status": "bound", "target": "foe", "focus_cost": 6, "level": 1},
+      {"id": "sigil_storm", "name": "Sigil Storm", "type": "damage", "damage": "arcane", "power": [14, 20], "target": "all_foes", "focus_cost": 12, "dread_cost": 1, "level": 3}
+    ]
+  }
+}
