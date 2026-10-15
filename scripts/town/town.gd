@@ -111,6 +111,9 @@ func _apply_debug_query() -> void:
 			time_of_day = float(kv[1])
 		elif kv[0] == "day":
 			GameState.day = int(kv[1])
+		elif kv[0] == "level":
+			for id in GameState.party:
+				GameState.levels[id] = int(kv[1])
 		elif kv[0] == "flag":
 			for f in kv[1].split(","):
 				GameState.flags[f] = true

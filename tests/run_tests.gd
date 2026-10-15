@@ -149,6 +149,71 @@ func _battle_checks(data) -> Array[String]:
 	BattleRules.hurt(b3, b3.actors[0], 999, lines)
 	if not b3.actors[0].broken:
 		errors.append("the cure charm works once a fight")
+	# the class moves: hits, apply, pierce and execute, revive, counter, drain with dread, push, cleanse
+	state.gear = {}
+	state.dread = 3
+	var b4: Dictionary = BattleRules.setup(data, state, ["shotgun_man", "stray_dog"], {})
+	b4["_rng"] = RandomNumberGenerator.new()
+	b4._rng.seed = 11
+	var you: Dictionary = b4.actors[0]
+	var dog: Dictionary = b4.actors[4]
+	var man: Dictionary = b4.actors[3]
+	var skill_of := func(cls: String, id: String) -> Dictionary:
+		for sk in data.classes[cls].skills:
+			if sk.id == id:
+				return sk
+		return {}
+	you.focus = 99
+	you.stats = {"reason": 4, "charm": 2, "grit": 3, "intuition": 2}
+	var hp: int = dog.composure
+	var out: Array = BattleRules.use_skill(data, state, b4, you, skill_of.call("skeptic", "cross_examine"), dog)
+	if not dog.statuses.has("exposed") or dog.composure >= hp:
+		errors.append("Cross-Examine should hit and expose: %s" % str(out))
+	var two := 0
+	for l in out:
+		if l.begins_with("Cross-Examine:"):
+			two += 1
+	if two != 2 and not dog.broken:
+		errors.append("Cross-Examine should land two hits, got %d" % two)
+	dog.guarding = true
+	dog.composure = 2
+	dog.max_composure = 24
+	dog.weak = []
+	dog.resist = []
+	var d := BattleRules.damage(b4, [10, 10], 0, "physical", dog, 1.0, {"pierce": true, "execute": true})
+	if d.amount != 15:
+		errors.append("a piercing execute on a guarding target at 2/24 should deal 10 x 1.5 = 15, got %d" % d.amount)
+	dog.guarding = false
+	you.statuses["counter"] = 2
+	you.composure = 60
+	var before_man: int = man.composure
+	var fr := BattleRules.foe_turn(b4, man)
+	if fr.target == "player" and man.composure >= before_man and not ("misses" in " ".join(fr.lines)):
+		errors.append("a countered hit should strike back: %s" % str(fr.lines))
+	you.statuses["jammed"] = 1
+	BattleRules.use_skill(data, state, b4, you, skill_of.call("skeptic", "steady"), you)
+	if you.statuses.has("jammed"):
+		errors.append("Steady should cleanse jammed")
+	var bw: int = dog.wait
+	dog.composure = 20
+	BattleRules.use_skill(data, state, b4, you, skill_of.call("signals", "jam"), dog)
+	if not dog.statuses.has("jammed") or dog.wait < bw + 50:
+		errors.append("Jam should jam and push the target's turn back")
+	you.composure = 10
+	dog.composure = 200
+	dog.max_composure = 200
+	var bc: Dictionary = skill_of.call("occultist", "black_candle")
+	var before_dread: int = state.dread
+	BattleRules.use_skill(data, state, b4, you, bc, dog)
+	if you.composure <= 10 or state.dread != before_dread + 1:
+		errors.append("Black Candle should drain composure back and cost dread (composure %d, dread %d)" % [you.composure, state.dread])
+	var ally: Dictionary = b4.actors[1]
+	ally.broken = true
+	ally.composure = 0
+	BattleRules.use_skill(data, state, b4, you, skill_of.call("medium", "crossing"), ally)
+	if ally.broken or ally.composure != ally.max_composure / 2:
+		errors.append("Crossing Over should bring a broken ally back at half")
+	state.dread = 1
 	# the gate conditions fights need: night, day, not_flag
 	state.day = 5
 	if not Investigation.cond_holds(data, state, {"night": 5}, 0.8) or Investigation.cond_holds(data, state, {"night": 5}, 0.3):

@@ -1,73 +1,583 @@
 {
-  "_doc": "Seven investigator classes (design doc: Systems v2). stats are starting values for Reason, Charm, Grit, Intuition. Skills unlock at the given level; damage types are physical, signal, spirit, reason, arcane.",
-  "skeptic": {
-    "name": "Skeptic", "blurb": "A physicist. Catches lies, exposes hoaxes and shields the team from fear.",
-    "stats": {"reason": 4, "charm": 1, "grit": 2, "intuition": 1}, "composure": 58, "focus": 20,
-    "speech": "logic", "field": "field_lab", "role": "Debuffer",
-    "skills": [
-      {"id": "reason", "name": "Reason", "type": "damage", "damage": "reason", "power": [9, 13], "target": "foe", "level": 1},
-      {"id": "disbelieve", "name": "Disbelieve", "type": "shield", "target": "ally", "evidence_cost": 1, "level": 1},
-      {"id": "steady", "name": "Steady", "type": "heal", "amount": 14, "target": "ally", "level": 3}
-    ]
+ "_doc": "Seven investigator classes (design doc: Systems v2). stats are starting values for Reason, Charm, Grit, Intuition. Skills unlock at the given level; damage types are physical, signal, spirit, reason, arcane. Skills: type damage|status|heal|shield|revive, target foe|ally|self|all_foes|all_allies, level gates, focus_cost/evidence_cost/dread_cost, and the extras hits, apply (+apply_chance), pierce, execute, drain, scale:dread, self_damage, push, cleanse, focus_gain, evidence_gain, fraction (revive). fx names the animation.",
+ "skeptic": {
+  "name": "Skeptic",
+  "blurb": "A physicist. Catches lies, exposes hoaxes and shields the team from fear.",
+  "stats": {
+   "reason": 4,
+   "charm": 1,
+   "grit": 2,
+   "intuition": 1
   },
-  "journalist": {
-    "name": "Field Journalist", "blurb": "Gets people talking. Documents threats until they weaken.",
-    "stats": {"reason": 1, "charm": 4, "grit": 2, "intuition": 1}, "composure": 46, "focus": 20,
-    "speech": "press", "field": "camera", "role": "Exposer",
-    "skills": [
-      {"id": "question", "name": "Question", "type": "damage", "damage": "reason", "power": [8, 12], "target": "foe", "level": 1},
-      {"id": "exposure", "name": "Exposure", "type": "status", "status": "exposed", "target": "foe", "evidence_gain": 1, "level": 1},
-      {"id": "flash", "name": "Flash", "type": "status", "status": "blinded", "target": "foe", "focus_cost": 4, "level": 3}
-    ]
+  "composure": 58,
+  "focus": 20,
+  "speech": "logic",
+  "field": "field_lab",
+  "role": "Debuffer",
+  "skills": [
+   {
+    "id": "reason",
+    "name": "Reason",
+    "type": "damage",
+    "damage": "reason",
+    "power": [
+     9,
+     13
+    ],
+    "target": "foe",
+    "level": 1,
+    "fx": "bolt",
+    "text": "A plain question with no good answer."
+   },
+   {
+    "id": "disbelieve",
+    "name": "Disbelieve",
+    "type": "shield",
+    "target": "ally",
+    "evidence_cost": 1,
+    "level": 1,
+    "fx": "glow",
+    "text": "Nothing here can hurt you if it is not real."
+   },
+   {
+    "id": "cross_examine",
+    "name": "Cross-Examine",
+    "type": "damage",
+    "damage": "reason",
+    "power": [
+     5,
+     8
+    ],
+    "hits": 2,
+    "apply": "exposed",
+    "target": "foe",
+    "focus_cost": 4,
+    "level": 2,
+    "fx": "bolt",
+    "text": "Two questions, back to back. The story does not match."
+   },
+   {
+    "id": "steady",
+    "name": "Steady",
+    "type": "heal",
+    "amount": 14,
+    "cleanse": true,
+    "target": "ally",
+    "level": 3,
+    "fx": "glow",
+    "text": "Breathe. Count the exits. Say what you actually saw."
+   },
+   {
+    "id": "occams_razor",
+    "name": "Occam's Razor",
+    "type": "damage",
+    "damage": "reason",
+    "power": [
+     14,
+     18
+    ],
+    "pierce": true,
+    "execute": true,
+    "target": "foe",
+    "focus_cost": 7,
+    "level": 5,
+    "fx": "slash",
+    "text": "The simplest explanation, said out loud."
+   }
+  ]
+ },
+ "journalist": {
+  "name": "Field Journalist",
+  "blurb": "Gets people talking. Documents threats until they weaken.",
+  "stats": {
+   "reason": 1,
+   "charm": 4,
+   "grit": 2,
+   "intuition": 1
   },
-  "signals": {
-    "name": "Signals Tech", "blurb": "Radios, tape and static. Hits every enemy at once and jams their turns.",
-    "stats": {"reason": 3, "charm": 1, "grit": 1, "intuition": 3}, "composure": 48, "focus": 24,
-    "speech": "tech", "field": "scanner", "role": "Controller",
-    "skills": [
-      {"id": "feedback", "name": "Feedback", "type": "damage", "damage": "signal", "power": [6, 9], "target": "all_foes", "level": 1},
-      {"id": "jam", "name": "Jam", "type": "status", "status": "jammed", "target": "foe", "level": 1},
-      {"id": "broadcast", "name": "Broadcast", "type": "damage", "damage": "signal", "power": [10, 14], "target": "all_foes", "evidence_cost": 3, "level": 3}
-    ]
+  "composure": 46,
+  "focus": 20,
+  "speech": "press",
+  "field": "camera",
+  "role": "Exposer",
+  "skills": [
+   {
+    "id": "question",
+    "name": "Question",
+    "type": "damage",
+    "damage": "reason",
+    "power": [
+     8,
+     12
+    ],
+    "target": "foe",
+    "level": 1,
+    "fx": "bolt",
+    "text": "Who, what, where, and why are you lying?"
+   },
+   {
+    "id": "exposure",
+    "name": "Exposure",
+    "type": "status",
+    "status": "exposed",
+    "target": "foe",
+    "evidence_gain": 1,
+    "level": 1,
+    "fx": "flash",
+    "text": "Everything it is, in the open."
+   },
+   {
+    "id": "flash",
+    "name": "Flash",
+    "type": "status",
+    "status": "blinded",
+    "target": "all_foes",
+    "focus_cost": 4,
+    "level": 2,
+    "fx": "flash",
+    "text": "The bulb goes off in every face at once."
+   },
+   {
+    "id": "headline",
+    "name": "Headline",
+    "type": "damage",
+    "damage": "reason",
+    "power": [
+     7,
+     10
+    ],
+    "target": "all_foes",
+    "evidence_gain": 1,
+    "focus_cost": 5,
+    "level": 3,
+    "fx": "sweep",
+    "text": "Tomorrow's front page, read aloud."
+   },
+   {
+    "id": "scoop",
+    "name": "Scoop",
+    "type": "damage",
+    "damage": "reason",
+    "power": [
+     12,
+     16
+    ],
+    "focus_gain": 4,
+    "target": "foe",
+    "focus_cost": 4,
+    "level": 5,
+    "fx": "bolt",
+    "text": "The one detail nobody else has. The team sits up."
+   }
+  ]
+ },
+ "signals": {
+  "name": "Signals Tech",
+  "blurb": "Radios, tape and static. Hits every enemy at once and jams their turns.",
+  "stats": {
+   "reason": 3,
+   "charm": 1,
+   "grit": 1,
+   "intuition": 3
   },
-  "folklorist": {
-    "name": "Folklorist", "blurb": "Knows the old stories. Wards the team and finds the weak point in a legend.",
-    "stats": {"reason": 1, "charm": 3, "grit": 1, "intuition": 3}, "composure": 50, "focus": 22,
-    "speech": "lore", "field": "read_signs", "role": "Support",
-    "skills": [
-      {"id": "old_story", "name": "Old Story", "type": "damage", "damage": "spirit", "power": [8, 12], "target": "foe", "level": 1},
-      {"id": "salt_line", "name": "Salt Line", "type": "shield", "target": "ally", "evidence_cost": 1, "level": 1},
-      {"id": "hymn", "name": "Hymn", "type": "heal", "amount": 8, "target": "all_allies", "level": 3}
-    ]
+  "composure": 48,
+  "focus": 24,
+  "speech": "tech",
+  "field": "scanner",
+  "role": "Controller",
+  "skills": [
+   {
+    "id": "feedback",
+    "name": "Feedback",
+    "type": "damage",
+    "damage": "signal",
+    "power": [
+     6,
+     9
+    ],
+    "target": "all_foes",
+    "level": 1,
+    "fx": "sweep",
+    "text": "The recorder squeals and everything flinches."
+   },
+   {
+    "id": "jam",
+    "name": "Jam",
+    "type": "status",
+    "status": "jammed",
+    "push": 50,
+    "target": "foe",
+    "level": 1,
+    "fx": "static",
+    "text": "White noise on its frequency."
+   },
+   {
+    "id": "sweep",
+    "name": "Sweep",
+    "type": "damage",
+    "damage": "signal",
+    "power": [
+     8,
+     12
+    ],
+    "apply": "marked",
+    "target": "foe",
+    "focus_cost": 4,
+    "level": 2,
+    "fx": "bolt",
+    "text": "A directional antenna finds it and keeps it."
+   },
+   {
+    "id": "broadcast",
+    "name": "Broadcast",
+    "type": "damage",
+    "damage": "signal",
+    "power": [
+     10,
+     14
+    ],
+    "target": "all_foes",
+    "evidence_cost": 3,
+    "level": 3,
+    "fx": "sweep",
+    "text": "Everything recorded so far, played back at volume."
+   },
+   {
+    "id": "overload",
+    "name": "Overload",
+    "type": "damage",
+    "damage": "signal",
+    "power": [
+     16,
+     22
+    ],
+    "self_damage": 6,
+    "target": "foe",
+    "focus_cost": 8,
+    "level": 5,
+    "fx": "burst",
+    "text": "Every battery in the kit into one pulse. It hurts to be near."
+   }
+  ]
+ },
+ "folklorist": {
+  "name": "Folklorist",
+  "blurb": "Knows the old stories. Wards the team and finds the weak point in a legend.",
+  "stats": {
+   "reason": 1,
+   "charm": 3,
+   "grit": 1,
+   "intuition": 3
   },
-  "medium": {
-    "name": "Medium", "blurb": "Hears what others miss. Calms the team and reads the anomaly.",
-    "stats": {"reason": 1, "charm": 2, "grit": 1, "intuition": 4}, "composure": 44, "focus": 26,
-    "speech": "empathy", "field": "psychometry", "role": "Healer",
-    "skills": [
-      {"id": "unsettle", "name": "Unsettle", "type": "damage", "damage": "spirit", "power": [7, 11], "target": "foe", "level": 1},
-      {"id": "calm", "name": "Calm", "type": "heal", "amount": 16, "target": "ally", "level": 1},
-      {"id": "channel", "name": "Channel", "type": "status", "status": "bound", "target": "foe", "evidence_cost": 2, "level": 3}
-    ]
+  "composure": 50,
+  "focus": 22,
+  "speech": "lore",
+  "field": "read_signs",
+  "role": "Support",
+  "skills": [
+   {
+    "id": "old_story",
+    "name": "Old Story",
+    "type": "damage",
+    "damage": "spirit",
+    "power": [
+     8,
+     12
+    ],
+    "target": "foe",
+    "level": 1,
+    "fx": "bolt",
+    "text": "There is a name for you, and it is old."
+   },
+   {
+    "id": "salt_line",
+    "name": "Salt Line",
+    "type": "shield",
+    "target": "ally",
+    "evidence_cost": 1,
+    "level": 1,
+    "fx": "glow",
+    "text": "A line it will not cross."
+   },
+   {
+    "id": "hymn",
+    "name": "Hymn",
+    "type": "heal",
+    "amount": 8,
+    "target": "all_allies",
+    "level": 2,
+    "fx": "glow",
+    "text": "Everybody knows the second verse."
+   },
+   {
+    "id": "ward",
+    "name": "Ward",
+    "type": "status",
+    "status": "ward",
+    "target": "all_allies",
+    "focus_cost": 4,
+    "level": 3,
+    "fx": "rune",
+    "text": "Iron, rowan and a word for each of you."
+   },
+   {
+    "id": "litany",
+    "name": "Litany",
+    "type": "damage",
+    "damage": "spirit",
+    "power": [
+     11,
+     15
+    ],
+    "apply": "unnerved",
+    "target": "all_foes",
+    "focus_cost": 8,
+    "level": 5,
+    "fx": "sweep",
+    "text": "Every story in which the thing in the dark loses."
+   }
+  ]
+ },
+ "medium": {
+  "name": "Medium",
+  "blurb": "Hears what others miss. Calms the team and reads the anomaly.",
+  "stats": {
+   "reason": 1,
+   "charm": 2,
+   "grit": 1,
+   "intuition": 4
   },
-  "crypto": {
-    "name": "Cryptozoologist", "blurb": "Tracker and field biologist. Handles animals and reads the ground.",
-    "stats": {"reason": 2, "charm": 1, "grit": 4, "intuition": 1}, "composure": 54, "focus": 18,
-    "speech": "intimidate", "field": "tracking", "role": "Bruiser",
-    "skills": [
-      {"id": "track", "name": "Track", "type": "damage", "damage": "physical", "power": [9, 13], "target": "foe", "level": 1},
-      {"id": "net", "name": "Net", "type": "status", "status": "bound", "target": "foe", "level": 1},
-      {"id": "field_kit", "name": "Field Kit", "type": "heal", "amount": 12, "target": "ally", "evidence_gain": 1, "level": 3}
-    ]
+  "composure": 44,
+  "focus": 26,
+  "speech": "empathy",
+  "field": "psychometry",
+  "role": "Healer",
+  "skills": [
+   {
+    "id": "unsettle",
+    "name": "Unsettle",
+    "type": "damage",
+    "damage": "spirit",
+    "power": [
+     7,
+     11
+    ],
+    "target": "foe",
+    "level": 1,
+    "fx": "bolt",
+    "text": "Whatever it is, it did not expect to be seen."
+   },
+   {
+    "id": "calm",
+    "name": "Calm",
+    "type": "heal",
+    "amount": 16,
+    "target": "ally",
+    "level": 1,
+    "fx": "glow",
+    "text": "A hand on the shoulder. The room comes back."
+   },
+   {
+    "id": "seance",
+    "name": "Séance",
+    "type": "heal",
+    "amount": 6,
+    "focus_gain": 3,
+    "target": "all_allies",
+    "focus_cost": 4,
+    "level": 2,
+    "fx": "rune",
+    "text": "Hands joined, breath slowed, the table still."
+   },
+   {
+    "id": "channel",
+    "name": "Channel",
+    "type": "status",
+    "status": "bound",
+    "target": "foe",
+    "evidence_cost": 2,
+    "level": 3,
+    "fx": "rune",
+    "text": "Hold still. Someone wants a word with you."
+   },
+   {
+    "id": "crossing",
+    "name": "Crossing Over",
+    "type": "revive",
+    "fraction": 0.5,
+    "target": "ally",
+    "evidence_cost": 2,
+    "level": 5,
+    "fx": "rune",
+    "text": "Come back. It is not your time, and we need you."
+   }
+  ]
+ },
+ "crypto": {
+  "name": "Cryptozoologist",
+  "blurb": "Tracker and field biologist. Handles animals and reads the ground.",
+  "stats": {
+   "reason": 2,
+   "charm": 1,
+   "grit": 4,
+   "intuition": 1
   },
-  "occultist": {
-    "name": "Occultist", "blurb": "The true spellcaster. Salt, Silver, Iron and Sigil, at the cost of Dread.",
-    "stats": {"reason": 3, "charm": 1, "grit": 1, "intuition": 3}, "composure": 42, "focus": 30,
-    "speech": "arcana", "field": "rituals", "role": "Wizard",
-    "skills": [
-      {"id": "silver_word", "name": "Silver Word", "type": "damage", "damage": "arcane", "power": [10, 14], "target": "foe", "focus_cost": 5, "level": 1},
-      {"id": "iron_bind", "name": "Iron Bind", "type": "status", "status": "bound", "target": "foe", "focus_cost": 6, "level": 1},
-      {"id": "sigil_storm", "name": "Sigil Storm", "type": "damage", "damage": "arcane", "power": [14, 20], "target": "all_foes", "focus_cost": 12, "dread_cost": 1, "level": 3}
-    ]
-  }
+  "composure": 54,
+  "focus": 18,
+  "speech": "intimidate",
+  "field": "tracking",
+  "role": "Bruiser",
+  "skills": [
+   {
+    "id": "track",
+    "name": "Track",
+    "type": "damage",
+    "damage": "physical",
+    "power": [
+     9,
+     13
+    ],
+    "target": "foe",
+    "level": 1,
+    "fx": "lunge",
+    "text": "Read the ground, then close the distance."
+   },
+   {
+    "id": "net",
+    "name": "Net",
+    "type": "status",
+    "status": "bound",
+    "target": "foe",
+    "level": 1,
+    "fx": "lunge",
+    "text": "Weighted nylon, thrown low."
+   },
+   {
+    "id": "bait",
+    "name": "Bait",
+    "type": "status",
+    "status": "counter",
+    "target": "self",
+    "focus_cost": 2,
+    "level": 2,
+    "fx": "glow",
+    "text": "Stand in the open and let it come."
+   },
+   {
+    "id": "field_kit",
+    "name": "Field Kit",
+    "type": "heal",
+    "amount": 12,
+    "target": "ally",
+    "evidence_gain": 1,
+    "level": 3,
+    "fx": "glow",
+    "text": "Gauze, a flask, and a plaster cast of whatever that was."
+   },
+   {
+    "id": "takedown",
+    "name": "Takedown",
+    "type": "damage",
+    "damage": "physical",
+    "power": [
+     8,
+     11
+    ],
+    "hits": 3,
+    "target": "foe",
+    "focus_cost": 6,
+    "level": 5,
+    "fx": "combo",
+    "text": "Three hits, each one timed."
+   }
+  ]
+ },
+ "occultist": {
+  "name": "Occultist",
+  "blurb": "The true spellcaster. Salt, Silver, Iron and Sigil, at the cost of Dread.",
+  "stats": {
+   "reason": 3,
+   "charm": 1,
+   "grit": 1,
+   "intuition": 3
+  },
+  "composure": 42,
+  "focus": 30,
+  "speech": "arcana",
+  "field": "rituals",
+  "role": "Wizard",
+  "skills": [
+   {
+    "id": "silver_word",
+    "name": "Silver Word",
+    "type": "damage",
+    "damage": "arcane",
+    "power": [
+     10,
+     14
+    ],
+    "target": "foe",
+    "focus_cost": 5,
+    "level": 1,
+    "fx": "rune",
+    "text": "A syllable that was never meant for air."
+   },
+   {
+    "id": "iron_bind",
+    "name": "Iron Bind",
+    "type": "status",
+    "status": "bound",
+    "target": "foe",
+    "focus_cost": 6,
+    "level": 1,
+    "fx": "rune",
+    "text": "Nails in a circle. Stay."
+   },
+   {
+    "id": "hex",
+    "name": "Hex",
+    "type": "status",
+    "status": "cursed",
+    "target": "foe",
+    "focus_cost": 4,
+    "level": 2,
+    "fx": "static",
+    "text": "A knot tied in its name."
+   },
+   {
+    "id": "sigil_storm",
+    "name": "Sigil Storm",
+    "type": "damage",
+    "damage": "arcane",
+    "power": [
+     14,
+     20
+    ],
+    "target": "all_foes",
+    "focus_cost": 12,
+    "dread_cost": 1,
+    "level": 3,
+    "fx": "sweep",
+    "text": "Chalk and salt and something borrowed."
+   },
+   {
+    "id": "black_candle",
+    "name": "Black Candle",
+    "type": "damage",
+    "damage": "arcane",
+    "power": [
+     12,
+     16
+    ],
+    "scale": "dread",
+    "drain": 0.5,
+    "target": "foe",
+    "focus_cost": 6,
+    "dread_cost": 1,
+    "level": 5,
+    "fx": "burst",
+    "text": "The worse it gets, the brighter it burns."
+   }
+  ]
+ }
 }

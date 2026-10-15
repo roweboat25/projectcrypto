@@ -13,6 +13,7 @@ signal _choice(index: int)
 
 const FOE_DIR := "res://assets/foes/"
 const TIMED_WINDOW := 0.22
+const TYPE_COLOURS := {"physical": "ffc08a", "signal": "5ad6ff", "spirit": "b48cff", "reason": "ffe24a", "arcane": "7cff8a"}
 const BACKDROPS := {
 	"night": ["0a0e1c", "141a2e"], "dusk": ["2a1a30", "4a2a3a"], "morning": ["3a4a5a", "6a7a8a"],
 	"day": ["4a5a4a", "7a8a6a"], "inside": ["1a1410", "2e2418"],
@@ -33,6 +34,9 @@ var _timing := false
 var _timed_hit := false
 var _foe_index: Dictionary = {}
 var _running := false
+var _fx: Node2D                        # effects drawn over the actors
+var _banner: Label                     # the move's name, briefly
+var _gone: Array = []                  # actor keys already faded out
 
 
 func _init(p_spec: Dictionary) -> void:
@@ -148,6 +152,19 @@ func _build() -> void:
 		add_child(lbl)
 		_bars[m.key] = {"name": lbl}
 		i += 1
+	_fx = Node2D.new()
+	_stage.add_child(_fx)
+	_banner = Label.new()
+	_banner.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
+	_banner.offset_top = 34
+	_banner.offset_left = -200
+	_banner.offset_right = 200
+	_banner.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_banner.add_theme_font_size_override("font_size", 16)
+	_banner.add_theme_color_override("font_color", Color("f0e6d2"))
+	_shadow(_banner)
+	_banner.visible = false
+	add_child(_banner)
 	_turn_row = Label.new()
 	_turn_row.position = Vector2(8, 6)
 	_turn_row.size = Vector2(420, 14)
@@ -310,8 +327,11 @@ func _party_turn(a: Dictionary) -> void:
 				var t := await _pick_foe()
 				if t.is_empty():
 					continue
+				var before := _snapshot()
 				var timed := await _swing(a, t)
-				await _say_lines(BattleRules.basic_attack(b, a, t, timed))
+				var lines := BattleRules.basic_attack(b, a, t, timed)
+				_popups(before)
+				await _say_lines(lines)
 			"skill":
 				var s: Dictionary = cmd.skill
 				var t := {}
@@ -323,12 +343,11 @@ func _party_turn(a: Dictionary) -> void:
 					t = a
 				if t.is_empty():
 					continue
-				var timed := 1.0
-				if s.get("type", "") == "damage":
-					timed = await _swing(a, t if s.get("target", "foe") == "foe" else BattleRules.alive(b, "foe")[0])
-				else:
-					await _flash(a, Color("7fb2ff"))
-				await _say_lines(BattleRules.use_skill(GameData, GameState, b, a, s, t, timed))
+				var before := _snapshot()
+				var timed := await _skill_fx(a, s, t)
+				var lines := BattleRules.use_skill(GameData, GameState, b, a, s, t, timed)
+				_popups(before)
+				await _say_lines(lines)
 			"observe":
 				var t := await _pick_foe(true)
 				if t.is_empty():
@@ -339,6 +358,8 @@ func _party_turn(a: Dictionary) -> void:
 				var mi: int = await _menu("Catch what it does. How?", mopts, a.id)
 				if mi < 0:
 					continue
+				_show_banner(BattleRules.METHOD_NAMES[BattleRules.METHODS[mi]], Color("f0e6d2"))
+				await _fx_flash(0.5)
 				await _flash(t, Color.WHITE)
 				await _say_lines(BattleRules.observe(GameData, GameState, b, a, t, BattleRules.METHODS[mi]))
 				delay = 0.8
@@ -355,15 +376,27 @@ func _party_turn(a: Dictionary) -> void:
 					t = await _pick_ally(a)
 					if t.is_empty():
 						continue
-				await _say_lines(BattleRules.use_item(GameData, GameState, b, a, items[ii].id, t))
+				var before := _snapshot()
+				_show_banner(items[ii].name, Color("e8a64a"))
+				await _fx_glow(_sprites.get(t.key), Color("7fffb0"))
+				var lines := BattleRules.use_item(GameData, GameState, b, a, items[ii].id, t)
+				_popups(before)
+				await _say_lines(lines)
 			"guard":
+				await _fx_glow(_sprites.get(a.key), Color("9ab0ff"))
 				await _say_lines(BattleRules.guard(b, a))
 				delay = 0.7
 			"revelation":
+				var before := _snapshot()
+				_show_banner("Revelation!", Color("ffe24a"))
+				await _fx_flash(0.9)
 				await _shake(8)
 				for f in BattleRules.alive(b, "foe"):
+					_fx_burst(_sprites[f.key].position + Vector2(0, -60), Color("ffe24a"), 40)
 					await _flash(f, Color("ffe24a"))
-				await _say_lines(BattleRules.revelation(GameData, b))
+				var lines := BattleRules.revelation(GameData, b)
+				_popups(before)
+				await _say_lines(lines)
 			"run":
 				await _say_lines(BattleRules.run(b, a))
 		BattleRules.spend_turn(b, a, delay)
@@ -380,25 +413,45 @@ func _foe_turn(f: Dictionary) -> void:
 		blocked = 0.6 if await _timed_moment(Vector2(node.position.x - 60, 120)) else 1.0
 		var back := create_tween()
 		back.tween_property(node, "position:x", node.position.x + 40, 0.2)
+	var before := _snapshot()
 	var r := BattleRules.foe_turn(b, f, blocked)
 	var target: Node2D = _sprites.get(r.target)
-	if target and r.move.get("type", "attack") != "status":
-		await _shake(3)
-		await _flash({"key": r.target}, Color("ff5a4a"))
+	_show_banner(str(r.move.get("name", "")), Color("ff8a7a"))
+	match r.move.get("type", "attack"):
+		"horror":
+			await _fx_dark(0.5)
+			await _shake(6)
+			if target:
+				_fx_burst(target.position + Vector2(0, -40), Color("b48cff"), 24)
+		"all":
+			await _fx_sweep(Color("ff5a4a"), true)
+			await _shake(4)
+			for m in BattleRules.alive(b, "party"):
+				_flash({"key": m.key}, Color("ff5a4a"))
+		"status":
+			if target:
+				await _fx_static(target.position + Vector2(0, -40), Color("d070ff"))
+		_:
+			if target:
+				_fx_burst(target.position + Vector2(0, -40), Color("ff5a4a"), 16)
+				await _shake(3)
+				await _flash({"key": r.target}, Color("ff5a4a"))
+	_popups(before)
 	await _say_lines(r.lines)
 	BattleRules.spend_turn(b, f)
 
 
 ## The attacker steps up; a timed press on the "!" makes the hit land harder.
-func _swing(a: Dictionary, t: Dictionary) -> float:
+func _swing(a: Dictionary, t: Dictionary, step_time := 0.22) -> float:
 	var node: Node2D = _sprites.get(a.key)
 	var tnode: Node2D = _sprites.get(t.key)
 	if node:
 		var tw := create_tween()
-		tw.tween_property(node, "position", node.position + Vector2(30, -20), 0.22).set_trans(Tween.TRANS_BACK)
+		tw.tween_property(node, "position", node.position + Vector2(30, -20), step_time).set_trans(Tween.TRANS_BACK)
 		await tw.finished
 	var good := await _timed_moment((tnode.position + Vector2(0, -110)) if tnode else Vector2(470, 100))
 	if tnode:
+		_fx_burst(tnode.position + Vector2(0, -50), Color(TYPE_COLOURS.physical), 18 if good else 10)
 		await _flash(t, Color.WHITE)
 		await _shake(4 if good else 2)
 	if node:
@@ -550,7 +603,16 @@ func _refresh() -> void:
 				bars.name.text = ""
 		var node: Node2D = _sprites.get(a.key)
 		if node:
-			node.visible = not a.broken
+			if a.broken and not a.key in _gone:
+				_gone.append(a.key)
+				var tw := create_tween()
+				tw.tween_property(node, "modulate:a", 0.0, 0.5)
+				if a.side == "foe":
+					_fx_burst(node.position + Vector2(0, -50), Color("f0e6d2"), 30)
+			elif not a.broken and a.key in _gone:
+				_gone.erase(a.key)
+				node.modulate.a = 1.0
+			node.visible = not a.broken or a.key in _gone
 	var row := []
 	for p in BattleRules.preview(b, 7):
 		row.append(p.name if p.side == "party" else "[%s]" % p.name)
@@ -570,3 +632,306 @@ func _bar(v: int, maxv: int, cells: int, mark := "#") -> String:
 	for i in cells:
 		s += mark if i < filled else "-"
 	return s
+
+
+# ---------- effects ----------
+
+## Plays the skill's `fx` and returns the timed-hit multiplier for the rules.
+func _skill_fx(a: Dictionary, s: Dictionary, t: Dictionary) -> float:
+	var colour := Color(TYPE_COLOURS.get(s.get("damage", "physical"), "f0e6d2"))
+	var is_foe_target: bool = s.get("target", "foe") in ["foe", "all_foes"]
+	var tnode: Node2D = _sprites.get(t.get("key", ""))
+	var anode: Node2D = _sprites.get(a.key)
+	var at: Vector2 = (tnode.position + Vector2(0, -60)) if tnode else Vector2(470, 140)
+	if not is_foe_target and s.get("type", "") != "revive":
+		at = (tnode.position + Vector2(0, -40)) if tnode else Vector2(150, 190)
+	_show_banner(s.name, colour)
+	match s.get("fx", "bolt"):
+		"lunge":
+			return await _swing(a, t if is_foe_target else BattleRules.alive(b, "foe")[0])
+		"combo":
+			var goods := 0
+			var hits := int(s.get("hits", 3))
+			for h in hits:
+				if await _swing(a, t, 0.16) > 1.0:
+					goods += 1
+			return 1.0 + 0.25 * float(goods) / float(hits)
+		"bolt":
+			var from: Vector2 = (anode.position + Vector2(0, -50)) if anode else Vector2(150, 180)
+			_step(anode, Vector2(10, -6))
+			await _fx_bolt(from, at, colour)
+			var good := await _timed_moment(at + Vector2(0, -50))
+			_fx_burst(at, colour, 24 if good else 14)
+			await _shake(4 if good else 2)
+			return 1.25 if good else 1.0
+		"slash":
+			_step(anode, Vector2(24, -16))
+			await _fx_slash(at, colour)
+			var good := await _timed_moment(at + Vector2(0, -50))
+			_fx_burst(at, colour, 30)
+			await _shake(5)
+			return 1.25 if good else 1.0
+		"burst":
+			_step(anode, Vector2(10, -6))
+			await _fx_rune(at, colour)
+			var good := await _timed_moment(at + Vector2(0, -50))
+			_fx_burst(at, colour, 40)
+			await _fx_flash(0.4)
+			await _shake(6 if good else 3)
+			return 1.25 if good else 1.0
+		"sweep":
+			_step(anode, Vector2(10, -6))
+			await _fx_sweep(colour, false)
+			var good := await _timed_moment(Vector2(470, 90))
+			for f in BattleRules.alive(b, "foe"):
+				_fx_burst(_sprites[f.key].position + Vector2(0, -60), colour, 16)
+			await _shake(4 if good else 2)
+			return 1.25 if good else 1.0
+		"flash":
+			await _fx_flash(0.8)
+			if is_foe_target:
+				for f in BattleRules.alive(b, "foe"):
+					_flash(f, Color.WHITE)
+			return 1.0
+		"static":
+			await _fx_static(at, colour)
+			return 1.0
+		"rune":
+			await _fx_rune(at, colour)
+			if not is_foe_target and tnode:
+				await _fx_glow(tnode, colour)
+			return 1.0
+		"glow":
+			if s.get("target", "") == "all_allies":
+				for m in BattleRules.alive(b, "party"):
+					_fx_glow(_sprites.get(m.key), colour)
+				await get_tree().create_timer(0.45).timeout
+			else:
+				await _fx_glow(tnode if tnode else anode, colour)
+			return 1.0
+	return 1.0
+
+
+func _step(node: Node2D, by: Vector2) -> void:
+	if node == null:
+		return
+	var tw := create_tween()
+	tw.tween_property(node, "position", node.position + by, 0.12).set_trans(Tween.TRANS_BACK)
+	tw.tween_property(node, "position", node.position, 0.25).set_delay(0.3)
+
+
+func _show_banner(text: String, colour: Color) -> void:
+	if text == "":
+		return
+	_banner.text = text
+	_banner.add_theme_color_override("font_color", colour)
+	_banner.modulate.a = 0.0
+	_banner.visible = true
+	_banner.scale = Vector2(1.3, 1.3)
+	_banner.pivot_offset = Vector2(200, 10)
+	var tw := create_tween()
+	tw.tween_property(_banner, "modulate:a", 1.0, 0.1)
+	tw.parallel().tween_property(_banner, "scale", Vector2.ONE, 0.15).set_trans(Tween.TRANS_BACK)
+	tw.tween_property(_banner, "modulate:a", 0.0, 0.3).set_delay(0.7)
+	tw.tween_callback(func() -> void: _banner.visible = false)
+
+
+## Composure of every actor, to find what a move changed.
+func _snapshot() -> Dictionary:
+	var out := {}
+	for a in b.actors:
+		out[a.key] = a.composure
+	return out
+
+
+## Floating numbers over whoever gained or lost composure since the snapshot.
+func _popups(before: Dictionary) -> void:
+	for a in b.actors:
+		var diff: int = a.composure - int(before.get(a.key, a.composure))
+		if diff == 0:
+			continue
+		var node: Node2D = _sprites.get(a.key)
+		if node == null:
+			continue
+		var lbl := Label.new()
+		lbl.text = ("+%d" if diff > 0 else "%d") % diff
+		lbl.add_theme_font_size_override("font_size", 14)
+		lbl.add_theme_color_override("font_color", Color("7fffb0") if diff > 0 else Color("ffffff"))
+		_shadow(lbl)
+		lbl.position = node.position + Vector2(-12 + (randi() % 16), -110 if a.side == "foe" else -80)
+		_fx.add_child(lbl)
+		var tw := create_tween()
+		tw.tween_property(lbl, "position:y", lbl.position.y - 26, 0.7).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tw.parallel().tween_property(lbl, "modulate:a", 0.0, 0.7).set_delay(0.3)
+		tw.tween_callback(lbl.queue_free)
+
+
+func _fx_bolt(from: Vector2, to: Vector2, colour: Color) -> void:
+	var p := Polygon2D.new()
+	p.polygon = PackedVector2Array([Vector2(-10, 0), Vector2(0, -4), Vector2(10, 0), Vector2(0, 4)])
+	p.color = colour
+	p.position = from
+	p.rotation = (to - from).angle()
+	_fx.add_child(p)
+	var trail := CPUParticles2D.new()
+	trail.amount = 20
+	trail.lifetime = 0.3
+	trail.color = Color(colour, 0.6)
+	trail.scale_amount_min = 1.0
+	trail.scale_amount_max = 2.0
+	trail.initial_velocity_min = 5
+	trail.initial_velocity_max = 20
+	p.add_child(trail)
+	var tw := create_tween()
+	tw.tween_property(p, "position", to, 0.22).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	await tw.finished
+	p.queue_free()
+
+
+func _fx_burst(at: Vector2, colour: Color, n: int) -> void:
+	var p := CPUParticles2D.new()
+	p.position = at
+	p.amount = n
+	p.lifetime = 0.5
+	p.one_shot = true
+	p.explosiveness = 1.0
+	p.spread = 180
+	p.direction = Vector2(0, -1)
+	p.initial_velocity_min = 60
+	p.initial_velocity_max = 170
+	p.gravity = Vector2(0, 220)
+	p.scale_amount_min = 1.5
+	p.scale_amount_max = 3.0
+	p.color = colour
+	_fx.add_child(p)
+	p.emitting = true
+	get_tree().create_timer(0.9).timeout.connect(p.queue_free)
+
+
+func _fx_sweep(colour: Color, at_party: bool) -> void:
+	var band := ColorRect.new()
+	band.color = Color(colour, 0.55)
+	band.size = Vector2(60, 150)
+	band.position = Vector2(300 if not at_party else 300, 60)
+	_fx.add_child(band)
+	var tw := create_tween()
+	var to_x := 640.0 if not at_party else -60.0
+	tw.tween_property(band, "position:x", to_x, 0.3).set_trans(Tween.TRANS_QUAD)
+	tw.parallel().tween_property(band, "modulate:a", 0.0, 0.3)
+	await tw.finished
+	band.queue_free()
+
+
+func _fx_glow(node: Node2D, colour: Color) -> void:
+	if node == null:
+		return
+	var p := CPUParticles2D.new()
+	p.position = Vector2(0, -20)
+	p.amount = 18
+	p.lifetime = 0.6
+	p.one_shot = true
+	p.explosiveness = 0.6
+	p.emission_shape = CPUParticles2D.EMISSION_SHAPE_RECTANGLE
+	p.emission_rect_extents = Vector2(14, 20)
+	p.direction = Vector2(0, -1)
+	p.spread = 20
+	p.gravity = Vector2(0, -90)
+	p.initial_velocity_min = 20
+	p.initial_velocity_max = 50
+	p.scale_amount_min = 1.0
+	p.scale_amount_max = 2.0
+	p.color = colour
+	node.add_child(p)
+	p.emitting = true
+	get_tree().create_timer(1.0).timeout.connect(p.queue_free)
+	var tw := create_tween()
+	tw.tween_property(node, "modulate", colour.lightened(0.3), 0.15)
+	tw.tween_property(node, "modulate", Color.WHITE, 0.3)
+	await tw.finished
+
+
+func _fx_rune(at: Vector2, colour: Color) -> void:
+	var ring := Line2D.new()
+	var pts := PackedVector2Array()
+	for i in 25:
+		var ang := TAU * i / 24.0
+		pts.append(Vector2(cos(ang), sin(ang)) * 30)
+	ring.points = pts
+	ring.width = 2
+	ring.default_color = colour
+	ring.position = at
+	ring.scale = Vector2(0.2, 0.2)
+	_fx.add_child(ring)
+	var inner := Line2D.new()
+	var tri := PackedVector2Array()
+	for i in 4:
+		var ang := TAU * i / 3.0 - PI / 2
+		tri.append(Vector2(cos(ang), sin(ang)) * 22)
+	inner.points = tri
+	inner.width = 1.5
+	inner.default_color = Color(colour, 0.8)
+	ring.add_child(inner)
+	var tw := create_tween()
+	tw.tween_property(ring, "scale", Vector2(1.4, 1.4), 0.45).set_trans(Tween.TRANS_BACK)
+	tw.parallel().tween_property(ring, "rotation", PI, 0.45)
+	tw.tween_property(ring, "modulate:a", 0.0, 0.2)
+	await tw.finished
+	ring.queue_free()
+
+
+func _fx_slash(at: Vector2, colour: Color) -> void:
+	for i in 2:
+		var l := Line2D.new()
+		var d := Vector2(1, 1) if i == 0 else Vector2(1, -1)
+		l.points = PackedVector2Array([at - d * 30, at + d * 30])
+		l.width = 4 - i
+		l.default_color = colour if i == 0 else Color.WHITE
+		_fx.add_child(l)
+		var tw := create_tween()
+		tw.tween_property(l, "modulate:a", 0.0, 0.3).set_delay(0.08 * i)
+		tw.tween_callback(l.queue_free)
+		await get_tree().create_timer(0.1).timeout
+
+
+func _fx_flash(strength: float) -> void:
+	var r := ColorRect.new()
+	r.color = Color(1, 1, 1, strength)
+	r.set_anchors_preset(Control.PRESET_FULL_RECT)
+	r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(r)
+	var tw := create_tween()
+	tw.tween_property(r, "color:a", 0.0, 0.35)
+	await tw.finished
+	r.queue_free()
+
+
+func _fx_dark(strength: float) -> void:
+	var r := ColorRect.new()
+	r.color = Color(0.05, 0.0, 0.1, 0.0)
+	r.set_anchors_preset(Control.PRESET_FULL_RECT)
+	r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(r)
+	move_child(r, _stage.get_index() + 1)
+	var tw := create_tween()
+	tw.tween_property(r, "color:a", strength, 0.15)
+	tw.tween_property(r, "color:a", 0.0, 0.4)
+	await tw.finished
+	r.queue_free()
+
+
+func _fx_static(at: Vector2, colour: Color) -> void:
+	var rects := []
+	for i in 10:
+		var r := ColorRect.new()
+		r.color = Color(colour, 0.8)
+		r.size = Vector2(4 + randi() % 14, 2)
+		_fx.add_child(r)
+		rects.append(r)
+	for frame in 14:
+		for r in rects:
+			r.position = at + Vector2(-30 + randi() % 60, -40 + randi() % 80)
+			r.visible = randf() < 0.7
+		await get_tree().process_frame
+		await get_tree().process_frame
+	for r in rects:
+		r.queue_free()
