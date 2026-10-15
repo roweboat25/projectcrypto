@@ -25,16 +25,27 @@ verdict filed at the Office case board pays budget that opens rooms and
 upgrades. G opens the gear bag. Sandown runs on the tide: the HUD shows it, and
 the beach under Culver cliffs opens only at low water.
 
+Fights happen over the town. Some things in the dark (a stray dog, a man with
+a shotgun, the thing on the roof) start a fight when you walk up to them, and
+the night roads have random ones. Turns run on speed, every hit has a timed
+moment (press Space on the "!"; H turns timed hits off), damage comes in five
+types (physical, light, signal, reason and faith) against each foe's weakness,
+and the party's Composure is its health. An anomaly cannot be beaten, only
+observed: photograph, record and read its tells to fill the Evidence meter,
+survive long enough, and the fight ends with evidence in the case file. Kelly
+ends in a siege at the farmhouse: pick where to make a stand, prepare it with
+what you found in town, and hold the porch until dawn.
+
 ## Layout
 
 | Path | What lives there |
 | --- | --- |
-| `data/` | All game content as JSON: classes, partners, foes, cases (with per-district fragments), one map per district, scripted dialogue, items |
+| `data/` | All game content as JSON: classes, partners, foes (with moves, tells and phases), cases (with per-district fragments), one map per district, scripted dialogue, items |
 | `docs/` | `content-format.md`, the schema for maps, cases, dialogue and items |
 | `assets/` | Generated tiles, props, storefronts, character sheets and portraits (see `assets/CREDITS.md`) |
 | `tools/` | `build_art.py`, which composes `assets/` from LPC Revised sheets, and `check_content.py`, which checks data references |
 | `scripts/autoload/` | `GameData` (loads and validates content) and `GameState` (progress and saves) |
-| `scripts/` | Scene scripts; `investigation.gd` holds the speech check and evidence rules |
+| `scripts/` | Scene scripts; `investigation.gd` holds the speech check and evidence rules, `battle/battle_rules.gd` the fight rules and `battle/siege.gd` the Kelly siege |
 | `scenes/` | Godot scenes; `boot.tscn` is the entry point |
 | `tests/` | Headless checks run in CI |
 
