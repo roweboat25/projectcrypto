@@ -75,6 +75,7 @@ func _init(name_of: Callable) -> void:
 	_text.bbcode_enabled = true
 	_text.scroll_active = false
 	_text.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_text.custom_minimum_size = Vector2(0, 18)   # a menu's question stays visible above the options
 	for f in ["normal_font_size", "italics_font_size", "bold_font_size", "bold_italics_font_size"]:
 		_text.add_theme_font_size_override(f, 13)
 	_text.add_theme_color_override("default_color", Color("f0e6d2"))
@@ -126,6 +127,7 @@ func show_menu(title: String, speaker: String, options: Array, portrait_id := ""
 	_text.text = title
 	_hint.text = "W/S choose · Space pick · X back"
 	for child in _menu.get_children():
+		_menu.remove_child(child)
 		child.queue_free()
 	for o in options:
 		var l := Label.new()
@@ -199,12 +201,22 @@ func _skip_disabled(dir: int) -> void:
 		tries += 1
 
 
+const MENU_ROWS := 4
+
+
 func _paint_menu() -> void:
 	var labels := _menu.get_children()
+	var start: int = clamp(_cursor - MENU_ROWS / 2, 0, max(0, labels.size() - MENU_ROWS))
 	for i in labels.size():
 		var o: Dictionary = _options[i]
 		var l: Label = labels[i]
-		l.text = ("> " if i == _cursor else "   ") + o.label
+		l.visible = i >= start and i < start + MENU_ROWS
+		var mark := "> " if i == _cursor else "   "
+		if i == start and start > 0:
+			mark = "^ "
+		elif i == start + MENU_ROWS - 1 and i < labels.size() - 1:
+			mark = "v "
+		l.text = mark + o.label
 		var color := Color("f0e6d2") if o.get("enabled", true) else Color("6a6f7a")
 		if i == _cursor and o.get("enabled", true):
 			color = Color("e8a64a")
@@ -214,4 +226,5 @@ func _paint_menu() -> void:
 func _clear_menu() -> void:
 	_options = []
 	for child in _menu.get_children():
+		_menu.remove_child(child)
 		child.queue_free()

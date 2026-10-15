@@ -25,6 +25,14 @@ var gates_open: Array = []     # gate ids opened for good
 var picked: Array = []         # "map:index" of pickups and barriers already taken
 var visited: Dictionary = {}   # "witness:node" -> day last seen
 var flags: Dictionary = {}
+var cash := 120               # dollars, shared by the party
+var gas := 6                  # tank units; a stop on the highway burns one
+var composure := 100          # 0..100, the party's nerve on the road and in the field
+var gear: Dictionary = {}     # member id -> {tool, coat, charm1, charm2}
+var verdicts: Dictionary = {} # case id -> {lean, rating, budget, day}
+var budget := 0               # unspent Office budget points
+var budget_earned := 0        # every point ever paid, sets the tier
+var radio_log: Array = []     # station ids heard
 
 
 func has_evidence(id: String) -> bool:
@@ -37,6 +45,15 @@ func has_item(id: String) -> bool:
 
 func add_item(id: String, count := 1) -> void:
 	items[id] = int(items.get(id, 0)) + count
+	if items[id] <= 0:
+		items.erase(id)
+
+
+func take_item(id: String, count := 1) -> bool:
+	if int(items.get(id, 0)) < count:
+		return false
+	add_item(id, -count)
+	return true
 
 
 func to_dict() -> Dictionary:
@@ -46,6 +63,8 @@ func to_dict() -> Dictionary:
 		"spoiled": spoiled, "samples": samples, "facts": facts, "clues_done": clues_done,
 		"trust": trust, "failed_checks": failed_checks, "locked_checks": locked_checks, "items": items,
 		"gates_open": gates_open, "picked": picked, "visited": visited, "flags": flags,
+		"cash": cash, "gas": gas, "composure": composure, "gear": gear, "verdicts": verdicts,
+		"budget": budget, "budget_earned": budget_earned, "radio_log": radio_log,
 	}
 
 
@@ -71,6 +90,14 @@ func from_dict(d: Dictionary) -> void:
 	picked = d.get("picked", [])
 	visited = d.get("visited", {})
 	flags = d.get("flags", {})
+	cash = int(d.get("cash", 120))
+	gas = int(d.get("gas", 6))
+	composure = int(d.get("composure", 100))
+	gear = d.get("gear", {})
+	verdicts = d.get("verdicts", {})
+	budget = int(d.get("budget", 0))
+	budget_earned = int(d.get("budget_earned", 0))
+	radio_log = d.get("radio_log", [])
 
 
 func save_game() -> bool:

@@ -12,6 +12,11 @@ VOICES = ["logic", "tech", "recall", "press", "rapport", "bluff", "nerve", "inti
 TONES = ["kind", "hard", "wry", "silent"]
 PHASES = ["morning", "day", "dusk", "night"]
 METHODS = ["photograph", "bag", "cast", "measure"]
+STATS = ["reason", "charm", "grit", "intuition"]
+ITEM_KINDS = ["tool", "coat", "charm", "kit", "consumable", "relic"]
+TIERS = ["issue", "store", "local", "vintage", "relic"]
+VERDICTS = ["hoax", "natural", "unexplained"]
+GIVES_KEYS = ["item", "flag", "cash", "gas", "dread", "composure", "hours", "evidence"]
 SOLID = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", "void", "water", "cement_edge")
 
 
@@ -71,11 +76,26 @@ def main():
             if name not in tiles:
                 err("%s uses unknown tile %s" % (where, name))
 
+    road_path = os.path.join(ROOT, "data/road.json")
+    road = load(road_path) if os.path.exists(road_path) else {}
+    all_gates = {}
+    for c in cases.values():
+        all_gates.update(c.get("gates", {}))
+    shops = set()
+    for m in maps.values():
+        for n in m.get("npcs", []):
+            if n.get("shop"):
+                shops.add(n["shop"])
+        for room in m.get("interiors", {}).values():
+            for n in room.get("npcs", []):
+                if n.get("shop"):
+                    shops.add(n["shop"])
+
     for mid, m in maps.items():
         case = cases.get(m.get("case", ""), {})
         evidence = case.get("evidence", {})
         witnesses = case.get("witnesses", {})
-        gates = case.get("gates", {})
+        gates = all_gates
         if m.get("case") not in cases:
             err("map %s has unknown case %s" % (mid, m.get("case")))
         ground = m.get("ground", "snow")
@@ -111,6 +131,10 @@ def main():
                     err("%s prop %s unknown" % (where, p["kind"]))
                 if p.get("pickup") and p["pickup"] not in items:
                     err("%s pickup %s is not in items.json" % (where, p["pickup"]))
+                if p.get("restock") and not p.get("price"):
+                    err("%s prop restocks but has no price" % where)
+                if p.get("travel") and p["travel"] not in road.get("legs", {}):
+                    err("%s prop drives unknown leg %s" % (where, p["travel"]))
                 if p.get("gate") and p["gate"] not in gates:
                     err("%s prop gate %s unknown" % (where, p["gate"]))
                 look = p.get("look")
@@ -127,7 +151,9 @@ def main():
                 for ph in n.get("when", []):
                     if ph not in PHASES:
                         err("%s npc %s has unknown phase %s" % (where, n["id"], ph))
-                if n["id"] not in witnesses and n["id"] not in dialogues.get(m.get("case", ""), {}):
+                if n.get("shop") and not any(n["shop"] in it.get("shop", []) for it in items.values() if isinstance(it, dict)):
+                    err("%s npc %s runs shop %s but no item is stocked there" % (where, n["id"], n["shop"]))
+                if n["id"] not in witnesses and n["id"] not in dialogues.get(m.get("case", ""), {}) and not n.get("shop"):
                     warnings.append("%s npc %s has no witness entry or dialogue (will use a stock line)" % (where, n["id"]))
 
         def check_clues(clist, where):
@@ -164,6 +190,103 @@ def main():
                 err("map %s exit to unknown map %s" % (mid, e["to"]))
             if e.get("gate") and e["gate"] not in gates:
                 err("map %s exit uses unknown gate %s" % (mid, e["gate"]))
+
+    for iid, it in items.items():
+        if not isinstance(it, dict):
+            continue
+        w = "item %s" % iid
+        if it.get("kind") not in ITEM_KINDS:
+            err("%s has unknown kind %s" % (w, it.get("kind")))
+        if "tier" in it and it["tier"] not in TIERS:
+            err("%s has unknown tier %s" % (w, it["tier"]))
+        if it.get("kind") == "tool" and it.get("class") not in classes:
+            err("%s is a tool with no class" % w)
+        for st in it.get("stat", {}):
+            if st not in STATS:
+                err("%s boosts unknown stat %s" % (w, st))
+        for v in it.get("voice", {}):
+            if v not in VOICES:
+                err("%s boosts unknown voice %s" % (w, v))
+        if it.get("kind") == "relic":
+            if it.get("case") not in cases:
+                err("%s relic names unknown case" % w)
+            if it.get("verdict") not in VERDICTS:
+                err("%s relic needs a verdict (hoax, natural, unexplained)" % w)
+        for sh in it.get("shop", []):
+            if sh not in shops:
+                warnings.append("%s is stocked in shop %s, which no npc runs" % (w, sh))
+        if it.get("shop") and not it.get("price"):
+            err("%s is in a shop with no price" % w)
+
+    office_path = os.path.join(ROOT, "data/office.json")
+    office = load(office_path) if os.path.exists(office_path) else {}
+    for rid, r in office.get("rooms", {}).items():
+        for k in r.get("opens", {}):
+            if k not in ("verdicts", "tier", "flag"):
+                err("office room %s opens on unknown key %s" % (rid, k))
+    for uid, u in list(office.get("upgrades", {}).items()) + list(office.get("car", {}).items()):
+        if "cost" not in u or "flag" not in u:
+            err("office upgrade %s needs cost and flag" % uid)
+        if u.get("room") and u["room"] not in office.get("rooms", {}):
+            err("office upgrade %s names unknown room %s" % (uid, u["room"]))
+        if u.get("tier") and u["tier"] > len(office.get("tiers", [0])):
+            err("office upgrade %s needs a tier that does not exist" % uid)
+
+    def check_gives(gv, where):
+        for k in gv:
+            if k not in GIVES_KEYS:
+                err("%s gives unknown key %s" % (where, k))
+        if gv.get("item") and gv["item"] not in items:
+            err("%s gives unknown item %s" % (where, gv["item"]))
+
+    events = road.get("events", {})
+    stations = road.get("stations", {})
+    for lid, leg in road.get("legs", {}).items():
+        w = "road leg %s" % lid
+        if leg.get("from") not in list(cases) + ["sutton"] or leg.get("to") not in list(cases) + ["sutton"]:
+            err("%s runs between unknown places %s and %s" % (w, leg.get("from"), leg.get("to")))
+        if leg.get("arrive_map") not in maps:
+            err("%s arrives at unknown map %s" % (w, leg.get("arrive_map")))
+        if not 3 <= len(leg.get("stops", [])) <= 8:
+            err("%s should have 3 to 8 stops, has %d" % (w, len(leg.get("stops", []))))
+        for st in leg.get("stops", []):
+            for e in st.get("events", []):
+                if e not in events:
+                    err("%s stop %s names unknown event %s" % (w, st.get("name"), e))
+        for e in leg.get("deck", []):
+            if e not in events:
+                err("%s deck names unknown event %s" % (w, e))
+        for st in leg.get("stations", []):
+            if st not in stations:
+                err("%s names unknown station %s" % (w, st))
+    for eid, ev in events.items():
+        w = "road event %s" % eid
+        for ph in ev.get("when", []):
+            if ph not in PHASES:
+                err("%s has unknown phase %s" % (w, ph))
+        for rd in ev.get("roads", []):
+            if rd not in ("highway", "back"):
+                err("%s has unknown road kind %s" % (w, rd))
+        if not ev.get("options"):
+            err("%s has no options" % w)
+        for o in ev.get("options", []):
+            check_gives(o.get("gives", {}), w)
+            if "check" in o:
+                if o["check"].get("voice") not in VOICES:
+                    err("%s check has unknown voice" % w)
+                if "fail" not in o:
+                    err("%s check option needs a fail" % w)
+                check_gives(o.get("fail", {}).get("gives", {}), w)
+    for sid, st in stations.items():
+        w = "road station %s" % sid
+        if st.get("band") not in ("am", "fm"):
+            err("%s band must be am or fm" % w)
+        lo, hi = (540, 1600) if st.get("band") == "am" else (88, 108)
+        if not lo <= float(st.get("freq", 0)) <= hi:
+            err("%s frequency %s is off the dial" % (w, st.get("freq")))
+        if st.get("kind") not in ("local", "callin", "numbers", "tone"):
+            err("%s has unknown kind %s" % (w, st.get("kind")))
+        check_gives(st.get("gives", {}), w)
 
     for cid, c in cases.items():
         evidence = c.get("evidence", {})

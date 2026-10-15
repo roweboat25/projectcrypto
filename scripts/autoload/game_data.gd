@@ -6,9 +6,12 @@ const DATA_DIR := "res://data"
 const DAMAGE_TYPES := ["physical", "signal", "spirit", "reason", "arcane"]
 const STATS := ["reason", "charm", "grit", "intuition"]
 const SPEECH_TAGS := ["logic", "press", "tech", "lore", "empathy", "intimidate", "arcana"]
+const ITEM_KINDS := ["kit", "consumable", "tool", "coat", "charm", "relic"]
 const VOICES := ["logic", "tech", "recall", "press", "rapport", "bluff", "nerve", "intimidate", "fieldcraft", "empathy", "lore", "arcana"]
 const PHASES := ["morning", "day", "dusk", "night"]
 const TONES := ["kind", "hard", "wry", "silent"]
+const LEANS := ["hoax", "natural", "unexplained"]
+const USES := ["board", "ledger", "catalog", "radio_log", "shop"]
 
 var classes: Dictionary = {}
 var roster: Dictionary = {}
@@ -17,6 +20,8 @@ var cases: Dictionary = {}
 var maps: Dictionary = {}
 var items: Dictionary = {}
 var dialogue: Dictionary = {}   # case id -> witness id -> script
+var office: Dictionary = {}     # data/office.json: rooms, upgrades, car, tiers, budget
+var road: Dictionary = {}       # data/road.json: legs, events, stations
 
 
 func _ready() -> void:
@@ -28,6 +33,8 @@ func load_all() -> void:
 	roster = _strip(_read_json(DATA_DIR + "/roster.json"))
 	foes = _strip(_read_json(DATA_DIR + "/foes.json"))
 	items = _strip(_read_json(DATA_DIR + "/items.json"))
+	office = _strip(_read_json(DATA_DIR + "/office.json")) if FileAccess.file_exists(DATA_DIR + "/office.json") else {}
+	road = _strip(_read_json(DATA_DIR + "/road.json")) if FileAccess.file_exists(DATA_DIR + "/road.json") else {}
 	cases.clear()
 	var dir := DirAccess.open(DATA_DIR + "/cases")
 	if dir:
@@ -56,6 +63,47 @@ func load_all() -> void:
 			if file.ends_with(".json"):
 				var m: Dictionary = _strip(_read_json(DATA_DIR + "/maps/" + file))
 				maps[m.get("id", file.get_basename())] = m
+
+
+## An evidence card by id, from the case named first, then any case.
+func evidence(case_id: String, id: String) -> Dictionary:
+	if cases.get(case_id, {}).get("evidence", {}).has(id):
+		return cases[case_id].evidence[id]
+	for c in cases.values():
+		if c.get("evidence", {}).has(id):
+			return c.evidence[id]
+	return {}
+
+
+## A gate by id, from any case: gate ids are unique across the game.
+func gate(gate_id: String) -> Dictionary:
+	for c in cases.values():
+		if c.get("gates", {}).has(gate_id):
+			return c.gates[gate_id]
+	return {}
+
+
+## A witness's scripted conversation, from the case given first, then any case.
+func script(case_id: String, witness_id: String) -> Dictionary:
+	if dialogue.get(case_id, {}).has(witness_id):
+		return dialogue[case_id][witness_id]
+	for cid in dialogue:
+		if dialogue[cid].has(witness_id):
+			return dialogue[cid][witness_id]
+	return {}
+
+
+## The item ids a shop sells, cheapest first within each kind.
+func shop_stock(shop_id: String) -> Array:
+	var out: Array = []
+	for id in items:
+		if shop_id in items[id].get("shop", []):
+			out.append(id)
+	out.sort_custom(func(a, b):
+		var ka: int = ITEM_KINDS.find(items[a].get("kind", "kit"))
+		var kb: int = ITEM_KINDS.find(items[b].get("kind", "kit"))
+		return ka < kb if ka != kb else int(items[a].get("price", 0)) < int(items[b].get("price", 0)))
+	return out
 
 
 ## A case can be split into data/cases/<id>/*.json fragments, one per district:
@@ -174,7 +222,7 @@ func validate() -> Array[String]:
 		var building_ids := []
 		for b in m.get("facades", []) + m.get("houses", []):
 			building_ids.append(b.id)
-			if b.has("gate") and not c.get("gates", {}).has(b.gate):
+			if b.has("gate") and gate(b.gate).is_empty():
 				errors.append("map %s building %s uses unknown gate %s" % [map_id, b.id, b.gate])
 		for iid in m.get("interiors", {}):
 			if not iid in building_ids:
@@ -182,7 +230,7 @@ func validate() -> Array[String]:
 		for e in m.get("exits", []):
 			if not maps.has(e.get("to", "")):
 				errors.append("map %s has an exit to unknown map %s" % [map_id, e.get("to")])
-			if e.has("gate") and not c.get("gates", {}).has(e.gate):
+			if e.has("gate") and gate(e.gate).is_empty():
 				errors.append("map %s exit uses unknown gate %s" % [map_id, e.gate])
 		var props: Array = m.get("props", []).duplicate()
 		var npcs: Array = m.get("npcs", []).duplicate()
@@ -192,9 +240,15 @@ func validate() -> Array[String]:
 		for p in props:
 			if p.has("pickup") and not items.has(p.pickup):
 				errors.append("map %s prop %s picks up unknown item %s" % [map_id, p.kind, p.pickup])
-			if p.has("gate") and not c.get("gates", {}).has(p.gate):
+			if p.has("gate") and gate(p.gate).is_empty():
 				errors.append("map %s prop %s uses unknown gate %s" % [map_id, p.kind, p.gate])
+			if p.has("use") and not p.use in USES:
+				errors.append("map %s prop %s has unknown use %s" % [map_id, p.kind, p.use])
+			if p.has("travel") and not road.get("legs", {}).has(p.travel):
+				errors.append("map %s prop %s drives unknown leg %s" % [map_id, p.kind, p.travel])
 		for n in npcs:
+			if n.has("shop") and shop_stock(n.shop).is_empty():
+				errors.append("map %s npc %s runs shop %s with no stock" % [map_id, n.id, n.shop])
 			for ph in n.get("when", []):
 				if not ph in PHASES:
 					errors.append("map %s npc %s has unknown phase %s" % [map_id, n.id, ph])
@@ -212,6 +266,52 @@ func validate() -> Array[String]:
 					errors.append("map %s clue %s yields missing evidence %s" % [map_id, clue.get("id"), e])
 			if clue.has("requires") and not evidence.has(clue.requires):
 				errors.append("map %s clue %s requires missing evidence" % [map_id, clue.get("id")])
+	for id in items:
+		var it: Dictionary = items[id]
+		if not it.get("kind", "") in ITEM_KINDS:
+			errors.append("item %s has unknown kind %s" % [id, it.get("kind")])
+		if it.get("kind") == "tool" and not classes.has(it.get("class", "")):
+			errors.append("item %s is a tool with no class" % id)
+		for st in it.get("stat", {}):
+			if not st in STATS:
+				errors.append("item %s boosts unknown stat %s" % [id, st])
+		for v in it.get("voice", {}):
+			if not v in VOICES:
+				errors.append("item %s boosts unknown voice %s" % [id, v])
+		if it.get("kind") == "relic" and (not cases.has(it.get("case", "")) or not it.get("verdict", "") in LEANS):
+			errors.append("item %s relic needs a case and a verdict" % id)
+	for uid in office.get("upgrades", {}).keys() + office.get("car", {}).keys():
+		var u: Dictionary = office.get("upgrades", {}).get(uid, office.get("car", {}).get(uid, {}))
+		if not u.has("cost") or not u.has("flag"):
+			errors.append("office upgrade %s needs cost and flag" % uid)
+	var events: Dictionary = road.get("events", {})
+	var stations: Dictionary = road.get("stations", {})
+	for lid in road.get("legs", {}):
+		var leg: Dictionary = road.legs[lid]
+		if not maps.has(leg.get("arrive_map", "")):
+			errors.append("road leg %s arrives at unknown map" % lid)
+		for st in leg.get("stops", []):
+			for e in st.get("events", []):
+				if not events.has(e):
+					errors.append("road leg %s names unknown event %s" % [lid, e])
+		for e in leg.get("deck", []):
+			if not events.has(e):
+				errors.append("road leg %s deck names unknown event %s" % [lid, e])
+		for st in leg.get("stations", []):
+			if not stations.has(st):
+				errors.append("road leg %s names unknown station %s" % [lid, st])
+	for eid in events:
+		if events[eid].get("options", []).is_empty():
+			errors.append("road event %s has no options" % eid)
+		for o in events[eid].get("options", []):
+			if o.has("check") and not o.check.get("voice", "") in VOICES:
+				errors.append("road event %s check has unknown voice" % eid)
+			for gv in [o.get("gives", {}), o.get("fail", {}).get("gives", {})]:
+				if gv.has("item") and not items.has(gv.item):
+					errors.append("road event %s gives unknown item %s" % [eid, gv.item])
+	for sid in stations:
+		if not stations[sid].get("kind", "") in ["local", "callin", "numbers", "tone"]:
+			errors.append("road station %s has unknown kind" % sid)
 	return errors
 
 

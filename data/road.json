@@ -1,0 +1,1110 @@
+{
+ "_doc": "The drives between the Office and the cases. Schema: docs/content-format.md, 'The road'. February 1994: snow chains, pay phones, CB, a 1983 Buick Estate wagon.",
+ "legs": {
+  "sutton_to_point_pleasant": {
+   "name": "Sutton to Point Pleasant",
+   "from": "sutton",
+   "to": "point_pleasant",
+   "arrive_map": "point_pleasant_main_street",
+   "arrive_at": [
+    12,
+    26
+   ],
+   "hours": 4,
+   "stops": [
+    {
+     "name": "Gassaway",
+     "text": "The wagon rolls out of Sutton past the courthouse and the Elk, the heater ticking and the back seat full of film cans. Gassaway is the last town where anyone will know the Office by name.",
+     "highway": "I-79 south",
+     "back": "WV-4 along the Elk River",
+     "sights": "Ice on the Elk, a coal train idling at the Gassaway yard, somebody's wash frozen stiff on the line.",
+     "events": [
+      "pie_diner",
+      "church_sign"
+     ]
+    },
+    {
+     "name": "Clay County",
+     "text": "The interstate climbs through cut rock and bare hickory; the back road drops into Clay and follows the Elk past trailers and a one-lane bridge. There is no station on the dial for ten miles either way.",
+     "highway": "I-79 south past Big Otter",
+     "back": "US-119 through Clay",
+     "sights": "A hand-lettered sign for ramps that will not be up for two months, and a church with the steeple leaning toward the river.",
+     "events": [
+      "breakdown",
+      "low_water_crossing",
+      "bridge_detour"
+     ]
+    },
+    {
+     "name": "Charleston",
+     "text": "The gold dome of the capitol comes up out of the Kanawha fog like something that belongs in a bigger state. The interstate stacks through town on concrete legs; the old road goes east up the gorge, where a sign promises a hole where gravity went wrong.",
+     "highway": "I-77 and I-64 through Charleston",
+     "back": "US-60 up the Kanawha toward Ansted",
+     "sights": "The capitol dome, a chemical plant breathing white, and a billboard for the Mystery Hole, SEE IT TO BELIEVE IT.",
+     "events": [
+      "mystery_hole",
+      "state_trooper",
+      "payphone"
+     ]
+    },
+    {
+     "name": "Winfield",
+     "text": "Past Teays Valley the four lanes end and US-35 turns into two, following the Kanawha north between coal tipples and bottomland. The truckers call it Bloody 35 and the crosses in the ditch say why.",
+     "highway": "US-35 north",
+     "back": "WV-62 along the Kanawha",
+     "sights": "A tipple with its lights on, a white cross with plastic flowers, and the first streaks of river fog crossing the road.",
+     "events": [
+      "bloody_35_chains",
+      "truck_stop_cb"
+     ]
+    },
+    {
+     "name": "The Ohio approach",
+     "text": "The Kanawha widens, the fog thickens, and the road runs out of hills. Somewhere ahead the river meets the Ohio and the lights of Point Pleasant hang over the water where the Silver Bridge used to be.",
+     "highway": "US-35 to the Henderson bridge",
+     "back": "WV-2 along the river",
+     "sights": "Barge lights on the Kanawha, the Henderson bridge railings coated in ice, and the floodwall at Point Pleasant like a grey shoulder turned to the water.",
+     "events": [
+      "fog_bank",
+      "deer_then_something"
+     ]
+    }
+   ],
+   "deck": [
+    "hitchhiker",
+    "pie_diner",
+    "breakdown",
+    "lights_over_field",
+    "deer_then_something",
+    "church_sign",
+    "motel_night",
+    "payphone"
+   ],
+   "stations": [
+    "wsgb_1490",
+    "wchs_580",
+    "wvaf_999",
+    "wklc_1051",
+    "wqbe_975",
+    "wvpn_885",
+    "wbyg_1340",
+    "wjeh_990",
+    "night_desk",
+    "numbers_1",
+    "tone"
+   ]
+  },
+  "point_pleasant_to_sutton": {
+   "name": "Point Pleasant to Sutton",
+   "from": "point_pleasant",
+   "to": "sutton",
+   "arrive_map": "sutton_office",
+   "arrive_at": [
+    12,
+    20
+   ],
+   "hours": 4,
+   "stops": [
+    {
+     "name": "Henderson",
+     "text": "The wagon crosses the Kanawha with the case boxes rattling in the back and the floodwall shrinking in the mirror. Bloody 35 is worse going south; the fog comes up off the river in the dark and the trucks run it anyway.",
+     "highway": "US-35 south",
+     "back": "WV-2 down the river to Buffalo",
+     "sights": "The power plant stacks blinking red across the Ohio, a towboat pushing coal in the dark, and a pair of headlights that keep the same distance.",
+     "events": [
+      "black_sedan",
+      "fog_bank"
+     ]
+    },
+    {
+     "name": "Teays Valley",
+     "text": "The two lanes become four again at the interstate and the whole car breathes out. Charleston's glow sits on the clouds ahead and somebody mentions the pie case in Gassaway.",
+     "highway": "I-64 east into Charleston",
+     "back": "WV-62 up the Kanawha through Winfield",
+     "sights": "A Go-Mart lit like a landing strip, a flatbed of pipe, the Kanawha running black and fast under the Winfield bridge.",
+     "events": [
+      "truck_stop_cb",
+      "state_trooper"
+     ]
+    },
+    {
+     "name": "Elkview",
+     "text": "North of Charleston the interstate empties out and climbs back into the hills. It is a long dark pull to Sutton with the heater on low to save gas, and everyone in the car is thinking about the filing.",
+     "highway": "I-79 north",
+     "back": "WV-4 up the Elk through Clay",
+     "sights": "Elkview's one stoplight blinking yellow, the river under ice, and the Braxton County line sign shot through with birdshot.",
+     "events": [
+      "payphone",
+      "motel_night"
+     ]
+    }
+   ],
+   "deck": [
+    "black_sedan",
+    "hitchhiker",
+    "pie_diner",
+    "breakdown",
+    "lights_over_field",
+    "deer_then_something",
+    "motel_night"
+   ],
+   "stations": [
+    "wbyg_1340",
+    "wglp_937",
+    "wkee_1005",
+    "wchs_580",
+    "wklc_1051",
+    "wsgb_1490",
+    "night_desk",
+    "numbers_2",
+    "tone"
+   ]
+  }
+ },
+ "events": {
+  "hitchhiker": {
+   "title": "A hitchhiker with a guitar case",
+   "text": "A man in an army coat stands at the end of a gravel drive with a guitar case at his feet and his thumb out, not hopeful, just out. The case has a Point Pleasant Regatta sticker on it, years old. He does not wave the wagon down; he waits to see what it does.",
+   "when": [
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Give him a ride",
+     "line": "He folds into the back with the case across his knees and talks for forty miles. Somewhere past the county line he plays three chords of something about the river, and Teddy writes the words on the back of a map. His cousin is a deputy in Mason County and has a story about a grey bird.",
+     "gives": {
+      "flag": "road_song",
+      "evidence": "deputy_bird",
+      "hours": 1
+     }
+    },
+    {
+     "text": "Ask where he's headed first",
+     "check": {
+      "voice": "rapport",
+      "difficulty": 8
+     },
+     "line": "Home, he says, if it's still there. He names the town before you do and gives you a street and a name to ask for, and then says no to the ride after all. He'd rather walk it.",
+     "gives": {
+      "flag": "hitchhiker_lead",
+      "evidence": "deputy_bird"
+     },
+     "fail": {
+      "line": "He looks at the Office lettering on the door and the thumb comes down. 'I've talked to your kind,' he says, and picks up the case.",
+      "gives": {
+       "composure": -5
+      }
+     }
+    },
+    {
+     "text": "Drive on",
+     "line": "He gets smaller in the mirror and does not watch you go."
+    }
+   ]
+  },
+  "pie_diner": {
+   "title": "A diner with a pie case",
+   "text": "A diner sits in a gravel lot under a sign that just says EAT, its windows fogged from the inside. A rotating pie case turns slowly on the counter: coconut cream, apple, something red. The cook has a Point Pleasant Black Knights jacket hanging on the coat rack.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Eat",
+     "line": "Pie, coffee, eggs, the works, and the heater vent under the booth. For twenty minutes nobody talks about the case and it is the best thing that happens all day.",
+     "gives": {
+      "cash": -4,
+      "composure": 15,
+      "hours": 1
+     }
+    },
+    {
+     "text": "Ask the cook about the sightings",
+     "line": "He wipes the counter around your cup while he tells it. 'Half of that in '66 was Kessler's boys with a reflector on a stick,' he says, 'and the other half nobody can tell you.' He says it like a man who has told both halves.",
+     "gives": {
+      "cash": -2,
+      "evidence": "prank_rumour",
+      "hours": 1
+     }
+    },
+    {
+     "text": "Coffee to go",
+     "line": "Two paper cups and a lid that will not seal. It is still the only warm thing in the car.",
+     "gives": {
+      "cash": -1,
+      "item": "coffee"
+     }
+    }
+   ]
+  },
+  "breakdown": {
+   "title": "Breakdown on the shoulder",
+   "text": "The wagon coughs twice, catches, then dies on a stretch of road with a ditch on one side and a guardrail on the other. The dash lights stay on. Outside it is cold enough that the breath in the car fogs the windshield within a minute.",
+   "when": [
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Fix it yourself",
+     "check": {
+      "voice": "fieldcraft",
+      "difficulty": 8
+     },
+     "line": "Fuel line, iced at the bend. A rag, a lighter and a cold ten minutes get it running, and Frank says the Buick has done this to him twice.",
+     "gives": {
+      "hours": 1
+     },
+     "fail": {
+      "line": "An hour under the hood with a flashlight in your teeth finds nothing. A pulpwood truck finally stops and tows the wagon to a garage that charges by the quarter hour.",
+      "gives": {
+       "hours": 5,
+       "cash": -20,
+       "composure": -10
+      }
+     }
+    },
+    {
+     "text": "Call for help on the CB",
+     "requires": {
+      "flag": [
+       "car_cb_radio"
+      ]
+     },
+     "line": "Channel 19 answers on the second try. A tanker driver named Pigeon pulls over twenty minutes later with jumper cables and a thermos and will not take money for it.",
+     "gives": {
+      "hours": 1
+     }
+    },
+    {
+     "text": "Walk to a pay phone",
+     "line": "The phone is two miles back at a closed store. The wrecker takes an hour to come and another to find a shop that is open, and the driver talks about Point Pleasant the whole way.",
+     "gives": {
+      "hours": 3,
+      "cash": -15,
+      "composure": -10
+     }
+    }
+   ]
+  },
+  "mystery_hole": {
+   "title": "The Mystery Hole",
+   "text": "A gorilla statue and a VW Beetle nosed into the roof mark the Mystery Hole, Ansted, open since 1973, where the signs say the laws of nature do not apply. A woman in a parka takes dollars at a window. Inside, by all accounts, water runs uphill and a ball rolls the wrong way.",
+   "when": [
+    "day"
+   ],
+   "roads": [
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Pay and go in",
+     "line": "The floor is tilted and so is everything on it, and your inner ear argues with your eyes for fifteen minutes. On the way out there is a rack of postcards printed on the slant. Teddy says it's the most honest place in the state: it tells you it is a trick and you still feel it.",
+     "gives": {
+      "cash": -5,
+      "gas": -1,
+      "hours": 2,
+      "item": "mystery_hole_postcard",
+      "flag": "mystery_hole_seen"
+     }
+    },
+    {
+     "text": "Work out the trick from the parking lot",
+     "check": {
+      "voice": "logic",
+      "difficulty": 8
+     },
+     "line": "The building leans eleven degrees into the hill and the roofline hides it. A tilted room with a level floor painted on the wall, and your body believes the wall. You say so, and nobody is less tempted.",
+     "gives": {
+      "composure": 5,
+      "flag": "mystery_hole_figured"
+     },
+     "fail": {
+      "line": "You stand in the lot looking at a crooked building for ten minutes and end up less sure than when you arrived. Frank pays for a postcard just to annoy you.",
+      "gives": {
+       "composure": -5,
+       "hours": 1
+      }
+     }
+    },
+    {
+     "text": "Drive on",
+     "line": "The gorilla watches you go. Somebody in the back seat says 'next time' and means it."
+    }
+   ]
+  },
+  "lights_over_field": {
+   "title": "Lights in the sky over a field",
+   "text": "Three lights hang over a bottomland field, orange, steady, in a line too level for anything on a wing. They do not blink. A farmhouse at the far end of the field has every light on.",
+   "when": [
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Pull over and photograph them",
+     "requires": {
+      "item": [
+       "film"
+      ]
+     },
+     "line": "Six frames at a long exposure with the camera on the roof of the wagon. The lights go out one at a time, left to right, while the shutter is open on the last one. Nobody says anything until the car is moving.",
+     "gives": {
+      "flag": "lights_photo",
+      "hours": 1,
+      "dread": 1
+     }
+    },
+    {
+     "text": "Stop and watch",
+     "line": "They hold for four minutes by the dash clock, then go out together. The farmhouse lights stay on. Nobody comes to the door.",
+     "gives": {
+      "hours": 1,
+      "dread": 1,
+      "composure": -5,
+      "flag": "lights_watched"
+     }
+    },
+    {
+     "text": "Keep driving",
+     "line": "Flares, says Frank. Nobody argues, and nobody looks in the mirror."
+    }
+   ]
+  },
+  "deer_then_something": {
+   "title": "A deer, then something else, in the headlights",
+   "text": "A doe steps into the cone of the headlights and stands with her eyes lit green, and then goes. A second later something else comes out of the brush behind where she was: taller, upright, and gone before the brakes finish squealing. The fog closes over the road.",
+   "when": [
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Brake and look",
+     "check": {
+      "voice": "nerve",
+      "difficulty": 9
+     },
+     "line": "The wagon stops crooked across the line and you get out with the flashlight. Tracks in the slush on the shoulder: deer, and then a wide, flat print that is not deer, going toward the river.",
+     "gives": {
+      "flag": "headlights_shape",
+      "dread": 1,
+      "hours": 1
+     },
+     "fail": {
+      "line": "You stop too late and too hard. The front end kisses the guardrail, a headlight goes, and whatever it was is not there when you look.",
+      "gives": {
+       "composure": -15,
+       "dread": 1,
+       "cash": -10
+      }
+     }
+    },
+    {
+     "text": "Hit the spotlight",
+     "requires": {
+      "flag": [
+       "car_spotlight"
+      ]
+     },
+     "line": "The roof-rack spotlight floods the brush white. Something turns in it, slow, and two red points come back at the car and then are gone. Teddy has to be told to breathe.",
+     "gives": {
+      "flag": "headlights_shape_clear",
+      "dread": 1,
+      "composure": -5
+     }
+    },
+    {
+     "text": "Swerve and keep going",
+     "line": "The wagon fishtails and catches, and the tail end of the fog bank swallows the road behind you. A deer, you say. Everyone agrees out loud.",
+     "gives": {
+      "composure": -10
+     }
+    }
+   ]
+  },
+  "black_sedan": {
+   "title": "A black sedan in the mirror",
+   "text": "A pair of headlights has held the same distance behind the wagon for twenty miles, through two towns and a speed trap, never closer, never gone. When a truck's lights sweep across it there is a black sedan under them, an old one, a model nobody has made since the sixties, polished like it came off the lot. The dash radio hisses three faint notes and stops.",
+   "when": [
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Lose it",
+     "check": {
+      "voice": "nerve",
+      "difficulty": 9
+     },
+     "line": "You kill the headlights at the top of a hill and take the first gravel road without braking. Ten minutes in the dark with the engine off, and the sedan goes by on the main road at exactly the speed it was doing before. It does not slow.",
+     "gives": {
+      "gas": -1,
+      "composure": -10,
+      "hours": 1
+     },
+     "fail": {
+      "line": "You take the gravel road and the sedan takes it too, lights off, the same distance back. When you reach pavement again it is somehow ahead of you, and then it is behind you again.",
+      "gives": {
+       "flag": "sedan_follows",
+       "dread": 1,
+       "composure": -10,
+       "gas": -1
+      }
+     }
+    },
+    {
+     "text": "Pull over",
+     "line": "You stop on the shoulder and the sedan stops behind you. A man in a dark suit and a hat walks up without a coat in February and stands at the window. 'Mr. Penrose,' he says, as if answering. He asks how the filing went and whether you found the room on the fourth floor, and says the Office was always better at listening than at being right. 'Augusta thought so too.' He walks back to the sedan before anyone can ask who that is, and it pulls out without lighting its lamps.",
+     "gives": {
+      "flag": "met_penrose_road",
+      "dread": 1,
+      "hours": 1
+     }
+    },
+    {
+     "text": "Ignore it",
+     "line": "You drive the speed limit and do not look again. It is still there at the county line. It is still there when you stop for gas, parked across the lot with nobody in it, and it is not there when you come out.",
+     "gives": {
+      "flag": "sedan_follows"
+     }
+    }
+   ]
+  },
+  "bloody_35_chains": {
+   "title": "Snow on Bloody 35",
+   "text": "Sleet turns to snow somewhere past Winfield and the two lanes of US-35 go white at once. A coal truck passes doing sixty and throws a wall of slush across the windshield. There is a plow somewhere; it is not here.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Fit the chains",
+     "requires": {
+      "flag": [
+       "car_snow_chains"
+      ]
+     },
+     "line": "Twenty cold minutes on your knees in the slush, Frank holding the flashlight and swearing in rhythm. After that the wagon goes where it is pointed, and the trucks can do what they like.",
+     "gives": {
+      "hours": 1,
+      "composure": -5
+     }
+    },
+    {
+     "text": "Creep along without them",
+     "check": {
+      "voice": "fieldcraft",
+      "difficulty": 8
+     },
+     "line": "Second gear, no brakes, and the ruts left by the trucks. It takes an extra hour and a lot of silence, and it works.",
+     "gives": {
+      "hours": 1,
+      "composure": -5
+     },
+     "fail": {
+      "line": "The back end lets go on a curve above the river and the wagon ends up nose-down in the ditch, undamaged, immovable. A farmer with a tractor pulls it out for twenty dollars and a lecture about chains.",
+      "gives": {
+       "hours": 3,
+       "cash": -10,
+       "composure": -15
+      }
+     }
+    },
+    {
+     "text": "Wait it out at a gas station",
+     "line": "A Union 76 with a kerosene heater and a dog. The snow stops after two hours and the plow finally comes through, and the man at the register says it's always like this on 35, that's why the crosses.",
+     "gives": {
+      "hours": 3,
+      "cash": -3
+     }
+    }
+   ]
+  },
+  "fog_bank": {
+   "title": "A fog bank off the river",
+   "text": "The river fog comes across the road in one piece, a wall, and inside it the headlights show twenty feet of wet asphalt and nothing else. Taillights ahead flare and vanish. Somewhere a truck downshifts and you cannot tell from which direction.",
+   "when": [
+    "dusk",
+    "night",
+    "morning"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Follow a truck's taillights",
+     "check": {
+      "voice": "nerve",
+      "difficulty": 8
+     },
+     "line": "You tuck in behind a coal truck and drive its red lights for eleven miles, closer than anyone should. It knows the road. When the fog breaks it is just gone, as if it was never there.",
+     "gives": {
+      "composure": -5
+     },
+     "fail": {
+      "line": "The truck pulls away and leaves you alone in it. You crawl along at fifteen with the window down to hear the road, and the fog does not lift for an hour.",
+      "gives": {
+       "hours": 2,
+       "composure": -10
+      }
+     }
+    },
+    {
+     "text": "Ask on the CB where it ends",
+     "requires": {
+      "flag": [
+       "car_cb_radio"
+      ]
+     },
+     "line": "'Clears at the Buffalo bridge, northbound, and watch for the flatbed at the Red Hill curve.' You take the advice and the flatbed is exactly where he said.",
+     "gives": {
+      "hours": 1
+     }
+    },
+    {
+     "text": "Pull off and wait",
+     "line": "You sit at a church lot with the engine running for warmth and the wipers going on nothing. Two hours. Somebody in the car says they can hear the river, and nobody else can.",
+     "gives": {
+      "hours": 2,
+      "composure": -5,
+      "dread": 1
+     }
+    }
+   ]
+  },
+  "truck_stop_cb": {
+   "title": "A truck stop with a CB on the counter",
+   "text": "A truck stop under sodium lights, diesel pumps on one side and a lunch counter on the other. A CB base station sits by the register with the squelch open, and the drivers talk over each other about weigh stations, the snow north of Ripley, and two men in a black car asking questions at the Mason Gas.",
+   "when": [
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "highway"
+   ],
+   "options": [
+    {
+     "text": "Coffee and listen",
+     "line": "A driver named Hollowell has it from a dispatcher who has it from a deputy: two men, dark suits, no coats, in February, asking the gas station man what he saw and whether he had told anyone. 'Feds,' says Hollowell. The man next to him says no.",
+     "gives": {
+      "cash": -3,
+      "composure": 5,
+      "evidence": "the_suits",
+      "hours": 1
+     }
+    },
+    {
+     "text": "Buy a set of snow chains",
+     "line": "Behind the counter, next to the fan belts and the Vivarin. Twenty dollars, and the man throws in a pair of cotton gloves because he has seen what people's hands look like after.",
+     "gives": {
+      "cash": -20,
+      "flag": "car_snow_chains"
+     }
+    },
+    {
+     "text": "Fill the tank",
+     "line": "Regular, pumped by a kid in a watch cap who does the windshield without being asked. It is the last cheap gas before the river.",
+     "gives": {
+      "cash": -12,
+      "gas": 2
+     }
+    }
+   ]
+  },
+  "bridge_detour": {
+   "title": "A closed bridge and a detour",
+   "text": "Orange barrels and a flagman in a reflective vest block the road at a steel truss bridge. The sign says BRIDGE CLOSED, INSPECTION, with a detour arrow pointing up a road with no number. The flagman is drinking coffee from a thermos lid and looks like he has been there since the state built the bridge.",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Take the detour",
+     "line": "The detour is eighteen miles of switchbacks through a hollow where every dog comes out to the road. It rejoins the highway at a crossroads with a store that sells gas by the gallon and a lot of nothing else.",
+     "gives": {
+      "gas": -1,
+      "hours": 2
+     }
+    },
+    {
+     "text": "Ask the flagman for a better way",
+     "check": {
+      "voice": "rapport",
+      "difficulty": 7
+     },
+     "line": "'Office, huh. My aunt wrote you people in '68.' He lifts the barrel and waves you across the bridge with the inspectors watching, one car, slow, no stopping.",
+     "gives": {
+      "hours": 0,
+      "flag": "flagman_aunt"
+     },
+     "fail": {
+      "line": "He has been asked that forty times today. He points at the arrow and goes back to his coffee.",
+      "gives": {
+       "gas": -1,
+       "hours": 2
+      }
+     }
+    },
+    {
+     "text": "Wait for the inspection to finish",
+     "line": "Three hours in a cold car with the engine on and off, watching men in hard hats walk the trusses. The flagman eventually lets you through without looking up.",
+     "gives": {
+      "hours": 3,
+      "composure": -5
+     }
+    }
+   ]
+  },
+  "state_trooper": {
+   "title": "A state trooper's lights",
+   "text": "Blue lights come up in the mirror and stay there. A West Virginia State Police cruiser, campaign hat and all, pulls the wagon over on a straight stretch with nothing around but a fence. The trooper walks up slow, looks at the equipment in the back, the antennas, the Office lettering on the door.",
+   "when": [
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Be straight with him",
+     "line": "Investigators, Sutton, going to Point Pleasant on a case. He looks at you for a long second and says to watch the fog on 35 and that his sergeant has a file on your Office thicker than his. He does not write anything.",
+     "gives": {
+      "flag": "trooper_warned",
+      "hours": 1
+     }
+    },
+    {
+     "text": "Tell him you're with the newspaper",
+     "check": {
+      "voice": "bluff",
+      "difficulty": 9
+     },
+     "line": "The Gazette, a feature on the anniversary. He loses interest in a way that only a reporter can make happen and waves you off with a warning about the taillight.",
+     "gives": {
+      "hours": 1
+     },
+     "fail": {
+      "line": "He asks which editor and you do not have a name. The ticket is for the taillight, the lecture is for the lie, and both take a while.",
+      "gives": {
+       "cash": -15,
+       "hours": 1,
+       "composure": -10
+      }
+     }
+    },
+    {
+     "text": "Kill the scanner before he reaches the window",
+     "requires": {
+      "flag": [
+       "car_scanner"
+      ]
+     },
+     "line": "The police scanner goes dark a second before his flashlight finds it. He looks at the box, then at you. 'Keep it off in Mason County,' he says, and lets it go.",
+     "gives": {
+      "composure": -5,
+      "flag": "trooper_warned"
+     }
+    }
+   ]
+  },
+  "church_sign": {
+   "title": "A church sign",
+   "text": "A white frame church with a black letterboard sign out front, the plastic letters pushed in crooked. It reads WHAT WATCHES FROM THE RIVER WATCHES YOU TOO, and under it, REVIVAL FEB 20. The lot is empty and there are tire ruts in the snow going around the back.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Stop and read the rest",
+     "check": {
+      "voice": "lore",
+      "difficulty": 7
+     },
+     "line": "The other side of the sign has last week's message still up, the letters gone grey with weather: HE SAW THE BIRD AND WAS NOT AFRAID. Isaiah does not say that. Somebody here wrote their own verse.",
+     "gives": {
+      "flag": "church_sign_read",
+      "hours": 1
+     },
+     "fail": {
+      "line": "The other side is bare except for three letters nobody took down: G, U, S. It means nothing and it stays with you for miles.",
+      "gives": {
+       "composure": -5,
+       "dread": 1
+      }
+     }
+    },
+    {
+     "text": "Drive on",
+     "line": "Frank reads it aloud in a preacher voice and Teddy does not laugh."
+    }
+   ]
+  },
+  "low_water_crossing": {
+   "title": "A flooded low-water crossing",
+   "text": "The back road drops to a concrete ford across a creek, and the creek is up: brown water running fast over the slab with a depth gauge on a post that reads somewhere between one foot and two. Ice rims the banks. Someone has tied a red rag to the gauge, which could mean anything.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Ford it",
+     "check": {
+      "voice": "fieldcraft",
+      "difficulty": 9
+     },
+     "line": "Low gear, steady throttle, upstream side of the slab where the water is shallowest. The wagon pushes a bow wave to the far bank and climbs out dripping.",
+     "gives": {
+      "composure": -5
+     },
+     "fail": {
+      "line": "Halfway across the engine drowns. You sit in the dark with the water sucking at the doors until a man with a tractor and a chain pulls you out backward and will not take less than fifteen dollars.",
+      "gives": {
+       "hours": 4,
+       "cash": -15,
+       "composure": -10
+      }
+     }
+    },
+    {
+     "text": "Wade out and check the depth",
+     "requires": {
+      "item": [
+       "waders"
+      ]
+     },
+     "line": "Knee-deep and rising, but the slab is sound and the current is on the downstream edge. You walk the line and then drive it, and the only thing lost is an hour and the feeling in your feet.",
+     "gives": {
+      "hours": 1
+     }
+    },
+    {
+     "text": "Turn around",
+     "line": "Back up the hill and around by the county road, twelve miles the long way. The creek will still be up tomorrow.",
+     "gives": {
+      "gas": -1,
+      "hours": 1
+     }
+    }
+   ]
+  },
+  "motel_night": {
+   "title": "A motel sign in the dark",
+   "text": "A motor court with half its neon working, VACANCY in pink, the office lit by a television. Eight rooms in a row with a car in front of one. It is late, the road is long, and the driver has started blinking slower than is safe.",
+   "when": [
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Take a room",
+     "line": "Twenty-two dollars for two beds, a cot, a heater that bangs and a shower with pressure. You sleep like the dead and dream about nothing, which is the best you can hope for on this road.",
+     "gives": {
+      "cash": -22,
+      "composure": 30,
+      "hours": 5
+     }
+    },
+    {
+     "text": "Sleep on the mattress in the back",
+     "requires": {
+      "flag": [
+       "car_mattress"
+      ]
+     },
+     "line": "Seats down, the mattress in, coats for blankets and the engine run ten minutes an hour for the heater. It is not a bed. It is free, and nobody has to sign a register.",
+     "gives": {
+      "composure": 15,
+      "hours": 5
+     }
+    },
+    {
+     "text": "Push on",
+     "line": "Coffee from the thermos and the window cracked for the cold. The road keeps coming and the mind starts to put things in the ditches that are not there.",
+     "gives": {
+      "composure": -10,
+      "dread": 1
+     }
+    }
+   ]
+  },
+  "payphone": {
+   "title": "A pay phone outside a closed store",
+   "text": "A pay phone bolted to the wall of a cinderblock store that closed at six, its light the only one for a mile. The receiver is cold enough to stick to an ear. There is a phone book on a chain with the cover torn off.",
+   "when": [
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Call the Office",
+     "line": "The answering machine in the sorting room picks up after four rings and you listen to your own voice tell you nobody is in. You leave the stop and the time anyway, because that is the rule, and feel better for it.",
+     "gives": {
+      "cash": -1,
+      "composure": 5
+     }
+    },
+    {
+     "text": "Call ahead to Point Pleasant",
+     "line": "Directory assistance, a quarter, and the Lowe Hotel's night clerk, who says there is a room if you get there before eleven and that the fourth floor is closed, don't ask. The line clicks twice before you hang up.",
+     "gives": {
+      "cash": -2,
+      "flag": "called_ahead"
+     }
+    },
+    {
+     "text": "Leave it",
+     "line": "Nobody to call who would answer. You get back in the car."
+    }
+   ]
+  }
+ },
+ "stations": {
+  "wsgb_1490": {
+   "name": "WSGB 1490 Sutton",
+   "band": "am",
+   "freq": 1490,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "text": "Swap-and-shop and the Braxton County school closings, then the weather: nine degrees at the Sutton dam this morning, snow by evening below Charleston, the Elk running high under the ice. 'And a reminder from the sheriff's office: chains or good tread if you're headed down 35.'"
+  },
+  "wchs_580": {
+   "name": "WCHS 580 Charleston",
+   "band": "am",
+   "freq": 580,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "'...news at the top of the hour. In Mason County, the Army Corps says the Point Pleasant floodwall will hold through the February thaw, though the Kanawha is running six feet above pool. And in Point Pleasant this week, residents mark the anniversary of the sightings of 1966 and '67 with a quiet that one councilman called, quote, well earned. Temperatures tonight in the teens with river fog along 35. WCHS, the voice of the Kanawha Valley.'",
+   "gives": {
+    "flag": "heard_pp_news"
+   }
+  },
+  "wvaf_999": {
+   "name": "WVAF V100 Charleston",
+   "band": "fm",
+   "freq": 99.9,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "'V100, Charleston's soft rock.' Mariah Carey's 'Hero' fades into Bryan Adams and the DJ reads a school delay list for Kanawha and Putnam in a voice built for selling mattresses. Then Celine Dion, 'The Power of Love', all the way to the county line."
+  },
+  "wklc_1051": {
+   "name": "WKLC Rock 105 St. Albans",
+   "band": "fm",
+   "freq": 105.1,
+   "kind": "local",
+   "when": [
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "'Rock 105!' Pearl Jam's 'Daughter' straight into Nirvana's 'All Apologies', the DJ shouting over the outro about a Dollar Night at a bar in Nitro. In the back seat Teddy turns it up and Frank turns it down and nobody wins."
+  },
+  "wqbe_975": {
+   "name": "WQBE 97.5 Charleston",
+   "band": "fm",
+   "freq": 97.5,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "Country, loud and clear across the whole valley: Garth Brooks, 'The Red Strokes', then Alan Jackson's 'Chattahoochee' for the third time this winter. The farm report says the ground at Winfield is frozen fourteen inches down."
+  },
+  "wvpn_885": {
+   "name": "WVPN 88.5 West Virginia Public Radio",
+   "band": "fm",
+   "freq": 88.5,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "text": "A woman reading the Mountain Stage schedule, then a feature on the Silver Bridge: a retired engineer explaining eyebar chains and a single cracked link in a voice so calm it is worse than shouting. 'Forty-six people. December 15th, 1967. The river was full of Christmas shopping.'",
+   "gives": {
+    "flag": "heard_silver_bridge"
+   }
+  },
+  "wbyg_1340": {
+   "name": "WBYG 1340 Point Pleasant",
+   "band": "am",
+   "freq": 1340,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "Faint and then clear as the river gets close: the Mason County obituaries, a Kroger ad, and a reminder that the riverfront lot is closed below the floodwall gate until the Kanawha drops. 'And if you see Carl's dog, she answers to Biscuit and she is not, whatever your neighbor told you, a wolf.' The Four Seasons, 'Walk Like a Man', 1963."
+  },
+  "wjeh_990": {
+   "name": "WJEH 990 Gallipolis",
+   "band": "am",
+   "freq": 990,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "text": "Across the river in Ohio, a man with a Gallia County accent reads the livestock prices and then a hospital board meeting, slowly, as if the whole county is writing it down. Between items, a thirty-year-old record: the Righteous Brothers, 'Unchained Melody', fighting the static all the way through."
+  },
+  "wglp_937": {
+   "name": "WGLP 93.7 Gallipolis",
+   "band": "fm",
+   "freq": 93.7,
+   "kind": "local",
+   "when": [
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "Oldies off the Ohio side: the Shangri-Las, 'Leader of the Pack', the motorcycle crash and all, then a DJ who says his name is Captain Dave and that it is eleven degrees on the Gallipolis floodwall and dropping. 'Be careful on the Henderson bridge tonight, it's slick.'"
+  },
+  "wkee_1005": {
+   "name": "WKEE 100.5 Huntington",
+   "band": "fm",
+   "freq": 100.5,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "Top 40 out of Huntington, strong until the hills eat it: Ace of Base, 'The Sign', Salt-N-Pepa, 'Whatta Man', and a car dealer on US-60 who will take anything on trade. 'Anything. Bring the dog.'"
+  },
+  "night_desk": {
+   "name": "The Night Desk, 1190 AM",
+   "band": "am",
+   "freq": 1190,
+   "kind": "callin",
+   "when": [
+    "night"
+   ],
+   "text": "A clear-channel skip from somewhere flat and far: 'You're on the Night Desk, go ahead, caller.' A trucker from Ripley says he saw a man standing on the Henderson bridge railing at three in the morning, no coat, not cold, and when he came back the other way an hour later the man was still there and had not turned his head. The host says 'Mmhm' the way he says it to everyone, and takes a call about a dog that counts.",
+   "gives": {
+    "flag": "night_desk_heard"
+   }
+  },
+  "numbers_1": {
+   "name": "Unmarked, 1540 AM",
+   "band": "am",
+   "freq": 1540,
+   "kind": "numbers",
+   "when": [
+    "night"
+   ],
+   "text": "A woman's voice, flat, a tone between each group: 'Four. Seven. Four. Zero. Two. Nine. Four. Seven. Four. Zero. Two. Nine.' Then a chime, then the same again. Nobody in the car says 'write that down', and somebody does.",
+   "gives": {
+    "flag": "numbers_1"
+   }
+  },
+  "numbers_2": {
+   "name": "Unmarked, 640 AM",
+   "band": "am",
+   "freq": 640,
+   "kind": "numbers",
+   "when": [
+    "night"
+   ],
+   "text": "A child's voice this time, or a woman doing one, in German by the numbers: 'Acht. Eins. Drei. Drei. Null. Sieben. Acht. Eins. Drei. Drei. Null. Sieben.' The signal rises and falls with the hills, and the last group comes through like it is sitting in the back seat.",
+   "gives": {
+    "flag": "numbers_2"
+   }
+  },
+  "tone": {
+   "name": "Between stations, 101.3 FM",
+   "band": "fm",
+   "freq": 101.3,
+   "kind": "tone",
+   "when": [
+    "night"
+   ],
+   "text": "Nothing on 101.3, just hiss, and under the hiss, so faint the ear argues about it, three notes. Low, lower, then a step up. Again, slower, as if the thing making them is listening for an answer. The needle does not want to stay there. The signal meter says there is no signal at all.",
+   "gives": {
+    "flag": "tone_road_1"
+   }
+  }
+ }
+}

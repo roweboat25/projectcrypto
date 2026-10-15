@@ -5,11 +5,13 @@ const ROW := {"down": 0, "left": 1, "right": 2, "up": 3}
 
 var npc_id := ""
 var display_name := ""
+var data: Dictionary = {}
 var sprite: Sprite2D
 var _body: StaticBody2D
 
 
-func setup(data: Dictionary) -> void:
+func setup(p_data: Dictionary) -> void:
+	data = p_data
 	npc_id = data.id
 	display_name = data.get("name", data.id)
 	var shadow := Sprite2D.new()

@@ -1,0 +1,378 @@
+{
+ "_doc": "Sutton, the Office hub. Not a case to solve: the counter, the catalog and the rooms that budget opens. Gates office_darkroom and office_lab are set by the engine (first verdict, budget tier 2); office_vault is the season finale. Dot Rainey has a dialogue script; her quick facts and Pearl Dodrill's are here. The Office's own cards are key evidence with no weight.",
+ "id": "sutton",
+ "name": "Sutton",
+ "place": "Sutton, West Virginia",
+ "year": 1994,
+ "original_year": 1953,
+ "visit_year": 1994,
+ "days": 0,
+ "districts": {
+  "sutton": {
+   "name": "Sutton",
+   "map": "sutton_office"
+  }
+ },
+ "locations": {
+  "office": "The Office",
+  "hardware": "McKee Hardware",
+  "diner": "The Elk Diner",
+  "garage": "The loading dock",
+  "darkroom": "The darkroom",
+  "lab": "The lab",
+  "attic": "The radio shack",
+  "bunks": "The bunk room",
+  "vault": "The dead letter vault",
+  "dam": "Sutton Dam overlook"
+ },
+ "gates": {
+  "office_darkroom": {
+   "name": "The darkroom",
+   "locked": "Padlocked. A card on the door in Dot's hand: 'File one verdict. Then we'll talk about film.'",
+   "opens": [
+    {
+     "flag": "office_darkroom"
+    }
+   ]
+  },
+  "office_lab": {
+   "name": "The lab",
+   "locked": "The old parcel room. Dot has the key and a budget sheet, and she looks at the budget sheet.",
+   "opens": [
+    {
+     "flag": "office_lab"
+    }
+   ]
+  },
+  "office_vault": {
+   "name": "The dead letter vault",
+   "locked": "A steel door at the bottom of the stairs. Sealed since 1953. The key is not in the Office, and the Office has looked.",
+   "opens": [
+    {
+     "flag": "season_finale"
+    }
+   ]
+  }
+ },
+ "leads": [],
+ "witnesses": {
+  "dot": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "dot_gus",
+     "title": "Augusta Weller",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "You knew her. The founder."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "dot",
+       "Gus. Nobody called her Augusta except the bank. She was on the hill at Flatwoods in '52 and she opened this place the next year because nobody would listen to the people who were up there with her."
+      ],
+      [
+       "dot",
+       "She hired me in '61. Said I had a face people told things to. I was nineteen and I thought that was a compliment."
+      ],
+      [
+       "ruth",
+       "It was, dear."
+      ]
+     ],
+     "evidence": "dot_on_gus"
+    },
+    {
+     "id": "dot_system",
+     "title": "The filing system",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 7,
+       "prompt": "The cards are filed by what the witness was told, not by what they saw. Why?"
+      },
+      {
+       "show": "marlene_letter"
+      }
+     ],
+     "lines": [
+      [
+       "dot",
+       "Gus's rule. You don't file a case under the bird or the light. You file it under what somebody told the witness afterwards. 'Hoax.' 'Drunk.' 'Weather balloon.' That's the card."
+      ],
+      [
+       "dot",
+       "She said the anomaly isn't the thing in the sky. It's the moment a person stops being believed. We file that moment. Here's the card that says so, in her hand."
+      ],
+      [
+       "miriam",
+       "That's the first filing rule I've heard that I can't argue with."
+      ]
+     ],
+     "evidence": "weller_rule_card"
+    },
+    {
+     "id": "dot_drawer_s",
+     "title": "Drawer S",
+     "gates": [
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "dot",
+       "Drawer S is her own cards. The ones she wrote and Walter filed over. It locked the week she didn't come back and I have never had the key, and I have never asked who does."
+      ],
+      [
+       "dot",
+       "It opens when they're all home. That's what she told me, and I was nineteen, so I believed her. I'm sixty-two. I still do."
+      ],
+      [
+       "elijah",
+       "She's right. It's waiting."
+      ]
+     ],
+     "evidence": "drawer_s_rule"
+    }
+   ]
+  },
+  "pearl": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "pearl_last_morning",
+     "title": "The morning she left",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "You were here in December 1967. The morning she drove out."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "pearl",
+       "December the twelfth. Snow like this. She loaded the wagon herself and Walter Penrose stood on the sidewalk in that coat of his and didn't help, and didn't get in."
+      ],
+      [
+       "pearl",
+       "He followed her in his own car. Government plates. I waved at her and she waved back and he looked at me like I'd done something I'd have to pay for."
+      ],
+      [
+       "teddy",
+       "Two cars. He wasn't her partner that morning. He was her tail."
+      ]
+     ],
+     "evidence": "pearl_last_morning"
+    },
+    {
+     "id": "pearl_car",
+     "title": "The car at Gallipolis",
+     "gates": [
+      {
+       "show": "dot_on_gus"
+      },
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "You've been waiting a long time for somebody to ask."
+      }
+     ],
+     "lines": [
+      [
+       "pearl",
+       "My cousin was the trooper that found her wagon. Gallipolis, across the river, parked straight and locked and clean. Keys on the seat. Her purse. Her glasses weren't in it."
+      ],
+      [
+       "pearl",
+       "He said it was like she'd parked for a minute and meant to come back. He said that for the rest of his life. He died saying it."
+      ],
+      [
+       "elijah",
+       "The glasses are in the filing cabinet. She came back for nothing."
+      ]
+     ],
+     "evidence": "gallipolis_car"
+    },
+    {
+     "id": "pearl_dam",
+     "title": "The dam at night",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "What does the dam sound like, nights?"
+      }
+     ],
+     "lines": [
+      [
+       "pearl",
+       "Hums. Three notes, when the wind's off the water. Hollis says it's the spillway gates. Hollis says a lot of things are the spillway gates."
+      ],
+      [
+       "pearl",
+       "Gus used to stand on the bank and listen to it with her eyes shut. I asked her once what she was listening for. She said, 'The rest of it.'"
+      ],
+      [
+       "june",
+       "I've got it on tape. It's not the gates."
+      ]
+     ],
+     "evidence": "dam_tone"
+    }
+   ]
+  },
+  "hollis": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "hollis_gates",
+     "title": "The spillway gates",
+     "gates": [
+      {
+       "check": "tech",
+       "difficulty": 6,
+       "prompt": "Three notes off the dam at night. What's the mechanism?"
+      },
+      {
+       "show": "dam_tone"
+      }
+     ],
+     "lines": [
+      [
+       "hollis",
+       "Spillway gates. Hydraulics cycle every forty minutes and the pipe sings. Three notes. I've heard it twenty years and I'll hear it twenty more."
+      ],
+      [
+       "hollis",
+       "The Weller woman used to ask me about it. I told her the same thing. She wrote it down like I'd said something else."
+      ],
+      [
+       "june",
+       "Forty minutes. I'll time it."
+      ]
+     ],
+     "evidence": "hollis_gates"
+    }
+   ]
+  },
+  "sutton_kid": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "kid_green_man",
+     "title": "The green man on the sign",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 5,
+       "prompt": "That green man on the highway sign. Yours?"
+      }
+     ],
+     "lines": [
+      [
+       "sutton_kid",
+       "Grandma Dot paints him out. I paint him back. It's six miles. Everybody knows it's six miles."
+      ],
+      [
+       "sutton_kid",
+       "She says the Office doesn't go to Flatwoods. I say then why's it on the sign."
+      ],
+      [
+       "teddy",
+       "The kid has a point and a paintbrush."
+      ]
+     ],
+     "evidence": "kid_green_man"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "hollis_gates": {
+   "title": "Hollis on the gates",
+   "text": "The dam crew says the three-note hum is the spillway hydraulics cycling every forty minutes.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "kid_green_man": {
+   "title": "The green man on the sign",
+   "text": "Dot Rainey paints the green man off the Flatwoods sign; her grandchild paints him back. The Office does not go to Flatwoods.",
+   "lean": "unexplained",
+   "weight": 0,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "marlene_letter": {
+   "title": "Marlene's letter",
+   "text": "A letter to the Office from a Marlene at Rosie's Diner, Point Pleasant. Red eyes on Route 62. 'Nobody here will listen to me twice.'",
+   "lean": "unexplained",
+   "weight": 0,
+   "kind": "document",
+   "key": true,
+   "reliability": "B"
+  },
+  "dot_on_gus": {
+   "title": "Dot on Gus Weller",
+   "text": "Augusta Weller was on the hill at Flatwoods in 1952 and opened the Office in 1953 so the people who were up there with her would be heard.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "weller_rule_card": {
+   "title": "The Weller rule",
+   "text": "Gus Weller's filing card: a case is filed under what the witness was told afterwards, not under what they saw. The anomaly is the moment a person stops being believed.",
+   "lean": "unexplained",
+   "weight": 0,
+   "kind": "document",
+   "key": true,
+   "reliability": "B"
+  },
+  "drawer_s_rule": {
+   "title": "Drawer S",
+   "text": "Drawer S holds Gus Weller's own case cards, the ones Walter Penrose filed over. It locked the week she vanished and opens when the cards are all home.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "pearl_last_morning": {
+   "title": "December 12th, 1967",
+   "text": "Gus Weller loaded the wagon alone. Walter Penrose followed her out of Sutton in a car with government plates.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "gallipolis_car": {
+   "title": "The wagon at Gallipolis",
+   "text": "Gus Weller's station wagon was found at Gallipolis, parked and locked, keys on the seat, purse inside, glasses missing.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "dam_tone": {
+   "title": "The hum under the dam",
+   "text": "On still nights Sutton Dam hums three notes. Gus Weller used to stand on the bank and listen for 'the rest of it.'",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  }
+ },
+ "contradictions": {}
+}

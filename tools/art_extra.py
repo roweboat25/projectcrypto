@@ -402,6 +402,72 @@ def extra_custom_props():
     d.rectangle([6, 12, 25, 26], fill=(80, 60, 48))
     d.rectangle([8, 14, 23, 18], fill=(220, 200, 160))
     P["filing_cabinet"] = (outline(im), 1)
+
+    # the Office: a card catalog of small drawers, mail pigeonholes, a darkroom enlarger,
+    # a lab spectrometer, the dead-letter vault door and a canvas mail cart
+    im = new(48, 44)
+    d = ImageDraw.Draw(im)
+    d.rectangle([2, 4, 45, 42], fill=(96, 66, 44))
+    for row in range(6):
+        for col in range(4):
+            x, y = 4 + col * 11, 6 + row * 6
+            d.rectangle([x, y, x + 9, y + 4], fill=(132, 96, 64))
+            d.rectangle([x + 3, y + 2, x + 6, y + 2], fill=(200, 180, 120))
+    P["card_catalog"] = (outline(im), 1)
+    im = new(64, 40)
+    d = ImageDraw.Draw(im)
+    d.rectangle([0, 0, 63, 39], fill=(110, 80, 52))
+    for row in range(4):
+        for col in range(8):
+            x, y = 2 + col * 8, 2 + row * 9
+            d.rectangle([x, y, x + 5, y + 7], fill=(40, 30, 24))
+            if (row * 3 + col) % 4 == 0:
+                d.rectangle([x + 1, y + 3, x + 4, y + 6], fill=(236, 230, 210))
+    P["pigeonholes"] = (outline(im), 1)
+    im = new(32, 48)
+    d = ImageDraw.Draw(im)
+    d.rectangle([4, 40, 27, 46], fill=(90, 90, 96))
+    d.rectangle([14, 2, 17, 42], fill=(60, 60, 66))
+    d.rectangle([6, 14, 25, 24], fill=(40, 40, 46))
+    d.polygon([(8, 24), (23, 24), (26, 38), (5, 38)], fill=(220, 60, 50, 110))
+    d.rectangle([10, 4, 21, 12], fill=(70, 70, 78))
+    P["enlarger"] = (outline(im), 1)
+    im = new(48, 32)
+    d = ImageDraw.Draw(im)
+    d.rectangle([2, 8, 45, 30], fill=(190, 190, 184))
+    d.rectangle([6, 12, 24, 22], fill=(30, 40, 50))
+    d.line([(8, 18), (12, 14), (16, 19), (20, 15), (22, 18)], fill=(110, 220, 130), width=1)
+    for x in (30, 36, 42):
+        d.ellipse([x - 2, 14, x + 2, 18], fill=(80, 80, 90))
+    d.rectangle([28, 22, 44, 26], fill=(120, 120, 128))
+    d.rectangle([18, 2, 30, 8], fill=(150, 150, 156))
+    P["spectrometer"] = (outline(im), 1)
+    im = new(48, 56)
+    d = ImageDraw.Draw(im)
+    d.rectangle([0, 0, 47, 55], fill=(96, 92, 90))
+    d.ellipse([4, 4, 43, 43], fill=(70, 74, 82))
+    d.ellipse([9, 9, 38, 38], fill=(96, 100, 110))
+    d.ellipse([19, 19, 28, 28], fill=(190, 160, 70))
+    for a in range(0, 360, 60):
+        import math
+        d.line([(24 + 5 * math.cos(math.radians(a)), 24 + 5 * math.sin(math.radians(a))), (24 + 11 * math.cos(math.radians(a)), 24 + 11 * math.sin(math.radians(a)))], fill=(190, 160, 70), width=2)
+    d.rectangle([8, 46, 39, 52], fill=(60, 56, 54))
+    P["vault_door"] = (outline(im), 1)
+    im = new(32, 36)
+    d = ImageDraw.Draw(im)
+    d.rectangle([3, 8, 28, 28], fill=(200, 196, 180))
+    d.rectangle([5, 10, 26, 14], fill=(170, 166, 150))
+    d.line([(3, 8), (3, 2), (28, 2), (28, 8)], fill=(70, 70, 76), width=2)
+    for x in (7, 24):
+        d.ellipse([x - 3, 28, x + 3, 34], fill=(40, 40, 44))
+    P["mail_cart"] = (outline(im), 1)
+    im = new(32, 48)
+    d = ImageDraw.Draw(im)
+    d.rectangle([14, 6, 17, 46], fill=(120, 120, 126))
+    d.rectangle([0, 6, 30, 22], fill=(20, 40, 90))
+    d.rectangle([2, 8, 28, 20], fill=(240, 240, 240))
+    d.rectangle([4, 10, 26, 18], fill=(180, 40, 40))
+    P["flag"] = (outline(im), 1)
     im = new(32, 64)
     d = ImageDraw.Draw(im)
     d.rectangle([4, 4, 27, 60], fill=(96, 100, 104))
@@ -565,6 +631,9 @@ EXTRA_FACADES = {
     "power_plant": dict(w=12, h=5, siding="grey", shade=3, roof="slate", roof_h=2, door="dark", door_x=5, windows=[1, 3, 8, 10], tall=True),
     "crew_cabin": dict(w=5, h=2, siding="blue", shade=2, roof="grey", roof_h=1, door="white", door_x=2, windows=[0, 4]),
     "radio_den": dict(w=6, h=2, siding="teal", shade=3, roof="brown", roof_h=2, door="brown", door_x=2, windows=[0, 4]),
+    "post_office": dict(w=10, h=3, siding="grey", shade=1, roof="slate", roof_h=2, door="dark", door_x=4, windows=[1, 2, 7, 8], tall=True),
+    "hardware": dict(w=7, h=2, siding="green", shade=1, roof="grey", roof_h=2, door="brown", door_x=3, windows=[1, 5], neon="neon_amber"),
+    "pawn_shop": dict(w=6, h=2, siding="brown", shade=2, roof="rust", roof_h=1, door="dark", door_x=2, windows=[0, 4], neon="neon_amber"),
 }
 
 

@@ -46,6 +46,7 @@ Rules:
 - A prop `pos` is the bottom-centre tile; a facade `pos` is the bottom-left tile.
 - `look` makes a prop inspectable. A plain string is narration; a list of `[speaker, text]` lines plays as dialogue. Party members only speak their line when they are in the party.
 - `pickup` puts an item from `data/items.json` in the field kit once. New items a district needs go in its case fragment under `"items": {...}` with the same shape as `data/items.json`.
+- A prop with `"use": "<panel>"` and a `name` opens an engine panel when used: `board` (the case board: file a verdict, see the standing evidence), `ledger` (spend budget on Office and car upgrades), `catalog` (the card catalog: evidence archive, verdict history, Drawer S), `radio_log` (stations logged on the road), `shop` (a counter that sells the stock of `"shop": "<shop id>"`). A prop with `"travel": "<leg id>"` and a `name` starts that road leg (the station wagon).
 - A prop with `"gate": "<gate id>"` and a `name` is a barrier (a fence section, a chained door). Interacting tries the gate; once it opens the prop is gone for good.
 - `npcs.when` lists the day phases the person is there: `morning` (6 to 10), `day` (10 to 17), `dusk` (17 to 19), `night` (19 to 6). Missing means always. The same `id` can stand in several maps and rooms at different phases. `sprite` picks a sheet from `assets/sprites` when the id has none.
 - `clues.night` makes a trail sign that only exists from that night of the case on. `requires` hides a clue until that evidence is held. Methods are `photograph`, `bag`, `cast`, `measure`; a value of `"spoil"` ruins the others.
@@ -115,7 +116,58 @@ gets that script instead, and its `{"topics": true}` option offers the facts.
 ## Items: `data/items.json`
 
 ```
-"bolt_cutters": {"name": "Bolt cutters", "text": "Opens chain gates.", "kind": "kit", "price": 40, "reusable": true}
+"bolt_cutters": {"name": "Bolt cutters", "text": "Opens chain gates.", "kind": "kit", "price": 40, "reusable": true, "shop": ["variety", "office_store"]},
+"slide_rule":   {"name": "Slide rule", "text": "+1 Reason. [Logic] rerolls once a day.", "kind": "tool", "class": "skeptic",
+                 "tier": "local", "price": 30, "shop": ["pp_pawn"], "stat": {"reason": 1}, "voice": {"logic": 1}},
+"barn_coat":    {"name": "Duck-canvas barn coat", "kind": "coat", "tier": "local", "price": 35, "shop": ["variety"], "stat": {"grit": 1}, "composure": 5},
+"bridge_token": {"name": "Silver Bridge memorial token", "kind": "charm", "tier": "local", "price": 12, "shop": ["variety"], "stat": {"intuition": 1}},
+"red_eye_lens": {"name": "Red-eye lens", "kind": "relic", "tier": "relic", "case": "point_pleasant", "verdict": "unexplained", "stat": {"intuition": 2}},
+"coffee":       {"name": "Coffee", "kind": "consumable", "price": 1, "shop": ["variety"], "restore": {"composure": 20}}
 ```
 
-Kinds: `tool`, `coat`, `charm`, `kit`, `consumable`, `relic`.
+- Kinds: `tool` (one per class, `class` names it), `coat`, `charm` (two slots), `relic` (goes in a charm slot, dropped by a verdict: `case` + `verdict`), `kit` (processing and gates; `reusable` is not used up), `consumable` (`restore` composure or dread, `cure`).
+- Tiers: `issue` (starting kit), `store`, `local`, `vintage`, `relic`. `shop` lists the shop ids that stock it (an NPC with `"shop": "<id>"` sells that stock; a map prop with `pickup` and `price` sells one item).
+- Every class has exactly one `issue` tier tool, equipped from the start; the Office trench is the issue coat.
+- Equipped gear adds `stat` to the wearer's stats and `voice` to voice levels when they lead; `composure` adds to max composure.
+
+## Shops
+
+An NPC with `"shop": "variety"` in a map opens a buy menu listing every item whose `shop` list has that id, priced by `price`, paid from the party's cash. A prop with `"pickup": "film", "price": 4` sells one; add `"restock": true` for one a day.
+
+## The Office: `data/office.json`
+
+```
+{
+  "rooms": {"darkroom": {"name": "Darkroom", "text": "...", "opens": {"verdicts": 1} | {"tier": 2} | {}}},
+  "upgrades": {"enlarger": {"name": "Enlarger", "room": "darkroom", "cost": 2, "tier": 2, "text": "...", "flag": "office_enlarger"}},
+  "car": {"cb_radio": {"name": "CB radio", "cost": 3, "text": "...", "flag": "car_cb_radio"}},
+  "tiers": [0, 4, 8],
+  "budget": {"verdict": 1, "truth": 2, "rating_a": 1}
+}
+```
+
+Rooms are interiors of the Sutton map (`data/maps/sutton_office.json`); a room whose `opens` is not met is a locked facade (gate `office_<room>`). Upgrades and car upgrades cost budget points; buying one sets its `flag`, which gates and dialogue can read. Budget comes from filing verdicts at the sorting-room case board: `verdict` points for any verdict, `truth` more when it matches the case's `truth`, `rating_a` more for an A rating.
+
+## The road: `data/road.json`
+
+```
+{
+  "legs": {
+    "sutton_to_point_pleasant": {"name": "Sutton to Point Pleasant", "from": "sutton", "to": "point_pleasant",
+      "arrive_map": "point_pleasant_main_street", "arrive_at": [12, 26], "hours": 4,
+      "stops": [ {"name": "Gassaway", "text": "...", "highway": "I-79 south", "back": "Route 4 along the Elk",
+                  "events": ["pie_diner"], "sights": "..."} ],
+      "deck": ["hitchhiker", "breakdown", "lights"], "stations": ["wchs", "wvaq", "numbers_1", "tone"]}
+  },
+  "events": {
+    "hitchhiker": {"title": "A hitchhiker with a guitar case", "text": "...", "when": ["day"], "roads": ["back"],
+      "options": [ {"text": "Give him a ride", "line": "...", "gives": {"flag": "road_song", "item": "x", "cash": -5, "gas": -1, "dread": 1, "composure": -10, "hours": 1}},
+                   {"text": "Fix it yourself", "check": {"voice": "fieldcraft", "difficulty": 8}, "line": "...", "fail": {"line": "...", "gives": {"hours": 5}}},
+                   {"text": "Drive on"} ]}
+  },
+  "stations": {"wchs": {"name": "WCHS 580", "band": "am", "freq": 580, "kind": "local", "when": ["day", "night"], "text": "...", "gives": {"flag": "heard_wchs"}}}
+}
+```
+
+- A leg is five to eight stops. At each the party picks highway (one hour, few events) or back road (two hours, an event from the stop's `events` or the leg's `deck`, filtered by `when` phase and `roads`), scans the radio, and can spend cash on gas or a motel. `gives` keys: `item`, `flag`, `cash`, `gas`, `dread`, `composure`, `hours`, `evidence`.
+- Station kinds: `local` (news previews the case), `callin`, `numbers`, `tone` (the three-note tone, night only, near a case). `freq` is in the band's range (88 to 108 FM, 540 to 1600 AM). Logging a station adds it to the radio log and applies `gives` once.

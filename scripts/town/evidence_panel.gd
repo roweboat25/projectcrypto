@@ -35,7 +35,7 @@ func refresh() -> void:
 	var s := "[color=#e8a64a][b]CASE FILE: %s[/b][/color]   Day %d   [color=#9ab0c8]Hoax %d · Natural %d · Unexplained %d[/color]\n" % [case.get("name", "").to_upper(), GameState.day, totals.hoax, totals.natural, totals.unexplained]
 	var by_kind := {"testimony": [], "physical": [], "recording": [], "document": []}
 	for id in GameState.evidence:
-		var e: Dictionary = evidence.get(id, {})
+		var e: Dictionary = GameData.evidence(GameState.case_id, id)
 		by_kind.get(e.get("kind", "testimony"), by_kind.testimony).append(id)
 	if GameState.evidence.is_empty():
 		s += "\nNothing yet. Talk to people, and look closely at the ground.\n"
@@ -44,7 +44,7 @@ func refresh() -> void:
 			continue
 		s += "\n[color=#e0303c][b]%s[/b][/color]\n" % kind.to_upper()
 		for id in by_kind[kind]:
-			var e: Dictionary = evidence.get(id, {})
+			var e: Dictionary = GameData.evidence(GameState.case_id, id)
 			var tag := ""
 			if id in GameState.exposed:
 				tag = "  [color=#e0303c]FALSE[/color]"
@@ -56,7 +56,7 @@ func refresh() -> void:
 	if not GameState.samples.is_empty():
 		s += "\n[color=#e8a64a][b]AT THE LAB[/b][/color]  (back after a night's sleep)\n"
 		for id in GameState.samples:
-			s += "· %s\n" % evidence.get(id, {}).get("title", id).replace("Lab: ", "")
+			s += "· %s\n" % GameData.evidence(GameState.case_id, id).get("title", id).replace("Lab: ", "")
 	if not GameState.items.is_empty():
 		s += "\n[color=#e8a64a][b]FIELD KIT[/b][/color]\n"
 		var parts := []

@@ -36,13 +36,98 @@ static func member_class(data: Node, state: Node, member: String) -> String:
 	return data.roster.get(member, {}).get("class", "")
 
 
-## Best value of an investigation stat across the party.
+## Best value of an investigation stat across the party, gear included.
 static func party_stat(data: Node, state: Node, stat: String) -> int:
 	var best := 0
 	for member in state.party:
-		var c: Dictionary = data.classes.get(member_class(data, state, member), {})
-		best = max(best, int(c.get("stats", {}).get(stat, 0)))
+		best = max(best, member_stat(data, state, member, stat))
 	return best
+
+
+## One member's stat: the class value plus what they wear.
+static func member_stat(data: Node, state: Node, member: String, stat: String) -> int:
+	var c: Dictionary = data.classes.get(member_class(data, state, member), {})
+	var v := int(c.get("stats", {}).get(stat, 0))
+	for id in member_gear(data, state, member).values():
+		v += int(data.items.get(id, {}).get("stat", {}).get(stat, 0))
+	return v
+
+
+const SLOTS := ["tool", "coat", "charm1", "charm2"]
+
+
+## What a member has equipped: the class's issue tool and the Office trench by default.
+static func member_gear(data: Node, state: Node, member: String) -> Dictionary:
+	var g: Dictionary = state.gear.get(member, {})
+	var out := {}
+	for slot in SLOTS:
+		out[slot] = g.get(slot, "")
+	if out.tool == "":
+		var cls := member_class(data, state, member)
+		for id in data.items:
+			if data.items[id].get("kind") == "tool" and data.items[id].get("tier") == "issue" and data.items[id].get("class") == cls:
+				out.tool = id
+	if out.coat == "" and data.items.has("office_trench"):
+		out.coat = "office_trench"
+	return out
+
+
+## True when the item can go in the slot for this member.
+static func fits(data: Node, state: Node, member: String, slot: String, item_id: String) -> bool:
+	var it: Dictionary = data.items.get(item_id, {})
+	match slot:
+		"tool":
+			return it.get("kind") == "tool" and it.get("class") == member_class(data, state, member)
+		"coat":
+			return it.get("kind") == "coat"
+		_:
+			return it.get("kind") in ["charm", "relic"]
+
+
+## Moves an item from the field kit into a slot; what was there goes back to the kit.
+static func equip(data: Node, state: Node, member: String, slot: String, item_id: String) -> bool:
+	if not fits(data, state, member, slot, item_id) or not state.take_item(item_id):
+		return false
+	var g: Dictionary = state.gear.get(member, {})
+	var old: String = member_gear(data, state, member).get(slot, "")
+	if old != "":
+		state.add_item(old)
+	g[slot] = item_id
+	state.gear[member] = g
+	return true
+
+
+## Max composure: 100 plus the coat and charms of everyone in the party.
+static func max_composure(data: Node, state: Node) -> int:
+	var v := 100
+	for member in state.party:
+		for id in member_gear(data, state, member).values():
+			v += int(data.items.get(id, {}).get("composure", 0))
+	return v
+
+
+## Buys one of an item for cash. Returns "" or the reason it failed.
+static func buy(data: Node, state: Node, item_id: String) -> String:
+	var it: Dictionary = data.items.get(item_id, {})
+	var price := int(it.get("price", 0))
+	if state.cash < price:
+		return "Not enough cash."
+	if it.get("reusable", false) and state.has_item(item_id):
+		return "You already have one."
+	state.cash -= price
+	state.add_item(item_id)
+	return ""
+
+
+## Drinks the coffee: consumables restore composure or settle dread.
+static func use_consumable(data: Node, state: Node, item_id: String) -> String:
+	var it: Dictionary = data.items.get(item_id, {})
+	if it.get("kind") != "consumable" or not state.take_item(item_id):
+		return "Nothing to use."
+	var r: Dictionary = it.get("restore", {})
+	state.composure = clamp(state.composure + int(r.get("composure", 0)), 0, max_composure(data, state))
+	state.dread = max(0, state.dread + int(r.get("dread", 0)))
+	return "Used " + it.get("name", item_id)
 
 
 ## True when someone in the party has this speech skill.
@@ -59,7 +144,10 @@ static func has_specialist(data: Node, state: Node, tag: String) -> bool:
 static func voice_level(data: Node, state: Node, voice: String) -> int:
 	var stat: String = TAG_STAT.get(voice, "reason")
 	var lead_class := member_class(data, state, state.party[0] if not state.party.is_empty() else "player")
-	var level := int(data.classes.get(lead_class, {}).get("stats", {}).get(stat, 0))
+	var lead: String = state.party[0] if not state.party.is_empty() else "player"
+	var level := member_stat(data, state, lead, stat)
+	for id in member_gear(data, state, lead).values():
+		level += int(data.items.get(id, {}).get("voice", {}).get(voice, 0))
 	if voice in CLASS_VOICES.get(lead_class, []):
 		level += SPECIALIST_BONUS
 	for i in range(1, state.party.size()):
@@ -109,7 +197,7 @@ static func clue_visible(state: Node, clue: Dictionary, time_of_day: float) -> b
 # ---------- scripted dialogue ----------
 
 static func script_for(data: Node, state: Node, witness_id: String) -> Dictionary:
-	return data.dialogue.get(state.case_id, {}).get(witness_id, {})
+	return data.script(state.case_id, witness_id)
 
 
 static func trust_of(data: Node, state: Node, witness_id: String) -> int:
@@ -175,6 +263,12 @@ static func apply_gives(data: Node, state: Node, gives: Dictionary) -> Array:
 		state.dread = max(0, state.dread + int(gives.dread))
 	if gives.has("item"):
 		state.add_item(gives.item)
+	if gives.has("cash"):
+		state.cash = max(0, state.cash + int(gives.cash))
+	if gives.has("gas"):
+		state.gas = clamp(state.gas + int(gives.gas), 0, 6)
+	if gives.has("composure"):
+		state.composure = clamp(state.composure + int(gives.composure), 0, max_composure(data, state))
 	return announced
 
 
@@ -184,7 +278,7 @@ static func apply_gives(data: Node, state: Node, gives: Dictionary) -> Array:
 static func gate_open(data: Node, state: Node, gate_id: String, time_of_day: float) -> bool:
 	if gate_id in state.gates_open:
 		return true
-	var g: Dictionary = case_data(data, state).get("gates", {}).get(gate_id, {})
+	var g: Dictionary = data.gate(gate_id)
 	for cond in g.get("opens", []):
 		if cond.has("item") and state.has_item(cond.item):
 			return true
@@ -210,7 +304,7 @@ static func has_class(data: Node, state: Node, cls: String) -> bool:
 
 ## The check a gate offers when it is shut, if any and not already failed today.
 static func gate_check(data: Node, state: Node, gate_id: String) -> Dictionary:
-	var g: Dictionary = case_data(data, state).get("gates", {}).get(gate_id, {})
+	var g: Dictionary = data.gate(gate_id)
 	for cond in g.get("opens", []):
 		if cond.has("check") and not check_closed(state, "gate:" + gate_id, cond.check.voice):
 			return cond.check
@@ -351,6 +445,101 @@ static func sleep(data: Node, state: Node) -> Array:
 	state.day += 1
 	state.dread += 1
 	return results
+
+
+## The case rating from what stands: the share of the case's real evidence found,
+## less a step for every red herring still believed.
+static func case_rating(data: Node, state: Node) -> String:
+	var evidence: Dictionary = case_data(data, state).get("evidence", {})
+	var real := 0
+	var found := 0
+	var fooled := 0
+	for id in evidence:
+		var e: Dictionary = evidence[id]
+		if e.get("key", false) or int(e.get("weight", 0)) == 0:
+			continue
+		if e.get("red_herring", false):
+			if id in standing_evidence(state):
+				fooled += 1
+			continue
+		real += 1
+		if id in standing_evidence(state):
+			found += 1
+	var share := (float(found) / float(real) if real > 0 else 0.0) - 0.1 * fooled
+	if share >= 0.6:
+		return "A"
+	if share >= 0.4:
+		return "B"
+	if share >= 0.2:
+		return "C"
+	return "D"
+
+
+## Files the verdict on the current case and pays the budget for it.
+static func file_verdict(data: Node, state: Node, lean: String) -> Dictionary:
+	var c: Dictionary = case_data(data, state)
+	var pay: Dictionary = data.office.get("budget", {"verdict": 1, "truth": 2, "rating_a": 1})
+	var rating := case_rating(data, state)
+	var points := int(pay.get("verdict", 1))
+	var truth: String = c.get("truth", "")
+	if truth != "" and lean == truth:
+		points += int(pay.get("truth", 2))
+	if rating == "A":
+		points += int(pay.get("rating_a", 1))
+	var v := {"lean": lean, "rating": rating, "budget": points, "day": state.day, "leans": lean_totals(data, state)}
+	state.verdicts[state.case_id] = v
+	state.budget += points
+	state.budget_earned += points
+	for id in data.items:
+		var it: Dictionary = data.items[id]
+		if it.get("kind") == "relic" and it.get("case") == state.case_id and it.get("verdict") == lean:
+			state.add_item(id)
+			v["relic"] = id
+	refresh_office(data, state)
+	return v
+
+
+## The budget tier the Office has reached: 1, 2 or 3.
+static func budget_tier(data: Node, state: Node) -> int:
+	var tiers: Array = data.office.get("tiers", [0, 4, 8])
+	var tier := 1
+	for i in tiers.size():
+		if state.budget_earned >= int(tiers[i]):
+			tier = i + 1
+	return tier
+
+
+## Rooms open by verdicts or tier set their flags here.
+static func refresh_office(data: Node, state: Node) -> void:
+	for rid in data.office.get("rooms", {}):
+		var opens: Dictionary = data.office.rooms[rid].get("opens", {})
+		if opens.is_empty():
+			continue
+		var ok := true
+		if opens.has("verdicts") and state.verdicts.size() < int(opens.verdicts):
+			ok = false
+		if opens.has("tier") and budget_tier(data, state) < int(opens.tier):
+			ok = false
+		if opens.has("flag") and not state.flags.get(opens.flag, false):
+			ok = false
+		if ok:
+			state.flags["office_" + rid] = true
+
+
+## An Office or car upgrade: "" when bought, else why not.
+static func buy_upgrade(data: Node, state: Node, upgrade_id: String) -> String:
+	var u: Dictionary = data.office.get("upgrades", {}).get(upgrade_id, data.office.get("car", {}).get(upgrade_id, {}))
+	if u.is_empty():
+		return "No such upgrade."
+	if state.flags.get(u.get("flag", ""), false):
+		return "Already done."
+	if budget_tier(data, state) < int(u.get("tier", 1)):
+		return "Needs budget tier %d." % int(u.get("tier", 1))
+	if state.budget < int(u.get("cost", 0)):
+		return "Not enough budget."
+	state.budget -= int(u.get("cost", 0))
+	state.flags[u.flag] = true
+	return ""
 
 
 ## Evidence that still counts: found, not exposed, not spoiled.

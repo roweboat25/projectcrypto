@@ -98,6 +98,17 @@
   "w": 192,
   "wall_h": 64
  },
+ "hardware": {
+  "door_x": 96,
+  "doors": [
+   96
+  ],
+  "h": 128,
+  "neon": "neon_amber",
+  "solid_h": 128,
+  "w": 224,
+  "wall_h": 64
+ },
  "hotel": {
   "door_x": 128,
   "doors": [
@@ -132,6 +143,28 @@
   "solid_h": 128,
   "w": 384,
   "wall_h": 64
+ },
+ "pawn_shop": {
+  "door_x": 64,
+  "doors": [
+   64
+  ],
+  "h": 96,
+  "neon": "neon_amber",
+  "solid_h": 96,
+  "w": 192,
+  "wall_h": 64
+ },
+ "post_office": {
+  "door_x": 128,
+  "doors": [
+   128
+  ],
+  "h": 160,
+  "neon": "",
+  "solid_h": 160,
+  "w": 320,
+  "wall_h": 96
  },
  "power_plant": {
   "door_x": 160,
