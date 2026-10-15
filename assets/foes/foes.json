@@ -1,0 +1,117 @@
+{
+ "arcade_lads": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "cave_breath": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "coyote": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "dark_suit": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "drunk_local": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "eyeshine": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "fair_monkey": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "floater": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "gull_swarm": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "hound_pack": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "hut_man": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "igloo_crawler": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "little_man": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "mothman": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "mp_patrol": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "owl_wrong_ky": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "roof_walker": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "shotgun_man": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "static_shade": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "stray_dog": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "the_hunters": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "the_tall_one": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ },
+ "wrong_owl": {
+  "frames": 2,
+  "h": 96,
+  "w": 96
+ }
+}

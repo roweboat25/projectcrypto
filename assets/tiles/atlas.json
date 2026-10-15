@@ -43,6 +43,18 @@
   9,
   2
  ],
+ "cave_floor": [
+  3,
+  8
+ ],
+ "cave_floor2": [
+  4,
+  8
+ ],
+ "cave_wall": [
+  5,
+  8
+ ],
  "cement": [
   8,
   1
@@ -74,6 +86,18 @@
  "concrete_dark": [
   13,
   4
+ ],
+ "courthouse_paving": [
+  7,
+  8
+ ],
+ "courthouse_paving2": [
+  8,
+  8
+ ],
+ "creek_bed": [
+  0,
+  8
  ],
  "diamond_dark": [
   10,
@@ -107,6 +131,18 @@
   14,
   0
  ],
+ "dry_grass": [
+  9,
+  7
+ ],
+ "dry_grass2": [
+  10,
+  7
+ ],
+ "dry_grass3": [
+  11,
+  7
+ ],
  "drywall_bot": [
   7,
   3
@@ -138,6 +174,10 @@
  "fairway2": [
   7,
   6
+ ],
+ "farm_floor": [
+  11,
+  8
  ],
  "frame_c_bot": [
   3,
@@ -207,6 +247,14 @@
   7,
   4
  ],
+ "limestone": [
+  14,
+  7
+ ],
+ "limestone2": [
+  15,
+  7
+ ],
  "lino": [
   3,
   7
@@ -214,6 +262,10 @@
  "lino2": [
   4,
   7
+ ],
+ "motel_lot": [
+  9,
+  8
  ],
  "mud": [
   14,
@@ -231,6 +283,10 @@
   9,
   6
  ],
+ "porch_boards": [
+  10,
+  8
+ ],
  "promenade": [
   10,
   6
@@ -242,6 +298,18 @@
  "rail": [
   12,
   4
+ ],
+ "railbed": [
+  6,
+  8
+ ],
+ "red_clay": [
+  12,
+  7
+ ],
+ "red_clay2": [
+  13,
+  7
  ],
  "sand": [
   8,
@@ -294,6 +362,14 @@
  "shingle2": [
   3,
   6
+ ],
+ "sink_edge": [
+  1,
+  8
+ ],
+ "sink_pit": [
+  2,
+  8
  ],
  "sky": [
   12,
@@ -379,105 +455,117 @@
   2,
   2
  ],
+ "tobacco_cut": [
+  8,
+  7
+ ],
+ "tobacco_field": [
+  6,
+  7
+ ],
+ "tobacco_field2": [
+  7,
+  7
+ ],
  "void": [
   4,
   4
  ],
  "wall_blue_bot": [
-  0,
-  8
+  6,
+  9
  ],
  "wall_blue_mid": [
-  15,
-  7
+  5,
+  9
  ],
  "wall_blue_one": [
-  1,
-  8
+  7,
+  9
  ],
  "wall_blue_top": [
-  14,
-  7
+  4,
+  9
  ],
  "wall_cream_bot": [
-  12,
-  7
+  2,
+  9
  ],
  "wall_cream_mid": [
-  11,
-  7
+  1,
+  9
  ],
  "wall_cream_one": [
-  13,
-  7
+  3,
+  9
  ],
  "wall_cream_top": [
-  10,
-  7
+  0,
+  9
  ],
  "wall_grey_bot": [
-  8,
-  7
+  14,
+  8
  ],
  "wall_grey_mid": [
-  7,
-  7
+  13,
+  8
  ],
  "wall_grey_one": [
-  9,
-  7
+  15,
+  8
  ],
  "wall_grey_top": [
-  6,
-  7
- ],
- "wall_navy_bot": [
-  8,
-  8
- ],
- "wall_navy_mid": [
-  7,
-  8
- ],
- "wall_navy_one": [
-  9,
-  8
- ],
- "wall_navy_top": [
-  6,
-  8
- ],
- "wall_peach_bot": [
   12,
   8
  ],
+ "wall_navy_bot": [
+  14,
+  9
+ ],
+ "wall_navy_mid": [
+  13,
+  9
+ ],
+ "wall_navy_one": [
+  15,
+  9
+ ],
+ "wall_navy_top": [
+  12,
+  9
+ ],
+ "wall_peach_bot": [
+  2,
+  10
+ ],
  "wall_peach_mid": [
-  11,
-  8
+  1,
+  10
  ],
  "wall_peach_one": [
-  13,
-  8
+  3,
+  10
  ],
  "wall_peach_top": [
-  10,
-  8
+  0,
+  10
  ],
  "wall_purple_bot": [
-  4,
-  8
+  10,
+  9
  ],
  "wall_purple_mid": [
-  3,
-  8
+  9,
+  9
  ],
  "wall_purple_one": [
-  5,
-  8
+  11,
+  9
  ],
  "wall_purple_top": [
-  2,
-  8
+  8,
+  9
  ],
  "water": [
   15,
