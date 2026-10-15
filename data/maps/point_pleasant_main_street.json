@@ -1,0 +1,388 @@
+{
+ "_doc": "Main Street district of Point Pleasant. Units are meters; x runs east, z runs south. Buildings are boxes for now; door is the side the entrance faces (n/s/e/w). npcs point at roster or case speakers.",
+ "id": "main_street",
+ "name": "Main Street",
+ "case": "point_pleasant",
+ "size": [
+  64,
+  48
+ ],
+ "spawn": [
+  0,
+  0,
+  2
+ ],
+ "roads": [
+  {
+   "pos": [
+    0,
+    2
+   ],
+   "size": [
+    64,
+    6
+   ]
+  },
+  {
+   "pos": [
+    -14,
+    -12
+   ],
+   "size": [
+    5,
+    22
+   ]
+  },
+  {
+   "pos": [
+    16,
+    14
+   ],
+   "size": [
+    5,
+    22
+   ]
+  }
+ ],
+ "buildings": [
+  {
+   "id": "diner",
+   "name": "Rosie's Diner",
+   "pos": [
+    -22,
+    -6
+   ],
+   "size": [
+    10,
+    3.4,
+    7
+   ],
+   "color": "7a3b2e",
+   "roof": "3d4a5c",
+   "door": "s",
+   "neon": "e0303c"
+  },
+  {
+   "id": "register",
+   "name": "The Register",
+   "pos": [
+    -4,
+    -7
+   ],
+   "size": [
+    8,
+    5.0,
+    8
+   ],
+   "color": "8a5a3a",
+   "roof": "4a4e58",
+   "door": "s"
+  },
+  {
+   "id": "sheriff",
+   "name": "Sheriff's Office",
+   "pos": [
+    8,
+    -6.5
+   ],
+   "size": [
+    8,
+    3.6,
+    7
+   ],
+   "color": "cfc4a8",
+   "roof": "3d4a5c",
+   "door": "s"
+  },
+  {
+   "id": "gas",
+   "name": "Mason Gas",
+   "pos": [
+    24,
+    -6
+   ],
+   "size": [
+    7,
+    3.0,
+    6
+   ],
+   "color": "d8e2ec",
+   "roof": "8a2a2a",
+   "door": "s",
+   "neon": "e8a64a"
+  },
+  {
+   "id": "motel",
+   "name": "Riverview Motel",
+   "pos": [
+    -24,
+    14
+   ],
+   "size": [
+    14,
+    4.6,
+    6
+   ],
+   "color": "5e6e72",
+   "roof": "2a2a30",
+   "door": "n",
+   "neon": "e0303c"
+  },
+  {
+   "id": "church",
+   "name": "First Methodist",
+   "pos": [
+    2,
+    17
+   ],
+   "size": [
+    7,
+    6.5,
+    10
+   ],
+   "color": "e6e2d4",
+   "roof": "4a4e58",
+   "door": "n"
+  },
+  {
+   "id": "house_a",
+   "name": "House",
+   "pos": [
+    26,
+    14
+   ],
+   "size": [
+    7,
+    3.6,
+    6
+   ],
+   "color": "cfc4a8",
+   "roof": "7a3b2e",
+   "door": "w"
+  },
+  {
+   "id": "house_b",
+   "name": "House",
+   "pos": [
+    -2,
+    -20
+   ],
+   "size": [
+    6,
+    3.2,
+    6
+   ],
+   "color": "9ab0c8",
+   "roof": "3d4a5c",
+   "door": "s"
+  }
+ ],
+ "lamps": [
+  [
+   -26,
+   5.5
+  ],
+  [
+   -16,
+   5.5
+  ],
+  [
+   -6,
+   5.5
+  ],
+  [
+   4,
+   5.5
+  ],
+  [
+   14,
+   5.5
+  ],
+  [
+   24,
+   5.5
+  ],
+  [
+   -12,
+   -1.5
+  ],
+  [
+   10,
+   -1.5
+  ],
+  [
+   20,
+   -1.5
+  ]
+ ],
+ "trees": [
+  [
+   -30,
+   -18
+  ],
+  [
+   -26,
+   -21
+  ],
+  [
+   -18,
+   -20
+  ],
+  [
+   12,
+   -20
+  ],
+  [
+   18,
+   -18
+  ],
+  [
+   28,
+   -20
+  ],
+  [
+   30,
+   2
+  ],
+  [
+   -31,
+   0
+  ],
+  [
+   8,
+   -22
+  ],
+  [
+   12,
+   24
+  ],
+  [
+   -12,
+   25
+  ],
+  [
+   30,
+   25
+  ],
+  [
+   -30,
+   25
+  ]
+ ],
+ "props": [
+  {
+   "kind": "car",
+   "pos": [
+    -17,
+    -1
+   ],
+   "color": "6a3a5a"
+  },
+  {
+   "kind": "car",
+   "pos": [
+    22,
+    -1.2
+   ],
+   "color": "3f6b4f"
+  },
+  {
+   "kind": "pump",
+   "pos": [
+    22,
+    -2.6
+   ]
+  },
+  {
+   "kind": "pump",
+   "pos": [
+    26,
+    -2.6
+   ]
+  },
+  {
+   "kind": "phone",
+   "pos": [
+    -9,
+    -2.2
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    5,
+    -2.2
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "marlene",
+   "name": "Marlene",
+   "pos": [
+    -20,
+    -1.8
+   ],
+   "coat": "d9737f",
+   "hair": "c9a24a",
+   "skin": "e6bd98"
+  },
+  {
+   "id": "editor",
+   "name": "The editor",
+   "pos": [
+    -3,
+    -2.4
+   ],
+   "coat": "e8e2d0",
+   "hair": "bfbfbf",
+   "skin": "e0b48e"
+  },
+  {
+   "id": "deputy",
+   "name": "The deputy",
+   "pos": [
+    9,
+    -2.2
+   ],
+   "coat": "7a6a3e",
+   "hair": "3a2a1a",
+   "skin": "d9a57d",
+   "hat": true
+  },
+  {
+   "id": "earl",
+   "name": "Earl",
+   "pos": [
+    25,
+    -0.4
+   ],
+   "coat": "3a5a8a",
+   "hair": "6a4a2a",
+   "skin": "cf9a72",
+   "hat": true
+  },
+  {
+   "id": "clerk",
+   "name": "The motel clerk",
+   "pos": [
+    -22,
+    10
+   ],
+   "coat": "7a7f5a",
+   "hair": "4a3020",
+   "skin": "c99068"
+  },
+  {
+   "id": "kid",
+   "name": "A local kid",
+   "pos": [
+    1.4,
+    0.8
+   ],
+   "coat": "c8452f",
+   "hair": "d8b35a",
+   "skin": "efc6a0"
+  }
+ ]
+}

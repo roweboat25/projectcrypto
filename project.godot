@@ -13,6 +13,7 @@ config/features=PackedStringArray("4.3")
 
 GameData="*res://scripts/autoload/game_data.gd"
 GameState="*res://scripts/autoload/game_state.gd"
+Controls="*res://scripts/autoload/controls.gd"
 
 [display]
 
