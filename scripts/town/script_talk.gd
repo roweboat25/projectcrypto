@@ -146,7 +146,7 @@ func _on_option(i: int) -> void:
 			_picker = GameState.evidence.duplicate()
 			var opts := []
 			for id in _picker:
-				opts.append({"label": case.evidence.get(id, {}).get("title", id), "enabled": true})
+				opts.append({"label": GameData.evidence(GameState.case_id, id).get("title", id), "enabled": true})
 			box.show_menu("Show them what?", "Evidence", opts)
 		"option":
 			_pick(o.option, o.index)
@@ -222,7 +222,7 @@ func _unlock(fact: Dictionary) -> void:
 
 
 func _announce(evidence_id: String) -> void:
-	var e: Dictionary = case.get("evidence", {}).get(evidence_id, {})
+	var e: Dictionary = GameData.evidence(GameState.case_id, evidence_id)
 	toast.call("Evidence: " + e.get("title", evidence_id))
 
 

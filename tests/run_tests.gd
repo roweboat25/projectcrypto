@@ -21,6 +21,7 @@ func _initialize() -> void:
 	errors += _voice_checks(data)
 	errors += _art_checks(data)
 	errors += _script_checks()
+	errors += _office_checks(data)
 	for e in errors:
 		printerr("FAIL: " + e)
 	print("Tests: %s (%d classes, %d foes, %d cases, %d maps)" % ["PASS" if errors.is_empty() else "FAIL", data.classes.size(), data.foes.size(), data.cases.size(), data.maps.size()])
@@ -28,6 +29,58 @@ func _initialize() -> void:
 	state.free()
 	copy.free()
 	quit(0 if errors.is_empty() else 1)
+
+
+## Gear, shops, verdicts and the Office budget.
+func _office_checks(data) -> Array[String]:
+	var errors: Array[String] = []
+	var state = load("res://scripts/autoload/game_state.gd").new()
+	state.party = ["player", "miriam", "teddy"]
+	state.player_class = "skeptic"
+	state.case_id = "point_pleasant"
+	# the issue tool is equipped by default
+	var g: Dictionary = Investigation.member_gear(data, state, "player")
+	if data.items.get(g.tool, {}).get("class", "") != "skeptic":
+		errors.append("the skeptic should start with a skeptic issue tool, got %s" % g.tool)
+	# buying and equipping a slide rule raises reason and the logic voice
+	var before := Investigation.voice_level(data, state, "logic")
+	state.cash = 100
+	if Investigation.buy(data, state, "slide_rule") != "" or not state.has_item("slide_rule"):
+		errors.append("could not buy the slide rule")
+	if state.cash != 100 - int(data.items.slide_rule.price):
+		errors.append("the slide rule should cost its price")
+	if not Investigation.equip(data, state, "player", "tool", "slide_rule"):
+		errors.append("the skeptic should be able to equip the slide rule")
+	if Investigation.voice_level(data, state, "logic") != before + 2:
+		errors.append("slide rule should add +1 reason and +1 logic, got %d from %d" % [Investigation.voice_level(data, state, "logic"), before])
+	if state.has_item("slide_rule") or not state.has_item(g.tool):
+		errors.append("equipping should swap the slide rule for the issue tool in the kit")
+	if Investigation.equip(data, state, "miriam", "tool", "slide_rule"):
+		errors.append("a non-skeptic should not equip a skeptic tool")
+	# shops only sell what they stock
+	if "slide_rule" in data.shop_stock("variety") or not "film" in data.shop_stock("variety"):
+		errors.append("shop stock is wrong")
+	# a verdict pays budget and refreshes the Office
+	Investigation.gain_evidence(data, state, "marlene_statement")
+	var v: Dictionary = Investigation.file_verdict(data, state, "unexplained")
+	if int(v.budget) < 1 or state.budget != int(v.budget) or not state.verdicts.has("point_pleasant"):
+		errors.append("filing a verdict should pay budget")
+	if data.cases.point_pleasant.get("truth", "") == "unexplained" and int(v.budget) < 3:
+		errors.append("matching the hidden truth should pay extra")
+	if not data.office.is_empty() and not state.flags.get("office_darkroom", false):
+		errors.append("the darkroom should open after the first verdict")
+	if not v.has("relic") or data.items.get(v.relic, {}).get("verdict", "") != "unexplained":
+		errors.append("an unexplained verdict on Point Pleasant should drop its relic")
+	if not data.office.is_empty():
+		var any_id: String = data.office.car.keys()[0]
+		state.budget = 99
+		state.budget_earned = 99
+		if Investigation.buy_upgrade(data, state, any_id) != "" or not state.flags.get(data.office.car[any_id].flag, false):
+			errors.append("buying a car upgrade should set its flag")
+		if Investigation.buy_upgrade(data, state, any_id) == "":
+			errors.append("an upgrade should not sell twice")
+	state.free()
+	return errors
 
 
 ## Every script in scripts/ must at least parse, since most only run inside a scene.

@@ -367,6 +367,69 @@
      "evidence": "penrose_first"
     }
    ]
+  },
+  "pawnbroker": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "pawn_barn_coat",
+     "title": "The barn coat",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "That duck-canvas coat on the rack. Who'd sell a coat in February?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "pawnbroker",
+       "Dwight Mason. Tuesday, near dark. Coat, ring, and his daddy's Hallicrafters. Took the cash and walked out bareheaded into the sleet like it was June."
+      ],
+      [
+       "pawnbroker",
+       "I said Dwight, you'll freeze. He said 'Not where I'm going, Lonnie.' Then he laughed. Dwight don't laugh."
+      ],
+      [
+       "elijah",
+       "He wasn't planning on being cold."
+      ]
+     ],
+     "evidence": "pawn_dwight_coat"
+    },
+    {
+     "id": "pawn_suits_salvage",
+     "title": "Buyers in grey",
+     "gates": [
+      {
+       "show": "the_suits"
+      },
+      {
+       "check": "press",
+       "difficulty": 8,
+       "prompt": "Two men in suits have been buying up this town. What did they want from you?"
+      }
+     ],
+     "lines": [
+      [
+       "pawnbroker",
+       "Anything with 1967 on it. Bridge bolts, a Register from the week after, a motel key. Paid in new bills, didn't haggle, didn't want a receipt."
+      ],
+      [
+       "pawnbroker",
+       "Asked did I have the Mason boy's ring. I said what ring. They'd been in before Dwight had."
+      ],
+      [
+       "teddy",
+       "They knew it was coming in. Before he sold it."
+      ]
+     ],
+     "evidence": "pawn_suits_1967"
+    }
+   ]
   }
  },
  "evidence": {
@@ -527,6 +590,22 @@
    "exposes": [
     "pantry_cans"
    ]
+  },
+  "pawn_dwight_coat": {
+   "title": "Dwight Mason pawned his coat",
+   "text": "Dwight Mason sold his barn coat, his class ring and his father's radio at Riverside Pawn on Tuesday at dusk, then walked out into the sleet without a coat, saying he would not need one where he was going.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "pawn_suits_1967": {
+   "title": "The suits buy 1967",
+   "text": "Two men in grey suits have been buying anything dated 1967 at Riverside Pawn with new bills, and asked for Dwight Mason's class ring before Dwight had pawned it.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
   }
  }
 }

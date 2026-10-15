@@ -92,11 +92,13 @@ func _apply_debug_query() -> void:
 			if xy.size() == 2:
 				var at := Vector2(float(xy[0]), float(xy[1])) * T
 				if inside != "":
-					_move_party(rooms[inside].rect.position + at, rooms[inside].actors)
+					_move_party(rooms[inside].rect.position + Vector2(T, T) + at, rooms[inside].actors)
 				else:
 					_move_party(at, outside.actors)
 		elif kv[0] == "time":
 			time_of_day = float(kv[1])
+		elif kv[0] == "road" and GameData.road.get("legs", {}).has(kv[1]):
+			_drive.call_deferred(kv[1])
 
 
 func _process(delta: float) -> void:
@@ -118,6 +120,8 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("evidence"):
 			_file.refresh()
 			_file.visible = true
+		if Input.is_action_just_pressed("gear"):
+			_start_talk(GearTalk.new(_box, _toast))
 		if Input.is_action_just_pressed("toggle_time"):
 			time_of_day = 0.25 if time_of_day > 0.5 else 0.8
 		if Input.is_action_just_pressed("save"):
@@ -291,14 +295,14 @@ func _interact() -> void:
 		else:
 			_near.face_toward(party[0].global_position)
 			party[0].face_toward(_near.global_position)
-			if Investigation.script_for(GameData, GameState, _near.npc_id).is_empty():
+			if _near.data.has("shop"):
+				_talk = ShopTalk.new(_box, _near.data.shop, _near.display_name, _toast, _near.npc_id)
+				_talk.can_talk = Investigation.case_data(GameData, GameState).get("witnesses", {}).has(_near.npc_id) or not Investigation.script_for(GameData, GameState, _near.npc_id).is_empty()
+			elif Investigation.script_for(GameData, GameState, _near.npc_id).is_empty():
 				_talk = WitnessTalk.new(_box, _near.npc_id, _near.display_name, _toast)
 			else:
 				_talk = ScriptTalk.new(_box, _near.npc_id, _near.display_name, _toast)
-		_talk.finished.connect(_end_talk)
-		GameState.flags["_talking"] = true
-		_prompt.visible = false
-		_talk.start()
+		_start_talk(_talk)
 	elif not _near_door.is_empty():
 		if _near_door.get("locked", "") != "":
 			_toast(_near_door.locked)
@@ -311,6 +315,52 @@ func _interact() -> void:
 	elif _near_bed:
 		_prompt.visible = false
 		_sleep()
+
+
+func _start_talk(talk) -> void:
+	_talk = talk
+	_talk.finished.connect(_end_talk)
+	GameState.flags["_talking"] = true
+	_prompt.visible = false
+	_talk.start()
+
+
+## The card catalog: verdict history and the evidence archive.
+func _catalog_lines() -> Array:
+	var lines := [["narrator", "Oak drawers, index cards in Gus Weller's hand and everyone's since. Drawer S has a lock on it."]]
+	if GameState.verdicts.is_empty():
+		lines.append(["narrator", "Nothing has been filed since you took the job."])
+	for cid in GameState.verdicts:
+		var v: Dictionary = GameState.verdicts[cid]
+		lines.append(["narrator", "%s: filed %s, rated %s, day %d." % [GameData.cases.get(cid, {}).get("name", cid), str(v.lean).capitalize(), v.rating, int(v.day)]])
+	lines.append(["narrator", "%d cards in the %s file. Budget tier %d." % [GameState.evidence.size(), Investigation.case_data(GameData, GameState).get("name", "open"), Investigation.budget_tier(GameData, GameState)]])
+	return lines
+
+
+## The radio shack's station log.
+func _radio_log_lines() -> Array:
+	if GameState.radio_log.is_empty():
+		return [["narrator", "A ledger of frequencies, the last entry in 1967. Nothing logged on this trip yet."]]
+	var lines := []
+	for sid in GameState.radio_log:
+		var st: Dictionary = GameData.road.get("stations", {}).get(sid, {})
+		lines.append(["narrator", "%s %s: %s" % [str(st.get("freq", "")), st.get("name", sid), st.get("text", "")]])
+	return lines
+
+
+## Gets in the station wagon: saves where we are and hands over to the road.
+func _drive(leg_id: String) -> void:
+	var leg: Dictionary = GameData.road.get("legs", {}).get(leg_id, {})
+	if leg.is_empty():
+		return
+	GameState.flags["road_leg"] = leg_id
+	GameState.flags["road_stop"] = 0
+	GameState.flags["town_time"] = time_of_day
+	GameState.flags.erase("town_pos")
+	GameState.flags.erase("town_inside")
+	_prompt.visible = false
+	await _fade_out()
+	get_tree().change_scene_to_file("res://scenes/road.tscn")
 
 
 func _door_open(door: Dictionary) -> bool:
@@ -339,10 +389,34 @@ func _use_hotspot(spot: Node) -> void:
 			spot.get_meta("node").queue_free()
 			_near = null
 		return
+	if p.has("use"):
+		match p.use:
+			"board":
+				_start_talk(BoardTalk.new(_box, _toast))
+			"ledger":
+				_start_talk(LedgerTalk.new(_box, _toast))
+			"shop":
+				_start_talk(ShopTalk.new(_box, p.get("shop", ""), p.get("name", "Counter"), _toast))
+			"catalog":
+				_start_talk(NarrationTalk.new(_box, _catalog_lines()))
+			"radio_log":
+				_start_talk(NarrationTalk.new(_box, _radio_log_lines()))
+		return
+	if p.has("travel"):
+		_drive(p.travel)
+		return
 	if p.has("pickup"):
+		var name: String = GameData.items.get(p.pickup, {}).get("name", p.pickup)
+		if p.has("price"):
+			if GameState.cash < int(p.price):
+				_toast("Not enough cash for the %s." % name.to_lower())
+				return
+			GameState.cash -= int(p.price)
+			_toast("Bought %s. $%d left." % [name, GameState.cash])
+		else:
+			_toast("Took " + name)
 		GameState.add_item(p.pickup)
-		GameState.picked.append(spot.key)
-		_toast("Took " + str(GameData.items.get(p.pickup, {}).get("name", p.pickup)))
+		GameState.picked.append(spot.key + (":%d" % GameState.day if p.get("restock", false) else ""))
 		spot.get_meta("node").queue_free()
 		_near = null
 		return
@@ -409,8 +483,14 @@ func _handle_talk_input() -> void:
 
 
 func _end_talk() -> void:
+	var again: bool = _talk is ShopTalk and _talk.wants_talk and _near != null and not _near.has_meta("hotspot")
 	_talk = null
 	GameState.flags["_talking"] = false
+	if again:
+		if Investigation.script_for(GameData, GameState, _near.npc_id).is_empty():
+			_start_talk(WitnessTalk.new(_box, _near.npc_id, _near.display_name, _toast))
+		else:
+			_start_talk(ScriptTalk.new(_box, _near.npc_id, _near.display_name, _toast))
 
 
 func _enter(id: String, with_fade: bool) -> void:
@@ -502,7 +582,7 @@ func _build_ui() -> void:
 	_hud.add_theme_constant_override("shadow_offset_y", 1)
 	root.add_child(_hud)
 	var help := Label.new()
-	help.text = "WASD walk · Space talk/look · Tab case file · T day/night · F5 save · F9 load"
+	help.text = "WASD walk · Space talk/look · Tab case file · G gear · T day/night · F5 save · F9 load"
 	help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
 	help.offset_left = -420
 	help.offset_top = -16
@@ -560,7 +640,7 @@ func _hud_tick() -> void:
 		for d in outside.doors:
 			if d.id == inside:
 				where = d.name
-	_hud.text = "Point Pleasant · %s   Day %d   %d:00 %s (%s)   Dread %d   Evidence %d" % [where, GameState.day, h12, ampm, Investigation.phase(time_of_day), GameState.dread, GameState.evidence.size()]
+	_hud.text = "%s · %s   Day %d   %d:00 %s (%s)   Dread %d   Evidence %d" % [GameData.cases.get(map.get("case", ""), {}).get("name", "The Casebook"), where, GameState.day, h12, ampm, Investigation.phase(time_of_day), GameState.dread, GameState.evidence.size()]
 	if _talk == null:
 		_apply_phase()
 	get_tree().create_timer(0.5).timeout.connect(_hud_tick)

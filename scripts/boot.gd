@@ -46,7 +46,7 @@ func _ready() -> void:
 	title.add_theme_constant_override("shadow_offset_y", 2)
 	layer.add_child(title)
 	var sub := Label.new()
-	sub.text = "Case 1: Point Pleasant, West Virginia, 1994\n\nSpace to begin"
+	sub.text = "Season 1, 1994: the Sutton Office\n\nSpace to begin"
 	sub.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
 	sub.offset_top = 70
 	sub.offset_left = -300
@@ -70,4 +70,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
+		# a new game starts at the Office in Sutton; debug query strings still pick a map
+		if GameData.maps.has("sutton_office") and not GameState.flags.has("town_map"):
+			GameState.flags["town_map"] = "sutton_office"
 		get_tree().change_scene_to_file("res://scenes/town.tscn")

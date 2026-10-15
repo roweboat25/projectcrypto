@@ -154,6 +154,11 @@
   "solid": 1,
   "w": 32
  },
+ "card_catalog": {
+  "h": 44,
+  "solid": 1,
+  "w": 48
+ },
  "cattails": {
   "h": 32,
   "solid": 0,
@@ -374,6 +379,11 @@
   "solid": 1,
   "w": 32
  },
+ "enlarger": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
+ },
  "fence_h": {
   "h": 31,
   "solid": 1,
@@ -403,6 +413,11 @@
   "h": 72,
   "solid": 1,
   "w": 96
+ },
+ "flag": {
+  "h": 48,
+  "solid": 1,
+  "w": 32
  },
  "floodgate": {
   "h": 64,
@@ -514,6 +529,11 @@
   "solid": 1,
   "w": 64
  },
+ "mail_cart": {
+  "h": 36,
+  "solid": 1,
+  "w": 32
+ },
  "mailbox": {
   "h": 48,
   "solid": 1,
@@ -617,6 +637,11 @@
  "pier_planks": {
   "h": 32,
   "solid": 0,
+  "w": 64
+ },
+ "pigeonholes": {
+  "h": 40,
+  "solid": 1,
   "w": 64
  },
  "piling": {
@@ -754,6 +779,11 @@
   "solid": 1,
   "w": 96
  },
+ "spectrometer": {
+  "h": 32,
+  "solid": 1,
+  "w": 48
+ },
  "stone_slab": {
   "h": 16,
   "solid": 1,
@@ -853,6 +883,11 @@
   "h": 32,
   "solid": 0,
   "w": 32
+ },
+ "vault_door": {
+  "h": 56,
+  "solid": 1,
+  "w": 48
  },
  "vending": {
   "h": 64,

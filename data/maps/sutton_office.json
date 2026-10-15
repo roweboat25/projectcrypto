@@ -1,0 +1,2509 @@
+{
+ "_doc": "Sutton, Braxton County, West Virginia, February 1994: the Office hub. One short block of Main Street on the Elk River below Sutton Dam. The Office is the old post office; its rooms open onto the back lane behind it (vault, darkroom, lab, loading dock, radio shack, bunk room). The map has a void border and no exits: the road out is the station wagon on the lane. Positions are in 32px tiles.",
+ "id": "sutton_office",
+ "name": "Sutton",
+ "case": "sutton",
+ "district": "sutton",
+ "size": [
+  40,
+  30
+ ],
+ "spawn": [
+  14.5,
+  18.5
+ ],
+ "ground": "snow",
+ "fills": [
+  {
+   "rect": [
+    1,
+    14,
+    38,
+    4
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    15,
+    38,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    1,
+    13,
+    38,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    18,
+    38,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    20,
+    8,
+    2,
+    5
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    6,
+    38,
+    2
+   ],
+   "tiles": [
+    "gravel",
+    "gravel",
+    "gravel2",
+    "dirt_snow"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    23,
+    38,
+    1
+   ],
+   "tiles": [
+    "dirt_snow",
+    "dirt_snow2",
+    "dirt_snow3",
+    "snow2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    24,
+    38,
+    1
+   ],
+   "tiles": [
+    "water_snow_top",
+    "water_snow_top2",
+    "water_snow_top3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    25,
+    38,
+    4
+   ],
+   "tiles": [
+    "water",
+    "water2",
+    "water3"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    40,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    29,
+    40,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    0,
+    1,
+    30
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    39,
+    0,
+    1,
+    30
+   ],
+   "tiles": "void"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    1,
+    38,
+    5
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow_drift3",
+    "snow_rock"
+   ],
+   "chance": 0.06
+  },
+  {
+   "rect": [
+    1,
+    8,
+    38,
+    5
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow2",
+    "snow3"
+   ],
+   "chance": 0.05
+  },
+  {
+   "rect": [
+    1,
+    19,
+    38,
+    5
+   ],
+   "tiles": [
+    "snow_drift",
+    "snow_drift2",
+    "snow2",
+    "snow3",
+    "snow_rock2"
+   ],
+   "chance": 0.08
+  }
+ ],
+ "facades": [
+  {
+   "id": "hardware",
+   "facade": "hardware",
+   "name": "McKee Hardware",
+   "pos": [
+    2,
+    13
+   ]
+  },
+  {
+   "id": "office",
+   "facade": "post_office",
+   "name": "The Office",
+   "pos": [
+    10,
+    13
+   ]
+  },
+  {
+   "id": "diner",
+   "facade": "diner",
+   "name": "The Elk Diner",
+   "pos": [
+    22,
+    13
+   ]
+  },
+  {
+   "id": "pawn",
+   "facade": "pawn_shop",
+   "name": "Dodrill Pawn & Loan",
+   "pos": [
+    32,
+    13
+   ],
+   "locked": "BACK AT 2. It is a quarter past three and the sign has said that since Christmas."
+  },
+  {
+   "id": "vault",
+   "facade": "pump_house",
+   "name": "The dead letter vault",
+   "pos": [
+    1,
+    6
+   ],
+   "locked": "Sealed since 1953. The key is not in the Office."
+  },
+  {
+   "id": "darkroom",
+   "facade": "warden",
+   "name": "The darkroom",
+   "pos": [
+    6,
+    6
+   ],
+   "gate": "office_darkroom"
+  },
+  {
+   "id": "lab",
+   "facade": "bait_shop",
+   "name": "The lab",
+   "pos": [
+    12,
+    6
+   ],
+   "gate": "office_lab"
+  },
+  {
+   "id": "garage",
+   "facade": "garage",
+   "name": "The loading dock",
+   "pos": [
+    18,
+    6
+   ]
+  },
+  {
+   "id": "attic",
+   "facade": "radio_den",
+   "name": "The radio shack",
+   "pos": [
+    24,
+    6
+   ]
+  },
+  {
+   "id": "bunks",
+   "facade": "crew_cabin",
+   "name": "The bunk room",
+   "pos": [
+    31,
+    6
+   ]
+  }
+ ],
+ "props": [
+  {
+   "kind": "phone_booth",
+   "pos": [
+    1.5,
+    12.8
+   ],
+   "look": [
+    [
+     "player",
+     "The payphone outside McKee's. It rings some nights. Dot says don't answer it."
+    ],
+    [
+     "ruth",
+     "Dot answers it."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    9.5,
+    13.5
+   ]
+  },
+  {
+   "kind": "flag",
+   "pos": [
+    11.5,
+    12.8
+   ],
+   "name": "The flagpole",
+   "look": [
+    [
+     "teddy",
+     "The Office flag. Forty-eight stars. Nobody has told it."
+    ],
+    [
+     "miriam",
+     "Gus bought it in 1953. Dot won't replace a thing that still works."
+    ]
+   ]
+  },
+  {
+   "kind": "mailbox",
+   "pos": [
+    17.5,
+    12.8
+   ],
+   "look": "The Office's own box. LAST COLLECTION 4:30. Dot empties it at 4:29 so the Post Office never gets a chance."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    22.5,
+    11.4
+   ],
+   "look": "The diner's bin, on the side road. Coffee grounds, a Braxton Democrat, and a ticket for a sixteen-ounce T-bone, paid in dimes."
+  },
+  {
+   "kind": "planter",
+   "pos": [
+    30.5,
+    12.8
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    31.5,
+    13.5
+   ]
+  },
+  {
+   "kind": "newspaper_box",
+   "pos": [
+    31,
+    12.8
+   ],
+   "name": "Newspaper box",
+   "look": [
+    [
+     "teddy",
+     "The Braxton Democrat, weekly. 'DAM RELEASE SCHEDULE CHANGED.' Page one. Page one is the only page."
+    ],
+    [
+     "dale",
+     "Below the fold: coyote took a goat at Heaters. That's news."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    35,
+    13.6
+   ],
+   "look": "A bench outside the pawn shop. Somebody waits on it for the shop to open, every day, and it never does."
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    4,
+    14.5
+   ],
+   "look": [
+    [
+     "dale",
+     "County plough truck. The blade is up and the bed is full of salt and one deer, dressed."
+    ],
+    [
+     "ruth",
+     "That's Hollis's. The deer is legal. Mostly."
+    ]
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    7,
+    17.6
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    17,
+    17.6
+   ],
+   "look": [
+    [
+     "june",
+     "Dark sedan outside the Office. Plates from Kanawha County. Engine cold."
+    ],
+    [
+     "teddy",
+     "It's the dam engineer's, June. He's in the diner."
+    ],
+    [
+     "june",
+     "I know. I checked."
+    ]
+   ]
+  },
+  {
+   "kind": "buick",
+   "pos": [
+    28,
+    17.6
+   ],
+   "look": "Pearl Dodrill's Buick. She has driven it to the diner every morning since 1971. The diner is two hundred feet from her house."
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    36.5,
+    17.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    4,
+    18.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    14,
+    18.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    24,
+    18.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    34,
+    18.5
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    37,
+    18.6
+   ],
+   "name": "Highway sign",
+   "look": [
+    [
+     "player",
+     "ROUTE 4. GASSAWAY 9. FLATWOODS 6. Under FLATWOODS somebody painted a small green man. Somebody else painted him out. He's back."
+    ],
+    [
+     "elijah",
+     "Six miles. We drive past that turnoff every time."
+    ],
+    [
+     "ruth",
+     "And we will keep driving past it, dear, until Dot says otherwise."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    9,
+    20.6
+   ],
+   "look": "A bench facing the river. The plaque reads FOR A. W., WHO LISTENED. No date, because nobody agreed on one."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    30,
+    20.6
+   ]
+  },
+  {
+   "kind": "snowman",
+   "pos": [
+    16,
+    21.6
+   ],
+   "look": [
+    [
+     "teddy",
+     "A snowman in an Office trench coat. The coat is ours."
+    ],
+    [
+     "vera",
+     "The hat is mine."
+    ]
+   ]
+  },
+  {
+   "kind": "dog",
+   "pos": [
+    25.5,
+    21.4
+   ],
+   "look": [
+    [
+     "dale",
+     "Redbone hound. Belongs to the dam crew. Walks the whole river twice a day and reports to nobody."
+    ]
+   ]
+  },
+  {
+   "kind": "tree_dead",
+   "pos": [
+    2.5,
+    22
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    12,
+    22.4
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    20.5,
+    22.8
+   ]
+  },
+  {
+   "kind": "tree_snow",
+   "pos": [
+    33,
+    22.3
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    5,
+    21
+   ]
+  },
+  {
+   "kind": "tuft_snow2",
+   "pos": [
+    23,
+    20.4
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    11,
+    23.6
+   ]
+  },
+  {
+   "kind": "grass_tall_snow",
+   "pos": [
+    28,
+    23.6
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    15,
+    23.7
+   ]
+  },
+  {
+   "kind": "cattails",
+   "pos": [
+    32.5,
+    23.7
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    18.5,
+    23.3
+   ]
+  },
+  {
+   "kind": "johnboat",
+   "pos": [
+    6.5,
+    24.6
+   ],
+   "look": "A johnboat frozen into the bank. Somebody shovelled it out as far as the oarlocks and thought better of it."
+  },
+  {
+   "kind": "piling",
+   "pos": [
+    36,
+    24.5
+   ]
+  },
+  {
+   "kind": "stone_slab",
+   "pos": [
+    36.5,
+    23.4
+   ],
+   "name": "Sutton Dam overlook",
+   "look": [
+    [
+     "player",
+     "The dam fills the end of the river like a wall somebody forgot to finish. The Corps of Engineers marker says 1961. The spillway hums."
+    ],
+    [
+     "june",
+     "That's not the spillway."
+    ],
+    [
+     "miriam",
+     "June."
+    ],
+    [
+     "june",
+     "It's a tone under the spillway. I'll log it."
+    ]
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    37,
+    26.6
+   ]
+  },
+  {
+   "kind": "floodwall",
+   "pos": [
+    37,
+    28.6
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    11.5,
+    7.9
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    30,
+    7.9
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    5,
+    5.8
+   ],
+   "look": "A bicycle against the darkroom wall. Both reflectors on. Teddy checked."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    10.5,
+    5.8
+   ],
+   "look": "The darkroom bin. Fixer bottles and one print, torn in four. It's a photograph of the sky over the dam. Nothing in it. That's why it's torn."
+  },
+  {
+   "kind": "wagon",
+   "pos": [
+    16,
+    7.5
+   ],
+   "travel": "sutton_to_point_pleasant",
+   "name": "The station wagon",
+   "look": [
+    [
+     "teddy",
+     "The Office's station wagon. Three hundred thousand miles, a heater that works on Tuesdays, and Ruth's casserole dish still in the back."
+    ],
+    [
+     "ruth",
+     "The dish is clean. The car is not."
+    ]
+   ]
+  },
+  {
+   "kind": "lumber",
+   "pos": [
+    17.5,
+    5.8
+   ]
+  },
+  {
+   "kind": "barrel",
+   "pos": [
+    22.5,
+    5.8
+   ],
+   "look": "Gas cans by the dock door. Two full, one empty, one that says WATER in Dot's hand and is not water."
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    23.5,
+    5.8
+   ]
+  },
+  {
+   "kind": "antenna",
+   "pos": [
+    30.5,
+    5.8
+   ],
+   "name": "The mast",
+   "look": [
+    [
+     "june",
+     "The mast. Twenty feet of pipe, guyed to a fence post and a fifty-five Chevy that isn't going anywhere."
+    ],
+    [
+     "june",
+     "It works. Don't touch the Chevy."
+    ]
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    37.5,
+    7.4
+   ]
+  },
+  {
+   "kind": "pine_tall",
+   "pos": [
+    8.5,
+    2.2
+   ]
+  },
+  {
+   "kind": "tree_bare",
+   "pos": [
+    21.5,
+    2.2
+   ]
+  },
+  {
+   "kind": "pine_snow2",
+   "pos": [
+    36.5,
+    2.2
+   ]
+  },
+  {
+   "kind": "pine_snow",
+   "pos": [
+    37.5,
+    4.8
+   ]
+  },
+  {
+   "kind": "tree_snow2",
+   "pos": [
+    4,
+    10.6
+   ]
+  },
+  {
+   "kind": "bush_snow",
+   "pos": [
+    1.5,
+    9.2
+   ]
+  },
+  {
+   "kind": "bush_snow2",
+   "pos": [
+    38,
+    10.4
+   ]
+  },
+  {
+   "kind": "tuft_snow",
+   "pos": [
+    31.5,
+    9.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    2,
+    3.9
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "hollis",
+   "name": "Hollis Bragg",
+   "pos": [
+    30,
+    13.4
+   ],
+   "facing": "down",
+   "sprite": "hollis",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "sutton_kid",
+   "name": "The Rainey kid",
+   "pos": [
+    15,
+    19.6
+   ],
+   "facing": "up",
+   "sprite": "kid",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "pearl",
+   "name": "Pearl Dodrill",
+   "pos": [
+    9.5,
+    19.6
+   ],
+   "facing": "down",
+   "sprite": "widow",
+   "when": [
+    "dusk"
+   ]
+  }
+ ],
+ "clues": [],
+ "exits": [],
+ "interiors": {
+  "office": {
+   "size": [
+    16,
+    10
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "vault_door",
+     "pos": [
+      1.5,
+      2.6
+     ],
+     "name": "The dead letter vault",
+     "gate": "office_vault"
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      1.5,
+      1.2
+     ],
+     "name": "Brass plate",
+     "look": [
+      [
+       "player",
+       "A brass plate screwed to the stair door: DEAD LETTERS. SEALED 1953. The screws are newer than the plate."
+      ],
+      [
+       "elijah",
+       "They're warm."
+      ]
+     ]
+    },
+    {
+     "kind": "pigeonholes",
+     "pos": [
+      4,
+      1.9
+     ],
+     "name": "The pigeonholes",
+     "look": [
+      [
+       "player",
+       "Forty pigeonholes, one per county, and nine more Dot added for states. Mason County's is full. Braxton's is empty. Braxton always is."
+      ],
+      [
+       "teddy",
+       "Nobody writes to the Office about their own town."
+      ]
+     ]
+    },
+    {
+     "kind": "pigeonholes",
+     "pos": [
+      6,
+      1.9
+     ]
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      2,
+      4
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3.5,
+      4
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      5.5,
+      4
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      7,
+      4
+     ]
+    },
+    {
+     "kind": "typewriter",
+     "pos": [
+      2.5,
+      3.3
+     ],
+     "look": [
+      [
+       "teddy",
+       "A Royal. Dot types every reply on it, two fingers, no mistakes. The ribbon is older than June."
+      ]
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      4.5,
+      3.3
+     ],
+     "name": "The Office ledger",
+     "use": "ledger",
+     "look": "The Office ledger, 1953 to now. Budget in on the left page, budget out on the right. The right page is longer."
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      6.5,
+      3.3
+     ],
+     "look": [
+      [
+       "player",
+       "The Office phone. SUTTON 765-2211. One line. Ruth is usually on it."
+      ],
+      [
+       "ruth",
+       "Somebody has to be."
+      ]
+     ]
+    },
+    {
+     "kind": "mail_cart",
+     "pos": [
+      1,
+      6.4
+     ],
+     "look": "The mail cart. Today's letters, sorted by Dot into NOW, SOON, and a third pile she calls LORD."
+    },
+    {
+     "kind": "rug_blue",
+     "pos": [
+      8,
+      8.4
+     ]
+    },
+    {
+     "kind": "lamp_floor",
+     "pos": [
+      1,
+      8.8
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8.5,
+      1.6
+     ],
+     "name": "Gus Weller's calendar",
+     "look": [
+      [
+       "player",
+       "A feed-store calendar. December 1967. The 15th is circled. Nothing after it is written on, and nobody has turned the page."
+      ],
+      [
+       "miriam",
+       "Twenty-six years. Dot dusts it."
+      ]
+     ]
+    },
+    {
+     "kind": "card_catalog",
+     "pos": [
+      10.5,
+      2.4
+     ],
+     "name": "The card catalog",
+     "use": "catalog",
+     "look": [
+      [
+       "player",
+       "Oak, thirty-six drawers, A to Z and ten more. Every case the Office ever filed, one card each. Drawer S has a lock on it and the lock is not oak."
+      ]
+     ]
+    },
+    {
+     "kind": "filing_tall",
+     "pos": [
+      12.5,
+      2.6
+     ]
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      13.5,
+      2.6
+     ],
+     "look": [
+      [
+       "player",
+       "WELLER, A. PERSONAL, in Dot's hand. The drawer is empty except for a pair of reading glasses and a receipt from the Lowe Hotel, Point Pleasant, December 1967."
+      ],
+      [
+       "elijah",
+       "She meant to come back for the glasses."
+      ]
+     ]
+    },
+    {
+     "kind": "desk_wood",
+     "pos": [
+      10.5,
+      6.5
+     ],
+     "name": "Gus Weller's desk",
+     "look": [
+      [
+       "player",
+       "The founder's desk. Blotter, inkwell, a brass lamp, and her trench coat still over the back of the chair as if she stepped out to the diner."
+      ],
+      [
+       "ruth",
+       "Dot has never let anyone sit there. Including Dot."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      10.5,
+      7.4
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      11.5,
+      5.9
+     ]
+    },
+    {
+     "kind": "paper2",
+     "pos": [
+      9.5,
+      5.9
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      12,
+      1.5
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      15,
+      1.5
+     ],
+     "name": "The wall of photographs",
+     "look": [
+      [
+       "player",
+       "Framed photographs, 1953 to 1993. Every team the Office ever sent out, standing by the wagon. The first one is two people. The woman is laughing. The man is not."
+      ],
+      [
+       "teddy",
+       "That's Penrose. He hasn't aged a day in forty years and he's not in any photo after '67."
+      ]
+     ]
+    },
+    {
+     "kind": "bulletin_board",
+     "pos": [
+      14,
+      2.9
+     ],
+     "name": "The case board",
+     "use": "board",
+     "look": "The sorting-room board. Red string, index cards, and one map pin pushed so hard it has gone through the cork into the wall."
+    },
+    {
+     "kind": "table",
+     "pos": [
+      14,
+      6.3
+     ],
+     "look": [
+      [
+       "player",
+       "The sorting table. Letters from the public in three heaps: BIRD, LIGHTS, and OTHER. OTHER is the tallest."
+      ],
+      [
+       "dale",
+       "Half of BIRD is OTHER. They just don't know it yet."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      12.7,
+      5.4
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      15.3,
+      5.4
+     ]
+    },
+    {
+     "kind": "paper2",
+     "pos": [
+      14,
+      5.8
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      15.5,
+      8.6
+     ],
+     "name": "Dead letter tray",
+     "look": "The tray for letters the Office cannot answer. Dot takes it down to the vault door once a month and leaves it there. In the morning it is empty."
+    },
+    {
+     "kind": "water_cooler",
+     "pos": [
+      15.5,
+      2.6
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "dot",
+     "name": "Dot Rainey",
+     "pos": [
+      4.5,
+      3.4
+     ],
+     "facing": "down",
+     "sprite": "dot",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    },
+    {
+     "id": "pearl",
+     "name": "Pearl Dodrill",
+     "pos": [
+      13.5,
+      7.2
+     ],
+     "facing": "left",
+     "sprite": "widow",
+     "when": [
+      "day"
+     ]
+    }
+   ]
+  },
+  "hardware": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "shelf",
+     "pos": [
+      2,
+      1.7
+     ],
+     "look": "Plumbing, electrical, and a hand-lettered shelf of LANTERN MANTLES, BATTERIES, FILM, PLASTER. McKee calls it the Office shelf and stocks it on Mondays."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5,
+      1.7
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      8,
+      1.7
+     ],
+     "look": [
+      [
+       "dale",
+       "Traps, snare wire, a cast of a bear track McKee made himself and priced at forty dollars."
+      ],
+      [
+       "miriam",
+       "It's a dog track."
+      ],
+      [
+       "dale",
+       "It's a forty-dollar dog track."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      9.5,
+      1.6
+     ],
+     "look": "A Snap-on calendar. February 1994, the right month, the right year. The only correct calendar in Sutton."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      4,
+      1.4
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      1,
+      3.3
+     ],
+     "look": [
+      [
+       "vera",
+       "Rock salt by the hundredweight. For the walk, McKee says. He does not ask what we do with it."
+      ]
+     ]
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      6,
+      4
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      7.5,
+      4
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      9,
+      4
+     ]
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      8.5,
+      3.4
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      6.5,
+      3.3
+     ],
+     "name": "The order book",
+     "look": "McKee's order book, open. Last line, in Dot's hand: 'Plaster, 2 bags. Charge the Office. Don't argue.'"
+    },
+    {
+     "kind": "table_workshop",
+     "pos": [
+      3,
+      5.7
+     ],
+     "look": "The key-cutting bench. A board of blanks, and one hook labelled OFFICE BASEMENT with no key on it. McKee says there never was one."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      1,
+      7.6
+     ],
+     "look": "Chain, by the foot. McKee sells it to the Office in ten-foot lengths and never asks why it comes back shorter."
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      5,
+      7.2
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      6,
+      7.4
+     ]
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      8.5,
+      7.8
+     ]
+    },
+    {
+     "kind": "dog",
+     "pos": [
+      8.5,
+      6.4
+     ],
+     "look": [
+      [
+       "dale",
+       "Beagle. Asleep on the chain. Nobody's stolen a foot of it in thirty years."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "mckee",
+     "name": "Vernon McKee",
+     "pos": [
+      7.5,
+      3.2
+     ],
+     "facing": "down",
+     "sprite": "farmer",
+     "shop": "sutton_hardware",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    }
+   ]
+  },
+  "diner": {
+   "size": [
+    16,
+    10
+   ],
+   "floor": [
+    "tile_white",
+    "tile_white",
+    "tile_cream"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "fridge",
+     "pos": [
+      1,
+      2.6
+     ]
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      2,
+      2.6
+     ]
+    },
+    {
+     "kind": "sink",
+     "pos": [
+      3,
+      2.6
+     ],
+     "look": "The sink. A radio on the sill tuned to WDBS in Sutton. It plays bluegrass and the dam release times, and the dam release times are the part people listen to."
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      2,
+      3.3
+     ]
+    },
+    {
+     "kind": "time_clock",
+     "pos": [
+      1,
+      5.9
+     ]
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      6.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      8.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      10.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      12,
+      3
+     ]
+    },
+    {
+     "kind": "coffee_maker",
+     "pos": [
+      6,
+      2.4
+     ],
+     "look": [
+      [
+       "player",
+       "Two pots. One says REGULAR. One says DAM CREW and is black as the spillway."
+      ],
+      [
+       "teddy",
+       "Ruth drinks the dam crew one."
+      ],
+      [
+       "ruth",
+       "Of course I do."
+      ]
+     ]
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      9,
+      2.3
+     ]
+    },
+    {
+     "kind": "pie_case",
+     "pos": [
+      13,
+      2.6
+     ],
+     "look": [
+      [
+       "teddy",
+       "Apple, buttermilk, and a sign that says NO MOTHMAN JOKES. Somebody has crossed out MOTHMAN and written FLATWOODS."
+      ],
+      [
+       "elijah",
+       "The sign is older than the joke."
+      ]
+     ]
+    },
+    {
+     "kind": "bulletin_board",
+     "pos": [
+      14.5,
+      2.9
+     ],
+     "name": "Corkboard",
+     "look": "The corkboard. Dam release times. A flyer for the Braxton County Monster Festival, 1993, with the monster drawn by a child. Under it, in Dot's hand: 'Office is next door. Letters only. No walk-ins.' Below that: 'Walk-ins fine. Dot.'"
+    },
+    {
+     "kind": "jukebox",
+     "pos": [
+      15,
+      2.6
+     ],
+     "look": [
+      [
+       "teddy",
+       "Ralph Stanley, three times. Somebody with quarters and one opinion."
+      ]
+     ]
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      8.5,
+      1.5
+     ],
+     "look": "A framed photograph of the dam going up, 1960. The river behind it is in the wrong place, because they moved it."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      4.5,
+      1.6
+     ]
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      11,
+      1.9
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      5,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      6,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      7,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      8,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      9,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      10,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      11,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      12,
+      4.2
+     ],
+     "look": "The last stool is Hollis Bragg's. Nobody else sits on it, not because of Hollis. Because of the stool. It rocks."
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      2,
+      9.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      5,
+      9.3
+     ],
+     "look": [
+      [
+       "player",
+       "Pearl Dodrill's booth. The seat is worn to the frame on one side. The other side has a Gideon Bible, a crossword and a photograph face down."
+      ],
+      [
+       "ruth",
+       "Leave it face down, dear. She'll turn it over when she's ready."
+      ]
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      11.5,
+      9.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      14.5,
+      9.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      14.5,
+      7.3
+     ]
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      14.5,
+      5.3
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      3,
+      5.9
+     ],
+     "look": "The kitchen bin. Eggshells, a Democrat, and a bus ticket, Gassaway to Charleston, unused. Somebody keeps meaning to."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "elk_cook",
+     "name": "Darlene",
+     "pos": [
+      8.5,
+      3.4
+     ],
+     "facing": "down",
+     "sprite": "cook",
+     "when": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "id": "elk_waitress",
+     "name": "The night girl",
+     "pos": [
+      8.5,
+      3.4
+     ],
+     "facing": "down",
+     "sprite": "teen2",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "pearl",
+     "name": "Pearl Dodrill",
+     "pos": [
+      5.5,
+      8.3
+     ],
+     "facing": "right",
+     "sprite": "widow",
+     "when": [
+      "morning"
+     ]
+    },
+    {
+     "id": "hollis",
+     "name": "Hollis Bragg",
+     "pos": [
+      12,
+      5.3
+     ],
+     "facing": "up",
+     "sprite": "hollis",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "sutton_kid",
+     "name": "The Rainey kid",
+     "pos": [
+      13,
+      8.3
+     ],
+     "facing": "left",
+     "sprite": "kid",
+     "when": [
+      "night"
+     ]
+    }
+   ]
+  },
+  "garage": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "tile_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "workbench",
+     "pos": [
+      3,
+      2.9
+     ],
+     "name": "The upgrade bench",
+     "look": [
+      [
+       "player",
+       "The dock bench. A CB radio still in the box, a spotlight bracket, and a drawing of a mattress in the back of the wagon with measurements in June's hand."
+      ],
+      [
+       "june",
+       "It fits. Dale doesn't."
+      ],
+      [
+       "dale",
+       "I'll fold."
+      ]
+     ]
+    },
+    {
+     "kind": "table_workshop",
+     "pos": [
+      7.5,
+      3
+     ],
+     "look": "A workshop table and the wagon's shop manual, 1978, open to HEATER. The page is black with thumbprints and the heater still works on Tuesdays."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      8.5,
+      1.7
+     ],
+     "look": "Oil, belts, bulbs, and a coffee can of fuses marked DON'T, in Gus Weller's hand. The fuses are fine. Nobody uses them."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      1.5,
+      1.6
+     ],
+     "look": "A tyre-shop calendar, 1986. The month is right. The year is a long story."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      5,
+      1.4
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      1,
+      4.4
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      1,
+      5.6
+     ],
+     "look": [
+      [
+       "dale",
+       "Thirty gallons of gas. Rationed by Ruth."
+      ],
+      [
+       "ruth",
+       "Rationed by arithmetic, dear."
+      ]
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      9.5,
+      5.4
+     ]
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      3,
+      7.8
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      5.5,
+      7.4
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      7,
+      7.6
+     ],
+     "name": "The glovebox pile",
+     "look": "Everything that has ever come out of the wagon's glovebox. Maps of four states, a harmonica, a 1967 parking stub from the Lowe Hotel, Point Pleasant. Nobody has claimed the harmonica."
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      9.5,
+      7.8
+     ],
+     "look": "A ladder to the loft. The loft is where the radio shack's cables go and where Teddy says he will sleep if June plays the tone again."
+    },
+    {
+     "kind": "mail_cart",
+     "pos": [
+      5.5,
+      4.8
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "hollis",
+     "name": "Hollis Bragg",
+     "pos": [
+      6.5,
+      5.3
+     ],
+     "facing": "left",
+     "sprite": "hollis",
+     "when": [
+      "day"
+     ]
+    }
+   ]
+  },
+  "darkroom": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "tile_dark",
+    "tile_dark",
+    "diamond_dark"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "enlarger",
+     "pos": [
+      2,
+      2.4
+     ],
+     "name": "The enlarger",
+     "look": [
+      [
+       "player",
+       "A Beseler enlarger, 1950s, in a room that was built for it. Dot said the first verdict buys the bulb. It did."
+      ]
+     ]
+    },
+    {
+     "kind": "workbench",
+     "pos": [
+      5,
+      2.9
+     ],
+     "name": "The trays",
+     "look": "Developer, stop, fix, in three trays. The tongs are labelled in Gus Weller's hand, DEV, STOP, FIX, and a fourth pair, labelled DON'T."
+    },
+    {
+     "kind": "wall_lamp",
+     "pos": [
+      7,
+      1.4
+     ],
+     "look": [
+      [
+       "player",
+       "The safelight. Red. It has been red since 1953 and it makes everyone look like they have been crying."
+      ],
+      [
+       "teddy",
+       "Some of us have."
+      ]
+     ]
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      4,
+      1.3
+     ],
+     "name": "The drying line",
+     "look": "Prints on a line. Mason Gas sign, the church fence, the Lowe Hotel. One is blank. It was not blank when it went up."
+    },
+    {
+     "kind": "camera_bag",
+     "pos": [
+      1,
+      4.9
+     ],
+     "look": [
+      [
+       "player",
+       "A camera bag. Not ours. A Leica, 1960s, and a roll of film still in it, exposed, never developed. The tag says A. W., DEC 67."
+      ],
+      [
+       "miriam",
+       "We develop it. We develop it tonight."
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      7,
+      4.6
+     ],
+     "name": "The negatives",
+     "look": "A box of negative sleeves, 1953 to 1967, each labelled in a tall slanting hand. 1967 ends in December. The last sleeve is empty."
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      1,
+      5.8
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      6,
+      3.7
+     ]
+    }
+   ]
+  },
+  "lab": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "tile_white",
+    "tile_white",
+    "tile_blue"
+   ],
+   "wall": "blue",
+   "props": [
+    {
+     "kind": "sink",
+     "pos": [
+      1,
+      2.6
+     ]
+    },
+    {
+     "kind": "spectrometer",
+     "pos": [
+      3,
+      2.4
+     ],
+     "name": "The spectrometer",
+     "look": [
+      [
+       "miriam",
+       "A bench spectrometer. Surplus, 1971, and it was surplus then. It tells the truth, which is more than I can say for the witnesses."
+      ]
+     ]
+    },
+    {
+     "kind": "workbench",
+     "pos": [
+      6,
+      2.9
+     ],
+     "name": "The bench",
+     "look": "The old parcel-room bench. The scale is still bolted to it. Dot weighs the evidence on it. Literally."
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      2,
+      1.9
+     ],
+     "look": [
+      [
+       "vera",
+       "Reagents. And one jar labelled TNT AREA WATER, DO NOT DRINK, which was two dollars at Harmon's and is worth every cent."
+      ],
+      [
+       "dale",
+       "It's still glowing."
+      ]
+     ]
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      7.5,
+      4.6
+     ],
+     "look": "Lab results, by case. The oldest folder is marked FLATWOODS 1952, and it has one page in it, and the page says SEE DRAWER S."
+    },
+    {
+     "kind": "table",
+     "pos": [
+      4,
+      5.6
+     ]
+    },
+    {
+     "kind": "paper2",
+     "pos": [
+      4,
+      5
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      2.5,
+      5.4
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      1,
+      4.6
+     ],
+     "name": "The sample case",
+     "look": [
+      [
+       "player",
+       "Gus Weller's sample case. Leather, brass corners, her initials. Inside: twelve numbered vials, eleven empty. The twelfth is sealed with wax and has no number."
+      ],
+      [
+       "elijah",
+       "Don't open it. Not here."
+      ]
+     ]
+    },
+    {
+     "kind": "water_cooler",
+     "pos": [
+      7.5,
+      2.6
+     ]
+    }
+   ]
+  },
+  "attic": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark2"
+   ],
+   "wall": "navy",
+   "props": [
+    {
+     "kind": "desk_wood",
+     "pos": [
+      3,
+      2.4
+     ]
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      3,
+      1.9
+     ],
+     "name": "The rig",
+     "look": [
+      [
+       "june",
+       "A Hallicrafters, a Drake, and whatever I built in between. It hears the dam, the state police, and once, in November, something that answered."
+      ]
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      2,
+      2.6
+     ],
+     "name": "The station log",
+     "use": "radio_log",
+     "look": "The station log. Every frequency the Office has heard since 1953, by hand. The first entry is Gus Weller's: 'Three notes, 0210. Not the dam.'"
+    },
+    {
+     "kind": "scanner",
+     "pos": [
+      5.5,
+      1.9
+     ],
+     "look": [
+      [
+       "june",
+       "The scanner. Police, fire, the Corps of Engineers. Mostly it's the dam telling itself what time it is."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_office_back",
+     "pos": [
+      3,
+      3.3
+     ]
+    },
+    {
+     "kind": "filing_tall",
+     "pos": [
+      1,
+      2.6
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      6.5,
+      1.6
+     ],
+     "look": "Tapes, by year. The 1966 box is empty and a note in it says 'Walter has it.' The note is in pencil and the pencil is very hard."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      7.5,
+      1.2
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      1,
+      3.3
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      7,
+      4.6
+     ],
+     "name": "June's parts box",
+     "look": [
+      [
+       "player",
+       "June's parts box. Tubes, crystals, a soldering iron, and a photograph of a dog."
+      ],
+      [
+       "june",
+       "That's Dale's dog."
+      ],
+      [
+       "dale",
+       "I don't have a dog."
+      ],
+      [
+       "june",
+       "...Yes."
+      ]
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      6,
+      3.7
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      1,
+      5.6
+     ]
+    }
+   ]
+  },
+  "bunks": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "peach",
+   "props": [
+    {
+     "kind": "dresser",
+     "pos": [
+      1.5,
+      1.9
+     ],
+     "look": [
+      [
+       "player",
+       "A shared dresser. Top drawer, Miriam, labelled. Second, Teddy, not labelled, not closed. Third, nobody's, with one wool trench coat folded in it, 1950s cut, A. W. in the collar."
+      ],
+      [
+       "ruth",
+       "Dot airs it every spring."
+      ]
+     ]
+    },
+    {
+     "kind": "mirror_wall",
+     "pos": [
+      3.5,
+      1.4
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      5,
+      1.5
+     ],
+     "look": "A photograph pinned above the beds. The team at the Elk Diner, last Christmas. Elijah is the only one looking at the camera, and he is not looking at the camera."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      7.5,
+      1.7
+     ],
+     "look": [
+      [
+       "vera",
+       "My books. Please do not alphabetise them again, Miriam."
+      ],
+      [
+       "miriam",
+       "They were in no order."
+      ],
+      [
+       "vera",
+       "They were in mine."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      9.5,
+      1.6
+     ],
+     "look": "February 1994. Dot's calendar. Every day the wagon is out is marked with a small careful x, and today is not marked yet."
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      1.5,
+      5.2
+     ]
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      3.5,
+      5.2
+     ]
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      5.5,
+      5.2
+     ],
+     "look": [
+      [
+       "teddy",
+       "Teddy's bunk. Notebook under the pillow, a Register under the mattress, and a pie plate from the Elk under the bed."
+      ],
+      [
+       "ruth",
+       "That plate goes back tomorrow."
+      ]
+     ]
+    },
+    {
+     "kind": "bed_wood",
+     "pos": [
+      8.5,
+      4.8
+     ],
+     "look": "Ruth's bed. Quilt, Bible, and a casserole dish on the nightstand that is not the one in the wagon. There are more."
+    },
+    {
+     "kind": "end_table",
+     "pos": [
+      7,
+      5
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      7,
+      4.3
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      9.5,
+      7.6
+     ],
+     "name": "June's footlocker",
+     "look": [
+      [
+       "player",
+       "A footlocker, padlocked. Taped to the lid: DO NOT OPEN. TUNED."
+      ],
+      [
+       "june",
+       "It's fine. It's just listening."
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      1,
+      7.6
+     ],
+     "look": "A Scrabble box. Elijah is banned from playing. Not for cheating. For knowing."
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      5,
+      7.9
+     ]
+    },
+    {
+     "kind": "tv",
+     "pos": [
+      5,
+      2.5
+     ]
+    }
+   ],
+   "bed": [
+    3.5,
+    6.8
+   ],
+   "npcs": [
+    {
+     "id": "dot",
+     "name": "Dot Rainey",
+     "pos": [
+      8,
+      6.9
+     ],
+     "facing": "left",
+     "sprite": "dot",
+     "when": [
+      "night"
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,375 @@
+{
+ "id": "dot",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "You're late and you're wet. Boots on the mat. There's a letter."
+    ],
+    [
+     "dot",
+     "A letter from a Marlene at Rosie's Diner, Point Pleasant. Mothman. Again."
+    ],
+    [
+     "teddy",
+     "She said 'again' like a diagnosis."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "She had the letter out on the counter before the door shut. She has been waiting for you to come in and take it off her."
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "The envelope is postmarked Point Pleasant, but it is addressed in a different hand from the letter inside. Somebody mailed it for Marlene. You file that.",
+     "flag": "dot_two_hands"
+    },
+    {
+     "voice": "lore",
+     "threshold": 10,
+     "line": "'Again.' The Office filed Point Pleasant once before. December 1967. You know the date without knowing how you know it.",
+     "flag": "dot_again"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "What does she say?",
+     "next": "letter"
+    },
+    {
+     "tone": "wry",
+     "text": "Again?",
+     "next": "again"
+    },
+    {
+     "tone": "silent",
+     "text": "(Take the letter. Say nothing.)",
+     "next": "quiet",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "evidence": "marlene_letter",
+    "flag": "met_dot"
+   }
+  },
+  "letter": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "Red eyes on Route 62. Something bigger than her car that went straight up. Her sister's. The usual."
+    ],
+    [
+     "dot",
+     "Then the last line. 'Nobody here will listen to me twice.' That's the line that gets a case opened. The eyes don't."
+    ],
+    [
+     "ruth",
+     "That's Gus's rule, dear. Dot's just the one who keeps it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "again": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "Again. We had Point Pleasant in '67. It's filed. It's filed under H and I'm not going to say the word out loud in this building."
+    ],
+    [
+     "dot",
+     "Don't make the face. It's a case. Go and work it and come back with a card I can put in a drawer."
+    ],
+    [
+     "miriam",
+     "She didn't say which drawer."
+    ]
+   ],
+   "next": "hub"
+  },
+  "quiet": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "..."
+    ],
+    [
+     "dot",
+     "Good. Gus never talked either. Mat. Boots."
+    ],
+    [
+     "elijah",
+     "She likes you. That's what it sounds like."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "dot",
+   "repeat": true,
+   "lines": [
+    [
+     "dot",
+     "Counter's open till six. The mail isn't going anywhere, and neither am I."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "She keeps looking at the drawer. Not the letter. The drawer. Ask her about the drawer before she looks again."
+   },
+   "options": [
+    {
+     "tone": "wry",
+     "text": "How long have you been behind this counter?",
+     "next": "since_61"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "dot_on_gus": 1,
+       "pearl_last_morning": 1
+      }
+     },
+     "text": "Tell me about Gus.",
+     "pass": "gus",
+     "fail": {
+      "next": "gus_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "weller_rule_card": 2
+      }
+     },
+     "text": "Your cards are filed by what the witness was told. Not what they saw.",
+     "pass": "system",
+     "fail": {
+      "next": "system_fail"
+     }
+    },
+    {
+     "tone": "hard",
+     "requires": {
+      "flag": [
+       "dot_again"
+      ],
+      "trust": 2
+     },
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "drawer_s_rule": 2,
+       "gallipolis_car": 1,
+       "pearl_last_morning": 1
+      }
+     },
+     "text": "Drawer S, Dot. What did he file over her?",
+     "pass": "drawer_s",
+     "fail": {
+      "next": "drawer_s_fail",
+      "trust": {
+       "dot": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now."
+    }
+   ]
+  },
+  "since_61": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "Since 1961. Thirty-three years and two chairs. The first one is in the vault, I expect, with everything else."
+    ],
+    [
+     "dot",
+     "I've seen nine teams go out that door. Seven came back the same. One came back better. You're not the one."
+    ],
+    [
+     "teddy",
+     "She means it kindly."
+    ],
+    [
+     "dot",
+     "I don't."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "dot": 1
+    }
+   }
+  },
+  "gus": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "She was tall and she wrote tall and she listened like she was being paid for it, which she was not. She'd let a man talk for an hour and then ask him the one thing he'd left out."
+    ],
+    [
+     "dot",
+     "December '67 she drove to Point Pleasant with the wagon full of plaster and the radio on. Walter followed her. She never came home. He did. He filed."
+    ],
+    [
+     "dot",
+     "I typed the card he gave me. I've never forgiven my hands."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "dot_told_gus",
+    "trust": {
+     "dot": 1
+    }
+   }
+  },
+  "gus_fail": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "She's in the catalog. Weller, A. Read the card like everybody else and don't ask me to read it to you."
+    ],
+    [
+     "dot",
+     "Mat. Boots."
+    ],
+    [
+     "miriam",
+     "You asked like a reporter. She's had reporters."
+    ]
+   ],
+   "next": "hub"
+  },
+  "system": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "You read the cards. Good. Nobody reads the cards."
+    ],
+    [
+     "dot",
+     "Gus said the thing in the sky doesn't need us. The person who saw it does, the minute somebody tells them they didn't. That's the anomaly. That's what we file. The bird's a footnote."
+    ],
+    [
+     "dot",
+     "Here. Her hand, 1953. Keep it in your coat. It's the only rule in the building."
+    ],
+    [
+     "vera",
+     "A rule worth the word. I have read many that were not."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "weller_rule_card",
+    "flag": "dot_told_rule"
+   }
+  },
+  "system_fail": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "It's filed the way it's filed. You've been in the building eleven minutes."
+    ],
+    [
+     "dot",
+     "Come back when you've put a card in it yourself. Then we'll talk about alphabetising."
+    ],
+    [
+     "miriam",
+     "Fair."
+    ]
+   ],
+   "next": "hub"
+  },
+  "drawer_s": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "...Her cards. Every one she wrote that he filed over. Flatwoods. Point Pleasant. Places you haven't been yet and he has."
+    ],
+    [
+     "dot",
+     "It locked the week she didn't come back. Not with a key. I'd have found a key. It locked."
+    ],
+    [
+     "dot",
+     "She told me it opens when they're all home. I was nineteen. I'm sixty-two. Bring them home and don't tell him you're doing it."
+    ],
+    [
+     "elijah",
+     "She's not asking. She's handing you the Office."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "evidence": "drawer_s_rule",
+    "flag": "dot_drawer_s",
+    "trust": {
+     "dot": 1
+    }
+   }
+  },
+  "drawer_s_fail": {
+   "speaker": "dot",
+   "lines": [
+    [
+     "dot",
+     "He."
+    ],
+    [
+     "dot",
+     "You've met him, then. In a suit. Polite. And you walked in here and said 'he' at my counter like you were on his side of it."
+    ],
+    [
+     "dot",
+     "Counter's closed. Window's down. Mat. Boots. Out."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "press",
+     "threshold": 5,
+     "line": "That was Press. It wanted the drawer and it used his name to get it. You hear the window come down and it is a sound the building has made before."
+    }
+   ],
+   "end": true
+  }
+ }
+}

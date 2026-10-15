@@ -445,6 +445,15 @@
     37,
     7
    ]
+  },
+  {
+   "id": "pawn",
+   "facade": "pawn_shop",
+   "name": "Riverside Pawn",
+   "pos": [
+    27,
+    31
+   ]
   }
  ],
  "houses": [
@@ -621,7 +630,9 @@
      "teddy",
      "The Office's station wagon. Three hundred thousand miles, a heater that works on Tuesdays, and Ruth's casserole dish still in the back."
     ]
-   ]
+   ],
+   "travel": "point_pleasant_to_sutton",
+   "name": "The station wagon"
   },
   {
    "kind": "pickup",
@@ -2805,7 +2816,8 @@
       "morning",
       "day",
       "dusk"
-     ]
+     ],
+     "shop": "variety"
     }
    ]
   },
@@ -3180,6 +3192,237 @@
       "cast": "spoil",
       "measure": "spoil"
      }
+    }
+   ]
+  },
+  "pawn": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "shelf",
+     "pos": [
+      2,
+      1.7
+     ],
+     "look": "Guns and tools, tagged by month. Three deer rifles, two chainsaws, and a box of wrenches from a garage that closed in December. Nobody comes back for wrenches in February."
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      5,
+      1.7
+     ],
+     "look": [
+      [
+       "teddy",
+       "Radios, a Polaroid, a wedding band in a coffee cup. Every town's got a shelf like this. This one's fuller."
+      ],
+      [
+       "ruth",
+       "River's been up twice this winter. Folks hock what's dry."
+      ]
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      8,
+      1.7
+     ],
+     "look": [
+      [
+       "vera",
+       "Church silver. A communion plate, a candlestick, a crucifix with the figure pried off."
+      ],
+      [
+       "elijah",
+       "Somebody needed the silver more than the figure."
+      ],
+      [
+       "vera",
+       "Or the other way round."
+      ]
+     ]
+    },
+    {
+     "kind": "poster2",
+     "pos": [
+      3.5,
+      1.6
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      6.5,
+      1.6
+     ],
+     "look": "A feed store calendar, still on November. Somebody has circled the 15th and written WAIT."
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      9.5,
+      2.1
+     ],
+     "look": "A grandfather clock, stopped at twenty to midnight. The tag says NOT FOR SALE and under that, smaller, NOT A CLOCK."
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      1,
+      2.9
+     ],
+     "look": [
+      [
+       "june",
+       "A Hallicrafters, pawned Tuesday. Somebody retuned it before they let it go. It's parked on nothing. Dead air."
+      ],
+      [
+       "june",
+       "You don't tune a radio to dead air by accident."
+      ]
+     ]
+    },
+    {
+     "kind": "pie_case",
+     "pos": [
+      8.5,
+      3.4
+     ],
+     "name": "Glass case",
+     "look": [
+      [
+       "player",
+       "The glass case. Rings, watches, a Purple Heart, a Silver Bridge token on a chain and a 1966 class ring, Point Pleasant High, initials D.M."
+      ],
+      [
+       "miriam",
+       "Dwight Mason's ring. In a pawn shop. Four days after he stopped coming to the diner."
+      ]
+     ]
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      2,
+      4
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      3.5,
+      4
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      5.5,
+      4
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      7,
+      4
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      4,
+      3.3
+     ],
+     "look": "The ledger. Every ticket for four months. Tuesday's page has been torn out and taped back in, and one line is written harder than the rest."
+    },
+    {
+     "kind": "camera_bag",
+     "pos": [
+      6,
+      3.3
+     ],
+     "look": [
+      [
+       "teddy",
+       "A camera bag with no camera in it. Pawned, the tag says, by a 'reporter, Columbus'. There's still film in the side pocket."
+      ],
+      [
+       "teddy",
+       "Nobody from Columbus is covering this."
+      ]
+     ]
+    },
+    {
+     "kind": "bicycle",
+     "pos": [
+      1.5,
+      6.9
+     ],
+     "look": [
+      [
+       "dale",
+       "A kid's bike, pawned for four dollars. Reflectors gone. Not pried. Unscrewed, careful, like somebody meant to put them back."
+      ],
+      [
+       "miriam",
+       "Or sell them twice."
+      ]
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      9,
+      6.5
+     ],
+     "look": "A crate marked RIVER, chalked $5 THE LOT. Waders, a bilge pump, a car battery, and a life jacket from the towboat line with the name cut out."
+    },
+    {
+     "kind": "mirror_wall",
+     "pos": [
+      1,
+      1.6
+     ],
+     "look": [
+      [
+       "elijah",
+       "A hand mirror hung as a wall mirror. The glass is older than the frame."
+      ],
+      [
+       "elijah",
+       "Don't look in it long."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "pawnbroker",
+     "name": "Lonnie Haddox",
+     "pos": [
+      4.5,
+      3.2
+     ],
+     "facing": "down",
+     "sprite": "barkeep",
+     "shop": "pp_pawn",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
     }
    ]
   }

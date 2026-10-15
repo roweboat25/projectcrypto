@@ -1,0 +1,148 @@
+{
+ "_doc": "The Sutton Office hub: rooms open on budget milestones, upgrades and car upgrades cost budget points and set flags. Budget comes from verdicts filed at the sorting-room case board. Rooms are interiors of data/maps/sutton_office.json; a room whose opens is not met is a locked facade with gate office_<room>.",
+ "rooms": {
+  "counter": {
+   "name": "Front counter",
+   "text": "Dot's counter. Letters from the public become side cases; the Office phone takes calls during a case.",
+   "opens": {}
+  },
+  "catalog": {
+   "name": "Card catalog",
+   "text": "Every case the Office ever filed, one card each: the quest log, the bestiary, the evidence archive and the verdict history. Drawer S is locked.",
+   "opens": {}
+  },
+  "sorting": {
+   "name": "Sorting room",
+   "text": "The case board between cases. Re-read old evidence, compare cases, file a verdict.",
+   "opens": {}
+  },
+  "darkroom": {
+   "name": "Darkroom",
+   "text": "Develops film, grades photographs and enlarges a detail into a new clue. Dot unlocks it after the first verdict.",
+   "opens": {
+    "verdicts": 1
+   }
+  },
+  "lab": {
+   "name": "Lab",
+   "text": "The old parcel room. Crafting and sample analysis that would otherwise wait for morning.",
+   "opens": {
+    "tier": 2
+   }
+  },
+  "radio": {
+   "name": "Radio shack",
+   "text": "The attic. Logs frequencies heard on the road and in cases; decodes the three-note tone.",
+   "opens": {}
+  },
+  "bunks": {
+   "name": "Bunk room",
+   "text": "Rest, partner downtime and bond level-ups. Dot sleeps here too, so keep it down.",
+   "opens": {}
+  },
+  "dock": {
+   "name": "Loading dock",
+   "text": "The garage and the station wagon. Car upgrades are fitted here.",
+   "opens": {}
+  },
+  "vault": {
+   "name": "Dead letter vault",
+   "text": "The basement. Undeliverable mail since 1953, letters to people who were not believed. Sealed.",
+   "opens": {
+    "flag": "season_finale"
+   }
+  }
+ },
+ "upgrades": {
+  "second_line": {
+   "name": "Second phone line",
+   "room": "counter",
+   "cost": 1,
+   "tier": 1,
+   "text": "A second line at the counter. Two side cases open at once.",
+   "flag": "office_second_line"
+  },
+  "cross_case_board": {
+   "name": "Cross-case board",
+   "room": "sorting",
+   "cost": 2,
+   "tier": 1,
+   "text": "A second board and more red string. Pin evidence from two cases together.",
+   "flag": "office_cross_case_board"
+  },
+  "enlarger": {
+   "name": "Enlarger",
+   "room": "darkroom",
+   "cost": 2,
+   "tier": 2,
+   "text": "A new bulb and a new lens for the Beseler. One free re-examination of a photograph per case.",
+   "flag": "office_enlarger"
+  },
+  "spectrometer": {
+   "name": "Spectrometer",
+   "room": "lab",
+   "cost": 3,
+   "tier": 3,
+   "text": "Surplus from the university, and it works. Identifies red herrings on sight.",
+   "flag": "office_spectrometer"
+  },
+  "roof_antenna": {
+   "name": "Roof antenna",
+   "room": "radio",
+   "cost": 2,
+   "tier": 2,
+   "text": "A proper mast on the roof instead of a pipe guyed to a Chevy. Picks up the next case's stations before you leave.",
+   "flag": "office_roof_antenna"
+  },
+  "second_bunks": {
+   "name": "Second bunk room",
+   "room": "bunks",
+   "cost": 2,
+   "tier": 2,
+   "text": "The loft over the dock, with beds. Bench partners train while the team is out: half XP becomes full XP.",
+   "flag": "office_second_bunks"
+  }
+ },
+ "car": {
+  "cb_radio": {
+   "name": "CB radio",
+   "cost": 2,
+   "text": "The CB from the dock bench, finally out of the box. Hear road events before they happen.",
+   "flag": "car_cb_radio"
+  },
+  "spotlight": {
+   "name": "Roof-rack spotlight",
+   "cost": 1,
+   "text": "A spotlight on the roof rack. Night driving sees farther.",
+   "flag": "car_spotlight"
+  },
+  "long_tank": {
+   "name": "Long-range tank",
+   "cost": 2,
+   "text": "A second tank under the floor. Forty percent more road between fills.",
+   "flag": "car_long_tank"
+  },
+  "mattress": {
+   "name": "Mattress in the back",
+   "cost": 1,
+   "text": "June's drawing, built. Rest on the road without a motel. Dale folds.",
+   "flag": "car_mattress"
+  },
+  "scanner": {
+   "name": "Police scanner",
+   "cost": 3,
+   "text": "A scanner under the dash. One free lead per case from intercepted calls.",
+   "flag": "car_scanner"
+  }
+ },
+ "tiers": [
+  0,
+  4,
+  8
+ ],
+ "budget": {
+  "verdict": 1,
+  "truth": 2,
+  "rating_a": 1
+ }
+}
