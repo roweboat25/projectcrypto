@@ -11,5 +11,5 @@
 - A district is one map file; `exits` walk the party to another map, `gates` in the case data lock exits, doors and barrier props. Day phases (morning, day, dusk, night) drive NPC `when` routines and trail signs with `night`.
 - Speech checks and evidence rules are in `scripts/investigation.gd` (static, no scene access) so tests can drive them with forced rolls.
 - Run `tests/run_tests.gd` headless before pushing; CI runs the same check and the web export.
-- Web debug: `?map=<map id>`, `?inside=<room>`, `?at=x,y` (tiles, room tiles when combined with `?inside`), `?time=0..1`, `?day=<n>`, `?flag=<a,b>` and `?road=<leg id>` on the index URL jump the party around for screenshots. After adding a `class_name` script run `godot --headless --path . --import` or the tests will not see it.
+- Web debug: `?map=<map id>`, `?inside=<room>`, `?at=x,y` (tiles, room tiles when combined with `?inside`), `?time=0..1`, `?day=<n>`, `?flag=<a,b>`, `?level=<n>`, `?fight=<foe,foe>` and `?road=<leg id>` on the index URL jump the party around for screenshots. After adding a `class_name` script run `godot --headless --path . --import` or the tests will not see it.
 - Design source of truth: the "Anomaly Files: JRPG Design Plan" doc, section "Systems v2" and "Season 1 build plan".

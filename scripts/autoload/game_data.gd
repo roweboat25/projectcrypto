@@ -15,7 +15,9 @@ const TIDES := ["low", "rising", "high", "falling"]
 const WEATHERS := ["snow", "clear", "mist", "rain", "gale"]
 const USES := ["board", "ledger", "catalog", "radio_log", "shop", "dials", "siege"]
 const MOVE_TYPES := ["attack", "horror", "status", "all"]
-const STATUSES := ["unnerved", "blinded", "jammed", "cursed", "bound", "exposed"]
+const STATUSES := ["unnerved", "blinded", "jammed", "cursed", "bound", "exposed", "marked", "counter", "ward", "charged", "haste"]
+const SKILL_TYPES := ["damage", "status", "heal", "shield", "revive"]
+const SKILL_TARGETS := ["foe", "ally", "self", "all_foes", "all_allies"]
 const OBSERVE_METHODS := ["photograph", "record", "read"]
 
 var classes: Dictionary = {}
@@ -152,6 +154,13 @@ func validate() -> Array[String]:
 		for skill in c.get("skills", []):
 			if skill.has("damage") and not skill.damage in DAMAGE_TYPES:
 				errors.append("class %s skill %s has unknown damage type %s" % [id, skill.id, skill.damage])
+			if not skill.get("type", "damage") in SKILL_TYPES:
+				errors.append("class %s skill %s has unknown type %s" % [id, skill.id, skill.type])
+			if not skill.get("target", "foe") in SKILL_TARGETS:
+				errors.append("class %s skill %s has unknown target %s" % [id, skill.id, skill.target])
+			for k in ["status", "apply"]:
+				if skill.has(k) and not skill[k] in STATUSES:
+					errors.append("class %s skill %s has unknown status %s" % [id, skill.id, skill[k]])
 	for id in roster:
 		if not classes.has(roster[id].get("class", "")):
 			errors.append("roster %s has unknown class" % id)

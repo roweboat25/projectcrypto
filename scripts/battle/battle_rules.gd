@@ -9,10 +9,10 @@ extends RefCounted
 ## wait (turn order), broken, guarding, and for foes attack, weak, resist, moves,
 ## anomaly, tells, phase, turns, known}.
 
-const STATUSES := ["unnerved", "blinded", "jammed", "cursed", "bound", "exposed"]
+const STATUSES := ["unnerved", "blinded", "jammed", "cursed", "bound", "exposed", "marked", "counter", "ward", "charged", "haste"]
 const METHODS := ["photograph", "record", "read"]
 const METHOD_NAMES := {"photograph": "Photograph it", "record": "Record it", "read": "Read it"}
-const STATUS_TURNS := {"unnerved": 3, "blinded": 2, "jammed": 2, "cursed": 3, "bound": 1, "exposed": 99}
+const STATUS_TURNS := {"unnerved": 3, "blinded": 2, "jammed": 2, "cursed": 3, "bound": 1, "exposed": 99, "marked": 3, "counter": 2, "ward": 3, "charged": 2, "haste": 3}
 const METER_MAX := 10
 const INSIGHT_MAX := 3
 const BASIC_POWER := [5, 8]
@@ -153,6 +153,8 @@ static func preview(b: Dictionary, n: int) -> Array:
 
 ## Called after an actor acts: they go to the back of the line, a delay pushes them further.
 static func spend_turn(b: Dictionary, a: Dictionary, delay := 1.0) -> void:
+	if a.statuses.has("haste"):
+		delay *= 0.6
 	a.wait += 100.0 / float(max(1, a.speed)) * delay
 	a.guarding = false
 	b.turn += 1
@@ -266,21 +268,29 @@ static func accuracy(a: Dictionary) -> float:
 
 
 ## Damage of one hit. `timed` is the timed-hit multiplier (1.25 good, 0.6 blocked, 1 otherwise).
-static func damage(b: Dictionary, power: Array, stat: int, dtype: String, target: Dictionary, timed := 1.0) -> Dictionary:
+## `opts` may carry `pierce` (ignores guard and resistance) and `execute` (x1.5 under 30%).
+static func damage(b: Dictionary, power: Array, stat: int, dtype: String, target: Dictionary, timed := 1.0, opts := {}) -> Dictionary:
 	var rng := _rng(b)
 	var base := rng.randi_range(int(power[0]), int(power[1])) + stat
 	var mult := 1.0
 	var weak := false
 	var resisted := false
+	var pierce: bool = opts.get("pierce", false)
 	if dtype in target.get("weak", []):
 		mult *= 1.5
 		weak = true
-	if dtype in target.get("resist", []):
+	if dtype in target.get("resist", []) and not pierce:
 		mult *= 0.5
 		resisted = true
 	if dtype == "reason" and target.statuses.has("exposed"):
 		mult *= 1.5
-	if target.guarding:
+	if target.statuses.has("marked"):
+		mult *= 1.5
+	if target.statuses.has("ward") and dtype in ["spirit", "arcane"]:
+		mult *= 0.5
+	if opts.get("execute", false) and target.composure * 10 < target.max_composure * 3:
+		mult *= 1.5
+	if target.guarding and not pierce:
 		mult *= 0.5
 	if b.field.get("weather", "") == "rain" and dtype == "signal":
 		mult *= 0.7
@@ -354,12 +364,17 @@ static func use_skill(data: Node, state: Node, b: Dictionary, a: Dictionary, s: 
 	if cost.dread > 0:
 		state.dread += cost.dread
 		lines.append("Dread rises.")
+	if s.has("self_damage"):
+		hurt(b, a, int(s.self_damage), lines)
+		lines.append("%s pays %d composure for it." % [a.name, int(s.self_damage)])
 	var targets := []
 	match s.get("target", "foe"):
 		"all_foes":
 			targets = alive(b, "foe")
 		"all_allies":
 			targets = alive(b, "party")
+		"self":
+			targets = [a]
 		_:
 			targets = [target]
 	match s.get("type", "damage"):
@@ -367,11 +382,35 @@ static func use_skill(data: Node, state: Node, b: Dictionary, a: Dictionary, s: 
 			if _rng(b).randf() > accuracy(a):
 				lines.append("%s's %s goes wide." % [a.name, s.name])
 				return lines
+			var power: Array = s.get("power", [6, 9]).duplicate()
+			if s.get("scale", "") == "dread":
+				power[0] += 2 * state.dread
+				power[1] += 2 * state.dread
+			var charged: bool = a.statuses.has("charged")
+			if charged:
+				a.statuses.erase("charged")
+			var opts := {"pierce": s.get("pierce", false), "execute": s.get("execute", false)}
+			var dtype: String = s.get("damage", "physical")
+			var stat := int(a.stats.get(STAT_FOR.get(dtype, "grit"), 1))
+			var total := 0
 			for t in targets:
-				var d := damage(b, s.get("power", [6, 9]), int(a.stats.get(STAT_FOR.get(s.get("damage", "physical"), "grit"), 1)), s.get("damage", "physical"), t, timed)
-				lines.append("%s: %s takes %d%s." % [s.name, t.name, d.amount, _tag(d, timed)])
-				_landed(b, t, d)
-				hurt(b, t, d.amount, lines)
+				for h in int(s.get("hits", 1)):
+					if t.broken:
+						break
+					var d := damage(b, power, stat, dtype, t, timed * (2.0 if charged else 1.0), opts)
+					total += d.amount
+					lines.append("%s: %s takes %d%s." % [s.name, t.name, d.amount, _tag(d, timed)])
+					_landed(b, t, d)
+					hurt(b, t, d.amount, lines)
+				if s.has("apply") and not t.broken and _rng(b).randf() < float(s.get("apply_chance", 1.0)):
+					var st: String = s.apply
+					if not (t.anomaly and st == "bound"):
+						t.statuses[st] = int(STATUS_TURNS.get(st, 2))
+						lines.append("%s is %s." % [t.name, st])
+			if s.has("drain") and total > 0:
+				var back := int(round(total * float(s.drain)))
+				a.composure = min(a.max_composure, a.composure + back)
+				lines.append("%s draws %d of it back." % [a.name, back])
 		"status":
 			for t in targets:
 				var st: String = s.get("status", "exposed")
@@ -382,16 +421,36 @@ static func use_skill(data: Node, state: Node, b: Dictionary, a: Dictionary, s: 
 				if st == "exposed":
 					t.known = true
 				lines.append("%s: %s is %s." % [s.name, t.name, st])
+				if s.has("push"):
+					t.wait += float(s.push)
+					lines.append("%s is slowed." % t.name)
 		"heal":
 			for t in targets:
 				var amt := int(s.get("amount", 10))
 				t.composure = min(t.max_composure, t.composure + amt)
 				t.statuses.erase("unnerved")
-				lines.append("%s: %s steadies by %d." % [s.name, t.name, amt])
+				if s.get("cleanse", false):
+					for st in ["unnerved", "blinded", "jammed", "cursed", "bound"]:
+						t.statuses.erase(st)
+				lines.append("%s: %s steadies by %d%s." % [s.name, t.name, amt, ", clear-headed" if s.get("cleanse", false) else ""])
+		"revive":
+			var any := false
+			for m in b.actors:
+				if m.side == "party" and m.broken and (target.is_empty() or m.key == target.key or s.get("target", "") == "all_allies"):
+					m.broken = false
+					m.composure = max(1, int(m.max_composure * float(s.get("fraction", 0.5))))
+					lines.append("%s: %s comes back to the light." % [s.name, m.name])
+					any = true
+			if not any:
+				lines.append("%s: nobody to call back." % s.name)
 		"shield":
 			for t in targets:
 				t.guarding = true
 				lines.append("%s: %s is covered." % [s.name, t.name])
+	if s.has("focus_gain"):
+		for m in alive(b, "party"):
+			m.focus = min(m.max_focus, m.focus + int(s.focus_gain))
+		lines.append("The party gains %d Focus." % int(s.focus_gain))
 	if s.has("evidence_gain"):
 		add_meter(b, int(s.evidence_gain))
 		lines.append("Evidence +%d." % int(s.evidence_gain))
@@ -515,6 +574,11 @@ static func foe_turn(b: Dictionary, f: Dictionary, blocked := 1.0) -> Dictionary
 			var d := damage(b, mv.get("power", f.attack), f.level / 2, mv.get("damage", "physical"), target, blocked)
 			lines.append("%s: %s. %s takes %d%s." % [f.name, mv.name, target.name, d.amount, ", blocked" if blocked < 1.0 else ""])
 			hurt(b, target, d.amount, lines)
+			if target.statuses.has("counter") and not target.broken:
+				var c := damage(b, BASIC_POWER, int(target.stats.get("grit", 1)) + 2, "physical", f)
+				lines.append("%s was waiting for that: %s takes %d." % [target.name, f.name, c.amount])
+				_landed(b, f, c)
+				hurt(b, f, c.amount, lines)
 		"horror":
 			var d := damage(b, mv.get("power", f.attack), f.level / 2, "spirit", target, blocked)
 			lines.append("%s: %s. %s loses %d composure." % [f.name, mv.name, target.name, d.amount])
