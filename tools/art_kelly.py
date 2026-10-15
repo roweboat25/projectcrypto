@@ -141,11 +141,11 @@ def special_tile_kelly(name, base_tile):
         im = base_tile(F + "Gritty Dirt.png", 1, 1).convert("RGBA")
         return _mul(im, 0.6, 0.6, 0.62, 10)
     if name == "porch_boards":
-        im = base_tile(F + "Wood Floor A.png", 1, 3).convert("RGBA")
-        return _mul(im, 1.05, 1.02, 0.96, 16)
+        im = base_tile(F + "Wood Floor A.png", 2, 1).convert("RGBA")
+        return _mul(im, 0.92, 0.9, 0.86, 0)
     if name == "farm_floor":
-        im = base_tile(F + "Wood Floor A.png", 0, 3).convert("RGBA")
-        _mul(im, 0.96, 0.9, 0.82)
+        im = base_tile(F + "Wood Floor A.png", 2, 0).convert("RGBA")
+        im = _mul(im, 0.96, 0.9, 0.82)
         d = ImageDraw.Draw(im)
         d.line([(4, 9), (12, 9)], fill=(60, 44, 30, 255))
         d.line([(20, 25), (29, 25)], fill=(60, 44, 30, 255))

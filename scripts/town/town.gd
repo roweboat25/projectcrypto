@@ -91,6 +91,9 @@ func _apply_debug_query() -> void:
 		if kv.size() != 2:
 			continue
 		if kv[0] == "map" and GameData.maps.has(kv[1]) and kv[1] != map_id:
+			var case_of: String = str(GameData.maps[kv[1]].get("case", ""))
+			if GameData.cases.has(case_of) and case_of != "sutton":
+				GameState.case_id = case_of
 			_travel({"to": kv[1], "at": GameData.maps[kv[1]].get("spawn", [2, 2])}, false)
 		elif kv[0] == "inside" and rooms.has(kv[1]):
 			_enter(kv[1], false)
@@ -104,6 +107,11 @@ func _apply_debug_query() -> void:
 					_move_party(at, outside.actors)
 		elif kv[0] == "time":
 			time_of_day = float(kv[1])
+		elif kv[0] == "day":
+			GameState.day = int(kv[1])
+		elif kv[0] == "flag":
+			for f in kv[1].split(","):
+				GameState.flags[f] = true
 		elif kv[0] == "road" and GameData.road.get("legs", {}).has(kv[1]):
 			_drive.call_deferred(kv[1])
 		elif kv[0] == "fight":
