@@ -659,6 +659,30 @@
     "lv_handprints_sample",
     "lv_handprints_photo"
    ]
+  },
+  "hut_man_photo": {
+   "title": "Photo: the coat in the flash",
+   "text": "In the flash the coat of all colours is a coat: brass buttons, a label in the collar, a name tape cut out. The hat is a hat.",
+   "lean": "hoax",
+   "weight": 3,
+   "kind": "recording",
+   "reliability": "A"
+  },
+  "hut_man_tape": {
+   "title": "Tape: breathing under the hum",
+   "text": "Under the hum of the dials, somebody breathing hard through a mask, the way a man breathes in a costume in July.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "hut_man_walk": {
+   "title": "The walk",
+   "text": "Ruth knows a pantomime walk when she sees one: heel first, knees high, the way a man walks when he has been told to be a giant.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
   }
  },
  "contradictions": {

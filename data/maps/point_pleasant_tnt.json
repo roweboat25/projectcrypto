@@ -4717,6 +4717,33 @@
       10.5
      ],
      "look": "A box of flashbulbs. 1966 flashbulbs, every one of them fired."
+    },
+    {
+     "kind": "clue_glow",
+     "pos": [
+      8,
+      3.4
+     ],
+     "name": "The top of the stairs",
+     "appears": "plant_roost",
+     "fight": {
+      "foes": [
+       "mothman"
+      ],
+      "no_flee": true,
+      "intro": [
+       [
+        "narrator",
+        "Two red lights come up the boiler stairs out of the water, slow, like a man climbing. The sump pump stops."
+       ],
+       [
+        "june",
+        "Recorder's rolling. Camera. Somebody get the camera up."
+       ]
+      ],
+      "win": "The lights go down the stairs the way they came, and the pump starts again on no power at all. You have what you have.",
+      "lose": "You do not remember the stairs or the door. You remember the road, and the car, and the heater on full."
+     }
     }
    ],
    "clues": [
@@ -4790,5 +4817,40 @@
     }
    ]
   }
- }
+ },
+ "encounters": [
+  {
+   "foes": [
+    "wrong_owl"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 2,
+   "intro": "An owl comes off a pole without a sound, and it has been watching you with more eyes than it should have."
+  },
+  {
+   "foes": [
+    "igloo_crawler"
+   ],
+   "phase": [
+    "night",
+    "dusk"
+   ],
+   "weight": 2,
+   "intro": "Something made of concrete dust unfolds from the igloo door."
+  },
+  {
+   "foes": [
+    "igloo_crawler",
+    "wrong_owl"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 1,
+   "intro": "Two of them. The dust and the eyes."
+  }
+ ],
+ "encounter_rate": 0.04
 }

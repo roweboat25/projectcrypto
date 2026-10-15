@@ -2366,5 +2366,40 @@
     }
    ]
   }
- }
+ },
+ "encounters": [
+  {
+   "foes": [
+    "stray_dog"
+   ],
+   "phase": [
+    "night",
+    "dusk"
+   ],
+   "weight": 3,
+   "intro": "A dog comes out of the ditch with its ears flat."
+  },
+  {
+   "foes": [
+    "stray_dog",
+    "stray_dog"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 1,
+   "intro": "Two dogs, and they are not strays. Somebody fed them to be like this."
+  },
+  {
+   "foes": [
+    "shotgun_man"
+   ],
+   "phase": [
+    "night"
+   ],
+   "weight": 1,
+   "intro": "A porch light and a man under it, and the long shape in his hands."
+  }
+ ],
+ "encounter_rate": 0.03
 }

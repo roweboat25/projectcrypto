@@ -10,6 +10,7 @@ const ACTIONS := {
 	"rotate_right": [KEY_E],
 	"interact": [KEY_SPACE, KEY_ENTER, KEY_Z],
 	"toggle_time": [KEY_T],
+	"timed": [KEY_H],
 	"evidence": [KEY_TAB, KEY_I],
 	"gear": [KEY_G],
 	"cancel": [KEY_ESCAPE, KEY_X],

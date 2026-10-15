@@ -3765,6 +3765,32 @@
       1.5,
       6.5
      ]
+    },
+    {
+     "kind": "clue_glow",
+     "pos": [
+      5,
+      4.4
+     ],
+     "name": "The man in the hat",
+     "fight": {
+      "foes": [
+       "hut_man"
+      ],
+      "no_flee": true,
+      "intro": [
+       [
+        "narrator",
+        "The flag on the parapet is not a flag. It turns toward you before the head does, and the coat under it is every colour at once."
+       ],
+       [
+        "ruth",
+        "Well. There he is."
+       ]
+      ],
+      "win": "It goes over the parapet into the dark, and the dials behind you all turn to blue. Somebody is crying, or laughing, a long way down.",
+      "lose": "You come to on the chalk path below the battery with the sun up and no memory of the stairs."
+     }
     }
    ],
    "npcs": []

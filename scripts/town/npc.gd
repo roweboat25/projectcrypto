@@ -36,7 +36,7 @@ func setup(p_data: Dictionary) -> void:
 	_body.add_child(shape)
 	add_child(_body)
 	add_to_group("interactable")
-	set_meta("prompt", "Talk to " + display_name)
+	set_meta("prompt", str(data.get("prompt", "Talk to " + display_name)))
 
 
 ## Off shift: invisible, and the party walks through the empty spot.

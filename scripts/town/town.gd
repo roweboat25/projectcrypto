@@ -29,6 +29,10 @@ var _fade: ColorRect
 var _box: DialogueBox
 var _file: EvidencePanel
 var _talk: RefCounted = null     # the running conversation or inspection
+var _battle: Battle = null       # the fight drawn over the town, if one is on
+var _ui_root: Control
+var _walk_t := 0.0               # seconds walked outdoors since the last encounter roll
+var _grace := 0.0                # seconds of peace after a fight
 var _near: Node = null
 var _near_door: Dictionary = {}
 var _near_bed := false
@@ -102,15 +106,19 @@ func _apply_debug_query() -> void:
 			time_of_day = float(kv[1])
 		elif kv[0] == "road" and GameData.road.get("legs", {}).has(kv[1]):
 			_drive.call_deferred(kv[1])
+		elif kv[0] == "fight":
+			_start_fight.call_deferred({"foes": Array(kv[1].split(",")), "intro": "A test of nerve."}, "", null)
 
 
 func _process(delta: float) -> void:
-	if _talk == null:
+	if _talk == null and _battle == null:
 		time_of_day = fmod(time_of_day + delta / CYCLE_SECONDS, 1.0)
 	_apply_time()
 	_toast_label.visible = Time.get_ticks_msec() / 1000.0 < _toast_until
 	_snow.position = party[0].global_position + (Vector2(0, -30) if _weather == "mist" else Vector2(0, -230))
 	_snow.emitting = inside == "" and _weather != "clear"
+	if _battle != null:
+		return
 	if _talk != null:
 		_handle_talk_input()
 	elif _file.visible:
@@ -138,6 +146,7 @@ func _process(delta: float) -> void:
 				if e.rect.has_point(party[0].global_position):
 					_use_exit(e)
 					break
+			_roll_encounter(delta)
 
 
 # ---------- party and camera ----------
@@ -345,6 +354,9 @@ func _interact() -> void:
 		else:
 			_near.face_toward(party[0].global_position)
 			party[0].face_toward(_near.global_position)
+			if _near.data.has("fight"):
+				_start_fight(_near.data.fight, "", _near)
+				return
 			if _near.data.has("shop"):
 				_talk = ShopTalk.new(_box, _near.data.shop, _near.display_name, _toast, _near.npc_id)
 				_talk.can_talk = Investigation.case_data(GameData, GameState).get("witnesses", {}).has(_near.npc_id) or not Investigation.script_for(GameData, GameState, _near.npc_id).is_empty()
@@ -433,6 +445,9 @@ func _try_gate(gate_id: String) -> bool:
 ## Look text, a pickup, or a barrier.
 func _use_hotspot(spot: Node) -> void:
 	var p: Dictionary = spot.data
+	if p.has("fight"):
+		_start_fight(p.fight, spot.key, spot.get_meta("node"))
+		return
 	if p.has("gate"):
 		if Investigation.gate_open(GameData, GameState, p.gate, time_of_day) or _try_gate(p.gate):
 			GameState.picked.append(spot.key)
@@ -453,6 +468,8 @@ func _use_hotspot(spot: Node) -> void:
 				_start_talk(NarrationTalk.new(_box, _radio_log_lines()))
 			"dials":
 				_start_talk(DialTalk.new(_box, p.get("name", "The dials"), p.get("puzzle", {}), _toast))
+			"siege":
+				_run_siege()
 		return
 	if p.has("enter"):
 		if rooms.has(p.enter):
@@ -497,6 +514,124 @@ func _use_hotspot(spot: Node) -> void:
 	GameState.flags["_talking"] = true
 	_prompt.visible = false
 	_talk.start()
+
+
+# ---------- fights ----------
+
+## Starts a fight over the town. `key` is the prop's picked key (gone for good once won),
+## `node` the prop or person to remove on a win.
+func _start_fight(fight: Dictionary, key: String, node: Node) -> void:
+	if _battle != null:
+		return
+	var spec: Dictionary = fight.duplicate(true)
+	spec["field"] = {"phase": Investigation.phase(time_of_day), "weather": _weather, "inside": inside != ""}
+	_prompt.visible = false
+	GameState.flags["_talking"] = true
+	_battle = Battle.new(spec)
+	_ui_root.add_child(_battle)
+	_battle.finished.connect(func(r: Dictionary) -> void: _end_fight(r, fight, key, node))
+
+
+func _end_fight(r: Dictionary, fight: Dictionary, key: String, node: Node) -> void:
+	_battle.queue_free()
+	_battle = null
+	GameState.flags["_talking"] = false
+	_grace = 20.0
+	_walk_t = 0.0
+	if r.outcome in ["won", "lasted"]:
+		if fight.has("flag"):
+			GameState.flags[fight.flag] = true
+		if key != "":
+			GameState.picked.append(key)
+		if node != null and not fight.get("stays", false):
+			node.queue_free()
+			_near = null
+		_apply_phase()
+	elif r.outcome == "lost" and fight.has("lose_flag"):
+		GameState.flags[fight.lose_flag] = true
+
+
+## The case's siege, from dusk to dawn, then the morning after.
+func _run_siege() -> void:
+	var spec: Dictionary = Investigation.case_data(GameData, GameState).get("siege", {})
+	if spec.is_empty() or _battle != null or _talk != null:
+		return
+	_prompt.visible = false
+	GameState.flags["_talking"] = true
+	var siege := Siege.new(spec)
+	await siege.run(self, GameData, GameState)
+	GameState.flags["_talking"] = false
+	if GameState.flags.get(spec.get("flag", "siege_survived"), false) or GameState.flags.get(spec.get("lose_flag", "siege_broken"), false):
+		await _fade_out()
+		Investigation.sleep(GameData, GameState)
+		time_of_day = 0.03
+		_apply_time()
+		_apply_phase()
+		await _fade_in()
+
+
+## Lines in the dialogue box, awaited. For the siege and anything else scripted.
+func narrate(lines: Array) -> void:
+	if lines.is_empty():
+		return
+	var talk := NarrationTalk.new(_box, lines)
+	_talk = talk
+	talk.start()
+	await talk.finished
+	_talk = null
+
+
+## A question in the dialogue box, awaited: the option index, or -1.
+func ask(title: String, options: Array) -> int:
+	var talk := ChoiceTalk.new(_box, title, options, _toast)
+	talk.can_cancel = false
+	_talk = talk
+	talk.start()
+	var i: int = await talk.chosen
+	_talk = null
+	return i
+
+
+## A fight, awaited: the BattleRules result.
+func fight(spec: Dictionary) -> Dictionary:
+	var full: Dictionary = spec.duplicate(true)
+	full["field"] = {"phase": Investigation.phase(time_of_day), "weather": _weather, "inside": inside != ""}
+	_battle = Battle.new(full)
+	_ui_root.add_child(_battle)
+	var r: Dictionary = await _battle.finished
+	_battle.queue_free()
+	_battle = null
+	_grace = 20.0
+	return r
+
+
+## Walking outdoors at the wrong hour: the map's `encounters` list, rolled once a second.
+func _roll_encounter(delta: float) -> void:
+	if _grace > 0.0:
+		_grace -= delta
+		return
+	var list: Array = map.get("encounters", [])
+	if list.is_empty() or party[0].velocity.length() < 1.0:
+		return
+	_walk_t += delta
+	if _walk_t < 1.0:
+		return
+	_walk_t = 0.0
+	var ph := Investigation.phase(time_of_day)
+	var pool := []
+	var total := 0.0
+	for e in list:
+		if e.get("phase", []).is_empty() or ph in e.phase:
+			pool.append(e)
+			total += float(e.get("weight", 1))
+	if pool.is_empty() or randf() > float(map.get("encounter_rate", 0.04)):
+		return
+	var pick := randf() * total
+	for e in pool:
+		pick -= float(e.get("weight", 1))
+		if pick <= 0.0:
+			_start_fight({"foes": e.foes, "intro": e.get("intro", "Something comes out of the dark."), "win": e.get("win", "It is over. The night goes on.")}, "", null)
+			return
 
 
 func _use_exit(e: Dictionary) -> void:
@@ -638,6 +773,7 @@ func _build_ui() -> void:
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(root)
+	_ui_root = root
 	_hud = Label.new()
 	_hud.position = Vector2(8, 6)
 	_hud.add_theme_font_size_override("font_size", 11)
@@ -646,7 +782,7 @@ func _build_ui() -> void:
 	_hud.add_theme_constant_override("shadow_offset_y", 1)
 	root.add_child(_hud)
 	var help := Label.new()
-	help.text = "WASD walk · Space talk/look · Tab case file · G gear · T day/night · F5 save · F9 load"
+	help.text = "WASD walk · Space talk/look · Tab case file · G gear · T day/night · H timed hits · F5 save · F9 load"
 	help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
 	help.offset_left = -420
 	help.offset_top = -16

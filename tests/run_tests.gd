@@ -23,6 +23,7 @@ func _initialize() -> void:
 	errors += _script_checks()
 	errors += _office_checks(data)
 	errors += _tide_checks(data)
+	errors += _battle_checks(data)
 	for e in errors:
 		printerr("FAIL: " + e)
 	print("Tests: %s (%d classes, %d foes, %d cases, %d maps)" % ["PASS" if errors.is_empty() else "FAIL", data.classes.size(), data.foes.size(), data.cases.size(), data.maps.size()])
@@ -66,6 +67,123 @@ func _tide_checks(data) -> Array[String]:
 	if not Investigation.gate_open(data, state, "hut", 0.5):
 		errors.append("the hut should appear at dusk with two signs")
 	data.cases.erase("tidetest")
+	return errors
+
+
+## A whole fight with no scene: turn order, a dog beaten by plain attacks, XP and levels,
+## an observation battle captured tell by tell, statuses, the cure charm, and the new gate conditions.
+func _battle_checks(data) -> Array[String]:
+	var errors: Array[String] = []
+	var state = load("res://scripts/autoload/game_state.gd").new()
+	state.party = ["player", "miriam", "teddy"]
+	state.player_class = "signals"
+	state.case_id = "point_pleasant"
+	state.composure = 100
+	var b: Dictionary = BattleRules.setup(data, state, ["stray_dog"], {"phase": "night"})
+	b["_rng"] = RandomNumberGenerator.new()
+	b._rng.seed = 7
+	if b.actors.size() != 4:
+		errors.append("a fight of three against one should have four actors, got %d" % b.actors.size())
+	if BattleRules.preview(b, 8).size() != 8:
+		errors.append("the turn preview should show eight turns")
+	var guard := 0
+	while BattleRules.outcome(b) == "" and guard < 300:
+		var a: Dictionary = BattleRules.next_actor(b)
+		var st := BattleRules.start_turn(b, a)
+		if not st.skip and not a.broken:
+			if a.side == "party":
+				BattleRules.basic_attack(b, a, BattleRules.alive(b, "foe")[0])
+			else:
+				BattleRules.foe_turn(b, a)
+		BattleRules.spend_turn(b, a)
+		guard += 1
+	if BattleRules.outcome(b) != "won":
+		errors.append("three agents should beat one stray dog, got %s after %d turns" % [BattleRules.outcome(b), guard])
+	var r := BattleRules.settle(data, state, b)
+	if r.xp != 8 or int(state.xp.get("player", 0)) != 8:
+		errors.append("a stray dog pays 8 XP, got %d / %d" % [r.xp, int(state.xp.get("player", 0))])
+	if BattleRules.gain_xp(state, "player", 40) != 2 or int(state.levels.get("player", 1)) != 2:
+		errors.append("48 XP should reach level 2, got level %d" % int(state.levels.get("player", 1)))
+	# an observation battle: the wrong method costs, the right ones capture the tells
+	var b2: Dictionary = BattleRules.setup(data, state, ["mothman"], {"phase": "night", "inside": true})
+	b2["_rng"] = RandomNumberGenerator.new()
+	b2._rng.seed = 3
+	var me: Dictionary = b2.actors[0]
+	var moth: Dictionary = b2.actors[3]
+	var ids := []
+	for c in BattleRules.commands(data, b2, me, state):
+		ids.append(c.id)
+	if not "observe" in ids or "run" in ids:
+		errors.append("an anomaly fight should offer Observe and no Run, got %s" % str(ids))
+	var before: int = me.composure
+	BattleRules.observe(data, state, b2, me, moth, "record")
+	if moth.phase != 0 or me.composure != before - 4:
+		errors.append("the wrong method should capture nothing and cost 4 composure")
+	BattleRules.observe(data, state, b2, me, moth, "photograph")
+	if moth.phase != 1 or not "plant_glare_photo" in b2.evidence or b2.meter < 2:
+		errors.append("the photograph should capture the first tell")
+	BattleRules.observe(data, state, b2, me, moth, "record")
+	BattleRules.observe(data, state, b2, me, moth, "read")
+	if not moth.broken or BattleRules.outcome(b2) != "won":
+		errors.append("three tells should end the observation battle as a win, got %s" % BattleRules.outcome(b2))
+	BattleRules.settle(data, state, b2)
+	if not state.has_evidence("plant_glare_photo") or not state.has_evidence("plant_wall_mark"):
+		errors.append("captured tells should land in the case file")
+	if int(state.flags.get("banked_point_pleasant", 0)) <= 0:
+		errors.append("the evidence meter should bank at the end of a won fight")
+	# statuses and the cure charm
+	me.statuses["jammed"] = 2
+	for c in BattleRules.commands(data, b2, me, state):
+		if c.kind == "skill" and c.enabled:
+			errors.append("a jammed member should have no skills")
+			break
+	state.gear["player"] = {"charm1": "seaside_rock"}
+	var m: Dictionary = BattleRules.member(data, state, "player")
+	if not m.cure_charm:
+		errors.append("the stick of rock should give the cure charm")
+	var b3: Dictionary = BattleRules.setup(data, state, ["stray_dog"], {})
+	var lines := []
+	BattleRules.hurt(b3, b3.actors[0], 999, lines)
+	if b3.actors[0].broken or b3.actors[0].composure <= 0:
+		errors.append("the cure charm should catch the first break")
+	BattleRules.hurt(b3, b3.actors[0], 999, lines)
+	if not b3.actors[0].broken:
+		errors.append("the cure charm works once a fight")
+	# the gate conditions fights need: night, day, not_flag
+	state.day = 5
+	if not Investigation.cond_holds(data, state, {"night": 5}, 0.8) or Investigation.cond_holds(data, state, {"night": 5}, 0.3):
+		errors.append("night 5 is the night of day 5")
+	state.day = 4
+	if Investigation.cond_holds(data, state, {"night": 5}, 0.8) or not Investigation.cond_holds(data, state, {"day": 4}, 0.3):
+		errors.append("day and night conditions should read the case day")
+	if not Investigation.cond_holds(data, state, {"not_flag": "nope"}, 0.3):
+		errors.append("not_flag should hold while the flag is unset")
+	# the siege: pins come from the trail, preparation needs the item
+	if data.cases.has("kelly") and data.cases.kelly.has("siege"):
+		state.case_id = "kelly"
+		state.evidence = []
+		state.items = {}
+		var spec: Dictionary = data.cases.kelly.siege
+		var pinned := Siege.pins(data, state, spec)
+		for ap in pinned:
+			if pinned[ap]:
+				errors.append("no approach should be pinned with nothing logged, but %s is" % ap)
+		state.evidence = ["fm_burned_circle"]
+		pinned = Siege.pins(data, state, spec)
+		if not pinned.get("gully", false):
+			errors.append("logging the burned circle should pin the gully")
+		var opts := Siege.prep_options(data, state, spec, pinned, {})
+		var gully_opt := {}
+		for o in opts:
+			if o.approach == "gully":
+				gully_opt = o
+		if gully_opt.get("enabled", true):
+			errors.append("the gully cannot be prepared without lamp oil")
+		state.add_item("lamp_oil")
+		for o in Siege.prep_options(data, state, spec, pinned, {}):
+			if o.approach == "gully" and not o.enabled:
+				errors.append("the gully should be preparable with lamp oil in the kit")
+	state.free()
 	return errors
 
 
