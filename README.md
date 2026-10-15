@@ -18,6 +18,13 @@ Speech checks roll a d6 plus the party's best stat against a difficulty; a
 failed check is closed until you sleep at the motel, which also brings back
 lab results on anything you bagged.
 
+The loop: the Sutton Office is home. The station wagon in the loading dock
+drives to a case (or, for Sandown, to Dulles and a flight, a train, a hovercraft
+and the Island Line), the road has stops with events and a radio to tune, and a
+verdict filed at the Office case board pays budget that opens rooms and
+upgrades. G opens the gear bag. Sandown runs on the tide: the HUD shows it, and
+the beach under Culver cliffs opens only at low water.
+
 ## Layout
 
 | Path | What lives there |

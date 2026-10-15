@@ -1,0 +1,495 @@
+{
+ "_doc": "Culver Down fragment for the Sandown case: the signature site. The warden with the battery key, the coastguard whose set takes the night-2 trail sign, the pub where the 1973 regulars and the camp's compere drank, the shepherd who watched the Levels change colour, the cave under the cliffs, and the dials painted on the tunnel wall. Ids are prefixed cd_. Gates used: cliff_beach, battery_tunnels (defined in the case skeleton).",
+ "locations": {
+  "culver_haven": "The Culver Haven",
+  "warden_hut": "National Trust warden's hut, Culver Down",
+  "coastguard": "Coastguard station, Culver Point",
+  "cliff_beach": "The beach under Culver",
+  "sea_cave": "The sea cave under Culver"
+ },
+ "items": {
+  "warden_key": {
+   "name": "Warden's key",
+   "text": "The National Trust key to the Culver Battery tunnels, on a loop of baler twine.",
+   "kind": "kit",
+   "tier": "local",
+   "price": 0,
+   "reusable": true
+  }
+ },
+ "witnesses": {
+  "cd_warden": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "cd_warden_log",
+     "title": "The coastguard's 1973 log",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "show": "cd_dial_recording"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "You've read the 1973 log. Ray lets you. Let us."
+      }
+     ],
+     "lines": [
+      [
+       "cd_warden",
+       "Ray's station log for August '73. I had it out so often he photocopied it for me and told me to stop coming in. I'll lend you the copy. You'll give it back."
+      ],
+      [
+       "cd_warden",
+       "The night the children came home, somebody rang the coastguard about lights on the Levels. And a Sunnyside van was out on the Levels road an hour later, looking for a member of staff who'd gone missing after the show."
+      ],
+      [
+       "teddy",
+       "Missing after the show. The night of."
+      ]
+     ],
+     "evidence": "cd_coastguard_log_1973"
+    },
+    {
+     "id": "cd_warden_mother",
+     "title": "Her mother and the laundry",
+     "gates": [
+      {
+       "trust": 3
+      },
+      {
+       "check": "rapport",
+       "difficulty": 9,
+       "prompt": "Every Thursday on the calendar says MUM. Does she still talk about 1973?"
+      }
+     ],
+     "lines": [
+      [
+       "cd_warden",
+       "Mum ran the laundry at Sunnyside, '68 to '79. The morning after the children came off the Levels a yellow felt hat came down in the staff basket. A cone, two foot tall, crusted in greasepaint."
+      ],
+      [
+       "cd_warden",
+       "She put it in the sink and the dye ran. Every colour, she said. Every colour there is. The label had a staff name on it and she was told to lose it, and she did, and she's told me a hundred times since that she wishes she hadn't."
+      ],
+      [
+       "ruth",
+       "All colours in a laundry sink. Oh, the poor loves."
+      ]
+     ],
+     "evidence": "cd_laundry_hat"
+    },
+    {
+     "id": "cd_warden_sheep",
+     "title": "Where the sheep won't go",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "Your sheep walk round the battery. Every track goes round. Why?"
+      },
+      {
+       "check": "fieldcraft",
+       "difficulty": 8,
+       "prompt": "Those sheep tracks. They avoid one patch of ground. Tell us about the patch."
+      }
+     ],
+     "lines": [
+      [
+       "cd_warden",
+       "They've gone round it since before my time. Alf says since '73, and Alf would know, and Alf also says a lot of things."
+      ],
+      [
+       "cd_warden",
+       "There's one ewe stands in the gun pit on her own most days and looks at the door. I've stopped moving her. She goes back."
+      ]
+     ],
+     "flag": "cd_sheep_told"
+    }
+   ]
+  },
+  "cd_coastguard": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "cd_coastguard_1973",
+     "title": "The 1973 log",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 8,
+       "prompt": "The 1973 drawer runs easier than the rest. You've read it a hundred times. Read it to us."
+      },
+      {
+       "trust": 2
+      },
+      {
+       "show": "cd_laundry_hat"
+      }
+     ],
+     "lines": [
+      [
+       "cd_coastguard",
+       "Fourteenth of August, 1973. I was the junior. 2142, a Mrs Dyer, no relation, rang in lights on the Levels, green then red. I logged it. Skipper said it was the camp fireworks."
+      ],
+      [
+       "cd_coastguard",
+       "2210 a Sunnyside van's on the Levels road with its headlamps off, and the lad driving says they've lost one of the entertainers after the show and could we keep an eye out. We kept an eye out. 2255, nothing found. No exercise that week. No flares. I checked, because I was the junior and nobody else was going to."
+      ],
+      [
+       "miriam",
+       "No exercise. No flares. One missing entertainer. Thank you, Mr Sturdy."
+      ]
+     ],
+     "evidence": "cd_coastguard_log_1973"
+    },
+    {
+     "id": "cd_coastguard_band",
+     "title": "What the band does at night",
+     "gates": [
+      {
+       "check": "tech",
+       "difficulty": 8,
+       "prompt": "Your squelch is wound up to the stop. What are you keeping off the speaker?"
+      },
+      {
+       "show": "cd_dial_recording"
+      }
+     ],
+     "lines": [
+      [
+       "cd_coastguard",
+       "Twice this week, after eleven. Every channel on the set purring like a phone off the hook, and Niton swearing blind they've got a clean band. Niton's on the other side of the hill. It's only here."
+      ],
+      [
+       "cd_coastguard",
+       "I put it in the log as noise. You write noise in a log and nobody rings you about it. You write anything else and they ring."
+      ],
+      [
+       "june",
+       "I'd like to be here after eleven. With the tape running. If that's all right with you."
+      ],
+      [
+       "cd_coastguard",
+       "It's a free cliff."
+      ]
+     ],
+     "flag": "cd_band_told"
+    },
+    {
+     "id": "cd_coastguard_cave",
+     "title": "The cave at half tide",
+     "gates": [
+      {
+       "check": "fieldcraft",
+       "difficulty": 7,
+       "prompt": "That sketch on the chart: fifty feet of cave in chalk that doesn't do fifty feet. Who drew it?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "cd_coastguard",
+       "I did. Low water, a torch and a rope round the Land Rover. It goes back further than it should and the floor goes down, and there's a sound at the back I didn't like, and I'm a man who's heard a ship break up."
+      ],
+      [
+       "cd_coastguard",
+       "You've an hour either side of low water. After that the sea comes in and it doesn't ask. Watch the HUD. Watch the clock. Sorry. The tide clock."
+      ],
+      [
+       "dale",
+       "An hour either side. We go in at the bottom of the tide, not the top. Nobody argues with the sea, it doesn't listen."
+      ]
+     ],
+     "flag": "cd_cave_told"
+    }
+   ]
+  },
+  "cd_pub_landlord": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "cd_landlord_compere",
+     "title": "The compere's tab",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "The man in the blazer in the 1973 photo, face turned away. Who is he?"
+      },
+      {
+       "show": "cd_fancy_dress_photo"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "cd_pub_landlord",
+       "Len Varley. Sunnyside's compere, summer of '73. Drank up here after the show because the camp bar wouldn't serve staff. Ran a tab a mile long."
+      ],
+      [
+       "cd_pub_landlord",
+       "Paid it off in one go, cash, the week after those kiddies came off the Levels talking about hats. Said he'd done a turn that went too well. Laughed when he said it. Then he stopped laughing and finished his pint and we didn't see him again that season."
+      ],
+      [
+       "teddy",
+       "A turn that went too well. He said that. In those words."
+      ],
+      [
+       "cd_pub_landlord",
+       "In those words. I've had twenty years to get them right."
+      ]
+     ],
+     "evidence": "cd_compere_tab"
+    },
+    {
+     "id": "cd_landlord_ta",
+     "title": "The Territorials",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 6,
+       "prompt": "TA 1973, on the tunnel wall. Tell us about the Territorials."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "cd_pub_landlord",
+       "Weekend soldiers from Portsmouth, every August, camping in the battery and drinking in here. Fired flares off the gun pit at night and frightened the sheep. Alf'll tell you the lights that August were them. Alf tells everybody."
+      ],
+      [
+       "cd_pub_landlord",
+       "They weren't here that week. They'd gone home the Sunday. I know because the takings went down."
+      ]
+     ],
+     "flag": "cd_ta_told"
+    },
+    {
+     "id": "cd_landlord_regulars",
+     "title": "What the regulars saw",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "The regulars' table. They were here in '73. What did they see?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "cd_pub_landlord",
+       "Nothing. That's the thing. Four men at that table every night of their lives, and that night every one of them went outside at ten to look at the Levels, and not one of them will say what at."
+      ],
+      [
+       "cd_pub_landlord",
+       "Alf's the only one left of the four. Buy him a mild. Don't buy him two."
+      ]
+     ],
+     "flag": "cd_regulars_told"
+    }
+   ]
+  },
+  "cd_shepherd": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "cd_shepherd_flares",
+     "title": "The Territorials' flares",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "You were up here in August '73. What were the lights?"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "cd_shepherd",
+       "Territorials. Same as every August. Lads from Portsmouth with flares and no sense, firing them off the gun pit and the sheep running every which way. Green ones. Red ones. That's your lights on the Levels, and that's your mystery, and you can put that in your book."
+      ],
+      [
+       "dale",
+       "Flares. From the gun pit. That's a mile from the Levels and a long way up."
+      ],
+      [
+       "cd_shepherd",
+       "They're flares, son. They go up."
+      ]
+     ],
+     "evidence": "cd_ta_flares"
+    },
+    {
+     "id": "cd_shepherd_colours",
+     "title": "What the sheep faced",
+     "gates": [
+      {
+       "contradiction": "cd_flares_vs_log"
+      },
+      {
+       "check": "empathy",
+       "difficulty": 9,
+       "prompt": "You went outside at ten with the others. You've never said what you saw. You could say it to us."
+      }
+     ],
+     "lines": [
+      [
+       "cd_shepherd",
+       "...The Territorials had gone home. I know they'd gone home. I've been saying Territorials for twenty years because it's a thing you can say."
+      ],
+      [
+       "cd_shepherd",
+       "I was in the gun pit with the dog. The Levels went green. Then red. Then a colour I haven't got a word for, and I've had twenty years to find one. And every sheep on the Down stood up and faced it. Sheep don't face things. They face away."
+      ],
+      [
+       "cd_shepherd",
+       "The dog wouldn't go home. I had to carry him. He was a big dog."
+      ],
+      [
+       "elijah",
+       "Thank you. That was the true one. I could tell."
+      ]
+     ],
+     "evidence": "cd_shepherd_colours"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "cd_cave_tone": {
+   "title": "Tape: the cave under Culver",
+   "text": "At the back of the sea cave, an hour either side of low water: three notes, a click like a dial turning, three notes again, rising with the swell. June's meter reads a carrier where there is no cable within a mile.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "cd_tunnel_dials_photo": {
+   "title": "Photo: the painted dials",
+   "text": "Forty feet of Culver Battery tunnel wall painted with dials in household gloss, every needle at a different reading, dated in the corner AUG 73. The sea is audible through the wall behind them. The children said the sea was behind the dials.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "cd_dial_recording": {
+   "title": "Tape: the band of dial tones",
+   "text": "Night two, the coastguard's set on Culver Point: every marine channel between 156 and 162 megahertz carrying a dial tone at once, and under them the click of something being turned. Niton, on the other side of the hill, heard a clean band.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "A"
+  },
+  "cd_channel_check": {
+   "title": "Coastguard traffic log, night two",
+   "text": "2258 NITON CH 16 ROUTINE RADIO CHECK. 2300 ACKNOWLEDGED LOUD AND CLEAR. 2301 NOISE ON BAND. The routine check from the main station in the same minute the noise began. It accounts for channel 16. It does not account for the other eleven.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "A",
+   "red_herring": true
+  },
+  "cd_coastguard_log_1973": {
+   "title": "Coastguard log, 14 August 1973",
+   "text": "2142: lights reported on Sandown Levels, green then red. 2210: Sunnyside Holiday Camp van on the Levels road, headlamps off, driver states staff searching for an entertainer missing after the evening show. 2255: nothing found. No exercise, no flares, no vessels.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B",
+   "exposes": [
+    "cd_ta_flares"
+   ]
+  },
+  "cd_compere_tab": {
+   "title": "The compere's tab",
+   "text": "Len Varley, Sunnyside's compere in 1973, drank at the Culver Haven after shows and paid off a summer's tab in cash the week after the children's story went round. He said he had done a turn that went too well, and was not seen again that season.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "cd_ta_flares": {
+   "title": "The Territorials' flares",
+   "text": "Alf Mew: the lights on the Levels in August 1973 were Territorial Army flares fired from the Culver gun pit, same as every summer. Green ones and red ones.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "red_herring": true
+  },
+  "cd_shepherd_colours": {
+   "title": "What the sheep faced",
+   "text": "From the Culver gun pit on the night of 14 August 1973, Alf Mew watched the Levels turn green, then red, then a colour he has no word for, and every sheep on the Down stood up and faced it. The Territorials had gone home on the Sunday.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "exposes": [
+    "cd_ta_flares"
+   ]
+  },
+  "cd_laundry_hat": {
+   "title": "The hat in the laundry sink",
+   "text": "Hazel Dyer's mother ran the Sunnyside laundry. The morning after the children came off the Levels, a two-foot yellow felt cone hat came down in the staff basket crusted with greasepaint, and the dye ran every colour in the sink. The label carried a staff name. She was told to lose it.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "cd_sigil_1973": {
+   "title": "The mark under the paint",
+   "text": "The Trust's 1974 handover note for Culver Battery: door found open, interior marked, repainted. A sketch of the mark on the steel door: a dial face with a needle and no numbers. The note says AUG 73 was already on the wall when the Trust arrived.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C"
+  },
+  "cd_fancy_dress_photo": {
+   "title": "Photo: pub fancy dress, New Year 1974",
+   "text": "A snapshot from behind the Culver Haven bar: eleven regulars at a fancy dress night, one in a two-foot yellow cone hat and a coat of carpet samples in every colour. NEW YEAR 74. LEN WON. The year after, and everyone laughing.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  }
+ },
+ "contradictions": {
+  "cd_flares_vs_log": {
+   "title": "Flares from an empty battery",
+   "evidence": [
+    "cd_ta_flares",
+    "cd_coastguard_log_1973"
+   ],
+   "witness": "cd_shepherd",
+   "prompt": "You say the lights were Territorial flares. The coastguard's log says no exercise, no flares, and the Territorials had gone home on the Sunday. So what were you looking at, Alf?"
+  }
+ },
+ "trail": [
+  {
+   "night": 2,
+   "roost": "Coastguard station, Culver Point",
+   "map": "sandown_culver",
+   "clues": [
+    "cd_radio_dials"
+   ],
+   "herring": [
+    "cd_radio_log"
+   ]
+  }
+ ]
+}

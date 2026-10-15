@@ -734,7 +734,10 @@
     16,
     7.5
    ],
-   "travel": "sutton_to_point_pleasant",
+   "travel": [
+    "sutton_to_point_pleasant",
+    "sutton_to_sandown"
+   ],
    "name": "The station wagon",
    "look": [
     [

@@ -1,0 +1,3267 @@
+{
+ "_doc": "Sandown, Culver Down: the signature site. Chalk headland east of the bay with the sea on three sides, the Yarborough Monument on the summit, Culver Battery and the coastguard station on the point, the Culver Haven pub and the National Trust warden's hut by the road in from the seafront, and the beach under the cliffs at the south-east, reached only down the cliff path at low water. Weather is the case's one gale. Positions are in 32px tiles.",
+ "id": "sandown_culver",
+ "name": "Culver Down",
+ "case": "sandown",
+ "district": "culver",
+ "size": [
+  56,
+  56
+ ],
+ "spawn": [
+  4,
+  40
+ ],
+ "ground": "grass",
+ "weather": "gale",
+ "fills": [
+  {
+   "rect": [
+    1,
+    1,
+    54,
+    2
+   ],
+   "tiles": [
+    "sea_deep",
+    "sea_deep2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    3,
+    54,
+    3
+   ],
+   "tiles": [
+    "sea",
+    "sea2",
+    "sea3"
+   ]
+  },
+  {
+   "rect": [
+    49,
+    1,
+    6,
+    54
+   ],
+   "tiles": [
+    "sea",
+    "sea2",
+    "sea3"
+   ]
+  },
+  {
+   "rect": [
+    53,
+    1,
+    2,
+    54
+   ],
+   "tiles": [
+    "sea_deep",
+    "sea_deep2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    47,
+    54,
+    8
+   ],
+   "tiles": [
+    "sea",
+    "sea2",
+    "sea3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    52,
+    54,
+    3
+   ],
+   "tiles": [
+    "sea_deep",
+    "sea_deep2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    45,
+    26,
+    10
+   ],
+   "tiles": [
+    "sea",
+    "sea2",
+    "sea3"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    45,
+    19,
+    2
+   ],
+   "tiles": [
+    "shingle",
+    "shingle2",
+    "shingle"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    47,
+    19,
+    2
+   ],
+   "tiles": [
+    "sand",
+    "sand2",
+    "sand3"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    49,
+    19,
+    1
+   ],
+   "tiles": [
+    "wet_sand",
+    "wet_sand2"
+   ]
+  },
+  {
+   "rect": [
+    30,
+    50,
+    19,
+    1
+   ],
+   "tiles": "beach_top"
+  },
+  {
+   "rect": [
+    27,
+    42,
+    3,
+    3
+   ],
+   "tiles": [
+    "chalk",
+    "chalk2",
+    "chalk"
+   ]
+  },
+  {
+   "rect": [
+    27,
+    45,
+    3,
+    2
+   ],
+   "tiles": [
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    39,
+    29,
+    3
+   ],
+   "tiles": [
+    "chalk",
+    "chalk",
+    "chalk2"
+   ]
+  },
+  {
+   "rect": [
+    24,
+    17,
+    2,
+    23
+   ],
+   "tiles": [
+    "chalk",
+    "chalk",
+    "chalk2"
+   ]
+  },
+  {
+   "rect": [
+    18,
+    11,
+    12,
+    7
+   ],
+   "tiles": [
+    "chalk",
+    "chalk2",
+    "chalk",
+    "grass_tuft"
+   ]
+  },
+  {
+   "rect": [
+    26,
+    17,
+    7,
+    2
+   ],
+   "tiles": [
+    "chalk",
+    "chalk",
+    "chalk2"
+   ]
+  },
+  {
+   "rect": [
+    44,
+    15,
+    2,
+    3
+   ],
+   "tiles": [
+    "chalk",
+    "chalk2"
+   ]
+  },
+  {
+   "rect": [
+    33,
+    18,
+    15,
+    10
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    41,
+    12,
+    7,
+    3
+   ],
+   "tiles": [
+    "cement",
+    "cement_b",
+    "cement"
+   ]
+  },
+  {
+   "rect": [
+    2,
+    33,
+    5,
+    5
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    56,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    55,
+    56,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    0,
+    1,
+    36
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    44,
+    1,
+    12
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    55,
+    0,
+    1,
+    56
+   ],
+   "tiles": "void"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    7,
+    47,
+    36
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2",
+    "grass2",
+    "grass3",
+    "chalk2"
+   ],
+   "chance": 0.09
+  },
+  {
+   "rect": [
+    30,
+    45,
+    19,
+    4
+   ],
+   "tiles": [
+    "shingle2",
+    "sand2",
+    "wet_sand2"
+   ],
+   "chance": 0.1
+  }
+ ],
+ "facades": [
+  {
+   "id": "clifftop_pub",
+   "facade": "clifftop_pub",
+   "name": "The Culver Haven",
+   "pos": [
+    8,
+    35
+   ]
+  },
+  {
+   "id": "warden_hut",
+   "facade": "warden_hut",
+   "name": "National Trust warden's hut",
+   "pos": [
+    19,
+    35
+   ]
+  },
+  {
+   "id": "battery",
+   "facade": "battery",
+   "name": "Culver Battery",
+   "pos": [
+    36,
+    24
+   ],
+   "gate": "battery_tunnels"
+  },
+  {
+   "id": "coastguard",
+   "facade": "coastguard",
+   "name": "Coastguard station, Culver Point",
+   "pos": [
+    42,
+    11
+   ]
+  }
+ ],
+ "houses": [],
+ "props": [
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    3,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    7,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    11,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    15,
+    6
+   ],
+   "name": "The north cliff",
+   "look": [
+    [
+     "player",
+     "Three hundred feet of chalk straight down into the Solent, and the wind coming up it hard enough to lean on."
+    ],
+    [
+     "dale",
+     "Don't lean on it."
+    ],
+    [
+     "teddy",
+     "I was going to lean on it."
+    ]
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    19,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    23,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    27,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    31,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    35,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    39,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    43,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    47,
+    6
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    9
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    12
+   ],
+   "name": "The point",
+   "look": [
+    [
+     "player",
+     "The end of the Island. Chalk, then a long way of grey water, then France on a better day."
+    ],
+    [
+     "june",
+     "Not a better day. Not this week."
+    ]
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    15
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    18
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    21
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    24
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    27
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    30
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    33
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    36
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    39
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    42
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    49,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    3,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    7,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    11,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    15,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    19,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    23,
+    45
+   ],
+   "name": "The cliff edge",
+   "look": [
+    [
+     "player",
+     "The turf stops in a clean line and the beach is a very long way down. Gulls go past below your feet."
+    ],
+    [
+     "miriam",
+     "Below. Note that they fly below us here. I don't love it."
+    ]
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    26,
+    44
+   ]
+  },
+  {
+   "kind": "chalk_cliff_small",
+   "pos": [
+    31,
+    44
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    34,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    38,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    42,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff",
+   "pos": [
+    46,
+    45
+   ]
+  },
+  {
+   "kind": "chalk_cliff_end",
+   "pos": [
+    48,
+    45
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    28,
+    42
+   ],
+   "gate": "cliff_beach",
+   "name": "The cliff path",
+   "look": [
+    [
+     "player",
+     "An iron gate at the head of a chalk cut that zigzags down the cliff. NATIONAL TRUST. PATH CLOSED AT HIGH WATER. BEACH CUT OFF AT HALF TIDE."
+    ],
+    [
+     "ruth",
+     "That's not a warning, dear. That's a timetable."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    26,
+    47.5
+   ],
+   "name": "Fallen chalk",
+   "look": "A lump of chalk the size of a car, lying where it landed on the sand. There is grass still growing on the top of it."
+  },
+  {
+   "kind": "tunnel_mouth",
+   "pos": [
+    38,
+    47
+   ],
+   "name": "The sea cave",
+   "look": [
+    [
+     "player",
+     "A cave in the chalk, floor of wet shingle, roof black with weed to head height. The sea comes in here. The sea comes in here often."
+    ],
+    [
+     "elijah",
+     "It's humming. The cave. Can you hear the cave humming?"
+    ],
+    [
+     "dale",
+     "That's the wind."
+    ],
+    [
+     "elijah",
+     "It isn't."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    34,
+    48
+   ],
+   "pickup": "cliff_fossil",
+   "name": "A stone with a shape in it",
+   "look": [
+    [
+     "player",
+     "A flat chalk pebble with an ammonite curled in it like a sleeping cat. The sea has been polishing it since before there was a Sandown."
+    ],
+    [
+     "miriam",
+     "A hundred million years old and it fell out of the cliff this week. Pick it up. That's the only sane thing on this beach."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    44,
+    48.5
+   ],
+   "name": "Fallen rock",
+   "look": "Chalk and flint, half in the sand. Somebody has stood a row of limpet shells along the top like a lot of little hats."
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    42,
+    46.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    31,
+    47.5
+   ]
+  },
+  {
+   "kind": "buoy",
+   "pos": [
+    36,
+    52
+   ],
+   "name": "Buoy",
+   "look": [
+    [
+     "player",
+     "A rusted buoy bobbing hard in the swell. A gull is riding it like a horse."
+    ],
+    [
+     "teddy",
+     "Respect."
+    ]
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    33,
+    51.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    40,
+    51.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    46,
+    52.5
+   ]
+  },
+  {
+   "kind": "dinghy",
+   "pos": [
+    46,
+    47.5
+   ],
+   "name": "Dinghy",
+   "look": [
+    [
+     "player",
+     "A fibreglass dinghy dragged above the tide line and turned over. CULVER HAVEN is painted on the hull, and under it, smaller, DO NOT."
+    ],
+    [
+     "june",
+     "Do not what."
+    ],
+    [
+     "player",
+     "It doesn't say. It's weathered off."
+    ]
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    47,
+    49.5
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    32,
+    46
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    10,
+    3.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    26,
+    3.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    40,
+    2.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    51,
+    20.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    52,
+    33.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    12,
+    50.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    20,
+    49.5
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    51,
+    8.5
+   ]
+  },
+  {
+   "kind": "buoy",
+   "pos": [
+    51,
+    28
+   ],
+   "name": "Bell buoy",
+   "look": [
+    [
+     "player",
+     "A bell buoy off the point, ringing with every wave. In this wind it never stops."
+    ],
+    [
+     "elijah",
+     "Somebody rings for the drowned. That's what it's for, whatever the chart says."
+    ]
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    18,
+    4.5
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    50,
+    40
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    3,
+    9
+   ],
+   "name": "Gorse",
+   "look": [
+    [
+     "player",
+     "Gorse. Yellow flowers that smell of coconut and spines that go through denim."
+    ],
+    [
+     "ruth",
+     "When gorse is out of bloom, kissing's out of fashion. It's never out of bloom, dear. That's the joke."
+    ]
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    6,
+    10.5
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    10,
+    8.5
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    14,
+    9
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    17,
+    10
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    31,
+    9
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    35,
+    8.5
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    38,
+    10
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    33,
+    11
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    4,
+    14
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    8,
+    16
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    12,
+    14.5
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    16,
+    19
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    6,
+    21
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    10,
+    24
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    3,
+    27
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    9,
+    29
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    14,
+    31
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    17,
+    27
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    30,
+    22
+   ],
+   "name": "Gorse",
+   "look": [
+    [
+     "player",
+     "A gorse bush with a crisp packet in it. Salt and vinegar. Golden Wonder."
+    ],
+    [
+     "teddy",
+     "Crisps. They call them crisps. The chips are fries and the crisps are chips. I've made a chart."
+    ]
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    31,
+    27
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    28,
+    31
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    33,
+    31
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    38,
+    30
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    42,
+    30
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    46,
+    31
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    36,
+    35
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    41,
+    36
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    45,
+    39
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    32,
+    39
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    38,
+    41
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    44,
+    42
+   ],
+   "name": "Gorse",
+   "look": "A gorse bush combed flat by the wind, every spine pointing at Sandown. The sheep shelter on the lee side and so, briefly, do you."
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    6,
+    44
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    12,
+    43
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    20,
+    43
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    16,
+    43
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    3,
+    31
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    20,
+    23
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    12,
+    19
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    5,
+    12
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    9,
+    13
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    13,
+    12
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    7,
+    18
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    11,
+    21
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    13,
+    26
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    19,
+    20
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    21,
+    25
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    5,
+    24
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    17,
+    32
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    21,
+    31
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    29,
+    24
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    30,
+    35
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    35,
+    33
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    40,
+    33
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    43,
+    34
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    37,
+    38
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    33,
+    43
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    41,
+    43
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    10,
+    43
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    15,
+    44
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    22,
+    44
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    6,
+    30
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    12,
+    36
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    3,
+    18
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    30,
+    8
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    36,
+    7.5
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    40,
+    8
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    47,
+    11
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    34,
+    12
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    31,
+    14
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    40,
+    16
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    8,
+    26
+   ],
+   "name": "Sheep",
+   "look": [
+    [
+     "player",
+     "Eleven sheep, all facing the same way, all chewing. Not one of them has looked at you."
+    ],
+    [
+     "dale",
+     "Hill sheep. They've seen tourists. They've seen worse than tourists."
+    ]
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    15,
+    23
+   ],
+   "name": "Sheep",
+   "look": [
+    [
+     "player",
+     "A ewe and two lambs, lying down in the lee of the gorse with the rain coming sideways over them."
+    ],
+    [
+     "elijah",
+     "They're warm. It's all right. They're warmer than we are."
+    ]
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    44,
+    25
+   ],
+   "name": "Sheep",
+   "look": [
+    [
+     "player",
+     "One sheep, alone, standing in the middle of the gun pit and staring at the battery door."
+    ],
+    [
+     "ruth",
+     "Sheep don't stand alone, dear. Something's keeping it company."
+    ]
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    37,
+    15
+   ],
+   "name": "Sheep track",
+   "look": "Sheep tracks through the chalk, worn by a thousand years of going the same way. They all go round the battery. None of them go in."
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    7,
+    7.5
+   ],
+   "name": "Flint",
+   "look": "A flint the size of a dog, black inside where the chalk has worn off it. Somebody has chalked an arrow on it pointing at the sea. Everybody has walked the other way."
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    20,
+    8.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    28,
+    9
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    44,
+    7.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    6,
+    31.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    17,
+    24.5
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    11,
+    33
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    22,
+    29
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    35,
+    41
+   ],
+   "name": "Boulder",
+   "look": [
+    [
+     "player",
+     "A chalk boulder with initials cut into it going back to 1911. Somebody did C.R. + F.M. in 1973 in letters an inch deep."
+    ],
+    [
+     "teddy",
+     "Colin Rudd and Fay Mallory. Somebody took their time."
+    ],
+    [
+     "miriam",
+     "Somebody with a penknife and a summer."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    47,
+    36
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    31,
+    16.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    39,
+    43.5
+   ]
+  },
+  {
+   "kind": "obelisk",
+   "pos": [
+    23.5,
+    14
+   ],
+   "name": "The Yarborough Monument",
+   "look": [
+    [
+     "player",
+     "A granite obelisk seventy feet high, to the first Earl of Yarborough, who sailed yachts and died in 1846 and did not, as far as you know, ever see Sandown Levels."
+    ],
+    [
+     "ruth",
+     "They moved it, you know. The whole thing. It was in the way of the guns."
+    ],
+    [
+     "vera",
+     "One does not move an obelisk. One is moved by an obelisk. Yet here we are."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    27,
+    16.5
+   ],
+   "name": "The view",
+   "look": [
+    [
+     "player",
+     "The whole bay from here. Sandown, the pier like a pin in the water, Shanklin, the Levels flat and green behind the town, and tonight a long line of lights along the front."
+    ],
+    [
+     "june",
+     "At eleven the pier lights go out. Clear line of sight from here. If anything else lights up on the Levels after that, this is where you see it from."
+    ],
+    [
+     "teddy",
+     "Also from here you can see the chip shop. I'm just saying it's a good bench."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    20,
+    16.5
+   ],
+   "name": "Memorial bench",
+   "look": "A bench facing the wind. IN MEMORY OF STAN, WHO WALKED UP HERE EVERY DAY AND COMPLAINED ABOUT IT. The brass is polished to nothing."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    27,
+    12.5
+   ],
+   "name": "Litter bin",
+   "look": [
+    [
+     "player",
+     "A litter bin chained to the obelisk railings. Two Cornetto wrappers and a cassette of Now That's What I Call Music 27, tape pulled out and streaming in the wind like a flag."
+    ],
+    [
+     "june",
+     "Twenty-seven. They're up to twenty-seven."
+    ]
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    19,
+    12.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    29,
+    12
+   ]
+  },
+  {
+   "kind": "flag",
+   "pos": [
+    28,
+    10.5
+   ],
+   "name": "Trig point flag",
+   "look": "A National Trust flag on a pole, straight out and cracking like a whip. The rope has worn a groove in the pole an inch deep."
+  },
+  {
+   "kind": "stile",
+   "pos": [
+    24.5,
+    20.5
+   ],
+   "name": "Stile",
+   "look": [
+    [
+     "player",
+     "A stile over a fence that is no longer there. Somebody has kept the stile."
+    ],
+    [
+     "miriam",
+     "Somebody climbs it every day, too. The step is worn. Bureaucracy, or faith."
+    ]
+   ]
+  },
+  {
+   "kind": "picnic_table",
+   "pos": [
+    14.5,
+    38.5
+   ],
+   "name": "Picnic table",
+   "look": [
+    [
+     "player",
+     "A picnic table chained to a post. On it, somebody has written in the wet with a finger: BACK AT 6. It's half past. It's not clear which six."
+    ],
+    [
+     "teddy",
+     "Beer o'clock has no minute hand."
+    ]
+   ]
+  },
+  {
+   "kind": "phone_box",
+   "pos": [
+    16.5,
+    38
+   ],
+   "name": "Phone box",
+   "look": [
+    [
+     "player",
+     "A red phone box with a door that won't shut against the wind. Ten pence pieces. The directory is chained and open at TAXIS."
+    ],
+    [
+     "june",
+     "The line's live. There's a hum on it under the dial tone. I'm not saying anything yet. I'm saying I'm listening."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    8.5,
+    37.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    7,
+    38.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    17.5,
+    39.8
+   ]
+  },
+  {
+   "kind": "coach",
+   "pos": [
+    4.5,
+    35
+   ],
+   "name": "Coach",
+   "look": [
+    [
+     "player",
+     "A Southern Vectis coach, nose into the wind, empty. The driver is in the pub. The party is in the pub. A sign in the window: MAIDSTONE BRANCH - ISLAND MYSTERY TOUR."
+    ],
+    [
+     "teddy",
+     "The mystery is whether they'll get back on."
+    ]
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    3,
+    37.5
+   ],
+   "name": "A green Rover",
+   "look": "A green Rover with a National Trust sticker and a sheepdog in the back seat watching you with professional interest."
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    23,
+    37.5
+   ],
+   "name": "Bicycle",
+   "look": "A black bicycle leaning on the warden's hut, with a wire basket and a pair of binoculars in a case on the handlebars. The chain is oiled. The basket has a lamb in it."
+  },
+  {
+   "kind": "vacancies_sign",
+   "pos": [
+    18.5,
+    37.5
+   ],
+   "name": "Trust sign",
+   "look": [
+    [
+     "player",
+     "NATIONAL TRUST. CULVER DOWN. WARDEN ON DUTY - KNOCK. Under it, smaller and newer: NO, THE BEACH IS NOT OPEN. ASK THE SEA."
+    ],
+    [
+     "miriam",
+     "I like her already."
+    ]
+   ]
+  },
+  {
+   "kind": "bush_big",
+   "pos": [
+    2,
+    30
+   ],
+   "name": "Blackthorn",
+   "look": "A blackthorn bent double. Somebody's cagoule is in it, blue, with the hood still up."
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    6,
+    27.5
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    13,
+    30.5
+   ],
+   "name": "Hawthorn",
+   "look": [
+    [
+     "player",
+     "The one tree on the Down, a hawthorn growing sideways. Every branch points at the town."
+    ],
+    [
+     "ruth",
+     "Never cut a lone thorn, dear. And never sit under one at dusk. Though you may, of course, do as you like."
+    ]
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    25,
+    36.5
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    27,
+    38
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    22,
+    41.5
+   ],
+   "name": "Bench",
+   "look": [
+    [
+     "player",
+     "A bench by the cliff path. Someone has left a flask. The tea in it is still warm."
+    ],
+    [
+     "elijah",
+     "Someone went down. ...Someone went down and they're fine. They're fine. I'd know."
+    ]
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    19,
+    41
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    9,
+    36.5
+   ]
+  },
+  {
+   "kind": "gun_mount",
+   "pos": [
+    35,
+    20
+   ],
+   "name": "Gun emplacement",
+   "look": [
+    [
+     "player",
+     "A concrete ring with the bolts where a six-inch gun stood until 1956. Rain pooling in the mount. A sheep has been sleeping in it."
+    ],
+    [
+     "dale",
+     "Fired twice in anger, the whole war. Both times at the same aeroplane. Missed."
+    ]
+   ]
+  },
+  {
+   "kind": "gun_mount",
+   "pos": [
+    45,
+    20
+   ]
+  },
+  {
+   "kind": "gun_mount",
+   "pos": [
+    46,
+    26
+   ],
+   "name": "The gun pit",
+   "look": [
+    [
+     "player",
+     "The second emplacement, open to the sea on the east. The floor is painted with a faded compass rose, and the rose is wrong by about twenty degrees."
+    ],
+    [
+     "vera",
+     "It is not wrong. It was correct for something that is not north."
+    ],
+    [
+     "miriam",
+     "It was painted by a bored gunner, Vera."
+    ]
+   ]
+  },
+  {
+   "kind": "crate",
+   "pos": [
+    34,
+    26.5
+   ],
+   "name": "Trust crate",
+   "look": "A National Trust tool crate, padlocked. Through the slats: a strimmer, a bag of sheep nuts, and a tin of grey gloss paint with the lid hammered down hard."
+  },
+  {
+   "kind": "poster2",
+   "pos": [
+    44,
+    24.5
+   ],
+   "name": "Trust notice",
+   "look": [
+    [
+     "player",
+     "CULVER BATTERY. 1906 - 1956. TUNNELS CLOSED FOR SAFETY. Someone has scratched the second S off SAFETY."
+    ],
+    [
+     "teddy",
+     "Tunnels closed for safet. Checks out."
+    ]
+   ]
+  },
+  {
+   "kind": "pillar_box",
+   "pos": [
+    33,
+    23.5
+   ],
+   "name": "Pillar box",
+   "look": "A pillar box with a G R on it, on a cliff, for a garrison that left in 1956. The collection plate says ONE A DAY. There is a letter in it."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    43.5,
+    27.5
+   ],
+   "name": "Bench",
+   "look": [
+    [
+     "player",
+     "A bench facing the sea. Somebody has written in marker on the slats: THEY ARE STILL DOWN THERE. Somebody else has written: THE SHEEP?"
+    ],
+    [
+     "elijah",
+     "Not the sheep."
+    ]
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    48,
+    23.5
+   ]
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    47,
+    17.5
+   ]
+  },
+  {
+   "kind": "antenna",
+   "pos": [
+    47,
+    9
+   ],
+   "name": "Aerial mast",
+   "look": [
+    [
+     "june",
+     "A VHF whip and a long wire, guyed three ways against the wind. Marine band and something else. Something lower."
+    ],
+    [
+     "player",
+     "The guy wires are singing."
+    ]
+   ]
+  },
+  {
+   "kind": "flag",
+   "pos": [
+    41,
+    10.5
+   ],
+   "name": "Flagstaff",
+   "look": "A flagstaff with no flag; the halyard is cleated and the storm cone is hoisted, point down. The gale warning. It's been up all week."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    47,
+    12.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    42,
+    14.6
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    47,
+    16.5
+   ],
+   "name": "Coastguard Land Rover",
+   "look": [
+    [
+     "player",
+     "A Land Rover with COASTGUARD on the door and a dent in the wing shaped like a gatepost."
+    ],
+    [
+     "teddy",
+     "They drive on the left and park in the middle. I've been taking notes."
+    ]
+   ]
+  },
+  {
+   "kind": "buoy",
+   "pos": [
+    50.5,
+    12
+   ],
+   "name": "Marker buoy",
+   "look": "A marker buoy hauled up and left on the slab for painting. Nobody has painted it. The seagull has."
+  }
+ ],
+ "npcs": [
+  {
+   "id": "cd_warden",
+   "name": "Hazel Dyer",
+   "pos": [
+    21,
+    12.5
+   ],
+   "facing": "down",
+   "sprite": "nt_warden",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "cd_shepherd",
+   "name": "Alf Mew",
+   "pos": [
+    14,
+    22.5
+   ],
+   "facing": "left",
+   "sprite": "shepherd",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "cd_coastguard",
+   "name": "Ray Sturdy",
+   "pos": [
+    46,
+    13.5
+   ],
+   "facing": "right",
+   "sprite": "coastguard",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "cd_walker",
+   "name": "A walker in a cagoule",
+   "pos": [
+    26,
+    15.5
+   ],
+   "facing": "up",
+   "sprite": "holidaymaker",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "cd_walker2",
+   "name": "A walker, soaked",
+   "pos": [
+    10,
+    40.5
+   ],
+   "facing": "left",
+   "sprite": "holidaymaker2",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "cd_kid",
+   "name": "A kid with a kite",
+   "pos": [
+    21,
+    15.5
+   ],
+   "facing": "right",
+   "sprite": "kid",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "cd_mod",
+   "name": "A lad on a scooter",
+   "pos": [
+    5,
+    38.5
+   ],
+   "facing": "down",
+   "sprite": "mod",
+   "when": [
+    "day"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "cd_cave_tone",
+   "name": "The cave is humming",
+   "pos": [
+    38,
+    47.8
+   ],
+   "prop": "clue_cold",
+   "text": "At the back of the cave, where the shingle is dry for an hour either side of low water, the air carries a tone. Three notes, a click like a dial turning, three notes again. It rises with the swell and the rock takes it up and holds it. June's meter finds a carrier here. There is no cable within a mile.",
+   "methods": {
+    "measure": "cd_cave_tone",
+    "photograph": "spoil",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    0,
+    36,
+    1,
+    8
+   ],
+   "to": "sandown_seafront",
+   "at": [
+    69,
+    16
+   ],
+   "name": "The seafront"
+  }
+ ],
+ "interiors": {
+  "clifftop_pub": {
+   "size": [
+    16,
+    10
+   ],
+   "floor": [
+    "wood_warm",
+    "wood_warm2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "bar_counter",
+     "pos": [
+      4,
+      3.2
+     ]
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      3.5,
+      1.7
+     ],
+     "name": "Optics",
+     "look": [
+      [
+       "player",
+       "Bell's, Gordon's, a Navy rum with a crust on the pourer, and a bottle of something green nobody has ordered since decimalisation."
+      ],
+      [
+       "teddy",
+       "Pints are bigger here. I've checked. Twice."
+      ]
+     ]
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      5.5,
+      1.7
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      2.5,
+      4.4
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      4,
+      4.4
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      5.5,
+      4.4
+     ]
+    },
+    {
+     "kind": "portrait_wall",
+     "pos": [
+      8,
+      1.5
+     ],
+     "name": "The regulars, 1973",
+     "look": [
+      [
+       "player",
+       "A framed photograph: nine men and a dog at this bar, August 1973, pint glasses raised. One of them is in a holiday-camp blazer and has his face turned away."
+      ],
+      [
+       "teddy",
+       "Everybody looks at the camera at a pub. That one's hiding."
+      ]
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      9.5,
+      1.6
+     ],
+     "name": "Dartboard",
+     "look": [
+      [
+       "player",
+       "A dartboard with the treble twenty worn through to the cork and a chalk scoreboard that says ALF 301 - HAZEL 0."
+      ],
+      [
+       "dale",
+       "Hazel's never played."
+      ],
+      [
+       "player",
+       "Hazel refuses to play. It's written underneath."
+      ]
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      11,
+      2.5
+     ],
+     "name": "Clock",
+     "look": "A brewery clock, ten minutes fast. Everybody knows it's ten minutes fast, so it's a clock that tells you what time it will be."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      12.5,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "Whitbread, May 1994. Bank holiday Monday ringed in biro: COACHES x 3. Tuesday: LIE DOWN."
+    },
+    {
+     "kind": "fireplace",
+     "pos": [
+      14,
+      2.1
+     ],
+     "name": "Fire",
+     "look": [
+      [
+       "player",
+       "A coal fire going in May, because the wind is coming through the walls. A tortoiseshell cat on the hearth, and a wet sheepdog as near to it as the cat allows."
+      ],
+      [
+       "ruth",
+       "That's the pecking order sorted, then."
+      ]
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      9,
+      5.5
+     ],
+     "name": "The regulars' table",
+     "look": "A round table with a brass plate: RESERVED, which it always is, for the same four men, who are not here, who are always here."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      8,
+      6.6
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      10,
+      4.6
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      13,
+      6
+     ],
+     "name": "Window table",
+     "look": [
+      [
+       "player",
+       "Salt, vinegar, brown sauce, and a laminated card: CULVER HAVEN - HIGHEST PUB ON THE ISLAND - DON'T FALL OFF."
+      ],
+      [
+       "miriam",
+       "Highest. That's doing some work in a sentence about a pub."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      12,
+      5.1
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      14,
+      7.1
+     ]
+    },
+    {
+     "kind": "jukebox",
+     "pos": [
+      15.5,
+      5.2
+     ],
+     "name": "Jukebox",
+     "look": [
+      [
+       "player",
+       "A jukebox with forty records, thirty-nine of them from before 1980. The fortieth is Wet Wet Wet, and someone has put a pin through the selection button."
+      ],
+      [
+       "june",
+       "Love Is All Around. Fifteen weeks at number one and counting. The pin is public health."
+      ]
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      1.5,
+      5.6
+     ],
+     "name": "Shell case",
+     "look": [
+      [
+       "player",
+       "A six-inch brass shell case from the battery, used as an umbrella stand. Three umbrellas, two walking sticks and a shepherd's crook."
+      ],
+      [
+       "dale",
+       "Still live, probably. The crook, I mean."
+      ]
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      1.5,
+      8.2
+     ],
+     "name": "Lost property",
+     "look": [
+      [
+       "player",
+       "A tea chest marked LOST. Scarves, one shoe, a child's bucket, a set of false teeth in a jam jar and a yellow sou'wester that is not, you check twice, a hat of any other kind."
+      ],
+      [
+       "teddy",
+       "The teeth have been here longer than the landlord. He's proud of them."
+      ]
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      15.5,
+      8.5
+     ],
+     "name": "Crisp boxes",
+     "look": "Boxes of crisps: Ready Salted, Cheese and Onion, Prawn Cocktail. Dale has opinions about prawn cocktail. Dale is keeping them to himself."
+    },
+    {
+     "kind": "rug_red",
+     "pos": [
+      9,
+      8.4
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "cd_pub_landlord",
+     "name": "Dennis Woolf",
+     "pos": [
+      4,
+      2.6
+     ],
+     "facing": "down",
+     "sprite": "pub_landlord"
+    },
+    {
+     "id": "cd_shepherd",
+     "name": "Alf Mew",
+     "pos": [
+      7,
+      5.8
+     ],
+     "facing": "right",
+     "sprite": "shepherd",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "cd_warden",
+     "name": "Hazel Dyer",
+     "pos": [
+      11.5,
+      7.3
+     ],
+     "facing": "down",
+     "sprite": "nt_warden",
+     "when": [
+      "dusk"
+     ]
+    },
+    {
+     "id": "cd_regulars",
+     "name": "The regulars",
+     "pos": [
+      10,
+      6.5
+     ],
+     "facing": "left",
+     "sprite": "regulars",
+     "when": [
+      "day",
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "cd_mod",
+     "name": "A lad on a scooter",
+     "pos": [
+      14.5,
+      4.6
+     ],
+     "facing": "left",
+     "sprite": "mod",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    },
+    {
+     "id": "cd_coach_party",
+     "name": "A coach party",
+     "pos": [
+      12,
+      8
+     ],
+     "facing": "up",
+     "sprite": "holidaymaker2",
+     "when": [
+      "day"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "cd_fancy_dress",
+     "name": "A photo behind the bar",
+     "pos": [
+      6.8,
+      2.2
+     ],
+     "prop": "clue_film",
+     "text": "Taped to the mirror behind the optics, a colour snapshot curling at the corners: the Culver Haven's fancy dress night. Eleven regulars in the bar, and one of them in a yellow cone hat two feet tall and a coat made of carpet samples, every colour there is. On the back in biro: NEW YEAR 74. LEN WON.",
+     "methods": {
+      "photograph": "cd_fancy_dress_photo",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "warden_hut": {
+   "size": [
+    10,
+    8
+   ],
+   "floor": [
+    "lino",
+    "lino2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "desk_wood",
+     "pos": [
+      3,
+      2.4
+     ],
+     "name": "Warden's desk",
+     "look": [
+      [
+       "player",
+       "A desk under the window: sheep counts in a ledger, a Trust rota, a mug that says WORLD'S OKAYEST WARDEN, and a tide table with every low water this week underlined."
+      ],
+      [
+       "miriam",
+       "She's underlined the ones in daylight. She's underlined ours."
+      ]
+     ]
+    },
+    {
+     "kind": "chair_office",
+     "pos": [
+      3,
+      3.6
+     ]
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      1.5,
+      1.9
+     ],
+     "name": "Incident files",
+     "look": [
+      [
+       "player",
+       "Three drawers: SHEEP, PEOPLE, BATTERY. The BATTERY drawer is the thinnest and it is locked. The PEOPLE drawer has a folder marked 1973 - LEVELS - SEE BATTERY."
+      ],
+      [
+       "teddy",
+       "See Battery. That's a cross-reference. She's cross-referenced it. Oh, I like her."
+      ]
+     ]
+    },
+    {
+     "kind": "pigeonholes",
+     "pos": [
+      6,
+      1.8
+     ],
+     "name": "Key board",
+     "pickup": "warden_key",
+     "look": [
+      [
+       "player",
+       "A board of hooks: ROVER, HUT, STRIMMER, GATE, and one brass key on a loop of baler twine labelled BATTERY - DO NOT - H.D. The DO NOT has no object either."
+      ],
+      [
+       "june",
+       "That one's oiled. The others aren't. She uses it."
+      ]
+     ]
+    },
+    {
+     "kind": "radio_set",
+     "pos": [
+      8.5,
+      2
+     ],
+     "name": "Radio",
+     "look": [
+      [
+       "june",
+       "A VHF handset on charge, tuned to Solent Coastguard on 16 and a working channel on 67. There's a third preset. It's blank."
+      ],
+      [
+       "player",
+       "Blank on the label. Not blank on the dial."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      4.5,
+      1.5
+     ],
+     "name": "Calendar",
+     "look": "National Trust, 1994. May: LAMBING DONE. BANK HOL - BEACH SIGNS UP. Every Thursday says MUM, with a little heart, and a train time."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      7.5,
+      1.6
+     ],
+     "name": "Trust poster",
+     "look": [
+      [
+       "player",
+       "CULVER DOWN: GEOLOGY. Chalk, flint, the Upper Greensand, and a cross-section of the Down with the battery tunnels drawn in dotted lines. Somebody has extended one dotted line in pencil, out under the sea, and written a question mark."
+      ],
+      [
+       "vera",
+       "A tunnel that goes where the map ends. The pencil is honest. The map is not."
+      ]
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      8.5,
+      4.2
+     ],
+     "name": "Bookcase",
+     "look": "Birds of Britain, Sheep Ailments, the Victoria County History (Hampshire and the Isle of Wight, vol. 5, stamped SANDOWN LIBRARY, overdue since 1987), and a child's book called THE MAN WHO WAS ALL COLOURS with the spine cracked open at the middle."
+    },
+    {
+     "kind": "basket",
+     "pos": [
+      1.5,
+      5.5
+     ],
+     "name": "Lamb basket",
+     "look": [
+      [
+       "player",
+       "A wicker basket by the stove with a towel and a feeding bottle. The lamb is out in the bicycle basket, apparently, where it can see things."
+      ],
+      [
+       "ruth",
+       "Spoiled rotten. Good."
+      ]
+     ]
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      6,
+      5.7
+     ],
+     "name": "Stove",
+     "look": "A Calor gas stove with a kettle on and a tin of Fray Bentos warming on the lid. The kettle has just boiled. The kettle is always just boiled."
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      8.5,
+      6.6
+     ],
+     "name": "Kit chest",
+     "look": [
+      [
+       "player",
+       "Rope, a throwing line, a first aid tin, flares in a tube, and a cardboard box of grey gloss paint, same brand as the battery door. Receipt dated 1986. Her first week."
+      ],
+      [
+       "miriam",
+       "The Trust paints over things. Note it. It's what Trusts do."
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "pos": [
+      3.5,
+      6.5
+     ],
+     "name": "Box of signs",
+     "look": "A box of laminated signs. BEACH CLOSED. PATH CLOSED. DOWN CLOSED. And one, hand-lettered: NOTHING TO SEE. GO HOME. It has never been used. It has been considered."
+    },
+    {
+     "kind": "rug_blue",
+     "pos": [
+      5,
+      4.9
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "cd_warden",
+     "name": "Hazel Dyer",
+     "pos": [
+      4,
+      4.4
+     ],
+     "facing": "down",
+     "sprite": "nt_warden",
+     "when": [
+      "morning",
+      "night"
+     ]
+    }
+   ]
+  },
+  "battery": {
+   "size": [
+    24,
+    6
+   ],
+   "floor": [
+    "concrete_dark",
+    "concrete_dark",
+    "tile_dark"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "battery_door",
+     "pos": [
+      2,
+      1.9
+     ],
+     "name": "The sealed door",
+     "look": [
+      [
+       "player",
+       "The steel door from the outside, seen from the inside. Grey gloss, and under the gloss in the torchlight, something scratched into the metal: a circle, a needle, no numbers."
+      ],
+      [
+       "vera",
+       "A dial with nothing to measure. Or everything."
+      ],
+      [
+       "miriam",
+       "Or a child with a nail, Vera."
+      ]
+     ]
+    },
+    {
+     "kind": "shell_rack",
+     "pos": [
+      5.5,
+      1.9
+     ],
+     "name": "Shell rack",
+     "look": [
+      [
+       "player",
+       "Steel racks for six-inch shells, empty since 1956. On the bottom rack, a row of sea shells, arranged by size."
+      ],
+      [
+       "ruth",
+       "Someone tidied. Someone small."
+      ]
+     ]
+    },
+    {
+     "kind": "shell_rack",
+     "pos": [
+      16.5,
+      1.9
+     ],
+     "name": "Shell rack",
+     "look": "A rack of empty cradles. In the dust on the top one, a sentence written with a finger, then crossed out with the same finger."
+    },
+    {
+     "kind": "graffiti",
+     "pos": [
+      13,
+      1.6
+     ],
+     "name": "Graffiti",
+     "look": [
+      [
+       "player",
+       "TA 1973 - WE WERE HERE, in white paint, and under it in a different hand: NOT ALL OF YOU."
+      ],
+      [
+       "teddy",
+       "Two authors. Second one's the writer."
+      ]
+     ]
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      4.5,
+      4.5
+     ],
+     "name": "Ammunition crate",
+     "look": [
+      [
+       "player",
+       "An ammunition crate, lid off. Inside: a Primus stove, a 1973 Radio Times, a torch with the battery leaked out, and a tin of greasepaint, Leichner No. 9, half used."
+      ],
+      [
+       "miriam",
+       "Greasepaint. In a gun battery. I'd like that in the file, please, in capitals."
+      ]
+     ]
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      9.5,
+      4.6
+     ],
+     "name": "Water butt",
+     "look": "An oil drum half full of water that came through the roof. Something lives in it, and it is only a newt, and you are still not putting your hand in."
+    },
+    {
+     "kind": "battery_door",
+     "pos": [
+      21.5,
+      1.9
+     ],
+     "name": "The far door",
+     "look": [
+      [
+       "player",
+       "A second steel door at the sea end, bolted from this side, with the sea audible through it. Through the gap under it the floor slopes down, not up. The cliff is up."
+      ],
+      [
+       "june",
+       "There's air moving under it. Steady. Not the wind: the wind gusts. This doesn't."
+      ],
+      [
+       "elijah",
+       "Don't open it. Not tonight. I'm asking."
+      ]
+     ]
+    },
+    {
+     "kind": "ladder",
+     "pos": [
+      19.5,
+      4.6
+     ],
+     "name": "Ventilator ladder",
+     "look": "An iron ladder up a brick shaft. Daylight at the top, very small, and a sheep looking down it."
+    },
+    {
+     "kind": "lumber",
+     "pos": [
+      16,
+      5.2
+     ],
+     "name": "Props",
+     "look": "Pit props, stacked, dry. Someone has chalked a tally on the top one: forty-one strokes in sevens, and a forty-second on its own."
+    },
+    {
+     "kind": "box",
+     "pos": [
+      12.5,
+      4.8
+     ]
+    },
+    {
+     "kind": "paper",
+     "pos": [
+      13,
+      5.3
+     ],
+     "name": "A Radio Times",
+     "look": [
+      [
+       "player",
+       "Radio Times, 11 to 17 August 1973. The Saturday evening page is folded back. SUMMERTIME SPECIAL, 7.30, and in the margin in pencil: SUNNYSIDE 8.15 - SACKED?"
+      ],
+      [
+       "teddy",
+       "Somebody wrote their own listing. And then their own ending."
+      ]
+     ]
+    }
+   ],
+   "npcs": [],
+   "clues": [
+    {
+     "id": "cd_tunnel_dials",
+     "name": "Dials on the wall",
+     "pos": [
+      10,
+      2.4
+     ],
+     "prop": "clue_glyph",
+     "text": "Forty feet of tunnel wall, floor to shoulder height, painted with dials. Household gloss, red and cream, each dial the size of a dinner plate with a needle and a reading, and no two readings the same. In the corner, small, where the paint has dripped: AUG 73. Behind the dials, through the wall, you can hear the sea. The children said the sea was behind the dials.",
+     "methods": {
+      "photograph": "cd_tunnel_dials_photo",
+      "bag": "spoil",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "coastguard": {
+   "size": [
+    10,
+    10
+   ],
+   "floor": [
+    "lino",
+    "lino2",
+    "tile_grey"
+   ],
+   "wall": "blue",
+   "props": [
+    {
+     "kind": "radio_set",
+     "pos": [
+      3,
+      1.9
+     ],
+     "name": "The set",
+     "look": [
+      [
+       "june",
+       "A marine VHF base station, a scanner, and a logbook with a pencil tied to it. Channel 16 open. The squelch is set high, which is what you do when there's something on the band you'd rather not hear."
+      ],
+      [
+       "player",
+       "The pencil has been chewed to the lead."
+      ]
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      5,
+      2.5
+     ],
+     "name": "Clock",
+     "look": "A ship's clock, correct to the second, and under it a tide clock, correct to the minute, and under that a sign: DON'T ASK ME, ASK THEM."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      6.5,
+      1.6
+     ],
+     "name": "Tide table",
+     "look": [
+      [
+       "player",
+       "May 1994 tide tables for Sandown Bay, and a chart of the point with the sea cave marked in red: CUT OFF AT HALF TIDE. DO NOT ENTER. Somebody enters. Somebody has drawn the inside."
+      ],
+      [
+       "dale",
+       "Fifty feet deep by that sketch. The chalk doesn't do fifty feet. Something cut it."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      8,
+      1.6
+     ],
+     "name": "Calendar",
+     "look": "RNLI, 1994. Bank holiday weekend: GALE WARNING - PIER CLOSED - COACH PARTY ON BEACH?? The question marks are heavy."
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      1.5,
+      1.9
+     ],
+     "name": "Logs",
+     "look": [
+      [
+       "player",
+       "Station logs by year, 1961 to date. 1973 is thinner than the rest and the drawer runs easier, the way a drawer does when somebody opens it a lot."
+      ],
+      [
+       "teddy",
+       "Somebody reads 1973. Somebody reads it like a novel."
+      ]
+     ]
+    },
+    {
+     "kind": "desk_grey",
+     "pos": [
+      5,
+      4.2
+     ],
+     "name": "Watch desk",
+     "look": "Binoculars, a kettle, a Daily Mirror with the crossword done in pen and the Sea Area forecast cut out and pinned to the blotter: WIGHT, SOUTHWEST GALE 8, RAIN, POOR."
+    },
+    {
+     "kind": "chair_office",
+     "pos": [
+      5,
+      5.5
+     ]
+    },
+    {
+     "kind": "coffee_maker",
+     "pos": [
+      9,
+      2.1
+     ],
+     "name": "Tea urn",
+     "look": [
+      [
+       "player",
+       "A tea urn, on. Tea the colour of the shingle. The milk is in a jug under a beaded doily against the flies there aren't, in a gale, on a cliff."
+      ],
+      [
+       "ruth",
+       "Her mother's doily. You can tell. Don't touch it."
+      ]
+     ]
+    },
+    {
+     "kind": "bookcase",
+     "pos": [
+      8.5,
+      4.3
+     ],
+     "name": "Manuals",
+     "look": "Reed's Almanac, the Admiralty List of Radio Signals, a Haynes manual for a Land Rover, and a hardback called THE SANDOWN LEVELS INCIDENT with a library stamp and a bookmark in the last chapter. The bookmark is a Sunnyside Holiday Camp dinner ticket."
+    },
+    {
+     "kind": "bed_single",
+     "pos": [
+      1.5,
+      7
+     ],
+     "name": "Watch bunk",
+     "look": "A bunk for the night watch. A blanket, a pillow, and on the wall above it a child's drawing, pinned: a man in a tall yellow hat, coloured in every felt-tip in the box. It isn't signed. It's dated: 1973."
+    },
+    {
+     "kind": "scanner",
+     "pos": [
+      1.5,
+      2.9
+     ]
+    },
+    {
+     "kind": "phone",
+     "pos": [
+      7,
+      3.9
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      9.5,
+      8.5
+     ]
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      6.5,
+      8.5
+     ],
+     "name": "Flare locker",
+     "look": [
+      [
+       "player",
+       "A flare locker, padlocked, and a tally chalked on the lid: 12 IN. Eleven in."
+      ],
+      [
+       "dale",
+       "One's been fired. Recently. The chalk's fresh."
+      ]
+     ]
+    },
+    {
+     "kind": "rug_blue",
+     "pos": [
+      5,
+      7.3
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "cd_coastguard",
+     "name": "Ray Sturdy",
+     "pos": [
+      6.5,
+      6
+     ],
+     "facing": "left",
+     "sprite": "coastguard",
+     "when": [
+      "day",
+      "dusk",
+      "night"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "cd_radio_dials",
+     "name": "The band is full of dial tones",
+     "pos": [
+      3.5,
+      3.1
+     ],
+     "prop": "clue_glow",
+     "night": 2,
+     "text": "Ray has the squelch wound up to the stop, and still it comes through: every channel between 156 and 162 megahertz carries a dial tone. The steady purr of a telephone off its hook, and none of them is a telephone, and marine VHF does not carry telephones. Niton hears nothing. The scanner hears all twelve at once, and under them, the click of something being turned.",
+     "methods": {
+      "measure": "cd_dial_recording",
+      "photograph": "spoil",
+      "bag": "spoil",
+      "cast": "spoil"
+     }
+    },
+    {
+     "id": "cd_radio_log",
+     "name": "The traffic log, open on the desk",
+     "pos": [
+      4.5,
+      4.5
+     ],
+     "prop": "paper",
+     "text": "The station traffic log, open at tonight, in Ray's capitals. 2258: NITON CH 16 ROUTINE RADIO CHECK. 2300: ACKNOWLEDGED LOUD AND CLEAR. 2301: NOISE ON BAND - ??. The same minute. A routine check from the main station, right when the noise started, and the pencil pressed hard enough to go through to tomorrow.",
+     "methods": {
+      "measure": "cd_channel_check",
+      "photograph": "spoil",
+      "bag": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  }
+ }
+}

@@ -18,6 +18,9 @@ var _mode := "intro"      # intro, menu, event, event_menu, result, drive, radio
 var _event: Dictionary = {}
 var _options: Array = []
 var _road_kind := "highway"
+var _travel_mode := "car"     # car, plane, train, hovercraft, ferry: the stop's "mode"
+var _scene_key := ""          # which strip of scenery is built
+var _choice_hours := 1.0
 var _speed := 0.0
 var _world: Node2D
 var _strips: Array = []
@@ -57,41 +60,99 @@ func _ready() -> void:
 func _build_world() -> void:
 	_world = Node2D.new()
 	add_child(_world)
-	var pattern := {"size": [20, 12], "ground": "snow",
-		"fills": [{"rect": [0, 5, 20, 4], "tiles": "asphalt"}, {"rect": [0, 7, 20, 1], "tiles": "asphalt_line", "every": 2},
-			{"rect": [0, 4, 20, 1], "tiles": "gravel"}, {"rect": [0, 9, 20, 1], "tiles": "gravel"}],
-		"props": [{"kind": "pine_snow", "pos": [2, 3.6]}, {"kind": "tree_bare", "pos": [9, 3.2]}, {"kind": "pine_snow2", "pos": [15, 3.9]},
-			{"kind": "fence_h", "pos": [5, 11.5]}, {"kind": "pine_snow", "pos": [12, 11.8]}, {"kind": "rock_cliff", "pos": [18, 11.4]}, {"kind": "mailbox", "pos": [7, 10.3]}]}
+	var cam := Camera2D.new()
+	cam.position = Vector2(10 * T, 5.6 * T)
+	cam.limit_left = 0
+	cam.limit_top = 0
+	_world.add_child(cam)
+	cam.make_current()
+	_build_scenery()
+
+
+## The strip of scenery for the stop's mode of travel and the leg's season, rebuilt when it changes.
+func _build_scenery() -> void:
+	var st := _stop_data()
+	_travel_mode = st.get("mode", "car")
+	var season: String = leg.get("season", "winter")
+	var key := _travel_mode + ":" + season
+	if key == _scene_key:
+		return
+	_scene_key = key
+	for s in _strips:
+		s.queue_free()
+	_strips = []
+	if _wagon:
+		_wagon.queue_free()
+	if _snow:
+		_snow.queue_free()
+		_snow = null
+	var pattern: Dictionary
+	var vehicle := "wagon"
+	var vy := 7.6 * T
+	match _travel_mode:
+		"plane":
+			pattern = {"size": [20, 12], "ground": "sky", "fills": [{"rect": [0, 9, 20, 3], "tiles": ["sea_deep", "sea_deep2"]}],
+				"scatter": [{"rect": [0, 0, 20, 8], "tiles": ["cloud"], "chance": 0.05}],
+				"props": [{"kind": "cloud_big", "pos": [3, 4]}, {"kind": "cloud_big", "pos": [14, 2.5]}, {"kind": "cloud_big", "pos": [9, 7]}, {"kind": "cloud_big", "pos": [18, 5]}]}
+			vehicle = "jet"
+			vy = 5.4 * T
+		"train":
+			pattern = {"size": [20, 12], "ground": "grass",
+				"fills": [{"rect": [0, 7, 20, 1], "tiles": "rail"}, {"rect": [0, 6, 20, 1], "tiles": ["gravel", "gravel2"]}, {"rect": [0, 8, 20, 1], "tiles": ["gravel", "gravel2"]}],
+				"scatter": [{"rect": [0, 0, 20, 6], "tiles": ["grass_tuft", "grass_tuft2"], "chance": 0.15}],
+				"props": [{"kind": "tree_round", "pos": [3, 4.2]}, {"kind": "bush_big", "pos": [11, 5.4]}, {"kind": "tree_summer", "pos": [16, 3.9]}, {"kind": "lamp_post_off", "pos": [7, 5.9]},
+					{"kind": "fence_h", "pos": [5, 10.5]}, {"kind": "bush", "pos": [13, 10.2]}, {"kind": "tree_summer2", "pos": [18, 11.8]}]}
+			vehicle = "tube_carriage"
+			vy = 7.7 * T
+		"hovercraft", "ferry":
+			pattern = {"size": [20, 12], "ground": "sea",
+				"fills": [{"rect": [0, 0, 20, 3], "tiles": ["sea_deep", "sea_deep2"]}],
+				"props": [{"kind": "wave", "pos": [3, 4]}, {"kind": "wave", "pos": [12, 5.5]}, {"kind": "wave", "pos": [8, 10]}, {"kind": "wave", "pos": [17, 9]}, {"kind": "buoy", "pos": [15, 3.2]}, {"kind": "gull", "pos": [6, 2]}]}
+			vehicle = _travel_mode
+			vy = 7.2 * T
+		_:
+			if season == "summer":
+				pattern = {"size": [20, 12], "ground": "grass",
+					"fills": [{"rect": [0, 5, 20, 4], "tiles": "asphalt"}, {"rect": [0, 7, 20, 1], "tiles": "asphalt_line", "every": 2},
+						{"rect": [0, 4, 20, 1], "tiles": ["earth", "earth2"]}, {"rect": [0, 9, 20, 1], "tiles": ["earth", "earth2"]}],
+					"scatter": [{"rect": [0, 0, 20, 4], "tiles": ["grass_tuft", "grass_tuft2"], "chance": 0.2}],
+					"props": [{"kind": "tree_summer", "pos": [2, 3.6]}, {"kind": "bush_big", "pos": [9, 3.6]}, {"kind": "tree_round", "pos": [15, 3.9]},
+						{"kind": "fence_h", "pos": [5, 11.5]}, {"kind": "tree_summer2", "pos": [12, 11.8]}, {"kind": "bush", "pos": [18, 10.4]}, {"kind": "mailbox", "pos": [7, 10.3]}]}
+			else:
+				pattern = {"size": [20, 12], "ground": "snow",
+					"fills": [{"rect": [0, 5, 20, 4], "tiles": "asphalt"}, {"rect": [0, 7, 20, 1], "tiles": "asphalt_line", "every": 2},
+						{"rect": [0, 4, 20, 1], "tiles": "gravel"}, {"rect": [0, 9, 20, 1], "tiles": "gravel"}],
+					"props": [{"kind": "pine_snow", "pos": [2, 3.6]}, {"kind": "tree_bare", "pos": [9, 3.2]}, {"kind": "pine_snow2", "pos": [15, 3.9]},
+						{"kind": "fence_h", "pos": [5, 11.5]}, {"kind": "pine_snow", "pos": [12, 11.8]}, {"kind": "rock_cliff", "pos": [18, 11.4]}, {"kind": "mailbox", "pos": [7, 10.3]}]}
 	for i in 3:
 		var rng := RandomNumberGenerator.new()
-		rng.seed = 11
+		rng.seed = 11 + i
 		var strip := Node2D.new()
 		strip.position = Vector2(i * 20 * T, 0)
 		_world.add_child(strip)
 		MapBuilder.build_district(strip, pattern, Vector2i.ZERO, rng)
 		_strips.append(strip)
-	_wagon = MapBuilder.prop(_world, "wagon", Vector2(10 * T, 7.6 * T))
+	_wagon = MapBuilder.prop(_world, vehicle, Vector2(10 * T, vy))
+	_wagon.set_meta("vy", vy)
 	_wagon.z_index = 10
-	var cam := Camera2D.new()
-	cam.position = Vector2(10 * T, 5.6 * T)
-	add_child(cam)
-	_snow = CPUParticles2D.new()
-	_snow.amount = 160
-	_snow.lifetime = 6.0
-	_snow.preprocess = 6.0
-	_snow.emission_shape = CPUParticles2D.EMISSION_SHAPE_RECTANGLE
-	_snow.emission_rect_extents = Vector2(400, 20)
-	_snow.direction = Vector2(-0.6, 1)
-	_snow.spread = 10
-	_snow.gravity = Vector2(0, 14)
-	_snow.initial_velocity_min = 30
-	_snow.initial_velocity_max = 50
-	var img := Image.create(2, 2, false, Image.FORMAT_RGBA8)
-	img.fill(Color(0.95, 0.97, 1.0, 0.9))
-	_snow.texture = ImageTexture.create_from_image(img)
-	_snow.position = Vector2(10 * T, -40)
-	_snow.z_index = 50
-	add_child(_snow)
+	if _travel_mode == "car" and season != "summer":
+		_snow = CPUParticles2D.new()
+		_snow.amount = 160
+		_snow.lifetime = 6.0
+		_snow.preprocess = 6.0
+		_snow.emission_shape = CPUParticles2D.EMISSION_SHAPE_RECTANGLE
+		_snow.emission_rect_extents = Vector2(400, 20)
+		_snow.direction = Vector2(-0.6, 1)
+		_snow.spread = 10
+		_snow.gravity = Vector2(0, 14)
+		_snow.initial_velocity_min = 30
+		_snow.initial_velocity_max = 50
+		var img := Image.create(2, 2, false, Image.FORMAT_RGBA8)
+		img.fill(Color(1, 1, 1, 0.9))
+		_snow.texture = ImageTexture.create_from_image(img)
+		_snow.position = Vector2(10 * T, -40)
+		_snow.z_index = 50
+		add_child(_snow)
 
 
 func _process(delta: float) -> void:
@@ -109,7 +170,7 @@ func _process(delta: float) -> void:
 			s.position.x -= _speed * delta
 			if s.position.x <= -20 * T:
 				s.position.x += 60 * T
-		_wagon.position.y = 7.6 * T + sin(Time.get_ticks_msec() / 60.0) * 0.6
+		_wagon.position.y = float(_wagon.get_meta("vy", 7.6 * T)) + sin(Time.get_ticks_msec() / (160.0 if _travel_mode == "plane" else 60.0)) * (2.0 if _travel_mode in ["hovercraft", "ferry"] else 0.6)
 	_refresh_hud()
 	if _mode == "radio":
 		if Input.is_action_just_pressed("cancel") or Input.is_action_just_pressed("interact"):
@@ -142,6 +203,7 @@ func _stop_data() -> Dictionary:
 
 func _intro() -> void:
 	_mode = "intro"
+	_build_scenery()
 	var st := _stop_data()
 	var lines := [["narrator", "%s. %s" % [st.get("name", ""), st.get("text", "")]]]
 	if st.has("sights"):
@@ -153,37 +215,70 @@ func _menu() -> void:
 	_mode = "menu"
 	var st := _stop_data()
 	var last: bool = stop >= leg.get("stops", []).size() - 1
-	var opts := [
-		{"label": "%s: %s (%d hour%s)" % ["Into town" if last else "Highway", st.get("highway", "the highway"), HIGHWAY_HOURS, ""], "enabled": true},
-		{"label": "Back road: %s (%d hours, slower, more happens)" % [st.get("back", "the back way"), BACK_HOURS], "enabled": true},
-		{"label": "Scan the radio", "enabled": true},
-		{"label": "Fill the tank ($%d)" % ((TANK - GameState.gas) * GAS_PRICE), "enabled": GameState.gas < TANK and GameState.cash >= GAS_PRICE},
-		{"label": "Stop for the night (motel $18, or the back seat)", "enabled": true},
-	]
-	_options = opts
-	_box.show_menu("Stop %d of %d · %s · gas %d/%d · $%d" % [stop + 1, leg.get("stops", []).size(), _clock(), GameState.gas, TANK, GameState.cash], leg.get("name", "The road"), opts)
+	var opts := []
+	_options = []
+	if st.has("choices"):
+		for ch in st.choices:
+			var cost: int = int(ch.get("cash", 0))
+			opts.append({"label": "%s (%s hour%s%s)" % [ch.get("text", "On"), _hours_text(float(ch.get("hours", 1))), "" if float(ch.get("hours", 1)) == 1.0 else "s", ", $%d" % cost if cost > 0 else ""], "enabled": GameState.cash >= cost})
+			_options.append({"kind": "choice", "choice": ch})
+	elif _travel_mode != "car":
+		var hours := float(st.get("hours", 1))
+		opts.append({"label": "%s: %s (%s hour%s)" % ["Arrive" if last else "Carry on", st.get("highway", "onward"), _hours_text(hours), "" if hours == 1.0 else "s"], "enabled": true})
+		_options.append({"kind": "choice", "choice": {"hours": hours}})
+	else:
+		opts.append({"label": "%s: %s (%d hour%s)" % ["Into town" if last else "Highway", st.get("highway", "the highway"), HIGHWAY_HOURS, ""], "enabled": true})
+		_options.append({"kind": "highway"})
+		opts.append({"label": "Back road: %s (%d hours, slower, more happens)" % [st.get("back", "the back way"), BACK_HOURS], "enabled": true})
+		_options.append({"kind": "back"})
+	if _travel_mode != "plane":
+		opts.append({"label": "Scan the radio", "enabled": true})
+		_options.append({"kind": "radio"})
+	if _travel_mode == "car":
+		opts.append({"label": "Fill the tank ($%d)" % ((TANK - GameState.gas) * GAS_PRICE), "enabled": GameState.gas < TANK and GameState.cash >= GAS_PRICE})
+		_options.append({"kind": "gas"})
+		opts.append({"label": "Stop for the night (motel $18, or the back seat)", "enabled": true})
+		_options.append({"kind": "rest"})
+	var title := "Stop %d of %d · %s · $%d" % [stop + 1, leg.get("stops", []).size(), _clock(), GameState.cash]
+	if _travel_mode == "car":
+		title = "Stop %d of %d · %s · gas %d/%d · $%d" % [stop + 1, leg.get("stops", []).size(), _clock(), GameState.gas, TANK, GameState.cash]
+	_box.show_menu(title, leg.get("name", "The road"), opts)
+
+
+func _hours_text(h: float) -> String:
+	return str(int(h)) if h == floor(h) else ("%.1f" % h)
 
 
 func _on_option(i: int) -> void:
 	match _mode:
 		"menu":
-			match i:
-				0:
+			var o: Dictionary = _options[i]
+			match o.kind:
+				"highway":
 					_road_kind = "highway"
+					_choice_hours = HIGHWAY_HOURS
 					_set_off()
-				1:
+				"back":
 					_road_kind = "back"
+					_choice_hours = BACK_HOURS
 					_set_off()
-				2:
+				"choice":
+					_road_kind = o.choice.get("road", _travel_mode)
+					_choice_hours = float(o.choice.get("hours", 1))
+					GameState.cash -= int(o.choice.get("cash", 0))
+					if o.choice.has("gives"):
+						_apply(o.choice.gives)
+					_set_off()
+				"radio":
 					_open_radio()
-				3:
+				"gas":
 					var units: int = TANK - GameState.gas
 					var cost: int = min(units * GAS_PRICE, GameState.cash)
 					GameState.gas += int(cost / GAS_PRICE)
 					GameState.cash -= cost
 					_toast("Filled up. $%d left." % GameState.cash)
 					_menu()
-				4:
+				"rest":
 					_rest()
 		"event_menu":
 			_pick_event_option(i)
@@ -233,7 +328,7 @@ func _advance(hours: float) -> void:
 
 ## Picks the road, draws the card for it, or just drives when nothing happens.
 func _set_off() -> void:
-	if GameState.gas <= 0:
+	if _travel_mode == "car" and GameState.gas <= 0:
 		_mode = "dry"
 		GameState.gas = 2
 		GameState.cash = max(0, GameState.cash - 15)
@@ -270,7 +365,7 @@ func _draw_event() -> Dictionary:
 				continue
 			ok.append(id)
 		# the highway is quiet: a card only half the time
-		if not ok.is_empty() and (_road_kind == "back" or rng.randf() < 0.5):
+		if not ok.is_empty() and (_road_kind != "highway" or rng.randf() < 0.5):
 			var id: String = ok[rng.randi_range(0, ok.size() - 1)]
 			seen.append(id)
 			GameState.flags["road_seen"] = seen
@@ -359,8 +454,9 @@ func _drive() -> void:
 	_box.close()
 	_mode = "drive"
 	_drive_left = DRIVE_SECONDS
-	GameState.gas = max(0, GameState.gas - 1)
-	_advance(HIGHWAY_HOURS if _road_kind == "highway" else BACK_HOURS)
+	if _travel_mode == "car":
+		GameState.gas = max(0, GameState.gas - 1)
+	_advance(_choice_hours)
 
 
 func _next_stop() -> void:
@@ -453,9 +549,9 @@ func _arrive() -> void:
 		var phase := Investigation.phase(time_of_day)
 		if phase == "night":
 			GameState.dread += 1
-			lines.append(["narrator", "You come into %s after dark. The town is shut and the river is loud. Dread rises." % GameData.cases[to].get("name", to)])
+			lines.append(["narrator", leg.get("arrive_night", "You come into %s after dark. The town is shut and the river is loud. Dread rises.") % GameData.cases[to].get("name", to)])
 		else:
-			lines.append(["narrator", "You come into %s at %s." % [GameData.cases[to].get("name", to), _clock()]])
+			lines.append(["narrator", leg.get("arrive_day", "You come into %s at %s.") % [GameData.cases[to].get("name", to), _clock()]])
 	else:
 		lines.append(["narrator", "Sutton. The Office is dark but the porch light is on, which means Dot left it on for you."])
 	_box.show_lines(lines)
@@ -530,7 +626,10 @@ func _build_ui() -> void:
 
 
 func _refresh_hud() -> void:
-	_hud.text = "%s   %s   Gas %d/%d   $%d   Composure %d   Dread %d" % [leg.get("name", "The road"), _clock(), GameState.gas, TANK, GameState.cash, GameState.composure, GameState.dread]
+	if _travel_mode == "car":
+		_hud.text = "%s   %s   Gas %d/%d   $%d   Composure %d   Dread %d" % [leg.get("name", "The road"), _clock(), GameState.gas, TANK, GameState.cash, GameState.composure, GameState.dread]
+	else:
+		_hud.text = "%s   %s   $%d   Composure %d   Dread %d" % [leg.get("name", "The road"), _clock(), GameState.cash, GameState.composure, GameState.dread]
 	var names := []
 	var stops: Array = leg.get("stops", [])
 	for i in stops.size():

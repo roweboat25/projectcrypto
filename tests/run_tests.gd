@@ -22,6 +22,7 @@ func _initialize() -> void:
 	errors += _art_checks(data)
 	errors += _script_checks()
 	errors += _office_checks(data)
+	errors += _tide_checks(data)
 	for e in errors:
 		printerr("FAIL: " + e)
 	print("Tests: %s (%d classes, %d foes, %d cases, %d maps)" % ["PASS" if errors.is_empty() else "FAIL", data.classes.size(), data.foes.size(), data.cases.size(), data.maps.size()])
@@ -32,6 +33,42 @@ func _initialize() -> void:
 
 
 ## Gear, shops, verdicts and the Office budget.
+## The tide clock and the gate conditions Sandown adds: tide, signs and all.
+func _tide_checks(data) -> Array[String]:
+	var errors: Array[String] = []
+	var state = load("res://scripts/autoload/game_state.gd").new()
+	state.party = ["player", "miriam"]
+	state.player_class = "skeptic"
+	state.case_id = "tidetest"
+	data.cases["tidetest"] = {"id": "tidetest", "name": "Tide test", "tide": {"low_at": 6.0, "period": 12.0},
+		"trail": [{"night": 1, "clues": ["a"]}, {"night": 1, "clues": ["b"]}, {"night": 2, "clues": ["c"]}],
+		"evidence": {"a": {"lean": "hoax"}, "b": {"lean": "hoax"}, "c": {"lean": "hoax"}},
+		"gates": {"beach": {"opens": [{"tide": "low"}]}, "hut": {"opens": [{"all": [{"signs": 2}, {"phase": ["dusk", "night"]}]}]}}}
+	# time_of_day 0 is 6 AM: low water on day 1
+	if Investigation.tide_state(data, state, 0.0) != "low":
+		errors.append("6 AM day 1 should be low water, got %s" % Investigation.tide_state(data, state, 0.0))
+	if Investigation.tide_state(data, state, 0.25) != "high":
+		errors.append("noon should be high water with a 12 hour period, got %s" % Investigation.tide_state(data, state, 0.25))
+	if Investigation.tide_state(data, state, 0.125) != "rising":
+		errors.append("9 AM should be rising, got %s" % Investigation.tide_state(data, state, 0.125))
+	state.day = 2
+	if Investigation.tide_state(data, state, 0.0) != "low":
+		errors.append("the tide should keep its cycle across days")
+	if not Investigation.gate_open(data, state, "beach", 0.0) or Investigation.gate_open(data, state, "beach", 0.25):
+		errors.append("the tide gate should open at low water only")
+	if Investigation.gate_open(data, state, "hut", 0.5):
+		errors.append("the hut should stay hidden with no signs")
+	state.evidence = ["a", "b"]
+	if Investigation.signs_logged(data, state) != 2:
+		errors.append("two signs should be logged, got %d" % Investigation.signs_logged(data, state))
+	if Investigation.gate_open(data, state, "hut", 0.25):
+		errors.append("the hut needs dusk as well as the signs")
+	if not Investigation.gate_open(data, state, "hut", 0.5):
+		errors.append("the hut should appear at dusk with two signs")
+	data.cases.erase("tidetest")
+	return errors
+
+
 func _office_checks(data) -> Array[String]:
 	var errors: Array[String] = []
 	var state = load("res://scripts/autoload/game_state.gd").new()

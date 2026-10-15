@@ -1,0 +1,61 @@
+{
+ "_doc": "Sandown, Isle of Wight. The 1973 case: two children on the Levels met a thing in a yellow pointed hat that 'was all colours' and took them into a hut full of dials. In May 1994 the children are adults and the town is on its bank holiday. Hidden truth: hoax, a holiday-camp entertainer's act. The tide is the clock: the beach under Culver, the slipway and a cave open at low water. District content lives in data/cases/sandown/*.json.",
+ "id": "sandown",
+ "name": "Sandown",
+ "place": "Sandown, Isle of Wight",
+ "original_year": 1973,
+ "visit_year": 1994,
+ "truth": "hoax",
+ "days": 4,
+ "tide": {"low_at": 3.0, "period": 12.4},
+ "locations": {
+  "pier": "Sandown Pier",
+  "seafront": "The seafront",
+  "guest_house": "Seaview Guest House",
+  "mermaid": "The Mermaid Arms",
+  "station": "Sandown station",
+  "levels": "The Levels",
+  "meadow": "The meadow by the brook",
+  "camp": "Sunnyside Holiday Camp",
+  "culver": "Culver Down",
+  "battery": "Culver Battery",
+  "hut": "The Hut"
+ },
+ "observations": [
+  {"text": "Yellow pointed hat, taller than a man with it on", "lean": "hoax"},
+  {"text": "It is all colours. The colour keeps changing", "lean": "unexplained"},
+  {"text": "A voice with no breath in it", "lean": "unexplained"},
+  {"text": "Berries in a ring, one of every colour", "lean": "natural"},
+  {"text": "Dials. Walls of dials, and the sea behind them", "lean": "unexplained"},
+  {"text": "It is laughing. It thinks this is a show", "lean": "hoax"}
+ ],
+ "speech_tags": ["rapport", "empathy", "press", "lore", "logic", "tech", "bluff"],
+ "districts": {
+  "seafront": {"name": "Seafront and Pier", "map": "sandown_seafront"},
+  "town": {"name": "Town", "map": "sandown_town"},
+  "levels": {"name": "The Levels", "map": "sandown_levels"},
+  "lake": {"name": "Lake and the holiday camp", "map": "sandown_lake"},
+  "culver": {"name": "Culver Down", "map": "sandown_culver"}
+ },
+ "gates": {
+  "golf_links": {"name": "The golf links", "locked": "MEMBERS AND GUESTS ONLY. A man in a club tie looks at your shoes.",
+   "opens": [{"item": "guest_pass"}, {"flag": "mower_helped"}, {"check": {"voice": "rapport", "difficulty": 9, "prompt": "Talk your way onto the links"}}]},
+  "theatre_backstage": {"name": "Backstage", "locked": "The pass door is locked and the stage manager has the only key.",
+   "opens": [{"trust": {"npc": "sf_stage_mgr", "level": 3}}, {"flag": "press_pass_bluffed"}, {"check": {"voice": "bluff", "difficulty": 10, "prompt": "Bluff a press pass"}}]},
+  "costume_store": {"name": "The costume store", "locked": "A padlock, new, on a door that is not.",
+   "opens": [{"item": "camp_office_key"}, {"check": {"voice": "logic", "difficulty": 10, "prompt": "Pick the padlock"}}]},
+  "battery_tunnels": {"name": "The battery tunnels", "locked": "A steel door, painted shut, with a National Trust padlock and a sigil under the paint.",
+   "opens": [{"item": "warden_key"}, {"all": [{"class": "occultist"}, {"item": "salt"}]}, {"check": {"voice": "lore", "difficulty": 10, "prompt": "Tell the warden the battery's real history"}}]},
+  "cliff_beach": {"name": "The beach under the cliffs", "locked": "The sea is up to the chalk. There is no beach to walk until the tide turns.",
+   "opens": [{"tide": "low"}]},
+  "the_hut": {"name": "The Hut", "locked": "There is nothing here but reeds. There was nothing here this morning either.",
+   "opens": [{"all": [{"signs": 3}, {"phase": ["dusk", "night"]}]}]},
+  "hut_inner_door": {"name": "The inner door", "locked": "No handle. A seam in the wall of dials.",
+   "opens": [{"flag": "hut_dials"}]}
+ },
+ "leads": [],
+ "witnesses": {},
+ "evidence": {},
+ "contradictions": {},
+ "trail": []
+}

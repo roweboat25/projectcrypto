@@ -1,0 +1,837 @@
+{
+ "_doc": "Seafront and Pier fragment for the Sandown case: the pier witnesses (Colin Rudd, the stage manager, the arcade, the cafe, the deckchair man, the Punch and Judy professor, the zoo keeper), Penrose on the pier at night, the 1973 programme backstage, the slipway ring and the zoo's three o'clock. No trail sign here. Ids are prefixed sf_ except colin.",
+ "locations": {
+  "pavilion": "Sandown Pier pavilion",
+  "backstage": "Pier pavilion, backstage",
+  "beach_cafe": "The Dunes beach cafe",
+  "deckchair_hut": "Wilf's deckchair hut",
+  "zoo": "Sandown Zoo, Yaverland"
+ },
+ "items": {
+  "pier_penny": {
+   "name": "A notched 1973 penny",
+   "text": "An old penny from the pier falls, 1973, with a notch filed in the rim so someone could find it again. +1 Intuition.",
+   "kind": "charm",
+   "tier": "local",
+   "case": "sandown",
+   "stat": {
+    "intuition": 1
+   }
+  }
+ },
+ "leads": [
+  {
+   "id": "colin",
+   "location": "pier",
+   "title": "Colin Rudd, the change booth",
+   "speaker": "colin",
+   "dread": 0,
+   "lines": [
+    [
+     "colin",
+     "Ten pence. Go on, it's the same for everyone. May 1973, the Tuesday. Me and Fay Mallory, the meadow by the brook, after school."
+    ],
+    [
+     "colin",
+     "A man taller than a man in a yellow pointed hat, and he was all colours. He took us in a hut full of dials, walls of them, and the sea behind the dials. Then we were on the stile and it was tea time."
+    ],
+    [
+     "teddy",
+     "He said it like a bus timetable. Every stop in order."
+    ]
+   ],
+   "evidence": "colin_statement"
+  }
+ ],
+ "witnesses": {
+  "colin": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "colin_meadow",
+     "title": "Where it happened",
+     "gates": [
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "colin",
+       "The meadow by the brook, the Levels side, where the stile is. You go over the stile and the ground goes soft and that's where it was."
+      ],
+      [
+       "colin",
+       "There's a golf course there now, half of it. They put a fairway through the place I was taken, and nobody asked me."
+      ]
+     ]
+    },
+    {
+     "id": "colin_dials_sea",
+     "title": "The sea behind the dials",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "The Levels are a mile from the sea, Colin. What was behind the dials, exactly?"
+      }
+     ],
+     "lines": [
+      [
+       "colin",
+       "I know where the Levels are. There was a window where there wasn't a wall and the sea was in it, the right way up, and the light on it was the wrong time of day."
+      ],
+      [
+       "colin",
+       "Fay said after, it never moved. The sea. She was right. I didn't want her to be."
+      ],
+      [
+       "june",
+       "A sea that doesn't move is a picture of the sea."
+      ]
+     ],
+     "evidence": "colin_dials_sea"
+    },
+    {
+     "id": "colin_brylcreem",
+     "title": "What it smelt of",
+     "gates": [
+      {
+       "show": "sf_programme_1973"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 9,
+       "prompt": "You've told the hat and the colours a thousand times. Tell me the bit you leave out."
+      }
+     ],
+     "lines": [
+      [
+       "colin",
+       "...Brylcreem. It smelt of Brylcreem and wet wool, close up. I've never said that. Monsters don't smell of Brylcreem."
+      ],
+      [
+       "colin",
+       "My dad smelt of Brylcreem. Every man on the pier did. I was eight. I thought that's just what the world smelt of."
+      ],
+      [
+       "elijah",
+       "Thank you, Colin."
+      ]
+     ],
+     "evidence": "colin_brylcreem"
+    }
+   ]
+  },
+  "sf_stage_mgr": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "sf_stage_mgr_1973",
+     "title": "The 1973 summer season",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 8,
+       "prompt": "BREAK A LEG MO, 1973. You were here then."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "sf_stage_mgr",
+       "Assistant stage manager, nineteen, in love with the second comic. Variety bill, twice nightly, and Tuesdays the camp sent their entertainers over for the matinee. Yellowcoats. They did it for the coach parties."
+      ],
+      [
+       "sf_stage_mgr",
+       "The camp had a novelty act that year. Big set, cost us a fortune in nails. I had to strike it myself every Tuesday night."
+      ],
+      [
+       "teddy",
+       "A novelty act with a set. On Tuesdays."
+      ]
+     ],
+     "evidence": "sf_stage_mgr_1973"
+    },
+    {
+     "id": "sf_stage_mgr_programme",
+     "title": "The programme in the drawer",
+     "gates": [
+      {
+       "trust": 3
+      },
+      {
+       "check": "press",
+       "difficulty": 10,
+       "prompt": "There's a 1973 programme under the pins on your call board. I'd like it."
+      }
+     ],
+     "lines": [
+      [
+       "sf_stage_mgr",
+       "...You don't miss much. Here. The call board's had it twenty-one years, it can spare it."
+      ],
+      [
+       "sf_stage_mgr",
+       "Halfway down. Between Terry Dell and the soprano. Don't read it out. I know what it says."
+      ],
+      [
+       "miriam",
+       "The Yellow Man. A novelty act. By arrangement with Sunnyside Holiday Camp."
+      ]
+     ],
+     "evidence": "sf_programme_1973",
+     "flag": "stage_mgr_gave_programme"
+    },
+    {
+     "id": "sf_stage_mgr_set",
+     "title": "The dial room set",
+     "gates": [
+      {
+       "contradiction": "sf_set_match"
+      },
+      {
+       "show": "colin_dials_sea"
+      }
+     ],
+     "lines": [
+      [
+       "sf_stage_mgr",
+       "Flats painted with dials, floor to ceiling, and a cyc behind them with the sea on it. Lit from behind, it looked like a window. From the stalls it was the best thing on the bill."
+      ],
+      [
+       "sf_stage_mgr",
+       "It went back to the camp in September with the costume. I signed it out. RETURNED DAMAGED, I wrote, because the cyc came back with mud on it. Marsh mud. I never asked."
+      ],
+      [
+       "sf_stage_mgr",
+       "The boy described my set. He described it to the whole pier for ten pence a go, and I sold him his first pint, and I never said."
+      ],
+      [
+       "elijah",
+       "She's been carrying that a long way."
+      ]
+     ],
+     "evidence": "sf_stage_mgr_set",
+     "flag": "stage_mgr_confessed"
+    }
+   ]
+  },
+  "sf_arcade_man": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "sf_arcade_colin",
+     "title": "Ten pence a go",
+     "gates": [
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "sf_arcade_man",
+       "Colin? Best change-booth man on the south coast and I'd say it to his face. He's told that story to half of Birmingham. I put the sign up. He didn't argue."
+      ],
+      [
+       "sf_arcade_man",
+       "Don't ask him about Fay Mallory. I'm not telling you that for his sake. I'm telling you for yours."
+      ]
+     ]
+    },
+    {
+     "id": "sf_arcade_wizard",
+     "title": "The wizard at the falls",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 8,
+       "prompt": "Who else was in fancy dress on this pier in 1973?"
+      },
+      {
+       "show": "colin_statement"
+      }
+     ],
+     "lines": [
+      [
+       "sf_arcade_man",
+       "Summer of '73 the camp lot used to come in after the matinee and play the falls in costume, for the kiddies. Pirates, a gorilla, and a tall feller in a wizard's hat, yellow, down to here, with the sun and the moon on it."
+      ],
+      [
+       "sf_arcade_man",
+       "Never took it off. Not even for the gents. Couldn't tell you his name. You never can, with the novelty acts. That's the point of them."
+      ],
+      [
+       "dale",
+       "A wizard's hat. Yellow. On the pier. In 1973. And nobody thought to mention it for twenty-one years."
+      ],
+      [
+       "sf_arcade_man",
+       "Nobody asked, son."
+      ]
+     ],
+     "evidence": "sf_arcade_wizard"
+    }
+   ]
+  },
+  "sf_cafe_woman": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "sf_cafe_gossip",
+     "title": "What everyone knows",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "What's the word on the Rudd boy, Brenda?"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "sf_cafe_woman",
+       "Oh, everyone knows. Alf Rudd drank in the Mermaid, and he told that story as a joke for years, hut man and all, before the kiddies ever told it. He put them up to it. Wanted his name in the Echo."
+      ],
+      [
+       "sf_cafe_woman",
+       "Not that I'd say it to Colin. Lovely boy. Comes in for his tea and sits where he can't see the Levels."
+      ],
+      [
+       "miriam",
+       "A father who tells it as a joke, and children who tell it the same way. Let's not fall over that one too fast."
+      ]
+     ],
+     "evidence": "sf_cafe_gossip"
+    },
+    {
+     "id": "sf_cafe_tigers",
+     "title": "Three in the morning",
+     "gates": [
+      {
+       "trust": 1
+      },
+      {
+       "check": "empathy",
+       "difficulty": 7,
+       "prompt": "You've written TIGERS 3AM on your calendar four days running."
+      }
+     ],
+     "lines": [
+      [
+       "sf_cafe_woman",
+       "I live over the shop, and the zoo's at the end of the front, and every night this week at three they start. Roaring. The lemurs screaming. Then at four it stops like somebody shut a door."
+      ],
+      [
+       "sf_cafe_woman",
+       "Ray says it's the tide. I've lived here fifty-one years and the tide never bothered a tiger before."
+      ]
+     ]
+    },
+    {
+     "id": "sf_cafe_fay",
+     "title": "The woman at the window table",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "There's a cushion worn flat on the chair that faces the wall."
+      }
+     ],
+     "lines": [
+      [
+       "sf_cafe_woman",
+       "Thursdays. Fay Mallory. Tea and a Bakewell, back to the sea, never looks at the pier. She and Colin were like that, as kiddies. Now if he comes in while she's here, he goes out again."
+      ],
+      [
+       "sf_cafe_woman",
+       "Something was said. Nineteen eighty-five, about. I don't know what. I'd tell you if I did, love, I tell everyone everything."
+      ],
+      [
+       "ruth",
+       "That's the trouble with towns, dear. Everybody knows everything but the one thing."
+      ]
+     ]
+    }
+   ]
+  },
+  "sf_deckchair_man": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "sf_deckchair_chairs",
+     "title": "The chairs that turned",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "You were on this beach in 1973. The Tuesday."
+      },
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "You crossed out a whole afternoon in your ledger. What happened to the chairs?"
+      }
+     ],
+     "lines": [
+      [
+       "sf_deckchair_man",
+       "Hottest day of the year. Two hundred and twelve chairs out, every one facing the sea, because I set them so. Half four I come up from the hut and every chair on the beach is facing the Levels. Every one. The people still in them."
+      ],
+      [
+       "sf_deckchair_man",
+       "Nobody turned them. I asked. Nobody felt them turn. I wrote WIND and crossed out the afternoon, and I'll thank you not to tell me there was no wind."
+      ],
+      [
+       "dale",
+       "Two hundred chairs. With people in them."
+      ],
+      [
+       "sf_deckchair_man",
+       "And a dog in one. The dog was the only one looking the right way."
+      ]
+     ],
+     "evidence": "sf_deckchair_chairs"
+    },
+    {
+     "id": "sf_deckchair_fogbow",
+     "title": "The colours that summer",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 7,
+       "prompt": "'All colours.' That summer, was there sea fog with the sun on it?"
+      },
+      {
+       "show": "colin_statement"
+      }
+     ],
+     "lines": [
+      [
+       "sf_deckchair_man",
+       "Every morning that May. Fog off the bay till ten and the sun straight through it, and you'd get a bow on the ground, right on the sand, all the colours, and the kiddies walking through it. Fog bow. Old men call it a sea ghost."
+      ],
+      [
+       "sf_deckchair_man",
+       "Anything stood in it was all colours. A man. A hat. The dog."
+      ],
+      [
+       "miriam",
+       "Thank you. A natural phenomenon, witnessed by two hundred deckchairs."
+      ]
+     ],
+     "evidence": "sf_deckchair_fogbow"
+    }
+   ]
+  },
+  "sf_professor": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "sf_professor_swazzle",
+     "title": "A voice with no breath in it",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "The children said the voice had no breath in it. You'd know a voice like that."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "sf_professor",
+       "No breath in it? That's a swazzle, that is. Two bits of tin and a tape, under the tongue. Punch's voice. You breathe through your nose and the voice comes out the metal and never sounds like a man's."
+      ],
+      [
+       "sf_professor",
+       "Every Punch man's got one. So did the camp lot. They'd borrow mine and not give it back. 1973 I lost two."
+      ],
+      [
+       "vera",
+       "A voice from an instrument, not a throat. Write it down before he changes his mind."
+      ]
+     ],
+     "evidence": "sf_professor_swazzle"
+    },
+    {
+     "id": "sf_professor_hat",
+     "title": "That's the way to do it",
+     "gates": [
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "sf_professor",
+       "Pointed hat, all colours, laughing, takes the kiddies off somewhere? That's Mr Punch, my love. Been doing that on this beach since 1951 and nobody's called the police yet."
+      ],
+      [
+       "sf_professor",
+       "The difference is I let them go at the end. ...Mostly. The ones that ask nicely."
+      ]
+     ]
+    }
+   ]
+  },
+  "sf_keeper": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "sf_keeper_three_am",
+     "title": "Three o'clock",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "Five nights running on your feeding board. 3AM."
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "sf_keeper",
+       "Three, every night since the Thursday. The big male gets up, goes to the sea wall side, and stands. Not pacing. Standing. Then the lemurs go, then the lot. Four o'clock they lie down like it's been switched off."
+      ],
+      [
+       "sf_keeper",
+       "I've kept tigers twenty years. A tiger doesn't stand for an hour for nothing. He's listening to something I can't hear, and I'd rather I could."
+      ],
+      [
+       "elijah",
+       "I can. ...A little. It's under the stone."
+      ]
+     ],
+     "evidence": "sf_keeper_three_am"
+    },
+    {
+     "id": "sf_keeper_tide",
+     "title": "Ray's answer",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "Low water is at three this week. Say it's the tide. Say what the tide does."
+      },
+      {
+       "show": "sf_cage_hum"
+      }
+     ],
+     "lines": [
+      [
+       "sf_keeper",
+       "Low water the sand flats under Culver dry out and the wind gets under them. They hum. Singing sands, the old boys say. The fort's built on the same rock and the rock carries it right up through the floor."
+      ],
+      [
+       "sf_keeper",
+       "The animals feel it in their feet. Always have. The fort gunners wrote about it in 1870. It's just louder this week, that's all. Spring tides. ...That's all."
+      ],
+      [
+       "miriam",
+       "A hum from the sand at low water through a granite fort. Dull, physical, and in a book from 1870. I'll take it."
+      ]
+     ],
+     "evidence": "sf_keeper_tide"
+    }
+   ]
+  },
+  "sf_penrose": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "sf_penrose_offer",
+     "title": "Some advice on the pier",
+     "gates": [
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "sf_penrose",
+       "Lovely evening. You'll be the Office. I knew the Office when it had one car, and that car had a heater."
+      ],
+      [
+       "sf_penrose",
+       "File it as a hoax. I say that kindly. A man in a hat, a holiday camp, two children who wanted an adventure. It's what happened, and it's the filing that gets you home."
+      ],
+      [
+       "sf_penrose",
+       "The wind's getting up. You'll want to go in."
+      ],
+      [
+       "june",
+       "...His tie. It hasn't moved. Mine's in my mouth."
+      ]
+     ],
+     "evidence": "sf_penrose_advice"
+    },
+    {
+     "id": "sf_penrose_1973",
+     "title": "He was here before",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 9,
+       "prompt": "You said 'what happened' like a man who was here. Were you?"
+      },
+      {
+       "check": "nerve",
+       "difficulty": 9,
+       "prompt": "Stand in the wind beside him and don't go in."
+      }
+     ],
+     "lines": [
+      [
+       "sf_penrose",
+       "June 1973. The Mermaid Arms, the week after. I bought the father a drink and told him what he already thought, and he was grateful, and the children were never believed again. It's a kindness, in the end. A believed child grows up to be one of you."
+      ],
+      [
+       "sf_penrose",
+       "There was a woman at the Office once who wouldn't file what she was told. You'll find her card, somewhere in this town. I'd leave it where it is."
+      ],
+      [
+       "sf_penrose",
+       "Goodnight. Mind the rail. The sea's a long way down and it's not interested in you. Yet."
+      ],
+      [
+       "teddy",
+       "...He's gone. He didn't walk anywhere. He's just gone, and my notebook's wet, and his wasn't."
+      ]
+     ],
+     "evidence": "sf_penrose_1973",
+     "flag": "met_penrose_pier"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "colin_statement": {
+   "title": "Colin Rudd's statement",
+   "text": "May 1973, a Tuesday: a man taller than a man in a yellow pointed hat, 'all colours', took Colin Rudd and Fay Mallory into a hut full of dials with the sea behind them. Told smooth, for ten pence, for ten years.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "colin_laughing": {
+   "title": "It was laughing",
+   "text": "Told unsmoothed: the thing laughed, not at the children, at something over their heads, like a man at a show who has seen the trick. Its hat was sewn, with the sun and the moon on it.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "colin_father": {
+   "title": "What Alf Rudd said",
+   "text": "'That's the Sunnyside lot, Col. They do it every year for the kiddies.' Then he laughed, and his wife laughed because he did. The father named the camp before anyone asked him.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C",
+   "exposes": [
+    "sf_cafe_gossip"
+   ]
+  },
+  "colin_fay_hat": {
+   "title": "Fay found the hat",
+   "text": "In 1985 Fay Mallory worked a season at Sunnyside and found a yellow pointed hat on a rail in the costume store, with a label. She told Colin. He called her a liar, and they have not spoken since.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "colin_dials_sea": {
+   "title": "The sea behind the dials",
+   "text": "A window where there was no wall, and the sea in it, the right way up, in the wrong light. Fay said after that it never moved.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "colin_brylcreem": {
+   "title": "It smelt of Brylcreem",
+   "text": "Close to, the thing smelt of Brylcreem and wet wool. Colin has never said so, because monsters do not smell of Brylcreem.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sf_programme_1973": {
+   "title": "Summer season programme, 1973",
+   "text": "SANDOWN PIER PAVILION, SUMMER SEASON 1973. Between a comic and a soprano: THE YELLOW MAN, A NOVELTY ACT, BY ARRANGEMENT WITH SUNNYSIDE HOLIDAY CAMP. Tuesdays and Thursdays. The children's Tuesday was a matinee day.",
+   "lean": "hoax",
+   "weight": 3,
+   "kind": "document",
+   "reliability": "A",
+   "key": true
+  },
+  "sf_programme_photo": {
+   "title": "Photo of the 1973 programme",
+   "text": "A photograph of a programme under three layers of pins. THE YELLOW MAN, A NOVELTY ACT. The flash has caught the pins and lost the camp's name.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "sf_stage_mgr_1973": {
+   "title": "Maureen on the 1973 season",
+   "text": "Tuesdays in 1973 the holiday camp sent its entertainers to the pier matinee. The camp's novelty act had a big set that the ASM struck every Tuesday night.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sf_stage_mgr_set": {
+   "title": "The dial room set",
+   "text": "The Yellow Man's set: flats painted with dials floor to ceiling and a backlit cyclorama of the sea. Hired to Sunnyside in September 1973 and returned with marsh mud on it. The stage manager says the boy described her set.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sf_arcade_wizard": {
+   "title": "The wizard at the penny falls",
+   "text": "Summer 1973: the camp's entertainers played the pier falls in costume after the matinee, among them a tall man in a yellow wizard's hat with the sun and moon on it, who never took it off and whose name nobody learned.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "sf_cafe_gossip": {
+   "title": "What everyone knows",
+   "text": "Alf Rudd told the hut-man story as a joke in the Mermaid before the children ever told it, and put them up to it to get his name in the Echo. Everyone knows.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "sf_deckchair_chairs": {
+   "title": "Two hundred chairs turned",
+   "text": "On the Tuesday in May 1973 every deckchair on Sandown beach, two hundred and twelve, with people in them, was found facing the Levels. Nobody turned them. Nobody felt them turn. The ledger says WIND. There was no wind.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sf_deckchair_fogbow": {
+   "title": "The fog bow",
+   "text": "Every morning that May a sea fog lay on the bay with the sun through it, throwing a bow on the sand. Anything standing in it was all colours. A man. A hat. The dog.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sf_professor_swazzle": {
+   "title": "The swazzle",
+   "text": "A voice with no breath in it is a swazzle, the Punch man's reed: tin and tape under the tongue. The camp's entertainers borrowed the professor's in 1973 and never gave two of them back.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "sf_keeper_three_am": {
+   "title": "The tigers at three",
+   "text": "Every night since Thursday the zoo's male tiger stands at the sea wall at three in the morning for an hour, and every animal in the fort wakes with him. At four it stops as if switched off.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sf_keeper_tide": {
+   "title": "Singing sands",
+   "text": "At low water the sand flats under Culver dry and the wind hums through them; the fort's rock carries it up through the floor, and the animals feel it in their feet. The gunners wrote it down in 1870. It is louder this week.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "sf_cage_hum": {
+   "title": "A tone under the slab",
+   "text": "A flat, steady tone in the granite under the tiger house, from the direction of the sea, at the wrong time of day for the tide. June's scanner holds it on one band and will not say which.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "sf_slipway_ring": {
+   "title": "Photo: the ring on the slipway",
+   "text": "Nine stones in a ring at the foot of the Yaverland slipway, below the weed line, one of every colour the beach has. The tide covered it four hours ago and the gaps are clean.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "sf_slipway_measure": {
+   "title": "The ring, measured",
+   "text": "Seventy-three centimetres across. Nine stones, nine gaps, each gap seven centimetres to the millimetre. No sand in the gaps after a full tide over them. Laid after the water left, or not disturbed by it.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "A"
+  },
+  "sf_zoo_fur": {
+   "title": "Orange fur on the zoo fence",
+   "text": "Orange hairs caught on the outside of the zoo fence at a tall man's shoulder height. Coarse, banded, and not from anything that belongs on the outside of a fence.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "sf_zoo_fur_lab"
+  },
+  "sf_zoo_fur_lab": {
+   "title": "Lab: the zoo fence fur",
+   "text": "Tiger. Bengal, guard hairs, moulting season. The outside of the fence is where the keeper hangs the brush to dry. It is a zoo.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "physical",
+   "reliability": "A",
+   "exposes": [
+    "sf_zoo_fur"
+   ]
+  },
+  "sf_penrose_advice": {
+   "title": "The man on the pier says hoax",
+   "text": "A man in a grey suit at the end of the pier at night, who knew the Office when it had one car, says to file it as a hoax, kindly. The wind off the Channel does not move his tie.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "sf_penrose_1973": {
+   "title": "Penrose was here in 1973",
+   "text": "June 1973, the Mermaid Arms: a man in a grey suit bought Alf Rudd a drink and told him what he already thought. He says a believed child grows up to be one of you. He says there is a woman's card somewhere in this town, and to leave it.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  }
+ },
+ "contradictions": {
+  "sf_set_match": {
+   "title": "The boy described the set",
+   "evidence": [
+    "colin_dials_sea",
+    "sf_programme_1973"
+   ],
+   "witness": "sf_stage_mgr",
+   "prompt": "Colin says a wall of dials with the sea behind it, the sea that never moved. Your 1973 bill lists a novelty act with a set you struck every Tuesday. Whose set was it, Maureen?"
+  }
+ },
+ "trail": []
+}

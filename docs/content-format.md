@@ -17,6 +17,7 @@ and `tests/run_tests.gd` runs the same checks plus the rules.
   "size": [56, 40],
   "spawn": [10, 20],                   // where the party stands if it arrives with no exit
   "ground": "snow",                    // base tile; "<ground>2" and "<ground>3" variants are mixed in
+  "weather": "snow",                   // snow (default), clear, mist, rain or gale: what falls outdoors
   "fills": [ {"rect": [x, y, w, h], "tiles": "asphalt" | ["snow", "snow2"], "every": 2} ],
   "scatter": [ {"rect": [x, y, w, h], "tiles": ["snow_drift"], "chance": 0.06} ],
   "facades": [ {"id": "bait_shop", "facade": "bait_shop", "name": "Bait and Tackle", "pos": [4, 17],
@@ -40,14 +41,17 @@ and `tests/run_tests.gd` runs the same checks plus the rules.
 ```
 
 Rules:
-- `fills` tiles that start with `wall_`, `brick_`, `stone_`, `drywall_`, `window_`, `frame_`, `void`, `water` and `cement_edge` are solid. Everything else is walkable.
+- `fills` tiles that start with `wall_`, `brick_`, `stone_`, `drywall_`, `window_`, `frame_`, `void`, `water`, `sea` (including `sea_top`, the bank) and `cement_edge` are solid; `beach_top`, the tide line, is walkable. Everything else is walkable.
 - A `facades` entry needs an `interiors` entry with the same `id` unless it is `locked`. `facade` names the drawn storefront in `assets/facades` and defaults to `id`, so two buildings can share a look.
 - `houses` are whole-house props (`house_brick`, `house_brick_b`, `house_panel`) with a `door` tile; they also take `interiors`.
 - A prop `pos` is the bottom-centre tile; a facade `pos` is the bottom-left tile.
 - `look` makes a prop inspectable. A plain string is narration; a list of `[speaker, text]` lines plays as dialogue. Party members only speak their line when they are in the party.
 - `pickup` puts an item from `data/items.json` in the field kit once. New items a district needs go in its case fragment under `"items": {...}` with the same shape as `data/items.json`.
-- A prop with `"use": "<panel>"` and a `name` opens an engine panel when used: `board` (the case board: file a verdict, see the standing evidence), `ledger` (spend budget on Office and car upgrades), `catalog` (the card catalog: evidence archive, verdict history, Drawer S), `radio_log` (stations logged on the road), `shop` (a counter that sells the stock of `"shop": "<shop id>"`). A prop with `"travel": "<leg id>"` and a `name` starts that road leg (the station wagon).
+- A prop with `"use": "<panel>"` and a `name` opens an engine panel when used: `board` (the case board: file a verdict, see the standing evidence), `ledger` (spend budget on Office and car upgrades), `catalog` (the card catalog: evidence archive, verdict history, Drawer S), `radio_log` (stations logged on the road), `shop` (a counter that sells the stock of `"shop": "<shop id>"`). A prop with `"travel": "<leg id>"` and a `name` starts that road leg (the station wagon); a list of leg ids offers the choice.
 - A prop with `"gate": "<gate id>"` and a `name` is a barrier (a fence section, a chained door). Interacting tries the gate; once it opens the prop is gone for good.
+- A facade, house, prop or NPC with `"appears": "<gate id>"` is not there at all until that gate is open (the Hut on the Levels at dusk). Pair it with an `all` gate (below) for "after three signs, at dusk".
+- A prop with `"enter": "<room id>"` and a `name` is a door between rooms of the same building (the Hut's dial room into the colour corridor). Leaving any room by its bottom edge comes out of the door the party went in by.
+- A prop with `"use": "dials"`, a `name` and a `puzzle` is a wall of dials: `{"names": ["red", "blue", "green"], "order": ["blue", "red", "green"], "flag": "hut_dials", "text": "...", "done": "...", "wrong": "..."}`. Turning them in `order` sets `flag`, which a door's gate can read.
 - `npcs.when` lists the day phases the person is there: `morning` (6 to 10), `day` (10 to 17), `dusk` (17 to 19), `night` (19 to 6). Missing means always. The same `id` can stand in several maps and rooms at different phases. `sprite` picks a sheet from `assets/sprites` when the id has none.
 - `clues.night` makes a trail sign that only exists from that night of the case on. `requires` hides a clue until that evidence is held. Methods are `photograph`, `bag`, `cast`, `measure`; a value of `"spoil"` ruins the others.
 - `exits` are walk-on rectangles. `at` is where the party appears in the target map. A `gate` names an entry in the case's `gates` table.
@@ -68,13 +72,21 @@ Fragments are merged into the case at load: dictionaries (`witnesses`, `evidence
 },
 "trail": [ {"night": 1, "roost": "Abandoned church, Route 62", "map": "point_pleasant_route_62", "clues": ["church_prints", "church_feather"], "herring": ["owl_pellets"]} ],
 "witnesses": {"ham": {"trust": 1, "facts": [ {"id": "ham_log", "title": "The 1966 log", "gates": [ {"check": "tech", "difficulty": 8, "prompt": "..."} | {"show": "evidence_id"} | {"contradiction": "id"} | {"trust": 2} ],
-                                              "lines": [["ham", "..."]], "evidence": "ham_log_1966"} ]}},
+                                              "lines": [["ham", "..."]], "evidence": "ham_log_1966", "flag": "ham_trusts_us"} ]}},
 "evidence": {"ham_log_1966": {"title": "...", "text": "...", "lean": "unexplained", "weight": 2, "kind": "document",
                               "red_herring": false, "exposes": ["other_id"], "lab": "lab_result_id", "reliability": "B"}},
 "contradictions": {"id": {"prompt": "...", "evidence": ["a", "b"], "witness": "ham"}}
 ```
 
 A gate opens when any one condition holds. A `check` gate rolls once a day.
+Two more conditions: `{"tide": "low"}` (also `rising`, `high`, `falling`) reads the case's tide,
+and `{"signs": 3}` holds once that many of the case's `trail` signs are logged (a sign counts when
+any evidence its clue gives is in the case file). `{"all": [ {...}, {...} ]}` holds only when every
+condition inside it holds, so the Hut is `{"all": [{"signs": 3}, {"phase": ["dusk", "night"]}]}`.
+
+A case with `"tide": {"low_at": 3, "period": 12.4}` (the hour of the first low water on day 1,
+and the hours between low waters) shows the tide on the HUD. Low water lasts about a quarter of
+the cycle, so a low-tide gate is open for three hours twice a day.
 Witness facts are the quick format; a witness with a file in `data/dialogue`
 gets that script instead, and its `{"topics": true}` option offers the facts.
 
@@ -169,5 +181,6 @@ Rooms are interiors of the Sutton map (`data/maps/sutton_office.json`); a room w
 }
 ```
 
+- A leg may have `"season": "summer"` (summer roads, no snow) and `"arrive_day"` / `"arrive_night"` lines with one `%s` for the town (the night one is used when the party arrives after dark and takes the Dread). Each stop may have `"mode"`: `car` (default), `plane`, `train`, `hovercraft` or `ferry`, which picks the scenery and the vehicle. A stop that is not by car offers one "Carry on" choice of `"hours"` (default 1) instead of highway and back road, and no gas; or it lists its own `"choices": [{"text": "The hovercraft", "hours": 0.5, "cash": 12, "gives": {...}}]`, each a way onward. Events for such a stop list the mode in `roads` (`["hovercraft"]`) or leave `roads` out, and always fire.
 - A leg is five to eight stops. At each the party picks highway (one hour, few events) or back road (two hours, an event from the stop's `events` or the leg's `deck`, filtered by `when` phase and `roads`), scans the radio, and can spend cash on gas or a motel. `gives` keys: `item`, `flag`, `cash`, `gas`, `dread`, `composure`, `hours`, `evidence`.
 - Station kinds: `local` (news previews the case), `callin`, `numbers`, `tone` (the three-note tone, night only, near a case). `freq` is in the band's range (88 to 108 FM, 540 to 1600 AM). Logging a station adds it to the radio log and applies `gives` once.

@@ -16,8 +16,11 @@ STATS = ["reason", "charm", "grit", "intuition"]
 ITEM_KINDS = ["tool", "coat", "charm", "kit", "consumable", "relic"]
 TIERS = ["issue", "store", "local", "vintage", "relic"]
 VERDICTS = ["hoax", "natural", "unexplained"]
+TIDES = ["low", "rising", "high", "falling"]
+WEATHERS = ["snow", "clear", "mist", "rain", "gale"]
+MODES = ["car", "plane", "train", "hovercraft", "ferry"]
 GIVES_KEYS = ["item", "flag", "cash", "gas", "dread", "composure", "hours", "evidence"]
-SOLID = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", "void", "water", "cement_edge")
+SOLID = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", "void", "water", "sea", "cement_edge")
 
 
 def load(path):
@@ -99,6 +102,8 @@ def main():
         if m.get("case") not in cases:
             err("map %s has unknown case %s" % (mid, m.get("case")))
         ground = m.get("ground", "snow")
+        if m.get("weather", "snow") not in WEATHERS:
+            err("map %s has unknown weather %s" % (mid, m.get("weather")))
         for v in (ground, ground + "2", ground + "3"):
             if v not in tiles:
                 err("map %s ground variant %s missing" % (mid, v))
@@ -113,17 +118,26 @@ def main():
                 err("map %s facade %s has no drawn storefront" % (mid, f.get("facade", f["id"])))
             if f.get("gate") and f["gate"] not in gates:
                 err("map %s facade %s uses unknown gate %s" % (mid, f["id"], f["gate"]))
+            if f.get("appears") and f["appears"] not in gates:
+                err("map %s facade %s appears on unknown gate %s" % (mid, f["id"], f["appears"]))
             if not f.get("locked") and f["id"] not in m.get("interiors", {}):
                 err("map %s facade %s is open but has no interior" % (mid, f["id"]))
         for h in m.get("houses", []):
             building_ids.append(h["id"])
             if h["prop"] not in props:
                 err("map %s house %s uses unknown prop %s" % (mid, h["id"], h["prop"]))
+            if h.get("appears") and h["appears"] not in gates:
+                err("map %s house %s appears on unknown gate %s" % (mid, h["id"], h["appears"]))
             if not h.get("locked") and h["id"] not in m.get("interiors", {}):
                 err("map %s house %s is open but has no interior" % (mid, h["id"]))
+        entered = set()
+        for room in m.get("interiors", {}).values():
+            for p in room.get("props", []):
+                if p.get("enter"):
+                    entered.add(p["enter"])
         for iid in m.get("interiors", {}):
-            if iid not in building_ids:
-                err("map %s interior %s has no facade or house" % (mid, iid))
+            if iid not in building_ids and iid not in entered:
+                err("map %s interior %s has no facade, house or door into it" % (mid, iid))
 
         def check_props(plist, where):
             for p in plist:
@@ -133,10 +147,21 @@ def main():
                     err("%s pickup %s is not in items.json" % (where, p["pickup"]))
                 if p.get("restock") and not p.get("price"):
                     err("%s prop restocks but has no price" % where)
-                if p.get("travel") and p["travel"] not in road.get("legs", {}):
-                    err("%s prop drives unknown leg %s" % (where, p["travel"]))
+                if p.get("use") and p["use"] not in ("board", "ledger", "catalog", "radio_log", "shop", "dials"):
+                    err("%s prop has unknown use %s" % (where, p["use"]))
+                if p.get("enter") and p["enter"] not in m.get("interiors", {}):
+                    err("%s prop enters unknown room %s" % (where, p["enter"]))
+                if p.get("use") == "dials":
+                    pz = p.get("puzzle", {})
+                    if not pz.get("order") or not pz.get("names") or not pz.get("flag") or any(o not in pz["names"] for o in pz["order"]):
+                        err("%s dials prop needs puzzle names, order (from names) and flag" % where)
+                for leg_id in (p["travel"] if isinstance(p.get("travel"), list) else [p["travel"]]) if p.get("travel") else []:
+                    if leg_id not in road.get("legs", {}):
+                        err("%s prop drives unknown leg %s" % (where, leg_id))
                 if p.get("gate") and p["gate"] not in gates:
                     err("%s prop gate %s unknown" % (where, p["gate"]))
+                if p.get("appears") and p["appears"] not in gates:
+                    err("%s prop appears on unknown gate %s" % (where, p["appears"]))
                 look = p.get("look")
                 if isinstance(look, list):
                     for line in look:
@@ -151,6 +176,8 @@ def main():
                 for ph in n.get("when", []):
                     if ph not in PHASES:
                         err("%s npc %s has unknown phase %s" % (where, n["id"], ph))
+                if n.get("appears") and n["appears"] not in gates:
+                    err("%s npc %s appears on unknown gate %s" % (where, n["id"], n["appears"]))
                 if n.get("shop") and not any(n["shop"] in it.get("shop", []) for it in items.values() if isinstance(it, dict)):
                     err("%s npc %s runs shop %s but no item is stocked there" % (where, n["id"], n["shop"]))
                 if n["id"] not in witnesses and n["id"] not in dialogues.get(m.get("case", ""), {}) and not n.get("shop"):
@@ -249,7 +276,15 @@ def main():
             err("%s arrives at unknown map %s" % (w, leg.get("arrive_map")))
         if not 3 <= len(leg.get("stops", [])) <= 8:
             err("%s should have 3 to 8 stops, has %d" % (w, len(leg.get("stops", []))))
+        if leg.get("season", "winter") not in ("winter", "summer"):
+            err("%s has unknown season %s" % (w, leg.get("season")))
         for st in leg.get("stops", []):
+            if st.get("mode", "car") not in MODES:
+                err("%s stop %s has unknown mode %s" % (w, st.get("name"), st.get("mode")))
+            for ch in st.get("choices", []):
+                if "text" not in ch or "hours" not in ch:
+                    err("%s stop %s choice needs text and hours" % (w, st.get("name")))
+                check_gives(ch.get("gives", {}), w)
             for e in st.get("events", []):
                 if e not in events:
                     err("%s stop %s names unknown event %s" % (w, st.get("name"), e))
@@ -265,7 +300,7 @@ def main():
             if ph not in PHASES:
                 err("%s has unknown phase %s" % (w, ph))
         for rd in ev.get("roads", []):
-            if rd not in ("highway", "back"):
+            if rd not in ("highway", "back") + tuple(MODES):
                 err("%s has unknown road kind %s" % (w, rd))
         if not ev.get("options"):
             err("%s has no options" % w)
@@ -337,6 +372,14 @@ def main():
                     err("case %s gate %s needs unknown evidence" % (cid, gid))
                 if "phase" in cond and any(ph not in PHASES for ph in cond["phase"]):
                     err("case %s gate %s has an unknown phase" % (cid, gid))
+                if "tide" in cond and cond["tide"] not in TIDES:
+                    err("case %s gate %s has an unknown tide %s" % (cid, gid, cond["tide"]))
+                if "tide" in cond and "tide" not in c:
+                    err("case %s gate %s reads a tide the case does not have" % (cid, gid))
+                if "signs" in cond and cond["signs"] > len(c.get("trail", [])):
+                    err("case %s gate %s asks for %s signs but the trail has %d" % (cid, gid, cond["signs"], len(c.get("trail", []))))
+                if "all" in cond and not cond["all"]:
+                    err("case %s gate %s has an empty all" % (cid, gid))
         for d in c.get("districts", {}).values():
             if d.get("map") not in maps:
                 err("case %s district %s has unknown map %s" % (cid, d.get("name"), d.get("map")))

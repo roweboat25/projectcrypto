@@ -280,18 +280,102 @@ static func gate_open(data: Node, state: Node, gate_id: String, time_of_day: flo
 		return true
 	var g: Dictionary = data.gate(gate_id)
 	for cond in g.get("opens", []):
-		if cond.has("item") and state.has_item(cond.item):
+		if cond_holds(data, state, cond, time_of_day):
 			return true
-		if cond.has("trust") and trust_of(data, state, cond.trust.get("npc", "")) >= int(cond.trust.get("level", 0)):
-			return true
-		if cond.has("class") and has_class(data, state, cond.get("class")):
-			return true
-		if cond.has("flag") and state.flags.get(cond.flag, false):
-			return true
-		if cond.has("evidence") and state.has_evidence(cond.evidence):
-			return true
-		if cond.has("phase") and phase(time_of_day) in cond.phase:
-			return true
+	return false
+
+
+## One gate condition. `all` holds when every condition inside it holds; `check` is rolled, not read.
+static func cond_holds(data: Node, state: Node, cond: Dictionary, time_of_day: float) -> bool:
+	if cond.has("item") and state.has_item(cond.item):
+		return true
+	if cond.has("trust") and trust_of(data, state, cond.trust.get("npc", "")) >= int(cond.trust.get("level", 0)):
+		return true
+	if cond.has("class") and has_class(data, state, cond.get("class")):
+		return true
+	if cond.has("flag") and state.flags.get(cond.flag, false):
+		return true
+	if cond.has("evidence") and state.has_evidence(cond.evidence):
+		return true
+	if cond.has("phase") and phase(time_of_day) in cond.phase:
+		return true
+	if cond.has("tide") and tide_state(data, state, time_of_day) == cond.tide:
+		return true
+	if cond.has("signs") and signs_logged(data, state) >= int(cond.signs):
+		return true
+	if cond.has("all") and not cond.all.is_empty():
+		for c in cond.all:
+			if not cond_holds(data, state, c, time_of_day):
+				return false
+		return true
+	return false
+
+
+# ---------- the tide ----------
+
+## Where the tide is in its cycle, 0 at low water through 0.5 at high water, or -1 when the case has no tide.
+## The case's `tide` table gives `low_at` (the hour of the first low water on day 1) and `period` in hours.
+static func tide_phase(data: Node, state: Node, time_of_day: float) -> float:
+	var t: Dictionary = case_data(data, state).get("tide", {})
+	if t.is_empty():
+		return -1.0
+	var hour := fmod(time_of_day * 24.0 + 6.0, 24.0) + 24.0 * float(state.day - 1)
+	var period := float(t.get("period", 12.4))
+	return fposmod(hour - float(t.get("low_at", 3.0)), period) / period
+
+
+## "low", "rising", "high", "falling", or "" when the case has no tide.
+static func tide_state(data: Node, state: Node, time_of_day: float) -> String:
+	var ph := tide_phase(data, state, time_of_day)
+	if ph < 0.0:
+		return ""
+	if ph < 0.125 or ph >= 0.875:
+		return "low"
+	if ph < 0.375:
+		return "rising"
+	if ph < 0.625:
+		return "high"
+	return "falling"
+
+
+## Hours until the next low water.
+static func hours_to_low(data: Node, state: Node, time_of_day: float) -> float:
+	var ph := tide_phase(data, state, time_of_day)
+	if ph < 0.0:
+		return 0.0
+	var period := float(case_data(data, state).get("tide", {}).get("period", 12.4))
+	return (1.0 - ph) * period
+
+
+## How many of the case's trail signs the party has logged: a sign counts when any
+## evidence its clue can give (or the clue id itself) is in the case file.
+static func signs_logged(data: Node, state: Node) -> int:
+	var c := case_data(data, state)
+	var count := 0
+	for entry in c.get("trail", []):
+		for clue_id in entry.get("clues", []):
+			if sign_logged(data, state, c, clue_id):
+				count += 1
+	return count
+
+
+static func sign_logged(data: Node, state: Node, c: Dictionary, clue_id: String) -> bool:
+	if state.has_evidence(clue_id):
+		return true
+	for map_id in data.maps:
+		var m: Dictionary = data.maps[map_id]
+		if m.get("case", "") != c.get("id", ""):
+			continue
+		var lists := [m.get("clues", [])]
+		for rid in m.get("interiors", {}):
+			lists.append(m.interiors[rid].get("clues", []))
+		for clues in lists:
+			for clue in clues:
+				if clue.get("id", "") != clue_id:
+					continue
+				for ev in clue.get("methods", {}).values():
+					if ev != "spoil" and state.has_evidence(ev):
+						return true
 	return false
 
 
@@ -400,6 +484,8 @@ static func unlock_fact(data: Node, state: Node, fact: Dictionary) -> void:
 		state.facts.append(fact.id)
 	if fact.has("evidence"):
 		gain_evidence(data, state, fact.evidence)
+	if fact.has("flag"):
+		state.flags[fact.flag] = true
 
 
 ## Adds evidence, marks anything it exposes as false, and queues samples for the lab.

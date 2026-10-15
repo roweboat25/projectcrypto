@@ -1,0 +1,985 @@
+{
+ "_doc": "Town fragment for the Sandown case: the Seaview Guest House base, the Mermaid Arms, the High Street shops, the library, the church hall and the station. Fay Mallory (id fay) lives and works here and has her own dialogue script. The night-1 trail sign is the voice in the station telephone box. Ids are prefixed tn_ except the two 1973 witnesses.",
+ "locations": {
+  "chemist": "Harwood's Chemist, High Street",
+  "library": "Sandown Library, local studies",
+  "church_hall": "St John's church hall",
+  "newsagent": "Prior's Newsagent"
+ },
+ "gates": {},
+ "items": {
+  "guest_pass": {
+   "name": "Golf club guest pass",
+   "text": "A Sandown Golf Club guest pass, signed in a hurry",
+   "kind": "kit",
+   "tier": "local",
+   "case": "sandown",
+   "price": 8,
+   "reusable": true
+  },
+  "tn_postcard_set": {
+   "name": "1970s postcard set",
+   "text": "+1 Intuition. Twelve views of Sandown, 1972 to 1976. The pier looks the same. The people don't.",
+   "kind": "charm",
+   "tier": "local",
+   "case": "sandown",
+   "price": 6,
+   "shop": [
+    "sandown_charity"
+   ],
+   "stat": {
+    "intuition": 1
+   }
+  },
+  "tn_brass_compass": {
+   "name": "Brass compass",
+   "text": "Finds north on the Levels when the mist is down. A soldier's, by the broad arrow on the back.",
+   "kind": "kit",
+   "tier": "local",
+   "case": "sandown",
+   "price": 9,
+   "reusable": true,
+   "shop": [
+    "sandown_charity"
+   ]
+  },
+  "tn_cagoule": {
+   "name": "Cagoule",
+   "text": "+3 Composure. A blue nylon cagoule that folds into its own pocket. Resists rain. Does not resist looking like a tourist.",
+   "kind": "coat",
+   "tier": "local",
+   "case": "sandown",
+   "price": 14,
+   "shop": [
+    "sandown_charity"
+   ],
+   "composure": 3,
+   "effect": "resist_rain"
+  }
+ },
+ "leads": [
+  {
+   "id": "fay",
+   "location": "chemist",
+   "title": "Fay Mallory, behind the counter",
+   "speaker": "fay",
+   "dread": 0,
+   "lines": [
+    [
+     "fay",
+     "You're the Americans. Mrs Bannister said. Before you ask me anything, I'll tell you what I tell everyone: I was seven, it was hot, and I have a drawing."
+    ],
+    [
+     "fay",
+     "It was all colours. Not striped. The colour of it kept moving, like weather going across a field. It had a hat on, yellow, pointed, and it took us into a hut and the hut was full of dials."
+    ],
+    [
+     "fay",
+     "Colin's told it a hundred times and they've laughed a hundred times. I've told it once, to my mother, and she sent me to my gran's in Newport for the summer. So. That's twice now."
+    ],
+    [
+     "elijah",
+     "She said 'twice' like she was closing a book."
+    ]
+   ],
+   "evidence": "fay_statement",
+   "class_bonus": "medium"
+  }
+ ],
+ "witnesses": {
+  "fay": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "fay_drawing_fact",
+     "title": "The drawing",
+     "gates": [
+      {
+       "show": "tn_register_1973"
+      }
+     ],
+     "lines": [
+      [
+       "fay",
+       "...Room 3. Mr Tappin. He gave Colin a balloon at breakfast on the Monday. I remember the balloon."
+      ],
+      [
+       "fay",
+       "Wait here."
+      ],
+      [
+       "fay",
+       "This is it. I was seven. I put numbers on the dials afterward because I thought numbers made it true. The order is the part I didn't make up. Blue, red, green, yellow. He turned them in that order and the wall opened."
+      ],
+      [
+       "june",
+       "Four dials. Four colours. If there's a wall of them somewhere, that's the combination."
+      ]
+     ],
+     "evidence": "fay_drawing",
+     "flag": "fay_gave_drawing"
+    },
+    {
+     "id": "fay_colin",
+     "title": "What happened to Colin's story",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "You two told the same story once. When did they stop matching?"
+      }
+     ],
+     "lines": [
+      [
+       "fay",
+       "Colin told it to everyone, and everyone laughed, so he told it differently. By August it was a man in a hat. By Christmas it was nothing, and he got a bike for not mentioning it."
+      ],
+      [
+       "fay",
+       "I didn't tell it at all. You can't laugh at a thing that isn't said. I had twenty-one years of nobody laughing. I don't know that it was better."
+      ],
+      [
+       "elijah",
+       "It wasn't. But it was hers."
+      ]
+     ],
+     "evidence": "fay_on_colin"
+    },
+    {
+     "id": "fay_hut_sea",
+     "title": "The sea behind the dials",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 9,
+       "prompt": "You said the sea was behind the dials. The Levels are two miles inland."
+      },
+      {
+       "trust": 3
+      }
+     ],
+     "lines": [
+      [
+       "fay",
+       "I know. I've walked it with the Ordnance Survey since. There is nowhere on the Levels a hut could stand and show you the sea through a window, and I saw the sea through a window."
+      ],
+      [
+       "fay",
+       "White cliffs, close, and water right under them. If I had to say, I'd say Culver. From inside Culver. Which is three miles from where we were standing, so I don't say it."
+      ],
+      [
+       "miriam",
+       "She's not asking us to believe it. She's just reporting the measurement."
+      ]
+     ],
+     "evidence": "fay_hut_sea"
+    }
+   ]
+  },
+  "tn_landlady": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "tn_landlady_rudds",
+     "title": "The Rudds, May 1973",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "You had the Rudds here in '73. What were they like, as guests?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "tn_landlady",
+       "Room 2, a week, full board. Mr Rudd was a laugher. The kind who laughs before the joke so he's not caught out. The boy came in that Tuesday white as the tablecloth and his father had the whole breakfast room laughing by the Wednesday."
+      ],
+      [
+       "tn_landlady",
+       "The little girl, the Mallory girl, Room 4, she didn't say a word. She sat at breakfast and drew. Her mother took the crayons off her by the Thursday."
+      ],
+      [
+       "ruth",
+       "Took the crayons. There's your whole case, dear, in one sentence."
+      ]
+     ],
+     "evidence": "tn_landlady_rudds"
+    },
+    {
+     "id": "tn_landlady_register",
+     "title": "Room 3",
+     "gates": [
+      {
+       "trust": 2
+      },
+      {
+       "check": "press",
+       "difficulty": 8,
+       "prompt": "Your register goes back to the sixties. Who else was in the house that week?"
+      }
+     ],
+     "lines": [
+      [
+       "tn_landlady",
+       "I keep the register, I don't read it to people. ...Oh, all right. Room 3. A Mr Tappin, from the camp, the entertainments. Paid cash in advance for the week and left on the Wednesday without his breakfast, and he'd paid for it."
+      ],
+      [
+       "tn_landlady",
+       "Left a smell of greasepaint in the washstand that took me a month to shift. Nice enough man. Did a thing with a balloon for the children. I've had worse."
+      ],
+      [
+       "miriam",
+       "A camp entertainer, in the next room, who leaves the morning after. Write it down before Ruth finds a way to make it a ghost."
+      ]
+     ],
+     "evidence": "tn_register_1973"
+    },
+    {
+     "id": "tn_landlady_tappin",
+     "title": "Why Mr Tappin left",
+     "gates": [
+      {
+       "contradiction": "tn_heat_vs_room3"
+      }
+     ],
+     "lines": [
+      [
+       "tn_landlady",
+       "...He left because the boy pointed at him. At breakfast, the Wednesday. Colin looked up from his egg and pointed, and didn't say anything, and Mr Tappin put his cup down and went upstairs and packed."
+      ],
+      [
+       "tn_landlady",
+       "I told the policeman that. He wrote 'Alsatian'. I watched him write it."
+      ],
+      [
+       "teddy",
+       "That's the second person who's watched a policeman write a word down and known it was the wrong one."
+      ]
+     ],
+     "evidence": "tn_landlady_left_early"
+    }
+   ]
+  },
+  "tn_publican": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "tn_publican_gossip",
+     "title": "What the town says",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "Pint of whatever's local. What does Sandown think happened in '73?"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "tn_publican",
+       "Sandown thinks it was the heat and a dog and a kid who wanted his picture in the paper, and Sandown's been thinking it for twenty years so it's not going to stop for you."
+      ],
+      [
+       "tn_publican",
+       "The pier staff think different. The pier staff always think different, it's being out over the water does it. Ask on the pier. Don't tell them I said."
+      ],
+      [
+       "teddy",
+       "A town that says 'don't tell them I said' is a town that wants it said."
+      ]
+     ],
+     "evidence": "tn_publican_gossip"
+    },
+    {
+     "id": "tn_publican_photo",
+     "title": "The man on the pier",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "The photo over the bar. Who's the man in the hat?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "tn_publican",
+       "Summer season, '73. Sunnyside sent their lot down the pier of an afternoon to drum up trade. Hats, balloons, a bloke on stilts. That's one of them. Don't ask me which."
+      ],
+      [
+       "tn_publican",
+       "They were a good turn, the Sunnyside lot. Drank in the corner there after. The one with the hat never took it off, that's all I remember. Said it was 'part of the character'."
+      ],
+      [
+       "miriam",
+       "A costume that stays on. That's not theatre. That's hiding."
+      ]
+     ],
+     "evidence": "tn_publican_pier_man"
+    },
+    {
+     "id": "tn_publican_lights",
+     "title": "Lights over the Levels",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 6,
+       "prompt": "Every town has a thing it sees. What does Sandown see?"
+      }
+     ],
+     "lines": [
+      [
+       "tn_publican",
+       "Lights, over the Levels, every bank holiday. Coloured. Go up, come down. My dad saw them, I've seen them, the golf club secretary says he's seen them and he's seen nothing in his life but a balance sheet."
+      ],
+      [
+       "tn_publican",
+       "Every year since '73. Make of that what you want, I've got a bar to run."
+      ],
+      [
+       "ruth",
+       "Every bank holiday, dear. On the calendar. Things that come by the calendar were put there by somebody."
+      ]
+     ],
+     "evidence": "tn_publican_lights"
+    }
+   ]
+  },
+  "tn_newsagent": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "tn_newsagent_cuttings",
+     "title": "The 1973 cuttings",
+     "gates": [
+      {
+       "check": "press",
+       "difficulty": 7,
+       "prompt": "You keep the old County Presses. You kept 1973."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "tn_newsagent",
+       "I keep every one. Mother did before me. 1973's in the folder because people ask, and people ask because of the kids. CHILDREN'S FRIGHT ON THE LEVELS. Stray Alsatian, 81 degrees, police spokesman. That's the lot."
+      ],
+      [
+       "tn_newsagent",
+       "The paper did it fair. Said what the police said and what the kids said and let you pick. Nobody picked the kids."
+      ],
+      [
+       "teddy",
+       "'Let you pick.' That's the kindest thing I've heard anyone say about a newspaper."
+      ]
+     ],
+     "evidence": "tn_county_press_1973"
+    },
+    {
+     "id": "tn_newsagent_rainbow",
+     "title": "Uncle Rainbow",
+     "gates": [
+      {
+       "show": "tn_sunnyside_flyer"
+      },
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "The flyer in the window. Uncle Rainbow. How long has he been doing that?"
+      }
+     ],
+     "lines": [
+      [
+       "tn_newsagent",
+       "That's young Darren from Lake. Started in '89 when the camp changed hands; before him it was a Punch and Judy and before that nothing for years. He's twenty-four. He was born after."
+      ],
+      [
+       "tn_newsagent",
+       "The hat's from a joke shop in Ryde. I know because he bought the glue off me."
+      ],
+      [
+       "miriam",
+       "So that's one hat accounted for. Keep counting."
+      ]
+     ],
+     "evidence": "tn_flyer_dates"
+    }
+   ]
+  },
+  "tn_volunteer": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "tn_volunteer_box",
+     "title": "Where the tapes came from",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 6,
+       "prompt": "The cassette box. Whose were they?"
+      },
+      {
+       "trust": 1
+      }
+     ],
+     "lines": [
+      [
+       "tn_volunteer",
+       "A Mr Dyer's. Did the ventriloquist act on the pier, thirty years, 'Dyer and Dennis', Dennis was the dummy. He died in March and his sister brought it all in, in bin bags, and cried in the car."
+      ],
+      [
+       "tn_volunteer",
+       "The tapes were him practising. He did the voice without moving anything, not even his chest. Used to frighten the Brownies."
+      ],
+      [
+       "june",
+       "Without moving his chest. So no breath sounds. That's a technique, not a... Let me listen to it again."
+      ]
+     ],
+     "evidence": "tn_volunteer_dyer"
+    }
+   ]
+  },
+  "tn_chemist": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "tn_chemist_ledger",
+     "title": "The 1973 prescription book",
+     "gates": [
+      {
+       "check": "logic",
+       "difficulty": 8,
+       "prompt": "The ledgers go back to '58. You'd have made up anything the doctor gave those children."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "tn_chemist",
+       "My father's hand, not mine, I was at Bath. 30 May 1973. Calamine lotion and a mild sedative for a child, Mallory, F., aged seven, Dr Gale. 'Sunstroke; night terrors.' And the same for Rudd, C., the day after, without the calamine."
+      ],
+      [
+       "tn_chemist",
+       "Dr Gale was a good doctor and he was wrong once a week like everyone else. It was eighty-one degrees. Children do go down with it."
+      ],
+      [
+       "miriam",
+       "Sunstroke. Two children, the same week, in the same marsh. It is the most boring explanation in the world and that's exactly why it's probably right."
+      ]
+     ],
+     "evidence": "tn_prescription_1973"
+    },
+    {
+     "id": "tn_chemist_fay",
+     "title": "Fay",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 8,
+       "prompt": "She's worked for you for nine years. You've never asked her."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "tn_chemist",
+       "I have never asked her and I never will. She came to me at eighteen with a reference from the Newport Boots and a face that said 'don't'. She is the best dispenser on the island and she has not been late once."
+      ],
+      [
+       "tn_chemist",
+       "On the 29th of May every year she asks for the afternoon. I give it to her. I don't ask where she goes. ...She goes to the Levels. I've seen the bicycle."
+      ],
+      [
+       "elijah",
+       "He's the only one who never laughed. She knows that. That's why she's here."
+      ]
+     ],
+     "evidence": "tn_chemist_on_fay"
+    }
+   ]
+  },
+  "tn_archivist": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "tn_archivist_press",
+     "title": "The County Press, June 1973",
+     "gates": [
+      {
+       "check": "recall",
+       "difficulty": 7,
+       "prompt": "You've got the 1973 fiche out already. Somebody's been in before us."
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "tn_archivist",
+       "The 1st of June, page five. 'Children's fright on the Levels.' Stray dog, the heat, a police spokesman who is now a magistrate and would rather you didn't. I can let you have a print for 10p if the machine's in a mood."
+      ],
+      [
+       "tn_archivist",
+       "And yes, somebody's been in. A woman, Thursday, in a good coat, who knew the date without looking it up. She wanted the same page and the Sunnyside notice beneath it. She didn't give a name and I didn't ask; this is a library."
+      ],
+      [
+       "ruth",
+       "A woman in a good coat who knows the date. I've met that woman, dear. I've been that woman."
+      ]
+     ],
+     "evidence": "tn_county_press_1973"
+    },
+    {
+     "id": "tn_archivist_other",
+     "title": "The LEVELS (OTHER) file",
+     "gates": [
+      {
+       "check": "lore",
+       "difficulty": 8,
+       "prompt": "Every library has a file it doesn't catalogue. Yours says OTHER."
+      },
+      {
+       "trust": 3
+      }
+     ],
+     "lines": [
+      [
+       "tn_archivist",
+       "Four cuttings. 1973, the children. 1951, a drainage man who 'heard the pumps talking'. 1927, a hut on the marsh that the Ordnance Survey drew and then took off the next edition. 1898, a 'coloured man of fire' seen from the Shanklin road, which they put down to the gasworks."
+      ],
+      [
+       "tn_archivist",
+       "I didn't start that file. Miss Woodford did, in 1952. She said somebody ought to."
+      ],
+      [
+       "vera",
+       "A hut on the Ordnance Survey that was removed. The Survey does not draw what is not there. It also does not remove what is."
+      ]
+     ],
+     "evidence": "tn_levels_other_file"
+    }
+   ]
+  },
+  "tn_vicar": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "tn_vicar_children",
+     "title": "The children's story",
+     "gates": [
+      {
+       "check": "empathy",
+       "difficulty": 7,
+       "prompt": "You wrote about them in the newsletter. You didn't laugh."
+      },
+      {
+       "check": "lore",
+       "difficulty": 7,
+       "prompt": "'Suffer the little children.' That's a sermon, not a parish note."
+      }
+     ],
+     "lines": [
+      [
+       "tn_vicar",
+       "I was new. Thirty-one, first living, and I thought a parish newsletter could change a town's mind. It can't, and the PCC had a word, and I kept my head down for twenty years. But I had sat with those two in the vestry on the Wednesday, and I will tell you what I told the PCC: children lie about homework. They do not lie like that."
+      ],
+      [
+       "tn_vicar",
+       "The boy did the talking. The girl drew. She drew it on the back of a hymn sheet and then she took the hymn sheet home, which I should have stopped and didn't."
+      ],
+      [
+       "ruth",
+       "He believed them, dear. One grown-up in the whole town. It's not nothing. It's not enough, but it's not nothing."
+      ]
+     ],
+     "evidence": "tn_vicar_children"
+    },
+    {
+     "id": "tn_vicar_hat",
+     "title": "The hat in the lost property",
+     "gates": [
+      {
+       "show": "tn_lost_hat_notice"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "tn_vicar",
+       "Oh, that. That's the pier's. A hen party from Portsmouth, Saturday, twelve of them in pointed hats, and one of them was sick in the font. The hat is in a bag in the vestry if you want it. I'd rather you did."
+      ],
+      [
+       "teddy",
+       "A hen party. Twelve hats. One font."
+      ],
+      [
+       "tn_vicar",
+       "The font has been blessed again. It seemed wise."
+      ]
+     ],
+     "evidence": "tn_hen_party"
+    }
+   ]
+  },
+  "tn_stationmaster": {
+   "trust": 1,
+   "facts": [
+    {
+     "id": "tn_station_1973",
+     "title": "Whit Monday, 1973",
+     "gates": [
+      {
+       "check": "rapport",
+       "difficulty": 7,
+       "prompt": "You were on the platform in '73. Bank holiday. Who came off the trains?"
+      },
+      {
+       "trust": 2
+      }
+     ],
+     "lines": [
+      [
+       "tn_stationmaster",
+       "Everybody. Four hundred off every train from the pier, Birmingham and Coventry mostly, and the Sunnyside lot meeting them with a hat and a sign. The camp sent their new man that year. Tall. Had a trunk you could have slept in and wouldn't let the porter touch it."
+      ],
+      [
+       "tn_stationmaster",
+       "He went back on the Wednesday. Same trunk. Didn't meet anybody's eye. I remember because he'd been all smiles on the Saturday and you notice when a smiler stops."
+      ],
+      [
+       "dale",
+       "A trunk you could sleep in. What's in a trunk that size that you don't let a porter touch?"
+      ]
+     ],
+     "evidence": "tn_station_trunk"
+    },
+    {
+     "id": "tn_station_phone",
+     "title": "The telephone box",
+     "gates": [
+      {
+       "show": "tn_phone_voice"
+      },
+      {
+       "check": "tech",
+       "difficulty": 8,
+       "prompt": "That box outside. Is it connected to anything?"
+      }
+     ],
+     "lines": [
+      [
+       "tn_stationmaster",
+       "BT came out twice this spring. Took the handset away, put it back, said it was fine. It's not fine. It rings with nobody on it, and when it rings the signal lamp down the line goes green with no train coming."
+      ],
+      [
+       "tn_stationmaster",
+       "I've stopped answering it. The lads won't go near it after dark. I tell them it's the salt in the wires. I don't believe that, so I don't say it with any conviction."
+      ],
+      [
+       "june",
+       "A phone box that trips a railway signal. There's no wire between those. There shouldn't be anything between those."
+      ]
+     ],
+     "evidence": "tn_station_signal"
+    }
+   ]
+  }
+ },
+ "evidence": {
+  "fay_statement": {
+   "title": "Fay Mallory's statement",
+   "text": "Fay Mallory, 27, told the story for the second time in her life: a thing that was all colours, moving like weather, in a yellow pointed hat, that took two children into a hut full of dials. She has a drawing she made that week.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "fay_drawing": {
+   "title": "Fay's 1973 drawing",
+   "text": "A child's crayon drawing, May 1973: a wall of dials and a tall figure beside them. Four dials are coloured in order, left to right: blue, red, green, yellow, with numbers added afterward in a different crayon. 'He turned them in that order and the wall opened.'",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B",
+   "key": true
+  },
+  "fay_on_colin": {
+   "title": "How Colin's story changed",
+   "text": "Colin told it to everyone and was laughed at until he told it differently: a man in a hat by August, nothing by Christmas. Fay told nobody at all for twenty-one years.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "fay_hut_sea": {
+   "title": "The sea behind the dials",
+   "text": "Fay saw the sea through a window of the hut, white cliffs close and water under them, from a marsh two miles inland. She has walked it with the Ordnance Survey since. There is nowhere on the Levels that view exists.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "tn_phone_voice": {
+   "title": "Tape: the station telephone box",
+   "text": "Night one: a man's voice from the receiver of the station telephone box, reading, with no breath, no hiss and no room between the words. June's recorder caught forty seconds before the line went dead. The box has no dial tone.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "tn_vent_tape": {
+   "title": "Cassette from the charity shop",
+   "text": "An unlabelled cassette from a shoebox of a dead man's tapes: a man's voice reading nursery rhymes flat, with no breath between the words. It sounds like the telephone box.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C",
+   "red_herring": true,
+   "lab": "tn_vent_tape_lab"
+  },
+  "tn_vent_tape_lab": {
+   "title": "Lab: the charity shop cassette",
+   "text": "A ventriloquist's practice tape, 1980s stock, recorded in a small room. The breaths are there: slowed down they sit on the other side of the words, where the dummy would be. A technique, and a good one. It is not the telephone box.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "A",
+   "exposes": [
+    "tn_vent_tape"
+   ]
+  },
+  "tn_volunteer_dyer": {
+   "title": "Dyer and Dennis",
+   "text": "The cassettes were Mr Dyer's, the pier ventriloquist for thirty years, practising the voice without moving his chest. He died in March. He frightened the Brownies.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "tn_vent_tape"
+   ]
+  },
+  "tn_county_press_1973": {
+   "title": "County Press, 1 June 1973",
+   "text": "CHILDREN'S FRIGHT ON THE LEVELS. Two visiting children, seven and eight, reported a tall figure in a yellow hat by the brook. The police spokesman blamed a stray Alsatian reported in the area and the heat; 81F on the day.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "tn_county_press_photo": {
+   "title": "Photo of the 1973 County Press",
+   "text": "A photograph of the microfiche screen: the children's fright, the stray Alsatian, 81F, and the Sunnyside season notice in the same column, naming a Mr R. Tappin.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "tn_parish_newsletter": {
+   "title": "Parish newsletter, June 1973",
+   "text": "The vicar's letter: the town has had a good laugh; our Lord said suffer the little children and did not say laugh at them; they described a thing that was every colour at once; 'I have not seen it. I do not therefore know that it was not there.'",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "tn_newsletter_photo": {
+   "title": "Photo of the parish newsletter",
+   "text": "A purple-duplicated parish newsletter, June 1973, photographed in a church hall. The vicar did not laugh.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D"
+  },
+  "tn_prescription_1973": {
+   "title": "Prescription ledger, May 1973",
+   "text": "Harwood's ledger, in the old Mr Harwood's hand: 30 May 1973, calamine and a mild sedative for Mallory, F., aged seven, 'sunstroke; night terrors', Dr Gale. The same for Rudd, C., the day after.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "tn_register_1973": {
+   "title": "Seaview register, May 1973",
+   "text": "Mrs Bannister's register for the week of 26 May 1973: the Rudds in Room 2, the Mallorys in Room 4, and in Room 3 a Mr R. Tappin, Sunnyside Holiday Camp (Ents), paid in advance, who left on the Wednesday morning without his breakfast and with a smell of greasepaint in the washstand.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "document",
+   "reliability": "B"
+  },
+  "tn_register_photo": {
+   "title": "Photo of the Seaview register",
+   "text": "A photograph of the 1973 page of the Seaview visitors' register: the Rudds, the Mallorys, and R. Tappin, Sunnyside, Room 3, 'left Weds'.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "C"
+  },
+  "tn_landlady_rudds": {
+   "title": "Mrs Bannister on the Rudds",
+   "text": "Colin came in white as a tablecloth on the Tuesday and his father had the breakfast room laughing by the Wednesday. Fay said nothing and drew, until her mother took the crayons away.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "tn_landlady_left_early": {
+   "title": "Why Mr Tappin left",
+   "text": "On the Wednesday morning Colin looked up from his breakfast and pointed at Mr Tappin without a word. Mr Tappin put down his cup, went upstairs and packed. Mrs Bannister told the police; they wrote 'Alsatian'.",
+   "lean": "hoax",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "tn_publican_gossip": {
+   "title": "What Sandown says",
+   "text": "The town says heat, a dog and a boy who wanted his picture in the paper, and has said so for twenty years. The pier staff say different. Ask on the pier.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "tn_publican_pier_man": {
+   "title": "The man in the hat on the pier",
+   "text": "Summer 1973: Sunnyside sent entertainers down the pier of an afternoon in hats and on stilts. One wore a tall pointed hat and never took it off, 'part of the character'. They drank in the Mermaid's corner booth after.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "tn_publican_lights": {
+   "title": "Lights over the Levels",
+   "text": "Coloured lights over the Levels every bank holiday since 1973, going up and coming down, seen by the publican, his father and the golf club secretary.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "tn_sunnyside_flyer": {
+   "title": "Uncle Rainbow flyer, 1994",
+   "text": "A photocopied flyer from the newsagent's window: SUNNYSIDE HOLIDAY CAMP. UNCLE RAINBOW'S FUN HOUR, EVERY AFTERNOON. ALL COLOURS! A man in a striped pointed hat with a wand.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "tn_flyer_dates": {
+   "title": "Uncle Rainbow is from Lake",
+   "text": "Uncle Rainbow is Darren from Lake, twenty-four, who started the act in 1989 when the camp changed hands. The hat is from a joke shop in Ryde. He was born after 1973.",
+   "lean": "hoax",
+   "weight": 0,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "tn_sunnyside_flyer",
+    "tn_publican_lights"
+   ]
+  },
+  "tn_lost_hat_notice": {
+   "title": "Lost property: a yellow pointed hat",
+   "text": "A notice on the station board: FOUND, PIER, 24 MAY, ONE YELLOW POINTED HAT (PARTY). Four days before the party arrived.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "recording",
+   "reliability": "D",
+   "red_herring": true
+  },
+  "tn_hen_party": {
+   "title": "The hen party's hat",
+   "text": "The hat on the station noticeboard is a Portsmouth hen party's: twelve pointed hats on Saturday night, one of them sick in the font. The hat is in a bag in the vestry.",
+   "lean": "natural",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B",
+   "exposes": [
+    "tn_lost_hat_notice"
+   ]
+  },
+  "tn_chemist_on_fay": {
+   "title": "Mr Harwood on Fay",
+   "text": "Fay has worked at Harwood's nine years and never been late once. Every 29th of May she asks for the afternoon off and cycles to the Levels. He has never asked her about 1973 and never will.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "tn_vicar_children": {
+   "title": "The vicar sat with them",
+   "text": "The vicar, new in 1973, sat with both children in the vestry on the Wednesday. Children lie about homework; they do not lie like that. The girl drew it on the back of a hymn sheet and took the sheet home.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "tn_levels_other_file": {
+   "title": "The LEVELS (OTHER) file",
+   "text": "Four cuttings a librarian kept since 1952: the children in 1973; a drainage man in 1951 who heard the pumps talking; a hut on the marsh the Ordnance Survey drew in 1927 and took off the next edition; a 'coloured man of fire' seen from the Shanklin road in 1898, blamed on the gasworks.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "document",
+   "reliability": "C"
+  },
+  "tn_station_trunk": {
+   "title": "The man with the trunk",
+   "text": "Whit Monday 1973 the camp's new entertainer met the trains with a hat and a sign and a trunk you could sleep in that he would not let the porter touch. He went back on the Wednesday with the same trunk and had stopped smiling.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "tn_station_signal": {
+   "title": "The box that trips the signal",
+   "text": "BT has been out twice to the station telephone box. It rings with nobody on it, and when it rings the down signal lamp goes green with no train coming. There is no wire between the two.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "B"
+  }
+ },
+ "contradictions": {
+  "tn_heat_vs_room3": {
+   "title": "The heat and Room 3",
+   "evidence": [
+    "tn_county_press_1973",
+    "tn_register_1973"
+   ],
+   "witness": "tn_landlady",
+   "prompt": "The paper says a stray dog and the heat. Your register says a camp entertainer in the room between the two children left the morning after. You told the police which, Mrs Bannister?"
+  }
+ },
+ "trail": [
+  {
+   "night": 1,
+   "roost": "The telephone box, Sandown station",
+   "map": "sandown_town",
+   "clues": [
+    "tn_phone_voice"
+   ],
+   "herring": [
+    "tn_vent_tape"
+   ]
+  }
+ ]
+}

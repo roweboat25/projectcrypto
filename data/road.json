@@ -159,6 +159,225 @@
     "numbers_2",
     "tone"
    ]
+  },
+  "sutton_to_sandown": {
+   "name": "Sutton to Sandown",
+   "from": "sutton",
+   "to": "sandown",
+   "arrive_map": "sandown_town",
+   "arrive_at": [
+    48,
+    24
+   ],
+   "hours": 30,
+   "season": "summer",
+   "arrive_day": "You come into %s station on a two-carriage train older than the Office, into bunting and gulls.",
+   "arrive_night": "You come into %s after dark. The last train empties and the sea is somewhere to the left, loud. Dread rises.",
+   "stops": [
+    {
+     "name": "Gassaway",
+     "text": "For once the wagon turns north. The windows are down because the heater is stuck on, the passports are in a coffee can on the dash, and the back seat is tape stock, a suitcase each and a map of an island smaller than Braxton County. Gassaway's on-ramp is the last place anyone waves.",
+     "highway": "I-79 north to Morgantown, then I-68 east over the mountains",
+     "back": "US-19 north through Weston and Clarksburg",
+     "sights": "The Elk low and brown, hay down in the bottoms, a boy selling nightcrawlers off a card table, and the courthouse clock in Sutton already wrong behind you.",
+     "events": [
+      "fruit_stand",
+      "maryland_trooper"
+     ]
+    },
+    {
+     "name": "Cumberland, Maryland",
+     "text": "I-68 comes down off Big Savage Mountain into the Narrows, a slot in the ridge barely wide enough for the river, the railroad and the road. Cumberland sits in the bottom of it with church spires and a dead Kelly-Springfield plant. From here it is the Beltway, the airport, and the car in a lot for a week.",
+     "highway": "I-68 east through the Narrows, I-70 and I-270 to the Beltway",
+     "back": "US-40, the National Road, over Sideling Hill to Hancock",
+     "sights": "The Sideling Hill road cut with its rock folded like a sandwich, a Western Maryland caboose on a siding, and the first Washington plates with their hoods up in the heat.",
+     "events": [
+      "beltway_crawl",
+      "maryland_trooper"
+     ]
+    },
+    {
+     "name": "Dulles",
+     "mode": "plane",
+     "hours": 8,
+     "text": "The Buick goes into economy parking under a sign that says REMEMBER YOUR ROW, and nobody does. The terminal is a concrete wing on a hill and the mobile lounges drive you out to the plane like a bus going somewhere unusual. Eight hours. The ocean, then England.",
+     "highway": "The overnight flight to Heathrow",
+     "sights": "The lounge window full of a 747's belly, a sunset over Virginia at the wrong angle, and a man across the aisle reading a paperback about Loch Ness with the cover folded back.",
+     "events": [
+      "jet_lag"
+     ]
+    },
+    {
+     "name": "Heathrow",
+     "mode": "train",
+     "hours": 3,
+     "text": "Morning, English and grey, and everyone talks like the BBC except faster. The Piccadilly line takes you in from under the airport, the Bakerloo drops you at Waterloo, and a slam-door train for Portsmouth Harbour sits at platform twelve with its windows open. The cases go up on the luggage rack and stay there.",
+     "highway": "The Piccadilly line in, the Bakerloo to Waterloo, then the Portsmouth Harbour train",
+     "sights": "Back gardens with washing out, a cricket pitch nobody is using, Guildford cathedral on its hill, and a hedge that does not stop for forty miles.",
+     "events": [
+      "first_british_things",
+      "tea_trolley",
+      "ticket_inspector"
+     ]
+    },
+    {
+     "name": "Portsmouth Harbour",
+     "mode": "hovercraft",
+     "hours": 0.5,
+     "text": "The train stops at the end of a pier with the harbour on three sides and the Isle of Wight lying across the water like a long grey animal asleep. A hovercraft sits on the slip with its skirt deflated, looking like something a child drew. Beside it a car ferry loads for Fishbourne with a queue of Vauxhalls and a coach from Birmingham.",
+     "highway": "Across the Solent to the island",
+     "sights": "HMS Victory's masts over a dockyard wall, the Spinnaker-less skyline of 1994, a Sealink ferry backing out with a long honk, and the hovercraft fans starting up like a storm indoors.",
+     "choices": [
+      {
+       "text": "The hovercraft to Ryde",
+       "hours": 0.5,
+       "cash": 12,
+       "road": "hovercraft"
+      },
+      {
+       "text": "The car ferry to Fishbourne, then a bus",
+       "hours": 2,
+       "cash": 6,
+       "road": "ferry"
+      }
+     ],
+     "events": [
+      "hovercraft_passenger",
+      "ferry_crossing"
+     ]
+    },
+    {
+     "name": "Ryde Pier Head",
+     "mode": "train",
+     "hours": 1,
+     "text": "The island train waits at the end of half a mile of pier: two red carriages built for the London Underground in 1938, bought second-hand in 1989, with the Northern line still printed on the route map above the seats. It rattles down the pier over the water, through Ryde's tunnel, and out into fields.",
+     "highway": "The Island Line down the pier and through Brading",
+     "sights": "The pier boards passing under the carriage floor, Ryde esplanade with its boating lake, a Portsmouth skyline shrinking across the Solent, and sheep looking up at a tube train.",
+     "events": [
+      "ticket_inspector",
+      "man_with_ferret"
+     ]
+    },
+    {
+     "name": "Brading",
+     "mode": "train",
+     "hours": 0.5,
+     "text": "Brading is a signal box, a bridge and a platform where nobody gets on. South of it the land flattens into reeds and ditches, Brading Marsh, with Culver Down's white cliff standing at the end of it like a wall. The next stop is Sandown. The carriage goes quiet without anybody deciding to.",
+     "highway": "The last stretch of the Island Line into Sandown",
+     "sights": "Reed beds laid flat by the wind, a heron that does not move, the old Bembridge branch going off into brambles, and a yellow something on a fence post that is gone before anyone can say what it was.",
+     "events": [
+      "marsh_from_train"
+     ]
+    }
+   ],
+   "deck": [
+    "fruit_stand",
+    "maryland_trooper",
+    "beltway_crawl",
+    "tea_trolley",
+    "ticket_inspector",
+    "man_with_ferret"
+   ],
+   "stations": [
+    "wsgb_1490",
+    "wvpn_885",
+    "wchs_580",
+    "night_desk",
+    "numbers_1",
+    "radio_1_1053",
+    "radio_4_935",
+    "ocean_fm_974",
+    "iw_radio_1242",
+    "poacher",
+    "callin_uk",
+    "tone"
+   ]
+  },
+  "sandown_to_sutton": {
+   "name": "Sandown to Sutton",
+   "from": "sandown",
+   "to": "sutton",
+   "arrive_map": "sutton_office",
+   "arrive_at": [
+    14.5,
+    20
+   ],
+   "hours": 30,
+   "season": "summer",
+   "arrive_day": "You come into %s with the windows down, past the courthouse, and the Office looks small and exactly where you left it.",
+   "arrive_night": "You come into %s after midnight with the Buick ticking and the courthouse clock wrong. The Office is dark. Dread rises.",
+   "stops": [
+    {
+     "name": "Sandown station",
+     "mode": "train",
+     "hours": 1.5,
+     "text": "The case boxes go up on the rack of a 1938 carriage and Sandown slides away: the bay, the pier, the bunting that was up when you came. Brading Marsh, Ryde tunnel, the long pier out over the water, and the hovercraft waiting on the slip with its fans already turning.",
+     "highway": "The Island Line to Ryde and the hovercraft to Portsmouth",
+     "sights": "Culver Down going behind the houses, a man on the pier with a telescope pointed at nothing, and the island turning back into a shape across the Solent.",
+     "events": [
+      "ticket_inspector",
+      "man_with_ferret"
+     ]
+    },
+    {
+     "name": "Portsmouth Harbour",
+     "mode": "train",
+     "hours": 3,
+     "text": "The Waterloo train is a slow one with every window open and a carriage of sailors going on leave. London, the Bakerloo, the Piccadilly, and Heathrow's tunnels, with the evidence bags in the hand luggage and a story ready for customs about a fossil.",
+     "highway": "The train to Waterloo and the tube to Heathrow",
+     "sights": "The same hedge the other way, Guildford's cathedral, a cricket match this time with eleven men in white standing very still, and Big Ben from the Waterloo platforms for anyone who leans.",
+     "events": [
+      "tea_trolley",
+      "ticket_inspector"
+     ]
+    },
+    {
+     "name": "Heathrow",
+     "mode": "plane",
+     "hours": 8,
+     "text": "The day flight home, chasing the sun west so the afternoon lasts eleven hours. A cold lunch on a tray, a film nobody watches, and the Atlantic going by underneath like a floor. Everyone in the party is already arguing the verdict in their head.",
+     "highway": "The day flight to Dulles",
+     "sights": "Ireland green under broken cloud, then nothing but water and the plane's own shadow, then Newfoundland with snow still in the folds in May.",
+     "events": [
+      "suits_on_the_plane"
+     ]
+    },
+    {
+     "name": "Dulles",
+     "text": "The Buick is where it was, under a week of pollen, and starts on the third try. Out past the Beltway the evening comes down over Maryland and the mountains start again at Hancock. It is a long pull west with the island still in everyone's ears and the sorting room waiting.",
+     "highway": "I-270 and I-68 west over the mountains, then I-79 south",
+     "back": "US-50 west through Romney and Grafton to Clarksburg",
+     "sights": "The Sideling Hill cut lit orange, the Narrows at dusk with a coal train in it, and a pair of headlights that keep the same distance.",
+     "events": [
+      "black_sedan",
+      "beltway_crawl",
+      "fruit_stand"
+     ]
+    }
+   ],
+   "deck": [
+    "black_sedan",
+    "fruit_stand",
+    "maryland_trooper",
+    "beltway_crawl",
+    "tea_trolley",
+    "ticket_inspector",
+    "man_with_ferret"
+   ],
+   "stations": [
+    "radio_1_1053",
+    "radio_4_935",
+    "ocean_fm_974",
+    "iw_radio_1242",
+    "poacher",
+    "callin_uk",
+    "tone",
+    "wsgb_1490",
+    "wvpn_885",
+    "wchs_580",
+    "night_desk",
+    "numbers_2"
+   ]
   }
  },
  "events": {
@@ -920,6 +1139,515 @@
      "line": "Nobody to call who would answer. You get back in the car."
     }
    ]
+  },
+  "jet_lag": {
+   "title": "Jet lag over the Atlantic",
+   "text": "The cabin lights go down somewhere past Newfoundland and the plane settles into the long hum. Five time zones are going to land on the party at once in the morning. The case file is in the seat pocket. The pillow is the size of a sandwich.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "plane"
+   ],
+   "options": [
+    {
+     "text": "Sleep",
+     "line": "Coat over the head, shoes off, the engine note for a lullaby. It is not good sleep but it is six hours of it, and the island will get a party that can stand up straight.",
+     "gives": {
+      "composure": 40
+     }
+    },
+    {
+     "text": "Read the case files",
+     "line": "The reading light makes a small room out of the seat. Two children, a meadow, a man in a pointed hat who said he came from somewhere else. By the time the breakfast trolley comes you know every name in the file and the sun is up over Ireland and it feels like three in the morning, because it is.",
+     "gives": {
+      "flag": "read_files"
+     }
+    }
+   ]
+  },
+  "first_british_things": {
+   "title": "The first British things",
+   "text": "Everything is slightly the wrong size. The train is narrow, the doors have handles on the outside, the money is heavy and the coins have a woman on them. A man opposite reads a newspaper with a page three that Teddy looks at twice. Somebody says 'cheers' for no reason anyone can find.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "train"
+   ],
+   "options": [
+    {
+     "text": "Ask the man opposite about the Isle of Wight",
+     "check": {
+      "voice": "rapport",
+      "difficulty": 7
+     },
+     "line": "He folds the paper. 'Sandown? Bucket and spade. My nan went every year.' He says there is a zoo with tigers, a pier, and that the marsh behind the town floods, and he asks what Americans want with it. 'A story about a yellow man,' you say, and his face changes. He heard it on the radio.",
+     "gives": {
+      "flag": "heard_yellow_man_rumour"
+     },
+     "fail": {
+      "line": "He looks over the paper, says 'Can't help you, mate,' and goes back to it. Nobody on the carriage meets anyone's eye for the next forty miles. It is apparently a rule.",
+      "gives": {
+       "composure": -5
+      }
+     }
+    },
+    {
+     "text": "Buy something from the buffet",
+     "line": "A sandwich in a triangular box, a cup of tea with the bag still in it, and a chocolate bar whose name sounds like a town. The tea is the best thing that has happened since Dulles.",
+     "gives": {
+      "cash": -3,
+      "composure": 10
+     }
+    },
+    {
+     "text": "Watch the country go by",
+     "line": "Brick, hedge, chimney, hedge. Everything is older than everything at home and nobody on the train has noticed. The sky is the same low grey as Sutton in March and somehow warmer."
+    }
+   ]
+  },
+  "hovercraft_passenger": {
+   "title": "The woman on the hovercraft",
+   "text": "The hovercraft lifts, roars and goes out over the Solent like a bus skating on a lake, and the woman in the next seat holds the rail with both hands. She is fifty, maybe, in a good coat with a badge pinned to the lapel: an enamel sun, SUNNYSIDE HOLIDAY CAMP, 1973. She sees you looking at it.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "hovercraft"
+   ],
+   "options": [
+    {
+     "text": "Ask about the badge",
+     "line": "'Redcoat. Well, Yellowcoat; Sunnyside did it yellow.' She was an entertainer that season, the summer the children saw something on the marsh, and she has not been back to the island since. 'I'm going to see the camp before they knock it down.' She writes a name on your ticket. 'If you're asking about that summer, ask for me.'",
+     "gives": {
+      "flag": "met_hover_woman"
+     }
+    },
+    {
+     "text": "Say you are going to Sandown about 1973",
+     "check": {
+      "voice": "empathy",
+      "difficulty": 8
+     },
+     "line": "She does not ask how you know. 'They laughed at those kids,' she says, 'and some of us didn't, and that cost.' One of the camp's entertainers left mid-season and never wrote. She gives you her name and a guest house, and does not let go of the rail until Ryde.",
+     "gives": {
+      "flag": "met_hover_woman",
+      "composure": 5
+     },
+     "fail": {
+      "line": "Her face closes like a door. 'Lot of people went to Sandown in 1973.' She moves to a seat across the aisle and watches the water for the rest of the crossing. The badge stays on.",
+      "gives": {
+       "flag": "met_hover_woman",
+       "composure": -5
+      }
+     }
+    },
+    {
+     "text": "Watch the sea",
+     "line": "Ten minutes of spray on the windows and the island coming up out of it, a long pier, a church on a hill. When you look back her seat is empty and the badge is on it, left or dropped, and then the crew are shouting for everyone to stay seated until the skirt is down."
+    }
+   ]
+  },
+  "ferry_crossing": {
+   "title": "The slow way over",
+   "text": "The car ferry takes forty minutes to cross what the hovercraft does in ten, and the party spends it on the open deck with a coach party from Birmingham, a flask being passed round and the sea the colour of slate. At Fishbourne there is a bus, eventually.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "ferry"
+   ],
+   "options": [
+    {
+     "text": "Talk to the coach party",
+     "line": "They are going to Sandown for the week, every year since 1961, and the driver remembers 1973 because the marsh flooded and the camp cancelled the Saturday show. 'Something about the kiddies seeing a man in a hat.' He laughs, and then does not.",
+     "gives": {
+      "flag": "heard_yellow_man_rumour",
+      "hours": 0.5
+     }
+    },
+    {
+     "text": "Go below and sleep",
+     "line": "A bench in the lounge, the engine coming up through it, and twenty minutes of nothing. The bus at Fishbourne is late and the driver sings.",
+     "gives": {
+      "composure": 10,
+      "hours": 0.5
+     }
+    },
+    {
+     "text": "Stand at the rail",
+     "line": "Spray, gulls, the island getting bigger. Nothing happens, which after the week this has been is a thing in itself."
+    }
+   ]
+  },
+  "marsh_from_train": {
+   "title": "The marsh from the train",
+   "text": "South of Brading the train runs on an embankment with the marsh on both sides, reeds to the horizon and the white end of Culver Down standing over it. In the middle of the reeds there is a patch of bare ground, round, where nothing grows, and a stile with a path to it. A child in the carriage says 'Look' and nobody looks but you.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "train"
+   ],
+   "options": [
+    {
+     "text": "Mark it on the map",
+     "check": {
+      "voice": "fieldcraft",
+      "difficulty": 8
+     },
+     "line": "A church spire to the left, the cliff to the right, the stile between: three lines on the Ordnance Survey sheet cross on a meadow by a brook. You have the place before you have the town.",
+     "gives": {
+      "flag": "marked_meadow"
+     },
+     "fail": {
+      "line": "By the time the map is out the train has curved and the reeds all look the same. Teddy says it was on the left. It was on the right.",
+      "gives": {}
+     }
+    },
+    {
+     "text": "Ask the child what they saw",
+     "line": "'A man.' The mother says there was nobody there, love, and the child says 'He was yellow,' and the mother says that's enough. The child does not look out of the window again all the way to Sandown.",
+     "gives": {
+      "dread": 1,
+      "flag": "child_saw_yellow"
+     }
+    },
+    {
+     "text": "Look away",
+     "line": "You watch the other side of the carriage, where there is a golf course and a man in a tank top missing a putt. Whatever is on the marsh will keep until tomorrow. It has kept since 1973."
+    }
+   ]
+  },
+  "suits_on_the_plane": {
+   "title": "A grey suit two rows ahead",
+   "text": "Somewhere over the Atlantic you notice that the man two rows ahead on the aisle is reading a manila folder with an Office stamp on the tab. Your case file. The one in your bag, which is still in your bag. He has it open on the tray table, upside down, turning the pages at reading speed. His hat is in the overhead locker. He has not had a drink.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "plane"
+   ],
+   "options": [
+    {
+     "text": "Walk up the aisle and look",
+     "check": {
+      "voice": "nerve",
+      "difficulty": 9
+     },
+     "line": "You stand at his shoulder as if waiting for the toilet. It is your handwriting, your photographs, the verdict page blank. He does not look up. 'Hoax travels better,' he says, pleasantly, to the folder. 'Lighter. Nothing to declare.' When you get back to your seat the folder is in your bag and the man is asleep with his hands folded.",
+     "gives": {
+      "flag": "penrose_plane",
+      "dread": 1
+     },
+     "fail": {
+      "line": "Halfway up the aisle the seatbelt sign chimes and a steward steers you back. When the plane levels out the seat two rows ahead is empty and the folder in your bag is warm, as if it has been in the sun.",
+      "gives": {
+       "dread": 1
+      }
+     }
+    },
+    {
+     "text": "Watch him and say nothing",
+     "line": "He reads to the end, closes it, and sits with his hands on it for an hour. When the meal comes he waves it away. When the lights go down he is still sitting straight. When they come up for landing the seat is empty and the steward says it was empty the whole flight.",
+     "gives": {
+      "flag": "penrose_plane"
+     }
+    },
+    {
+     "text": "Pull the shade down and sleep",
+     "line": "You decide not to have seen it, and sleep like a stone until the wheels come down over Virginia. In your bag the folder is in order. Someone has filled in the verdict page in pencil, lightly, and rubbed it out.",
+     "gives": {
+      "composure": 15,
+      "dread": 1
+     }
+    }
+   ]
+  },
+  "fruit_stand": {
+   "title": "A fruit stand under a tarp",
+   "text": "A pickup backed up to the shoulder with its tailgate down and a blue tarp over it, a hand-lettered sign: PEACHES, TOMATOES, HONEY. A woman in a lawn chair fans herself with a seed catalogue. It is the first real heat of the year and the wagon's heater is stuck on.",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Buy a bag of peaches",
+     "line": "Soft, warm from the sun, eaten over the dash with the juice running. She throws in a jar of honey because 'you all look like you're going somewhere.' You are.",
+     "gives": {
+      "cash": -3,
+      "composure": 10
+     }
+    },
+    {
+     "text": "Ask her if anything odd comes through here",
+     "line": "She thinks about it with the fan going. 'Black car, every so often. Old. Never stops, never buys.' She says it like weather. 'Goes north. Comes back south about a week after.'",
+     "gives": {
+      "cash": -2,
+      "flag": "fruit_stand_sedan"
+     }
+    },
+    {
+     "text": "Drive on",
+     "line": "The tarp flaps in the mirror and then the road bends and takes it."
+    }
+   ]
+  },
+  "maryland_trooper": {
+   "title": "A trooper on the mountain",
+   "text": "A Maryland State Police cruiser sits in the median at the top of a grade with its radar out the window. It comes out behind the wagon as you pass and the lights come on a mile later, on a stretch with a runaway-truck ramp and a view of three states. The trooper walks up slow, looks at the West Virginia plates, the antennas, the Office lettering on the door.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Be straight with him",
+     "line": "Investigators, Sutton, headed for the airport and a case in England. He says 'England' the way you would say 'the moon', writes nothing, and tells you the Beltway is a parking lot after three. He is right.",
+     "gives": {
+      "flag": "trooper_warned",
+      "hours": 1
+     }
+    },
+    {
+     "text": "Tell him you're a film crew",
+     "check": {
+      "voice": "bluff",
+      "difficulty": 9
+     },
+     "line": "Documentary, the National Road, public television. He asks which station and you name the one in Morgantown. He loses interest at once and waves you off with a warning about the speed through the Narrows.",
+     "gives": {
+      "hours": 1
+     },
+     "fail": {
+      "line": "He asks which station and you say the wrong one. The ticket is for seventy-four in a sixty-five, the lecture is about honesty, and both take a while in the heat.",
+      "gives": {
+       "cash": -40,
+       "hours": 1,
+       "composure": -10
+      }
+     }
+    },
+    {
+     "text": "Kill the scanner before he reaches the window",
+     "requires": {
+      "flag": [
+       "car_scanner"
+      ]
+     },
+     "line": "The scanner goes dark a second before his hand finds the door. He looks at the box, then at you. 'Maryland doesn't like those,' he says, and lets it go.",
+     "gives": {
+      "composure": -5,
+      "flag": "trooper_warned"
+     }
+    }
+   ]
+  },
+  "beltway_crawl": {
+   "title": "The Beltway",
+   "text": "Eight lanes of Washington going nowhere at four miles an hour, every car with the windows up and the air on, and the Buick with its windows down and the heater on. A sign for Dulles promises eleven miles. The gas gauge says it will be a near thing. A man in the next lane is shaving.",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "highway",
+    "back"
+   ],
+   "options": [
+    {
+     "text": "Sit it out",
+     "line": "An hour and ten minutes to go eleven miles, with the radio for company and Frank reading the names of the exits aloud as if they were places. Somewhere near Tysons the car in front has a bumper sticker that says I BRAKE FOR MOTHMAN and Teddy wants to get out and ask.",
+     "gives": {
+      "hours": 1,
+      "gas": -1,
+      "composure": -5
+     }
+    },
+    {
+     "text": "Cut across on the surface streets",
+     "check": {
+      "voice": "fieldcraft",
+      "difficulty": 8
+     },
+     "line": "Off at the next exit, a map on the steering wheel, and forty minutes of Virginia subdivisions with names like plantations. You come out on the airport road ahead of the traffic you left.",
+     "gives": {
+      "gas": -1
+     },
+     "fail": {
+      "line": "Every surface street in Virginia goes to a cul-de-sac. You are back on the Beltway two exits behind where you got off, and the man is still shaving.",
+      "gives": {
+       "hours": 2,
+       "gas": -1,
+       "composure": -10
+      }
+     }
+    },
+    {
+     "text": "Pull off for gas and let it clear",
+     "line": "A station with a lot you can sleep in, coffee, and the tank filled against whatever is waiting on the far side of the ocean. When you come back the road is moving.",
+     "gives": {
+      "hours": 1,
+      "cash": -15,
+      "gas": 2
+     }
+    }
+   ]
+  },
+  "tea_trolley": {
+   "title": "The tea trolley",
+   "text": "A trolley comes down the aisle with a hiss of urn and a rattle of crisps, pushed by a woman who has seen everything a train can contain. Tea, coffee, something called a Kit Kat, a sandwich that was made in a factory on purpose. 'Hot drinks, cold drinks, snacks.'",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "train"
+   ],
+   "options": [
+    {
+     "text": "Tea all round",
+     "line": "Four teas in cups with lids that do not fit, milk already in, and a biscuit each. It costs nothing like what it should and it is, everyone agrees quietly, the finest beverage of the trip.",
+     "gives": {
+      "cash": -3,
+      "composure": 10
+     }
+    },
+    {
+     "text": "Ask her about the island",
+     "line": "She does the Portsmouth run four times a day and says half of Birmingham is on the island this weekend. 'And the papers are on about Sandown. Some yellow fella on the golf links. Don't mind that. Mind the gulls, they'll have your chips.'",
+     "gives": {
+      "cash": -1,
+      "flag": "heard_yellow_man_rumour"
+     }
+    },
+    {
+     "text": "Nothing, thank you",
+     "line": "She moves on. The hiss of the urn goes down the carriage and out of it, and the party goes back to looking at hedges."
+    }
+   ]
+  },
+  "ticket_inspector": {
+   "title": "Tickets, please",
+   "text": "A man in a British Rail waistcoat with a leather satchel and a clipper comes through the carriage saying 'Tickets, please' in the tone of a man who has said it a hundred thousand times. He looks at the party's tickets, then at the party, then at the equipment cases on the rack.",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "roads": [
+    "train"
+   ],
+   "options": [
+    {
+     "text": "Hand them over",
+     "line": "He clips four tickets, glances at the Office lettering on the tape case, and says 'Sandown, change at Ryde.' Then, half turning back: 'You'll be the Americans. There's a bloke on the pier been asking if you've come.' He does not say which bloke.",
+     "gives": {
+      "flag": "expected_on_island"
+     }
+    },
+    {
+     "text": "Ask him about the Island Line carriages",
+     "line": "He warms up at once. Built 1938 for the Northern line, bought by the island in '89 because nothing else fits Ryde tunnel, and 'she'll do another fifty years if they let her.' He forgets to clip one of the tickets.",
+     "gives": {
+      "composure": 5,
+      "flag": "tube_train_fact"
+     }
+    },
+    {
+     "text": "Explain the equipment",
+     "check": {
+      "voice": "bluff",
+      "difficulty": 8
+     },
+     "line": "Sound recording, for a programme about seaside piers. He nods as if that is a thing that happens, and tells you Sandown's has the best penny falls on the south coast.",
+     "gives": {},
+     "fail": {
+      "line": "'Sound recording.' He writes something in a small book and the whole carriage watches him do it. Nobody says anything about it, which is worse.",
+      "gives": {
+       "composure": -5
+      }
+     }
+    }
+   ]
+  },
+  "man_with_ferret": {
+   "title": "A man with a ferret",
+   "text": "A man in a flat cap gets on with a canvas bag that moves. He sits across from the party, opens the bag, and a ferret puts its head out and looks at Teddy. The man does not explain. Nobody else on the carriage looks up.",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "roads": [
+    "train"
+   ],
+   "options": [
+    {
+     "text": "Ask about the ferret",
+     "line": "'Rabbits,' he says, which is the whole answer. After a while he adds that there are rabbits on Culver Down like you would not believe, and that he will not go up there after dark, and that his dad would not either, and he was a hard man. The ferret goes back in the bag.",
+     "gives": {
+      "flag": "culver_warning"
+     }
+    },
+    {
+     "text": "Let the ferret smell your hand",
+     "check": {
+      "voice": "nerve",
+      "difficulty": 7
+     },
+     "line": "It is warm and quick and smells of straw, and it decides you are all right. The man nods as if you have passed something. 'She don't like everyone.' He gives you a name at the golf club to ask for.",
+     "gives": {
+      "flag": "ferret_approved",
+      "composure": 5
+     },
+     "fail": {
+      "line": "It bites. Not hard, but with intent. The man says 'She don't like everyone' and seems pleased about it, and the finger throbs all the way to Sandown.",
+      "gives": {
+       "composure": -10
+      }
+     }
+    },
+    {
+     "text": "Look out of the window",
+     "line": "The bag moves beside you for three stations and the man gets off at Brading with a nod. It is apparently the most normal thing that will happen all day."
+    }
+   ]
   }
  },
  "stations": {
@@ -1104,6 +1832,87 @@
    "text": "Nothing on 101.3, just hiss, and under the hiss, so faint the ear argues about it, three notes. Low, lower, then a step up. Again, slower, as if the thing making them is listening for an answer. The needle does not want to stay there. The signal meter says there is no signal at all.",
    "gives": {
     "flag": "tone_road_1"
+   }
+  },
+  "radio_1_1053": {
+   "name": "BBC Radio 1, 1053 AM",
+   "band": "am",
+   "freq": 1053,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "Medium wave, which the BBC keeps promising to leave by July. 'And still at number one, for a second week, Manchester United and the Cup Final squad, Come On You Reds, with Wet Wet Wet breathing down their necks from that wedding film.' A jingle, a Bank Holiday traffic warning for the A3 to Portsmouth, and then Ace of Base, same as the hills at home."
+  },
+  "radio_4_935": {
+   "name": "BBC Radio 4, 93.5 FM",
+   "band": "fm",
+   "freq": 93.5,
+   "kind": "local",
+   "when": [
+    "night"
+   ],
+   "text": "A calm voice reading a list to the whole country at a quarter to one in the morning. 'Wight, Portland, Plymouth. Southwest four or five, becoming variable three. Fair. Good, occasionally poor.' Then 'Sailing By', and then nothing at all until six. Nobody in the party knows what it was and everyone feels looked after."
+  },
+  "ocean_fm_974": {
+   "name": "Ocean FM 97.4 Hampshire",
+   "band": "fm",
+   "freq": 97.4,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "Hampshire's own: the Spice of Life, a Portsmouth car dealer, and the news. Bank Holiday queues on the M27, hovercraft running every half hour, 'and across the water, a Sandown story the Island paper is calling the Yellow Man: a golfer says a figure in a pointed hat crossed the links at dawn, and the club has nothing to say.' Then Take That.",
+   "gives": {
+    "flag": "heard_yellow_man_rumour"
+   }
+  },
+  "iw_radio_1242": {
+   "name": "Isle of Wight Radio, 1242 AM",
+   "band": "am",
+   "freq": 1242,
+   "kind": "local",
+   "when": [
+    "morning",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "text": "The island's own, four years old and sounding like a village hall: a ferry delay at Yarmouth, the Sandown Carnival committee, a lost dog at Lake, and a presenter who says 'over on the mainland' as if it were abroad. 'And if you were on the Levels this morning and saw something, Sandown police would like a word. So would we, frankly.'",
+   "gives": {
+    "flag": "heard_iw_radio"
+   }
+  },
+  "poacher": {
+   "name": "Unmarked, 1060 AM",
+   "band": "am",
+   "freq": 1060,
+   "kind": "numbers",
+   "when": [
+    "night"
+   ],
+   "text": "Eight bars of a folk tune on something like a music box, over and over: a poacher, a moonlit night. Then a woman's voice, English, crisp as a newsreader: 'Two-four-one-nine-six. Two-four-one-nine-six.' Five figures at a time, each group twice, for ten minutes, then the tune again. Teddy says it is the Lincolnshire Poacher. Nobody asks how she knows.",
+   "gives": {
+    "flag": "numbers_poacher"
+   }
+  },
+  "callin_uk": {
+   "name": "Late Lines, 97.3 FM",
+   "band": "fm",
+   "freq": 97.3,
+   "kind": "callin",
+   "when": [
+    "night"
+   ],
+   "text": "A south coast phone-in after midnight, the host tired and kind. A woman from Shanklin says her husband saw lights over Culver Down in '73 and would not talk about it until the day he died, and then did, and the host lets the silence sit. A man from Gosport rings to say it was the Navy. 'It's always the Navy, Terry,' the host says. 'Next caller.'",
+   "gives": {
+    "flag": "late_lines_heard"
    }
   }
  }

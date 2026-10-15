@@ -21,6 +21,7 @@ import shutil
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import art_extra  # noqa: E402
+import art_summer  # noqa: E402
 
 from PIL import Image, ImageDraw
 
@@ -167,6 +168,7 @@ TILES = {
     "void": None,
 }
 TILES.update(art_extra.EXTRA_TILES)
+TILES.update(art_summer.SUMMER_TILES)
 # painted walls, by colour index (3-column blocks left to right) and row group
 WALL_COLOURS = {
     "grey": wall(3, 0),
@@ -187,6 +189,8 @@ SOLID_PREFIXES = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", 
 def special_tile(name):
     if name in art_extra.EXTRA_TILES and isinstance(art_extra.EXTRA_TILES[name], str):
         return art_extra.special_tile_extra(name, tile)
+    if name in art_summer.SUMMER_TILES and isinstance(art_summer.SUMMER_TILES[name], str):
+        return art_summer.special_tile_summer(name, tile)
     if name == "void":
         return Image.new("RGBA", (T, T), (6, 6, 10, 255))
     base = shade(tile(F + "Gritty Dirt.png", 1, 1), 0.42)
@@ -334,6 +338,7 @@ PROPS = {
 }
 
 PROPS.update(art_extra.EXTRA_PROPS)
+PROPS.update(art_summer.SUMMER_PROPS)
 
 
 def trim(im):
@@ -357,7 +362,7 @@ def build_props():
         im = trim(im)
         im.save(os.path.join(out, name + ".png"))
         index[name] = {"w": im.size[0], "h": im.size[1], "solid": solid}
-    for name, (im, solid) in list(custom_props().items()) + list(art_extra.extra_custom_props().items()):
+    for name, (im, solid) in list(custom_props().items()) + list(art_extra.extra_custom_props().items()) + list(art_summer.summer_custom_props(outline, crop).items()):
         im.save(os.path.join(out, name + ".png"))
         index[name] = {"w": im.size[0], "h": im.size[1], "solid": solid}
     with open(os.path.join(out, "props.json"), "w") as f:
@@ -582,6 +587,7 @@ FACADES = {
 }
 
 FACADES.update(art_extra.EXTRA_FACADES)
+FACADES.update(art_summer.SUMMER_FACADES)
 
 
 def siding_tile(colour, shade, part, row):
@@ -781,6 +787,7 @@ CHARACTERS.update({
 })
 KID_HAIR = {"kid": (216, 179, 90)}
 CHARACTERS.update(art_extra.extra_characters(adult, child, LONG, BUTTONED, CARDIGAN))
+CHARACTERS.update(art_summer.summer_characters(adult, child, LONG, BUTTONED, CARDIGAN))
 
 
 def build_characters():

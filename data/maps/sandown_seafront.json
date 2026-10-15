@@ -1,0 +1,4102 @@
+{
+ "_doc": "Sandown, the Seafront and Pier: the hub. The esplanade road runs along the top with the coach park and the seafront gardens behind it; a strip of kiosks faces the promenade; the beach, the beach huts, the deckchairs and the Punch and Judy booth fill the sand; the pier runs out from the middle of the promenade to the pavilion on the pier head. Yaverland and the zoo are at the east end with the slipway. Positions are in 32px tiles.",
+ "id": "sandown_seafront",
+ "name": "Seafront and Pier",
+ "case": "sandown",
+ "district": "seafront",
+ "size": [
+  72,
+  40
+ ],
+ "spawn": [
+  36,
+  20
+ ],
+ "ground": "sand",
+ "weather": "clear",
+ "fills": [
+  {
+   "rect": [
+    1,
+    1,
+    70,
+    6
+   ],
+   "tiles": [
+    "grass",
+    "grass",
+    "grass2",
+    "grass3"
+   ]
+  },
+  {
+   "rect": [
+    56,
+    7,
+    15,
+    16
+   ],
+   "tiles": [
+    "grass",
+    "grass",
+    "grass2",
+    "grass3"
+   ]
+  },
+  {
+   "rect": [
+    7,
+    2,
+    15,
+    5
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    7,
+    4,
+    15,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    32,
+    1,
+    8,
+    7
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    35,
+    1,
+    1,
+    7
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    31,
+    1,
+    1,
+    6
+   ],
+   "tiles": [
+    "cement",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    40,
+    1,
+    1,
+    6
+   ],
+   "tiles": [
+    "cement",
+    "cement_b"
+   ]
+  },
+  {
+   "rect": [
+    45,
+    3,
+    10,
+    1
+   ],
+   "tiles": [
+    "gravel",
+    "gravel2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    7,
+    55,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    8,
+    55,
+    4
+   ],
+   "tiles": [
+    "asphalt",
+    "asphalt",
+    "asphalt2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    9,
+    55,
+    1
+   ],
+   "tiles": "asphalt_line",
+   "every": 2
+  },
+  {
+   "rect": [
+    1,
+    12,
+    55,
+    1
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    13,
+    55,
+    5
+   ],
+   "tiles": [
+    "cement",
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    18,
+    70,
+    5
+   ],
+   "tiles": [
+    "promenade",
+    "promenade",
+    "promenade2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    23,
+    70,
+    8
+   ],
+   "tiles": [
+    "sand",
+    "sand",
+    "sand2",
+    "sand3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    31,
+    70,
+    2
+   ],
+   "tiles": [
+    "wet_sand",
+    "wet_sand",
+    "wet_sand2"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    33,
+    70,
+    1
+   ],
+   "tiles": "beach_top"
+  },
+  {
+   "rect": [
+    1,
+    34,
+    70,
+    4
+   ],
+   "tiles": [
+    "sea",
+    "sea",
+    "sea2",
+    "sea3"
+   ]
+  },
+  {
+   "rect": [
+    1,
+    38,
+    70,
+    1
+   ],
+   "tiles": [
+    "sea_deep",
+    "sea_deep2"
+   ]
+  },
+  {
+   "rect": [
+    64,
+    23,
+    3,
+    10
+   ],
+   "tiles": [
+    "cement",
+    "cement_b",
+    "cement_crack"
+   ]
+  },
+  {
+   "rect": [
+    64,
+    33,
+    3,
+    1
+   ],
+   "tiles": [
+    "concrete_dark"
+   ]
+  },
+  {
+   "rect": [
+    34,
+    23,
+    6,
+    7
+   ],
+   "tiles": [
+    "pier_deck",
+    "pier_deck",
+    "pier_deck2"
+   ]
+  },
+  {
+   "rect": [
+    24,
+    30,
+    26,
+    9
+   ],
+   "tiles": [
+    "pier_deck",
+    "pier_deck",
+    "pier_deck2"
+   ]
+  },
+  {
+   "rect": [
+    0,
+    0,
+    32,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    40,
+    0,
+    32,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    39,
+    72,
+    1
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    1,
+    1,
+    15
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    0,
+    24,
+    1,
+    15
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    71,
+    1,
+    1,
+    11
+   ],
+   "tiles": "void"
+  },
+  {
+   "rect": [
+    71,
+    20,
+    1,
+    19
+   ],
+   "tiles": "void"
+  }
+ ],
+ "scatter": [
+  {
+   "rect": [
+    1,
+    1,
+    6,
+    6
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2"
+   ],
+   "chance": 0.12
+  },
+  {
+   "rect": [
+    22,
+    1,
+    9,
+    6
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2",
+    "earth"
+   ],
+   "chance": 0.1
+  },
+  {
+   "rect": [
+    41,
+    1,
+    30,
+    6
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2"
+   ],
+   "chance": 0.08
+  },
+  {
+   "rect": [
+    56,
+    13,
+    15,
+    10
+   ],
+   "tiles": [
+    "grass_tuft",
+    "grass_tuft2",
+    "earth2"
+   ],
+   "chance": 0.1
+  },
+  {
+   "rect": [
+    1,
+    23,
+    63,
+    8
+   ],
+   "tiles": [
+    "sand2",
+    "sand3",
+    "shingle"
+   ],
+   "chance": 0.06
+  },
+  {
+   "rect": [
+    1,
+    31,
+    63,
+    2
+   ],
+   "tiles": [
+    "shingle",
+    "shingle2"
+   ],
+   "chance": 0.08
+  }
+ ],
+ "facades": [
+  {
+   "id": "deckchair_hut",
+   "facade": "deckchair_hut",
+   "name": "Deckchair hire",
+   "pos": [
+    16,
+    17
+   ]
+  },
+  {
+   "id": "beach_cafe",
+   "facade": "beach_cafe",
+   "name": "The Dunes beach cafe",
+   "pos": [
+    24,
+    17
+   ]
+  },
+  {
+   "id": "seafront_arcade",
+   "facade": "arcade",
+   "name": "Golden Sands Amusements",
+   "pos": [
+    44,
+    17
+   ],
+   "locked": "Shutters down. A felt-tip sign: BACK BANK HOLIDAY MONDAY. It is bank holiday Monday."
+  },
+  {
+   "id": "pavilion",
+   "facade": "pavilion",
+   "name": "Pier pavilion",
+   "pos": [
+    27,
+    35
+   ]
+  },
+  {
+   "id": "backstage",
+   "facade": "stage_door",
+   "name": "Stage door",
+   "pos": [
+    42,
+    35
+   ],
+   "gate": "theatre_backstage"
+  },
+  {
+   "id": "zoo",
+   "facade": "zoo_gate",
+   "name": "Sandown Zoo",
+   "pos": [
+    60,
+    11
+   ]
+  },
+  {
+   "id": "reptile_house",
+   "facade": "groundsman",
+   "name": "Reptile house",
+   "pos": [
+    57,
+    5
+   ],
+   "locked": "REPTILE HOUSE. CLOSED FOR REFURBISHMENT. The glass in the door is painted over from the inside, and something behind it is warm."
+  }
+ ],
+ "houses": [],
+ "props": [
+  {
+   "kind": "coach",
+   "pos": [
+    11,
+    6.6
+   ],
+   "name": "Coach",
+   "look": [
+    [
+     "player",
+     "A coach from Wolverhampton. The driver is asleep across the front seats with the paper over his face."
+    ],
+    [
+     "teddy",
+     "SUNNY SANDOWN, the sign says. A day trip. They came on a boat to go on a boat."
+    ]
+   ]
+  },
+  {
+   "kind": "coach",
+   "pos": [
+    16,
+    6.6
+   ],
+   "name": "Coach",
+   "look": "SOUTHDOWN. Every seat has a cardigan on it, saving it, and nobody is on the coach."
+  },
+  {
+   "kind": "coach",
+   "pos": [
+    20.5,
+    4.6
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    9,
+    3.6
+   ],
+   "name": "Hire car",
+   "look": [
+    [
+     "player",
+     "A hire car with the wheel on the wrong side."
+    ],
+    [
+     "dale",
+     "The right side. They'd say the right side."
+    ],
+    [
+     "miriam",
+     "They drive on the left, Dale, and they're wrong about it."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    8,
+    6.9
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    23.5,
+    6.6
+   ],
+   "name": "Coach park sign",
+   "look": "COACH PARK. NO OVERNIGHT. A timetable for the Island Line is pinned underneath, 1938 carriages drawn in biro by someone who loved them."
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    7.5,
+    7.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    23.5,
+    7.5
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    3,
+    6
+   ],
+   "name": "Tamarisk",
+   "look": "A tamarisk, bent flat by the wind off the bay. Every tree on this front leans the same way, like they all heard something to the east."
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    27,
+    5.5
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    25.5,
+    2.5
+   ]
+  },
+  {
+   "kind": "bush2",
+   "pos": [
+    29.5,
+    3.5
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    24.5,
+    3.9
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    28.5,
+    6.8
+   ]
+  },
+  {
+   "kind": "tree_summer2",
+   "pos": [
+    42,
+    6
+   ]
+  },
+  {
+   "kind": "pillar_box",
+   "pos": [
+    41.5,
+    7.9
+   ],
+   "name": "Pillar box",
+   "look": [
+    [
+     "player",
+     "A red pillar box. The collection plate says the last post went at 5. E II R on the door."
+    ],
+    [
+     "ruth",
+     "G R on the older ones, dear. This one's a youngster."
+    ]
+   ]
+  },
+  {
+   "kind": "phone_box",
+   "pos": [
+    30.5,
+    7.9
+   ],
+   "name": "Phone box",
+   "look": [
+    [
+     "player",
+     "A red telephone box. It smells of chips and somebody else's cigarettes. The phone works. The directory is for Portsmouth."
+    ],
+    [
+     "june",
+     "Ten pence for three minutes. There's a card in the window offering a 'colour television repair man'. Underlined. Colour."
+    ]
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    45.5,
+    1.9
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    48.5,
+    1.9
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    51.5,
+    1.9
+   ]
+  },
+  {
+   "kind": "fence_iron",
+   "pos": [
+    54.5,
+    1.9
+   ]
+  },
+  {
+   "kind": "swing",
+   "pos": [
+    47,
+    6
+   ],
+   "name": "Swings",
+   "look": [
+    [
+     "player",
+     "Swings. A kid is going so high the chains go slack at the top."
+    ],
+    [
+     "elijah",
+     "Let him. It's the only flying this town gets."
+    ]
+   ]
+  },
+  {
+   "kind": "slide",
+   "pos": [
+    52,
+    6.2
+   ],
+   "name": "Slide",
+   "look": "A slide, hot enough in the sun to brand you. A queue of three. Nobody has told them."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    44,
+    4.6
+   ],
+   "name": "Bench",
+   "look": "FOR EDNA, WHO LIKED IT HERE. The brass plate is new. Edna is not."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    55,
+    4.6
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    46.5,
+    2.9
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    50.5,
+    2.9
+   ]
+  },
+  {
+   "kind": "flowers_small",
+   "pos": [
+    53.5,
+    2.9
+   ]
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    49,
+    2.9
+   ],
+   "name": "Holm oak",
+   "look": "A holm oak with a ring of worn earth under it. Somebody feeds the gulls here, every day, against every sign on the front."
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    43.5,
+    6.9
+   ],
+   "name": "Litter bin",
+   "look": "KEEP SANDOWN TIDY. Full to the lip with chip paper and one wet sock."
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    56.5,
+    1.9
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    55.5,
+    7.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    55.5,
+    12.5
+   ]
+  },
+  {
+   "kind": "camp_sign",
+   "pos": [
+    54.5,
+    2.5
+   ],
+   "name": "Sunnyside board",
+   "look": [
+    [
+     "player",
+     "SUNNYSIDE HOLIDAY CAMP, LAKE. FUN FOR ALL THE FAMILY. The paint is 1970s and so is the family."
+    ],
+    [
+     "teddy",
+     "The kid on the sign has a pointed hat. Party hat. Birthday. ...Probably birthday."
+    ]
+   ]
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    14,
+    11.6
+   ],
+   "name": "Parked car",
+   "look": "A Morris with a dog in it and the window down an inch. The dog has an opinion about you."
+  },
+  {
+   "kind": "sedan",
+   "pos": [
+    38,
+    11.6
+   ]
+  },
+  {
+   "kind": "pickup",
+   "pos": [
+    50,
+    11.6
+   ],
+   "name": "Ice cream van",
+   "look": [
+    [
+     "player",
+     "An ice cream van, pulled in with the hatch open. The jingle is Greensleeves, slightly flat."
+    ],
+    [
+     "june",
+     "Not flat. A semitone down. The tape's stretched."
+    ],
+    [
+     "teddy",
+     "It's Greensleeves, June. It was born flat."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    13.5,
+    12.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    28.5,
+    12.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    42.5,
+    12.5
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    20.5,
+    12.9
+   ]
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    33.5,
+    12.6
+   ],
+   "name": "Bicycles",
+   "look": "Two bikes against a lamp post, locked to each other and not to the post. Trust, or optimism."
+  },
+  {
+   "kind": "bicycle",
+   "pos": [
+    52.5,
+    12.6
+   ]
+  },
+  {
+   "kind": "deckchair_stack",
+   "pos": [
+    13.5,
+    17.5
+   ],
+   "name": "Deckchair stack",
+   "look": [
+    [
+     "player",
+     "Stacked deckchairs, striped, hired by the hour. 40p. A chalk sign: NO RUNNING. NO SLEEPING. NO ARGUING WITH WILF."
+    ],
+    [
+     "dale",
+     "Forty pence to sit down."
+    ],
+    [
+     "miriam",
+     "You can stand for free, Dale. You always do."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair_stack",
+   "pos": [
+    21.5,
+    17.5
+   ]
+  },
+  {
+   "kind": "vacancies_sign",
+   "pos": [
+    22.5,
+    15.9
+   ],
+   "name": "Sign",
+   "look": "TIDE TABLES 20p. A hand-lettered board nailed to the hut. The deckchair man sells the sea's timetable; nobody else on the front can be bothered."
+  },
+  {
+   "kind": "windbreak",
+   "pos": [
+    12.5,
+    15.4
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    31.5,
+    17.5
+   ]
+  },
+  {
+   "kind": "ice_cream_cart",
+   "pos": [
+    33,
+    17.6
+   ],
+   "name": "Ice cream cart",
+   "look": [
+    [
+     "player",
+     "A cart selling 99s, which is an ice cream with a chocolate bar stuck in it, for 60p, which is not 99 of anything."
+    ],
+    [
+     "ruth",
+     "It's a Flake, dear. Have one. We're on holiday whether we like it or not."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    36,
+    14.6
+   ],
+   "name": "Bench",
+   "look": "A bench facing the sea, and on it a pensioner facing the sea, and on his knee a chip paper facing the gulls. Everybody on this front has a job."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    40,
+    14.6
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    38,
+    13.4
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    27,
+    13.4
+   ]
+  },
+  {
+   "kind": "planter",
+   "pos": [
+    23.5,
+    13.9
+   ],
+   "name": "Planter",
+   "look": "Municipal geraniums. Someone has planted a Union Jack flag in the middle and a windmill beside it, and the windmill is winning."
+  },
+  {
+   "kind": "planter",
+   "pos": [
+    42.5,
+    13.9
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    52.5,
+    17.5
+   ],
+   "name": "Bin",
+   "look": "A bin by the dead arcade. In it, a bag of 2p pieces, all the same year, and a note: NOT FOR THE FALLS. The falls are inside. The falls are shut."
+  },
+  {
+   "kind": "poster",
+   "pos": [
+    43.5,
+    15.3
+   ],
+   "name": "Theatre bill",
+   "look": [
+    [
+     "player",
+     "SANDOWN PIER PAVILION. SUMMER SEASON 1994. A comedian you have never heard of, 'direct from television'."
+    ],
+    [
+     "teddy",
+     "Every one of these says 'direct from television'. The television must be empty."
+    ]
+   ]
+  },
+  {
+   "kind": "tree_summer2",
+   "pos": [
+    54,
+    17.5
+   ]
+  },
+  {
+   "kind": "bush_dark2",
+   "pos": [
+    2.5,
+    14.5
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    4.5,
+    16.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    6.5,
+    17.5
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    8,
+    14.6
+   ],
+   "name": "Shelter bench",
+   "look": [
+    [
+     "player",
+     "A bench in the lee of the wall. Someone has scratched a pointed hat into the slat, and under it, 1973, and under that, LIAR, and under that, in a different hand, NO."
+    ],
+    [
+     "elijah",
+     "Three people and twenty years on one plank."
+    ]
+   ]
+  },
+  {
+   "kind": "bandstand",
+   "pos": [
+    10,
+    21.5
+   ],
+   "name": "Bandstand",
+   "look": [
+    [
+     "player",
+     "A cast-iron bandstand, painted cream and green. A brass band at two on bank holiday, says the board. It is a quarter past and there is one trombone and he is looking for the others."
+    ],
+    [
+     "ruth",
+     "They'll come. They always come. Usually from the pub."
+    ]
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    3.5,
+    22.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    19.5,
+    22.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    27.5,
+    22.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    46.5,
+    22.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    54.5,
+    22.5
+   ]
+  },
+  {
+   "kind": "lamp_post",
+   "pos": [
+    61.5,
+    22.5
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    4,
+    19.6
+   ],
+   "name": "Bench",
+   "look": "A bench with a brass plate so worn you can only read WHO LOVED. That might be the whole of it."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    13,
+    19.6
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    22,
+    19.6
+   ],
+   "name": "Bench",
+   "look": [
+    [
+     "player",
+     "Two old men on a bench with a bag of crisps between them, salt and vinegar, sharing it one at a time. They are not speaking. They have not needed to since about 1961."
+    ],
+    [
+     "teddy",
+     "Crisps. Chips are chips, chips are fries, crisps are chips. I've written it on my hand."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    17.5,
+    21.5
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    29.5,
+    21.9
+   ],
+   "name": "Bin",
+   "look": "A bin that gulls have learned to open. One is in it now, up to the shoulders, and will not be hurried."
+  },
+  {
+   "kind": "phone_box",
+   "pos": [
+    31.5,
+    19.9
+   ],
+   "name": "Phone box by the pier",
+   "look": [
+    [
+     "player",
+     "The pier phone box. Someone has written a number on the glass in lipstick and then crossed it out, twice, in different lipsticks."
+    ],
+    [
+     "june",
+     "The dial tone is wrong. ...No. It's fine. It's fine."
+    ]
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    36.5,
+    22.4
+   ],
+   "name": "Pier entrance",
+   "look": [
+    [
+     "player",
+     "SANDOWN PIER. ADMISSION FREE. ANGLERS 50p. The bunting is flapping so hard it sounds like applause."
+    ],
+    [
+     "elijah",
+     "It's not applause."
+    ]
+   ]
+  },
+  {
+   "kind": "pier_lamp",
+   "pos": [
+    32.5,
+    22.9
+   ]
+  },
+  {
+   "kind": "pier_lamp",
+   "pos": [
+    41.5,
+    22.9
+   ]
+  },
+  {
+   "kind": "pillar_box",
+   "pos": [
+    42.5,
+    19.9
+   ]
+  },
+  {
+   "kind": "ice_cream_cart",
+   "pos": [
+    45,
+    20.6
+   ],
+   "name": "Ice cream cart",
+   "look": "A second ice cream cart, twenty yards from the first, selling the same ice cream at a different price. The two owners are not speaking. The gulls work both."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    49,
+    19.6
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    56,
+    19.6
+   ],
+   "name": "Bench",
+   "look": [
+    [
+     "player",
+     "A bench facing Culver Down. The chalk at the end of the bay is so white it hurts."
+    ],
+    [
+     "dale",
+     "You could see a yellow hat from here. You could see a yellow hat from the moon."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    50.5,
+    21.9
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    59.5,
+    18.6
+   ],
+   "name": "Esplanade notices",
+   "look": [
+    [
+     "player",
+     "BOROUGH OF SANDOWN. NO DOGS ON THE BEACH MAY TO SEPTEMBER. NO CYCLING. NO BALL GAMES ON THE PROMENADE. A dog, a bicycle and a football have been drawn in the margin."
+    ],
+    [
+     "miriam",
+     "And a ring of six dots at the bottom, in a different pen. Could be anything."
+    ],
+    [
+     "vera",
+     "It could not be anything. It is a ring."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair_green",
+   "pos": [
+    62.5,
+    20.9
+   ],
+   "name": "Attendant's chair",
+   "look": "A green deckchair with a cash bag on it and no one in it. The deckchair man's. He is somewhere on the sand, arguing."
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    66,
+    19.6
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    68.5,
+    22.6
+   ],
+   "name": "Slipway sign",
+   "look": [
+    [
+     "player",
+     "SLIPWAY. NO VEHICLES BELOW THE HIGH WATER MARK. The high water mark is a line of weed halfway up the ramp, and a hand-painted arrow, and the word SEA, in case."
+    ],
+    [
+     "june",
+     "Low water at three. There's a tide table pinned under the sign. The three is circled."
+    ]
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    48.5,
+    18.3
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    26.5,
+    20.3
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    33.5,
+    23.5
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    40.5,
+    23.5
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    33.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    40.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "pier_lamp",
+   "pos": [
+    33.5,
+    25.9
+   ]
+  },
+  {
+   "kind": "pier_lamp",
+   "pos": [
+    40.5,
+    25.9
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    33.5,
+    26.5
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    40.5,
+    26.5
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    33.5,
+    27.5
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    40.5,
+    27.5
+   ]
+  },
+  {
+   "kind": "pier_lamp",
+   "pos": [
+    33.5,
+    28.9
+   ]
+  },
+  {
+   "kind": "pier_lamp",
+   "pos": [
+    40.5,
+    28.9
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    33.5,
+    29.5
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    40.5,
+    29.5
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    36.5,
+    25.3
+   ],
+   "name": "Gull",
+   "look": [
+    [
+     "player",
+     "A herring gull on the pier deck, eating a whole chip, sideways, while maintaining eye contact."
+    ],
+    [
+     "dale",
+     "Larus argentatus. Apex predator of the Isle of Wight."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    38.5,
+    27.5
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    36,
+    28.6
+   ],
+   "name": "Pier bench",
+   "look": "A bench halfway along the pier, with the planks worn pale either side where feet have been stopping for a hundred years to look back at the town."
+  },
+  {
+   "kind": "pier_rail",
+   "pos": [
+    25.5,
+    38.9
+   ]
+  },
+  {
+   "kind": "pier_rail",
+   "pos": [
+    28.5,
+    38.9
+   ]
+  },
+  {
+   "kind": "pier_rail",
+   "pos": [
+    31.5,
+    38.9
+   ]
+  },
+  {
+   "kind": "pier_rail",
+   "pos": [
+    34.5,
+    38.9
+   ]
+  },
+  {
+   "kind": "pier_rail",
+   "pos": [
+    37.5,
+    38.9
+   ],
+   "name": "End of the pier",
+   "look": [
+    [
+     "player",
+     "The end of the pier. The sea is a hundred feet down and a mile out, and it is a colour you don't have a word for."
+    ],
+    [
+     "june",
+     "Grey-green."
+    ],
+    [
+     "elijah",
+     "No. She's right. There isn't a word."
+    ]
+   ]
+  },
+  {
+   "kind": "pier_rail",
+   "pos": [
+    40.5,
+    38.9
+   ]
+  },
+  {
+   "kind": "pier_rail",
+   "pos": [
+    43.5,
+    38.9
+   ]
+  },
+  {
+   "kind": "pier_rail",
+   "pos": [
+    46.5,
+    38.9
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    49.5,
+    38.9
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    24.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "pier_rail_post",
+   "pos": [
+    49.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "pier_lamp",
+   "pos": [
+    24.5,
+    34.9
+   ]
+  },
+  {
+   "kind": "pier_lamp",
+   "pos": [
+    49.5,
+    34.9
+   ]
+  },
+  {
+   "kind": "pier_lamp",
+   "pos": [
+    24.5,
+    38.9
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    25,
+    33.6
+   ],
+   "name": "Anglers' bench",
+   "look": "An anglers' bench, worn to silver, tackle boxes under it. A sign: ANGLERS PLEASE DO NOT GUT ON THE DECK. Someone has."
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    25.5,
+    31.5
+   ],
+   "name": "Bait bucket",
+   "look": [
+    [
+     "player",
+     "A bucket of ragworm. They move."
+    ],
+    [
+     "teddy",
+     "Everything here moves. The bunting, the gulls, the worms. The one guy who doesn't is the problem."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    46.5,
+    31.5
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    47,
+    36.6
+   ],
+   "name": "The last bench",
+   "look": [
+    [
+     "player",
+     "The last bench on the pier. The wind comes straight off the Channel and goes through you like you're bunting."
+    ],
+    [
+     "miriam",
+     "There's a man who stands here at night. The anglers say so. They say the wind leaves him alone."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    46.5,
+    33.6
+   ]
+  },
+  {
+   "kind": "deckchair_blue",
+   "pos": [
+    48.5,
+    33.6
+   ],
+   "name": "Deckchair",
+   "look": "A deckchair facing France. Whoever sat here left a paperback, a Catherine Cookson, face down at page 12. They did not get far. Nobody does, out here, with the view."
+  },
+  {
+   "kind": "buoy",
+   "pos": [
+    22.5,
+    35.5
+   ]
+  },
+  {
+   "kind": "buoy",
+   "pos": [
+    51.5,
+    36.5
+   ],
+   "name": "Marker buoy",
+   "look": "A yellow marker buoy off the pier head. It has a bell on it. The bell rings when the swell says, and the swell is saying it now."
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    30.5,
+    36.3
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    42.5,
+    37.3
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    3,
+    35.9
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    9,
+    36.9
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    16,
+    35.9
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    55,
+    36.9
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    61,
+    35.9
+   ]
+  },
+  {
+   "kind": "wave",
+   "pos": [
+    68,
+    36.9
+   ]
+  },
+  {
+   "kind": "dinghy",
+   "pos": [
+    14,
+    32.6
+   ],
+   "name": "Dinghy",
+   "look": [
+    [
+     "player",
+     "A dinghy on the tideline, oars shipped, bailer tied on with a bootlace. CARRIE-ANN. Someone loves her, or named her after someone they do."
+    ],
+    [
+     "teddy",
+     "Everything on this island has a name and a plaque. I want a plaque."
+    ]
+   ]
+  },
+  {
+   "kind": "beach_hut",
+   "pos": [
+    5,
+    24.9
+   ],
+   "name": "Beach hut 1",
+   "look": [
+    [
+     "player",
+     "Hut 1. Lace curtains, a primus, a kettle on it. A shelf of shells sorted by colour, left to right: white, yellow, pink, grey, black."
+    ],
+    [
+     "vera",
+     "In that order. Someone here understands order."
+    ],
+    [
+     "miriam",
+     "Someone here has a lot of afternoons."
+    ]
+   ]
+  },
+  {
+   "kind": "beach_hut_pink",
+   "pos": [
+    7,
+    24.9
+   ]
+  },
+  {
+   "kind": "beach_hut_yellow",
+   "pos": [
+    9,
+    24.9
+   ],
+   "name": "Beach hut 3",
+   "look": "Hut 3. Padlocked, with a note under the padlock: BACK IN JUNE. The note is from a June some years ago."
+  },
+  {
+   "kind": "beach_hut",
+   "pos": [
+    11,
+    24.9
+   ]
+  },
+  {
+   "kind": "beach_hut_yellow",
+   "pos": [
+    13,
+    24.9
+   ],
+   "name": "Beach hut 5",
+   "look": [
+    [
+     "player",
+     "Hut 5. A yellow hut with the door open. Inside, a man in a vest is asleep in a chair with the Daily Mirror on his chest, rising and falling. NOT A DROWNED MAN, says a sign on the chair. He has had to say it before."
+    ],
+    [
+     "teddy",
+     "That's the best sign on the front."
+    ]
+   ]
+  },
+  {
+   "kind": "beach_hut_pink",
+   "pos": [
+    15,
+    24.9
+   ]
+  },
+  {
+   "kind": "beach_hut",
+   "pos": [
+    17,
+    24.9
+   ],
+   "name": "Beach hut 7",
+   "look": [
+    [
+     "player",
+     "Hut 7. Children's drawings taped inside the door, going yellow. A sun, a house, a dog. And a tall yellow triangle with a face, and the sea drawn behind it in a straight line, like a wall."
+    ],
+    [
+     "ruth",
+     "Children draw what they see, dear. Grown-ups draw what they're told."
+    ],
+    [
+     "elijah",
+     "...This one's not twenty years old. The tape is fresh."
+    ]
+   ]
+  },
+  {
+   "kind": "beach_hut_yellow",
+   "pos": [
+    19,
+    24.9
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    8,
+    22.5
+   ]
+  },
+  {
+   "kind": "bunting",
+   "pos": [
+    15,
+    22.5
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    22.5,
+    26.6
+   ],
+   "name": "Deckchairs",
+   "look": [
+    [
+     "player",
+     "Deckchairs in rows, every one facing the sea. Wilf sets them that way at seven. By noon the holidaymakers have turned half of them to face each other, and he goes round after and turns them back."
+    ],
+    [
+     "dale",
+     "Who'd face the sea? There's nothing on it."
+    ],
+    [
+     "elijah",
+     "That's why."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair_blue",
+   "pos": [
+    24.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "deckchair_green",
+   "pos": [
+    26.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    28.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "deckchair_blue",
+   "pos": [
+    30.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "deckchair_green",
+   "pos": [
+    32.5,
+    26.6
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    22.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "deckchair_blue",
+   "pos": [
+    24.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "deckchair_green",
+   "pos": [
+    26.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    28.5,
+    28.6
+   ],
+   "name": "Deckchair",
+   "look": "A deckchair with a cardigan over the back, a Thermos under it and a Mills and Boon in the seat. The owner is in the sea, up to the knees, regretting it loudly."
+  },
+  {
+   "kind": "deckchair_blue",
+   "pos": [
+    30.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "deckchair_green",
+   "pos": [
+    32.5,
+    28.6
+   ]
+  },
+  {
+   "kind": "windbreak",
+   "pos": [
+    20.5,
+    27.4
+   ],
+   "name": "Windbreak",
+   "look": "A striped windbreak hammered in with a shoe. Behind it, a family of five eating sandwiches that are mostly sand. Nobody is enjoying it. Nobody would be anywhere else."
+  },
+  {
+   "kind": "windbreak",
+   "pos": [
+    28.5,
+    30.4
+   ]
+  },
+  {
+   "kind": "windbreak",
+   "pos": [
+    7.5,
+    28.4
+   ]
+  },
+  {
+   "kind": "windbreak",
+   "pos": [
+    55.5,
+    26.4
+   ],
+   "name": "Windbreak",
+   "look": [
+    [
+     "player",
+     "A windbreak with a transistor radio behind it, Radio 1 on medium wave, crackling in and out with the tide."
+    ],
+    [
+     "june",
+     "It's not the tide. It fades every ninety seconds. Something's sweeping the band."
+    ],
+    [
+     "teddy",
+     "It's a transistor, June. On a beach. In England."
+    ],
+    [
+     "june",
+     "...Ninety seconds."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair_stack",
+   "pos": [
+    3.5,
+    30.5
+   ]
+  },
+  {
+   "kind": "deckchair_green",
+   "pos": [
+    4.5,
+    27.6
+   ],
+   "name": "Lifeguard's chair",
+   "look": "A deckchair with LIFEGUARD painted on the canvas. The lifeguard is fifteen and has a whistle and has never used it and would like to."
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    11.5,
+    27.3
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    18.5,
+    30.3
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    41.5,
+    29.3
+   ],
+   "name": "Gulls",
+   "look": "Gulls, nine of them, in a line on the sand, all facing east toward Culver. Not into the wind. The wind is from the south."
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    42.5,
+    29.3
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    43.5,
+    29.3
+   ]
+  },
+  {
+   "kind": "bucket",
+   "pos": [
+    25.5,
+    30.9
+   ],
+   "name": "Bucket and spade",
+   "look": "A plastic bucket, a spade, and the castle they made: four towers, a moat, and a flag made of a lolly stick and a sweet wrapper. The tide is twenty feet away and coming."
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    2.5,
+    31.5
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    58,
+    30.5
+   ],
+   "name": "Groyne stone",
+   "look": "The end of the old groyne, a lump of concrete with iron in it, gone orange. Limpets, weed, and a child's flip-flop wedged in the crack since some other summer."
+  },
+  {
+   "kind": "rock_small",
+   "pos": [
+    60.5,
+    32.5
+   ]
+  },
+  {
+   "kind": "buoy",
+   "pos": [
+    36.5,
+    31.5
+   ]
+  },
+  {
+   "kind": "punch_judy",
+   "pos": [
+    47,
+    27.9
+   ],
+   "name": "Punch and Judy",
+   "look": [
+    [
+     "player",
+     "A striped booth, PROFESSOR SWAZZLE'S PUNCH AND JUDY, SINCE 1951. Mr Punch is beating a policeman with a stick and thirty children are screaming with joy."
+    ],
+    [
+     "ruth",
+     "That's the way to do it, dear. That's the actual line."
+    ],
+    [
+     "miriam",
+     "A puppet with a squeaky voice and a pointed hat, and a crowd. Nobody here finds that strange. Nobody."
+    ]
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    50,
+    30.6
+   ]
+  },
+  {
+   "kind": "ice_cream_cart",
+   "pos": [
+    52,
+    29.6
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    44.5,
+    30.9
+   ]
+  },
+  {
+   "kind": "dinghy",
+   "pos": [
+    61,
+    29.6
+   ],
+   "name": "Slipway dinghy",
+   "look": [
+    [
+     "player",
+     "A dinghy pulled up beside the slipway, trailer and all. Weed on the trailer wheels to the hub. The slipway runs on down under the water; at low tide, the deckchair man says, you can walk it to the bottom."
+    ],
+    [
+     "dale",
+     "Three a.m. and three p.m., near enough. I checked."
+    ]
+   ]
+  },
+  {
+   "kind": "deckchair",
+   "pos": [
+    68.5,
+    25.6
+   ],
+   "name": "Yaverland deckchair",
+   "look": "A deckchair facing the zoo wall. Someone comes here to listen to the tigers. Someone sensible."
+  },
+  {
+   "kind": "windbreak",
+   "pos": [
+    68.5,
+    29.4
+   ]
+  },
+  {
+   "kind": "gull",
+   "pos": [
+    65.5,
+    31.3
+   ]
+  },
+  {
+   "kind": "buoy",
+   "pos": [
+    67.5,
+    35.5
+   ]
+  },
+  {
+   "kind": "reeds",
+   "pos": [
+    70.5,
+    27.5
+   ]
+  },
+  {
+   "kind": "reeds2",
+   "pos": [
+    70.5,
+    24.5
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    57.5,
+    14.9
+   ],
+   "name": "Zoo fence",
+   "look": [
+    [
+     "player",
+     "Chain link, with a sign: THE ANIMALS BITE. ALL OF THEM. The tiger behind it is asleep with one eye open, the way cats do, and the way nothing else should."
+    ],
+    [
+     "dale",
+     "Bengal. Male. Eleven, twelve years. Somebody feeds him well and he hates it."
+    ]
+   ]
+  },
+  {
+   "kind": "zoo_cage",
+   "pos": [
+    63.5,
+    15.9
+   ],
+   "name": "Tiger enclosure",
+   "look": [
+    [
+     "player",
+     "A tiger, pacing. Three steps, turn, three steps, turn, along the sea side of the cage and never the land side."
+    ],
+    [
+     "elijah",
+     "He's not pacing at us."
+    ],
+    [
+     "dale",
+     "They do that. They all do that. ...Not usually at the sea."
+    ]
+   ]
+  },
+  {
+   "kind": "chain_fence",
+   "pos": [
+    68.5,
+    14.9
+   ]
+  },
+  {
+   "kind": "bulletin_board",
+   "pos": [
+    57.5,
+    10.6
+   ],
+   "name": "Zoo board",
+   "look": [
+    [
+     "player",
+     "SANDOWN ZOO. TIGERS, LEMURS, THE REPTILE HOUSE (CLOSED). FEEDING AT 11 AND 3. A photograph of a keeper holding a cub, 1973, in a yellow shirt."
+    ],
+    [
+     "teddy",
+     "Everybody here owned something yellow in 1973. It's going to be a short case or a very long one."
+    ]
+   ]
+  },
+  {
+   "kind": "bin",
+   "pos": [
+    68.5,
+    10.9
+   ]
+  },
+  {
+   "kind": "bench",
+   "pos": [
+    68,
+    8.6
+   ]
+  },
+  {
+   "kind": "tree_round",
+   "pos": [
+    63,
+    4.5
+   ],
+   "name": "Sycamore",
+   "look": "A sycamore inside the zoo wall, and in it a peacock, which is not in the zoo, and has not been for some years, and knows it."
+  },
+  {
+   "kind": "tree_summer",
+   "pos": [
+    68,
+    3.5
+   ]
+  },
+  {
+   "kind": "bush_big",
+   "pos": [
+    65,
+    7.5
+   ]
+  },
+  {
+   "kind": "bush_dark",
+   "pos": [
+    61.5,
+    7.9
+   ]
+  },
+  {
+   "kind": "bush",
+   "pos": [
+    56.5,
+    8.9
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    62.5,
+    3.9
+   ]
+  },
+  {
+   "kind": "fence_h",
+   "pos": [
+    68.5,
+    1.9
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    58.5,
+    18.5
+   ]
+  },
+  {
+   "kind": "tuft2",
+   "pos": [
+    66.5,
+    18.9
+   ]
+  },
+  {
+   "kind": "tuft",
+   "pos": [
+    69.5,
+    21.5
+   ]
+  },
+  {
+   "kind": "flowers_small2",
+   "pos": [
+    61.5,
+    13.9
+   ]
+  },
+  {
+   "kind": "rock_big",
+   "pos": [
+    70,
+    12.5
+   ],
+   "name": "Yaverland rock",
+   "look": [
+    [
+     "player",
+     "A boulder of the brown Yaverland sandstone that the cliffs are made of, the stuff that drops dinosaur bones on the beach every winter."
+    ],
+    [
+     "dale",
+     "Iguanodon. Honest to God iguanodon. And we're here about a man in a hat."
+    ]
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "colin",
+   "name": "Colin Rudd",
+   "pos": [
+    36.5,
+    24.5
+   ],
+   "facing": "left",
+   "sprite": "colin",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "sf_stage_mgr",
+   "name": "Maureen Keel",
+   "pos": [
+    41.5,
+    36.5
+   ],
+   "facing": "down",
+   "sprite": "stage_mgr",
+   "when": [
+    "morning"
+   ]
+  },
+  {
+   "id": "sf_cafe_woman",
+   "name": "Brenda Oakes",
+   "pos": [
+    22.5,
+    18.5
+   ],
+   "facing": "down",
+   "sprite": "cafe_woman",
+   "when": [
+    "dusk"
+   ]
+  },
+  {
+   "id": "sf_deckchair_man",
+   "name": "Wilf Dyer",
+   "pos": [
+    25.5,
+    25.5
+   ],
+   "facing": "down",
+   "sprite": "deckchair_man",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "sf_professor",
+   "name": "Professor Swazzle",
+   "pos": [
+    49.5,
+    28.5
+   ],
+   "facing": "left",
+   "sprite": "professor",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sf_keeper",
+   "name": "Ray Tulloch",
+   "pos": [
+    66.5,
+    12.5
+   ],
+   "facing": "down",
+   "sprite": "keeper",
+   "when": [
+    "night"
+   ]
+  },
+  {
+   "id": "sf_penrose",
+   "name": "A man in a grey suit",
+   "pos": [
+    48.5,
+    37.5
+   ],
+   "facing": "down",
+   "sprite": "suit",
+   "when": [
+    "night"
+   ]
+  },
+  {
+   "id": "sf_rock_kiosk",
+   "name": "Rock and fortune cards",
+   "pos": [
+    26.5,
+    36.5
+   ],
+   "facing": "down",
+   "sprite": "landlady",
+   "when": [
+    "morning",
+    "day",
+    "dusk"
+   ],
+   "shop": "sandown_pier"
+  },
+  {
+   "id": "sf_coach_driver",
+   "name": "Coach driver",
+   "pos": [
+    13.5,
+    7.5
+   ],
+   "facing": "down",
+   "sprite": "caretaker",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "sf_holiday_1",
+   "name": "A holidaymaker",
+   "pos": [
+    20.5,
+    20.5
+   ],
+   "facing": "down",
+   "sprite": "holidaymaker",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "sf_holiday_2",
+   "name": "A holidaymaker",
+   "pos": [
+    39.5,
+    19.5
+   ],
+   "facing": "left",
+   "sprite": "holidaymaker2",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "sf_holiday_3",
+   "name": "A holidaymaker",
+   "pos": [
+    51.5,
+    20.5
+   ],
+   "facing": "down",
+   "sprite": "holidaymaker",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sf_holiday_4",
+   "name": "A man in a vest",
+   "pos": [
+    29.5,
+    27.6
+   ],
+   "facing": "up",
+   "sprite": "holidaymaker2",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sf_holiday_5",
+   "name": "A woman in the sea",
+   "pos": [
+    10.5,
+    32.5
+   ],
+   "facing": "up",
+   "sprite": "holidaymaker",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sf_holiday_6",
+   "name": "A day-tripper",
+   "pos": [
+    15.5,
+    8.5
+   ],
+   "facing": "left",
+   "sprite": "holidaymaker2",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sf_holiday_7",
+   "name": "An angler",
+   "pos": [
+    25.5,
+    32.5
+   ],
+   "facing": "down",
+   "sprite": "holidaymaker2",
+   "when": [
+    "morning",
+    "dusk"
+   ]
+  },
+  {
+   "id": "sf_holiday_8",
+   "name": "A holidaymaker",
+   "pos": [
+    37.5,
+    27.5
+   ],
+   "facing": "down",
+   "sprite": "holidaymaker",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sf_kid_1",
+   "name": "A kid",
+   "pos": [
+    45.5,
+    29.5
+   ],
+   "facing": "up",
+   "sprite": "kid",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sf_kid_2",
+   "name": "A kid",
+   "pos": [
+    48.5,
+    29.8
+   ],
+   "facing": "up",
+   "sprite": "kid",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sf_kid_3",
+   "name": "A kid with a bucket",
+   "pos": [
+    24.5,
+    30.5
+   ],
+   "facing": "down",
+   "sprite": "kid",
+   "when": [
+    "morning",
+    "day"
+   ]
+  },
+  {
+   "id": "sf_kid_4",
+   "name": "A kid on the swings",
+   "pos": [
+    47.5,
+    4.5
+   ],
+   "facing": "down",
+   "sprite": "kid",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "sf_kid_5",
+   "name": "A kid at the zoo fence",
+   "pos": [
+    59.5,
+    13.5
+   ],
+   "facing": "right",
+   "sprite": "kid",
+   "when": [
+    "day"
+   ]
+  },
+  {
+   "id": "sf_mod_1",
+   "name": "A mod",
+   "pos": [
+    34.5,
+    18.5
+   ],
+   "facing": "left",
+   "sprite": "mod",
+   "when": [
+    "dusk",
+    "night"
+   ]
+  },
+  {
+   "id": "sf_mod_2",
+   "name": "A mod",
+   "pos": [
+    33.5,
+    18.5
+   ],
+   "facing": "right",
+   "sprite": "mod",
+   "when": [
+    "dusk",
+    "night"
+   ]
+  },
+  {
+   "id": "sf_mod_3",
+   "name": "A mod",
+   "pos": [
+    44.5,
+    12.9
+   ],
+   "facing": "down",
+   "sprite": "mod",
+   "when": [
+    "day",
+    "dusk"
+   ]
+  }
+ ],
+ "clues": [
+  {
+   "id": "sf_slipway_ring",
+   "name": "Stones on the slipway",
+   "pos": [
+    65,
+    32.6
+   ],
+   "prop": "clue_ring",
+   "text": "At the foot of the slipway, below the weed line, where the sea covers it twice a day: a ring of stones, nine of them, one of every colour the beach has. White chalk, black flint, brick, a green bottle-bottom, a yellow one. The gaps between them are exact and there is no sand in the gaps. The tide was over this four hours ago.",
+   "methods": {
+    "photograph": "sf_slipway_ring",
+    "measure": "sf_slipway_measure",
+    "bag": "spoil",
+    "cast": "spoil"
+   }
+  },
+  {
+   "id": "sf_zoo_fur",
+   "name": "Fur on the fence",
+   "pos": [
+    66,
+    15.6
+   ],
+   "prop": "clue_fur",
+   "text": "Orange hairs caught in the chain link of the zoo fence, on the outside, at the height of a tall man's shoulder. Dale is already not breathing.",
+   "methods": {
+    "bag": "sf_zoo_fur",
+    "photograph": "spoil",
+    "cast": "spoil",
+    "measure": "spoil"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "rect": [
+    32,
+    0,
+    8,
+    1
+   ],
+   "to": "sandown_town",
+   "at": [
+    28,
+    46
+   ],
+   "name": "Town"
+  },
+  {
+   "rect": [
+    0,
+    16,
+    1,
+    8
+   ],
+   "to": "sandown_lake",
+   "at": [
+    45,
+    20
+   ],
+   "name": "Lake"
+  },
+  {
+   "rect": [
+    71,
+    12,
+    1,
+    8
+   ],
+   "to": "sandown_culver",
+   "at": [
+    2,
+    40
+   ],
+   "name": "Culver Down"
+  }
+ ],
+ "interiors": {
+  "pavilion": {
+   "size": [
+    16,
+    10
+   ],
+   "floor": [
+    "carpet_red",
+    "carpet_red",
+    "diamond_dark"
+   ],
+   "wall": "purple",
+   "props": [
+    {
+     "kind": "arcade_machine",
+     "pos": [
+      1.5,
+      2.6
+     ],
+     "name": "Arcade machine",
+     "look": [
+      [
+       "player",
+       "SPACE INVADERS, 10p a go, the screen gone purple with age. The high score is COL. All ten of them are COL."
+      ],
+      [
+       "teddy",
+       "A man with a lot of lunch hours."
+      ]
+     ]
+    },
+    {
+     "kind": "arcade_machine_red",
+     "pos": [
+      2.5,
+      2.6
+     ]
+    },
+    {
+     "kind": "arcade_machine",
+     "pos": [
+      3.5,
+      2.6
+     ]
+    },
+    {
+     "kind": "arcade_machine_red",
+     "pos": [
+      4.5,
+      2.6
+     ],
+     "name": "Arcade machine",
+     "look": "A driving game with the steering wheel gone. People play it anyway, holding the stub. Most of them are better at it."
+    },
+    {
+     "kind": "penny_falls",
+     "pos": [
+      7,
+      2.6
+     ],
+     "name": "The penny falls",
+     "look": [
+      [
+       "player",
+       "The penny falls. A shelf of 2p pieces shoved forward by a shelf of 2p pieces, and a hundred coins hanging over the edge like they want to. You put one in. Nothing falls. You put another in. Nothing falls."
+      ],
+      [
+       "miriam",
+       "It is a machine for teaching you that nothing is ever quite enough."
+      ],
+      [
+       "dale",
+       "Give me 20p."
+      ]
+     ]
+    },
+    {
+     "kind": "penny_falls",
+     "pos": [
+      9,
+      2.6
+     ],
+     "name": "The old falls",
+     "look": [
+      [
+       "player",
+       "The old penny falls, pre-decimal, one old penny a go. Nobody has an old penny. A sign: BRING YOUR OWN. One coin on the top shelf is a 1973 and someone has filed a notch in its edge."
+      ],
+      [
+       "june",
+       "Someone wanted to find it again."
+      ]
+     ],
+     "pickup": "pier_penny"
+    },
+    {
+     "kind": "fortune_teller",
+     "pos": [
+      11.5,
+      2.5
+     ],
+     "name": "Madame Zara",
+     "look": [
+      [
+       "player",
+       "A mechanical fortune teller in a glass box, MADAME ZARA, SANDOWN PIER SINCE 1931. 10p. Her hand passes over the cards and a card drops: WHAT YOU SENT AWAY RETURNS IN THE MORNING. ASK AGAIN TOMORROW."
+      ],
+      [
+       "vera",
+       "The lab, she means. She is quite right. She usually is."
+      ],
+      [
+       "miriam",
+       "She's a clockwork head in a box, Vera."
+      ],
+      [
+       "vera",
+       "I did not say she was wrong."
+      ]
+     ]
+    },
+    {
+     "kind": "jukebox",
+     "pos": [
+      13.5,
+      2.6
+     ],
+     "name": "Jukebox",
+     "look": "A jukebox with one working button, and it is Showaddywaddy, and it is always Showaddywaddy."
+    },
+    {
+     "kind": "vending",
+     "pos": [
+      15,
+      2.6
+     ],
+     "name": "Vending machine",
+     "look": "A machine selling Walkers crisps and Panda Pops. It takes 20p and keeps it. A sign: TELL COLIN. Colin has been told."
+    },
+    {
+     "kind": "booth",
+     "pos": [
+      4,
+      5.3
+     ],
+     "name": "Change booth",
+     "look": [
+      [
+       "player",
+       "The change booth. A brass grille, a tray, a tower of 10p and 2p in paper tubes, and a hand-lettered sign: THE 1973 STORY, 10p. CHILDREN FREE."
+      ],
+      [
+       "teddy",
+       "Ten pence. He's priced it."
+      ],
+      [
+       "elijah",
+       "He's priced it so it stops being his."
+      ]
+     ]
+    },
+    {
+     "kind": "cabinet",
+     "pos": [
+      1.5,
+      7.6
+     ],
+     "name": "Lost property",
+     "look": "The pavilion's lost property, which is a cabinet. Sunglasses, a single flipper, a set of false teeth in a Golden Virginia tin, and a child's yellow party hat, cardboard, this year's. Colin keeps it on the top shelf where he can see it."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      7.5,
+      1.4
+     ],
+     "name": "Pier bill",
+     "look": "PIER PAVILION 1994. Summer season bill. A ventriloquist, a hypnotist, 'novelty entertainment', a man with doves. The doves get second billing."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      10,
+      1.4
+     ],
+     "name": "Old photograph",
+     "look": [
+      [
+       "player",
+       "The pavilion in 1973, framed. The pier crowded, every man in a tie, and at the far end, small, a tall pale shape beside the stage door. Could be a lamp. Could be a flag. Could be a hat."
+      ],
+      [
+       "teddy",
+       "Could be a smudge. I'd print it anyway."
+      ]
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      13,
+      1.5
+     ]
+    },
+    {
+     "kind": "bar_counter",
+     "pos": [
+      10,
+      7
+     ],
+     "name": "Pier bar",
+     "look": [
+      [
+       "player",
+       "The pier bar, which is a counter with four stools and a shelf of pale ale. Bitter is a pound a pint. You get your change in coins the size of a saucer."
+      ],
+      [
+       "dale",
+       "That's a fifty pence. It's got seven sides. Nothing should have seven sides."
+      ]
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      8,
+      8.3
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      9.5,
+      8.3
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      11,
+      8.3
+     ]
+    },
+    {
+     "kind": "bar_stool",
+     "pos": [
+      12.5,
+      8.3
+     ],
+     "name": "The end stool",
+     "look": "The end stool by the window, the one that looks out toward the Levels. Colin's. He drinks mild there at six and does not look out of the window, on purpose."
+    },
+    {
+     "kind": "bottles_shelf",
+     "pos": [
+      11,
+      4.9
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      15.5,
+      8.6
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      14.5,
+      5.8
+     ],
+     "name": "Rock shelf",
+     "look": [
+      [
+       "player",
+       "Isle of Wight rock. SANDOWN all the way through. A lettered sugar stick that outlives the holiday, the teeth and the town."
+      ],
+      [
+       "ruth",
+       "The shop by the stage door sells the real kind, dear. This is the tourist kind."
+      ],
+      [
+       "teddy",
+       "They're both sugar, Ruth."
+      ],
+      [
+       "ruth",
+       "That's not what I said."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "colin",
+     "name": "Colin Rudd",
+     "pos": [
+      4,
+      4.4
+     ],
+     "facing": "down",
+     "sprite": "colin",
+     "when": [
+      "day"
+     ]
+    },
+    {
+     "id": "colin",
+     "name": "Colin Rudd",
+     "pos": [
+      13.5,
+      8.2
+     ],
+     "facing": "left",
+     "sprite": "colin",
+     "when": [
+      "dusk"
+     ]
+    },
+    {
+     "id": "sf_arcade_man",
+     "name": "Len Garside",
+     "pos": [
+      8,
+      4.2
+     ],
+     "facing": "down",
+     "sprite": "arcade_man",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    },
+    {
+     "id": "sf_holiday_9",
+     "name": "A holidaymaker",
+     "pos": [
+      2.5,
+      4.3
+     ],
+     "facing": "up",
+     "sprite": "holidaymaker2",
+     "when": [
+      "day"
+     ]
+    },
+    {
+     "id": "sf_kid_6",
+     "name": "A kid at the falls",
+     "pos": [
+      6.5,
+      4.3
+     ],
+     "facing": "up",
+     "sprite": "kid",
+     "when": [
+      "day",
+      "dusk"
+     ]
+    },
+    {
+     "id": "sf_mod_4",
+     "name": "A mod at the bar",
+     "pos": [
+      9.5,
+      8.6
+     ],
+     "facing": "up",
+     "sprite": "mod",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    }
+   ]
+  },
+  "backstage": {
+   "size": [
+    12,
+    8
+   ],
+   "floor": [
+    "wood_dark",
+    "wood_dark2"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "costume_rail",
+     "pos": [
+      2.5,
+      2.6
+     ],
+     "name": "Costume rail",
+     "look": [
+      [
+       "player",
+       "The costume rail. Sequins, a gorilla suit, a policeman's tunic, four identical lamé jackets. A gap on the rail with a tag on the hanger: Y. MAN - COMPLETE - TO SUNNYSIDE 9/73. The hanger is still bent from the weight of something tall."
+      ],
+      [
+       "miriam",
+       "To Sunnyside. September 1973."
+      ],
+      [
+       "teddy",
+       "Complete. Hat included, I'd say."
+      ]
+     ]
+    },
+    {
+     "kind": "mirror_standing",
+     "pos": [
+      5,
+      2.6
+     ],
+     "name": "Dressing mirror",
+     "look": "A mirror with bulbs round it, three of them gone. In the corner, in lipstick: BREAK A LEG MO, 1973, and a heart. She has not wiped it off in twenty-one years."
+    },
+    {
+     "kind": "dresser",
+     "pos": [
+      7.5,
+      2.4
+     ],
+     "name": "Dressing table",
+     "look": "Greasepaint, Leichner sticks, a tin of Brylcreem, a pot of glitter with the lid welded on by time. A row of photographs tucked in the frame, every summer season back to 1968, the casts getting fatter."
+    },
+    {
+     "kind": "bulletin_board",
+     "pos": [
+      10,
+      1.8
+     ],
+     "name": "The call board",
+     "look": "The call board. The running order for tonight, a fire notice, the Equity minimum, and under three layers of pins a programme gone the colour of tea."
+    },
+    {
+     "kind": "filing_cabinet",
+     "pos": [
+      11.5,
+      2.4
+     ],
+     "name": "Receipts",
+     "look": [
+      [
+       "player",
+       "A filing cabinet of hire receipts, one drawer a decade. 1973: SET, DIAL ROOM, PAINTED FLATS AND CYC, HIRED TO SUNNYSIDE HOLIDAY CAMP, RETURNED DAMAGED. Somebody has written SEA WATER? beside it and then crossed it out."
+      ],
+      [
+       "june",
+       "Dial room. Painted flats and a cyclorama. That's a wall of dials and a sea behind it."
+      ]
+     ]
+    },
+    {
+     "kind": "clock",
+     "pos": [
+      1.5,
+      1.5
+     ]
+    },
+    {
+     "kind": "curtain",
+     "pos": [
+      10,
+      5.2
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      7.5,
+      4.2
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      4.5,
+      4.3
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      4.5,
+      6.3
+     ],
+     "name": "Props table",
+     "look": "The props table, taped into squares, each square labelled: GUN, FLOWERS, DOVE (REAL), DOVE (NOT). Both doves are present."
+    },
+    {
+     "kind": "crate",
+     "pos": [
+      11.5,
+      6.6
+     ],
+     "name": "Skip",
+     "look": "A wicker skip, FRAGILE stencilled on the side, full of hats. Toppers, bowlers, a fez, a policeman's helmet. No yellow one. She has looked. You can tell she has looked by the way the hats are stacked."
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      1.5,
+      6.6
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      8.5,
+      5.8
+     ],
+     "name": "Shelf",
+     "look": "Tea, sugar, a kettle, a bottle of Bell's at the back behind the tea. She knows you can see it. She does not mind."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "sf_stage_mgr",
+     "name": "Maureen Keel",
+     "pos": [
+      6,
+      3.6
+     ],
+     "facing": "down",
+     "sprite": "stage_mgr",
+     "when": [
+      "day",
+      "dusk",
+      "night"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "sf_programme_pin",
+     "name": "A programme on the call board",
+     "pos": [
+      9.5,
+      2.6
+     ],
+     "prop": "paper",
+     "text": "Under three layers of pins, a programme the colour of tea. SANDOWN PIER PAVILION. SUMMER SEASON 1973. Halfway down the bill, between a comic and a soprano: THE YELLOW MAN - A NOVELTY ACT - BY ARRANGEMENT WITH SUNNYSIDE HOLIDAY CAMP. Tuesdays and Thursdays. The week of the children's story was a Tuesday.",
+     "methods": {
+      "bag": "sf_programme_1973",
+      "photograph": "sf_programme_photo",
+      "cast": "spoil",
+      "measure": "spoil"
+     }
+    }
+   ]
+  },
+  "beach_cafe": {
+   "size": [
+    16,
+    10
+   ],
+   "floor": [
+    "lino",
+    "lino",
+    "lino2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "fridge",
+     "pos": [
+      1,
+      2.6
+     ],
+     "name": "Fridge",
+     "look": "A fridge of cans. Tango, Lilt, Tizer, which is a colour as much as a drink. A sign: NO ICE. WE ARE BY THE SEA, NOT IN IT."
+    },
+    {
+     "kind": "oven",
+     "pos": [
+      2,
+      2.6
+     ],
+     "name": "Fryer",
+     "look": [
+      [
+       "player",
+       "The fryer. The whole front smells of it and this is where the smell comes from. Chips in beef dripping."
+      ],
+      [
+       "teddy",
+       "Fries. In fat. In England. I'm going to need a minute."
+      ],
+      [
+       "ruth",
+       "Have the fish with them, dear, and the mushy peas, and stop talking."
+      ]
+     ]
+    },
+    {
+     "kind": "sink",
+     "pos": [
+      3,
+      2.6
+     ]
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      2,
+      3.3
+     ]
+    },
+    {
+     "kind": "coffee_maker",
+     "pos": [
+      5.5,
+      2.4
+     ],
+     "name": "Tea urn",
+     "look": [
+      [
+       "player",
+       "A tea urn the size of a torpedo, making tea since dawn. The tea is orange."
+      ],
+      [
+       "miriam",
+       "It's not coffee. Nothing on this island is coffee. They put the word on a tin and mean it kindly."
+      ]
+     ]
+    },
+    {
+     "kind": "counter_l",
+     "pos": [
+      5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      6.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      8.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      10.5,
+      3
+     ]
+    },
+    {
+     "kind": "counter_r",
+     "pos": [
+      12,
+      3
+     ]
+    },
+    {
+     "kind": "pie_case",
+     "pos": [
+      13,
+      2.6
+     ],
+     "name": "Cake stand",
+     "look": "Bakewell tart, a Victoria sponge, jam doughnuts in a tower. A wasp is in the case, has been for an hour, and is in no hurry to leave either."
+    },
+    {
+     "kind": "dishes",
+     "pos": [
+      9,
+      2.3
+     ]
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      14,
+      1.6
+     ],
+     "name": "Corkboard",
+     "look": [
+      [
+       "player",
+       "The corkboard. A tide table for May with the lows circled in red. LOST: ONE DECKCHAIR TICKET BOOK, REWARD. A card for a clairvoyant in Shanklin, 'spirits of the island a speciality'. And a newspaper cutting, 1973, brown: SANDOWN CHILDREN'S 'HUT MAN' MYSTERY - PARENTS BLAME TOO MUCH SUN."
+      ],
+      [
+       "teddy",
+       "'Parents blame too much sun.' That's the headline they got. Twenty-one years of that headline."
+      ]
+     ]
+    },
+    {
+     "kind": "jukebox",
+     "pos": [
+      15,
+      2.6
+     ],
+     "name": "Jukebox",
+     "look": "Wet Wet Wet, Love Is All Around, six weeks at number one and this jukebox is why."
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      11,
+      1.5
+     ],
+     "name": "Calendar",
+     "look": "A calendar from the Co-op, May 1994. The bank holiday circled. Monday the 30th has TIGERS 3AM written on it, and Tuesday, and Wednesday, and Thursday, in a smaller and smaller hand."
+    },
+    {
+     "kind": "painting",
+     "pos": [
+      8,
+      1.4
+     ],
+     "name": "Painting",
+     "look": "Sandown Bay in oils, by somebody local, with the pier where it is and the sea a blue it never is. In the corner of the sky the painter has put a small yellow triangle and then painted over it, and it has come back through."
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      5,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      6,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      7,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      8,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      9,
+      4.2
+     ]
+    },
+    {
+     "kind": "stool",
+     "pos": [
+      10,
+      4.2
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      3,
+      6.3
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      2,
+      7.4
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      4,
+      5.3
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      8,
+      7.3
+     ],
+     "name": "Window table",
+     "look": "The window table. The chair that faces the pier is pushed in. The chair that faces the wall has a cushion on it, worn flat. Brenda says a woman sits there Thursdays with her back to the sea."
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      7,
+      8.4
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      9,
+      6.3
+     ]
+    },
+    {
+     "kind": "table_wood",
+     "pos": [
+      13,
+      6.3
+     ]
+    },
+    {
+     "kind": "chair_back",
+     "pos": [
+      12,
+      7.4
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      14,
+      5.3
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      15.5,
+      8.6
+     ],
+     "name": "Kitchen bin",
+     "look": [
+      [
+       "player",
+       "The kitchen bin. Chip paper, tea bags, a pound of batter scrapings, and a 10p arcade token from the pier, this year's, with a notch filed in the edge."
+      ],
+      [
+       "june",
+       "Same notch as the old penny on the falls. Somebody marks their money."
+      ]
+     ]
+    },
+    {
+     "kind": "shelf",
+     "pos": [
+      1.5,
+      5.8
+     ],
+     "name": "Postcard rack",
+     "look": "Postcards, 12p. Sandown pier at sunset. A donkey. 'Wish You Were Here' with a fat man on it. One of Culver Down with the cliff drawn in and a tiny figure at the top in a yellow hat, 1970s, 'GREETINGS FROM THE ISLE OF WIGHT'. It has been on the rack since then. Nobody buys it."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "sf_cafe_woman",
+     "name": "Brenda Oakes",
+     "pos": [
+      8.5,
+      2.6
+     ],
+     "facing": "down",
+     "sprite": "cafe_woman",
+     "when": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "id": "sf_professor",
+     "name": "Professor Swazzle",
+     "pos": [
+      12,
+      7.6
+     ],
+     "facing": "left",
+     "sprite": "professor",
+     "when": [
+      "dusk"
+     ]
+    },
+    {
+     "id": "sf_holiday_10",
+     "name": "A holidaymaker",
+     "pos": [
+      4,
+      5.6
+     ],
+     "facing": "down",
+     "sprite": "holidaymaker",
+     "when": [
+      "morning",
+      "day"
+     ]
+    },
+    {
+     "id": "sf_holiday_11",
+     "name": "A holidaymaker",
+     "pos": [
+      7,
+      4.4
+     ],
+     "facing": "up",
+     "sprite": "holidaymaker2",
+     "when": [
+      "day"
+     ]
+    }
+   ]
+  },
+  "deckchair_hut": {
+   "size": [
+    8,
+    6
+   ],
+   "floor": [
+    "wood_grey",
+    "wood_grey2"
+   ],
+   "wall": "cream",
+   "props": [
+    {
+     "kind": "deckchair_stack",
+     "pos": [
+      1.5,
+      2.9
+     ],
+     "name": "Deckchairs",
+     "look": "Deckchairs stacked to the roof, canvas and bleached wood. Two hundred and twelve of them. Wilf knows the number. He knows it the way other men know their children's birthdays."
+    },
+    {
+     "kind": "deckchair_stack",
+     "pos": [
+      3,
+      2.9
+     ]
+    },
+    {
+     "kind": "windbreak",
+     "pos": [
+      6,
+      2.5
+     ],
+     "name": "Windbreaks",
+     "look": "Rolled windbreaks, striped, the poles sharpened. Hired by the day, lost by the afternoon."
+    },
+    {
+     "kind": "counter",
+     "pos": [
+      4.5,
+      4.2
+     ],
+     "name": "Counter",
+     "look": [
+      [
+       "player",
+       "A counter with a roll of tickets, a cash tin and a ledger. DECKCHAIRS 40p. WINDBREAKS 50p. TIDE TABLES 20p. The ledger is this year's. The others are in the chest."
+      ],
+      [
+       "miriam",
+       "He sells the tide. Twenty pence. Cheapest thing in town and the only one that's always right."
+      ]
+     ]
+    },
+    {
+     "kind": "calendar",
+     "pos": [
+      2,
+      1.5
+     ],
+     "name": "Calendar",
+     "look": "The tide calendar, May 1994, every low water written in. The night lows are underlined. Wilf says the night lows are when the chairs move."
+    },
+    {
+     "kind": "poster",
+     "pos": [
+      6.5,
+      1.5
+     ],
+     "name": "Bathing notice",
+     "look": "BATHING. NO SWIMMING WITHIN 50 YARDS OF THE PIER. BEWARE THE UNDERTOW OFF YAVERLAND. 1968, and the undertow is still there, and so is the sign."
+    },
+    {
+     "kind": "chest",
+     "pos": [
+      7.5,
+      4.6
+     ],
+     "name": "Ticket chest",
+     "look": [
+      [
+       "player",
+       "A sea chest of old ticket rolls and ledgers, one a summer, back to 1958. The 1973 ledger has a page with the whole of a Tuesday afternoon crossed out and WIND written across it. There was no wind. It is in the newspaper: 'hottest day of the year'."
+      ],
+      [
+       "elijah",
+       "He crossed out an afternoon."
+      ],
+      [
+       "ruth",
+       "He crossed out what he couldn't write down, dear."
+      ]
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      1.5,
+      4.6
+     ]
+    },
+    {
+     "kind": "lamp_table",
+     "pos": [
+      7.5,
+      2.8
+     ]
+    },
+    {
+     "kind": "chair_front",
+     "pos": [
+      2.5,
+      4.6
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "sf_deckchair_man",
+     "name": "Wilf Dyer",
+     "pos": [
+      4.5,
+      2.2
+     ],
+     "facing": "down",
+     "sprite": "deckchair_man",
+     "when": [
+      "dusk",
+      "night"
+     ]
+    }
+   ]
+  },
+  "zoo": {
+   "size": [
+    14,
+    10
+   ],
+   "floor": [
+    "grass",
+    "grass2",
+    "gravel"
+   ],
+   "wall": "grey",
+   "props": [
+    {
+     "kind": "zoo_cage",
+     "pos": [
+      4,
+      3.9
+     ],
+     "name": "Tiger house",
+     "look": [
+      [
+       "player",
+       "The tigers. Two of them, a male and a female, on a slab of the old fort's granite, in the one patch of sun. The female is watching the sea wall. The male is watching you watching her."
+      ],
+      [
+       "dale",
+       "Panthera tigris tigris. Don't put your hand through. Don't put anything through. Don't think about putting anything through, he can hear that too."
+      ]
+     ]
+    },
+    {
+     "kind": "zoo_cage",
+     "pos": [
+      8,
+      3.9
+     ],
+     "name": "Lemur run",
+     "look": "Lemurs. Ring-tailed, eight of them, in a long cage with a rope. One is holding the rope with both hands and staring at the reptile house, and has been, the keeper says, since Tuesday."
+    },
+    {
+     "kind": "zoo_cage",
+     "pos": [
+      12,
+      3.9
+     ],
+     "name": "Empty cage",
+     "look": [
+      [
+       "player",
+       "An empty cage with fresh straw and a sign: PLEASE DO NOT FEED. There is nothing in it to feed. There is a dish of water, full, and a ball, and a smell."
+      ],
+      [
+       "elijah",
+       "It's not empty."
+      ],
+      [
+       "dale",
+       "It is empty, Elijah. ...Why's the water full."
+      ]
+     ]
+    },
+    {
+     "kind": "shed",
+     "pos": [
+      12,
+      8.4
+     ],
+     "name": "Keeper's store",
+     "look": "The keeper's store. Meat in a chest freezer, a shovel, a dart rifle in a locked case, and a crate of Sunnyside Holiday Camp Yellowcoat jackets, 1970s, donated for rags. The tigers are bedded on them. The tigers like them."
+    },
+    {
+     "kind": "bulletin_board",
+     "pos": [
+      9,
+      1.8
+     ],
+     "name": "Feeding board",
+     "look": "FEEDING: TIGERS 11 AND 3. LEMURS 12. REPTILES - and a strip of tape over the rest. On the tape, in biro: 3AM. 3AM. 3AM. Five nights in a row."
+    },
+    {
+     "kind": "trough",
+     "pos": [
+      4.5,
+      6.4
+     ],
+     "name": "Water trough",
+     "look": "A granite trough from when the fort was a fort, a shell from the fort's magazine propping the end of it up. A tiger drinks from a thing that was built to sink a French fleet."
+    },
+    {
+     "kind": "barrel",
+     "pos": [
+      1.5,
+      7.5
+     ],
+     "name": "Meat barrel",
+     "look": "Meat for the tigers, in a barrel, under a lid, under a stone. The gulls know anyway."
+    },
+    {
+     "kind": "bench",
+     "pos": [
+      7,
+      7.6
+     ]
+    },
+    {
+     "kind": "bin",
+     "pos": [
+      10.5,
+      7.8
+     ]
+    },
+    {
+     "kind": "bucket",
+     "pos": [
+      5.5,
+      8.6
+     ]
+    },
+    {
+     "kind": "rock_big",
+     "pos": [
+      1,
+      3.5
+     ],
+     "name": "Fort wall",
+     "look": [
+      [
+       "player",
+       "The inside of the old granite fort, 1860s, built against Napoleon, who did not come. Gun ports bricked up. The sea on the other side of six feet of stone, and you can hear it."
+      ],
+      [
+       "vera",
+       "Walls that thick keep things out. They keep things in just as well. It is the same wall."
+      ]
+     ]
+    }
+   ],
+   "npcs": [
+    {
+     "id": "sf_keeper",
+     "name": "Ray Tulloch",
+     "pos": [
+      4.5,
+      5.4
+     ],
+     "facing": "down",
+     "sprite": "keeper",
+     "when": [
+      "morning",
+      "day",
+      "dusk"
+     ]
+    },
+    {
+     "id": "sf_kid_7",
+     "name": "A kid at the lemurs",
+     "pos": [
+      7.5,
+      5.3
+     ],
+     "facing": "up",
+     "sprite": "kid",
+     "when": [
+      "day"
+     ]
+    }
+   ],
+   "clues": [
+    {
+     "id": "sf_cage_reading",
+     "name": "The tigers' slab",
+     "pos": [
+      4,
+      5.4
+     ],
+     "prop": "clue_cold",
+     "text": "The granite slab the tigers lie on, warm from the sun. June's scanner, held to it, finds a tone under the warmth, flat, steady, coming up through the stone from the direction of the sea wall. The keeper says it is there at three every morning and gone by four. It is there now, faintly, at the wrong time.",
+     "methods": {
+      "measure": "sf_cage_hum",
+      "photograph": "spoil",
+      "bag": "spoil",
+      "cast": "spoil"
+     }
+    }
+   ]
+  }
+ }
+}
