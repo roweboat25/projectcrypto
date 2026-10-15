@@ -17,6 +17,7 @@ var _mode := "lines"        # lines, menu, picker, fact, result, done
 var _options: Array = []    # menu entries: {label, enabled, kind, ...}
 var _picker: Array = []
 var _after_lines := ""      # node to go to when the current lines end
+var _prefix: Array = []     # verdicts and interjections to play before the next node's lines
 
 
 func _init(p_box: DialogueBox, p_witness: String, p_name: String, p_toast: Callable) -> void:
@@ -53,13 +54,25 @@ func _go(node_id: String) -> void:
 		if GameData.roster.has(l[0]) and not l[0] in GameState.party:
 			continue
 		lines.append(l)
+	var chimed := false
 	for p in n.get("passives", []):
 		if Investigation.passive_passes(GameData, GameState, p.voice, int(p.get("threshold", 8))):
 			lines.append(["voice:" + p.voice, p.line])
 			if p.has("flag"):
 				GameState.flags[p.flag] = true
+			if not chimed and not seen_today and randf() < 0.5:
+				var say := Investigation.partner_interjection(GameData, GameState, p.voice, "passive")
+				if not say.is_empty():
+					lines.append(say)
+					chimed = true
 	if n.has("static") and GameState.dread >= int(n.static.get("min_dread", 3)):
 		lines.append(["voice:static", n.static.line])
+	elif not seen_today:
+		var hiss := Investigation.static_line(GameData, GameState)
+		if not hiss.is_empty():
+			lines.append(hiss)
+	if not seen_today:
+		lines += _takes(n)
 	if not seen_today or n.get("repeat", false) or n.get("options", []).is_empty():
 		for e in Investigation.apply_gives(GameData, GameState, n.get("gives", {})):
 			_announce(e)
@@ -74,9 +87,33 @@ func _go(node_id: String) -> void:
 	else:
 		_mode = "done"
 	if seen_today and not n.get("options", []).is_empty() and not n.get("repeat", false):
-		_show_menu()   # a hub already heard today goes straight to its choices
-		return
+		lines = _prefix   # a hub already heard today goes straight to its choices, after any verdict
+		_prefix = []
+		if lines.is_empty():
+			_show_menu()
+			return
+	else:
+		lines = _prefix + lines
+		_prefix = []
 	box.show_lines(lines)
+
+
+## The voices weigh in on up to two of the node's checks before the menu, so the odds
+## in the labels come with an opinion.
+func _takes(n: Dictionary) -> Array:
+	var out := []
+	for i in n.get("options", []).size():
+		var o: Dictionary = n.options[i]
+		if not o.has("check") or not Investigation.option_available(GameData, GameState, o):
+			continue
+		if Investigation.check_locked(GameState, Investigation.lock_key(witness_id, _node_id, i)):
+			continue
+		var take := Investigation.voice_take(GameData, o.check.voice, Investigation.check_odds(GameData, GameState, witness_id, o.check))
+		if not take.is_empty():
+			out.append(take)
+		if out.size() >= 2:
+			break
+	return out
 
 
 func _on_lines_finished() -> void:
@@ -118,7 +155,8 @@ func _show_menu() -> void:
 				var key := Investigation.lock_key(witness_id, _node_id, i)
 				var locked := Investigation.check_locked(GameState, key)
 				entry.enabled = not locked
-				label = "[%s %d] %s%s" % [Investigation.VOICE_NAMES[o.check.voice].capitalize(), int(o.check.get("difficulty", 8)), label,
+				var odds := Investigation.check_odds(GameData, GameState, witness_id, o.check)
+				label = "[%s %d%%] %s%s" % [Investigation.VOICE_NAMES[o.check.voice].capitalize(), Investigation.percent(odds), label,
 					"  (locked)" if locked else ("  (one chance)" if o.check.get("kind", "white") == "red" else "")]
 			entry.label = label
 			_options.append(entry)
@@ -160,19 +198,19 @@ func _pick(o: Dictionary, index: int) -> void:
 	if o.has("check"):
 		var key := Investigation.lock_key(witness_id, _node_id, index)
 		var r: Dictionary = Investigation.attempt_voice_check(GameData, GameState, witness_id, key, o.check)
-		var voice: String = Investigation.VOICE_NAMES[o.check.voice].capitalize()
+		var said := _verdict_lines(o.check.voice, r)
 		if r.ok:
-			toast.call("[%s] passed: %d vs %d" % [voice, r.total, r.difficulty])
+			_prefix = said
 			_go(o.pass)
 		else:
-			toast.call("[%s] failed: %d vs %d" % [voice, r.total, r.difficulty])
 			var fail: Dictionary = o.get("fail", {})
 			Investigation.apply_gives(GameData, GameState, {"trust": fail.get("trust", {}), "dread": fail.get("dread", 0)})
 			if fail.has("next"):
+				_prefix = said
 				_go(fail.next)
 			else:
 				_mode = "result"
-				box.show_lines([[witness_id, fail.get("line", _refusal())]])
+				box.show_lines(said + [[witness_id, fail.get("line", _refusal())]])
 		return
 	if o.has("next"):
 		_go(o.next)
@@ -188,15 +226,29 @@ func _legacy(o: Dictionary) -> void:
 			box.show_lines(o.fact.lines)
 		"check":
 			var r: Dictionary = Investigation.attempt_check(GameData, GameState, o.fact.id, o.gate)
+			var said := _verdict_lines(o.gate.check, r)
 			if r.ok:
-				toast.call("[%s] passed: %d vs %d" % [o.gate.check.capitalize(), r.total, r.difficulty])
-				_unlock(o.fact)
+				_unlock(o.fact, said)
 			else:
-				toast.call("[%s] failed: %d vs %d" % [o.gate.check.capitalize(), r.total, r.difficulty])
 				_mode = "result"
-				box.show_lines([[witness_id, _refusal()]])
+				box.show_lines(said + [[witness_id, _refusal()]])
 		"contradiction", "trust":
 			_unlock(o.fact)
+
+
+## The voice's verdict on a roll, a partner's word on it, and the Static's gloss at high Dread.
+func _verdict_lines(voice: String, r: Dictionary) -> Array:
+	var out := []
+	var v := Investigation.voice_verdict(GameData, voice, r)
+	if not v.is_empty():
+		out.append(v)
+	var p := Investigation.partner_interjection(GameData, GameState, voice, "pass" if r.ok else "fail")
+	if not p.is_empty():
+		out.append(p)
+	var hiss := Investigation.static_line(GameData, GameState, "pass" if r.ok else "fail")
+	if not hiss.is_empty():
+		out.append(hiss)
+	return out
 
 
 func _present(evidence_id: String) -> void:
@@ -213,12 +265,20 @@ func _present(evidence_id: String) -> void:
 		_unlock(fact)
 
 
-func _unlock(fact: Dictionary) -> void:
+func _unlock(fact: Dictionary, before: Array = []) -> void:
 	Investigation.unlock_fact(GameData, GameState, fact)
+	var after := []
 	if fact.has("evidence"):
 		_announce(fact.evidence)
+		after = _evidence_lines()
 	_mode = "fact"
-	box.show_lines(fact.lines)
+	box.show_lines(before + fact.lines + after)
+
+
+## A partner's word when a piece of evidence turns up in talk.
+func _evidence_lines() -> Array:
+	var say := Investigation.partner_interjection(GameData, GameState, "", "evidence")
+	return [] if say.is_empty() else [say]
 
 
 func _announce(evidence_id: String) -> void:

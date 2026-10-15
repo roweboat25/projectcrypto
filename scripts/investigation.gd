@@ -228,17 +228,22 @@ static func check_locked(state: Node, key: String) -> bool:
 	return when == -1 or when == state.day
 
 
-## A scripted check: 2d6 + voice level + evidence bonus + trust modifier against the difficulty.
-## White checks lock until tomorrow on a failure; red checks lock for the case.
-static func attempt_voice_check(data: Node, state: Node, witness_id: String, key: String, check: Dictionary, roll := -1) -> Dictionary:
-	if roll < 0:
-		roll = randi_range(1, 6) + randi_range(1, 6)
+## Everything a scripted check adds to its 2d6: the voice level, evidence bonuses, the trust modifier.
+static func check_bonus(data: Node, state: Node, witness_id: String, check: Dictionary) -> int:
 	var bonus := 0
 	for e in check.get("evidence_bonus", {}):
 		if state.has_evidence(e):
 			bonus += int(check.evidence_bonus[e])
 	var trust := clampi(trust_of(data, state, witness_id) - 1, -2, 2)
-	var total: int = roll + voice_level(data, state, check.voice) + bonus + trust
+	return voice_level(data, state, check.get("voice", "logic")) + bonus + trust
+
+
+## A scripted check: 2d6 + voice level + evidence bonus + trust modifier against the difficulty.
+## White checks lock until tomorrow on a failure; red checks lock for the case.
+static func attempt_voice_check(data: Node, state: Node, witness_id: String, key: String, check: Dictionary, roll := -1) -> Dictionary:
+	if roll < 0:
+		roll = randi_range(1, 6) + randi_range(1, 6)
+	var total: int = roll + check_bonus(data, state, witness_id, check)
 	var difficulty := int(check.get("difficulty", 8))
 	var ok := total >= difficulty
 	if not ok:
@@ -270,6 +275,115 @@ static func apply_gives(data: Node, state: Node, gives: Dictionary) -> Array:
 	if gives.has("composure"):
 		state.composure = clamp(state.composure + int(gives.composure), 0, max_composure(data, state))
 	return announced
+
+
+# ---------- the voices: odds, takes, verdicts, interjections ----------
+
+## Chance that 2d6 + bonus meets the difficulty.
+static func odds_2d6(bonus: int, difficulty: int) -> float:
+	var need := difficulty - bonus
+	if need <= 2:
+		return 1.0
+	if need > 12:
+		return 0.0
+	var ways := 0
+	for a in range(1, 7):
+		for b in range(1, 7):
+			if a + b >= need:
+				ways += 1
+	return float(ways) / 36.0
+
+
+## Chance that d6 + bonus meets the difficulty.
+static func odds_d6(bonus: int, difficulty: int) -> float:
+	return clampf(float(7 - (difficulty - bonus)) / 6.0, 0.0, 1.0)
+
+
+static func percent(odds: float) -> int:
+	return int(round(odds * 100.0))
+
+
+## The odds of a scripted check as the player sees them: voice level, evidence and trust in.
+static func check_odds(data: Node, state: Node, witness_id: String, check: Dictionary) -> float:
+	return odds_2d6(check_bonus(data, state, witness_id, check), int(check.get("difficulty", 8)))
+
+
+## The odds of a quick-facts check (d6 + stat + specialist).
+static func tag_odds(data: Node, state: Node, tag: String, difficulty: int) -> float:
+	return odds_d6(check_modifier(data, state, tag), difficulty)
+
+
+const SURE_ODDS := 0.6
+
+
+static func _pick_line(pool: Array, rng: RandomNumberGenerator) -> String:
+	if pool.is_empty():
+		return ""
+	var i: int = rng.randi_range(0, pool.size() - 1) if rng != null else randi() % pool.size()
+	return str(pool[i])
+
+
+static func _fill(line: String, voice: String, total := 0, difficulty := 0) -> String:
+	return line.replace("{n}", str(total)).replace("{d}", str(difficulty)).replace("{v}", VOICE_NAMES.get(voice, voice.to_upper()))
+
+
+## What a voice says about a check before you pick it: sure at 60% or better, unsure below.
+## Returns [speaker, line] or [].
+static func voice_take(data: Node, voice: String, odds: float, rng: RandomNumberGenerator = null) -> Array:
+	var v: Dictionary = data.voices.get("voices", {}).get(voice, {})
+	var line := _pick_line(v.get("sure" if odds >= SURE_ODDS else "unsure", []), rng)
+	return [] if line == "" else ["voice:" + voice, _fill(line, voice)]
+
+
+## The voice's verdict once the dice land. `r` is an attempt_* result.
+static func voice_verdict(data: Node, voice: String, r: Dictionary, rng: RandomNumberGenerator = null) -> Array:
+	var v: Dictionary = data.voices.get("voices", {}).get(voice, {})
+	var line := _pick_line(v.get("pass" if r.get("ok", false) else "fail", []), rng)
+	return [] if line == "" else ["voice:" + voice, _fill(line, voice, int(r.get("total", 0)), int(r.get("difficulty", 0)))]
+
+
+## A partner in the party (not the lead) whose class boosts the voice, or "".
+static func partner_for(data: Node, state: Node, voice: String) -> String:
+	for i in range(1, state.party.size()):
+		if voice in CLASS_VOICES.get(member_class(data, state, state.party[i]), []):
+			return state.party[i]
+	return ""
+
+
+## A partner's line after a check in their voice ("pass", "fail", "passive") or when
+## evidence turns up ("evidence", from anyone in the party). A pass deepens the bond.
+## Returns [partner id, line] or [].
+static func partner_interjection(data: Node, state: Node, voice: String, outcome: String, rng: RandomNumberGenerator = null) -> Array:
+	var pid := ""
+	if outcome == "evidence":
+		if state.party.size() > 1:
+			var i: int = rng.randi_range(1, state.party.size() - 1) if rng != null else 1 + randi() % (state.party.size() - 1)
+			pid = state.party[i]
+	else:
+		pid = partner_for(data, state, voice)
+	if pid == "":
+		return []
+	var cls := member_class(data, state, pid)
+	var line := _pick_line(data.voices.get("partners", {}).get(cls, {}).get(outcome, []), rng)
+	if line == "":
+		return []
+	if outcome == "pass":
+		state.bond[pid] = int(state.bond.get(pid, 0)) + 1
+	return [pid, line]
+
+
+## The Static cuts in at high Dread: a generic line ("" kind), or its gloss on a result
+## ("pass", "fail"). Rolls the chance unless `force` is set. Returns [speaker, line] or [].
+static func static_line(data: Node, state: Node, kind := "", rng: RandomNumberGenerator = null, force := false) -> Array:
+	var s: Dictionary = data.voices.get("static", {})
+	if s.is_empty() or state.dread < int(s.get("min_dread", 2)):
+		return []
+	if not force:
+		var roll := rng.randf() if rng != null else randf()
+		if roll >= float(s.get("chance", 0.35)):
+			return []
+	var line := _pick_line(s.get(kind if kind != "" else "lines", []), rng)
+	return [] if line == "" else ["voice:static", line]
 
 
 # ---------- gates ----------
@@ -460,8 +574,9 @@ static func witness_options(data: Node, state: Node, witness_id: String) -> Arra
 		for gate in fact.gates:
 			if gate.has("check"):
 				var closed := check_closed(state, fact.id, gate.check)
-				options.append({"kind": "check", "fact": fact, "gate": gate, "enabled": not closed,
-					"label": "[%s] %s%s" % [gate.check.capitalize(), gate.prompt, "  (closed until tomorrow)" if closed else ""]})
+				var odds := tag_odds(data, state, gate.check, int(gate.difficulty))
+				options.append({"kind": "check", "fact": fact, "gate": gate, "enabled": not closed, "odds": odds,
+					"label": "[%s %d%%] %s%s" % [gate.check.capitalize(), percent(odds), gate.prompt, "  (closed until tomorrow)" if closed else ""]})
 			elif gate.has("contradiction") and contradiction_ready(data, state, gate.contradiction):
 				var c: Dictionary = contradictions[gate.contradiction]
 				options.append({"kind": "contradiction", "fact": fact, "gate": gate, "enabled": true, "label": "[Contradiction] " + c.prompt})

@@ -29,6 +29,7 @@ var items: Dictionary = {}
 var dialogue: Dictionary = {}   # case id -> witness id -> script
 var office: Dictionary = {}     # data/office.json: rooms, upgrades, car, tiers, budget
 var road: Dictionary = {}       # data/road.json: legs, events, stations
+var voices: Dictionary = {}     # data/voices.json: the voices' stock lines, the Static, partner interjections
 
 
 func _ready() -> void:
@@ -42,6 +43,7 @@ func load_all() -> void:
 	items = _strip(_read_json(DATA_DIR + "/items.json"))
 	office = _strip(_read_json(DATA_DIR + "/office.json")) if FileAccess.file_exists(DATA_DIR + "/office.json") else {}
 	road = _strip(_read_json(DATA_DIR + "/road.json")) if FileAccess.file_exists(DATA_DIR + "/road.json") else {}
+	voices = _strip(_read_json(DATA_DIR + "/voices.json")) if FileAccess.file_exists(DATA_DIR + "/voices.json") else {}
 	cases.clear()
 	var dir := DirAccess.open(DATA_DIR + "/cases")
 	if dir:
@@ -164,6 +166,17 @@ func validate() -> Array[String]:
 	for id in roster:
 		if not classes.has(roster[id].get("class", "")):
 			errors.append("roster %s has unknown class" % id)
+	for v in VOICES:
+		for k in ["sure", "unsure", "pass", "fail"]:
+			if voices.get("voices", {}).get(v, {}).get(k, []).is_empty():
+				errors.append("voices.json: voice %s has no %s lines" % [v, k])
+	for id in classes:
+		for k in ["pass", "fail", "passive", "evidence"]:
+			if voices.get("partners", {}).get(id, {}).get(k, []).is_empty():
+				errors.append("voices.json: class %s has no partner %s lines" % [id, k])
+	for k in ["lines", "pass", "fail"]:
+		if voices.get("static", {}).get(k, []).is_empty():
+			errors.append("voices.json: the Static has no %s lines" % k)
 	var all_evidence := {}
 	for case_id in cases:
 		all_evidence.merge(cases[case_id].get("evidence", {}))

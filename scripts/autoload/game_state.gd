@@ -19,6 +19,7 @@ var samples: Array = []        # evidence ids bagged, waiting on the lab
 var facts: Array = []          # witness fact ids unlocked
 var clues_done: Array = []     # clue ids already processed
 var trust: Dictionary = {}     # witness id -> trust level
+var bond: Dictionary = {}      # partner id -> how often their voice carried a check
 var failed_checks: Dictionary = {}  # "fact:tag" -> day it failed, closed until the next day
 var locked_checks: Dictionary = {}  # "witness:node:index" -> day locked, or -1 for the whole case
 var items: Dictionary = {}     # item id -> count in the field kit
@@ -62,7 +63,7 @@ func to_dict() -> Dictionary:
 		"version": SAVE_VERSION, "party": party, "player_class": player_class, "player_name": player_name, "levels": levels, "xp": xp,
 		"case_id": case_id, "day": day, "dread": dread, "evidence": evidence, "exposed": exposed,
 		"spoiled": spoiled, "samples": samples, "facts": facts, "clues_done": clues_done,
-		"trust": trust, "failed_checks": failed_checks, "locked_checks": locked_checks, "items": items,
+		"trust": trust, "bond": bond, "failed_checks": failed_checks, "locked_checks": locked_checks, "items": items,
 		"gates_open": gates_open, "picked": picked, "visited": visited, "flags": flags,
 		"cash": cash, "gas": gas, "composure": composure, "gear": gear, "verdicts": verdicts,
 		"budget": budget, "budget_earned": budget_earned, "radio_log": radio_log,
@@ -85,6 +86,7 @@ func from_dict(d: Dictionary) -> void:
 	facts = d.get("facts", [])
 	clues_done = d.get("clues_done", [])
 	trust = d.get("trust", {})
+	bond = d.get("bond", {})
 	failed_checks = d.get("failed_checks", {})
 	locked_checks = d.get("locked_checks", {})
 	items = d.get("items", {})

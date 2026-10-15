@@ -125,6 +125,20 @@ gets that script instead, and its `{"topics": true}` option offers the facts.
 - A node with `"end": true` closes the conversation after its lines. Nodes are visited at most once per day unless `"repeat": true`.
 - Voice lines are short, present tense, second person. Voices judge the lead, never the witness.
 
+## Voices: `data/voices.json`
+
+The voices' stock lines, used wherever a script has none. Every check in a menu shows its odds (`[Logic 72%] text`, the chance of the roll with voice level, evidence and trust in), and before the hub's first menu of the day up to two voices give a take on their checks: a `sure` line at 60% or better, `unsure` below. When the dice land the voice's `pass` or `fail` line plays (`{n}` the total, `{d}` the difficulty, `{v}` the voice's name), then a partner in the party whose class boosts that voice says their class's `pass` or `fail` line (a pass deepens `GameState.bond` for them), then at Dread 2 or more the Static may add its `pass` or `fail` gloss. A partner's `passive` line can follow a passive that fires, and their `evidence` line follows a fact that hands over evidence. The Static's generic `lines` cut into an opening at `min_dread` with `chance` when the node has no `static` of its own.
+
+```
+{
+  "voices": {"logic": {"sure": [...], "unsure": [...], "pass": [...], "fail": [...]}, ...},
+  "static": {"min_dread": 2, "chance": 0.35, "lines": [...], "pass": [...], "fail": [...]},
+  "partners": {"skeptic": {"pass": [...], "fail": [...], "passive": [...], "evidence": [...]}, ...}
+}
+```
+
+Every voice needs its four lists, every class its four, and the Static its three; `tools/check_content.py` and `GameData.validate()` refuse less.
+
 ## Fights: `data/foes.json`, and `fight` on props and people
 
 ```
