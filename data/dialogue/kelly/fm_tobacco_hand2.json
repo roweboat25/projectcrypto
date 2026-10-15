@@ -1,0 +1,328 @@
+{
+ "_doc": "Dwayne, the younger tobacco hand at the Lacy farm, early twenties, the kid's brother. Morning in the yard, day by the old truck. Guarded, wry, says 'coons' to everything, knows about the jar in the smokehouse and about one night by the well he does not say coons about.",
+ "id": "fm_tobacco_hand2",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "fm_tobacco_hand2",
+   "lines": [
+    [
+     "fm_tobacco_hand2",
+     "If you're looking for Lonnie he's on the porch. If you're looking for Virgil he's in the barn. If you're looking for me, I don't know nothing, and I'm on the clock."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "Dwayne. Don't write it down."
+    ],
+    [
+     "miriam",
+     "'Don't write it down' is the most reliable sign that there's something to write down. He knows that too. He's just hoping we don't."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "A 12-gauge behind the truck seat, and a box of Winchester steel sevens on the dash with three shells gone. Somebody shot something in this yard this week and it wasn't a coon."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He looked at the well before he looked at you. Then at the smokehouse. Then at his boots. He's got a route his eyes take out here, and it ends on the ground.",
+     "flag": "fm_tobacco_hand2_well"
+    }
+   ],
+   "options": [
+    {
+     "tone": "wry",
+     "text": "We're not writing anything down. We don't have a pen that works in this heat.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "kind",
+     "text": "We'll keep it short, Dwayne. You're on the clock and we're on a deadline.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "There's a shotgun behind your seat and three shells gone off the dash. Let's start there.",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_fm_tobacco_hand2"
+   }
+  },
+  "hub": {
+   "speaker": "fm_tobacco_hand2",
+   "repeat": true,
+   "lines": [
+    [
+     "fm_tobacco_hand2",
+     "Go on. Short."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Three shells gone. He shot at it. Everybody out here shoots at it and nobody hits it. Take the gun off the truck and keep it for tonight. He won't miss it till dark."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "fm_kid_confession": 2,
+       "fm_pellet_lab": 1
+      }
+     },
+     "text": "Your gun, your shells, your little brother's finger on the trigger. Say it once and we'll leave it.",
+     "pass": "gun",
+     "fail": {
+      "next": "gun_no",
+      "trust": {
+       "fm_tobacco_hand2": -1
+      }
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "fm_jar_photo": 1,
+       "fm_jar_lab": 2
+      }
+     },
+     "text": "Seven jars in the straw and a ring where an eighth stood. Who fills them? We're not the sheriff.",
+     "pass": "jar",
+     "fail": {
+      "next": "jar_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "fm_tobacco_hand2_well"
+      ]
+     },
+     "check": {
+      "voice": "bluff",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "fm_raccoon_photo": 1,
+       "fm_handprint_cast": 1,
+       "fm_kid_eyes": 1
+      }
+     },
+     "text": "Lonnie told us about the night you were out by the well with the lamp. He told it well. Tell it better.",
+     "pass": "night",
+     "fail": {
+      "next": "night_no",
+      "trust": {
+       "fm_tobacco_hand2": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "fm_raccoon_lab"
+      ]
+     },
+     "tone": "wry",
+     "text": "The prints by the well were a raccoon. A big one. Going for the ham. You were right.",
+     "next": "coons"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all, Dwayne. Back on the clock."
+    }
+   ]
+  },
+  "gun": {
+   "speaker": "fm_tobacco_hand2",
+   "lines": [
+    [
+     "fm_tobacco_hand2",
+     "...Yeah. Mine. Lonnie asks every August and I let the kid do it because the kid can shoot and I can't, and if Mama finds out it was him she'll know I let him."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "Posts only. Not the door, not the windows, not the house. The kid knows. The kid's better about that house than I am."
+    ],
+    [
+     "teddy",
+     "A twenty-two-year-old who can't shoot handing a gun to a child who can, so a porch looks right for television. Nobody out here is lying. They're all just dressing the set."
+    ]
+   ],
+   "gives": {
+    "flag": "fm_tobacco_hand2_gun",
+    "trust": {
+     "fm_tobacco_hand2": 1
+    }
+   },
+   "next": "hub"
+  },
+  "gun_no": {
+   "speaker": "fm_tobacco_hand2",
+   "lines": [
+    [
+     "fm_tobacco_hand2",
+     "Pruitts shot the posts. Ask anybody. Ask Lonnie."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "And you leave my brother out of whatever this is. He's eleven."
+    ],
+    [
+     "ruth",
+     "He's not angry about the gun, dear. He's angry we said his brother's name. That's the thing to remember about him."
+    ]
+   ],
+   "next": "hub"
+  },
+  "jar": {
+   "speaker": "fm_tobacco_hand2",
+   "lines": [
+    [
+     "fm_tobacco_hand2",
+     "Pruitts' daddy fills 'em and Lonnie keeps 'em and I ain't saying either of them things to a sheriff. Been a jar in that smokehouse since before the war. There was one on the night of, too."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "Eleven people and a jar on a Sunday night in August. Don't mean they didn't see nothing. Means they was in the right shape to see it good."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "Pruitt copper. You can taste it. If your lab tasted it, your lab knows."
+    ],
+    [
+     "miriam",
+     "The 1955 police chief wrote 'no evidence of drinking' and underlined it. Dwayne's just told us where the evidence was kept. Both can be true. That's the problem."
+    ]
+   ],
+   "gives": {
+    "fact": "fm_hand2_jar",
+    "evidence": "fm_hand2_drink",
+    "flag": "fm_tobacco_hand2_jar",
+    "trust": {
+     "fm_tobacco_hand2": 1
+    }
+   },
+   "next": "hub"
+  },
+  "jar_no": {
+   "speaker": "fm_tobacco_hand2",
+   "lines": [
+    [
+     "fm_tobacco_hand2",
+     "Ham. There's a ham in the smokehouse. Y'all want a ham?"
+    ],
+    [
+     "fm_tobacco_hand2",
+     "I don't know nothing about jars and the sheriff's a Pruitt cousin anyhow, so."
+    ],
+    [
+     "dale",
+     "He just told us the sheriff's a Pruitt cousin while not telling us anything. That's a Kentucky no. It comes with directions."
+    ]
+   ],
+   "next": "hub"
+  },
+  "night": {
+   "speaker": "fm_tobacco_hand2",
+   "lines": [
+    [
+     "fm_tobacco_hand2",
+     "...Lonnie don't know. Lonnie wasn't here. Last August, the night of, I come out to the smokehouse for the jar with the lamp, because I ain't scared of a ham."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "And something stood up out of the well shadow. Stood up. And it kept standing up longer than a thing ought to. Hands up. Not at me."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "Up, like a man being robbed, and it didn't have no face in the lamp, just the two eyes."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "I shot it. Three times. Didn't hit it. It walked off into the tobacco with its hands still up, and I been saying coons to my brother ever since, because what else am I going to say to him."
+    ],
+    [
+     "elijah",
+     "He didn't hit it three times at ten feet. Nobody has ever hit it. The 1955 family didn't hit it with four boxes. I'd like us all to sit with that for a minute."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "He says he was in a bad state to see it and then describes it in perfect order: stood, hands, eyes, walked. Drunks don't give you order. Scared men do."
+    }
+   ],
+   "gives": {
+    "flag": "fm_tobacco_hand2_night",
+    "trust": {
+     "fm_tobacco_hand2": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "night_no": {
+   "speaker": "fm_tobacco_hand2",
+   "lines": [
+    [
+     "fm_tobacco_hand2",
+     "Lonnie never told you nothing because Lonnie don't know nothing, because I ain't told Lonnie. So you're lying, and I'm done."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "Go ask my brother. He talks."
+    ],
+    [
+     "miriam",
+     "He just told us there's something he hasn't told Lonnie. The bluff failed and we still learned the shape of the hole. Don't push it. He's right that we lied."
+    ]
+   ],
+   "end": true
+  },
+  "coons": {
+   "speaker": "fm_tobacco_hand2",
+   "lines": [
+    [
+     "fm_tobacco_hand2",
+     "Course I was right. Everything out here is coons. Coons at the well, coons in the smokehouse, coons on the roof. Say it with me."
+    ],
+    [
+     "fm_tobacco_hand2",
+     "...The hands on the door ain't coons. I know what coon hands look like in soot. Those ain't. But the ones by the well was, so I'm half right, and half right's my average."
+    ],
+    [
+     "dale",
+     "He concedes the prints and keeps the handprints. That's exactly what the lab did. He's a better crypto than me and he's doing it against his will."
+    ]
+   ],
+   "gives": {
+    "flag": "fm_tobacco_hand2_coons",
+    "trust": {
+     "fm_tobacco_hand2": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

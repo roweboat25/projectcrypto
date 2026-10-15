@@ -1,0 +1,140 @@
+{
+ "id": "r62_farmer",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "Come in off the road, you'll get hit. Nobody drives 62 slow since the county fixed it."],
+    ["r62_farmer", "Whitmore. Ab. You're from Sutton, Marlene said. Kettle's on, dog's bowl is full and there's no dog, so you may as well talk."],
+    ["ruth", "He said the dog before the kettle, dear."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 7, "line": "The bowl's on the porch, full, with frost on the water. He fills it every morning and doesn't tip it out.", "flag": "r62_farmer_bowl"},
+    {"voice": "fieldcraft", "threshold": 8, "line": "There's a scuff in the snow at the barn's peak. Not a ladder mark. Something set down there.", "flag": "r62_farmer_roof_scuff"},
+    {"voice": "logic", "threshold": 9, "line": "The county notice is on the dresser through the window. He keeps paperwork. There's none for the dog."}
+   ],
+   "options": [
+    {"tone": "kind", "text": "Tell us about Boone.", "next": "boone"},
+    {"check": {"voice": "logic", "kind": "white", "difficulty": 8, "evidence_bonus": {"church_prints_cast": 1, "hunter_sighting": 1}},
+     "text": "Twenty-two feet. What on this farm reaches twenty-two feet?", "pass": "twentytwo",
+     "fail": {"line": "Ladder. Wind. A dog can climb a thing when he's scared enough. I've thought of all of it, and I'll thank you not to."}},
+    {"tone": "wry", "text": "Nothing on this road's a monster, is it, Ab.", "next": "nothing"}
+   ],
+   "gives": {"flag": "met_r62_farmer"}
+  },
+  "boone": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "Boone. Eleven, bluetick, deaf in one ear. Went out Monday barking at the barn and didn't come back."],
+    ["r62_farmer", "Thirty-one years of dogs. They come back. They come back hurt, they come back ashamed, they come back."],
+    ["elijah", "He's still listening for him. Under everything you say."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "farmer_dog", "evidence": "farmer_dog", "flag": "r62_farmer_boone", "trust": {"r62_farmer": 1}}
+  },
+  "twentytwo": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "Nothing. Hay elevator's sixteen and it's been broke since fall. I measured, 'cause I'm that kind of fool."],
+    ["r62_farmer", "Collar was buckled. Not torn. Buckled, and set on the ridge like you'd set down a hat."],
+    ["dale", "Set down. Not dropped. Something with hands, or something careful."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_farmer_buckled", "trust": {"r62_farmer": 1}}
+  },
+  "nothing": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "No. The culvert's the county, the owls are owls, and half this road's seen a barn owl in the headlights and called the Register."],
+    ["r62_farmer", "...The collar I don't have a thing for. I've tried."],
+    ["miriam", "A natural column with one row empty. I'll take it. I'll take it honestly."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_farmer_honest", "trust": {"r62_farmer": 1}}
+  },
+  "hub": {
+   "speaker": "r62_farmer",
+   "repeat": true,
+   "prompt": "Ab's kitchen.",
+   "lines": [
+    ["r62_farmer", "Kettle's on. Ask what you came to ask."]
+   ],
+   "static": {"min_dread": 3, "line": "The collar's on the dresser with the county notice. He's filed it with the paperwork. Ask him what he thinks it proves."},
+   "options": [
+    {"check": {"voice": "lore", "kind": "white", "difficulty": 8, "evidence_bonus": {"old_name": 2, "farmer_owls": 1}},
+     "text": "An owl screams like a woman. What would your grandmother have said about Monday?", "pass": "grandmother",
+     "fail": {"next": "grandmother_fail"}},
+    {"tone": "kind", "requires": {"flag": ["r62_farmer_bowl"]},
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 10, "evidence_bonus": {"farmer_dog": 1, "hunter_second_night": 1}},
+     "text": "You still fill his bowl, Ab. What did you hear Monday that you haven't said?", "pass": "heard",
+     "fail": {"next": "heard_fail", "trust": {"r62_farmer": -1}, "dread": 1}},
+    {"requires": {"evidence": ["hollis_car"], "not_flag": ["r62_farmer_sedan"]}, "text": "A black sedan sat at the chapel Monday and Tuesday. You'd have seen it.", "next": "sedan"},
+    {"tone": "silent", "requires": {"not_flag": ["r62_farmer_bowl_filled"]}, "text": "(Fill the bowl.)", "next": "bowl", "trust": 1},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "Thanks for the kettle, Ab."}
+   ]
+  },
+  "grandmother": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "She'd have said it's a bad road. Said it in '31 when they built the chapel, said it when they closed it."],
+    ["r62_farmer", "Called the TNT ground 'the bird's field' before there was a plant. Everybody's granny did. Nobody asked why."],
+    ["ruth", "I'd have asked."],
+    ["r62_farmer", "She'd not have told you."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_farmer_birds_field", "trust": {"r62_farmer": 1}}
+  },
+  "grandmother_fail": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "She'd have said mind your business and come in out of the cold. So would I."],
+    ["r62_farmer", "Owls are owls. Go look in the steeple if you don't believe me. Bring a hat."]
+   ],
+   "next": "hub"
+  },
+  "heard": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "...It wasn't a scream. Owls scream. Boone yelped once, the way he did as a pup when I stepped on him."],
+    ["r62_farmer", "Then quiet. Not quiet like the night. Quiet like a room with the door shut. And the barn roof creaked once, the way it does under a man."],
+    ["r62_farmer", "I didn't go out. Thirty-one years, and I didn't go out for my dog."],
+    ["elijah", "He thinks that's the thing he'll answer for. It isn't. Tell him it isn't."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_farmer_heard", "trust": {"r62_farmer": 2}}
+  },
+  "heard_fail": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "I've said what I've said."],
+    ["r62_farmer", "You want to hear things in the night, Carl Ridge sits up a tree and hears plenty. Go sit with Carl."]
+   ],
+   "next": "hub"
+  },
+  "sedan": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "Saw 'em. Two nights. I thought county at first, then state, then I stopped thinking."],
+    ["r62_farmer", "Tuesday one of 'em got out and walked up my lane and stood by the barn and looked up. Just looked up. Then got back in."],
+    ["r62_farmer", "He wasn't looking at the roof. He was looking where the roof would be if the barn weren't there."],
+    ["june", "He knew the height. Before the collar was found."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_farmer_sedan", "trust": {"r62_farmer": 1}}
+  },
+  "bowl": {
+   "speaker": "r62_farmer",
+   "lines": [
+    ["r62_farmer", "..."],
+    ["r62_farmer", "(He watches you do it. He doesn't stop you.)"],
+    ["r62_farmer", "...Thank you. Thirty-one years, nobody's done that but me."],
+    ["r62_farmer", "Come in. Kettle's past boiled."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "r62_farmer_bowl_filled"}
+  }
+ }
+}

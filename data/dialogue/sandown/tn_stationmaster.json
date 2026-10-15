@@ -1,0 +1,331 @@
+{
+ "id": "tn_stationmaster",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "Last one's the 22:40 to Ryde Pier Head and it waits for nobody, including me. Attrill. If you're here about the box, I'm not answering it, and neither are you."
+    ],
+    [
+     "tn_stationmaster",
+     "Forty-one years on this platform. Southern, then British Rail, then whatever they're calling it next year. I've seen it all off. I'd like to see this off."
+    ],
+    [
+     "june",
+     "He's got his back to the box the way a man keeps his back to a dog he's decided not to look at."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 7,
+     "line": "The down signal lamp past the platform end is green. Nothing's due. He's looking at it, not at you.",
+     "flag": "tn_station_lamp"
+    },
+    {
+     "voice": "fieldcraft",
+     "threshold": 8,
+     "line": "The phone box has a new pane in the door and the old glass is in a bin beside it. It was broken from inside. The cracks run outward."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll not touch the box, Mr Attrill. We'd just like to stand on your platform a while.",
+     "next": "ticket",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "We're here about the box. Somebody has to answer it.",
+     "next": "box"
+    },
+    {
+     "tone": "wry",
+     "text": "The 22:40. Does it stop for anything that isn't a passenger?",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_tn_stationmaster"
+   }
+  },
+  "ticket": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "...Platform tickets are ten pence and I've not sold one since 1988. Have three. Stand where you like, but not by the box, I've asked you nicely."
+    ]
+   ],
+   "next": "hub"
+  },
+  "box": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "Somebody did. Young Kevin, in April. He's at his mother's in Newport now and he's not come back, and I'll not send another lad, and I'll not send you."
+    ],
+    [
+     "miriam",
+     "We opened on the one thing that's cost him a man. Back off the box. Ask about the trains."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "tn_stationmaster": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "Sandown station. Four hundred off every train in '73, and forty a day now, and the same lamp at the end of the platform, and I'd swap the lot for the lamp behaving."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Mr Attrill watches the lamp, not you.",
+   "options": [
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_station_signal": 2,
+       "cd_channel_check": 1
+      }
+     },
+     "text": "The lamp's green now. Nothing's due. When did it go green?",
+     "pass": "lamp",
+     "fail": {
+      "next": "lamp_fail"
+     },
+     "requires": {
+      "flag": [
+       "tn_station_lamp"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "tn_station_trunk": 2
+      }
+     },
+     "text": "Whit Monday '73. Four hundred a train and you'd still remember a man with a trunk. What was in it?",
+     "pass": "trunk_back",
+     "fail": {
+      "line": "I remember a trunk. I remember a lot of trunks. Porters remember what's in them, and the porter's dead."
+     }
+    },
+    {
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "tn_station_signal": 1,
+       "tn_vent_tape_lab": 1
+      }
+     },
+     "text": "It's ringing now. Answer it with us. We'll hold the door.",
+     "pass": "answer",
+     "fail": {
+      "next": "answer_fail",
+      "dread": 1
+     },
+     "requires": {
+      "evidence": [
+       "tn_phone_voice"
+      ]
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Stand with him and watch the lamp. Say nothing.)",
+     "next": "watch",
+     "requires": {
+      "not_flag": [
+       "tn_station_watch"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Attrill."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The box is ringing. Not out loud. In the rail. You can feel it through your boots. He can too. Make him answer with you."
+   }
+  },
+  "lamp": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "Ten minutes before you walked in. It does it on the tide. Low water, up it goes, green, with nothing on the line, and stays till the flood's an hour in."
+    ],
+    [
+     "tn_stationmaster",
+     "I've the times in my book since March, and they're the tide table to the minute. The signal and telegraph man says that's not possible."
+    ],
+    [
+     "tn_stationmaster",
+     "I've asked him to put it in writing. He won't."
+    ],
+    [
+     "june",
+     "A railway signal keeping tide time. There's no wire to the sea. There's a wire to something that is."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_station_lamp_told",
+    "trust": {
+     "tn_stationmaster": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "lamp_fail": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "Salt in the wires. That's what I tell the lads, and I'll tell you. Go and ask Ray Sturdy at the Culver lookout what salt does to his set."
+    ],
+    [
+     "tn_stationmaster",
+     "He's got the same look you have."
+    ],
+    [
+     "teddy",
+     "He said 'the same look'. He's seen it on Ray. Two men on two hills and the same look between them."
+    ]
+   ],
+   "next": "hub"
+  },
+  "trunk_back": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "Saturday, two porters and a sack barrow and he'd not let them near it. Wednesday, back on the platform for the 09:10, and he lifted it himself. One hand. Empty, or near it."
+    ],
+    [
+     "tn_stationmaster",
+     "And it rang. Going up the step, something inside it went off like a telephone, once, and he put his hand flat on the lid and it stopped."
+    ],
+    [
+     "tn_stationmaster",
+     "He looked at me like I'd heard something I shouldn't."
+    ],
+    [
+     "dale",
+     "Full coming, empty going. Whatever came in that trunk got left on the island. And it rings."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_station_trunk_rang",
+    "trust": {
+     "tn_stationmaster": 1
+    }
+   },
+   "next": "hub"
+  },
+  "answer": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "...All right. All right. Hold the door, and if I say shut it, you shut it with me on whichever side I'm on."
+    ],
+    [
+     "tn_stationmaster",
+     "...It's reading the timetable. Whit Monday, 1973. The 09:10, the 09:40, the 10:10. In the voice. No breath. Every train that day, in order."
+    ],
+    [
+     "tn_stationmaster",
+     "It's got the Wednesday 09:10 coming. I don't want to hear it say that one."
+    ],
+    [
+     "tn_stationmaster",
+     "Shut it. Shut the door. ...Thank you. Nobody's stood there with me before. I'll not forget it."
+    ],
+    [
+     "june",
+     "A 1973 timetable, read in a dead man's technique, down a line BT says is dead. It's not calling anyone. It's rehearsing."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_station_answered",
+    "trust": {
+     "tn_stationmaster": 2
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "answer_fail": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "No. No, I'll not, and if you lay a hand on that door I'll have the transport police to you, and they're slower than the 22:40 but they come."
+    ],
+    [
+     "tn_stationmaster",
+     "Ray Sturdy. Culver lookout. He's got the band, he's got the tape, he's got the stomach. Go and stand with him."
+    ],
+    [
+     "elijah",
+     "Leave him. He's held that platform forty-one years with his back to it. We asked him to turn round and he can't."
+    ]
+   ],
+   "end": true
+  },
+  "watch": {
+   "speaker": "tn_stationmaster",
+   "lines": [
+    [
+     "tn_stationmaster",
+     "..."
+    ],
+    [
+     "tn_stationmaster",
+     "...There. See it? Went amber, and back. Nothing on the line. That's the flood starting. You can set your watch. I've stopped wearing mine."
+    ],
+    [
+     "elijah",
+     "He's not been frightened on his own for a minute. That's worth more to him than anything we could have asked."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_station_watch",
+    "trust": {
+     "tn_stationmaster": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

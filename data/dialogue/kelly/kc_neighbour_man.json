@@ -1,0 +1,421 @@
+{
+ "_doc": "Cleve Hardin, seventy, Pacific veteran, in the Hardin house by day and his yard at dusk, seventy paced yards from the Lacy porch. He heard the fifth gun on the road and has an unopened box of double-ought in the cabinet. Trust 1, dry, exact, no theory on purpose. The red check says what the box was really for; the lull and the kid's cat are the ways round him.",
+ "id": "kc_neighbour_man",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_neighbour_man",
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "You'll be the ones Dewey Oates sold the lamp oil to. He sells it to everybody who comes about the Lacys."
+    ],
+    [
+     "kc_neighbour_man",
+     "He's sold more lamp oil since 1955 than the L&N."
+    ],
+    [
+     "kc_neighbour_man",
+     "I was here. I was thirty-one and I'd been in the Pacific and I don't scare. I'll tell you what I heard."
+    ],
+    [
+     "kc_neighbour_man",
+     "I won't tell you what it was, because I don't know, and I'm the only one on this road who'll say so."
+    ],
+    [
+     "miriam",
+     "Finally. A witness who starts with 'I don't know'. I could cry."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "'Seventy yards.' He didn't say 'about'. He's paced it, from this porch to theirs, probably more than once, probably at night.",
+     "flag": "kc_nm_paced"
+    },
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "His chair faces the window, and the window faces the road to the Lacy place. Not the television. Thirty-nine years of watching a road."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Heard is fine, Mr Hardin. Heard is what we came for.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "A man who doesn't know. We'll have to put you in a museum.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "Seventy yards and a Pacific veteran stayed in his house all night. We'll hear why.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_neighbour_man"
+   }
+  },
+  "hub": {
+   "speaker": "kc_neighbour_man",
+   "repeat": true,
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "Ask it plain. I'll answer it plain or I won't answer it."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "An unopened box of buckshot in a cabinet for thirty-nine years. A man doesn't keep that for little men. He keeps it for a neighbour. Say which neighbour."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "kc_nm_theory"
+      ]
+     },
+     "tone": "wry",
+     "text": "Everybody on this road has a theory. You've been very careful not to have one.",
+     "next": "no_theory"
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "kc_hardin_reporters": 1
+      }
+     },
+     "text": "Forty reporters and you never gave one of them the fifth gun. Why give it to us?",
+     "pass": "why_us",
+     "fail": {
+      "line": "Because you asked plainer. Don't make me regret it.",
+      "trust": {
+       "kc_neighbour_man": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_nm_paced"
+      ],
+      "not_flag": [
+       "kc_nm_walked"
+      ]
+     },
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "kc_crossbuck_spread": 2,
+       "kc_hardin_shooting": 1
+      }
+     },
+     "text": "You've paced it. Seventy yards to their porch, and the road gun was on your side. Walk us through where it stood when it fired.",
+     "pass": "walk",
+     "fail": {
+      "next": "walk_no",
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "kc_nm_box"
+      ]
+     },
+     "check": {
+      "voice": "intimidate",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "kc_sk_royce_shells": 2,
+       "rt_shell_book_1955": 1,
+       "kc_royce_road": 1
+      }
+     },
+     "text": "You bought double-ought the morning after and never opened the box. That wasn't for a posse. That was for the next time Royce came up this road.",
+     "pass": "box",
+     "fail": {
+      "next": "box_no",
+      "trust": {
+       "kc_neighbour_man": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "kc_agent_lull"
+      ],
+      "not_flag": [
+       "kc_nm_freight"
+      ]
+     },
+     "tone": "kind",
+     "text": "Virgil logged the 2:05 freight. The shooting stopped the minute it came through. Your dogs stopped the same minute.",
+     "next": "freight"
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "kc_nm_cat"
+      ]
+     },
+     "tone": "kind",
+     "text": "The kid on the bicycle says the water-tower owl took your cat. Not the one under the tractor. The other one.",
+     "next": "cat"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Hardin."
+    }
+   ]
+  },
+  "no_theory": {
+   "speaker": "kc_neighbour_man",
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "I had one for about a week."
+    ],
+    [
+     "kc_neighbour_man",
+     "Then I watched what having one did to Buford Keel, and Clell Teague, and that poor woman across the road, and I put mine down."
+    ],
+    [
+     "kc_neighbour_man",
+     "A theory on this crossroads is a thing you have to feed every August for the rest of your life. I've got a cat for that."
+    ],
+    [
+     "teddy",
+     "That's the best thing anybody's said about this case. I'm stealing it for the lede."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_nm_theory",
+    "trust": {
+     "kc_neighbour_man": 1
+    }
+   },
+   "next": "hub"
+  },
+  "why_us": {
+   "speaker": "kc_neighbour_man",
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "Because a reporter would've printed Royce's name by Tuesday and Odessa would've had to read it at the store."
+    ],
+    [
+     "kc_neighbour_man",
+     "You're going to put it in a file in West Virginia. A file's where that gun belongs."
+    ],
+    [
+     "kc_neighbour_man",
+     "It's been thirty-nine years, and the man's sober mornings now, and I'm seventy."
+    ],
+    [
+     "kc_neighbour_man",
+     "And because I'm tired of being the only one who heard it. You carry it a while."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_neighbour_man": 1
+    }
+   },
+   "next": "hub"
+  },
+  "walk": {
+   "speaker": "kc_neighbour_man",
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "First shot from the road was by the mailbox. Toward the house. Low."
+    ],
+    [
+     "kc_neighbour_man",
+     "I heard it hit the fence, which is why the Lacys say something was on the fence; something was. A load of shot."
+    ],
+    [
+     "kc_neighbour_man",
+     "Then it walked. Mailbox to the gully oak, forty yards, firing every ten, fifteen steps."
+    ],
+    [
+     "kc_neighbour_man",
+     "From the house that's a flash in the tobacco at head height, moving, going out and coming back."
+    ],
+    [
+     "kc_neighbour_man",
+     "Last two were from under the oak. Straight up. He'd stopped shooting at the house by then. He was shooting at the tree."
+    ],
+    [
+     "dale",
+     "Under the oak, straight up. He was under the roost with a lantern. Every bird in that tree would have come down on him."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_nm_walked",
+    "trust": {
+     "kc_neighbour_man": 1
+    }
+   },
+   "next": "hub"
+  },
+  "walk_no": {
+   "speaker": "kc_neighbour_man",
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "I paced it in daylight for my own reasons. I'm not drawing you a map of a man's worst night."
+    ],
+    [
+     "kc_neighbour_man",
+     "Go look at the crossbuck at the depot if you want where shot went. It's still in the wood."
+    ]
+   ],
+   "next": "hub"
+  },
+  "box": {
+   "speaker": "kc_neighbour_man",
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "...Yes."
+    ],
+    [
+     "kc_neighbour_man",
+     "I had a wife and a baby in this house and a man seventy yards off who'd fired at a lit window because he thought it needed help."
+    ],
+    [
+     "kc_neighbour_man",
+     "I bought the box the morning after and I told the store it was for the posse."
+    ],
+    [
+     "kc_neighbour_man",
+     "He never came up the road again with a gun. Not once in thirty-nine years. So the box is still shut."
+    ],
+    [
+     "kc_neighbour_man",
+     "I'd like it to stay shut, and I'd like him never to know it's there."
+    ],
+    [
+     "kc_neighbour_man",
+     "That's the fifth gun and the sixth. Now you've got both. Nobody else does."
+    ],
+    [
+     "elijah",
+     "He's kept a loaded box and a closed mouth for the same man for thirty-nine years. That's not fear. That's neighbouring."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_nm_box",
+    "trust": {
+     "kc_neighbour_man": 1
+    }
+   },
+   "next": "hub"
+  },
+  "box_no": {
+   "speaker": "kc_neighbour_man",
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "I was in the Pacific. Don't lean on me in my own front room. I don't lean."
+    ],
+    [
+     "kc_neighbour_man",
+     "The box is for the posse. Write 'posse'. We're done on the box."
+    ]
+   ],
+   "next": "hub"
+  },
+  "freight": {
+   "speaker": "kc_neighbour_man",
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "Virgil wrote that down? Of course he did."
+    ],
+    [
+     "kc_neighbour_man",
+     "...Forty-one cars. I've thought about that freight. The ground shakes here when one goes through, you can feel it in the bed."
+    ],
+    [
+     "kc_neighbour_man",
+     "Every dog on the road quits because every dog on the road is under its house with its ears flat."
+    ],
+    [
+     "kc_neighbour_man",
+     "And then it doesn't start again. Dogs or guns. The train goes by and the night is just over. I never could make that fit, and I've tried."
+    ],
+    [
+     "june",
+     "A freight is a wall of noise. Anything hunting by ear leaves. Anything that was there to be seen just stops being seen. Both fit."
+    ],
+    [
+     "june",
+     "That's the trouble."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_nm_freight",
+    "trust": {
+     "kc_neighbour_man": 1
+    }
+   },
+   "next": "hub"
+  },
+  "cat": {
+   "speaker": "kc_neighbour_man",
+   "lines": [
+    [
+     "kc_neighbour_man",
+     "Smoky. Big grey tom, fourteen pounds, feared nothing."
+    ],
+    [
+     "kc_neighbour_man",
+     "Went out at dusk in June and didn't come back and I found what was left under the water tower."
+    ],
+    [
+     "kc_neighbour_man",
+     "A fourteen-pound cat, carried up a water tower."
+    ],
+    [
+     "kc_neighbour_man",
+     "You tell me what does that quiet, in the dark, and then come tell me about three-foot silver men."
+    ],
+    [
+     "kc_neighbour_man",
+     "That child wants to show you the bones. Let him. He's the only one on the road still curious instead of certain."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_nm_cat",
+    "trust": {
+     "kc_neighbour_man": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

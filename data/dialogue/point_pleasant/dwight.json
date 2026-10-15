@@ -1,0 +1,150 @@
+{
+ "_doc": "Dwight Mason, the driver in 1966. Hostile (trust 0), sits in the dark living room with his back to the window. Topics on the hub offer his quick facts (what he saw, Thursday nights).",
+ "id": "dwight",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "Carol let you in. Carol lets the Jehovah's in too."],
+    ["dwight", "I don't talk about it. I didn't talk about it to the sheriff in '66, and I had less to lose then."],
+    ["dwight", "You've got till the furnace kicks on. Then I go down and look at it, and you'll be gone when I come up."],
+    ["elijah", "Back to the window. He's sitting that way on purpose."]
+   ],
+   "passives": [
+    {"voice": "fieldcraft", "threshold": 8, "line": "A nail by the door and a dust line where a barn coat hung for years. He's in shirtsleeves in a cold house.", "flag": "dwight_no_coat"},
+    {"voice": "empathy", "threshold": 9, "line": "'Less to lose.' He's counting what he's got left. Men who count that way have already picked a number."}
+   ],
+   "static": {"min_dread": 3, "line": "He isn't afraid of you. He's afraid of Thursday. Ask him what day it is."},
+   "options": [
+    {"tone": "hard", "text": "We're not the sheriff and we're not the paper. We're the ones who go and look.", "next": "look"},
+    {"check": {"voice": "nerve", "kind": "white", "difficulty": 8},
+     "text": "You were nineteen and doing a hundred on the TNT road. I'd like it from the driver, not the papers.",
+     "pass": "driver",
+     "fail": {"next": "driver_fail", "dread": 1}},
+    {"check": {"voice": "empathy", "kind": "white", "difficulty": 9, "evidence_bonus": {"dwight_pulled": 1, "marlene_tnt": 1}},
+     "text": "You told a barkeep it went up like it was pulled. Drunk. You meant it sober.",
+     "pass": "pulled",
+     "fail": {"next": "pulled_fail", "trust": {"dwight": -1}}},
+    {"tone": "silent", "text": "(Sit in the dark and don't fill it.)", "next": "dark", "trust": 1}
+   ],
+   "gives": {"flag": "met_dwight"}
+  },
+  "look": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "Then go look. Igloo 7. The north pond. The pull-off on 62. It ain't shy."],
+    ["dwight", "It's me that's shy. Twenty-eight years of shy."]
+   ],
+   "next": "hub"
+  },
+  "driver": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "A hundred and five. Gene had his head out the window screaming at it. It was over the hood and it didn't have to try."],
+    ["dwight", "I looked at it. It looked at Carol. That's the part I can't fix. It picked her and I was driving."],
+    ["dale", "A hundred and five, and it kept station without a wingbeat. Put that next to any bird you like."]
+   ],
+   "gives": {"trust": {"dwight": 1}, "flag": "dwight_told_drive"},
+   "next": "hub"
+  },
+  "driver_fail": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "Ask Gene. Gallipolis, the Elks, any night after seven. He'll tell it for a beer."],
+    ["dwight", "He'll tell it different every time, and every time it's him driving."]
+   ],
+   "next": "hub"
+  },
+  "pulled": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "...Pulled. Like a string off the roof of the plant. I said it to Royce at the Night Owl and he laughed and I let him."],
+    ["dwight", "Nothing that size flaps. I've watched herons for twenty-eight years trying to make it a heron. I'd give a lot for it to be a heron."]
+   ],
+   "gives": {"trust": {"dwight": 1}, "flag": "dwight_said_pulled"},
+   "next": "hub"
+  },
+  "pulled_fail": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "I say a lot of things at the Night Owl. Royce pours heavy and I let him."],
+    ["dwight", "Go ask Royce what else I said. He keeps a list, I expect."]
+   ],
+   "next": "hub"
+  },
+  "dark": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "..."],
+    ["dwight", "Furnace is slow tonight."],
+    ["dwight", "You're the first that didn't ask about the eyes. Everybody wants the eyes. Nobody wants the rest of it."]
+   ],
+   "gives": {"trust": {"dwight": 1}},
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "dwight",
+   "repeat": true,
+   "prompt": "Furnace hasn't kicked on yet.",
+   "lines": [
+    ["dwight", "Furnace hasn't kicked on yet."]
+   ],
+   "options": [
+    {"requires": {"evidence": ["pawn_dwight_coat"]},
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 11, "evidence_bonus": {"dwight_returns": 2, "carol_number": 1}},
+     "text": "You sold your coat Tuesday. You told the pawnbroker you wouldn't need one where you're going. Where's that, Dwight?",
+     "pass": "going",
+     "fail": {"next": "going_fail", "trust": {"dwight": -2}, "dread": 1}},
+    {"tone": "wry", "requires": {"flag": ["dwight_no_coat"], "not_flag": ["dwight_coat_asked"]},
+     "text": "Cold house for shirtsleeves. Where's the coat?",
+     "next": "coat_hook"},
+    {"tone": "hard", "requires": {"evidence": ["marlene_tnt"], "not_flag": ["dwight_admits_marlene"]},
+     "text": "Marlene told us about igloo 7. She told us who she was with.",
+     "next": "marlene"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll go before the furnace does."}
+   ]
+  },
+  "going": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "...Thursday. I'm going to park where we turned around and I'm going to get out of the car this time."],
+    ["dwight", "It's been waiting on me to get out of the car since I was nineteen. I don't know what it wants. I'm tired of not knowing."],
+    ["dwight", "Carol don't need to be there. You can be, if you want. Somebody ought to write it down."],
+    ["miriam", "We'll be there, Dwight. And you will stay in the car until we say."]
+   ],
+   "gives": {"trust": {"dwight": 1}, "flag": "dwight_thursday_plan", "dread": 1},
+   "next": "hub"
+  },
+  "going_fail": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "Get out of my house."],
+    ["dwight", "(He doesn't stand up. He doesn't need to.)"],
+    ["miriam", "...We've lost him for tonight. Maybe longer. Carol's still in the kitchen."]
+   ],
+   "end": true
+  },
+  "coat_hook": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "Sold it."],
+    ["dwight", "...Don't tell Carol that. Carol thinks it's at the cleaners. Carol knows it ain't at the cleaners."]
+   ],
+   "gives": {"flag": "dwight_coat_asked", "dread": 1},
+   "next": "hub"
+  },
+  "marlene": {
+   "speaker": "dwight",
+   "lines": [
+    ["dwight", "...She said my name."],
+    ["dwight", "Then it's said. '71. I took her out there once because I couldn't take Carol, and it came up off the roof of 7 like it knew the car."],
+    ["dwight", "I ain't took anybody since. I go alone. That's the only decent thing I've done about it."]
+   ],
+   "gives": {"trust": {"dwight": 1}, "flag": "dwight_admits_marlene"},
+   "next": "hub"
+  }
+ }
+}

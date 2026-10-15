@@ -1,0 +1,151 @@
+{
+ "id": "ms_suit",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "Good evening. Or afternoon. I lose track in the field."],
+    ["ms_suit", "You're the Sutton party. Three of you. Mr Penrose said three. He's rarely wrong about numbers."],
+    ["june", "He hasn't blinked. I'm counting."]
+   ],
+   "passives": [
+    {"voice": "logic", "threshold": 8, "line": "His shoes are dry. It has snowed since noon. He hasn't walked here from anywhere.", "flag": "ms_suit_dry_shoes"},
+    {"voice": "arcana", "threshold": 10, "line": "The air near him smells like the inside of igloo 7. Cold, and under it, a struck match.", "flag": "ms_suit_cold"},
+    {"voice": "nerve", "threshold": 7, "line": "He stands exactly outside arm's reach. He measured it."}
+   ],
+   "static": {"min_dread": 3, "line": "That isn't a man. Say it to his face and watch what he does with his face."},
+   "options": [
+    {"tone": "hard", "text": "Who's Penrose?", "next": "penrose"},
+    {"check": {"voice": "nerve", "kind": "white", "difficulty": 9, "evidence_bonus": {"the_suits": 1, "penrose_asked": 1}},
+     "text": "Stop following us.", "pass": "stop",
+     "fail": {"next": "stop_fail", "dread": 1}},
+    {"tone": "silent", "text": "(Say nothing. Look at him.)", "next": "stare"}
+   ],
+   "gives": {"flag": "met_ms_suit"}
+  },
+  "penrose": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "Mr Penrose is my employer. He was here in 1967 and he is here now, and he finds that continuity reassuring."],
+    ["ms_suit", "He asked me to say he's read your founder's work. He admired her handwriting."],
+    ["vera", "He admired it enough to write over it."]
+   ],
+   "next": "hub"
+  },
+  "stop": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "(He takes one step back. Exactly one.) Of course. I'll be where you can see me instead."],
+    ["ms_suit", "Mr Penrose prefers it that way too. He dislikes surprises. He had one here, once."],
+    ["teddy", "That wasn't a threat. I think that was a confession."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "ms_suit_backed", "trust": {"ms_suit": 1}}
+  },
+  "stop_fail": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "I'm not following you. I'm ahead of you. It only looks like following from where you're standing."],
+    ["ms_suit", "Mason Gas, after dark. I'll be there before you. I'm always there before you."]
+   ],
+   "next": "hub"
+  },
+  "stare": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "..."],
+    ["ms_suit", "(He does not blink. After a long time he smiles. It's the smile of a man who has read about smiling.)"],
+    ["ms_suit", "You're good at this. She was too."],
+    ["elijah", "Don't look at his eyes. Look at the snow by his feet. It isn't melting."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "ms_suit_stared"}
+  },
+  "hub": {
+   "speaker": "ms_suit",
+   "repeat": true,
+   "prompt": "He waits.",
+   "lines": [
+    ["ms_suit", "Ask. Mr Penrose would want me to be helpful. Within reason."]
+   ],
+   "options": [
+    {"requires": {"flag": ["ms_suit_dry_shoes"]},
+     "check": {"voice": "logic", "kind": "white", "difficulty": 9, "evidence_bonus": {"hollis_car": 2}},
+     "text": "Your shoes are dry. Where's your car?", "pass": "car",
+     "fail": {"next": "car_fail", "dread": 1}},
+    {"tone": "hard",
+     "check": {"voice": "intimidate", "kind": "red", "difficulty": 11, "evidence_bonus": {"gus_card_1967": 2, "penrose_asked": 1}},
+     "text": "Penrose got here first. He didn't get here last. Tell him that.", "pass": "first",
+     "fail": {"next": "first_fail", "trust": {"ms_suit": -1}, "dread": 1}},
+    {"requires": {"evidence": ["lowe_register_1967"], "not_flag": ["ms_suit_410"]}, "text": "Room 410. He checked out the morning after the bridge.", "next": "room410"},
+    {"tone": "wry", "requires": {"not_flag": ["ms_suit_blink"]}, "text": "Does Mr Penrose blink?", "next": "blink"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We're done here."}
+   ]
+  },
+  "car": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "At the chapel on Route 62. It doesn't need to be where I am. It's a comfortable car."],
+    ["ms_suit", "You've seen it, I expect. Hollis Pyles keeps very good times. We've read his logbook. He doesn't know that."],
+    ["june", "Then they've read everything on this road."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "ms_suit_car"}
+  },
+  "car_fail": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "I walked. It's good weather for walking, if you're dressed for it."],
+    ["ms_suit", "(It is not good weather for walking.)"]
+   ],
+   "next": "hub"
+  },
+  "first": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "..."],
+    ["ms_suit", "(For the first time, he blinks.)"],
+    ["ms_suit", "I'll tell him. He'll want to know who said it. I'll tell him that too."],
+    ["ms_suit", "She said something like it. On the hotel stairs, the last night. He has it written down."],
+    ["miriam", "Write that down. He blinked."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "suit_first", "evidence": "penrose_first", "flag": "ms_suit_first", "trust": {"ms_suit": 1}}
+  },
+  "first_fail": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "No."],
+    ["ms_suit", "I'll tell him you were polite. It's kinder. Goodnight, or good afternoon."],
+    ["ms_suit", "(He walks away without turning around first. You don't see how.)"]
+   ],
+   "passives": [
+    {"voice": "nerve", "threshold": 5, "line": "You didn't flinch. You'd like that to count for something. It doesn't, not with him."}
+   ],
+   "end": true
+  },
+  "room410": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "Room 410. Yes. Next to hers. He heard her through the wall the last night. Reading aloud, to someone."],
+    ["ms_suit", "He checked out at six the next morning. He crossed the river. He doesn't say how, and I don't ask."],
+    ["vera", "There was no bridge at six that morning."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "ms_suit_410", "trust": {"ms_suit": 1}}
+  },
+  "blink": {
+   "speaker": "ms_suit",
+   "lines": [
+    ["ms_suit", "Not that I've seen. I've worked for him eleven years."],
+    ["ms_suit", "I was told he blinked once, in 1967, on the bridge approach. Nobody who told me is still employed."],
+    ["teddy", "That's a joke. I think that was a joke."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "ms_suit_blink"}
+  }
+ }
+}

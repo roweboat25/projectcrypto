@@ -1,0 +1,317 @@
+{
+ "id": "cd_shepherd",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "Mind the wire. Mind the dog. Mind the edge, it's chalk, and chalk goes when it likes."
+    ],
+    [
+     "cd_shepherd",
+     "Alf Mew. These are mine, the Down's the Trust's, and the wind's nobody's. If you've come up here in that to ask about 1973 you're dafter than the sheep."
+    ],
+    [
+     "dale",
+     "He's stood with the wind at his back and the flock in front of him. Thirty years of knowing where to stand."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "Every sheep has its back to the gale except a dozen old ewes by the wall. They're facing inland. Toward the Levels.",
+     "flag": "cd_shepherd_ewes"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "When he says 'the dog' his hand drops to where a dog's head would be, knee high. The dog at his heel is half that size. He means another one."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll stand in your lee, if you'll have us. We've come up about the lights.",
+     "next": "lee",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "Territorials. Twenty years of it. Say it to our faces and see how it sounds.",
+     "next": "off"
+    },
+    {
+     "tone": "wry",
+     "text": "Dafter than the sheep. Fair. The sheep didn't drive four thousand miles.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_cd_shepherd"
+   }
+  },
+  "lee": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "...Wall's there. Stand in it. Dog won't bite, he's only got the three teeth."
+    ],
+    [
+     "cd_shepherd",
+     "Lights. Everybody says lights. Nobody who was up here says lights. We say what we say."
+    ]
+   ],
+   "next": "hub"
+  },
+  "off": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "Territorials. Lads from Portsmouth with flares and no sense. There. It sounds like it's sounded since 1973, and it'll sound like that when I'm under the chalk."
+    ],
+    [
+     "miriam",
+     "He said it in one breath. You don't rehearse something you believe."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "cd_shepherd": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "Go on then. Ask. The ewes don't care and the wind's not listening."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Alf keeps one eye on the flock and none on you.",
+   "options": [
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "cd_ta_flares": 1
+      }
+     },
+     "text": "How many have you got up here? And how many were there in '73?",
+     "pass": "flock",
+     "fail": {
+      "line": "Enough. And more. Sheep's sheep. Is that what you came up for?"
+     }
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "cd_shepherd_colours": 2
+      }
+     },
+     "text": "Those old ewes by the wall aren't facing the wind. What are they facing?",
+     "pass": "ewes",
+     "fail": {
+      "next": "ewes_fail"
+     },
+     "requires": {
+      "flag": [
+       "cd_shepherd_ewes"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "cd_shepherd_colours": 2,
+       "cd_laundry_hat": 1
+      }
+     },
+     "text": "The dog. The big one. You said you carried him home. You've never said what from.",
+     "pass": "dog",
+     "fail": {
+      "next": "dog_fail",
+      "trust": {
+       "cd_shepherd": -1
+      }
+     },
+     "requires": {
+      "evidence": [
+       "cd_coastguard_log_1973"
+      ]
+     }
+    },
+    {
+     "tone": "wry",
+     "text": "Flares from a gun pit, a mile off and uphill, landing on a marsh. Lovely flares.",
+     "next": "wry_flares",
+     "requires": {
+      "not_flag": [
+       "cd_shepherd_wry"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Alf."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The old ewes have turned while he talked. Every one. Don't look at him. Look at what they're looking at."
+   }
+  },
+  "flock": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "Ninety-one. Had a hundred and forty in '73, and my father's dog, and my father, who said the Down was his and the Trust could argue it with him."
+    ],
+    [
+     "cd_shepherd",
+     "Lost eleven that August. Not to the edge. They just lay down in the gun pit the week after and wouldn't get up, and the vet said shock and charged me for it."
+    ],
+    [
+     "dale",
+     "Eleven sheep lie down and don't get up. Vet says shock. Nobody asks shock from what."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_shepherd_flock",
+    "trust": {
+     "cd_shepherd": 1
+    }
+   },
+   "next": "hub"
+  },
+  "ewes": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "...Levels. They face the Levels. Every dusk from August to the clocks going back, the old ones, the ones who were lambs that year or came from ewes who were."
+    ],
+    [
+     "cd_shepherd",
+     "Young ones don't. Bought-in ones don't. It's in the blood or it's in the grass, and I've had the grass tested and it's grass."
+    ],
+    [
+     "ruth",
+     "In the blood, dear. A thing that frightens a flock so badly its grandchildren watch for it. That's not a flare."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_shepherd_ewes_told",
+    "dread": 1,
+    "trust": {
+     "cd_shepherd": 1
+    }
+   },
+   "next": "hub"
+  },
+  "ewes_fail": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "Sheep face what they like. They face the wall because the wall's warm. Go and ask Hazel, she's got a lamb in the kitchen, she'll tell you which way it sleeps."
+    ],
+    [
+     "teddy",
+     "He answered a question about the wall. We asked about the ewes. He heard the difference and so did we."
+    ]
+   ],
+   "next": "hub"
+  },
+  "dog": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "...He went after it. Off the gun pit, down the Down, toward the colour, and I called him and I've never had to call him twice in his life."
+    ],
+    [
+     "cd_shepherd",
+     "Came back an hour on. Wet to the chest. Salt wet, sea wet, and the sea's a mile behind us and the Levels are fresh. He wouldn't walk. I carried him. He was a big dog."
+    ],
+    [
+     "cd_shepherd",
+     "He never went on the Levels side of the wall again. Lived six more years and died facing it."
+    ],
+    [
+     "elijah",
+     "Sea water from a marsh. The children said the sea behind the dials. The dog went and found out for them."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_shepherd_dog",
+    "trust": {
+     "cd_shepherd": 2
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "dog_fail": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "...That dog's under the wall there, and you can take your questions and stand on him if you want, but I'll not."
+    ],
+    [
+     "cd_shepherd",
+     "Go on. Down the track. The ewes'll not move for you and I'll not either."
+    ],
+    [
+     "ruth",
+     "Leave him, dear. There's a grave in it and we've trodden on it. He'll be at the pub come dark. Pubs are kinder."
+    ]
+   ],
+   "end": true
+  },
+  "wry_flares": {
+   "speaker": "cd_shepherd",
+   "lines": [
+    [
+     "cd_shepherd",
+     "They're flares, son. They go up. What comes down's not my department."
+    ],
+    [
+     "cd_shepherd",
+     "...Mind, nobody ever asked me what colour they came down. They go up green and red. You ask Ray what colour they came down."
+    ],
+    [
+     "june",
+     "A flare doesn't change colour on the way down. He knows that. He just told us the lights did."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_shepherd_wry"
+   },
+   "next": "hub"
+  }
+ }
+}

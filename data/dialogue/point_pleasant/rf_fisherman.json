@@ -1,0 +1,348 @@
+{
+ "_doc": "Chalmer, the fisherman on the pier with a bare hook, sitting where he can see the old bridge piers. Topics on the hub offer his quick facts (the catfish, the foam).",
+ "id": "rf_fisherman",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "Chalmer. Don't need a last name, the river don't use one. You fish?"
+    ],
+    [
+     "rf_fisherman",
+     "Nothing bites in January but the cold. I come out anyhow. Wife says it's the one place she can't hear me."
+    ],
+    [
+     "rf_fisherman",
+     "You want the catfish story or the bird story. Everybody wants one or the other and I charge the same."
+    ],
+    [
+     "teddy",
+     "Both stories are polished. Let's see which one's got the wear on it."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "Rod's rigged and the hook's bare. He isn't fishing. He's sitting where he can see the old bridge piers.",
+     "flag": "rf_fisherman_bare_hook"
+    },
+    {
+     "voice": "rapport",
+     "threshold": 7,
+     "line": "He said 'charge'. He wants the company more than the quarter. Let him talk and he'll pay you."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He sits where he can see the piers. Ask what comes up between them at dusk."
+   },
+   "options": [
+    {
+     "tone": "wry",
+     "text": "The catfish. Nobody ever picks the catfish.",
+     "next": "catfish"
+    },
+    {
+     "tone": "kind",
+     "text": "The bird story. In your own time.",
+     "next": "bird"
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "A bare hook's not fishing. You're sitting where you can see the piers.",
+     "pass": "piers",
+     "fail": {
+      "next": "piers_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "What does your wife think you're doing out here?",
+     "pass": "wife",
+     "fail": {
+      "line": "Fishing. Same as I tell you. Go ask Opal, she'll tell you I fish. She sells me the minnows I don't use."
+     }
+    }
+   ],
+   "gives": {
+    "flag": "met_rf_fisherman"
+   }
+  },
+  "catfish": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "Dewey! Nobody picks Dewey. Twenty years and you're the first."
+    ],
+    [
+     "rf_fisherman",
+     "I'll do you Dewey proper when the tank pump's off. Sit. Bucket's dry, mostly."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_fisherman": 1
+    }
+   },
+   "next": "hub"
+  },
+  "bird": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "...Everybody says 'bird' like I said bird. I never said bird."
+    ],
+    [
+     "rf_fisherman",
+     "I said two red lights on the water going upstream with no boat under 'em and no engine. That's all I said. The Register printed 'bird'."
+    ],
+    [
+     "miriam",
+     "Two lights and a current. That's an observation. 'Bird' was the newspaper's."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_fisherman": 1
+    },
+    "flag": "rf_fisherman_lights"
+   },
+   "next": "hub"
+  },
+  "piers": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "...Pier four. Ohio side. They left the old piers when they took the bridge down. Something sits on it at dusk, some days."
+    ],
+    [
+     "rf_fisherman",
+     "Sits like a man sits. I don't look direct. You look direct, it looks back, and then you're the one that's being fished."
+    ],
+    [
+     "dale",
+     "Pier four at dusk. That's a stand. We can watch a stand."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_fisherman": 1
+    },
+    "flag": "rf_fisherman_pier",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "piers_fail": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "Bare hook's for the catfish I ain't caught yet. You don't know fishing, son."
+    ],
+    [
+     "rf_fisherman",
+     "Opal'll sell you a hook and a lecture. Get the lecture, it's better value."
+    ]
+   ],
+   "next": "hub"
+  },
+  "wife": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "Fishing. ...Thinking. She knows. She was on the Ohio side the day the bridge went, in line at the Kroger, and heard it go."
+    ],
+    [
+     "rf_fisherman",
+     "She don't come down to the river no more. Somebody in the family ought to. So I sit."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_fisherman": 1
+    },
+    "flag": "rf_fisherman_wife"
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "rf_fisherman",
+   "repeat": true,
+   "prompt": "Pull up a bucket. Which one next.",
+   "lines": [
+    [
+     "rf_fisherman",
+     "Pull up a bucket. Which one next."
+    ]
+   ],
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "rf_fisherman_walk"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "rf_bridge_tone_tape": 2,
+       "rf_cold_spot": 1,
+       "rf_cold_photo": 1
+      }
+     },
+     "text": "Walk us out to the bridge approach at dusk, Chalmer. Show us pier four.",
+     "pass": "walk",
+     "fail": {
+      "next": "walk_fail",
+      "trust": {
+       "rf_fisherman": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "tone": "wry",
+     "requires": {
+      "evidence": [
+       "rf_foam_lab"
+      ],
+      "not_flag": [
+       "rf_fisherman_foam_wed"
+      ]
+     },
+     "text": "Lab says your foam's detergent and phosphate. Pump house, Thursdays. You were right.",
+     "next": "foam"
+    },
+    {
+     "tone": "hard",
+     "requires": {
+      "flag": [
+       "rf_fisherman_bare_hook"
+      ],
+      "not_flag": [
+       "rf_fisherman_hook_asked"
+      ]
+     },
+     "text": "Put a worm on it or admit you're keeping watch.",
+     "next": "hook"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Tight lines, Chalmer."
+    }
+   ]
+  },
+  "walk": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "...Dusk. Not after. I'll show you where I stand, and you stand there, and I'll be back on this pier."
+    ],
+    [
+     "rf_fisherman",
+     "If it sits up, you don't wave at it. Dewey waved at it in '71. Dewey's in Columbus now and he don't fish."
+    ],
+    [
+     "june",
+     "I'll bring the receiver. If it's there, it'll be on the band before it's on the pier."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_fisherman": 1
+    },
+    "flag": "rf_fisherman_walk",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "walk_fail": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "No. ...No, I'm sixty-one and I've done my looking."
+    ],
+    [
+     "rf_fisherman",
+     "Lyle on the Belle's got younger eyes and a ferry. Ask Lyle. He's pulled more out of this river than I've put in it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "foam": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "Told you. Soap suds. Write it down, somebody in this town was right about something."
+    ],
+    [
+     "rf_fisherman",
+     "...Only thing is, the pumps ran Thursday and the foam glowed Wednesday too. First time in twenty years. Don't tell Opal, she'll frame it."
+    ],
+    [
+     "miriam",
+     "...Wednesday. Of course it did."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_fisherman": 1
+    },
+    "flag": "rf_fisherman_foam_wed"
+   },
+   "next": "hub"
+  },
+  "hook": {
+   "speaker": "rf_fisherman",
+   "lines": [
+    [
+     "rf_fisherman",
+     "...Watch. Since '67."
+    ],
+    [
+     "rf_fisherman",
+     "Dewey and me came down the morning after with grapples, like everybody. We brought up nothing we could keep. So I sit and watch the piers."
+    ],
+    [
+     "elijah",
+     "He's not watching for it. He's watching for them."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rf_fisherman": 1
+    },
+    "flag": "rf_fisherman_hook_asked"
+   },
+   "next": "hub"
+  }
+ }
+}

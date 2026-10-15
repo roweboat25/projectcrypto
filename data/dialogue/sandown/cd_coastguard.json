@@ -1,0 +1,322 @@
+{
+ "id": "cd_coastguard",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "Shut the door or stand in it, but don't do both. Gale's force eight off the point and the kettle's only just caught up."
+    ],
+    [
+     "cd_coastguard",
+     "Ray Sturdy. Culver lookout since '71. If you're the people Hazel rang about, you're late, and if you're not, you're lost."
+    ],
+    [
+     "miriam",
+     "He's not looked away from the window once. Neither of us has said anything worth a window yet."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "The rope on the Land Rover's tow hook is wet through and the rain's only just started. He's been down the cliff this morning."
+    },
+    {
+     "voice": "tech",
+     "threshold": 9,
+     "line": "The set's squelch is wound to the stop and the log on the desk is open at a page that says NOISE four times in one hand.",
+     "flag": "cd_coastguard_squelch"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Hazel rang. We're the ones who still believe the kids.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Lost, then. Point us at the sea and we'll work the rest out.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "We've read the 1973 log. We want the man who wrote it.",
+     "next": "snap"
+    },
+    {
+     "tone": "silent",
+     "text": "(Stand in the door. Let the gale in. Say nothing.)",
+     "next": "door",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_cd_coastguard"
+   }
+  },
+  "door": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "...Shut it. All right. You can stand a blow, I'll give you that. Most of them come in sideways and talk about the view."
+    ],
+    [
+     "cd_coastguard",
+     "Hazel said you'd be odd. She didn't say odd and quiet. That's rarer."
+    ]
+   ],
+   "next": "hub"
+  },
+  "snap": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "You've read a copy. Hazel's copy. I wrote the original and I'm not an exhibit, so sit down and ask like a person."
+    ],
+    [
+     "teddy",
+     "Twenty years of being a footnote. We just called him one to his face."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "cd_coastguard": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "Right. Tea's stewed, the sea's up, and I've a watch to keep. Ask it short."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Ray waits with his back to the window.",
+   "options": [
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "cd_cave_tone": 1
+      }
+     },
+     "text": "Low water's in two hours. Can we get round the point under the cliff in this?",
+     "pass": "window",
+     "fail": {
+      "next": "window_fail",
+      "dread": 1
+     }
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "cd_dial_recording": 2
+      }
+     },
+     "text": "Your squelch is at the stop. What were you keeping off the speaker last night?",
+     "pass": "noise",
+     "fail": {
+      "line": "Weather. It's a weather set. Mind the kettle."
+     },
+     "requires": {
+      "flag": [
+       "cd_coastguard_squelch"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "cd_cave_tone": 2,
+       "cd_coastguard_log_1973": 1
+      }
+     },
+     "text": "You've heard a ship break up. What's at the back of that cave sounds worse. Say what it is.",
+     "pass": "cave_sound",
+     "fail": {
+      "next": "cave_fail",
+      "trust": {
+       "cd_coastguard": -1
+      }
+     }
+    },
+    {
+     "tone": "wry",
+     "text": "We taped your nothing. Every channel. Have a listen to nothing.",
+     "next": "tape",
+     "requires": {
+      "evidence": [
+       "cd_dial_recording"
+      ],
+      "not_flag": [
+       "cd_coastguard_tape"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Ray."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He's heard it on the band tonight already. It's in his shoulders. Make him say it before the kettle does."
+   }
+  },
+  "window": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "An hour either side of the bottom of the tide and not a minute more. Go in on the ebb, come out before it turns, and the sea won't argue."
+    ],
+    [
+     "cd_coastguard",
+     "Rope round the Land Rover, and one of you stays on the beach with a watch. I've been down this morning. It's dry to the second bend."
+    ],
+    [
+     "dale",
+     "He's just told us the second bend is where he stopped. The one who stays with the watch is the one who matters."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_coastguard_window",
+    "trust": {
+     "cd_coastguard": 1
+    }
+   },
+   "next": "hub"
+  },
+  "window_fail": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "In this? You'd be a log entry. 'Three visitors, American, last seen heading round the point.' I've written that one before, without the American."
+    ],
+    [
+     "cd_coastguard",
+     "Go and ask Hazel for the battery key. The tunnel's wet but it doesn't come in over your head."
+    ],
+    [
+     "june",
+     "He said the tunnel's wet. He didn't say where the water comes from. Two miles from the sea, that's a question."
+    ]
+   ],
+   "next": "hub"
+  },
+  "noise": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "...A dial tone. Every channel between 156 and 162 purring like a phone off the hook, and Niton on the other side of the hill swearing their band's clean."
+    ],
+    [
+     "cd_coastguard",
+     "I wrote NOISE. You write noise and nobody rings. Twice this week, after eleven. It's only here. It's only this point."
+    ],
+    [
+     "june",
+     "Only this point. A tone that respects a hill but not a frequency. I want the tape running here tonight."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_coastguard_noise",
+    "fact": "cd_coastguard_band"
+   },
+   "next": "hub"
+  },
+  "cave_sound": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "...A click. Like a dial going round a notch at a time. And three notes behind it, same three, and then the click again."
+    ],
+    [
+     "cd_coastguard",
+     "A ship breaking up sounds like something dying. This sounds like something counting. I came out faster than I went in and I'm not ashamed of it."
+    ],
+    [
+     "elijah",
+     "Counting. He's right. It isn't waiting for anything. It's keeping score."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_coastguard_cave_sound",
+    "trust": {
+     "cd_coastguard": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "cave_fail": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "What I heard is in my log, and my log's the Coastguard's, and you can write to Southampton."
+    ],
+    [
+     "cd_coastguard",
+     "Hazel's got the key to the battery. Hazel talks. Go and bother Hazel."
+    ],
+    [
+     "ruth",
+     "We pushed on the one thing he's frightened of, dear. Leave him his watch."
+    ]
+   ],
+   "next": "hub"
+  },
+  "tape": {
+   "speaker": "cd_coastguard",
+   "lines": [
+    [
+     "cd_coastguard",
+     "...That's it. That's the sound. You got it on a Woolworths cassette and I've got a set the Admiralty paid for and I put 'noise'."
+    ],
+    [
+     "cd_coastguard",
+     "Sit here after eleven. I'll leave the squelch off. If it does it again I'll sign for it this time, with the time, in ink."
+    ],
+    [
+     "teddy",
+     "A coastguard who'll sign. That's the first signature anyone's put under those children in twenty years."
+    ]
+   ],
+   "gives": {
+    "flag": "cd_coastguard_tape",
+    "trust": {
+     "cd_coastguard": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

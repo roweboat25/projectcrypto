@@ -1,0 +1,345 @@
+{
+ "id": "lv_groundsman",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "Don't stand downwind, it's going to spit at you. Len Dabell. Greens, fairways, the ditch, and this, which is a mower and a liar."
+    ],
+    [
+     "lv_groundsman",
+     "You're the Americans. Pike said. Pike says a lot of things through his nose. If you're going on the course you're not going by the gate."
+    ],
+    [
+     "dale",
+     "Choke's half out. He knows. He's hitting it because he wants to hit something."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "Mist on the Levels and he's cut the ninth round a patch the size of a room. The mower lines bend away from it like water round a stone."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "The dog is sat at the shed door with its back to the marsh. It will not look at the ninth. He has not made it, and he is not going to.",
+     "flag": "lv_groundsman_dog"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Let us have a look at it. We've a wagon that does the same.",
+     "next": "mower"
+    },
+    {
+     "tone": "wry",
+     "text": "A mower and a liar. Which one's Pike?",
+     "next": "wry"
+    },
+    {
+     "tone": "silent",
+     "text": "(Stand upwind and wait for him to stop hitting it.)",
+     "next": "silent",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_lv_groundsman"
+   }
+  },
+  "mower": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "Go on then. Choke. I know it's the choke. I've been telling a spanner it's the choke since seven."
+    ],
+    [
+     "lv_groundsman",
+     "...There. Listen to that. Right. I owe you a walk round the service side, and you're the mower man's cousins from Newport if anybody asks."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "lv_groundsman": 1
+    },
+    "flag": "mower_helped",
+    "fact": "lv_gm_mower"
+   }
+  },
+  "wry": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "Ha. Pike's the one with the tie. The mower only lies about starting."
+    ],
+    [
+     "lv_groundsman",
+     "You'll do. Mind the dog, she's soft, she's just not herself this week."
+    ]
+   ],
+   "next": "hub"
+  },
+  "silent": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "...Right. That's got it out of me. Spanner's down."
+    ],
+    [
+     "lv_groundsman",
+     "You've the sense to wait. Pike hasn't. Ask what you want, the mist won't lift till ten and I can't cut in it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "lv_groundsman",
+   "repeat": true,
+   "prompt": "Go on. I'm not cutting till the mist's off and the dog's not going anywhere.",
+   "lines": [
+    [
+     "lv_groundsman",
+     "Go on. I'm not cutting till the mist's off and the dog's not going anywhere."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He cut round it. A room-sized patch on the ninth with the grass left long. He knows where the hut stands when it isn't there. Make him walk you to it."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "lv_marsh_shed": 2,
+       "lv_ring_photo": 1
+      }
+     },
+     "text": "Walk us out to the sarsen. You know the dry way.",
+     "pass": "sarsen",
+     "fail": {
+      "next": "sarsen_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "lv_greens_diary_1973": 2,
+       "lv_club_minutes": 1
+      }
+     },
+     "text": "Old Harry wrote 'paint on green' in May '73. What colour, and did it come off?",
+     "pass": "paint",
+     "fail": {
+      "line": "Harry's book is Harry's book. You want it read, Pike's got the minutes and Pike's got the tie. Ask Pike."
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "lv_groundsman_dog"
+      ],
+      "not_flag": [
+       "lv_groundsman_dog_told",
+       "lv_groundsman_dog_shut"
+      ]
+     },
+     "check": {
+      "voice": "rapport",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "lv_will_o_wisp": 1,
+       "lv_birder_figure": 1,
+       "lv_glove_photo": 1
+      }
+     },
+     "text": "What does the dog know, Len? She won't look at the ninth and you won't make her.",
+     "pass": "dog",
+     "fail": {
+      "next": "dog_fail",
+      "trust": {
+       "lv_groundsman": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "lv_paint_lab"
+      ]
+     },
+     "text": "The lab says your yellow tins are 1991 tee paint. Not 1973.",
+     "next": "tins"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll let you get the cut in."
+    }
+   ]
+  },
+  "sarsen": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "Follow my boots and nothing else. Left of the white post, right of the alder, don't trust the green bits, green means it's floating."
+    ],
+    [
+     "lv_groundsman",
+     "...There. The stone. And look at the reeds behind it. Bent in a ring, a yard across, all leaning in. I didn't do that. Nothing I've got does that."
+    ],
+    [
+     "lv_groundsman",
+     "Right. Back the same way. I don't stop out here, and I'd thank you not to either."
+    ],
+    [
+     "ruth",
+     "A ring in the reeds, leaning in. Something stood in the middle and the marsh is still bowing to it."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_groundsman_sarsen",
+    "dread": 1,
+    "trust": {
+     "lv_groundsman": 1
+    }
+   }
+  },
+  "sarsen_fail": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "In this? No. I've pulled two golfers and a Labrador out of that in mist and the Labrador was the only one grateful."
+    ],
+    [
+     "lv_groundsman",
+     "Bridget at the hide can see the sarsen from her slot. Go and look through her glasses. Dry feet."
+    ]
+   ],
+   "next": "hub"
+  },
+  "paint": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "Yellow. A ring of it on the ninth green, a yard across, and Harry had to cut the green down to the soil and returf. Took till July. Members were livid."
+    ],
+    [
+     "lv_groundsman",
+     "And before you ask, the tins in my shed are '91 and they're for the ladies' tees, and the labels came off because the shed leaks. I'm saying it so you don't have to."
+    ],
+    [
+     "miriam",
+     "A yellow ring in '73, returfed. That's a stage mark, or a tent peg line, or both. Dull. I like dull."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_groundsman_paint",
+    "trust": {
+     "lv_groundsman": 1
+    }
+   }
+  },
+  "dog": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "...The night you lot came. Dusk. She sat down at the stile and howled toward the camp, and she's never howled, she's a collie, they don't."
+    ],
+    [
+     "lv_groundsman",
+     "And a man came over the fence from the camp side. Tall hat. Walked past us at ten yards, heel first, knees up, like a pantomime."
+    ],
+    [
+     "lv_groundsman",
+     "He never looked at us and she never stopped."
+    ],
+    [
+     "lv_groundsman",
+     "I'd have said camp lad. Only there's no fence on that side any more. They took it down in '88. He came over a fence that isn't there."
+    ],
+    [
+     "elijah",
+     "The dog didn't howl at the man. She howled at the fence."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_groundsman_dog_told",
+    "dread": 1,
+    "trust": {
+     "lv_groundsman": 1
+    }
+   }
+  },
+  "dog_fail": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "The dog knows where her dinner is. That's what the dog knows. Leave the dog."
+    ],
+    [
+     "lv_groundsman",
+     "Bridget's seen more off that marsh than I have and she writes it down. I don't. Go and ask the one who writes it down."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_groundsman_dog_shut"
+   }
+  },
+  "tins": {
+   "speaker": "lv_groundsman",
+   "lines": [
+    [
+     "lv_groundsman",
+     "Ha. '91. Told you. Pike had me down as painting ghosts on the ninth and I've been painting the ladies' tees."
+    ],
+    [
+     "lv_groundsman",
+     "You're the first that bothered to check. Go on, have the service gate. Any time you like, you're cousins."
+    ],
+    [
+     "dale",
+     "One tin of paint, honestly explained. We're going to need a lot more of those."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_groundsman_tins",
+    "trust": {
+     "lv_groundsman": 1
+    }
+   }
+  }
+ }
+}

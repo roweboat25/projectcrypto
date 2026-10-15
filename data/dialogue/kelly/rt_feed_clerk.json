@@ -1,0 +1,457 @@
+{
+ "_doc": "Lonnie Stokes, who keeps the US-41 feed store his granddaddy kept, with the 1955 shell book out on the counter and a dog under it. Sells rope, boards, salt and lamp oil to the anniversary trade and does not pretend otherwise. Trust 1, friendly, straight. The red check asks whose name 'already had some' belongs to; Royce's own account is the evidence way in.",
+ "id": "rt_feed_clerk",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "rt_feed_clerk",
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "Rope's on the wall, boards out back, salt by the door, lamp oil's six dollars and I'll not apologise for it."
+    ],
+    [
+     "rt_feed_clerk",
+     "Every August this store sells like it's a hurricane coming."
+    ],
+    [
+     "rt_feed_clerk",
+     "Lonnie Stokes. Not the Lacy Lonnie; folks mix us. He's the cousin with the key. I'm the one with the book."
+    ],
+    [
+     "rt_feed_clerk",
+     "Y'all want the book. Everybody with a notebook wants the book. It's right there. I ain't hid it in thirty-nine years."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "The 1955 book is open on the counter to the right week, facing the customer side. He didn't leave it out. He set it out. He wanted it read by somebody who'd read it right.",
+     "flag": "rt_fc_book_out"
+    },
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "A red hound under the counter, old, one ear up at you. Every farm on 41 keeps three dogs and none on a chain. His is on a feed sack and watching the door."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "The book, and the oil, and whatever you'd take into that house yourself.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "A hurricane every August. Does it ever hit?",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "You've read every line of that book a thousand times. Which one keeps you up?",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_rt_feed_clerk"
+   }
+  },
+  "hub": {
+   "speaker": "rt_feed_clerk",
+   "repeat": true,
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "Ask. Dog don't bite and I don't lie, which is why I ain't rich."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "'Already had some.' He knows exactly which man that is. He's been selling that man shells for forty years and watching him walk out. Say the name first and watch him flinch."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "rt_fc_kit"
+      ]
+     },
+     "tone": "kind",
+     "text": "Straight answer. What do we need for a night in that house?",
+     "next": "kit"
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "rt_fc_salt"
+      ]
+     },
+     "tone": "wry",
+     "text": "Rock salt. Our occultist won't say what it's for. You sell it; you say.",
+     "next": "salt"
+    },
+    {
+     "requires": {
+      "flag": [
+       "rt_fc_book_out"
+      ],
+      "not_flag": [
+       "rt_fc_line"
+      ]
+     },
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "rt_shell_book_1955": 2
+      }
+     },
+     "text": "The book's out on the counter, open to the week, facing us. You set it out. Which line did you want read?",
+     "pass": "line",
+     "fail": {
+      "next": "line_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "rt_calendar_story": 1
+      }
+     },
+     "text": "You gave the cousin a calendar eleven years running, and then you stopped. Why?",
+     "pass": "stopped",
+     "fail": {
+      "line": "Ran out of calendars. The company quit printing the barn one. That's all that is.",
+      "trust": {
+       "rt_feed_clerk": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "rt_fc_margin"
+      ]
+     },
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "rt_shell_book_1955": 2,
+       "kc_hardin_shooting": 1,
+       "kc_sk_royce_shells": 1
+      }
+     },
+     "text": "'Already had some.' Your granddaddy wrote that about a man, not shells. You know the name, Lonnie. Say it.",
+     "pass": "margin_name",
+     "fail": {
+      "next": "margin_no",
+      "trust": {
+       "rt_feed_clerk": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "kc_royce_road"
+      ],
+      "not_flag": [
+       "rt_fc_royce"
+      ]
+     },
+     "tone": "kind",
+     "text": "Royce Pettit told us himself. The road, the gun, the pint. He said two stores sold him shells that day and neither one asked.",
+     "next": "royce_known"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Lonnie."
+    }
+   ]
+  },
+  "kit": {
+   "speaker": "rt_feed_clerk",
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "Lamp oil, 'cause the house ain't had power since '81 and whatever it is, it don't like being seen."
+    ],
+    [
+     "rt_feed_clerk",
+     "Boards, 'cause the barn-side windows are out and a board's cheaper than nerve."
+    ],
+    [
+     "rt_feed_clerk",
+     "Salt if your lady wants salt. Rope if you're going in the cave, and you'll want to, everybody does. And sleep. Nobody buys sleep."
+    ],
+    [
+     "rt_feed_clerk",
+     "Nobody sleeps Saturday."
+    ],
+    [
+     "rt_feed_clerk",
+     "And don't shoot. That's free. The Lacys shot every window out of their own house and never hit a thing."
+    ],
+    [
+     "rt_feed_clerk",
+     "Whatever you brought, leave it in the car."
+    ],
+    [
+     "dale",
+     "He just sold us the siege and the one thing nobody in 1955 had. Advice."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_fc_kit",
+    "trust": {
+     "rt_feed_clerk": 1
+    }
+   },
+   "next": "hub"
+  },
+  "salt": {
+   "speaker": "rt_feed_clerk",
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "Doorsteps."
+    ],
+    [
+     "rt_feed_clerk",
+     "Mamaw salted the sills every August till she died, a line across every door."
+    ],
+    [
+     "rt_feed_clerk",
+     "I asked her once and she said, so it knows where the house starts."
+    ],
+    [
+     "rt_feed_clerk",
+     "I sell it for stock. Fifty pounds, five dollars."
+    ],
+    [
+     "rt_feed_clerk",
+     "Half of it goes on sills in this county the week of the twenty-first, and I don't ask, and they don't say."
+    ],
+    [
+     "rt_feed_clerk",
+     "Your lady's right not to say. It's not a thing you say. It's a thing you do with your back to the room."
+    ],
+    [
+     "vera",
+     "So it knows where the house starts. Yes. That is exactly what it is for, and I would not have put it better."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_fc_salt",
+    "trust": {
+     "rt_feed_clerk": 1
+    }
+   },
+   "next": "hub"
+  },
+  "line": {
+   "speaker": "rt_feed_clerk",
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "Not the Lacy lines. Everybody reads those. The one under. August 22, '55: 'Hardin, 1 box 00, cash.' And in the margin: 'for the posse."
+    ],
+    [
+     "rt_feed_clerk",
+     "Not opened, I'd bet.'"
+    ],
+    [
+     "rt_feed_clerk",
+     "Granddaddy knew Cleve Hardin, and he knew a man buying double-ought the morning after ain't buying for a posse."
+    ],
+    [
+     "rt_feed_clerk",
+     "He wrote his bet in the margin and he was right. That box is still in Cleve's cabinet."
+    ],
+    [
+     "rt_feed_clerk",
+     "Two neighbours bought buckshot in two days, one before and one after, and one of 'em was for the other one. That's the line."
+    ],
+    [
+     "rt_feed_clerk",
+     "That's what I set it out for."
+    ],
+    [
+     "miriam",
+     "A feed-store margin note from 1955 that predicts a sealed box in 1994. That's better sourced than the police log."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_fc_line",
+    "trust": {
+     "rt_feed_clerk": 1
+    }
+   },
+   "next": "hub"
+  },
+  "line_no": {
+   "speaker": "rt_feed_clerk",
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "I set it out 'cause folks spill on it if I don't. Read what you like."
+    ],
+    [
+     "rt_feed_clerk",
+     "The Lacy lines is what everybody reads, and they're true, and they ain't the point."
+    ],
+    [
+     "rt_feed_clerk",
+     "Cleve Hardin on the crossroads has a cabinet. Ask him what's in it. I'd like to know if Granddaddy won his bet."
+    ]
+   ],
+   "next": "hub"
+  },
+  "stopped": {
+   "speaker": "rt_feed_clerk",
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "...1992. I went out with the calendar in January like always and he was in the kitchen and he'd got the old one down off the nail."
+    ],
+    [
+     "rt_feed_clerk",
+     "August 1955, the barn on it. He was holding it."
+    ],
+    [
+     "rt_feed_clerk",
+     "He said, Lonnie, I counted. There's a mark on the twenty-first. Pencil. Somebody in the house made a mark on the day, before."
+    ],
+    [
+     "rt_feed_clerk",
+     "Before any of it. And he put it back up on the nail."
+    ],
+    [
+     "rt_feed_clerk",
+     "I never brought another one. You don't hand a man a new year when he's just found out the old one knew."
+    ],
+    [
+     "ruth",
+     "A mark on the day, made before. Somebody in that kitchen was waiting for the twenty-first, dear. Ask the cousin who held the pencil."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rt_feed_clerk": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "margin_name": {
+   "speaker": "rt_feed_clerk",
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "...Royce Pettit."
+    ],
+    [
+     "rt_feed_clerk",
+     "Sunday the twenty-first, about four in the afternoon, on his way home from town, and Granddaddy could smell it on him from the register."
+    ],
+    [
+     "rt_feed_clerk",
+     "He sold him the box anyhow."
+    ],
+    [
+     "rt_feed_clerk",
+     "He wrote 'already had some' so he'd remember he knew, and sold it anyhow."
+    ],
+    [
+     "rt_feed_clerk",
+     "Royce's daddy had credit here since the Depression and you didn't refuse a Pettit."
+    ],
+    [
+     "rt_feed_clerk",
+     "Granddaddy drank over that line till 1960. Then he quit drinking and kept the line. I've kept it."
+    ],
+    [
+     "rt_feed_clerk",
+     "Forty years of Stokes men keeping one line in a book."
+    ],
+    [
+     "rt_feed_clerk",
+     "There. It's said. Buy your oil."
+    ],
+    [
+     "elijah",
+     "He sold a drunk man buckshot and wrote down that he knew. The confession's been on the counter for thirty-nine years."
+    ],
+    [
+     "elijah",
+     "It just needed somebody to read the margin."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_fc_margin",
+    "trust": {
+     "rt_feed_clerk": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "margin_no": {
+   "speaker": "rt_feed_clerk",
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "It's a book. It says what it says. If Granddaddy'd wanted a name in it he'd have put one, and I ain't adding one for West Virginia."
+    ],
+    [
+     "rt_feed_clerk",
+     "Oates at the crossroads has a book too. Maybe his granddaddy was braver than mine."
+    ]
+   ],
+   "next": "hub"
+  },
+  "royce_known": {
+   "speaker": "rt_feed_clerk",
+   "lines": [
+    [
+     "rt_feed_clerk",
+     "...He said that? Royce said that out loud?"
+    ],
+    [
+     "rt_feed_clerk",
+     "Then I can say it. Two stores. Mine first, Oates' second. Neither one asked."
+    ],
+    [
+     "rt_feed_clerk",
+     "I've had that on my family since I was old enough to read the margin."
+    ],
+    [
+     "rt_feed_clerk",
+     "Tell him Lonnie Stokes says he's sorry about the box. Tell him Granddaddy was too. He never said it to a Pettit and he should have."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_fc_royce",
+    "trust": {
+     "rt_feed_clerk": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

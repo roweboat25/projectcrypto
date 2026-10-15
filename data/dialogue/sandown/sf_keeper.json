@@ -1,0 +1,333 @@
+{
+ "id": "sf_keeper",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "If you've come about the roaring, I've had the council, I've had the cafe, and I've had a man from the Chronicle who thought a tiger was a lion. Ray Tulloch. Keeper."
+    ],
+    [
+     "sf_keeper",
+     "He's fed, he's watered, he's not in season and he's not in pain. He stands at the sea wall at three and I stand with him. That's all either of us knows."
+    ],
+    [
+     "miriam",
+     "Twenty years with tigers and he's reporting it like a symptom. Good. That's a man I can work with."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 8,
+     "line": "Boots still wet from the sea-wall side, and he hasn't slept. He stood with the tiger last night and the night before. He is not a man who believes it's the tide."
+    },
+    {
+     "voice": "tech",
+     "threshold": 9,
+     "line": "The feeding board says 3AM five nights running and under the fifth there's a ruled line and a time: 0312. He timed something. He didn't write what.",
+     "flag": "sf_keeper_board"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're not the council. Tell us about him. The male.",
+     "next": "kind"
+    },
+    {
+     "tone": "hard",
+     "text": "Five nights. You're not sleeping either, Mr Tulloch.",
+     "next": "hard"
+    },
+    {
+     "tone": "silent",
+     "text": "(Look at the tiger. Let him look at you.)",
+     "next": "silent",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_sf_keeper"
+   }
+  },
+  "kind": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "Raj. Bengal, nine years, came from Chessington with a bad leg and a worse temper and he's the gentlest thing on this front, present company included."
+    ],
+    [
+     "sf_keeper",
+     "He doesn't pace. That's the thing. A tiger that's upset paces. He stands and he listens, and I've never seen a tiger listen."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "sf_keeper": 1
+    }
+   }
+  },
+  "hard": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "No. And you can put that in whatever you're writing. The keeper's not sleeping. Neither's the keeper's wife, neither's the cafe."
+    ],
+    [
+     "sf_keeper",
+     "The animals come first. When they sleep, I sleep. Ask what you came to ask."
+    ]
+   ],
+   "next": "hub"
+  },
+  "silent": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "...He's looking at you. He doesn't look at the public."
+    ],
+    [
+     "sf_keeper",
+     "Right. You can stay. He's a better judge than me and he's decided."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "sf_keeper",
+   "repeat": true,
+   "prompt": "Ask. The lemurs want feeding at six and they don't care what you are.",
+   "lines": [
+    [
+     "sf_keeper",
+     "Ask. The lemurs want feeding at six and they don't care what you are."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "0312. He timed it. He heard it with the soles of his feet through the slab and the tiger heard it first. Ask him what it said."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sf_keeper_tide": 1,
+       "sf_cage_hum": 1
+      }
+     },
+     "text": "The tiger house is on the fort's footings. What's under the slab, on the sea side?",
+     "pass": "rock",
+     "fail": {
+      "line": "Concrete and granite and a Victorian drain. You want geology, there's a man at the library. I keep cats."
+     }
+    },
+    {
+     "check": {
+      "voice": "nerve",
+      "kind": "white",
+      "difficulty": 9
+     },
+     "text": "Let us in at three. We'll stand at the wall with you both.",
+     "pass": "three",
+     "fail": {
+      "next": "three_fail"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "sf_keeper_board"
+      ],
+      "not_flag": [
+       "sf_keeper_heard",
+       "sf_keeper_heard_shut"
+      ]
+     },
+     "check": {
+      "voice": "rapport",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "sf_keeper_three_am": 1,
+       "cd_cave_tone": 2
+      }
+     },
+     "text": "0312, on the board. You timed something. What did you hear, Ray, through your boots?",
+     "pass": "heard",
+     "fail": {
+      "next": "heard_fail",
+      "trust": {
+       "sf_keeper": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "sf_zoo_fur_lab"
+      ]
+     },
+     "text": "The lab says the fur on your fence is Raj's. From the brush you hang there.",
+     "next": "fur"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll let you feed the lemurs."
+    }
+   ]
+  },
+  "rock": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "The old magazine tunnels. Granite-lined, they run from under the tiger house out toward the cliff, and the Trust bricked the far end in '74 and painted the brick."
+    ],
+    [
+     "sf_keeper",
+     "I've been down the near end with a torch. It's dry. It's dry and it's warm, and granite's not warm, and the warm end's the sea end."
+    ],
+    [
+     "june",
+     "A granite tunnel that's warm at the sea end. That's a conductor, not a cave. I'd like a meter on that slab."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_keeper_tunnel",
+    "trust": {
+     "sf_keeper": 1
+    }
+   }
+  },
+  "three": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "...Side gate, ten to three. No torches, he doesn't like torches. No talking. You stand where I put you and if he turns round you don't."
+    ],
+    [
+     "sf_keeper",
+     "I'll be honest with you. I'd like somebody else there. I'd like somebody else to hear it, so it's not just me and him."
+    ],
+    [
+     "elijah",
+     "He's been alone with it five nights. That's a long time to be the only one who hears."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_keeper_three_invite",
+    "dread": 1,
+    "trust": {
+     "sf_keeper": 1
+    }
+   }
+  },
+  "three_fail": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "No. Public's out at six and that's the public, and four strangers at a tiger wall in the dark is how a keeper loses his job and a tiger."
+    ],
+    [
+     "sf_keeper",
+     "Brenda at the cafe hears it through her floor. Go and sit up with her. She'd like the company."
+    ]
+   ],
+   "next": "hub"
+  },
+  "heard": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "...Three notes. Up through the slab, into the boots. Then a click, like a dial going round, then three notes again."
+    ],
+    [
+     "sf_keeper",
+     "Twelve minutes past three, and it went for an hour and stopped."
+    ],
+    [
+     "sf_keeper",
+     "Raj heard it at three. I heard it at twelve past, because I'm a man and I'm slow. He looked at me when I got it, like, there, now you know."
+    ],
+    [
+     "sf_keeper",
+     "I don't put that on a board. I put a line and a time. You've got the rest now and I'd like you to take it away with you."
+    ],
+    [
+     "dale",
+     "Three notes and a click. That's the same thing the cave's meant to do. It's under the whole front."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_keeper_heard",
+    "dread": 1,
+    "trust": {
+     "sf_keeper": 1
+    }
+   }
+  },
+  "heard_fail": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "I timed when he lay down. That's what keepers do. We write down when they lie down."
+    ],
+    [
+     "sf_keeper",
+     "You want noises, the coastguard at Culver's got a set that picks up everything. Go and bother him. He's awake, he's always awake."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_keeper_heard_shut"
+   }
+  },
+  "fur": {
+   "speaker": "sf_keeper",
+   "lines": [
+    [
+     "sf_keeper",
+     "Ha. Did they. Good. Twenty quid of lab to find out I hang a brush on a fence."
+    ],
+    [
+     "sf_keeper",
+     "You're the first lot who checked. The Chronicle had it as a second tiger loose on the front. I've got one tiger and he's standing right there not being loose."
+    ],
+    [
+     "miriam",
+     "One explanation down, honestly, and he's grateful for it. That's worth more than the fur."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "sf_keeper_fur",
+    "trust": {
+     "sf_keeper": 1
+    }
+   }
+  }
+ }
+}

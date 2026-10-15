@@ -104,7 +104,7 @@ func _takes(n: Dictionary) -> Array:
 	var out := []
 	for i in n.get("options", []).size():
 		var o: Dictionary = n.options[i]
-		if not o.has("check") or not Investigation.option_available(GameData, GameState, o):
+		if not o.has("check") or not Investigation.option_available(GameData, GameState, o, witness_id):
 			continue
 		if Investigation.check_locked(GameState, Investigation.lock_key(witness_id, _node_id, i)):
 			continue
@@ -146,7 +146,7 @@ func _show_menu() -> void:
 				_options.append({"kind": "show", "label": o.get("text", "Show evidence..."), "enabled": true})
 		elif o.get("leave", false):
 			_options.append({"kind": "leave", "label": o.get("text", "Leave"), "enabled": true})
-		elif Investigation.option_available(GameData, GameState, o):
+		elif Investigation.option_available(GameData, GameState, o, witness_id):
 			var entry := {"kind": "option", "option": o, "index": i, "enabled": true, "label": ""}
 			var label: String = o.get("text", "...")
 			if o.has("tone"):

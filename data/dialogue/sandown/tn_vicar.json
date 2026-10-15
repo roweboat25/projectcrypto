@@ -1,0 +1,334 @@
+{
+ "id": "tn_vicar",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "If you're the Americans, you've been mentioned in two prayer groups and a flower rota, and I'd like to say I stopped it. I didn't."
+    ],
+    [
+     "tn_vicar",
+     "Alan Perry. Mind the chairs, the Brownies are at six."
+    ],
+    [
+     "tn_vicar",
+     "You'll have seen the newsletter on the board. Yes, it's the 1973 one. Yes, I ran it again. The PCC have had a word. The PCC are mostly new, and the word was shorter."
+    ],
+    [
+     "ruth",
+     "He says PCC like a man naming a weather, dear. Twenty years of standing in it."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "lore",
+     "threshold": 7,
+     "line": "The masthead says June 1994. The text under it is the June 1973 letter, word for word, 'suffer the little children' and all. He's reprinted it this month, not reread it.",
+     "flag": "tn_vicar_rerun"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "There's a bag in the vestry doorway with a point in it. He's stood so you can see it. He wants it out of the church and doesn't want to carry it."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We've read it. You didn't laugh. We wanted to say that to your face before anything else.",
+     "next": "thanks",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Two prayer groups and the flowers. We've done better than the Sunday papers, then.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "The PCC can have a word with us. We've come about what you left out.",
+     "next": "pcc"
+    }
+   ],
+   "gives": {
+    "flag": "met_tn_vicar"
+   }
+  },
+  "thanks": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "...Well. Twenty-one years, and that's the first time anyone's said it as if it were a thing I did rather than a thing I failed to stop. Sit down. The chairs can wait."
+    ]
+   ],
+   "next": "hub"
+  },
+  "pcc": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "The PCC would have a word with you, and it would be 'tourists'. I left things out because I was thirty-one and frightened of my own bishop."
+    ],
+    [
+     "tn_vicar",
+     "I'm fifty-two now, and only frightened of the right things."
+    ],
+    [
+     "miriam",
+     "He's just told us he's braver now, and we opened by implying he wasn't. Ease off."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "tn_vicar": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "St John's, 1973 to now. First living, last living, I expect. I sat with those two in the vestry on the Wednesday, and I've stood in that vestry every day since. Ask me."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "The Reverend Perry stacks a chair and waits.",
+   "options": [
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_parish_newsletter": 1,
+       "tn_newsletter_photo": 1
+      }
+     },
+     "text": "You've reprinted the 1973 letter word for word this month. Why this month?",
+     "pass": "rerun",
+     "fail": {
+      "next": "rerun_fail"
+     },
+     "requires": {
+      "flag": [
+       "tn_vicar_rerun"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_vicar_children": 2,
+       "colin_statement": 1
+      }
+     },
+     "text": "You sat with them. The boy talked. What did he say that you kept out of the letter?",
+     "pass": "vestry",
+     "fail": {
+      "line": "Things said in a vestry stay in a vestry. That's older than me and it'll outlast me."
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "tn_hen_party": 2,
+       "cd_laundry_hat": 1
+      }
+     },
+     "text": "Found, pier, 24 May. Four days before the hen party arrived. You've done the sum. What did you do with the thirteenth hat?",
+     "pass": "sum",
+     "fail": {
+      "next": "sum_fail",
+      "trust": {
+       "tn_vicar": -1
+      }
+     },
+     "requires": {
+      "evidence": [
+       "tn_lost_hat_notice"
+      ]
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Look at the bag in the vestry doorway. Say nothing.)",
+     "next": "bag",
+     "requires": {
+      "not_flag": [
+       "tn_vicar_bag"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Reverend."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The bag in the vestry doorway has moved a foot nearer the door. He's not touched it. Take it before it reaches the step."
+   }
+  },
+  "rerun": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "Because Fay asked me to. She came to the vestry in May, first time in twenty-one years, and said, run it again, somebody might read it this time. So I ran it."
+    ],
+    [
+     "tn_vicar",
+     "And because the station box rings at night, and Mr Attrill's stopped answering it, and I'm the only man in Sandown whose job is to say that some things are listening."
+    ],
+    [
+     "elijah",
+     "She came to him. Not to the chemist, not to us. To the one grown-up who believed her. That's where she started again."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_vicar_rerun_told",
+    "trust": {
+     "tn_vicar": 1
+    }
+   },
+   "next": "hub"
+  },
+  "rerun_fail": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "Because the PCC who objected in 1973 are all dead, which is an unchristian reason and I'll be confessing it. It's the only one you're getting today."
+    ],
+    [
+     "teddy",
+     "He gave us a joke in place of an answer. A good one. Vicars don't waste good ones on people they've finished with."
+    ]
+   ],
+   "next": "hub"
+  },
+  "vestry": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "...He said it asked them which colour they'd like to be. And Fay said blue, because she was seven, and it said, not yet."
+    ],
+    [
+     "tn_vicar",
+     "And it laughed. He said it laughed like it was pleased with her."
+    ],
+    [
+     "tn_vicar",
+     "I left that out because I was thirty-one and I could hear how it would read. I've heard how it would read every night since. 'Not yet.' To a child."
+    ],
+    [
+     "vera",
+     "Not yet. A thing that takes colour and gives it back later, and keeps a count of who is owed. She goes back every year to see if it is time."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_vicar_not_yet",
+    "trust": {
+     "tn_vicar": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "sum": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "...Thirteen hats. Twelve girls. I counted them in the font queue. The thirteenth was on the pier before any of them got off the ferry."
+    ],
+    [
+     "tn_vicar",
+     "I burned it in the vicarage grate. It wouldn't. It sat in the fire an hour and went every colour you've got and some you haven't, and didn't scorch."
+    ],
+    [
+     "tn_vicar",
+     "I put it in a bag and I've not touched it since."
+    ],
+    [
+     "tn_vicar",
+     "It's in the vestry doorway. Take it. I'll not go near it, and I'll not have it in the church another night."
+    ],
+    [
+     "ruth",
+     "A vicar who's tried fire and prayer on a hat, dear, and now he's trying Americans. We're the last thing on the shelf."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_vicar_burned",
+    "trust": {
+     "tn_vicar": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "sum_fail": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "I'm a vicar. I don't do sums, I do collections, and the hen party's hat is in the vestry if you want it. The station has the notice. Mr Attrill will tell you the date."
+    ],
+    [
+     "tn_vicar",
+     "The Brownies are at six. I'd like the chairs out before they are."
+    ],
+    [
+     "miriam",
+     "He said 'the hen party's hat'. Singular. There were twelve. He's done the sum and we're not getting it."
+    ]
+   ],
+   "end": true
+  },
+  "bag": {
+   "speaker": "tn_vicar",
+   "lines": [
+    [
+     "tn_vicar",
+     "...Yes. That's it. I'd rather you carried it than me, and I'd rather not say why in a church."
+    ],
+    [
+     "tn_vicar",
+     "Don't open it in here. Don't open it anywhere you'd mind the colour getting on."
+    ],
+    [
+     "elijah",
+     "He's not frightened of it. He's frightened of being the one who kept it. Take it off him."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_vicar_bag",
+    "trust": {
+     "tn_vicar": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

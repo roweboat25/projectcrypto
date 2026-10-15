@@ -1,0 +1,137 @@
+{
+ "id": "cook",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "Kitchen's closed to customers. You're customers."],
+    ["cook", "Marlene said talk to you. Marlene says a lot of things on the late shift, and I'm the one scraping the grill."],
+    ["dale", "Grill's clean. He scraped it an hour ago."]
+   ],
+   "passives": [
+    {"voice": "nerve", "threshold": 7, "line": "He's holding the spatula edge up. Not a threat. A man who wants something in his hand."},
+    {"voice": "empathy", "threshold": 9, "line": "He said her name soft and everything else hard. Twenty-odd years of late shifts beside her.", "flag": "cook_soft_on_marlene"}
+   ],
+   "static": {"min_dread": 3, "line": "He's standing between you and the bin. He's stood between everybody and that bin for years. Go around him."},
+   "options": [
+    {"tone": "hard", "text": "We're not here for the grill.", "next": "grill"},
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 8}, "text": "How long on this grill?", "pass": "years",
+     "fail": {"line": "Long enough. Longer than your interest, mister."}},
+    {"tone": "silent", "text": "(Wait by the bin and say nothing.)", "next": "wait", "trust": 1}
+   ],
+   "gives": {"flag": "met_cook"}
+  },
+  "grill": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "No. You're here for her. Everybody's here for her once, and then they laugh and go, and I'm the one here after."],
+    ["cook", "Say what you want and say it quick."]
+   ],
+   "next": "hub"
+  },
+  "years": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "Since '71. Rosie hired me off a towboat. Marlene was here before me and she'll be here after, checking that door."],
+    ["cook", "...You listened to her. All the way through. Cal at the register said you did."],
+    ["elijah", "He's been waiting to hear that someone did."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"cook": 1}}
+  },
+  "wait": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "..."],
+    ["cook", "(He slides the bin a foot toward you with his boot and goes back to the grill.)"],
+    ["elijah", "That's the kindest thing anyone's done in this kitchen tonight."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "cook_bin_offered"}
+  },
+  "hub": {
+   "speaker": "cook",
+   "repeat": true,
+   "prompt": "Grill's hot. Talk.",
+   "lines": [
+    ["cook", "You've got till the next order."]
+   ],
+   "options": [
+    {"tone": "wry", "requires": {"not_flag": ["cook_special"]}, "text": "What's good tonight?", "next": "special"},
+    {"check": {"voice": "press", "kind": "white", "difficulty": 9, "evidence_bonus": {"kitchen_receipt_1966": 2, "dwight_returns": 1}},
+     "text": "Dwight Mason comes in Thursdays. What does he order?", "pass": "dwight",
+     "fail": {"next": "dwight_fail", "trust": {"cook": -1}}},
+    {"tone": "kind", "requires": {"flag": ["cook_soft_on_marlene"]},
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 10, "evidence_bonus": {"call_log": 2, "kitchen_receipt_1966": 1}},
+     "text": "You've kept her secret longer than she has.", "pass": "secret",
+     "fail": {"next": "secret_fail", "trust": {"cook": -2}, "dread": 1}},
+    {"requires": {"evidence": ["suits_at_diner"], "not_flag": ["cook_suits"]}, "text": "The two men asked her red or red-orange. You heard it.", "next": "suits_heard"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll let you work."}
+   ]
+  },
+  "special": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "Meatloaf. Been meatloaf on a Wednesday since Rosie. You want it or you want to stand there?"],
+    ["cook", "...Fine. One slice, on the house, 'cause you asked. Sit down and don't tell Marlene."],
+    ["teddy", "I'm never not going to tell Marlene."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "cook_special", "trust": {"cook": 1}}
+  },
+  "dwight": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "Coffee. Black. Four of 'em, and he drinks the one. Been doing it since before I was here."],
+    ["cook", "Rosie told me never to clear the other three till he's gone. I never asked why. You didn't ask Rosie."],
+    ["teddy", "Four coffees. Same as the check from 1966."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "cook_four_coffees", "trust": {"cook": 1}}
+  },
+  "dwight_fail": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "He orders what he orders and pays what he owes, which is more than you've done tonight."],
+    ["cook", "Cal's got the register. Ask Cal. Cal likes talking."]
+   ],
+   "next": "hub"
+  },
+  "secret": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "...She wasn't at her sister's. She was out at the plant with Dwight, and I've known since that night, 'cause I'm the one she called."],
+    ["cook", "From the gatehouse. Twenty to three. 'Vern, don't tell Rosie.' I didn't. Rosie's dead and I still ain't."],
+    ["cook", "That's the check in the bin. His number on the back. She keeps it where she can't see it and can't throw it out."],
+    ["june", "Twenty to three. That's the dispatch log, to the minute."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "cook_bin", "evidence": "cook_dwight", "flag": "cook_told", "trust": {"cook": 1}}
+  },
+  "secret_fail": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "Get out of my kitchen."],
+    ["cook", "You want her secrets, go sit at her counter and ask her to her face, and watch her hands while you do it."],
+    ["cook", "Door's behind you."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 5, "line": "That was the right read and the wrong mouth. He'd have told her. He won't tell you."}
+   ],
+   "end": true
+  },
+  "suits_heard": {
+   "speaker": "cook",
+   "lines": [
+    ["cook", "I heard. Red or red-orange, like they were ordering paint. She said red. The tall one wrote it down. The other one didn't blink."],
+    ["cook", "They left a twenty on a four-dollar check and she wouldn't touch it. It's in the register still. Cal won't touch it either."],
+    ["miriam", "A new bill, I'd bet. Serial in sequence with whatever they paid Lonnie."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "cook_suits", "trust": {"cook": 1}}
+  }
+ }
+}

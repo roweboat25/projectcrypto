@@ -1,0 +1,427 @@
+{
+ "_doc": "Walter Penrose, the man in the suit, checking out of room 3 on the morning of day 2 beside a Buick nobody heard arrive. The season's drifting figure: about fifty in 1955, about fifty now, 'Gus and I', advises every Office team to file it small and go home. Courteous, precise, never raises his voice, never stays for the night itself. Not a local; do not write him as one.",
+ "id": "hv_penrose",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "Good morning. You'll be the Office. I was, once; Gus and I. I expect you've found my name in a book or two by now. I'd rather you heard the rest from me than from a ledger."
+    ],
+    [
+     "hv_penrose",
+     "Walter Penrose. I'm checking out. I never stay for the night itself. I'll give you the advice first, so you can get on with ignoring it."
+    ],
+    [
+     "miriam",
+     "He said 'Gus and I' like a man saying the name of a town he used to live in. He's the first person in this case who hasn't said 'the Lacys' or 'little men'. He said her name."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "He's carrying one small bag, and it's the same bag as in the 1955 photograph on the Ledger's wall. Not the same kind. The same bag."
+    },
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "The cicadas have stopped. Not quieted: stopped, in the trees over the lot, the moment he spoke. They'll start again when he's in the car. Your grandmother would have told you not to shake his hand, and you're going to.",
+     "flag": "hv_penrose_quiet"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll hear it from you, Mr Penrose. The advice and the rest.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Ignoring it is the one part of the job we've got down.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "You were on the police station steps in 1955. Start there.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_penrose"
+   }
+  },
+  "hub": {
+   "speaker": "hv_penrose",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_penrose",
+     "Go on. I've a long drive and nowhere in particular to be, which is not the same thing as time."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He's leaving. Let him. Go to the car with him, get in the back, and go where he goes. You'd know by nightfall. You'd know everything."
+   },
+   "options": [
+    {
+     "tone": "wry",
+     "text": "File it natural and go home. You said the same to the Ledger. You said it in a booth in 1971. Does it ever work?",
+     "next": "advice"
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "hv_founder_signature": 2,
+       "hv_motel_register": 1
+      }
+     },
+     "text": "Tell us about Gus. Not the card file. Her, at that counter, at six in the morning in 1955.",
+     "pass": "gus",
+     "fail": {
+      "next": "gus_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "fm_account_light": 1,
+       "sk_guide_flares": 1,
+       "kc_preacher_light": 1
+      }
+     },
+     "text": "Owls don't explain the light in the gully. Four tellings, thirty-nine years, and it never moved a word. What was the light?",
+     "pass": "light",
+     "fail": {
+      "next": "light_no"
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_penrose_photo_1955"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "hv_motel_1955_suit": 1,
+       "hv_editor_green": 0
+      }
+     },
+     "text": "That's you at the edge of the crowd. 22 August 1955. You haven't aged a day, Mr Penrose. Say what you are.",
+     "pass": "steps",
+     "fail": {
+      "next": "steps_no",
+      "dread": 1
+     }
+    },
+    {
+     "tone": "kind",
+     "text": "You said you stayed for the night itself once. When?",
+     "next": "once"
+    },
+    {
+     "tone": "silent",
+     "text": "(Say nothing. Walk him to the car.)",
+     "next": "car"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Safe drive, Mr Penrose."
+    }
+   ]
+  },
+  "advice": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "Twice. Out of a great many. It worked on a newspaper editor in 1955 and on a frightened boy in a booth in 1971, and both of them have been sorry since, and both of them are alive."
+    ],
+    [
+     "hv_penrose",
+     "I'll take that trade every time."
+    ],
+    [
+     "hv_penrose",
+     "The Office listens. It was always better at listening than at being right. That's what makes it good and that's what gets it into houses after dark. I'd rather you were bad at your job and in bed."
+    ],
+    [
+     "hv_penrose",
+     "A family, a jug, a hot night, a great many owls. File it natural. Go home before the twenty-first. I say it kindly. I always say it kindly."
+    ],
+    [
+     "elijah",
+     "He wants us to file the true thing. He's never wanted that before, anywhere. Either he's changed or this is the one place where the true thing is also the safe one."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_penrose_checkout",
+    "evidence": "hv_penrose_advice",
+    "flag": "hv_penrose_advised"
+   },
+   "next": "hub"
+  },
+  "gus": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "...Twenty-six. A tin card file, a fountain pen and a flashlight she'd bought at the pawn shop on account, and she'd been at the counter two hours before the sergeant noticed she wasn't a reporter."
+    ],
+    [
+     "hv_penrose",
+     "She'd already decided it wasn't owls. She'd decided before she left Sutton."
+    ],
+    [
+     "hv_penrose",
+     "I told her it was owls. She wrote 'W.P. says owls' on a card and underlined 'says'."
+    ],
+    [
+     "hv_penrose",
+     "That card is in drawer S and it's the reason drawer S is locked, and you'll open it one day, and you'll see my name on half of them with 'says' underlined."
+    ],
+    [
+     "hv_penrose",
+     "She was right more often than I was. That's not the same as being right about the right things."
+    ],
+    [
+     "hv_penrose",
+     "She came back here in 1967 looking for which one of us had been, and I was here, and that's as much of it as I'm telling in a car park."
+    ],
+    [
+     "miriam",
+     "Augusta Weller, twenty-six, at a police counter in Kentucky, underlining 'says'. I have never wanted to meet a dead woman so badly in my life."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He said 'that's as much of it as I'm telling' and his hand went to the bag. Not to leave. To hold onto something. He's not finished with her either."
+    }
+   ],
+   "gives": {
+    "flag": "hv_penrose_gus",
+    "trust": {
+     "hv_penrose": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "gus_no": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "No. Not for a question put like that. She'd have put it better and she'd have got the same answer."
+    ],
+    [
+     "hv_penrose",
+     "Her name's in the sergeant's book and the pawn man's. Start there. Earn the rest."
+    ],
+    [
+     "ruth",
+     "He said 'earn', dear. That's a door, not a wall. He's told us the price and the price is the same one everybody in this town charges."
+    ]
+   ],
+   "next": "hub"
+  },
+  "light": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "A good question, properly put. The light was a light."
+    ],
+    [
+     "hv_penrose",
+     "It came down slow behind the oak and it didn't come up, and I have no more idea what it was than the child on the swing, and I was a good deal closer than he was."
+    ],
+    [
+     "hv_penrose",
+     "I will tell you what it wasn't. It wasn't a flare; the fort didn't shoot flares till '57, ask your cave man, he keeps the casings. It wasn't a plane. It wasn't the show's spaceman, who was in Paducah."
+    ],
+    [
+     "hv_penrose",
+     "Everything that came after it was owls and fright and a jug. The light was the light."
+    ],
+    [
+     "hv_penrose",
+     "I file what I can explain and I leave the rest where it is. The family did the opposite. Look where it got them. Look where it's getting you."
+    ],
+    [
+     "june",
+     "He just separated the one unexplained thing from everything explainable around it, cleanly, in three sentences. That's the whole case. He's known the whole case for thirty-nine years."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_penrose_light",
+    "trust": {
+     "hv_penrose": 1
+    }
+   },
+   "next": "hub"
+  },
+  "light_no": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "Owls don't explain the light, no. Nothing explains the light. That's what makes it a light and not a case. Do you see the difference? She didn't."
+    ],
+    [
+     "teddy",
+     "He answered by not answering and made it sound like a lesson. I've had editors like that. They were usually right and I hated them."
+    ]
+   ],
+   "next": "hub"
+  },
+  "steps": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "..."
+    ],
+    [
+     "hv_penrose",
+     "Yes. That's me. I'm always at the edge of the picture. It's the only place one can stand and not be in it, and I've had a great deal of practice."
+    ],
+    [
+     "hv_penrose",
+     "What I am is a man who was asked to keep something small and has kept it small for longer than you'd credit, in a great many towns, as kindly as the work allows."
+    ],
+    [
+     "hv_penrose",
+     "That's all you'll get, and it's more than Gus got, and she asked better."
+    ],
+    [
+     "hv_penrose",
+     "Don't file that. There's no drawer for it. There's no lean on your board that it fits under, and if you try to make one, somebody from an office will come and advise you to file it small."
+    ],
+    [
+     "hv_penrose",
+     "It won't be me. I've grown fond of this one."
+    ],
+    [
+     "vera",
+     "One asked what he is and he answered what he does. That is the answer one gets from such things. It is more than they usually give. One will remember that he was fond."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_penrose_admits",
+    "trust": {
+     "hv_penrose": 1
+    },
+    "dread": 2
+   },
+   "next": "hub"
+  },
+  "steps_no": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "The light's poor in that photograph. It was poor in 1955. A man in a suit at the edge of a crowd is a man in a suit, and there were a great many of us, and most of them are dead."
+    ],
+    [
+     "hv_penrose",
+     "I've a drive. Goodbye. Mind the twenty-first. I mean that more than you think."
+    ],
+    [
+     "elijah",
+     "He didn't say no. He said 'most of them are dead'. He's gone, and the cicadas have started again, and I'd like to go and sit in the car for a while."
+    ]
+   ],
+   "end": true
+  },
+  "once": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "1955. Room 3, with the window on the road north. I heard the truck go by at two and I sat in that window with the light off until it was light, and seven miles off I heard the shooting."
+    ],
+    [
+     "hv_penrose",
+     "One does not hear shotguns seven miles off. I heard every one."
+    ],
+    [
+     "hv_penrose",
+     "And at about four, when it stopped, something walked up the road north past this lot, in the dark, with its hands up. Not fast. I had the window open. It didn't look at the window."
+    ],
+    [
+     "hv_penrose",
+     "It was going home, and it wasn't going the way the truck went."
+    ],
+    [
+     "hv_penrose",
+     "I checked out before the paper came. I've never stayed since. That's what the night itself is. Now you've been told, which is more than I was."
+    ],
+    [
+     "elijah",
+     "The man on US-41 at three. The one the deputies didn't know by his walk. He saw it from the window and he's never told a soul, and he just told us like he was giving directions."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_penrose_once",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "car": {
+   "speaker": "hv_penrose",
+   "lines": [
+    [
+     "hv_penrose",
+     "...Thank you. Most people talk."
+    ],
+    [
+     "hv_penrose",
+     "She stayed for the night itself. Do you understand what I'm telling you? She stayed, in 1955, in that yard, with a flashlight and a box of number six and a tin of cards."
+    ],
+    [
+     "hv_penrose",
+     "And she came back in 1967 to stay again, and I followed her to make sure she didn't, and I failed."
+    ],
+    [
+     "hv_penrose",
+     "I'm telling you so you'll know what it costs. Not to stop you. Nothing stops the Office. That's the trouble with it. Good morning."
+    ],
+    [
+     "miriam",
+     "He put the bag in the back seat and the car was running before he was in it. I didn't hear it start. I'm writing that down and I'm writing down that I didn't want to."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_penrose_car",
+    "trust": {
+     "hv_penrose": 1
+    },
+    "dread": 1
+   },
+   "end": true
+  }
+ }
+}

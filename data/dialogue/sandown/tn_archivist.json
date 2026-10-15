@@ -1,0 +1,331 @@
+{
+ "id": "tn_archivist",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "The machine's in a mood, so it's ten pence a print and no promises. Sit there. Not that chair, that was the Thursday woman's, and I've gone a bit funny about it."
+    ],
+    [
+     "tn_archivist",
+     "Miss Jolliffe. Reference, local studies, and the fiche, which is me on my knees with a bulb. You've come about June 1973. Everybody does. Nobody asks for May."
+    ],
+    [
+     "ruth",
+     "'Nobody asks for May.' She's just told us where to look, dear, and made it sound like a complaint."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "recall",
+     "threshold": 7,
+     "line": "The fiche is already wound to the first of June 1973. She didn't wind it for you. It was there when you came in.",
+     "flag": "tn_archivist_wound"
+    },
+    {
+     "voice": "lore",
+     "threshold": 9,
+     "line": "The card drawer says LEVELS. Under the label, older ink, a different hand: MARSH (OTHER). Somebody renamed a thing to make it sound like a place."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "May, then, since nobody asks. We'll sit in the other chair.",
+     "next": "chair",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "We'll have June, May, and whatever the Thursday woman had. Prints of all of it.",
+     "next": "quiet"
+    },
+    {
+     "tone": "wry",
+     "text": "A chair you've gone funny about. In a library. We're in the right town.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_tn_archivist"
+   }
+  },
+  "chair": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "...Thank you. Most people sit in it to be contrary. May is the 26th to the 29th. The bank holiday."
+    ],
+    [
+     "tn_archivist",
+     "The paper didn't print till the Friday after. June's where the words are. May's where it happened."
+    ]
+   ],
+   "next": "hub"
+  },
+  "quiet": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "This is a library. You'll have what I find, when the machine finds it, and you'll have it quietly."
+    ],
+    [
+     "miriam",
+     "We just shouted a print order at a woman with a bulb in her hand. Sit down."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "tn_archivist": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "Sandown library, local studies, since Miss Woodford started the collection in 1952 with a biscuit tin. I've got the tin. I've got most of what's happened here since. Ask."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Miss Jolliffe waits with a hand on the fiche crank.",
+   "options": [
+    {
+     "check": {
+      "voice": "recall",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_county_press_1973": 1
+      }
+     },
+     "text": "It's already wound to June '73. You read it this morning. You read it every year this week.",
+     "pass": "wound",
+     "fail": {
+      "next": "wound_fail"
+     },
+     "requires": {
+      "flag": [
+       "tn_archivist_wound"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_county_press_photo": 1,
+       "sf_penrose_advice": 2
+      }
+     },
+     "text": "The Thursday woman. The good coat. What did she print, and what did she pay with?",
+     "pass": "coat",
+     "fail": {
+      "line": "She printed page five. She paid ten pence. This is a library, not a bank."
+     }
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "tn_levels_other_file": 2,
+       "lv_marsh_shed": 1
+      }
+     },
+     "text": "1927. The Survey drew a hut on the marsh and took it off the next sheet. Which edition, and who complained?",
+     "pass": "survey",
+     "fail": {
+      "next": "survey_fail",
+      "trust": {
+       "tn_archivist": -1
+      }
+     }
+    },
+    {
+     "tone": "wry",
+     "text": "Ten pence, and the machine was in a mood. It came out, though. Thank you.",
+     "next": "print",
+     "requires": {
+      "evidence": [
+       "tn_county_press_photo"
+      ],
+      "not_flag": [
+       "tn_archivist_print"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Miss Jolliffe."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The fiche is still turning and her hand's not on the crank. It's winding itself back to May. Let it. See where it stops."
+   }
+  },
+  "wound": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "...Every year. The 29th. I read page five and then I read the Sunnyside notice under it, and then I wind it back so nobody knows, except the machine, and now you."
+    ],
+    [
+     "tn_archivist",
+     "Miss Woodford was my aunt. She sat with me on the 30th of May 1973 and said, Margaret, write down everything you hear this week."
+    ],
+    [
+     "tn_archivist",
+     "Because they'll stop saying it by August, she said. They did."
+    ],
+    [
+     "ruth",
+     "Her aunt started a file and her niece kept the appointment. Two women and a biscuit tin against a whole town, dear. I'd back them."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_archivist_aunt",
+    "trust": {
+     "tn_archivist": 1
+    }
+   },
+   "next": "hub"
+  },
+  "wound_fail": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "The machine remembers where it was left. I don't. Mr Prior at the newsagent's keeps the paper itself, if you'd rather handle it than read it."
+    ],
+    [
+     "teddy",
+     "We came from the newsagent. He sent us here. The town's got two readers and they send you to each other."
+    ]
+   ],
+   "next": "hub"
+  },
+  "coat": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "Page five, the Sunnyside notice, and the 1927 Ordnance sheet, which nobody's asked for since my aunt. Three prints. Thirty pence."
+    ],
+    [
+     "tn_archivist",
+     "She paid with a ten pence piece, a ten pence piece, and a ten pence piece. All three dated 1973."
+    ],
+    [
+     "tn_archivist",
+     "I've kept them in the tin. I'm not a fool and I'm not brave."
+    ],
+    [
+     "vera",
+     "Three coins minted the year of it, from a purse in 1994. Either she keeps old change, or she came with what she had."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_archivist_coins",
+    "trust": {
+     "tn_archivist": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "survey": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "...The 1927 six-inch. Sheet ninety-six south-east. A building drawn in the reeds past the sarsen, unnamed, and gone on the 1932 revision with no demolition noted."
+    ],
+    [
+     "tn_archivist",
+     "The drainage board complained: 'no such building'. The surveyor's reply is in my aunt's file, in his own hand, one line."
+    ],
+    [
+     "tn_archivist",
+     "'I stood in it. It had dials.' They retired him in '29."
+    ],
+    [
+     "tn_archivist",
+     "I've never shown anyone the reply. My aunt said people would come for it one day and I'd know them. I suppose this is me knowing."
+    ],
+    [
+     "vera",
+     "The Survey does not draw what is not there. A man stood in it, and said so, and lost his living. Fay is not the first."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_archivist_survey",
+    "trust": {
+     "tn_archivist": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "survey_fail": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "That's a question for the Survey, and the Survey's in Southampton, and they'll tell you what they told my aunt, which is nothing in triplicate."
+    ],
+    [
+     "tn_archivist",
+     "Read the shelf. The whole shelf. Then ask me again, if there's an again."
+    ],
+    [
+     "miriam",
+     "She's not refused. She's set homework. Red mark, though. That drawer stays shut on us."
+    ]
+   ],
+   "next": "hub"
+  },
+  "print": {
+   "speaker": "tn_archivist",
+   "lines": [
+    [
+     "tn_archivist",
+     "It usually does, for people who say thank you. Mind, your print's come out with the Sunnyside notice on it as well, which it shouldn't have, the frame's wrong for that."
+    ],
+    [
+     "tn_archivist",
+     "I'll not charge you for the notice. I've stopped being surprised by what that machine puts on a page."
+    ],
+    [
+     "june",
+     "A fiche that prints what it wasn't framed on. I'd like to look inside that machine. I'd like someone else to look first."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_archivist_print",
+    "trust": {
+     "tn_archivist": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

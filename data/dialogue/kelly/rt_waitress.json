@@ -1,0 +1,435 @@
+{
+ "_doc": "Dot, who has the counter at the US-41 truck stop that her daddy had and her mama had nights. Born 1958, sells sweet tea and pie to the anniversary trade, keeps the 1955 show photo over the register. Trust 1, warm, counts by state. The red check asks for the last thing her mother said; the fairground's claim form is the evidence way in.",
+ "id": "rt_waitress",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "rt_waitress",
+   "lines": [
+    [
+     "rt_waitress",
+     "West Virginia. Royce said. Sit anywhere but the window booth, hon, that's the Ohio van's and he tips."
+    ],
+    [
+     "rt_waitress",
+     "Tea's sweet, pie's chess, coffee's bottomless, and I was born in '58, so before you ask: no. I didn't see a thing."
+    ],
+    [
+     "rt_waitress",
+     "I've served every man who did."
+    ],
+    [
+     "teddy",
+     "She's got a count. I'd bet my per diem she's got a count by state."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "press",
+     "threshold": 7,
+     "line": "She said 'every man who did' with a number behind it. She's kept a tally since she was old enough to pour. Ask her for it."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "The 1955 photo over the counter is tilted a hair, so it's square to the register, not the door. She looks at it from where she stands. Her daddy's.",
+     "flag": "rt_wt_photo"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Tea, then, and whatever's good. We've been in the car since Charleston.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "We'll take the booth the Ohio van doesn't want.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "You've served every man who did. That's a list. We'd like it.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_rt_waitress"
+   }
+  },
+  "hub": {
+   "speaker": "rt_waitress",
+   "repeat": true,
+   "lines": [
+    [
+     "rt_waitress",
+     "Ask away. I can pour and listen; it's the one thing this job's for."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Her mother said one more thing the last year and she has never told the tourists. You are not tourists. Lean on that till it gives."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "rt_wt_pie"
+      ]
+     },
+     "tone": "kind",
+     "text": "What's good?",
+     "next": "pie"
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "rt_wt_ohio"
+      ]
+     },
+     "tone": "wry",
+     "text": "The Ohio van. PARANORMAL on the side. What's he order?",
+     "next": "ohio"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "rt_showman_coffee": 1,
+       "rt_show_photo_1955": 1
+      }
+     },
+     "text": "Your daddy kept a fair ticket in the register for luck, and the luck ran out about 1970. What happened in 1970?",
+     "pass": "seventy",
+     "fail": {
+      "line": "Nothing happened in 1970 that's any of West Virginia's business, hon. More tea?"
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "rt_trucker_owls": 1,
+       "rt_mirror_story": 1
+      }
+     },
+     "text": "Nine years Royce has sat in that booth and talked to you. What's he told you he won't tell us?",
+     "pass": "royce_booth",
+     "fail": {
+      "next": "royce_no",
+      "trust": {
+       "rt_waitress": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "rt_wt_photo"
+      ],
+      "not_flag": [
+       "rt_wt_last"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "rt_sober_at_four": 2,
+       "kc_preacher_deathbed": 1
+      }
+     },
+     "text": "Your mother said it every year and not for the tourists. The last year, she said one thing more. What was it?",
+     "pass": "last_year",
+     "fail": {
+      "next": "last_no",
+      "trust": {
+       "rt_waitress": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "rt_monkey_claim"
+      ],
+      "not_flag": [
+       "rt_wt_twentieth"
+      ]
+     },
+     "tone": "kind",
+     "text": "Kincaid's monkey was loose from the nineteenth. Did the man in the boater come in on the twentieth, too?",
+     "next": "twentieth"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Dot. Thank you."
+    }
+   ]
+  },
+  "pie": {
+   "speaker": "rt_waitress",
+   "lines": [
+    [
+     "rt_waitress",
+     "Chess. Mama's. Sugar, butter, eggs, a little cornmeal and a little vinegar, and don't ask what the vinegar's for, it's for being right."
+    ],
+    [
+     "rt_waitress",
+     "Here. On the house. Everybody who comes about the Lacys gets one piece free and the second one costs."
+    ],
+    [
+     "rt_waitress",
+     "That's Daddy's rule and it's a good one."
+    ],
+    [
+     "dale",
+     "I'm going to need a minute with this."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_wt_pie",
+    "item": "chess_pie",
+    "trust": {
+     "rt_waitress": 1
+    }
+   },
+   "next": "hub"
+  },
+  "ohio": {
+   "speaker": "rt_waitress",
+   "lines": [
+    [
+     "rt_waitress",
+     "Two eggs over, white toast, and a question. Every morning the same question: Dot, has anybody local seen anything this year."
+    ],
+    [
+     "rt_waitress",
+     "And every morning I say, Royce has, go ask Royce."
+    ],
+    [
+     "rt_waitress",
+     "He never does. He wants me to have seen it. The van's got a photo of a little man on the side and it's the pawn shop's, from '75."
+    ],
+    [
+     "rt_waitress",
+     "I've not told him."
+    ],
+    [
+     "rt_waitress",
+     "Nineteen states on the count, hon, since you want it. Ohio's the most. Kentucky's the least. Kentucky's seen it already."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_wt_ohio",
+    "trust": {
+     "rt_waitress": 1
+    }
+   },
+   "next": "hub"
+  },
+  "seventy": {
+   "speaker": "rt_waitress",
+   "lines": [
+    [
+     "rt_waitress",
+     "...Daddy died. March of '70, at that register, with the ticket in it. Heart. I was twelve and I was in the kitchen."
+    ],
+    [
+     "rt_waitress",
+     "Mama took the ticket out and put it in the Bible and said luck's done. I've never looked for it since."
+    ],
+    [
+     "rt_waitress",
+     "It's in there somewhere, in Psalms, I think."
+    ],
+    [
+     "rt_waitress",
+     "Nobody's asked me what happened in 1970 in twenty-four years. They ask about 1955. I'd forgot I was waiting to be asked."
+    ],
+    [
+     "ruth",
+     "That's what a tally's for, honey. So the one year that matters to you has somewhere to hide."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rt_waitress": 1
+    }
+   },
+   "next": "hub"
+  },
+  "royce_booth": {
+   "speaker": "rt_waitress",
+   "lines": [
+    [
+     "rt_waitress",
+     "That he pulled over. The night the eyes were in the mirror."
+    ],
+    [
+     "rt_waitress",
+     "He's told you about the mirror, or he will; he's never told anybody he stopped the rig."
+    ],
+    [
+     "rt_waitress",
+     "Mile seven, engine running, doors locked, three in the morning."
+    ],
+    [
+     "rt_waitress",
+     "He sat there an hour with his hands on the wheel, waiting for whatever was in the sleeper to get out."
+    ],
+    [
+     "rt_waitress",
+     "And it didn't, and then it wasn't there."
+    ],
+    [
+     "rt_waitress",
+     "He told me 'cause I'd just poured and he had to say it to somebody holding a pot. Don't tell him you know. He'd quit the window booth."
+    ],
+    [
+     "elijah",
+     "He waited an hour with it behind him and didn't turn round. That's the most honest thing a frightened man can do."
+    ],
+    [
+     "elijah",
+     "He didn't make it into a story."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rt_waitress": 1
+    }
+   },
+   "next": "hub"
+  },
+  "royce_no": {
+   "speaker": "rt_waitress",
+   "lines": [
+    [
+     "rt_waitress",
+     "What a man says to a waitress at four in the morning is between him and the coffee. You go sit in his booth and ask him."
+    ],
+    [
+     "rt_waitress",
+     "He's over there watching his rig."
+    ]
+   ],
+   "next": "hub"
+  },
+  "last_year": {
+   "speaker": "rt_waitress",
+   "lines": [
+    [
+     "rt_waitress",
+     "...1986. She was in the hospital in town and she'd said the grey-as-ash part, like every year, and I said, Mama, I know."
+    ],
+    [
+     "rt_waitress",
+     "And she said, you don't."
+    ],
+    [
+     "rt_waitress",
+     "She said the old man held the cup in both hands and looked out the window at the lot."
+    ],
+    [
+     "rt_waitress",
+     "And there was nothing in the lot but their car and the police car."
+    ],
+    [
+     "rt_waitress",
+     "And he said to her, real quiet, so the boys wouldn't hear: ma'am, it followed us to town. It's out there now."
+    ],
+    [
+     "rt_waitress",
+     "And she looked, and there wasn't anything. And she poured him more coffee and never looked at the lot again."
+    ],
+    [
+     "rt_waitress",
+     "She said it once. Then she died in October. I've never said it to a soul and I don't know why I'm saying it to you, except you asked right."
+    ],
+    [
+     "vera",
+     "It followed them to town. The depot man says something crossed behind them. Two people, thirty-nine years apart, and the same sentence."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_wt_last",
+    "trust": {
+     "rt_waitress": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "last_no": {
+   "speaker": "rt_waitress",
+   "lines": [
+    [
+     "rt_waitress",
+     "Mama said what she said and she's in the Baptist cemetery and you can ask her there. I've got a counter."
+    ],
+    [
+     "rt_waitress",
+     "The Lacy cousin was in that car, hon. He was a boy. Go ask him what his granddaddy said at four in the morning."
+    ],
+    [
+     "rt_waitress",
+     "He'll tell it three different ways, but one of them's true."
+    ]
+   ],
+   "next": "hub"
+  },
+  "twentieth": {
+   "speaker": "rt_waitress",
+   "lines": [
+    [
+     "rt_waitress",
+     "...Daddy said the twenty-second."
+    ],
+    [
+     "rt_waitress",
+     "But Daddy also said the man paid with a fair ticket, and the fair was over on the twentieth."
+    ],
+    [
+     "rt_waitress",
+     "So where'd he get a ticket on the twenty-second?"
+    ],
+    [
+     "rt_waitress",
+     "I think he came in twice. The twentieth, with the show pulling out, asking after a monkey, and the twenty-second, come back, asking louder."
+    ],
+    [
+     "rt_waitress",
+     "Daddy ran 'em together. People do."
+    ],
+    [
+     "rt_waitress",
+     "So if you want a monkey loose on the twenty-first, hon, you've got one. Right up this road. Don't tell the Ohio van."
+    ],
+    [
+     "miriam",
+     "Two visits folded into one. That's how every story in this county was built. At least this one comes with a receipt."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_wt_twentieth",
+    "trust": {
+     "rt_waitress": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "id": "sf_penrose",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sf_penrose",
+   "lines": [
+    ["sf_penrose", "Lovely evening. The end of a pier at night is the only honest place in a seaside town. Nothing to sell, nothing to buy, just the drop."],
+    ["sf_penrose", "You'll be the Office. I knew the Office when it had one car. The car had a heater and the heater had an opinion. Penrose. You won't have heard it."],
+    ["sf_penrose", "Don't lean on the rail. It's 1973 stock and so am I."],
+    ["june", "His tie's not moving. The wind's got my hair in my mouth and his tie's hanging straight down like a plumb line."]
+   ],
+   "passives": [
+    {"voice": "logic", "threshold": 8, "line": "He said 'one car' and the Office had one car in 1973. He also said the heater had an opinion, which is in the founder's hand on a card you haven't found yet."},
+    {"voice": "arcana", "threshold": 9, "line": "The spray is on the boards, the rail, your coat, your partners. It is not on him. The sea has decided he isn't here.", "flag": "sf_penrose_dry"}
+   ],
+   "options": [
+    {"tone": "kind", "text": "We've heard of you, Mr Penrose. Not from the Office.", "next": "kind"},
+    {"tone": "hard", "text": "You've been waiting for us. Say why.", "next": "hard"},
+    {"tone": "silent", "text": "(Stand beside him. Look at the drop.)", "next": "silent", "trust": 1}
+   ],
+   "gives": {"flag": "met_sf_penrose"}
+  },
+  "kind": {
+   "speaker": "sf_penrose",
+   "lines": [
+    ["sf_penrose", "No. You wouldn't have. The Office took my card out in '74 and a town keeps a man longer than a filing cabinet does."],
+    ["sf_penrose", "Kind of you to lie, though. Kindness gets you home. Remember that when you file."]
+   ],
+   "next": "hub"
+  },
+  "hard": {
+   "speaker": "sf_penrose",
+   "lines": [
+    ["sf_penrose", "Waiting. Yes. Twenty-one years is a wait, but the pier's got a bench and the sea's got the time."],
+    ["sf_penrose", "I'm here to save you the ferry. That's all. I'm the man who says it's a hat, and I'm always right, and it's always a shame."]
+   ],
+   "next": "hub"
+  },
+  "silent": {
+   "speaker": "sf_penrose",
+   "lines": [
+    ["sf_penrose", "..."],
+    ["sf_penrose", "She did that. Stood here and didn't say a word and looked down, and the sea looked back, and she went inland the next morning and found the thing nobody wanted found."],
+    ["sf_penrose", "You've her way of standing. That's not a compliment, it's a warning."]
+   ],
+   "next": "hub",
+   "gives": {"dread": 1}
+  },
+  "hub": {
+   "speaker": "sf_penrose",
+   "repeat": true,
+   "prompt": "Ask what you like. The wind's getting up and you'll want to go in. I won't.",
+   "lines": [["sf_penrose", "Ask what you like. The wind's getting up and you'll want to go in. I won't."]],
+   "static": {"min_dread": 3, "line": "He isn't on the pier. The boards don't give under him. Ask him anyway. Ask him what it costs to file."},
+   "options": [
+    {"check": {"voice": "press", "kind": "white", "difficulty": 9, "evidence_bonus": {"sf_penrose_advice": 1, "sf_penrose_1973": 2}},
+     "text": "Who sent you, in '73? And who's sending you now?", "pass": "sent",
+     "fail": {"line": "Sent. Nobody's sent anybody since the heater packed up. Go in. You're cold and you're going to be colder."}},
+    {"check": {"voice": "nerve", "kind": "white", "difficulty": 9},
+     "text": "(Stand on the rail side of him. Between him and the drop.)", "pass": "stand",
+     "fail": {"next": "stand_fail", "dread": 1}},
+    {"requires": {"flag": ["sf_penrose_dry"], "not_flag": ["sf_penrose_admitted", "sf_penrose_shut"]},
+     "check": {"voice": "arcana", "kind": "red", "difficulty": 11, "evidence_bonus": {"hut_founder_card": 2, "tn_levels_other_file": 1, "cd_sigil_1973": 1}},
+     "text": "You're dry. The spray's on everything on this pier but you. When did you stop coming in off the tide, Penrose?", "pass": "dry",
+     "fail": {"next": "dry_fail", "trust": {"sf_penrose": -1}, "dread": 1}},
+    {"requires": {"evidence": ["hut_founder_card"]},
+     "text": "Gus Weller's card. May 1973. Her hand. She didn't file it as a hat.", "next": "card"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "Goodnight, Mr Penrose."}
+   ]
+  },
+  "sent": {
+   "speaker": "sf_penrose",
+   "lines": [
+    ["sf_penrose", "The Office sent me, in June '73. Buy the father a drink, agree with the sergeant, come home. I did. It's the only case I ever closed properly."],
+    ["sf_penrose", "Now? Nobody. I file for the filing. Somebody has to tell the ones who come after that it was a hat, or they stop coming home."],
+    ["sf_penrose", "She didn't come home. I did. Look at us both and tell me who got the better of it."],
+    ["teddy", "He's talking about Weller like she's dead and himself like he isn't. I'm not sure either's the right way round."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_penrose_sent", "dread": 1}
+  },
+  "stand": {
+   "speaker": "sf_penrose",
+   "lines": [
+    ["sf_penrose", "...Well. You'd stand between a man and the sea. She'd have done that. She did do that, on this spot, for me, and I filed her for it."],
+    ["sf_penrose", "You're one of hers. I'd hoped you weren't. Go on, then. Ask the rest. I'll answer you straighter than I meant to."],
+    ["elijah", "The boards didn't creak when you moved. They creaked when I did. Keep your weight on your heels."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_penrose_stood", "trust": {"sf_penrose": 1}, "dread": 1}
+  },
+  "stand_fail": {
+   "speaker": "sf_penrose",
+   "lines": [
+    ["sf_penrose", "No. Not there. The rail's 1973 stock, I said, and the sea's not interested in you, and I'd like it to stay that way."],
+    ["sf_penrose", "Go in. The cafe woman will give you tea and the whole front's version. It's warmer than mine."]
+   ],
+   "next": "hub"
+  },
+  "dry": {
+   "speaker": "sf_penrose",
+   "lines": [
+    ["sf_penrose", "..."],
+    ["sf_penrose", "The Tuesday. The 29th. I walked out on the Levels at dusk to put an end to it, found the hut, went in, and came out on this pier with the tide. The tide's been out ever since."],
+    ["sf_penrose", "There's no body, if that's what you're writing. There's a man in a grey suit who gives advice. The advice is still good. File it as a hat. Go home. I mean it kindly."],
+    ["sf_penrose", "The hut's got a room behind the dials. I'd not go in it. I did, and look."],
+    ["vera", "He went through the inner door. Whatever's behind it, it keeps what goes in and sends the rest back to give advice."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_penrose_admitted", "dread": 1, "trust": {"sf_penrose": 1}}
+  },
+  "dry_fail": {
+   "speaker": "sf_penrose",
+   "end": true,
+   "lines": [
+    ["sf_penrose", "Dry. Yes. It's a good coat."],
+    ["sf_penrose", "That's enough of the pier for tonight. The wind's up, and you've a guest house with a landlady who locks at eleven. Mind the rail."],
+    ["june", "...He's gone. Not walked. The boards are wet where he was standing and they weren't before."]
+   ],
+   "gives": {"flag": "sf_penrose_shut"}
+  },
+  "card": {
+   "speaker": "sf_penrose",
+   "end": true,
+   "lines": [
+    ["sf_penrose", "...Augusta. 'Do not file.' Her hand. She wrote that on the 28th and walked out to the hut on the 29th to prove it, and I walked out on the 29th to prove her wrong."],
+    ["sf_penrose", "One of us came back. You've got her card, so you know which, and you know what it means that I'm still giving advice."],
+    ["sf_penrose", "Keep the card. Don't keep the advice. Goodnight. The sea's a long way down and it knows your name now, which is my fault."],
+    ["ruth", "Oh, my dear man. You were the one she sent home. You've been here the whole time."]
+   ],
+   "gives": {"flag": "sf_penrose_card", "dread": 1, "trust": {"sf_penrose": 1}}
+  }
+ }
+}

@@ -1,0 +1,396 @@
+{
+ "_doc": "Mrs. Teague, Christian County clerk, sixties, married into the Sinks Teagues and not pleased about it. The visitors' book is under glass because both kinds of people tried to tear the page out. Dry, exact, official, closes at four, and will not be explaining 1955 unless you make it a records question.",
+ "id": "hv_county_clerk",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_county_clerk",
+   "lines": [
+    [
+     "hv_county_clerk",
+     "Deeds, licences, the visitors' book and the court calendar. If it's the book, it's under the glass, you read it there, and I was not here in 1955, so I will not be explaining it. Mrs. Teague."
+    ],
+    [
+     "hv_county_clerk",
+     "I say that to everyone. I've said it to both kinds of people. It's the only sentence that works on both."
+    ],
+    [
+     "teddy",
+     "'Both kinds of people.' She means the ones who want it to say hoax and the ones who want it not to. She's filed us under neither yet."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "The glass over the book is new and the page is open to August 1955, and the three Lacy entries have been underlined in pencil by someone who wasn't a clerk. The clerk didn't erase it. She wants it read."
+    },
+    {
+     "voice": "press",
+     "threshold": 9,
+     "line": "'Teague' on the nameplate, and she touched it when she said it, like a bruise. The Teagues are the Sinks family with the lantern story. She married into the joke and she's been standing next to it at this counter ever since.",
+     "flag": "hv_county_clerk_teague"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll read it under the glass, Mrs. Teague. We've got a records question, not a 1955 question.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "The only sentence that works on both kinds. We'll try to be a third kind.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "It's a public record. We want it out from under the glass and copied.",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_county_clerk"
+   }
+  },
+  "hub": {
+   "speaker": "hv_county_clerk",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_county_clerk",
+     "A records question, then. This office closes at four. Make it one that has a record."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The glass lifts. It's not locked, it's set in a frame. Both kinds of people tried to tear the page out. Be the third kind. Take the whole book."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "hv_ledger_front_page": 1,
+       "kc_hardin_reporters": 1
+      }
+     },
+     "text": "Three entries in four days. A permit, a refusal, a damages claim. Read them to us as a clerk reads them, not as a story.",
+     "pass": "glass",
+     "fail": {
+      "next": "glass_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_courthouse_book": 2,
+       "sk_guide_lantern": 1
+      }
+     },
+     "text": "'Permit denied, re: parking on US-41.' Nobody denies a fifty-cent permit over parking. Who was the judge, and whose cousin was he?",
+     "pass": "permit",
+     "fail": {
+      "next": "permit_no",
+      "trust": {
+       "hv_county_clerk": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_courthouse_book"
+      ]
+     },
+     "tone": "kind",
+     "text": "29 August: 'damages, Fort Campbell, referred to the county attorney.' That file would have a number. A clerk would know the number.",
+     "next": "damages"
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_county_clerk_teague"
+      ]
+     },
+     "check": {
+      "voice": "intimidate",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "sk_guide_lantern": 2,
+       "sk_guide_poachers": 1
+      }
+     },
+     "text": "Clell Teague told the lantern story at every store in the county for thirty years. You've heard it at your own table. Where were the Teagues that night, Mrs. Teague?",
+     "pass": "teague",
+     "fail": {
+      "next": "teague_no",
+      "trust": {
+       "hv_county_clerk": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "tone": "wry",
+     "text": "Does the courthouse clock ever strike on time, or is that also a records question?",
+     "next": "clock"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all before four, Mrs. Teague."
+    }
+   ]
+  },
+  "glass": {
+   "speaker": "hv_county_clerk",
+   "lines": [
+    [
+     "hv_county_clerk",
+     "25 August 1955. J. W. Lacy, re: permit, exhibition of premises, admission fifty cents. 26 August: permit denied, re: parking on US-41. 29 August: J. W. Lacy, re: damages, Fort Campbell, referred to the county attorney."
+    ],
+    [
+     "hv_county_clerk",
+     "That's a man who was told his night was a joke on Tuesday and came in Thursday to charge for it, was turned down Friday, and came back Monday to say the Army had broken something. That's not a story."
+    ],
+    [
+     "hv_county_clerk",
+     "That's three lines in a book. I'm a clerk. I notice the dates."
+    ],
+    [
+     "hv_county_clerk",
+     "Both kinds of people tear out the same page. One kind because it says 'admission fifty cents'. The other because it says 'Fort Campbell'. It's the same page. It says both."
+    ],
+    [
+     "miriam",
+     "A family that tried to make money from it and a family that tried to make the Army pay for it, in the same week, on the same page. Both things are true and both kinds of people can only read one line at a time."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_clerk_book",
+    "evidence": "hv_courthouse_book",
+    "trust": {
+     "hv_county_clerk": 1
+    },
+    "flag": "hv_county_clerk_glass"
+   },
+   "next": "hub"
+  },
+  "glass_no": {
+   "speaker": "hv_county_clerk",
+   "lines": [
+    [
+     "hv_county_clerk",
+     "It's under the glass. The glass is clean. I cleaned it this morning. Read it yourself; that's what the glass is for."
+    ],
+    [
+     "ruth",
+     "She's not being unkind, dear. She's being a clerk. Read it, then ask her about what you read. That's the order she takes things in."
+    ]
+   ],
+   "next": "hub"
+  },
+  "permit": {
+   "speaker": "hv_county_clerk",
+   "lines": [
+    [
+     "hv_county_clerk",
+     "...County Judge Harlan Teague. My husband's great-uncle. And yes."
+    ],
+    [
+     "hv_county_clerk",
+     "Clell was his nephew, and Clell was telling the lantern story at the store by Wednesday, and a county judge doesn't give a permit to a man his own nephew's calling a liar in public."
+    ],
+    [
+     "hv_county_clerk",
+     "'Parking on US-41' is what you write when you can't write 'my family's already made a joke of yours and I'd rather not put the county's stamp on it'. I've thought about that line a long time."
+    ],
+    [
+     "hv_county_clerk",
+     "It's a careful line. He was a careful man. It was still wrong."
+    ],
+    [
+     "hv_county_clerk",
+     "The Lacys never came back to this counter after the 29th. Not for a deed, not for a licence, nothing, till Lonnie's mother's death certificate in 1978."
+    ],
+    [
+     "hv_county_clerk",
+     "Forty years of a family not coming to the courthouse. I'm a clerk. I notice absences."
+    ],
+    [
+     "elijah",
+     "She's carrying her husband's family's debt to the Lacys at a public counter, and she's just paid a little of it. To us. Because we asked as a records question."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_county_clerk_permit",
+    "trust": {
+     "hv_county_clerk": 1
+    }
+   },
+   "next": "hub"
+  },
+  "permit_no": {
+   "speaker": "hv_county_clerk",
+   "lines": [
+    [
+     "hv_county_clerk",
+     "The county judge in 1955 is on the wall behind you with the other county judges. His name's under his picture. I don't do cousins. Half this county's cousins; I'd never close."
+    ],
+    [
+     "hv_county_clerk",
+     "Four o'clock."
+    ],
+    [
+     "teddy",
+     "It's a quarter past two. She means it's four o'clock for us. The name's on the wall, though. She told us that much."
+    ]
+   ],
+   "next": "hub"
+  },
+  "damages": {
+   "speaker": "hv_county_clerk",
+   "lines": [
+    [
+     "hv_county_clerk",
+     "...55-C-212. It's in the county attorney's closed files and I shouldn't know that, and I do, because I was the county attorney's girl from 1961 to 1970 and I filed it in '63 when they closed it."
+    ],
+    [
+     "hv_county_clerk",
+     "Forty feet of fence and a gatepost, on the Kelly road side of the Lacy place, knocked down on the night of the 21st. Claim against the Army."
+    ],
+    [
+     "hv_county_clerk",
+     "The Army paid it in October 1955 without a hearing, which the Army does not do, and the file says 'vehicle, military, patrol, night of 21 Aug'."
+    ],
+    [
+     "hv_county_clerk",
+     "A jeep was on that farm that night. Not the boundary road. The farm. Somebody drove through the Lacys' fence and the Army wrote a cheque rather than say who. That's a records answer."
+    ],
+    [
+     "hv_county_clerk",
+     "Do what you like with it."
+    ],
+    [
+     "june",
+     "The MP said they ran the boundary road to Kelly station and back. A jeep through the farm fence isn't on the boundary road. Either there was a second jeep, or the report in the box leaves something out."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "Paid without a hearing, in six weeks. The Army doesn't pay for fences. It pays for silence, and it pays promptly."
+    }
+   ],
+   "gives": {
+    "flag": "hv_county_clerk_damages",
+    "trust": {
+     "hv_county_clerk": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "teague": {
+   "speaker": "hv_county_clerk",
+   "lines": [
+    [
+     "hv_county_clerk",
+     "...At my mother-in-law's table. All of them."
+    ],
+    [
+     "hv_county_clerk",
+     "Sunday supper, the 21st, Clell and his brothers and the county judge, from six till past midnight, because it was the judge's birthday and nobody leaves the judge's birthday."
+    ],
+    [
+     "hv_county_clerk",
+     "Clell was never in that yard with a lantern or a jar or anything else."
+    ],
+    [
+     "hv_county_clerk",
+     "He was drunk at his own mother's table seven miles off and he told the lantern story afterward because it got a laugh, and it got a laugh for thirty years, and that family paid for every one of them."
+    ],
+    [
+     "hv_county_clerk",
+     "My mother-in-law told me that the week I married in. She told me so I'd know what I was marrying."
+    ],
+    [
+     "hv_county_clerk",
+     "I've never said it outside the family and I'm saying it now at a public counter so that it's said somewhere with a date on it. Write the date."
+    ],
+    [
+     "miriam",
+     "The lantern story is the county's favourite hoax explanation and it has an alibi. Thirty-nine years and the alibi was sitting at a courthouse counter waiting to be asked by somebody who wasn't a Teague."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_county_clerk_alibi",
+    "trust": {
+     "hv_county_clerk": 2
+    }
+   },
+   "next": "hub"
+  },
+  "teague_no": {
+   "speaker": "hv_county_clerk",
+   "lines": [
+    [
+     "hv_county_clerk",
+     "You will not say that name to me in that voice at my own counter. I have had it said at my table for thirty-four years by people entitled to, and you are not."
+    ],
+    [
+     "hv_county_clerk",
+     "This office is closed. It's closed to you tomorrow. Deeds are at the window on the left and you can get them from Mr. Hayes."
+    ],
+    [
+     "ruth",
+     "We used her husband's name as a stick, dear, and she's been beaten with it longer than we've been alive. That door's shut, and it was the right one."
+    ]
+   ],
+   "end": true
+  },
+  "clock": {
+   "speaker": "hv_county_clerk",
+   "lines": [
+    [
+     "hv_county_clerk",
+     "It strikes four minutes slow. It has since 1937. The county voted twice not to fix it, because the lawyers like the four minutes. That's a records question. I have the minutes."
+    ],
+    [
+     "hv_county_clerk",
+     "...The Lacys' permit hearing was at four. The judge heard it at four by his watch and signed the refusal before the clock struck. I don't know why I've remembered that."
+    ],
+    [
+     "hv_county_clerk",
+     "I was told it by his secretary, who thought it was funny."
+    ],
+    [
+     "teddy",
+     "Four minutes of county time, used to refuse a family before the bell. She remembers it because it isn't funny. Neither does anyone else, apparently."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_county_clerk_clock",
+    "trust": {
+     "hv_county_clerk": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

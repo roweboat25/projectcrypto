@@ -1,0 +1,392 @@
+{
+ "_doc": "Sergeant Dub Cansler, the Hopkinsville desk sergeant, fifties, born after 1955 and raised on the station's version of it. One hand flat on the 1955 desk log, the other on the phone. Proud of the chief's underlined line, tired of August, and he has read that log more than any man alive.",
+ "id": "hv_sergeant",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "Afternoon. Y'all are the West Virginia people. Dorene called from the motor court, Royce called from the pawn, and the Ledger called to ask if I'd called. It's August. Sit if you want."
+    ],
+    [
+     "hv_sergeant",
+     "The log stays under my hand. That's not personal. Every August somebody wants a page out of it and every August I say the same thing: it's a police record, read it from where you are."
+    ],
+    [
+     "teddy",
+     "He's got a stack of 1994 incident files beside it and he hasn't touched one. The 1955 book is the only thing on that desk he's guarding."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "The log's open. Not shut, not in a drawer: open to a page, under his palm. He reads it when nobody's in. He's been reading it this morning."
+    },
+    {
+     "voice": "press",
+     "threshold": 9,
+     "line": "'Read it from where you are.' That's an invitation dressed as a refusal. He wants to be asked properly, by somebody who knows what's in it.",
+     "flag": "hv_sergeant_invites"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll read it from here, Sergeant. We came for the station's side. Nobody ever prints the station's side.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Three phone calls before we got through the door. That's the fastest police work we've seen all year.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "It's a public record, Sergeant. We know the chapter and verse. Take your hand off it.",
+     "next": "hard"
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_sergeant"
+   }
+  },
+  "hard": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "You know the chapter. Good. Then you know it says 'reasonable time', and I'm the one who decides what's reasonable, and today it's long."
+    ],
+    [
+     "hv_sergeant",
+     "Sit down or don't. The hand stays."
+    ],
+    [
+     "miriam",
+     "We cited the law to the one man in this building who's read it more than we have. We'll be here a while now."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "hv_sergeant": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "hv_sergeant",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_sergeant",
+     "Go on. The phone'll ring in a minute, it always does. Ask before it does."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The phone will ring. He turns his back to the window to answer it. One page, folded once, in your sleeve. He would never check. He trusts the hand, not the eyes."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "hv_bbq_sober": 1,
+       "rt_sober_at_four": 1
+      }
+     },
+     "text": "Tell it the way the station tells it. The two-thirty call, the cars, the chief's line.",
+     "pass": "station",
+     "fail": {
+      "next": "station_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_shell_box_photo": 1,
+       "fm_shotgun_photo": 1,
+       "hv_pawn_owls": 1
+      }
+     },
+     "text": "The chief wrote something and crossed it out with the family sitting there. A crossed-out line is still a line. What did it say?",
+     "pass": "crossed",
+     "fail": {
+      "next": "crossed_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_sergeant_invites"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "hv_admission_record": 2,
+       "hv_clerk_confirms": 1,
+       "hv_drunk_rumour": 1
+      }
+     },
+     "text": "You've read that book more than anybody alive. There's one line in it you'd take out if you could. Which?",
+     "pass": "theline",
+     "fail": {
+      "next": "theline_no",
+      "trust": {
+       "hv_sergeant": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_founder_signature"
+      ]
+     },
+     "tone": "kind",
+     "text": "0610, 22 August 1955. 'G. Weller, Sutton, W.Va.' That's our office. She was at this counter before the newspapers.",
+     "next": "weller"
+    },
+    {
+     "tone": "silent",
+     "text": "(Sit down on the bench and wait for the phone.)",
+     "next": "bench",
+     "trust": 1
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Sergeant."
+    }
+   ]
+  },
+  "station": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "Two-thirty. Eight of them through that door, white as flour, the two little boys asleep standing up."
+    ],
+    [
+     "hv_sergeant",
+     "The chief, the sergeant, four cars and the state police out to Kelly, and they found pellet holes in the screens and a dog under the house."
+    ],
+    [
+     "hv_sergeant",
+     "And the chief wrote one line and underlined it. No evidence of drinking. He had a nose like a judge. He went looking for the easy answer and he wrote down that it wasn't there."
+    ],
+    [
+     "hv_sergeant",
+     "This station's lived on that line thirty-nine years. It's the only thing anybody in this town did right that week."
+    ],
+    [
+     "miriam",
+     "A chief who checked for the easy answer and recorded its absence. I'll take that over a photograph. I'd like to have met him."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_sgt_night",
+    "evidence": "hv_sgt_sober",
+    "trust": {
+     "hv_sergeant": 1
+    },
+    "flag": "hv_sergeant_station"
+   },
+   "next": "hub"
+  },
+  "station_no": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "It's on the wall. Chiefs of police, 1920 to now. His picture's the third one. Read his face and you've got the station's side."
+    ],
+    [
+     "teddy",
+     "He's pointing at a photograph instead of talking. He'll talk. Somebody else today, and he'll talk."
+    ]
+   ],
+   "next": "hub"
+  },
+  "crossed": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "...High. All of it went high. The chief's boy walked the yard in daylight and found number six in the oak limbs, the barn tin and the top of the chicken house. Nothing at man height. Not one hole."
+    ],
+    [
+     "hv_sergeant",
+     "He wrote 'all shots fired upward, at something in the trees' and then he looked at that family and he drew a line through it. You can read it under the line. He didn't press hard."
+    ],
+    [
+     "hv_sergeant",
+     "He didn't press hard because he wanted it read later. By somebody like you, I expect. Not by them."
+    ],
+    [
+     "dale",
+     "Number six, high, into trees. I could walk out of here and file it now. I'm not going to, and I'd like it noted that I'm the one saying that."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_sgt_birdshot",
+    "evidence": "hv_sgt_birdshot",
+    "trust": {
+     "hv_sergeant": 1
+    },
+    "flag": "hv_sergeant_crossed"
+   },
+   "next": "hub"
+  },
+  "crossed_no": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "A crossed-out line's a crossed-out line. The chief crossed it out for a reason and I wasn't there to hear it. Try me tomorrow. Try me with something in your hand."
+    ],
+    [
+     "june",
+     "He said 'something in your hand'. He means evidence. He's telling us the price."
+    ]
+   ],
+   "next": "hub"
+  },
+  "theline": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "...Three in the morning. 'Passed subject walking north on 41, no light, believed to be the neighbour.' Believed. One word, and the county's hung a man on it for thirty-nine years."
+    ],
+    [
+     "hv_sergeant",
+     "These boys knew every man in the county by his walk. If they'd known that one they'd have written his name. They wrote 'believed'."
+    ],
+    [
+     "hv_sergeant",
+     "I'd take out 'believed' and leave the rest, and then nobody'd know who was on that road."
+    ],
+    [
+     "hv_sergeant",
+     "I don't know who was on that road. Walking north. Toward the farm. At three. With no light."
+    ],
+    [
+     "elijah",
+     "He's carried that word around for years and just set it down on the desk. It's heavier than the book."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 8,
+     "line": "No light, three in the morning, walking toward the house and not away from it. Everybody else that night ran toward town. One thing walked the other way."
+    }
+   ],
+   "gives": {
+    "fact": "hv_sgt_walker",
+    "evidence": "hv_sgt_unknown_walker",
+    "trust": {
+     "hv_sergeant": 1
+    },
+    "flag": "hv_sergeant_theline",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "theline_no": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "I wouldn't take out a line of it. It's a police record. You don't take lines out of a police record, that's the whole of what it's for."
+    ],
+    [
+     "hv_sergeant",
+     "And I'll thank you not to ask a sergeant what he'd forge. Hollis'll see you out. He's got nothing on his hand but a doughnut."
+    ],
+    [
+     "ruth",
+     "That one cost us, dear. He heard 'forge' where we said 'regret'. The deputy might hear it the way we meant it."
+    ]
+   ],
+   "end": true
+  },
+  "weller": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "...Yeah. I've looked at that line more than I've looked at the shooting. Four hours after the family and before the Army, a woman from West Virginia with a card file. Nobody's ever asked about her."
+    ],
+    [
+     "hv_sergeant",
+     "Everybody asks about the little men."
+    ],
+    [
+     "hv_sergeant",
+     "She came back. 1967, December, the chief was gone by then. Signed the book again. 'Re: Kelly. Re: Penrose.' And two days after her, a man in a suit, asking which road she'd taken out of town."
+    ],
+    [
+     "hv_sergeant",
+     "I don't know who Penrose is. I've got the book that says she was looking for him, and then I've got nothing. Your office might. Your office didn't call."
+    ],
+    [
+     "miriam",
+     "Gus Weller was here. Twice. The second time she was looking for him, and he was looking for her. Nobody at the Office told us that and I want to know why."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_sergeant_weller",
+    "trust": {
+     "hv_sergeant": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "bench": {
+   "speaker": "hv_sergeant",
+   "lines": [
+    [
+     "hv_sergeant",
+     "...It's Dorene again. She wants to know if y'all are staying through the twenty-first. I told her you'd tell her yourself."
+    ],
+    [
+     "hv_sergeant",
+     "People in this town don't stay for the twenty-first. They go to the fairgrounds, or Clarksville, or they sit up with the lights on. The man in room 3 checks out."
+    ],
+    [
+     "hv_sergeant",
+     "Every year the same man, every year the same room, and I've been doing this since '79."
+    ],
+    [
+     "elijah",
+     "Every year. Since '79. And he's 'about fifty'. Nobody write anything down yet."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_sergeant_bench"
+   },
+   "next": "hub"
+  }
+ }
+}

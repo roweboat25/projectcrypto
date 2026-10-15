@@ -1,0 +1,417 @@
+{
+ "_doc": "Royce Pettit, the fifth gun. Sober in the Pettit back room in the mornings; on the porch swing at dusk and night once he has been calmed (the wild version is a fight on the map). Trust 1, ashamed, shaking, counts things. The red check makes him say the Lacys were shooting at him; the feed-store book is the shows table's way in.",
+ "id": "kc_drunk",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_drunk",
+   "lines": [
+    [
+     "kc_drunk",
+     "Dessie said y'all would come. She said be civil. I'm civil mornings. Ask anybody."
+    ],
+    [
+     "kc_drunk",
+     "I ain't got nothing for the paper. I was asleep. Everybody on this road was asleep but the Lacys and the Lord."
+    ],
+    [
+     "elijah",
+     "His hands. Look at his hands, and then don't."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "He says 'asleep' and looks at the floor between his feet, where a man looks when he's counting steps he took once."
+    },
+    {
+     "voice": "nerve",
+     "threshold": 8,
+     "line": "Shotgun shells in a row on the table, red, brass up. Nine. He touches them while he talks, one, two, three, like a rosary.",
+     "flag": "kc_drunk_counts"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're not the paper, Mr Pettit. We don't print. We file.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "You weren't asleep. Everybody on this road knows it. We'd just like to hear it from the man.",
+     "next": "hub"
+    },
+    {
+     "tone": "silent",
+     "text": "(Sit down across from him and say nothing.)",
+     "next": "hub",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_drunk"
+   }
+  },
+  "hub": {
+   "speaker": "kc_drunk",
+   "repeat": true,
+   "lines": [
+    [
+     "kc_drunk",
+     "...All right. Ask. Low, though. She's in the kitchen."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Nine shells on the table. He fired nine. He knows which one hit something. Make him tell you which one, and what it sounded like when it hit."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "kc_drunk_hard"
+      ]
+     },
+     "tone": "hard",
+     "text": "You walked up a road with a gun and a pint toward a house full of children.",
+     "next": "hard"
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "kc_prayer_list_1955": 1
+      }
+     },
+     "text": "What do you drink to on the twenty-first, Royce? Not what. Who.",
+     "pass": "who",
+     "fail": {
+      "next": "who_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_drunk_counts"
+      ],
+      "not_flag": [
+       "kc_drunk_counted"
+      ]
+     },
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "kc_royce_owl": 1,
+       "kc_crossbuck_spread": 1
+      }
+     },
+     "text": "Nine shells on the table. How many did you fire that night? You know the number.",
+     "pass": "count",
+     "fail": {
+      "line": "I don't count. I just like 'em in a row. Dessie says I'm particular.",
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "kc_hardin_shooting"
+      ],
+      "not_flag": [
+       "kc_drunk_shot_at"
+      ]
+     },
+     "check": {
+      "voice": "rapport",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "kc_hardin_shooting": 1,
+       "kc_odessa_admits": 2,
+       "hv_sgt_birdshot": 1
+      }
+     },
+     "text": "Cleve Hardin heard a gun walking the road. The Lacys were firing back. Say the part you've never said, Royce. They were shooting at you.",
+     "pass": "shot_at",
+     "fail": {
+      "next": "shot_at_no",
+      "trust": {
+       "kc_drunk": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "drunk_calmed"
+      ],
+      "not_flag": [
+       "kc_drunk_porch"
+      ]
+     },
+     "tone": "kind",
+     "text": "The gun's on the swing with the action open and the shells in a row. You put it there yourself.",
+     "next": "porch"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Pettit."
+    }
+   ],
+   "shows": {
+    "rt_shell_book_1955": "feed_book"
+   }
+  },
+  "hard": {
+   "speaker": "kc_drunk",
+   "lines": [
+    [
+     "kc_drunk",
+     "...Yes sir. I did."
+    ],
+    [
+     "kc_drunk",
+     "I thought they needed help. That's the God's truth and it's no excuse."
+    ],
+    [
+     "kc_drunk",
+     "I heard shooting and I thought, Royce, go help, and I took Daddy's gun and the rest of the pint and I went."
+    ],
+    [
+     "kc_drunk",
+     "There was eleven people in that house and three of 'em under ten and I put shot in the fence forty feet from the porch. You can say it."
+    ],
+    [
+     "kc_drunk",
+     "I say it every morning."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_drunk_hard",
+    "dread": 1,
+    "trust": {
+     "kc_drunk": 1
+    }
+   },
+   "next": "hub"
+  },
+  "who": {
+   "speaker": "kc_drunk",
+   "lines": [
+    [
+     "kc_drunk",
+     "...Mrs Lacy. The old lady."
+    ],
+    [
+     "kc_drunk",
+     "She came across the road in '56 with a pie. A pie. Set it on this table and said, Royce, we're all right, and went home."
+    ],
+    [
+     "kc_drunk",
+     "Never said another word about it, not in twenty years."
+    ],
+    [
+     "kc_drunk",
+     "She knew. She'd have been at the window. She knew whose shirt that was in the tobacco and she brought me a pie. I drink to her."
+    ],
+    [
+     "kc_drunk",
+     "I'd rather she'd slapped me."
+    ],
+    [
+     "ruth",
+     "A pie's a slap, honey. From a woman like that, a pie is the hardest thing she could have carried over."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_drunk": 1
+    }
+   },
+   "next": "hub"
+  },
+  "who_no": {
+   "speaker": "kc_drunk",
+   "lines": [
+    [
+     "kc_drunk",
+     "I drink to the twenty-first. That's who."
+    ],
+    [
+     "kc_drunk",
+     "Go ask Brother Tilley what I drink to, he's had it off me every August and he ain't told nobody yet."
+    ]
+   ],
+   "next": "hub"
+  },
+  "count": {
+   "speaker": "kc_drunk",
+   "lines": [
+    [
+     "kc_drunk",
+     "Nine."
+    ],
+    [
+     "kc_drunk",
+     "Box of fours holds twenty-five and Daddy'd used some, and I come home with eleven."
+    ],
+    [
+     "kc_drunk",
+     "I've had nine on this table since 1955 and never bought another."
+    ],
+    [
+     "kc_drunk",
+     "Two at the house. God forgive me. Five walking, at the eyes. Two straight up under the oak, 'cause by then the eyes was over my head."
+    ],
+    [
+     "kc_drunk",
+     "The eyes didn't go out. Nine shots and the eyes didn't go out. You tell me what it was, you're the ones with the file."
+    ],
+    [
+     "dale",
+     "Eyes over his head under the gully oak. Two shots of birdshot into a roost."
+    ],
+    [
+     "dale",
+     "Every owl in that tree came down on him and he saw it as the eyes not going out."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_drunk_counted",
+    "trust": {
+     "kc_drunk": 1
+    }
+   },
+   "next": "hub"
+  },
+  "shot_at": {
+   "speaker": "kc_drunk",
+   "lines": [
+    [
+     "kc_drunk",
+     "...Yes."
+    ],
+    [
+     "kc_drunk",
+     "Something hit the mailbox beside my head like a handful of gravel. Then the fence post."
+    ],
+    [
+     "kc_drunk",
+     "I was in the tobacco with my face in the dirt and the shot was going through the leaves over me like rain."
+    ],
+    [
+     "kc_drunk",
+     "They was shooting at the thing on the fence. The thing on the fence was me, with Daddy's gun, drunk."
+    ],
+    [
+     "kc_drunk",
+     "And then it wasn't me, 'cause I'd crawled, and they kept shooting. So I don't know. I don't know what it was after I crawled."
+    ],
+    [
+     "kc_drunk",
+     "I been not knowing in this chair thirty-nine years. That's the whole thing. That's all of it."
+    ],
+    [
+     "miriam",
+     "That's as honest as a witness gets. He was the thing on the fence, and then he wasn't, and the shooting went on. Both halves are true."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_drunk_shot_at",
+    "trust": {
+     "kc_drunk": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "shot_at_no": {
+   "speaker": "kc_drunk",
+   "lines": [
+    [
+     "kc_drunk",
+     "Cleve Hardin. Cleve Hardin never said a word to me in thirty-nine years and he said it to you."
+    ],
+    [
+     "kc_drunk",
+     "Get out of my sister's house. Come back when you ain't carrying Cleve Hardin in your mouth."
+    ]
+   ],
+   "end": true
+  },
+  "feed_book": {
+   "speaker": "kc_drunk",
+   "lines": [
+    [
+     "kc_drunk",
+     "...That's me. 'A neighbour of theirs, on his way home from town.' That's Stokes's granddaddy's writing. 'Already had some.'"
+    ],
+    [
+     "kc_drunk",
+     "He meant whiskey. He sold me the double-ought anyhow."
+    ],
+    [
+     "kc_drunk",
+     "Then I went by Oates' for the fours and the pint, 'cause I didn't have enough of either. That's a man getting ready."
+    ],
+    [
+     "kc_drunk",
+     "Two stores sold me shells that day and neither one asked what for. Nobody on this road ever asked me what for."
+    ],
+    [
+     "teddy",
+     "Two shell books, two stores, one afternoon. That's not a man who heard shooting and ran to help. That's a man who was going anyway."
+    ]
+   ],
+   "gives": {
+    "evidence": "kc_royce_road",
+    "fact": "kc_dr_road",
+    "trust": {
+     "kc_drunk": 1
+    }
+   },
+   "next": "hub"
+  },
+  "porch": {
+   "speaker": "kc_drunk",
+   "lines": [
+    [
+     "kc_drunk",
+     "...I did. First time it's been out of my hands on the twenty-first since 1955."
+    ],
+    [
+     "kc_drunk",
+     "Thirty-nine Augusts I sat here with it across my knees waiting on them to come back. They never did. Y'all did. I about shot West Virginia."
+    ],
+    [
+     "kc_drunk",
+     "Leave it there. Dessie can see it from the door. She ain't seen it with the action open in her life, and I'd like her to look a while."
+    ],
+    [
+     "elijah",
+     "He's not guarding the road any more. He's letting her watch him not guard it. That's the night ending, thirty-nine years late."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_drunk_porch",
+    "trust": {
+     "kc_drunk": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

@@ -1,0 +1,385 @@
+{
+ "_doc": "Dorene Fuqua, the Pennyrile Motor Court, fifties, in the office with the TV on and the key board behind her, every hour of the day. Her mother ran it in 1955 and told the room 3 story like a ghost story. Talks to everyone, calls everyone, put the Office next door to the man in the suit and is beginning to regret it.",
+ "id": "hv_motel_owner",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_motel_owner",
+   "lines": [
+    [
+     "hv_motel_owner",
+     "Room 1, like I said on the phone, ice machine's by the office and it works if you hit it. Dorene."
+    ],
+    [
+     "hv_motel_owner",
+     "Y'all want the TV people's rate or the regular, because the TV people's rate is more and I'll feel bad."
+    ],
+    [
+     "hv_motel_owner",
+     "I put you next to the gentleman in 3. He said he knew your office. I'm starting to think I should've asked which way he meant that."
+    ],
+    [
+     "teddy",
+     "She's already called the sergeant, the pawn shop and the Ledger about us. She'll call them about this conversation. Say things you want repeated."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "tech",
+     "threshold": 7,
+     "line": "The key board has every room's key on its hook but 1 and 3. Room 3's phone cord is coiled on the desk, unplugged at the wall, not at the phone. She did it from the office end. He never touched it."
+    },
+    {
+     "voice": "fieldcraft",
+     "threshold": 9,
+     "line": "The Buick in front of 3 has no dust on the hood and no bugs on the glass, in August, on a gravel lot. It hasn't been driven here. It's been put here.",
+     "flag": "hv_motel_buick"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "The regular rate, Dorene. And whatever your mother told you about room 3, we'd like to hear it the way she told it.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Next to the man who knows our office. Well. We'll keep the TV down.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "Room 3. Who is he, when did he come, and let's see the register.",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_motel_owner"
+   }
+  },
+  "hub": {
+   "speaker": "hv_motel_owner",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_motel_owner",
+     "Ask me anything, honey, I'm here till the news and then I'm here after the news."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The master key is on the ring on her belt. She hangs it on the board when she goes to hit the ice machine. Room 3 is eleven steps from here. He's checking out anyway."
+   },
+   "options": [
+    {
+     "tone": "wry",
+     "text": "Tell us about the motor court. The sign, the rooms, the painting of the lake that isn't anywhere near here.",
+     "next": "rooms"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "hv_motel_penrose": 1,
+       "hv_penrose_photo_1955": 1
+      }
+     },
+     "text": "The register. Just this week's page. We'd like to see how he signed it.",
+     "pass": "register",
+     "fail": {
+      "next": "register_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_motel_register": 1,
+       "rt_cb_chatter": 1
+      }
+     },
+     "text": "The Buick. No dust, no bugs, no plates listed in your book. When did you hear it pull in?",
+     "pass": "buick",
+     "fail": {
+      "next": "buick_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_motel_buick"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "hv_motel_1955_suit": 1,
+       "hv_penrose_advice": 1
+      }
+     },
+     "text": "Bring the master key. Knock on 3 with us. Right now.",
+     "pass": "room3",
+     "fail": {
+      "next": "room3_no",
+      "trust": {
+       "hv_motel_owner": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_motel_1955_suit"
+      ]
+     },
+     "tone": "kind",
+     "text": "Your mother said 'about fifty' and 'very polite'. What else did she say about him, the times she wasn't telling it as a ghost story?",
+     "next": "mother"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Dorene. We'll hit the ice machine."
+    }
+   ]
+  },
+  "rooms": {
+   "speaker": "hv_motel_owner",
+   "lines": [
+    [
+     "hv_motel_owner",
+     "Twelve rooms, built 1949, Mother and Daddy. The sign's original and it says VACANCY because the NO burned out in 1971 and we never had the money the same week we had the vacancy."
+    ],
+    [
+     "hv_motel_owner",
+     "The painting's Kentucky Lake. Daddy won it."
+    ],
+    [
+     "hv_motel_owner",
+     "Room 3's the one with the window on the road north. It's the one everybody wants in August. The TV people want it. The magazine man wanted it."
+    ],
+    [
+     "hv_motel_owner",
+     "I give it to him, every year, because he's always already in it when they call."
+    ],
+    [
+     "elijah",
+     "A window on the road north. The road to the farm. He wants to watch who goes out there. Or who comes back."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_motel_rooms"
+   },
+   "next": "hub"
+  },
+  "register": {
+   "speaker": "hv_motel_owner",
+   "lines": [
+    [
+     "hv_motel_owner",
+     "Well, it's not a secret, it's a motel. Here. Tuesday. 'W. Penrose, Sutton, W.Va.' and an address, and the address is yours. I know because I wrote it on your bill."
+    ],
+    [
+     "hv_motel_owner",
+     "No car. I always write the car. He said he hadn't got one and the Buick was already out front when I looked up."
+    ],
+    [
+     "hv_motel_owner",
+     "Cash for the week, and he counted it out in old bills, the big kind, and I didn't say anything because it spends."
+    ],
+    [
+     "hv_motel_owner",
+     "He signs like my mother's generation. Fountain pen. Nobody under seventy signs like that."
+    ],
+    [
+     "miriam",
+     "Our address. Our office's own address, in a fountain pen, in a motel in Kentucky, three days before we got here. Somebody at Sutton is going to answer for this and it isn't us."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_motel_suit",
+    "evidence": "hv_motel_register",
+    "trust": {
+     "hv_motel_owner": 1
+    },
+    "flag": "hv_motel_register_seen"
+   },
+   "next": "hub"
+  },
+  "register_no": {
+   "speaker": "hv_motel_owner",
+   "lines": [
+    [
+     "hv_motel_owner",
+     "Oh, honey, I can't show you another guest's page, that's the one thing Mother said never do. I'll tell you what's on it, I'm just not going to turn it round."
+    ],
+    [
+     "hv_motel_owner",
+     "He's from where you're from. He said so. That's all that's on it that matters."
+    ],
+    [
+     "teddy",
+     "She'll tell us everything on the page and won't show us the page. That's a motel owner's ethics and I respect them. Try again when she's distracted by the news."
+    ]
+   ],
+   "next": "hub"
+  },
+  "buick": {
+   "speaker": "hv_motel_owner",
+   "lines": [
+    [
+     "hv_motel_owner",
+     "...I didn't. That's what I keep coming back to. I hear everything that pulls in, I've got gravel out there for the purpose."
+    ],
+    [
+     "hv_motel_owner",
+     "Tuesday morning I looked up from the paper and it was there in front of 3, and I hadn't heard a thing, and he was at the counter."
+    ],
+    [
+     "hv_motel_owner",
+     "It hasn't moved. Four days. He walks to town. I've never seen him get in it, and I'm here all day, and I look."
+    ],
+    [
+     "hv_motel_owner",
+     "Daddy'd have said it's a '54. Daddy knew cars. It doesn't look forty years old. It looks like it's been in a barn."
+    ],
+    [
+     "june",
+     "A 1954 Buick with no road dust on it that nobody heard arrive. I want a photograph of the tires. If there's no gravel in the tread, I'm going to have to say something I don't want to say."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_motel_buick_told",
+    "trust": {
+     "hv_motel_owner": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "buick_no": {
+   "speaker": "hv_motel_owner",
+   "lines": [
+    [
+     "hv_motel_owner",
+     "It's a car, honey. It's a nice one. I don't do cars, I do rooms, Daddy did cars and he's gone."
+    ],
+    [
+     "hv_motel_owner",
+     "Royce at the pawn knows cars. Royce knows everything that's worth money."
+    ],
+    [
+     "ruth",
+     "She looked at the window when she said 'it's a car', dear, and she didn't look at the car. She doesn't like it either."
+    ]
+   ],
+   "next": "hub"
+  },
+  "room3": {
+   "speaker": "hv_motel_owner",
+   "lines": [
+    [
+     "hv_motel_owner",
+     "...All right. All right. I've been wanting somebody to ask me that for fifteen years. Come on."
+    ],
+    [
+     "hv_motel_owner",
+     "He doesn't answer. I'm going in. Housekeeping. ...Oh. Oh, it's made. It's made up like I made it Tuesday, the fold's mine, nobody's slept in it. The phone's plugged back in. I didn't do that."
+    ],
+    [
+     "hv_motel_owner",
+     "There's a card on the pillow. It says 'FOR THE OFFICE, ROOM 1', in a fountain pen. I'm not touching it. You touch it. I'm going back to the office and I'm going to call somebody and I don't know who."
+    ],
+    [
+     "elijah",
+     "He hasn't slept in it. Four nights. He made the bed look like a bed and he left us a note, and he knew we'd come in with her, and he knew which of us would pick up the card."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "A room nobody sleeps in, a car nobody drives, a man nobody hears arrive. He is not staying here. He is being here. Those are different, and your grandmother knew the word for the second one."
+    }
+   ],
+   "gives": {
+    "flag": "hv_motel_room3",
+    "trust": {
+     "hv_motel_owner": 1
+    },
+    "dread": 2
+   },
+   "next": "hub"
+  },
+  "room3_no": {
+   "speaker": "hv_motel_owner",
+   "lines": [
+    [
+     "hv_motel_owner",
+     "No. No, I'm not. He's a paying guest and he's polite and Mother said never, and I've got a feeling about that door that I don't want to find out about with the master key."
+    ],
+    [
+     "hv_motel_owner",
+     "Y'all are next door. Y'all knock. I'll be in here with the news on loud."
+    ],
+    [
+     "ruth",
+     "She's frightened, dear, and she's been frightened since Tuesday, and we just made her say so out loud in her own office. Let her have the news."
+    ]
+   ],
+   "next": "hub"
+  },
+  "mother": {
+   "speaker": "hv_motel_owner",
+   "lines": [
+    [
+     "hv_motel_owner",
+     "...She told it plain exactly once, the year before she died."
+    ],
+    [
+     "hv_motel_owner",
+     "She said he asked for the room with the window on the road north, and he asked if there was a family out at Kelly with a lot of children, and she said yes, the Lacys, and he said 'good' and went in and shut the door."
+    ],
+    [
+     "hv_motel_owner",
+     "And at two in the morning she heard the family's truck go by toward town, and the light in 3 was on, and he was standing in the window with the curtain back, watching it go. Not surprised. Waiting."
+    ],
+    [
+     "hv_motel_owner",
+     "Then he turned the light off."
+    ],
+    [
+     "hv_motel_owner",
+     "She said she never told it that way because that way it's not a ghost story, it's something else, and she didn't have a word for the something else. Neither do I. I just rent him the room."
+    ],
+    [
+     "vera",
+     "He asked after the children. Before. One does not like the word 'good'."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_motel_1955",
+    "flag": "hv_motel_mother",
+    "trust": {
+     "hv_motel_owner": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  }
+ }
+}

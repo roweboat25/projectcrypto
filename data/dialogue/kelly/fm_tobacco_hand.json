@@ -1,0 +1,371 @@
+{
+ "_doc": "Virgil, the tobacco hand who has fired the Lacy barn every August for twenty-two years. Morning in the yard, day up on the tiers in the smoke, dusk by the house with a jar of water. Slow, sure, a little proud; nobody has ever asked him anything, and he has noticed.",
+ "id": "fm_tobacco_hand",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "fm_tobacco_hand",
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "Mind the sawdust, it's lit. Barn's firing. You stand in that door a minute and you'll smell like it till Christmas."
+    ],
+    [
+     "fm_tobacco_hand",
+     "Virgil. I hang Lonnie's crop and I fire it and I don't go on TV. Y'all the ones with the station wagon?"
+    ],
+    [
+     "dale",
+     "He's got slabs of hickory stacked by age. Twenty-two years of knowing exactly how hot a barn should be. I want to marry this man's barn."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "lore",
+     "threshold": 7,
+     "line": "Dark-fired tobacco: the smoke is the whole point. A man who spends his Augusts in a smoke-filled barn with a lantern knows every eye that's ever looked at him out of the dark."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "He said 'I don't go on TV' before you asked anything. Twenty-two years of camera vans in the yard and not one of them walked forty feet to the barn. He's been waiting to be asked.",
+     "flag": "fm_tobacco_hand_unasked"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're the ones. We'd rather hear about the barn than the yard, Virgil.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Smelling like a barn till Christmas is the best offer we've had in this county.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "We're investigators. You've been in that barn at night for twenty-two years. Talk.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_fm_tobacco_hand"
+   }
+  },
+  "hub": {
+   "speaker": "fm_tobacco_hand",
+   "repeat": true,
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "Ask, then. I got to check the fire every half hour, so ask between."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The fire pit's open and the barn's full of dry leaf. One slab kicked over and the whole thing goes up, and the owls with it. Then there'd be nothing in the rafters. Then you'd know."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Tell us what firing a barn is. From the start.",
+     "next": "firing"
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "fm_pellets_lab": 2,
+       "fm_eyeshine_photo": 1
+      }
+     },
+     "text": "What lives in the tiers, and what does it do when the smoke comes up?",
+     "pass": "owls",
+     "fail": {
+      "next": "owls_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_ledger_front_page": 1,
+       "kc_hardin_reporters": 1
+      }
+     },
+     "text": "You said 'what town done to the Lacys'. Say what town did.",
+     "pass": "town",
+     "fail": {
+      "next": "town_no",
+      "trust": {
+       "fm_tobacco_hand": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "fm_tobacco_hand_unasked"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "fm_eyeshine_photo": 2,
+       "fm_hand_owls": 1
+      }
+     },
+     "text": "Twenty-two Augusts. Tell us the one night in that barn you didn't say 'owls' to yourself.",
+     "pass": "saw",
+     "fail": {
+      "next": "saw_no",
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "fm_feather_lab"
+      ]
+     },
+     "tone": "wry",
+     "text": "We sent your white feather to a laboratory. It was a barn owl. The lab was a little hurt.",
+     "next": "feather"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Go check your fire, Virgil. We'll be around."
+    }
+   ]
+  },
+  "firing": {
+   "speaker": "fm_tobacco_hand",
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "You cut it, you spear it on sticks, you hang it on the tiers, bottom to top, forty feet up. Then you lay hickory slabs on sawdust on the floor and you light it and you shut the barn."
+    ],
+    [
+     "fm_tobacco_hand",
+     "Smolder, not flame. Three days, four. You go in every half hour with the lantern and you feel the leaf with your hand. Too hot and it's ruined, too cool and it molds."
+    ],
+    [
+     "fm_tobacco_hand",
+     "Lonnie's granddaddy did it the same."
+    ],
+    [
+     "fm_tobacco_hand",
+     "You're in there in the dark and the smoke with a lantern, forty feet of leaf over your head. Anything up there sees you long before you see it."
+    ],
+    [
+     "ruth",
+     "He just described a church, dear. Dark, smoke, a lamp, and something above you that's watching. People have believed in less."
+    ]
+   ],
+   "gives": {
+    "flag": "fm_tobacco_hand_firing"
+   },
+   "next": "hub"
+  },
+  "owls": {
+   "speaker": "fm_tobacco_hand",
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "Owls. Two or three, every year since I started, and that's twenty-two. Great horned. They come for the mice and the mice come for the leaf."
+    ],
+    [
+     "fm_tobacco_hand",
+     "Smoke comes up and they don't leave. They sit up top and the eyes get bigger. Yellow as a road sign. You bring the lantern up a tier and they don't blink and they don't go."
+    ],
+    [
+     "fm_tobacco_hand",
+     "The young ones come toward it."
+    ],
+    [
+     "fm_tobacco_hand",
+     "Ain't one reporter come in here in thirty-nine years. They stand in the yard and point at the posts."
+    ],
+    [
+     "dale",
+     "Young great horned owls hold their ground and advance on a light. That's in every field guide ever written, and not one of them has a chapter about this barn."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "'The young ones come toward it.' In August the young are out of the nest and clumsy. A family with a flashlight and a porch would have had the same thing walk up to them."
+    }
+   ],
+   "gives": {
+    "fact": "fm_hand_owls",
+    "evidence": "fm_hand_owls",
+    "trust": {
+     "fm_tobacco_hand": 1
+    }
+   },
+   "next": "hub"
+  },
+  "owls_no": {
+   "speaker": "fm_tobacco_hand",
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "Mice, mostly. Snakes after the mice. What else you want to live in a barn?"
+    ],
+    [
+     "fm_tobacco_hand",
+     "I got to check the fire."
+    ],
+    [
+     "teddy",
+     "He answered the question we asked and not the one we meant. He'll give you the rest when he's sure you'll climb up and look."
+    ]
+   ],
+   "next": "hub"
+  },
+  "town": {
+   "speaker": "fm_tobacco_hand",
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "Laughed. Fifty cents a car to stand in the yard, and then they didn't even pay the fifty cents, they just come. Preacher made a sermon of it. Store had a postcard."
+    ],
+    [
+     "fm_tobacco_hand",
+     "Old Mr Lacy quit going to town. The boys got in fights at the school every August till they quit school."
+    ],
+    [
+     "fm_tobacco_hand",
+     "Mrs Lacy went on believing it, out loud, at the store, and the store let her, and laughed when she'd gone."
+    ],
+    [
+     "fm_tobacco_hand",
+     "That's what town done. My daddy seen that and he kept his mouth shut about his light for forty years, and I would've too."
+    ],
+    [
+     "miriam",
+     "A whole town built a tourist trap on one family's worst night and then charged them for it in laughs. The believers didn't do that. The town did."
+    ]
+   ],
+   "gives": {
+    "flag": "fm_tobacco_hand_town",
+    "trust": {
+     "fm_tobacco_hand": 1
+    }
+   },
+   "next": "hub"
+  },
+  "town_no": {
+   "speaker": "fm_tobacco_hand",
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "You know what town done. You come through it. You seen the pawn shop window."
+    ],
+    [
+     "fm_tobacco_hand",
+     "I ain't going to say it in Lonnie's yard with Lonnie on the porch."
+    ],
+    [
+     "elijah",
+     "He's protecting Lonnie from hearing it again, not himself from saying it. Ask him somewhere else, or ask the pawn man what's in his window."
+    ]
+   ],
+   "next": "hub"
+  },
+  "saw": {
+   "speaker": "fm_tobacco_hand",
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "...Last August. The night of. I was up the top tier with the lantern, two in the morning, and the eyes was there, same as ever, and I said 'evening' to 'em like I do."
+    ],
+    [
+     "fm_tobacco_hand",
+     "And they moved. Along the pole. Not flew. Walked, the way a man walks a plank, one and then the other, the whole length of the tier, and stopped over the fire pit and looked down at it."
+    ],
+    [
+     "fm_tobacco_hand",
+     "Owls don't walk a tier pole, mister. I been twenty-two years knowing what owls do. I come down the ladder and I didn't go back up till it was light, and I ain't told Lonnie, and I ain't told nobody."
+    ],
+    [
+     "june",
+     "A great horned owl can walk a pole. Clumsily. He's seen them do it for twenty-two years and this is the one time it wasn't that. I'm writing down that he knows the difference, not what it was."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "It walked to the fire and looked down at it. Everything else in this county goes away from a light. You will want to sit by that fire pit tonight. Decide now whether you will."
+    }
+   ],
+   "gives": {
+    "flag": "fm_tobacco_hand_saw",
+    "trust": {
+     "fm_tobacco_hand": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "saw_no": {
+   "speaker": "fm_tobacco_hand",
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "Every night in that barn I said owls, because every night it was owls. You want a man who seen something, go find one. I'm a man who fires a barn."
+    ],
+    [
+     "fm_tobacco_hand",
+     "Fire needs checking."
+    ],
+    [
+     "ruth",
+     "He slammed that door on himself, dear, not on you. He's standing on the other side of it listening."
+    ]
+   ],
+   "next": "hub"
+  },
+  "feather": {
+   "speaker": "fm_tobacco_hand",
+   "lines": [
+    [
+     "fm_tobacco_hand",
+     "Ha. Barn owl. I could've told you that for free and saved the stamp. They nest in the eave on the road side, white as a sheet underneath. Come at your lantern like a ghost in a bedsheet."
+    ],
+    [
+     "fm_tobacco_hand",
+     "You know who else seen a ghost in a bedsheet? A fella from Crofton, 1957, in the Ledger. Confessed to it. I always figured a barn owl confessed first."
+    ],
+    [
+     "teddy",
+     "The serial confessor in a sheet, and a bird that looks like a sheet. Page nine is going to get a lot of use."
+    ]
+   ],
+   "gives": {
+    "flag": "fm_tobacco_hand_feather",
+    "trust": {
+     "fm_tobacco_hand": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

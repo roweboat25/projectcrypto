@@ -1,0 +1,408 @@
+{
+ "_doc": "Brother Amos Tilley, pastor of Kelly Baptist, sixty-two, son of the pastor who saw the light from the steps in 1955 and never preached it. In the sanctuary by day, the vestry at dusk, the anniversary notice on the board. Trust 1, measured, kind, chooses every word. The red check reads the margin of his father's Bible; Odessa's confession is the thing he has waited thirty-nine years to be told.",
+ "id": "kc_preacher",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_preacher",
+   "lines": [
+    [
+     "kc_preacher",
+     "Come in out of the heat. The fans work if you sit under one. We're a small church and the Lord has not seen fit to send us air conditioning."
+    ],
+    [
+     "kc_preacher",
+     "You've read the board. Sunday. 'What we saw and what we say.' I expect that's what brought you up the steps."
+    ],
+    [
+     "kc_preacher",
+     "I'll talk to you. I'd ask you to be gentle with the ones who can't."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "A Bible on the lectern older than he is, the spine broken at one place. He put his hand flat on it when he said 'what we saw'. His father's.",
+     "flag": "kc_preacher_bible"
+    },
+    {
+     "voice": "lore",
+     "threshold": 8,
+     "line": "The hymn numbers on the board are already up for Sunday. 'Abide With Me.' 'The Day Thou Gavest.' Evening hymns, both. He's planning a service for dark."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll be gentle, Brother Tilley. We'd like to start with you.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Press included, cameras not. We read the small print.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "Thirty-nine years and the church is only now saying it out loud. Why now?",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_preacher"
+   }
+  },
+  "hub": {
+   "speaker": "kc_preacher",
+   "repeat": true,
+   "lines": [
+    [
+     "kc_preacher",
+     "Ask. I've sat with this congregation through worse than questions."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "His father saw it come down and said nothing from the pulpit for twenty years. The son is doing the same thing with a nicer notice. Say that to him. See what the fans do."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "kc_preacher_sermon"
+      ]
+     },
+     "tone": "kind",
+     "text": "What are you going to say Sunday? Not the title. The thing itself.",
+     "next": "sermon"
+    },
+    {
+     "tone": "hard",
+     "text": "Steadying people. It's a fine word for keeping quiet.",
+     "next": "steady"
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "kc_prayer_list_1955": 2
+      }
+     },
+     "text": "The prayer list for the Sunday after. Who was on it who shouldn't have needed praying for?",
+     "pass": "list",
+     "fail": {
+      "next": "list_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "kc_royce_road": 1
+      }
+     },
+     "text": "Royce Pettit hasn't been inside this church since 1955. So you've gone to him. What does he ask you?",
+     "pass": "royce",
+     "fail": {
+      "line": "What a man says to his pastor on his own porch is his. I'll tell you that he asks. I won't tell you what.",
+      "trust": {
+       "kc_preacher": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_preacher_bible"
+      ],
+      "not_flag": [
+       "kc_preacher_margin"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "kc_preacher_light": 2,
+       "kc_agent_light": 1
+      }
+     },
+     "text": "The margin of your father's Bible. The twenty-first of August. He wrote something there, and you've read it a thousand times.",
+     "pass": "margin",
+     "fail": {
+      "next": "margin_no",
+      "trust": {
+       "kc_preacher": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "kc_odessa_admits"
+      ],
+      "not_flag": [
+       "kc_preacher_odessa"
+      ]
+     },
+     "tone": "kind",
+     "text": "Odessa Pettit told us where she was that night. She built that family a witness out of herself. Did you know?",
+     "next": "odessa"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Brother Tilley."
+    }
+   ]
+  },
+  "sermon": {
+   "speaker": "kc_preacher",
+   "lines": [
+    [
+     "kc_preacher",
+     "That a family sat in a house with their children and were afraid, and did what afraid people do."
+    ],
+    [
+     "kc_preacher",
+     "And drove to town for help, and were laughed at for it."
+    ],
+    [
+     "kc_preacher",
+     "That the laughing was the sin, not the fear. That's the whole of it. Twelve minutes."
+    ],
+    [
+     "kc_preacher",
+     "Then 'Abide With Me' and the lights off, and we walk out into the same dark they had."
+    ],
+    [
+     "kc_preacher",
+     "The deacons think that's thin. I think it's the only part anyone agrees on."
+    ],
+    [
+     "ruth",
+     "Honey, that's not thin. That's the first thing anybody in this county has said that didn't need a verdict."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_preacher_sermon",
+    "trust": {
+     "kc_preacher": 1
+    }
+   },
+   "next": "hub"
+  },
+  "steady": {
+   "speaker": "kc_preacher",
+   "lines": [
+    [
+     "kc_preacher",
+     "It is. I've thought that every August since I was ordained."
+    ],
+    [
+     "kc_preacher",
+     "My father could have stood up the Sunday after and said, I saw a light."
+    ],
+    [
+     "kc_preacher",
+     "And forty reporters would have had a pastor in the paper, and this church would have been a tent show by Christmas."
+    ],
+    [
+     "kc_preacher",
+     "He chose the family's name over his own conscience. I don't know that he chose right."
+    ],
+    [
+     "kc_preacher",
+     "I know he never slept well in August, and neither do I."
+    ]
+   ],
+   "gives": {
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "list": {
+   "speaker": "kc_preacher",
+   "lines": [
+    [
+     "kc_preacher",
+     "The Lacys, every one, by name. The Hardins, for nerves. And at the bottom in my father's hand, 'R.P., that he find his way home.'"
+    ],
+    [
+     "kc_preacher",
+     "Not 'for his health.' Not 'for his trouble.' His way home."
+    ],
+    [
+     "kc_preacher",
+     "My father knew where Royce Pettit had been the Sunday night before, and he put it on the list in a way only God and the Pettits could read."
+    ],
+    [
+     "teddy",
+     "A code on a church bulletin. That's the best-sourced line in this county."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_preacher": 1
+    }
+   },
+   "next": "hub"
+  },
+  "list_no": {
+   "speaker": "kc_preacher",
+   "lines": [
+    [
+     "kc_preacher",
+     "Everyone on that list needed praying for. That was 1955. That is still the case."
+    ],
+    [
+     "kc_preacher",
+     "If you want to know who was out that night, there's a woman across the road who's told it one way for thirty-nine years. Be gentle with her."
+    ]
+   ],
+   "next": "hub"
+  },
+  "royce": {
+   "speaker": "kc_preacher",
+   "lines": [
+    [
+     "kc_preacher",
+     "One thing. Every August. He asks whether the Lacys ever said a word against him. In thirty-nine years."
+    ],
+    [
+     "kc_preacher",
+     "They didn't. Not to me, not to my father, not to the paper. Not once. And I tell him that, and he nods, and it's worse."
+    ],
+    [
+     "kc_preacher",
+     "He'd rather they had."
+    ],
+    [
+     "kc_preacher",
+     "A man can carry being blamed. Royce has had to carry being spared."
+    ],
+    [
+     "elijah",
+     "That's it. That's what's on that porch every dusk. Not the little men."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_preacher": 1
+    }
+   },
+   "next": "hub"
+  },
+  "margin": {
+   "speaker": "kc_preacher",
+   "lines": [
+    [
+     "kc_preacher",
+     "...Psalm 139. 'If I say, surely the darkness shall cover me, even the night shall be light about me.'"
+    ],
+    [
+     "kc_preacher",
+     "And in the margin, in pencil, '8/21/55, 7:30, from the steps. It came down and did not land. Lord, what is it that does not land.'"
+    ],
+    [
+     "kc_preacher",
+     "Did not land. Everyone who tells it says it came down into the gully. My father, who was a careful man, wrote that it did not land."
+    ],
+    [
+     "kc_preacher",
+     "I have never known what to do with that."
+    ],
+    [
+     "kc_preacher",
+     "I've read it a thousand times, you're right. I have never read it out loud until now."
+    ],
+    [
+     "vera",
+     "It stopped above the ground. He watched it stop. Thank you, Brother Tilley. That is a different thing from a light that falls."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "Three men saw a light at half past seven. Two say it went into the gully. The one with the best view says it did not land. Something waited above the Lacy place for three hours before the first shot."
+    }
+   ],
+   "gives": {
+    "flag": "kc_preacher_margin",
+    "trust": {
+     "kc_preacher": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "margin_no": {
+   "speaker": "kc_preacher",
+   "lines": [
+    [
+     "kc_preacher",
+     "That book is my father's and it is open on the lectern for the congregation, not for the Sutton Office."
+    ],
+    [
+     "kc_preacher",
+     "I've been more open with you than I had any call to be."
+    ],
+    [
+     "kc_preacher",
+     "Virgil Sisk saw the same evening from the platform. He writes things down. Ask him. He never had a congregation to protect."
+    ]
+   ],
+   "next": "hub"
+  },
+  "odessa": {
+   "speaker": "kc_preacher",
+   "lines": [
+    [
+     "kc_preacher",
+     "...No. I guessed. My father guessed."
+    ],
+    [
+     "kc_preacher",
+     "Nobody knew, because she never once let it slip."
+    ],
+    [
+     "kc_preacher",
+     "Not at a funeral, not at a bedside, not at a church supper with her brother drunk in the car."
+    ],
+    [
+     "kc_preacher",
+     "She stood in front of that family for thirty-nine years and she stood in front of him, and she did it with a story she hated."
+    ],
+    [
+     "kc_preacher",
+     "Sunday I'm going to say that fear isn't a sin. I'd thought I'd say nothing about lies. I may have to find a better word than lie."
+    ],
+    [
+     "miriam",
+     "Testimony. She gave testimony. It just happened to be about the wrong night."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_preacher_odessa",
+    "trust": {
+     "kc_preacher": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

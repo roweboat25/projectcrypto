@@ -1,0 +1,324 @@
+{
+ "id": "tn_publican",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "We're not open. Well, we are, but the bitter's not settled and I'm not serving you cloudy, so you've got ten minutes of me and a packet of crisps."
+    ],
+    [
+     "tn_publican",
+     "Reg Cheverton. You'll be the Americans. The whole town's had you for breakfast. I've heard you're from a magazine, the government, and the Mormons."
+    ],
+    [
+     "teddy",
+     "He's got three stories about us already. That's a man who sells stories, not beer."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 7,
+     "line": "The photo over the bar hangs a foot left of a nail hole that's been filled and painted. It used to hang somewhere a customer could see it better."
+    },
+    {
+     "voice": "press",
+     "threshold": 8,
+     "line": "He's got a story ready, and it's the one everybody gets. There's a second one behind it that he's saving for a better price.",
+     "flag": "tn_publican_second"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "None of the three. We're the ones Mrs Bannister's feeding. Crisps are fine.",
+     "next": "crisps",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "Ten minutes. Then we'll want the one you don't tell the Mormons.",
+     "next": "tab"
+    },
+    {
+     "tone": "wry",
+     "text": "The Mormons. We'll take that. It gets the best seats.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_tn_publican"
+   }
+  },
+  "crisps": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "Mrs Bannister's. Then you've had the register read at you and the Room 4 business. Right. Cheese and onion or ready salted, that's your choice in life."
+    ],
+    [
+     "tn_publican",
+     "Sit by the window. That's where the Sunnyside lot sat. Don't know why I keep saying that to people. Nobody's ever asked."
+    ]
+   ],
+   "next": "hub"
+  },
+  "tab": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "You'll want. I've had the Sunday papers wanting, in '83, and they got the one everybody gets and a bill for the sandwiches."
+    ],
+    [
+     "miriam",
+     "He's priced us. Not the beer. Us."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "tn_publican": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "Mermaid Arms. Been Chevertons since my grandfather, and he's the one who hung that photo, so if you've a question about it you're asking a dead man through me."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Reg leans on the pump and waits to be impressed.",
+   "options": [
+    {
+     "check": {
+      "voice": "bluff",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_publican_gossip": 1
+      }
+     },
+     "text": "We're from the paper. The proper one. London. We pay for pages, not pints.",
+     "pass": "paper_bluff",
+     "fail": {
+      "next": "bluff_fail",
+      "trust": {
+       "tn_publican": -1
+      }
+     }
+    },
+    {
+     "check": {
+      "voice": "recall",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "sf_penrose_1973": 2,
+       "sf_cafe_gossip": 1
+      }
+     },
+     "text": "That's the one everybody gets. We've already had it twice today. Tell us the other one.",
+     "pass": "second",
+     "fail": {
+      "line": "There's one story in this pub and I've told it. The other one costs more than crisps."
+     },
+     "requires": {
+      "flag": [
+       "tn_publican_second"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "lv_glove_lab": 2,
+       "sf_programme_1973": 1
+      }
+     },
+     "text": "The hat never came off. You served him for a season. What did his hands look like?",
+     "pass": "hands",
+     "fail": {
+      "next": "hands_fail",
+      "trust": {
+       "tn_publican": -1
+      }
+     },
+     "requires": {
+      "evidence": [
+       "tn_publican_pier_man"
+      ]
+     }
+    },
+    {
+     "tone": "kind",
+     "text": "Pint of whatever's local when it settles, and one for yourself.",
+     "next": "pint",
+     "requires": {
+      "not_flag": [
+       "tn_publican_pint"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Reg."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The window seat. The Sunnyside seat. Something's sat in it since you came in and he's not served it. Ask him why."
+   }
+  },
+  "paper_bluff": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "London. Right. Well, London, the pier staff reckon the camp sent a bloke down in '73 who wasn't on the books. 'The Yellow Man.' On the bill, not on the wages."
+    ],
+    [
+     "tn_publican",
+     "Ask on the pier. Ask Maureen in the Pavilion, she's got every programme since the war. Don't say it was me. Say it was a man in a pub."
+    ],
+    [
+     "teddy",
+     "He gave a London paper a name and a source in one breath. Reg has wanted to be quoted for twenty years."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_publican_bluffed",
+    "trust": {
+     "tn_publican": 1
+    }
+   },
+   "next": "hub"
+  },
+  "bluff_fail": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "London. You've got a Sutton Office pen in your top pocket, love, and Mrs Bannister's told the butcher. Crisps are fifteen pence."
+    ],
+    [
+     "miriam",
+     "We bluffed a man whose trade is reading faces across a bar. That's on us."
+    ]
+   ],
+   "next": "hub"
+  },
+  "second": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "...June '73. A fortnight after. A man in a grey suit came in at dinner time, sat with Alf Rudd, the boy's dad, and bought him three pints, and Alf never bought one back."
+    ],
+    [
+     "tn_publican",
+     "And after the third, Alf stood up and said it was a dog and the heat and the boy wanting his picture in the paper."
+    ],
+    [
+     "tn_publican",
+     "He'd never said it that neat before. Like he'd been given it."
+    ],
+    [
+     "tn_publican",
+     "Grey suit paid in new notes. Left a tip, which nobody did then. My dad kept the ten bob note under the till till he died. Said it felt wrong."
+    ],
+    [
+     "miriam",
+     "Somebody wrote Alf Rudd's story for him and bought him the drinks to learn it. That's not a hoax. That's a cover for one."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_publican_grey_suit",
+    "trust": {
+     "tn_publican": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "hands": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "...Blue. Greasepaint blue, to the wrist, under a glove he took off to drink. And he'd three fingers taped together so the hand looked wrong. Said it was part of the character."
+    ],
+    [
+     "tn_publican",
+     "Drank bitter through a straw under the brim. Never saw his face. Saw his hands every afternoon for a month."
+    ],
+    [
+     "tn_publican",
+     "I've seen them since. On the hide wall, on a kid's poster, in blue."
+    ],
+    [
+     "june",
+     "Three fingers taped. A man built a hand for the children to remember. That's not a costume. That's a signature."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_publican_hands",
+    "trust": {
+     "tn_publican": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "hands_fail": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "I pulled pints. I didn't look at hands. You want hands, the chemist looks at hands, go and bother Harwood."
+    ],
+    [
+     "ruth",
+     "He's cross because he did look, dear. Nobody's that cross about something they didn't see."
+    ]
+   ],
+   "next": "hub"
+  },
+  "pint": {
+   "speaker": "tn_publican",
+   "lines": [
+    [
+     "tn_publican",
+     "...Ta. Don't tell the brewery. Right, since you're buying: the Sunnyside lot drank in the window and the one in the hat drank facing the wall. Every day. Facing the wall."
+    ],
+    [
+     "teddy",
+     "A man who faces the wall in a pub is a man who's afraid of being recognised in it."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_publican_pint",
+    "trust": {
+     "tn_publican": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

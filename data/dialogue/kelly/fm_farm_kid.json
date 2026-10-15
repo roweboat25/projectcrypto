@@ -1,0 +1,345 @@
+{
+ "_doc": "The kid on the bicycle at the Lacy farm, eleven or twelve, Dwayne's little brother. Rides the yard by day and the road by dusk with a flashlight taped to the bars. Shot the porch posts for the TV people, has seen eyes at the smokehouse, and is scared of exactly one thing out here, which is not coons.",
+ "id": "fm_farm_kid",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "fm_farm_kid",
+   "lines": [
+    [
+     "fm_farm_kid",
+     "Y'all ain't TV. TV's got a van. What are y'all, the paper?"
+    ],
+    [
+     "fm_farm_kid",
+     "I ain't supposed to talk to people in the yard. Mr Lonnie says. I'm on the road, though. Road's the county's."
+    ],
+    [
+     "teddy",
+     "He moved the bike six inches onto the gravel to say that. He's thought about this."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "A flashlight taped to the handlebars with electrical tape, and the tape's been redone twice. He rides out here after dark, and he rides out here on purpose."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "He keeps the bike between himself and the smokehouse, not between himself and you. Whatever he's scared of out here, it isn't strangers.",
+     "flag": "fm_farm_kid_scared"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're from an office in West Virginia. We came to listen, not to point.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "The road's the county's. We'll stand on the county's road, then.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "You're the one who's been riding out here at night. Somebody's seen the light.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_fm_farm_kid"
+   }
+  },
+  "hub": {
+   "speaker": "fm_farm_kid",
+   "repeat": true,
+   "lines": [
+    [
+     "fm_farm_kid",
+     "Okay. But if Mr Lonnie comes out I'm just fixing my chain."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He's eleven and he rides out here alone in the dark. Send him to the smokehouse tonight with the flashlight. He'll go. Kids go."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "fm_pellet_photo": 1,
+       "fm_cousin_posts": 2
+      }
+     },
+     "text": "That's a nice tight pattern on those porch posts. Somebody out here can shoot.",
+     "pass": "posts",
+     "fail": {
+      "next": "posts_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "fm_handprint_photo": 1,
+       "fm_kid_eyes": 1
+      }
+     },
+     "text": "You don't ride out here at night for the coons. What is it you keep coming back to look at?",
+     "pass": "eyes",
+     "fail": {
+      "next": "eyes_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "fm_farm_kid_scared"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "fm_handprint_cast": 1,
+       "fm_kid_eyes": 1
+      }
+     },
+     "text": "Walk us to the smokehouse. Right now, in daylight. Show us where you stood.",
+     "pass": "smokehouse",
+     "fail": {
+      "next": "smokehouse_no",
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "fm_pellet_lab"
+      ]
+     },
+     "tone": "wry",
+     "text": "Steel seven, 1993 Winchester, fired from the yard. That's Dwayne's gun and Dwayne's shells, isn't it.",
+     "next": "dwayne"
+    },
+    {
+     "tone": "silent",
+     "text": "(Crouch down and look at his chain with him.)",
+     "next": "chain",
+     "trust": 1
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Go on and ride. We'll be around."
+    }
+   ]
+  },
+  "posts": {
+   "speaker": "fm_farm_kid",
+   "lines": [
+    [
+     "fm_farm_kid",
+     "Me. I can shoot. Dwayne says I can't but Dwayne shot the mailbox in April and said it was a coon."
+    ],
+    [
+     "fm_farm_kid",
+     "Mr Lonnie stands on the porch and says 'both posts, don't hit the door,' and I don't hit the door. Ever."
+    ],
+    [
+     "fm_farm_kid",
+     "Don't say it to Mama. She thinks it's Dwayne and Dwayne lets her."
+    ],
+    [
+     "dale",
+     "Eleven years old and he's a better shot than the whole 1955 family. That's not a joke. That's the case."
+    ]
+   ],
+   "gives": {
+    "fact": "fm_kid_posts",
+    "evidence": "fm_kid_confession",
+    "flag": "fm_farm_kid_posts_told",
+    "trust": {
+     "fm_farm_kid": 1
+    }
+   },
+   "next": "hub"
+  },
+  "posts_no": {
+   "speaker": "fm_farm_kid",
+   "lines": [
+    [
+     "fm_farm_kid",
+     "Pruitts. Everybody knows it's the Pruitts. Ask Mr Lonnie, he'll say Pruitts."
+    ],
+    [
+     "miriam",
+     "He said it too fast and he said it looking at the gun rack in the truck. Leave it. He'll tell you when he's proud of it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "eyes": {
+   "speaker": "fm_farm_kid",
+   "lines": [
+    [
+     "fm_farm_kid",
+     "...Smokehouse. Low down, by the door, two of 'em. Like when you put the light on a dog in the road but littler and closer together."
+    ],
+    [
+     "fm_farm_kid",
+     "I hollered and they went out. Not off. Out. Like a TV. And I rode home and I didn't tell Dwayne because Dwayne says coons."
+    ],
+    [
+     "fm_farm_kid",
+     "I been back four times. They ain't been there. The hand marks was, though. Up high, where I can't reach without the bike."
+    ],
+    [
+     "elijah",
+     "'Out, like a TV.' He's describing something that stopped looking at him. He knows the difference. Most grown men don't."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "He says 'up high where I can't reach.' The cast says four foot eight from the sill. He's measured it against himself. He knows exactly how tall it was."
+    }
+   ],
+   "gives": {
+    "fact": "fm_kid_eyes",
+    "evidence": "fm_kid_eyes",
+    "flag": "fm_farm_kid_eyes_told",
+    "trust": {
+     "fm_farm_kid": 1
+    }
+   },
+   "next": "hub"
+  },
+  "eyes_no": {
+   "speaker": "fm_farm_kid",
+   "lines": [
+    [
+     "fm_farm_kid",
+     "Coons. Smokehouse has got a ham in it. Coons want the ham. I ain't scared of coons."
+    ],
+    [
+     "fm_farm_kid",
+     "I got to go. Mama wants me back before the barn's lit."
+    ],
+    [
+     "ruth",
+     "He said 'before the barn's lit', dear, not 'before dark'. He's not scared of the dark. He's scared of what the dark's got in it out here."
+    ]
+   ],
+   "next": "hub"
+  },
+  "smokehouse": {
+   "speaker": "fm_farm_kid",
+   "lines": [
+    [
+     "fm_farm_kid",
+     "...Okay. Here. I was here, with the bike, and the light was on the door. And the eyes was there. Where the soot is."
+    ],
+    [
+     "fm_farm_kid",
+     "And I hollered, and they went out, and the door was still shut. It was shut the whole time. I checked after. It's got a hasp."
+    ],
+    [
+     "fm_farm_kid",
+     "Nothing went round the side. I'd have seen. I was looking. I was looking for a long time."
+    ],
+    [
+     "june",
+     "Shut door. No movement to the sides. Two points of light that stopped. I'd want that on tape and I don't think it would be on tape."
+    ]
+   ],
+   "gives": {
+    "flag": "fm_farm_kid_walked",
+    "trust": {
+     "fm_farm_kid": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "smokehouse_no": {
+   "speaker": "fm_farm_kid",
+   "lines": [
+    [
+     "fm_farm_kid",
+     "No. I ain't going over there with y'all. I ain't going over there with nobody. I only go on the bike."
+    ],
+    [
+     "fm_farm_kid",
+     "Ask Virgil. Virgil goes in the barn with a lantern. Virgil ain't scared of nothing."
+    ],
+    [
+     "dale",
+     "He's eleven. We just asked him to walk up to the thing he rides away from. That's on us, not him."
+    ]
+   ],
+   "next": "hub"
+  },
+  "dwayne": {
+   "speaker": "fm_farm_kid",
+   "lines": [
+    [
+     "fm_farm_kid",
+     "...Yeah. Dwayne's gun and Dwayne's shells, and Dwayne knows, and Dwayne's going to kill me if the lab people told the sheriff."
+    ],
+    [
+     "fm_farm_kid",
+     "He's not bad. He just don't like being asked things. Ask him about the smokehouse and see if he don't walk off."
+    ],
+    [
+     "teddy",
+     "Noted: the brother walks off when the smokehouse comes up. That's the brother's tell, not the kid's."
+    ]
+   ],
+   "gives": {
+    "flag": "fm_farm_kid_dwayne",
+    "trust": {
+     "fm_farm_kid": 1
+    }
+   },
+   "next": "hub"
+  },
+  "chain": {
+   "speaker": "fm_farm_kid",
+   "lines": [
+    [
+     "fm_farm_kid",
+     "It ain't broke. I just say it's broke."
+    ],
+    [
+     "fm_farm_kid",
+     "...Y'all going to stay in the house on the twenty-first? Mr Lonnie don't. Nobody does. I'd stay. If somebody was with me, I'd stay."
+    ],
+    [
+     "ruth",
+     "That's the bravest thing anybody's said to us in Kentucky, dear, and he said it to a bicycle chain."
+    ]
+   ],
+   "gives": {
+    "flag": "fm_farm_kid_chain"
+   },
+   "next": "hub"
+  }
+ }
+}

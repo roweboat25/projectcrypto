@@ -1,0 +1,318 @@
+{
+ "id": "tn_newsagent",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "Island's on the counter, the Times is late off the boat, and the fags are behind me, so don't ask. Dennis Prior. You'll want the folder."
+    ],
+    [
+     "tn_newsagent",
+     "Everybody who comes in with that look wants the folder. Students, the Sunday papers, a woman in a good coat last Thursday. It's not for sale and it's not for lending."
+    ],
+    [
+     "teddy",
+     "He said 'the folder' before we'd opened our mouths. That's a man who's had this conversation two hundred times."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "recall",
+     "threshold": 7,
+     "line": "The folder on the shelf has a label newer than the rest. The others are his mother's hand. 1973 is his, and it's been stuck over something.",
+     "flag": "tn_newsagent_folder"
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "The Uncle Rainbow flyer in the window is pinned over an older one. The corner showing is yellow with sun and says SUNNY in a hand that's not a printer's."
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'd like to see it, when you've a minute. We'll buy the Times to make it worth your while.",
+     "next": "times",
+     "trust": 1
+    },
+    {
+     "tone": "hard",
+     "text": "The folder, then. We'll read it here. We won't be long.",
+     "next": "bell"
+    },
+    {
+     "tone": "wry",
+     "text": "A woman in a good coat. Everybody keeps mentioning her. She's got a better coat than us, I'll give her that.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_tn_newsagent"
+   }
+  },
+  "times": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "Times is late. Have the Island, it's got the tides in it and the Times hasn't. Forty pence, and you can stand there and read the folder, and don't lick your finger."
+    ]
+   ],
+   "next": "hub"
+  },
+  "bell": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "You'll read it where I put it, which is on the counter, with my hand on it, and the bell goes every time somebody wants ten Embassy, so you won't be reading it in peace."
+    ],
+    [
+     "miriam",
+     "Fair. It's his shop and his mother's folder. Take the Island and start again."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "tn_newsagent": -1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "Priors have had this shop since 1948. Mother kept every County Press, I keep every County Press. Nothing's happened in Sandown we haven't got the back page of."
+    ]
+   ],
+   "repeat": true,
+   "prompt": "Dennis has one hand on the folder and the other on the till.",
+   "options": [
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "tn_county_press_1973": 1
+      }
+     },
+     "text": "That label's stuck over something. What did your mother call that folder?",
+     "pass": "folder",
+     "fail": {
+      "next": "folder_fail"
+     },
+     "requires": {
+      "flag": [
+       "tn_newsagent_folder"
+      ]
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tn_station_trunk": 2,
+       "tn_landlady_left_early": 1
+      }
+     },
+     "text": "You'd have been a lad in '73. Paper round? Which road?",
+     "pass": "round",
+     "fail": {
+      "line": "Paper round, yes. Every road. I saw a lot of milk bottles. Is that evidence?"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "lk_rota_1973": 2,
+       "tn_sunnyside_flyer": 1
+      }
+     },
+     "text": "The flyer under the flyer. Sunny, in handwriting, gone yellow. Sunny who?",
+     "pass": "old_flyer",
+     "fail": {
+      "next": "old_flyer_fail",
+      "trust": {
+       "tn_newsagent": -1
+      }
+     }
+    },
+    {
+     "tone": "wry",
+     "text": "Uncle Rainbow, every afternoon. Does he do mornings? Only we've a tide to catch.",
+     "next": "rainbow",
+     "requires": {
+      "evidence": [
+       "tn_sunnyside_flyer"
+      ],
+      "not_flag": [
+       "tn_newsagent_rainbow"
+      ]
+     }
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Prior."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The SUNNY corner in the window has gone a shade yellower since you walked in. Make him lift the flyer. Now, before it's a colour."
+   }
+  },
+  "folder": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "...CLOWN. In her hand. She called it the clown folder from the week it happened, and she didn't mean it funny, she meant it like you'd say the flood folder."
+    ],
+    [
+     "tn_newsagent",
+     "I stuck 1973 over it in '89 when the kids from the comprehensive started coming in asking for the clown, because I didn't like hearing them say it. She never did either."
+    ],
+    [
+     "ruth",
+     "The clown folder, dear. A woman who kept forty years of papers and labelled one of them like a drawer you don't open."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_newsagent_clown",
+    "trust": {
+     "tn_newsagent": 1
+    }
+   },
+   "next": "hub"
+  },
+  "folder_fail": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "It's a folder. It says 1973. Miss Jolliffe at the library's got the same page on the fiche and she's paid to be asked."
+    ],
+    [
+     "teddy",
+     "The library. Second time today somebody's sent us there. The town's got one place it's happy to let us read."
+    ]
+   ],
+   "next": "hub"
+  },
+  "round": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "Levels road, Station road, the Broadway. Six till half seven, and the Wednesday after the bank holiday I was on the Levels road at six and there's a man walking in off it."
+    ],
+    [
+     "tn_newsagent",
+     "Tall. Carrying a hatbox and a bag like a tent. I said morning. He didn't. He had a coat on in that heat, done up, and his hands were blue."
+    ],
+    [
+     "tn_newsagent",
+     "I went home and told Mother, and she wrote it on the folder."
+    ],
+    [
+     "dale",
+     "Six in the morning, off the Levels, a hatbox and a tent bag. He'd been out there all night. Something was being packed up."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_newsagent_round",
+    "trust": {
+     "tn_newsagent": 1
+    }
+   },
+   "next": "hub"
+  },
+  "old_flyer": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "...SUNNY JIM. Sunnyside's, 1973, 'Sunny Jim's Fun Hour, every afternoon, all colours.' Mother put it in the window the May before, and she never took it out."
+    ],
+    [
+     "tn_newsagent",
+     "I asked her once. She said somebody ought to remember his name, because the camp was doing its best to forget it. He was in the window till she died. I pinned Darren over him."
+    ],
+    [
+     "tn_newsagent",
+     "All colours. It says all colours on the flyer. Before any child said it. I've never liked that."
+    ],
+    [
+     "vera",
+     "The act was billed as all colours before the children saw all colours. Either the act was honest, or the thing read the bill."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_newsagent_sunny_jim",
+    "trust": {
+     "tn_newsagent": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "old_flyer_fail": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "That's Mother's window and Mother's business. ...I'll take it down. I should've taken it down years ago."
+    ],
+    [
+     "tn_newsagent",
+     "Ask at the camp. Terry Gosling. He'll tell you it was nobody, and the way he says nobody is worth the bus fare."
+    ],
+    [
+     "miriam",
+     "He's taking the flyer down. We just cost the town the last public record of that name. Note it and move."
+    ]
+   ],
+   "next": "hub"
+  },
+  "rainbow": {
+   "speaker": "tn_newsagent",
+   "lines": [
+    [
+     "tn_newsagent",
+     "Darren does afternoons because Darren's twenty-four and doesn't get up. He does a thing with a balloon. The hat's off a joke shop in Ryde and the glue's mine."
+    ],
+    [
+     "tn_newsagent",
+     "He's a nice lad. He's never been near the Levels. He's never been near 1973. Leave him be, he's the only one in that hat who sleeps."
+    ],
+    [
+     "june",
+     "One hat accounted for, with a receipt. That still leaves the one that was never on anybody's books."
+    ]
+   ],
+   "gives": {
+    "flag": "tn_newsagent_rainbow",
+    "trust": {
+     "tn_newsagent": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

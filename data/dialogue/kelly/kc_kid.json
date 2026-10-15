@@ -1,0 +1,391 @@
+{
+ "_doc": "A kid on a bicycle at the crossroads, mornings and dusks, ten or so, with bones in the bike basket and a mamaw who says the water-tower owl is the 1955 owl's ghost. Trust 1, eager, not allowed out after the streetlight and out after it anyway. The red check gets what he saw come down; the farm kid's confession about the porch posts is the evidence way in.",
+ "id": "kc_kid",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "kc_kid",
+   "lines": [
+    [
+     "kc_kid",
+     "Y'all the ones from the paper? Y'all got a camera? Mamaw says don't talk to the paper but y'all ain't got a van so."
+    ],
+    [
+     "kc_kid",
+     "I know where it eats. The owl. There's bones. I can show you for a dollar, or for nothing if you let me look in the car."
+    ],
+    [
+     "dale",
+     "I'm going to let him look in the car."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "A cat's jawbone and three owl pellets in the bike basket, picked clean and sorted by size. He's been collecting under that tower for weeks. Careful, too."
+    },
+    {
+     "voice": "empathy",
+     "threshold": 8,
+     "line": "He said 'when the streetlight comes on' like a boy who's supposed to be indoors by then and isn't. Mamaw's rule. He's broken it.",
+     "flag": "kc_kid_mamaw"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "You can look in the car. What's your name?",
+     "next": "name",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "A dollar. Everybody in Kelly's got a price, and yours is the fairest yet.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "Does your mamaw know where you are?",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_kc_kid"
+   }
+  },
+  "hub": {
+   "speaker": "kc_kid",
+   "repeat": true,
+   "lines": [
+    [
+     "kc_kid",
+     "Okay. Okay. What else. I know everything. Ask me."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He was out after the streetlight and he saw it come down. He's ten. He'll say anything to a grown-up who says 'I believe you'. Say it."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "kc_kid_name"
+      ]
+     },
+     "tone": "kind",
+     "text": "Hang on. What's your name?",
+     "next": "name"
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "kc_kid_ghost"
+      ]
+     },
+     "tone": "wry",
+     "text": "A ghost owl. Does it eat ghost cats?",
+     "next": "ghost_cats"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7
+     },
+     "text": "Who told you about 1955? Not your mamaw. Somebody at the store.",
+     "pass": "store_version",
+     "fail": {
+      "line": "Everybody. Everybody tells it. You can't buy a Grapette without it. Ask me something hard."
+     }
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "kc_pellets_photo": 1,
+       "kc_pellets_sample": 1
+      }
+     },
+     "text": "Show us where it eats. Properly, the way a scout would. Which side of the tower, which way the wind was.",
+     "pass": "midden",
+     "fail": {
+      "next": "midden_no",
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "kc_kid_mamaw"
+      ],
+      "not_flag": [
+       "kc_kid_down"
+      ]
+     },
+     "check": {
+      "voice": "nerve",
+      "kind": "red",
+      "difficulty": 9,
+      "evidence_bonus": {
+       "kc_kid_owl": 1,
+       "fm_eyeshine_photo": 1
+      }
+     },
+     "text": "You've been out after the streetlight. You saw it come down off the tower. Tell us, and nobody tells your mamaw.",
+     "pass": "came_down",
+     "fail": {
+      "next": "came_down_no"
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "fm_kid_confession"
+      ],
+      "not_flag": [
+       "kc_kid_posts"
+      ]
+     },
+     "tone": "wry",
+     "text": "The kid out at the farm says you two shot the porch posts. With a .410. Last month.",
+     "next": "posts"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now. Go home before the streetlight."
+    }
+   ]
+  },
+  "name": {
+   "speaker": "kc_kid",
+   "lines": [
+    [
+     "kc_kid",
+     "Travis. Travis Keel. Buford on the porch is my great-uncle. He seen one. It waved at him."
+    ],
+    [
+     "kc_kid",
+     "Mamaw says Uncle Buford seen a scarecrow. I ain't decided. I'm collecting evidence. That's what y'all do, right? That's what the bones is."
+    ],
+    [
+     "teddy",
+     "Ten years old and he's already got a better method than the Ledger."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_kid_name",
+    "trust": {
+     "kc_kid": 1
+    }
+   },
+   "next": "hub"
+  },
+  "ghost_cats": {
+   "speaker": "kc_kid",
+   "lines": [
+    [
+     "kc_kid",
+     "No, it eats real cats. That's how you know it's real and a ghost both. Mr Hardin's Smoky. I found his collar."
+    ],
+    [
+     "kc_kid",
+     "I didn't tell Mr Hardin about the collar."
+    ],
+    [
+     "kc_kid",
+     "Mamaw says owls live twenty years and this is a hundred-year owl so it's got to be a ghost. I looked it up."
+    ],
+    [
+     "kc_kid",
+     "Great horned, twenty-eight in a zoo. So maybe it's the grandbaby."
+    ],
+    [
+     "kc_kid",
+     "That's still the same owl, kind of. Right?"
+    ]
+   ],
+   "gives": {
+    "flag": "kc_kid_ghost"
+   },
+   "next": "hub"
+  },
+  "store_version": {
+   "speaker": "kc_kid",
+   "lines": [
+    [
+     "kc_kid",
+     "Mr Oates. At the store, when it's slow. He don't tell it like Uncle Buford. He tells it like it's a thing that happened to people."
+    ],
+    [
+     "kc_kid",
+     "He says the Lacys was scared and there was eleven of them and the babies cried all night. He says don't ever laugh at it."
+    ],
+    [
+     "kc_kid",
+     "He says he sold them ice in the morning and their hands shook."
+    ],
+    [
+     "kc_kid",
+     "Then he says go on home, Travis, and I go. He's the only one makes me go."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "kc_kid": 1
+    }
+   },
+   "next": "hub"
+  },
+  "midden": {
+   "speaker": "kc_kid",
+   "lines": [
+    [
+     "kc_kid",
+     "Okay. North leg of the tower, 'cause the wind's out of the south in summer and it sits on the lee side. Pellets right under the crossbar."
+    ],
+    [
+     "kc_kid",
+     "Bones is further out where it drops 'em."
+    ],
+    [
+     "kc_kid",
+     "Fresh ones is black and shiny. Old ones is grey and fall apart. There's a fresh one every morning so it's eating every night. Big ones."
+    ],
+    [
+     "kc_kid",
+     "The cat was a big one."
+    ],
+    [
+     "kc_kid",
+     "I put a stick in the ground every day I find one. There's forty-one sticks."
+    ],
+    [
+     "dale",
+     "Forty-one days of pellets, dated, on the lee side of a known roost. I'd hire him."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_kid_midden",
+    "trust": {
+     "kc_kid": 1
+    }
+   },
+   "next": "hub"
+  },
+  "midden_no": {
+   "speaker": "kc_kid",
+   "lines": [
+    [
+     "kc_kid",
+     "...It's up there. Right now. It's looking at us. Don't look."
+    ],
+    [
+     "kc_kid",
+     "I'll show you tomorrow. In the morning. It sleeps in the morning. I got to go."
+    ]
+   ],
+   "end": true
+  },
+  "came_down": {
+   "speaker": "kc_kid",
+   "lines": [
+    [
+     "kc_kid",
+     "...Okay. Okay. But you said."
+    ],
+    [
+     "kc_kid",
+     "Last Tuesday. Streetlight was on."
+    ],
+    [
+     "kc_kid",
+     "It came off the crossbar and it didn't flap, it just opened up and came down the light, big as a door, and its eyes was on. On."
+    ],
+    [
+     "kc_kid",
+     "Like the light was coming out of them."
+    ],
+    [
+     "kc_kid",
+     "It went over my head so close I felt it. It didn't make no sound."
+    ],
+    [
+     "kc_kid",
+     "Then it was on the Hardin fence with something, and the something was crying."
+    ],
+    [
+     "kc_kid",
+     "I rode home so fast I wrecked. Mamaw thinks I wrecked on the gravel. That's the only lie I ever told her."
+    ],
+    [
+     "elijah",
+     "Big as a door, silent, eyes lit, hands up in the headlight. He just told us the Lacy porch in 1955, and he's ten, and it's true."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_kid_down",
+    "trust": {
+     "kc_kid": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "came_down_no": {
+   "speaker": "kc_kid",
+   "lines": [
+    [
+     "kc_kid",
+     "I ain't been out after the streetlight. Mamaw'd skin me. Who said?"
+    ],
+    [
+     "kc_kid",
+     "...I got to go. Y'all can look at the bones yourself. North leg."
+    ]
+   ],
+   "next": "hub"
+  },
+  "posts": {
+   "speaker": "kc_kid",
+   "lines": [
+    [
+     "kc_kid",
+     "...He SAID? He said he'd never."
+    ],
+    [
+     "kc_kid",
+     "It was his .410. It was his idea. He said the tourists want new holes and his uncle would charge more. I only shot the one post."
+    ],
+    [
+     "kc_kid",
+     "The low one. He shot the rest."
+    ],
+    [
+     "kc_kid",
+     "Don't tell Mr Oates. Mr Oates would stop telling me it."
+    ],
+    [
+     "miriam",
+     "Fresh pellet scars in the porch posts, explained by two boys and a .410. I'll take that off the board tonight."
+    ]
+   ],
+   "gives": {
+    "flag": "kc_kid_posts",
+    "trust": {
+     "kc_kid": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

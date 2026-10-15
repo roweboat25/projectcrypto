@@ -1,0 +1,134 @@
+{
+ "id": "sf_professor",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "THAT'S THE WAY TO DO IT! ...Sorry, love. Reflex. Anyone stands in front of the booth, Punch comes up. Professor Swazzle, the real name's worse."],
+    ["sf_professor", "Forty-three years on this sand. Punch, Judy, the crocodile, the baby, the policeman, and every summer a new lot of kiddies who think the crocodile's real."],
+    ["sf_professor", "The crocodile is real. Don't tell them."],
+    ["ruth", "He's got the voice in his cheek even when he's not using it. You can see the shape of the tin."]
+   ],
+   "passives": [
+    {"voice": "lore", "threshold": 7, "line": "A pointed hat, a stick, a voice that is not a man's, and children taken off at the end. He is telling you the old shape of the thing in the Levels and he thinks he is telling you a joke."},
+    {"voice": "tech", "threshold": 9, "line": "There is a tin on a cord round his neck, worn to a shine. The swazzle lives there. He has had two stolen and he will not have a third.", "flag": "sf_professor_tin"}
+   ],
+   "options": [
+    {"tone": "wry", "text": "Is the baby real as well?", "next": "wry"},
+    {"tone": "kind", "text": "Forty-three years. You'll have seen everything on this beach.", "next": "kind"},
+    {"tone": "silent", "text": "(Wait for Punch to go back down.)", "next": "silent", "trust": 1}
+   ],
+   "gives": {"flag": "met_sf_professor"}
+  },
+  "wry": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "The baby's a sock. Everything else is real. That's the trade."],
+    ["sf_professor", "You've a face for the booth, you have. Deadpan. I'd put you on as the policeman."]
+   ],
+   "next": "hub"
+  },
+  "kind": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "Everything and twice. I've seen a man propose with a crab. I've seen the pier catch fire and the band play on because they hadn't been told."],
+    ["sf_professor", "And I've seen 1973, which is what you're after. Sit on the sand, the deckchairs are Wilf's and he counts."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"sf_professor": 1}}
+  },
+  "silent": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "...He's gone. He goes if you don't feed him."],
+    ["sf_professor", "You're patient. Patient's rare. Patient I'll talk to."]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "sf_professor",
+   "repeat": true,
+   "prompt": "Go on, my love. Next show's at the half hour and Judy's lost a hand.",
+   "lines": [["sf_professor", "Go on, my love. Next show's at the half hour and Judy's lost a hand."]],
+   "static": {"min_dread": 3, "line": "He lost two swazzles in 1973 and he knows who took them and he knows what came back. Make him put the tin in his mouth. Make him do the voice."},
+   "options": [
+    {"check": {"voice": "lore", "kind": "white", "difficulty": 8},
+     "text": "Who taught you the voice? Punch men don't learn it from a book.", "pass": "taught",
+     "fail": {"line": "Trade secret, my love. A Punch man tells you where he learned the voice and the next week there's two booths on the sand."}},
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 7, "evidence_bonus": {"sf_professor_swazzle": 1}},
+     "text": "Do it for us. Not Punch. The flat one. The voice with no breath in it.", "pass": "voice", "fail": {"next": "voice_fail"}},
+    {"requires": {"flag": ["sf_professor_tin"], "not_flag": ["sf_professor_lost", "sf_professor_lost_shut"]},
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 10, "evidence_bonus": {"sf_arcade_wizard": 1, "lk_caretaker_jim": 1, "sf_deckchair_chairs": 1}},
+     "text": "Two swazzles gone in '73, and you've kept the third round your neck ever since. You know who took them.", "pass": "lost",
+     "fail": {"next": "lost_fail", "trust": {"sf_professor": -1}}},
+    {"requires": {"evidence": ["tn_phone_voice"]},
+     "text": "Listen to this. The station telephone box, last night.", "next": "tape"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "We'll let Judy find her hand."}
+   ]
+  },
+  "taught": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "Old Codman, Llandudno, 1949. Put the tin under my tongue and said swallow it and you're dead, breathe through your nose and you're Punch."],
+    ["sf_professor", "I swallowed one in '51. Didn't die. That's the whole of the training. The voice isn't yours, it's the tin's, and you're just the breath going through."],
+    ["sf_professor", "That's why the camp lads wanted one. Put a tin in, and whatever comes out, it wasn't you said it."],
+    ["june", "A voice you can disown. That's exactly what a man in a hat on a marsh would want."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_professor_taught", "trust": {"sf_professor": 1}}
+  },
+  "voice": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "...All right. Stand back, it carries."],
+    ["sf_professor", "COME AND SEE THE DIALS."],
+    ["sf_professor", "...That's what they said it said, isn't it. Colin's story. I've done that line once a year, to the sand, to see if it still frightens me. It does. Gulls went up, did you see."],
+    ["elijah", "It wasn't the gulls. Something on the Levels turned its head."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_professor_voice", "dread": 1}
+  },
+  "voice_fail": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "No. Not that one. I'll do you Punch, Judy, the crocodile. I'll do you the Queen. Not that one."],
+    ["sf_professor", "Wilf's brother did that one for thirty years on the pier and look where Dennis is. Ask Wilf. He won't tell you either."]
+   ],
+   "next": "hub"
+  },
+  "lost": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "...The lad in the hat. Sunny Jim, they called him. Borrowed one in May, said it was for the kiddies' club, and I let him, because he had the knack and the knack's rare."],
+    ["sf_professor", "He brought it back the Wednesday night. Wet. Put it on the sand in front of the booth like it was hot and said, Professor, it talked without me. I stopped and it kept on."],
+    ["sf_professor", "I never put that one in my mouth again. It's in the tin with the other. Two in the tin and I've never worked out which is which."],
+    ["vera", "One of those tins has a voice in it that doesn't need a man. He wears it round his neck."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_professor_lost", "dread": 1, "trust": {"sf_professor": 1}}
+  },
+  "lost_fail": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "Lost. I said lost. Lost is lost, my love, and I've had forty years of kiddies' fingers in my booth, things go."],
+    ["sf_professor", "If you want who was borrowing what that summer, ask Len Cutmore at the camp. He packs the costumes. He packs everything."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_professor_lost_shut"}
+  },
+  "tape": {
+   "speaker": "sf_professor",
+   "lines": [
+    ["sf_professor", "...Play it again. ...No. Switch it off. Off."],
+    ["sf_professor", "That's not a swazzle. A swazzle's got a man behind it, you can hear him breathing through his nose if you know. There's no nose on that. There's no man on that."],
+    ["sf_professor", "That's the tin on its own. That's what he brought me back. Put it away. Please."],
+    ["dale", "Forty-three years in the trade and he's asking us to put a cassette away. I'm putting it away."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sf_professor_tape", "dread": 1}
+  }
+ }
+}

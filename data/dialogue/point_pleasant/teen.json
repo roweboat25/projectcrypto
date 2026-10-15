@@ -1,0 +1,392 @@
+{
+ "_doc": "Jody Rayburn, sixteen, the reflector hoax. Under the water tower at dusk, the Rayburn house at night, the library by day. Topics on the hub offer the quick facts (it's all kids, the reflectors, what happened after).",
+ "id": "teen",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "If this is about the tower, it's not about the tower. Scooter, don't say anything."
+    ],
+    [
+     "teen",
+     "We're bird-watching. That's a club. The library's got a sign-up sheet, you can check."
+    ],
+    [
+     "teen",
+     "You're the station wagon people. Half the hill thinks you're the suits. The suits had a better car."
+    ],
+    [
+     "dale",
+     "Binoculars round his neck. Lens caps still on."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "fieldcraft",
+     "threshold": 7,
+     "line": "Grey duct tape on the cuff of his jacket. Same roll as the sycamore by the lane.",
+     "flag": "teen_tape_cuff"
+    },
+    {
+     "voice": "empathy",
+     "threshold": 9,
+     "line": "He put the cocky on this morning like a coat. The kid under it hasn't slept since Thursday."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He keeps looking at the catwalk. Not up. Level. Like it's at his height now."
+   },
+   "options": [
+    {
+     "tone": "wry",
+     "text": "Bird-watching. In January. At dusk. With the caps on.",
+     "next": "caps"
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "Who's the Mason kid, and why's he such a baby about the tower?",
+     "pass": "mason_kid",
+     "fail": {
+      "line": "Ask him yourself. He's at the library till five every day 'cause his mom works nights. ...Don't say I told you that."
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "February's a bad month to take up birds. What happened in January?",
+     "pass": "birds",
+     "fail": {
+      "next": "birds_fail",
+      "dread": 1
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Look up at the catwalk. Say nothing.)",
+     "next": "catwalk",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_teen"
+   }
+  },
+  "caps": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "...The caps are so they don't fog."
+    ],
+    [
+     "teen2",
+     "Jody, that's not how fog works."
+    ],
+    [
+     "teen",
+     "Shut up, Scooter. Fine. Fine. What do you want."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen": 1
+    }
+   },
+   "next": "hub"
+  },
+  "mason_kid": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "Danny Mason. Dwight and Carol's. His dad drives out to the plant Thursdays and Danny thinks one night it's gonna keep him."
+    ],
+    [
+     "teen",
+     "So we... yeah. It was a mean one. I know it was a mean one. You don't have to say it."
+    ],
+    [
+     "teddy",
+     "Nobody's saying it, kid."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen": 1
+    },
+    "flag": "teen_mason_kid"
+   },
+   "next": "hub"
+  },
+  "birds": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "Nothing happened. ...Something stood up. Okay? On the catwalk. We were done, we were leaving, and it stood up like it'd been sitting."
+    ],
+    [
+     "teen",
+     "Watching us tape. The whole time. Like it thought it was funny too."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen": 1
+    },
+    "flag": "teen_stood_up"
+   },
+   "next": "hub"
+  },
+  "birds_fail": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "January's when the feeder's busy. Chickadees. Juncos. Scooter, name a bird."
+    ],
+    [
+     "teen2",
+     "...Owl."
+    ],
+    [
+     "teen",
+     "See. Birds."
+    ]
+   ],
+   "next": "hub"
+  },
+  "catwalk": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "Don't. Don't look at it like that."
+    ],
+    [
+     "teen",
+     "...It's fine. It's a water tower. Scooter, it's a water tower."
+    ],
+    [
+     "elijah",
+     "He's not telling you. He's telling it."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "teen",
+   "repeat": true,
+   "prompt": "So are we done, or is this a whole thing.",
+   "lines": [
+    [
+     "teen",
+     "So are we done, or is this a whole thing."
+    ]
+   ],
+   "options": [
+    {
+     "requires": {
+      "evidence": [
+       "yearbook_1966"
+      ],
+      "not_flag": [
+       "teen_knows_aunt"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "carol_number": 1,
+       "dwight_account": 1
+      }
+     },
+     "text": "Patty Rayburn. On a Chevy hood, November 1966. She's your aunt, Jody.",
+     "pass": "aunt",
+     "fail": {
+      "next": "aunt_fail",
+      "trust": {
+       "teen": -2
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "teen_tape_cuff"
+      ],
+      "not_flag": [
+       "teen_cuff_pressed"
+      ]
+     },
+     "check": {
+      "voice": "intimidate",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "tape_lab": 2,
+       "reflector_tree": 1
+      }
+     },
+     "text": "Same tape on your cuff as on the sycamore. The deputy can count too.",
+     "pass": "cuff",
+     "fail": {
+      "next": "cuff_fail",
+      "trust": {
+       "teen": -1
+      }
+     }
+    },
+    {
+     "tone": "kind",
+     "requires": {
+      "not_flag": [
+       "teen_dog_said"
+      ]
+     },
+     "text": "You didn't do the dog, Jody. We know that.",
+     "next": "dog"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Watch your birds."
+    }
+   ]
+  },
+  "aunt": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "Aunt Pat's in Columbus. She sends a card. She didn't come back for Grandpa's funeral. Nobody says why."
+    ],
+    [
+     "teen",
+     "...She was in the car? The '66 car? Nobody told me that. Nobody tells us anything, and then they're mad about what we do."
+    ],
+    [
+     "teen2",
+     "Jody."
+    ],
+    [
+     "teen",
+     "I'm fine. I'm fine. Birds."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen": 1
+    },
+    "flag": "teen_knows_aunt",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "aunt_fail": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "My aunt's got nothing to do with this. Leave my family out of it. Leave Columbus out of it."
+    ],
+    [
+     "teen",
+     "Go talk to Mrs. Fry if you like yearbooks so much. She's the one who keeps them."
+    ],
+    [
+     "miriam",
+     "That landed wrong. He didn't know, and now he knows we know."
+    ]
+   ],
+   "next": "hub"
+  },
+  "cuff": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "...Everybody's got duct tape."
+    ],
+    [
+     "teen",
+     "Okay. Okay. Yes. Thursday, the sycamore, two reflectors off Scooter's old bike. It was a joke. Can we not do the deputy thing."
+    ],
+    [
+     "teen2",
+     "I told you to throw the roll out."
+    ]
+   ],
+   "gives": {
+    "evidence": "teen_confession",
+    "flag": "teen_cuff_pressed",
+    "trust": {
+     "teen": 1
+    }
+   },
+   "next": "hub"
+  },
+  "cuff_fail": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "Everybody's got duct tape. Bobby Kessler's got a whole garage of it on Sixth Street. Go count his."
+    ],
+    [
+     "teen",
+     "And the deputy's been up here twice and gone home twice, so."
+    ]
+   ],
+   "next": "hub"
+  },
+  "dog": {
+   "speaker": "teen",
+   "lines": [
+    [
+     "teen",
+     "...We didn't. It was under the tarp Friday morning and the snow under it hadn't melted. That's how cold it was."
+    ],
+    [
+     "teen",
+     "That's not a prank. We can't do cold. We can do red. Anybody can do red."
+    ],
+    [
+     "dale",
+     "Anybody can do red. That's the whole problem with this town."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "teen": 1
+    },
+    "flag": "teen_dog_said"
+   },
+   "next": "hub"
+  }
+ }
+}

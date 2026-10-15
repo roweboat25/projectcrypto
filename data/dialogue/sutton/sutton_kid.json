@@ -1,0 +1,127 @@
+{
+ "id": "sutton_kid",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "sutton_kid",
+   "lines": [
+    ["sutton_kid", "You're the new ones. Grandma says don't bother you. I'm not bothering you, I'm standing here."],
+    ["sutton_kid", "Is it true you get paid to look at monsters? Hollis says you get paid in pie."],
+    ["dale", "Kid's got green paint on both hands. Not one. Both."]
+   ],
+   "passives": [
+    {"voice": "empathy", "threshold": 7, "line": "Paint on both hands and a brush in the back pocket. Nobody's told the kid to wash up. Nobody's home to.", "flag": "sutton_kid_alone"},
+    {"voice": "lore", "threshold": 8, "line": "The green man the kid paints is the Flatwoods one. Ten feet, the spade head. Not a cartoon. Somebody showed the kid a drawing.", "flag": "sutton_kid_drawing"}
+   ],
+   "static": {"min_dread": 3, "line": "The kid is standing exactly where the wagon parks. Ask how the kid knows where the wagon parks."},
+   "options": [
+    {"tone": "kind", "text": "We get paid to listen, mostly.", "next": "listen"},
+    {"check": {"voice": "rapport", "kind": "white", "difficulty": 7, "evidence_bonus": {"kid_green_man": 1}},
+     "text": "Green paint. Both hands. Who's the artist?", "pass": "artist",
+     "fail": {"line": "Art class. We did a thing. Where's the pie? Hollis said there'd be pie."}},
+    {"tone": "silent", "text": "(Say nothing and let the kid talk.)", "next": "chatter", "trust": 1}
+   ],
+   "gives": {"flag": "met_sutton_kid"}
+  },
+  "listen": {
+   "speaker": "sutton_kid",
+   "lines": [
+    ["sutton_kid", "To who?"],
+    ["sutton_kid", "...Nobody listens to me. Grandma listens, but she does the face. You don't do the face."],
+    ["teddy", "I'm not sure what the face is, but I'm going to try not to do it."]
+   ],
+   "next": "hub",
+   "gives": {"trust": {"sutton_kid": 1}}
+  },
+  "artist": {
+   "speaker": "sutton_kid",
+   "lines": [
+    ["sutton_kid", "Me. It's six miles that way and it's on the sign, so I put him on the sign."],
+    ["sutton_kid", "Grandma paints him out Saturday. I paint him back Sunday. The county gave up."],
+    ["ruth", "Sunday's a good day for it, dear. Nobody's watching the road."]
+   ],
+   "next": "hub",
+   "gives": {"fact": "kid_green_man", "evidence": "kid_green_man", "flag": "sutton_kid_artist", "trust": {"sutton_kid": 1}}
+  },
+  "chatter": {
+   "speaker": "sutton_kid",
+   "lines": [
+    ["sutton_kid", "..."],
+    ["sutton_kid", "Okay so. Hollis says the dam hums and Pearl says it talks and Grandma says eat your supper. I think it hums. I put my ear on the rail once."],
+    ["sutton_kid", "It said my name. Probably it didn't. But it did."],
+    ["june", "Kid. Next time, take me."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sutton_kid_rail"}
+  },
+  "hub": {
+   "speaker": "sutton_kid",
+   "repeat": true,
+   "prompt": "The kid waits, swinging a foot.",
+   "lines": [
+    ["sutton_kid", "What. I can stand here. It's a public sidewalk, Hollis said."]
+   ],
+   "options": [
+    {"requires": {"flag": ["sutton_kid_drawing"]},
+     "check": {"voice": "lore", "kind": "white", "difficulty": 8, "evidence_bonus": {"drawer_s_rule": 2, "dot_on_gus": 1}},
+     "text": "That's not a cartoon you paint. Somebody showed you a drawing.", "pass": "drawing",
+     "fail": {"next": "drawing_fail"}},
+    {"tone": "kind", "requires": {"flag": ["sutton_kid_alone"]},
+     "check": {"voice": "empathy", "kind": "red", "difficulty": 9},
+     "text": "Where are your folks, kid?", "pass": "folks",
+     "fail": {"next": "folks_fail", "trust": {"sutton_kid": -1}}},
+    {"tone": "wry", "requires": {"flag": ["sutton_kid_artist"], "not_flag": ["sutton_kid_why"]}, "text": "Why does your grandma paint him out?", "next": "why"},
+    {"topics": true},
+    {"show": true},
+    {"leave": true, "text": "Wash your hands before Dot sees."}
+   ]
+  },
+  "drawing": {
+   "speaker": "sutton_kid",
+   "lines": [
+    ["sutton_kid", "...There's a card. In the office, in the drawer that doesn't open. Only it opened once when I was little, and there was a drawing in it."],
+    ["sutton_kid", "Green man. Spade head. Grandma's old-lady-friend's writing underneath. I didn't take it. I just remembered it."],
+    ["vera", "The drawer opened for a child. Note that. Note it carefully."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sutton_kid_drawer", "trust": {"sutton_kid": 1}}
+  },
+  "drawing_fail": {
+   "speaker": "sutton_kid",
+   "lines": [
+    ["sutton_kid", "It's from a book. The library's got a book. Go look at the book."],
+    ["sutton_kid", "Or ask Pearl. Pearl was there. She doesn't do the face either, but she does a worse one."]
+   ],
+   "next": "hub"
+  },
+  "folks": {
+   "speaker": "sutton_kid",
+   "lines": [
+    ["sutton_kid", "Mom's in Charleston. Dad's wherever. Grandma's got me, Pearl's got me when Grandma's got the counter, Hollis when Pearl's got church."],
+    ["sutton_kid", "It's a lot of people. It's fine. It's more than the green man had."],
+    ["elijah", "Three grown-ups and a monster. The kid's doing better than most."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sutton_kid_folks", "trust": {"sutton_kid": 1}}
+  },
+  "folks_fail": {
+   "speaker": "sutton_kid",
+   "lines": [
+    ["sutton_kid", "That's a Grandma question. Grandma says I don't have to answer Grandma questions from strangers."],
+    ["sutton_kid", "You're strangers till you come back. Hollis said that too."]
+   ],
+   "next": "hub"
+  },
+  "why": {
+   "speaker": "sutton_kid",
+   "lines": [
+    ["sutton_kid", "She says the Office doesn't go to Flatwoods. She says it like a rule. Like the mat and the boots."],
+    ["sutton_kid", "I think it's 'cause the old lady went there, then somewhere else, and didn't come back, and Grandma thinks the sign's how you get there."],
+    ["sutton_kid", "I think the sign's just a sign. But I paint him back. In case."],
+    ["teddy", "In case. That's the whole Office in two words."]
+   ],
+   "next": "hub",
+   "gives": {"flag": "sutton_kid_why", "trust": {"sutton_kid": 1}}
+  }
+ }
+}

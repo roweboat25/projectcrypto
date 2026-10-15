@@ -1,0 +1,464 @@
+{
+ "_doc": "Harlan Boyd, who runs the county fairgrounds his daddy ran in 1955, in the office by day and out by the empty monkey cage at dusk in fair week, with the fourth Pete loose in the honeysuckle. Keeps Kincaid's paperwork and the cigar box under the cage. Trust 1, busy, careful, 'I'm saying what was loose'. The red check asks whether Kincaid ever got his monkey back.",
+ "id": "rt_fair_manager",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "rt_fair_manager",
+   "lines": [
+    [
+     "rt_fair_manager",
+     "If you're here about the T-shirts, they're twelve dollars and I don't set the price, the Jaycees do."
+    ],
+    [
+     "rt_fair_manager",
+     "If you're here about 1955, sit, I've got six minutes before the hog judging."
+    ],
+    [
+     "rt_fair_manager",
+     "Harlan Boyd. Daddy ran it in '55. I ran it since '71, and every August somebody with a notebook wants Kincaid's file. It's in the drawer."
+    ],
+    [
+     "rt_fair_manager",
+     "It's always been in the drawer."
+    ],
+    [
+     "miriam",
+     "A man who keeps a file in a drawer for forty years and says so. I may stay in Kentucky."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "The clipboard on the nail: feeding chart, Pete, August. Tuesday's box is empty. Wednesday's too. The cage out back has been empty since Monday night and he hasn't written that down."
+    },
+    {
+     "voice": "lore",
+     "threshold": 8,
+     "line": "A cigar box wired under the cage out the window, where you'd keep something you wanted close to the place it came from. A showman's habit. His daddy's.",
+     "flag": "rt_fm_box"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "Six minutes is plenty, Mr Boyd. We'll be quick and we'll be back.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "We'll skip the T-shirts. The drawer, please.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "Your monkey's loose. Tuesday's feed box is empty. Let's start there.",
+     "next": "hub"
+    }
+   ],
+   "gives": {
+    "flag": "met_rt_fair_manager"
+   }
+  },
+  "hub": {
+   "speaker": "rt_fair_manager",
+   "repeat": true,
+   "lines": [
+    [
+     "rt_fair_manager",
+     "Go on. And if Pete comes in that window, nobody move."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Kincaid came back on the twenty-second for his monkey and his daddy wrote the claim anyway. Either the monkey was never found, or something was found that wasn't a monkey. Ask which."
+   },
+   "options": [
+    {
+     "requires": {
+      "not_flag": [
+       "rt_fm_petes"
+      ]
+     },
+     "tone": "wry",
+     "text": "The fourth Pete. Do you name them all Pete so the latch feels familiar?",
+     "next": "petes"
+    },
+    {
+     "check": {
+      "voice": "press",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "rt_show_photo_1955": 1,
+       "rt_monkey_claim": 1
+      }
+     },
+     "text": "Your daddy wrote the claim up because the sheriff asked him to. Why would a sheriff want a lost monkey on paper?",
+     "pass": "sheriff",
+     "fail": {
+      "next": "sheriff_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "tech",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "rt_pete_1994": 1,
+       "rt_cage_fur_lab": 1
+      }
+     },
+     "text": "Honeysuckle, back fence, dusk. We've got forty feet of net. How do you take a rhesus without hurting him?",
+     "pass": "net_how",
+     "fail": {
+      "line": "You don't. He takes you. Leave the net in the car and I'll call you if he comes in for the bananas."
+     }
+    },
+    {
+     "requires": {
+      "not_flag": [
+       "rt_fm_got"
+      ]
+     },
+     "check": {
+      "voice": "bluff",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "rt_monkey_claim": 2,
+       "kc_monkey_claim_1955": 1,
+       "rt_showman_coffee": 1
+      }
+     },
+     "text": "Kincaid came back on the twenty-second and got his monkey. Your daddy saw it in the car. Say so and we'll leave the ticket where it is.",
+     "pass": "got_it",
+     "fail": {
+      "next": "got_no",
+      "trust": {
+       "rt_fair_manager": -1
+      },
+      "dread": 1
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "kc_checkers_monkey"
+      ],
+      "not_flag": [
+       "rt_fm_buford"
+      ]
+     },
+     "tone": "kind",
+     "text": "Buford Keel on the store porch has said monkey for thirty-nine years. He'd like to shake your hand.",
+     "next": "buford"
+    },
+    {
+     "requires": {
+      "flag": [
+       "rt_fm_box"
+      ],
+      "not_flag": [
+       "rt_fm_box_told"
+      ]
+     },
+     "tone": "kind",
+     "text": "The cigar box wired under the cage. What else is in it besides the ticket roll?",
+     "next": "box"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Boyd. Good luck with the hogs."
+    }
+   ]
+  },
+  "petes": {
+   "speaker": "rt_fair_manager",
+   "lines": [
+    [
+     "rt_fair_manager",
+     "First Pete was Daddy's, 1961, bought off a show that owed him ground rent. Got out fair week, back by Sunday. Second Pete, '74, same."
+    ],
+    [
+     "rt_fair_manager",
+     "Third, '85, same. This one's the fourth."
+    ],
+    [
+     "rt_fair_manager",
+     "I don't name them Pete. The Jaycees name them Pete. I'd have called this one Houdini."
+    ],
+    [
+     "rt_fair_manager",
+     "Every one of them comes back for the bananas Sunday night. Every one. Whatever was loose in 1955 never came back for anything."
+    ],
+    [
+     "rt_fair_manager",
+     "That's the one thing I'll say about it."
+    ],
+    [
+     "dale",
+     "A rhesus that gets out in fair week and comes back by Sunday. Four times. That's a pattern. 1955's the one that broke it."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_fm_petes",
+    "trust": {
+     "rt_fair_manager": 1
+    }
+   },
+   "next": "hub"
+  },
+  "sheriff": {
+   "speaker": "rt_fair_manager",
+   "lines": [
+    [
+     "rt_fair_manager",
+     "Because by the Tuesday he had forty reporters and a family that wouldn't go home, and a monkey on paper is a thing you can show a reporter."
+    ],
+    [
+     "rt_fair_manager",
+     "He came out here himself."
+    ],
+    [
+     "rt_fair_manager",
+     "Daddy said he stood in that door and said, Boyd, I need it dated and I need it signed, and I need it to say rhesus."
+    ],
+    [
+     "rt_fair_manager",
+     "Daddy said it already was a rhesus. The sheriff said, good."
+    ],
+    [
+     "rt_fair_manager",
+     "Daddy never thought the sheriff believed it was the monkey."
+    ],
+    [
+     "rt_fair_manager",
+     "He thought the sheriff needed it to be something, and a monkey was the kindest thing going."
+    ],
+    [
+     "teddy",
+     "A sheriff building a hoax to protect a family from a worse headline. That's the most Kentucky thing I've written down this week."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rt_fair_manager": 1
+    }
+   },
+   "next": "hub"
+  },
+  "sheriff_no": {
+   "speaker": "rt_fair_manager",
+   "lines": [
+    [
+     "rt_fair_manager",
+     "Sheriffs want paper. It's what they're for."
+    ],
+    [
+     "rt_fair_manager",
+     "If you want to know what he wanted it for, the Ledger's editor has every word he said that week."
+    ],
+    [
+     "rt_fair_manager",
+     "She'll give it to you cheaper than I will."
+    ]
+   ],
+   "next": "hub"
+  },
+  "net_how": {
+   "speaker": "rt_fair_manager",
+   "lines": [
+    [
+     "rt_fair_manager",
+     "You don't throw it. You hang it. Between the two fence posts by the honeysuckle, slack, at the height of a man's chest."
+    ],
+    [
+     "rt_fair_manager",
+     "He comes down the fence at dusk, hits it, wraps himself, and sits there and cusses."
+    ],
+    [
+     "rt_fair_manager",
+     "Then you talk to him. Low. Don't look him in the eye, he takes it as a challenge."
+    ],
+    [
+     "rt_fair_manager",
+     "And you hand him a banana through the net before you touch the net."
+    ],
+    [
+     "rt_fair_manager",
+     "Hands up means he's scared. Scared, he bites."
+    ],
+    [
+     "rt_fair_manager",
+     "That's the whole act, and the act's the whole reason a scared one looks like it's surrendering."
+    ],
+    [
+     "june",
+     "Slack net, chest height, between fixed posts. That's not just how you take a monkey. Write it down for Saturday night."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "rt_fair_manager": 1
+    }
+   },
+   "next": "hub"
+  },
+  "got_it": {
+   "speaker": "rt_fair_manager",
+   "lines": [
+    [
+     "rt_fair_manager",
+     "...No. He didn't get it."
+    ],
+    [
+     "rt_fair_manager",
+     "That's what's wrong with the whole thing, and I'll say it once because you've got the paper and you'll find it anyhow."
+    ],
+    [
+     "rt_fair_manager",
+     "Kincaid came back Monday, with the claim in his hand and a man from the show, and they walked the Lacy road till dark calling it. Nothing."
+    ],
+    [
+     "rt_fair_manager",
+     "He came back Tuesday. Nothing. Wednesday he left for Paducah and he wrote Daddy from there in October."
+    ],
+    [
+     "rt_fair_manager",
+     "The letter said: we found him. September. In the cage."
+    ],
+    [
+     "rt_fair_manager",
+     "Sat in it one morning like he'd never been out, and thin as a rail."
+    ],
+    [
+     "rt_fair_manager",
+     "And he'd not come within four hundred miles of Kentucky. The show was in Missouri."
+    ],
+    [
+     "rt_fair_manager",
+     "Daddy kept the letter in the box. I've read it a hundred times."
+    ],
+    [
+     "rt_fair_manager",
+     "Either a rhesus walked to Missouri, or Kincaid lied to make Daddy feel better, or something was in that cage that wasn't his monkey."
+    ],
+    [
+     "vera",
+     "It came back to the cage, far away, thin, after the night. I have read that sentence before, about other things, in older books."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "A monkey loose from the nineteenth, called for on the Lacy road for two days, and found four hundred miles off in September. Either the hoax card is thinner than the claim form says, or the show lied. Both are worth a line."
+    }
+   ],
+   "gives": {
+    "flag": "rt_fm_got",
+    "trust": {
+     "rt_fair_manager": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "got_no": {
+   "speaker": "rt_fair_manager",
+   "lines": [
+    [
+     "rt_fair_manager",
+     "Daddy never saw any monkey in any car, and you know it, because if he had there'd be no claim and no file and no drawer."
+    ],
+    [
+     "rt_fair_manager",
+     "Don't tell me what my daddy saw."
+    ],
+    [
+     "rt_fair_manager",
+     "Hog judging. The file's in the drawer; you've had it. The box is under the cage; take your ticket and leave the rest."
+    ]
+   ],
+   "end": true
+  },
+  "buford": {
+   "speaker": "rt_fair_manager",
+   "lines": [
+    [
+     "rt_fair_manager",
+     "Buford Keel. Lord. He came out here in 1962 and asked Daddy to put it in writing that it was a monkey so he could win a dollar."
+    ],
+    [
+     "rt_fair_manager",
+     "Daddy said he'd already put it in writing, in 1955, for the sheriff."
+    ],
+    [
+     "rt_fair_manager",
+     "Buford said, well, can I have a copy. Daddy said no. Buford's been mad at the fairgrounds since."
+    ],
+    [
+     "rt_fair_manager",
+     "Tell him he can have a copy. Tell him I said thirty-two years is long enough to be mad at a fair."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_fm_buford",
+    "trust": {
+     "rt_fair_manager": 1
+    }
+   },
+   "next": "hub"
+  },
+  "box": {
+   "speaker": "rt_fair_manager",
+   "lines": [
+    [
+     "rt_fair_manager",
+     "Route card. Kincaid's Wonders, summer of '55, every town and every date in a showman's pencil. Hopkinsville, the nineteenth and twentieth."
+    ],
+    [
+     "rt_fair_manager",
+     "Paducah, the twenty-second. Cairo. Sikeston."
+    ],
+    [
+     "rt_fair_manager",
+     "And a feather. Barred, long as your hand, soft."
+    ],
+    [
+     "rt_fair_manager",
+     "Daddy found it in the cage the morning the monkey was gone and he put it in the box and never said why."
+    ],
+    [
+     "rt_fair_manager",
+     "I've always figured a hawk got in and scared it out. I've never been able to figure how the latch got open from the outside."
+    ],
+    [
+     "dale",
+     "A great horned owl feather in an empty monkey cage on the nineteenth."
+    ],
+    [
+     "dale",
+     "The owls were working this road two days before the Lacys ever fired a shot."
+    ]
+   ],
+   "gives": {
+    "flag": "rt_fm_box_told",
+    "trust": {
+     "rt_fair_manager": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}

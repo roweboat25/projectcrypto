@@ -1,0 +1,351 @@
+{
+ "id": "lv_golfer",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "Shh, shh, shh. ...Oh, for. Right. Missed. Your fault entirely and I'll buy you a drink to prove I don't mean it. Members' bar, after. Visitors are my guests."
+    ],
+    [
+     "lv_golfer",
+     "You're not members. You've not got the shoes. You're the Americans Pike's been going purple about, and I think that's marvellous."
+    ],
+    [
+     "teddy",
+     "He said 'Pike' the way a schoolboy says the headmaster's name when the headmaster's out."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "rapport",
+     "threshold": 7,
+     "line": "He is a man who likes an audience more than a round. He'll give you the bar's version of anything if you let him be the one telling it."
+    },
+    {
+     "voice": "logic",
+     "threshold": 9,
+     "line": "The ball he just missed with has a yellow stripe and a tide-mark of marsh mud on it. Nobody plays a found ball off the ninth. He went in after it.",
+     "flag": "lv_golfer_ball"
+    }
+   ],
+   "options": [
+    {
+     "tone": "wry",
+     "text": "We'll take the drink. We've been blamed for worse than a putt.",
+     "next": "wry"
+    },
+    {
+     "tone": "kind",
+     "text": "Lovely course. Pike's just protective of it.",
+     "next": "kind"
+    },
+    {
+     "tone": "hard",
+     "text": "We're not here for the bar. The ninth. What do the members say?",
+     "next": "hard"
+    }
+   ],
+   "gives": {
+    "flag": "met_lv_golfer"
+   }
+  },
+  "wry": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "Ha! Good. Good. A sense of humour's the only thing that gets you round this course, that and a bag of old balls for the ninth."
+    ],
+    [
+     "lv_golfer",
+     "Ask away. I've eighteen holes of opinions and nobody in the four-ball will listen."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "trust": {
+     "lv_golfer": 1
+    }
+   }
+  },
+  "kind": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "Protective! That's one word. Pike's been secretary since the Flood and he thinks the Flood was a drainage issue."
+    ],
+    [
+     "lv_golfer",
+     "Lovely course, though. You're right. Except the one hole, and we don't talk about the one hole, so naturally we talk about nothing else."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hard": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "Straight to it. All right. The ninth. Dogleg left, reeds all down the right, and a green that the old chaps say glows if you're on it after the bar's shut."
+    ],
+    [
+     "lv_golfer",
+     "That's what they say. I'll tell you what I say if you're buying, which you're not, I am."
+    ]
+   ],
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "lv_golfer",
+   "repeat": true,
+   "prompt": "Go on, then. The four-ball's on the tee and they can wait, they always do.",
+   "lines": [
+    [
+     "lv_golfer",
+     "Go on, then. The four-ball's on the tee and they can wait, they always do."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "He went into the reeds after the ball and he found more than the ball. He's playing it because he's afraid to leave it in the bag. Ask him what else was on the stone."
+   },
+   "options": [
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "lv_committee_laughed": 1,
+       "lv_yellow_coat_1973": 1
+      }
+     },
+     "text": "What does the bar say about Pike and 1973? Off the record, we're not the Chronicle.",
+     "pass": "pike",
+     "fail": {
+      "line": "Oh, I couldn't. Pike signs the guest book. I'd be in the reeds with the balls. Ask the groundsman, he's nothing to lose."
+     }
+    },
+    {
+     "check": {
+      "voice": "bluff",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "lv_club_minutes": 1
+      }
+     },
+     "text": "We're doing a piece for a golf magazine, actually. Could you walk us past the man in the club tie?",
+     "pass": "escort",
+     "fail": {
+      "next": "escort_fail",
+      "trust": {
+       "lv_secretary": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "lv_golfer_ball"
+      ],
+      "not_flag": [
+       "lv_golfer_stone",
+       "lv_golfer_stone_shut"
+      ]
+     },
+     "check": {
+      "voice": "logic",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "lv_ring_photo": 1,
+       "sf_slipway_ring": 1,
+       "lv_berries": 1
+      }
+     },
+     "text": "That ball's got marsh mud on it. You went into the reeds off the ninth. What was it sitting on?",
+     "pass": "stone",
+     "fail": {
+      "next": "stone_fail",
+      "trust": {
+       "lv_golfer": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "lv_ring_photo"
+      ]
+     },
+     "text": "A ring in the meadow. Berries, one of every colour. Have you seen one like it?",
+     "next": "ring"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "Enjoy the back nine."
+    }
+   ]
+  },
+  "pike": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "Pike was nineteen and caddying, and the bar says he saw a chap in a yellow coat carry a hatbox the length of the ninth at dusk and never said boo."
+    ],
+    [
+     "lv_golfer",
+     "Took the job in '75 and he's never played the ninth after six."
+    ],
+    [
+     "lv_golfer",
+     "The bar also says a man in work boots came in that May asking if any gentleman had seen his boy frightened."
+    ],
+    [
+     "lv_golfer",
+     "The bar laughed, and Pike was behind it polishing glasses and didn't."
+    ],
+    [
+     "ruth",
+     "The one who didn't laugh is the one who's kept the gate shut for twenty years. That's guilt, dear, not snobbery."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_golfer_pike",
+    "trust": {
+     "lv_golfer": 1
+    }
+   }
+  },
+  "escort": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "A magazine! Oh, splendid. Golf Monthly? I'll be in Golf Monthly. Right, chin up, walk like you've paid."
+    ],
+    [
+     "lv_golfer",
+     "If Gerald asks you're photographing the fourth. Everyone photographs the fourth."
+    ],
+    [
+     "lv_golfer",
+     "...There. Through. He didn't even look at your shoes. Twenty years a member and that's the most fun I've had on this course."
+    ],
+    [
+     "teddy",
+     "We're in. He thinks we're in for the view. Don't tell him."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_golfer_escort",
+    "trust": {
+     "lv_golfer": 1
+    }
+   }
+  },
+  "escort_fail": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "A magazine. Four of you, no camera, and one of you in a cagoule. Oh, dear."
+    ],
+    [
+     "lv_golfer",
+     "I shan't say anything. Pike will, though, I rather think he heard. Awfully sorry. Try the groundsman, Dabell goes round the service side."
+    ]
+   ],
+   "next": "hub"
+  },
+  "stone": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "...Sunday last. Sliced it, went in, don't tell the bar. There's a flat stone out there in the reeds, the sarsen, and my ball was on it. Dead centre."
+    ],
+    [
+     "lv_golfer",
+     "With six others. In a ring. Six old balls, every make, every colour, laid out like a clock, and mine in the middle. I took mine. I left the rest."
+    ],
+    [
+     "lv_golfer",
+     "I've not slept since and I'm playing it to show it I'm not afraid."
+    ],
+    [
+     "lv_golfer",
+     "I am afraid. Is that in the magazine?"
+    ],
+    [
+     "vera",
+     "Six in a ring and his in the middle. It wasn't collecting balls. It was keeping a place for his."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_golfer_stone",
+    "dread": 1,
+    "trust": {
+     "lv_golfer": 1
+    }
+   }
+  },
+  "stone_fail": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "Mud? It's a marsh, old chap, everything's got mud on it. Including Pike, if you ask the bar."
+    ],
+    [
+     "lv_golfer",
+     "I think I'd better get back to the four-ball. They're waving. They never wave."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_golfer_stone_shut"
+   }
+  },
+  "ring": {
+   "speaker": "lv_golfer",
+   "lines": [
+    [
+     "lv_golfer",
+     "...Yes. Not berries. Balls. On the stone off the ninth, last Sunday, and I've not told a soul and I'm not sure why I'm telling you except you've got a photograph of mine."
+    ],
+    [
+     "lv_golfer",
+     "The kiddies at the camp say there's one on the slipway, too. Stones. My nephew drew it. He's five. He drew it with a yellow one at the top."
+    ],
+    [
+     "june",
+     "Meadow, slipway, sarsen. Same ring, three places, and a five-year-old's got the orientation right. We should map them."
+    ]
+   ],
+   "next": "hub",
+   "gives": {
+    "flag": "lv_golfer_ring",
+    "dread": 1,
+    "trust": {
+     "lv_golfer": 1
+    }
+   }
+  }
+ }
+}

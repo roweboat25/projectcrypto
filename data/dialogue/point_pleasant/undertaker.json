@@ -1,0 +1,368 @@
+{
+ "_doc": "Virgil Haught, Haught and Son funeral home. He and his father prepared the Silver Bridge dead in December 1967. The hub's shows table answers Ada's carl_last_words. Topics on the hub offer his quick facts (antifreeze, two of the forty-six).",
+ "id": "undertaker",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "Haught and Son. I'm the son. Father's been in the back room since '81, in the sense that matters."
+    ],
+    [
+     "undertaker",
+     "If you've come about the dog, the county has it. If you've come about the bridge, the county has nothing, and neither do I."
+    ],
+    [
+     "undertaker",
+     "Sit if you like. The chairs are for the bereaved, but nobody's booked till Thursday."
+    ],
+    [
+     "elijah",
+     "The building's full. He knows it. He's been polite to them for thirty years."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "logic",
+     "threshold": 8,
+     "line": "Thermostat reads seventy. Two sweaters on the man. He keeps the room warm for a reason that isn't comfort.",
+     "flag": "undertaker_warm_room"
+    },
+    {
+     "voice": "lore",
+     "threshold": 9,
+     "line": "'In the sense that matters.' An undertaker who talks like that has kept a ledger of more than names."
+    }
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "Forty-six. He counted them in here. Two of them are still counting."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We're sorry to come in on a working day, Mr. Haught.",
+     "next": "working"
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "dog_cold_reading": 2,
+       "dog_photo": 1
+      }
+     },
+     "text": "Eighteen degrees under the air, two hours after. Antifreeze doesn't do that. What does?",
+     "pass": "cold_dog",
+     "fail": {
+      "next": "cold_dog_fail"
+     }
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 8
+     },
+     "text": "Your father taught you the trade. Did he teach you what to do when the trade doesn't work?",
+     "pass": "father",
+     "fail": {
+      "next": "father_fail",
+      "trust": {
+       "undertaker": -1
+      }
+     }
+    },
+    {
+     "tone": "silent",
+     "text": "(Sit in the chairs for the bereaved. Say nothing.)",
+     "next": "sit",
+     "trust": 1
+    }
+   ],
+   "gives": {
+    "flag": "met_undertaker"
+   }
+  },
+  "working": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "Every day's a working day. Winter's the busy season, on a hill of old people with coal furnaces."
+    ],
+    [
+     "undertaker",
+     "You're courteous. That's rarer than you'd think in your line. Ask."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "undertaker": 1
+    }
+   },
+   "next": "hub"
+  },
+  "cold_dog": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "...Nothing I can write on a county form."
+    ],
+    [
+     "undertaker",
+     "I've seen it twice before, and neither was a dog, and the room was seventy then too. Save your film. I mean that kindly now."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "undertaker": 1
+    },
+    "flag": "undertaker_twice"
+   },
+   "next": "hub"
+  },
+  "cold_dog_fail": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "Antifreeze, sir. I said it to the deputy and I'll say it to you. Dogs lie down in the snow and the snow does the rest."
+    ],
+    [
+     "undertaker",
+     "Walt Jessup up the road has lost animals too. Go and tell him it's a mystery. See how far you get."
+    ]
+   ],
+   "next": "hub"
+  },
+  "father": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "He taught me to write it in the margin and say nothing. He wrote in the margins. I write in the margins."
+    ],
+    [
+     "undertaker",
+     "It's what we have instead of church. The ledger's in the back. I don't show it. I'm telling you it exists. The county never got that."
+    ],
+    [
+     "ruth",
+     "Margins. That's where this whole town keeps the truth."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "undertaker": 1
+    },
+    "flag": "undertaker_margins"
+   },
+   "next": "hub"
+  },
+  "father_fail": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "My father is not a subject. He's a name on the window."
+    ],
+    [
+     "undertaker",
+     "Opal Fry keeps the obituaries at the library. She'll tell you what's public. I'll tell you what's for sale, which is caskets."
+    ]
+   ],
+   "next": "hub"
+  },
+  "sit": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "..."
+    ],
+    [
+     "undertaker",
+     "You sit like people who've buried someone. Hands in your lap. All right."
+    ],
+    [
+     "undertaker",
+     "Ask. I'll say what I can say in this room."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "undertaker": 1
+    }
+   },
+   "next": "hub"
+  },
+  "hub": {
+   "speaker": "undertaker",
+   "repeat": true,
+   "prompt": "The bereaved get an hour. I'll give you the same.",
+   "lines": [
+    [
+     "undertaker",
+     "The bereaved get an hour. I'll give you the same."
+    ]
+   ],
+   "shows": {
+    "carl_last_words": "carl"
+   },
+   "options": [
+    {
+     "requires": {
+      "evidence": [
+       "ledger_photo"
+      ]
+     },
+     "check": {
+      "voice": "empathy",
+      "kind": "red",
+      "difficulty": 11,
+      "evidence_bonus": {
+       "undertaker_cold": 2,
+       "carl_last_words": 1,
+       "widow_porch": 1
+      }
+     },
+     "text": "The drawing in the margin. You drew it the week before. You saw it on the bridge before it fell.",
+     "pass": "drawing",
+     "fail": {
+      "next": "drawing_fail",
+      "trust": {
+       "undertaker": -2
+      },
+      "dread": 1
+     }
+    },
+    {
+     "tone": "wry",
+     "requires": {
+      "flag": [
+       "undertaker_warm_room"
+      ],
+      "not_flag": [
+       "undertaker_heat_asked"
+      ]
+     },
+     "text": "Seventy on the dial and two sweaters. Who's the heat for?",
+     "next": "heat"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "We'll leave you to your families, Mr. Haught."
+    }
+   ]
+  },
+  "drawing": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "...Thursday the fourteenth. I was on the Ohio side for a casket spray. It was on the top chord, standing the way a man stands on a ladder."
+    ],
+    [
+     "undertaker",
+     "Looking down the deck at the cars. Not at me. At the cars, one after another, like it was reading the plates."
+    ],
+    [
+     "undertaker",
+     "I drew it that night. I did not tell Carl Mercer, who took tolls. I had a whole week and I did not tell him. Write that in your margin."
+    ],
+    [
+     "elijah",
+     "They don't blame you, Virgil. I'd tell you if they did."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "undertaker": 1
+    },
+    "flag": "undertaker_drawing",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "drawing_fail": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "Those margins are between me and my father, and he's in the back room."
+    ],
+    [
+     "undertaker",
+     "The side door, please. The front is for families."
+    ],
+    [
+     "miriam",
+     "...He's not angry. That's worse."
+    ]
+   ],
+   "end": true
+  },
+  "carl": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "Ada told you. Then she told you about the light. I'll give you the part she doesn't have."
+    ],
+    [
+     "undertaker",
+     "Carl came in here on the twelfth, in his toll coat, and asked what it cost to be buried without water in you. I thought he was drinking."
+    ],
+    [
+     "undertaker",
+     "He wasn't drinking. He'd seen it sing. Three notes, he said, and tapped them on my desk. I've never told her that. Don't you."
+    ],
+    [
+     "elijah",
+     "He's in the grey chair, Virgil. He's not angry either."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "undertaker": 1
+    },
+    "flag": "undertaker_carl",
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "heat": {
+   "speaker": "undertaker",
+   "lines": [
+    [
+     "undertaker",
+     "The room. I keep the room at seventy. Since '67."
+    ],
+    [
+     "undertaker",
+     "If something comes in cold I want to know by morning whether it's warming. Mostly they do. Mostly."
+    ]
+   ],
+   "gives": {
+    "trust": {
+     "undertaker": 1
+    },
+    "flag": "undertaker_heat_asked",
+    "dread": 1
+   },
+   "next": "hub"
+  }
+ }
+}

@@ -1,0 +1,377 @@
+{
+ "_doc": "Lonnie Cheek, Cheek's Bar-B-Q, fifties, at the counter from six in the morning to closing. His father fed the family at six on the 22nd. A talker who likes the better version of every story, keeps Sarge's booth for him, and sells burgoo and sweet tea to the Office.",
+ "id": "hv_bbq",
+ "start": "open",
+ "nodes": {
+  "open": {
+   "speaker": "hv_bbq",
+   "lines": [
+    [
+     "hv_bbq",
+     "Sit anywhere but the corner, the corner's Sarge's. Tea's in the jar, burgoo's on the stove, pie's in the case and the fan's doing what it can. Lonnie Cheek. My daddy built the pit."
+    ],
+    [
+     "hv_bbq",
+     "Y'all are the ones. Dub said. I've got a story about this counter and a story about the fairgrounds and I've told 'em both so many times I can't remember which one's better."
+    ],
+    [
+     "dale",
+     "The burgoo's got squirrel in it. I can tell from here. I'm having two."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "empathy",
+     "threshold": 7,
+     "line": "He keeps looking at the corner booth even though it's empty. He wipes that table more than the others. Somebody he's fond of sits there and doesn't talk."
+    },
+    {
+     "voice": "recall",
+     "threshold": 9,
+     "line": "He said 'I can't remember which one's better' and then he looked at the pie case, which is where a man looks when he's about to pick the one he likes instead of the one that's true.",
+     "flag": "hv_bbq_better"
+    }
+   ],
+   "options": [
+    {
+     "tone": "kind",
+     "text": "We'll have the burgoo, Mr Cheek, and the counter story. The counter was your daddy's.",
+     "next": "hub",
+     "trust": 1
+    },
+    {
+     "tone": "wry",
+     "text": "Tell us the worse one. Everybody's already told us the better one.",
+     "next": "hub"
+    },
+    {
+     "tone": "hard",
+     "text": "We're here for Sarge. What time does he come in and what does he eat?",
+     "next": "hub",
+     "trust": -1
+    }
+   ],
+   "gives": {
+    "flag": "met_hv_bbq"
+   }
+  },
+  "hub": {
+   "speaker": "hv_bbq",
+   "repeat": true,
+   "lines": [
+    [
+     "hv_bbq",
+     "What'll it be. I talk while I ladle, so talk while I talk."
+    ]
+   ],
+   "static": {
+    "min_dread": 3,
+    "line": "The corner booth. Sit in it. Put your feet up on his side. When he comes in and sees you there, he'll have to say something, and whatever he says will be the first thing he's said since 1971."
+   },
+   "options": [
+    {
+     "tone": "kind",
+     "text": "What's in burgoo? We've been told not to ask.",
+     "next": "burgoo"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "kind": "white",
+      "difficulty": 7,
+      "evidence_bonus": {
+       "hv_sgt_sober": 1,
+       "rt_sober_at_four": 1
+      }
+     },
+     "text": "Six in the morning, the 22nd. Eight of them at this counter. Where did they sit, and what did your daddy see?",
+     "pass": "counter",
+     "fail": {
+      "next": "counter_no"
+     }
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "kind": "white",
+      "difficulty": 8,
+      "evidence_bonus": {
+       "hv_mp_recall": 1,
+       "hv_editor_army_letter": 1
+      }
+     },
+     "text": "Sarge's booth. Twenty-three years. Who else has ever sat in it with him?",
+     "pass": "booth",
+     "fail": {
+      "next": "booth_no"
+     }
+    },
+    {
+     "requires": {
+      "flag": [
+       "hv_bbq_better"
+      ]
+     },
+     "check": {
+      "voice": "press",
+      "kind": "red",
+      "difficulty": 10,
+      "evidence_bonus": {
+       "hv_bbq_sober": 2,
+       "fm_account_versions": 1
+      }
+     },
+     "text": "Your daddy fed eight. There were eleven in that house. Where were the other three at six in the morning?",
+     "pass": "three",
+     "fail": {
+      "next": "three_no",
+      "trust": {
+       "hv_bbq": -1
+      }
+     }
+    },
+    {
+     "requires": {
+      "evidence": [
+       "hv_bbq_concession"
+      ]
+     },
+     "tone": "wry",
+     "text": "The spaceman was in Paducah. You liked the other way better. We did too, for what it's worth.",
+     "next": "paducah"
+    },
+    {
+     "topics": true
+    },
+    {
+     "show": true
+    },
+    {
+     "leave": true,
+     "text": "That's all for now, Mr Cheek. Keep the corner."
+    }
+   ]
+  },
+  "burgoo": {
+   "speaker": "hv_bbq",
+   "lines": [
+    [
+     "hv_bbq",
+     "Everything. That's the recipe. Beef, pork, chicken, what Daddy shot, what the neighbours brought, corn, okra, tomatoes, lima beans, a day on the fire and a paddle to stir it. It's a church stew."
+    ],
+    [
+     "hv_bbq",
+     "It's for feeding a crowd that's had a bad night."
+    ],
+    [
+     "hv_bbq",
+     "Daddy made a pot of it on the 22nd, after the family. Said the whole town'd be in by noon wanting to hear about it, and he was right, and he fed 'em and he didn't tell 'em a thing."
+    ],
+    [
+     "hv_bbq",
+     "That's how you keep a counter in a town like this."
+    ],
+    [
+     "ruth",
+     "A stew for a crowd that's had a bad night, dear. Every town I've ever been in has one. It's the first thing people made after they stopped being afraid of fire."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_bbq_burgoo",
+    "trust": {
+     "hv_bbq": 1
+    }
+   },
+   "next": "hub"
+  },
+  "counter": {
+   "speaker": "hv_bbq",
+   "lines": [
+    [
+     "hv_bbq",
+     "Those four stools and the two at the end. Old Mr Lacy on the end one, the women in the middle with the little boys in their laps asleep, the big boys standing because they wouldn't sit."
+    ],
+    [
+     "hv_bbq",
+     "Daddy fed every one of 'em for nothing because the children were crying."
+    ],
+    [
+     "hv_bbq",
+     "He said after, not a drop on any of 'em. Daddy could smell a beer across the square. And he said the old man's hands wouldn't hold a cup. He had to set it down and lean to it. A grown man."
+    ],
+    [
+     "hv_bbq",
+     "Daddy said that every August till he died, and he never said it like a story."
+    ],
+    [
+     "hv_bbq",
+     "Nobody said 'little men' at this counter. Daddy said they didn't say anything. They ate and they looked at the door."
+    ],
+    [
+     "elijah",
+     "Not drunk, not talking, and watching the door at six in the morning in a lit room full of people. That's not a family that made something up. That's a family that's still waiting for it."
+    ]
+   ],
+   "gives": {
+    "fact": "hv_bbq_sober",
+    "evidence": "hv_bbq_sober",
+    "trust": {
+     "hv_bbq": 1
+    },
+    "flag": "hv_bbq_counter"
+   },
+   "next": "hub"
+  },
+  "counter_no": {
+   "speaker": "hv_bbq",
+   "lines": [
+    [
+     "hv_bbq",
+     "They sat at the counter and they ate and Daddy didn't charge 'em. That's the story. It's a short one, I usually tell the fairgrounds one after it to pad it out."
+    ],
+    [
+     "teddy",
+     "He's got a long version and he's rationing it. Order something. People talk to people who order something."
+    ]
+   ],
+   "next": "hub"
+  },
+  "booth": {
+   "speaker": "hv_bbq",
+   "lines": [
+    [
+     "hv_bbq",
+     "Nobody. That's the rule and it's his, not mine. Hollis sits across the aisle. The Ledger woman tried once and he took his paper to the truck."
+    ],
+    [
+     "hv_bbq",
+     "...Once. '71, the summer he come home. A man in a suit sat down across from him. I was fourteen, I was on the pit. I didn't hear it."
+    ],
+    [
+     "hv_bbq",
+     "Sarge got up and walked out and left his tea, and he never leaves his tea, and he didn't come back till the next summer."
+    ],
+    [
+     "hv_bbq",
+     "The man finished Sarge's pie and paid for both and said 'thank you, son' to me, and I've been fifty-one years old for a while now and I still hear 'son' in that voice when the bell goes in August."
+    ],
+    [
+     "vera",
+     "He pays. For the pie, for the photograph, for the account. He settles small debts very carefully. One wonders what large one he is keeping clear of."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_bbq_booth",
+    "trust": {
+     "hv_bbq": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "booth_no": {
+   "speaker": "hv_bbq",
+   "lines": [
+    [
+     "hv_bbq",
+     "Nobody sits with Sarge. That's why it's Sarge's booth. You want to sit with him, ask Hollis how, Hollis has known him longest."
+    ],
+    [
+     "ruth",
+     "The deputy again, dear. This town hands you round like a plate."
+    ]
+   ],
+   "next": "hub"
+  },
+  "three": {
+   "speaker": "hv_bbq",
+   "lines": [
+    [
+     "hv_bbq",
+     "...Two of the men went back out with the state police to show 'em the yard. That's in the log. The third was the young one's wife, and she wouldn't come in."
+    ],
+    [
+     "hv_bbq",
+     "She sat in the truck outside with the engine off and the windows up in August, and Daddy took her a cup of coffee through the window, and she wouldn't take it, and she said one thing to him."
+    ],
+    [
+     "hv_bbq",
+     "He only ever told Mama, and Mama told me when he died."
+    ],
+    [
+     "hv_bbq",
+     "She said: 'They came down with the light. They'll come back for it.' And she rolled the window up on his hand. Daddy said he never liked August after that. I liked the spaceman story better."
+    ],
+    [
+     "hv_bbq",
+     "I expect you can see why."
+    ],
+    [
+     "elijah",
+     "'They'll come back for it.' Not 'they'll come back'. For it. She thought something was left in that gully. Thirty-nine years ago, and she's the only one who said why."
+    ]
+   ],
+   "passives": [
+    {
+     "voice": "arcana",
+     "threshold": 10,
+     "line": "The light came down, and whatever came with it never went back up. You have a burned circle in a gully. You should ask what it is a circle around."
+    }
+   ],
+   "gives": {
+    "flag": "hv_bbq_three",
+    "trust": {
+     "hv_bbq": 1
+    },
+    "dread": 1
+   },
+   "next": "hub"
+  },
+  "three_no": {
+   "speaker": "hv_bbq",
+   "lines": [
+    [
+     "hv_bbq",
+     "Eight's what Daddy said and eight's what I say. Where the other three were is between them and the Lord and Dub Cansler's log, in that order."
+    ],
+    [
+     "hv_bbq",
+     "Y'all want pie or not?"
+    ],
+    [
+     "miriam",
+     "He got defensive about a number. The number's in the police log. Go read the log and come back with it."
+    ]
+   ],
+   "next": "hub"
+  },
+  "paducah": {
+   "speaker": "hv_bbq",
+   "lines": [
+    [
+     "hv_bbq",
+     "Yeah. Well. Shoot. Thirty years I've been telling the silver suit and it was in Paducah the whole time. Daddy told me and I forgot it on purpose."
+    ],
+    [
+     "hv_bbq",
+     "I'll tell you what I'll do. I'll keep telling it, because folks like it, and I'll put the Paducah part on the end like a punchline. That way it's true and it's still a story."
+    ],
+    [
+     "hv_bbq",
+     "That's about the best this town does."
+    ],
+    [
+     "teddy",
+     "A hoax with the correction built in. He's just invented the responsible newspaper, at a barbecue counter, in August."
+    ]
+   ],
+   "gives": {
+    "flag": "hv_bbq_paducah",
+    "trust": {
+     "hv_bbq": 1
+    }
+   },
+   "next": "hub"
+  }
+ }
+}
