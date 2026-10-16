@@ -24,6 +24,7 @@ func _initialize() -> void:
 	errors += _office_checks(data)
 	errors += _tide_checks(data)
 	errors += _battle_checks(data)
+	errors += _chain_checks(data)
 	for e in errors:
 		printerr("FAIL: " + e)
 	print("Tests: %s (%d classes, %d foes, %d cases, %d maps)" % ["PASS" if errors.is_empty() else "FAIL", data.classes.size(), data.foes.size(), data.cases.size(), data.maps.size()])
@@ -31,6 +32,44 @@ func _initialize() -> void:
 	state.free()
 	copy.free()
 	quit(0 if errors.is_empty() else 1)
+
+
+## The lead chain: the current lead, districts opening in order, findings in the totals.
+func _chain_checks(data) -> Array[String]:
+	var errors: Array[String] = []
+	var state = load("res://scripts/autoload/game_state.gd").new()
+	state.party = ["player"]
+	state.case_id = "chaintest"
+	data.cases["chaintest"] = {"id": "chaintest", "name": "Chain test",
+		"districts": {"a": {"name": "A", "map": "ma"}, "b": {"name": "B", "map": "mb"}, "c": {"name": "C", "map": "mc"}},
+		"evidence": {"e1": {"lean": "hoax", "weight": 2}, "e2": {"lean": "natural", "weight": 2}, "note": {"lean": "natural", "weight": 5}},
+		"findings": ["e1", "e2"],
+		"chain": [{"id": "l1", "district": "a", "title": "One", "goal": "g", "done": {"evidence": "e1"}},
+			{"id": "side", "district": "c", "title": "Side", "goal": "g", "optional": true, "done": {"evidence": "e2"}},
+			{"id": "l2", "district": "b", "title": "Two", "goal": "g", "done": [{"clue": "x"}, {"lead": "l1"}]}]}
+	data.maps["ma"] = {"case": "chaintest"}
+	data.maps["mb"] = {"case": "chaintest"}
+	if Investigation.chain_index(data, state, 0.3) != 0:
+		errors.append("the chain should start on its first lead")
+	if Investigation.district_open(data, state, "b", 0.3) or not Investigation.district_open(data, state, "a", 0.3):
+		errors.append("only the first lead's district should be open at the start")
+	if Investigation.map_open(data, state, "mb", 0.3):
+		errors.append("a map in a closed district should be closed")
+	state.evidence = ["e1", "note"]
+	if Investigation.chain_index(data, state, 0.3) != 3:
+		errors.append("lead two waits on lead one, so both should close together; got %d" % Investigation.chain_index(data, state, 0.3))
+	if not Investigation.district_open(data, state, "b", 0.3) or not Investigation.district_open(data, state, "c", 0.3):
+		errors.append("districts should open once the chain reaches them")
+	var totals: Dictionary = Investigation.lean_totals(data, state)
+	if totals.hoax != 2 or totals.natural != 0:
+		errors.append("only findings should weigh in the totals, got %s" % str(totals))
+	if Investigation.is_finding(data, state, "note"):
+		errors.append("a note outside the findings list should not be a finding")
+	data.cases.erase("chaintest")
+	data.maps.erase("ma")
+	data.maps.erase("mb")
+	state.free()
+	return errors
 
 
 ## Gear, shops, verdicts and the Office budget.

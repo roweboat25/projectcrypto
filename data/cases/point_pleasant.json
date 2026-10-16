@@ -955,5 +955,221 @@
    "witness": "deputy",
    "prompt": "Reflectors on a board explain this winter. Who was holding one in 1966?"
   }
- }
+ },
+ "chain": [
+  {
+   "id": "pp_marlene",
+   "district": "main_street",
+   "title": "Marlene's story",
+   "goal": "Hear what Marlene saw on Route 62",
+   "where": "Rosie's Diner, Main Street",
+   "done": {
+    "evidence": "marlene_statement"
+   }
+  },
+  {
+   "id": "pp_register",
+   "district": "main_street",
+   "title": "The front page",
+   "goal": "Read the Register's November 1966 story",
+   "where": "The Register, Main Street",
+   "done": {
+    "evidence": "original_report"
+   }
+  },
+  {
+   "id": "pp_suits",
+   "district": "main_street",
+   "title": "The men in the suits",
+   "goal": "Ask Earl at Mason Gas about the two men who came asking",
+   "where": "Mason Gas, Main Street",
+   "done": {
+    "evidence": "the_suits"
+   }
+  },
+  {
+   "id": "pp_deputy",
+   "district": "main_street",
+   "title": "The call log",
+   "goal": "Show the deputy the two men and ask for the 1966 call log",
+   "where": "Sheriff's Office, Main Street",
+   "done": {
+    "evidence": "call_log"
+   }
+  },
+  {
+   "id": "pp_marlene_truth",
+   "district": "main_street",
+   "title": "Where Marlene really was",
+   "goal": "Put the call log to Marlene: the times do not fit her story",
+   "where": "Rosie's Diner, Main Street",
+   "done": {
+    "evidence": "marlene_tnt"
+   }
+  },
+  {
+   "id": "pp_route62",
+   "district": "route_62",
+   "title": "Route 62",
+   "goal": "Drive out Route 62 and find who else saw the lights",
+   "where": "The Night Owl, Hollis's trailer, the Whitmore farm",
+   "done": [
+    {
+     "evidence": "hollis_lights"
+    },
+    {
+     "evidence": "hunter_sighting"
+    },
+    {
+     "evidence": "farmer_dog"
+    },
+    {
+     "evidence": "hollis_car"
+    }
+   ]
+  },
+  {
+   "id": "pp_chapel",
+   "district": "route_62",
+   "title": "Night 1: Bethel Chapel",
+   "goal": "After dark, look for what roosted at Bethel Chapel",
+   "where": "Bethel Chapel, Route 62, at night",
+   "done": [
+    {
+     "clue": "r62_church_prints"
+    },
+    {
+     "clue": "r62_culvert_feather"
+    }
+   ]
+  },
+  {
+   "id": "pp_tower",
+   "district": "heights",
+   "title": "Night 2: the water tower",
+   "goal": "Get through the water tower gate after dark and take a reading",
+   "where": "The water tower, the Heights, at night",
+   "done": [
+    {
+     "clue": "tower_static"
+    },
+    {
+     "clue": "tower_dog"
+    }
+   ]
+  },
+  {
+   "id": "pp_ham",
+   "district": "heights",
+   "title": "Orville's bearings",
+   "goal": "Show Orville Pace the static reading and get his bearings on the tone",
+   "where": "Orville's radio shack, the Heights",
+   "done": [
+    {
+     "evidence": "ham_triangulation"
+    },
+    {
+     "evidence": "ham_log_1966"
+    }
+   ]
+  },
+  {
+   "id": "pp_lowe",
+   "district": "main_street",
+   "title": "The fourth floor",
+   "goal": "Earn the night clerk's trust and see what the Office left in room 412",
+   "where": "The Lowe Hotel, Main Street, at night",
+   "optional": true,
+   "done": {
+    "evidence": "gus_card_1967"
+   }
+  },
+  {
+   "id": "pp_river",
+   "district": "riverfront",
+   "title": "Night 3: the Silver Bridge",
+   "goal": "Through the floodgate by day, then wait at the bridge approach after dark",
+   "where": "The Silver Bridge approach, Riverfront, at night",
+   "done": [
+    {
+     "clue": "rf_cold_spot"
+    },
+    {
+     "clue": "rf_bridge_tone"
+    }
+   ]
+  },
+  {
+   "id": "pp_igloo",
+   "district": "tnt",
+   "title": "Night 4: Igloo 7",
+   "goal": "Get past the inner fence and into igloo 7 after dark",
+   "where": "Igloo 7, the TNT Area, at night",
+   "done": [
+    {
+     "clue": "igloo7_glyph"
+    },
+    {
+     "clue": "igloo7_scorch"
+    }
+   ]
+  },
+  {
+   "id": "pp_plant",
+   "district": "tnt",
+   "title": "Night 5: the North Power Plant",
+   "goal": "Down the boiler stairs on the fifth night and meet what climbs them",
+   "where": "The North Power Plant, the TNT Area, at night",
+   "done": [
+    {
+     "flag": "plant_observed"
+    },
+    {
+     "clue": "plant_prints"
+    },
+    {
+     "clue": "plant_glyph"
+    },
+    {
+     "clue": "plant_feathers"
+    },
+    {
+     "clue": "plant_cold"
+    }
+   ]
+  }
+ ],
+ "findings": [
+  "marlene_statement",
+  "prank_rumour",
+  "original_report",
+  "biologist_letter",
+  "deputy_bird",
+  "the_suits",
+  "call_log",
+  "marlene_tnt",
+  "kessler_name",
+  "reflector_board",
+  "teen_confession",
+  "hollis_lights",
+  "hollis_car",
+  "hunter_sighting",
+  "farmer_dog",
+  "church_prints_cast",
+  "culvert_feather_lab",
+  "static_reading",
+  "dog_cold_reading",
+  "ham_triangulation",
+  "ham_log_1966",
+  "gus_card_1967",
+  "rf_cold_spot",
+  "rf_bridge_tone_tape",
+  "igloo_glyph_photo",
+  "igloo_scorch_reading",
+  "plant_prints_cast",
+  "plant_glyph_photo",
+  "plant_feathers_lab",
+  "plant_cold_reading",
+  "plant_glare_photo"
+ ]
 }

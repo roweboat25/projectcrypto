@@ -39,6 +39,8 @@ var _near: Node = null
 var _near_door: Dictionary = {}
 var _near_bed := false
 var _toast_until := 0.0
+var _next: Label
+var _chain_idx := -1
 
 
 func _ready() -> void:
@@ -686,7 +688,9 @@ func _roll_encounter(delta: float) -> void:
 
 
 func _use_exit(e: Dictionary) -> void:
-	if e.get("gate", "") != "" and not Investigation.gate_open(GameData, GameState, e.gate, time_of_day):
+	var gated: bool = e.get("gate", "") != "" and not Investigation.gate_open(GameData, GameState, e.gate, time_of_day)
+	var ahead: bool = not Investigation.map_open(GameData, GameState, e.to, time_of_day)
+	if gated or ahead:
 		# step back off the exit, toward the middle of the map, and explain
 		var back: Vector2 = (outside.rect.get_center() - e.rect.get_center()).normalized()
 		if e.rect.size.x <= e.rect.size.y:
@@ -694,6 +698,10 @@ func _use_exit(e: Dictionary) -> void:
 		else:
 			back = Vector2(0, sign(back.y))
 		party[0].global_position += back * 12
+		if ahead:
+			var lead := Investigation.current_lead(GameData, GameState, time_of_day)
+			_toast("Nothing takes you there yet. Next: " + str(lead.get("goal", "")))
+			return
 		if not _try_gate(e.gate):
 			return
 	_travel(e, true)
@@ -850,6 +858,14 @@ func _build_ui() -> void:
 	_hud.add_theme_constant_override("shadow_offset_x", 1)
 	_hud.add_theme_constant_override("shadow_offset_y", 1)
 	root.add_child(_hud)
+	_next = Label.new()
+	_next.position = Vector2(8, 328)
+	_next.add_theme_font_size_override("font_size", 11)
+	_next.add_theme_color_override("font_color", Color("e8a64a"))
+	_next.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.9))
+	_next.add_theme_constant_override("shadow_offset_x", 1)
+	_next.add_theme_constant_override("shadow_offset_y", 1)
+	root.add_child(_next)
 	_strip = PartyStrip.new()
 	root.add_child(_strip)
 	_strip.build(GameState.party)
@@ -920,11 +936,31 @@ func _hud_tick() -> void:
 	if tide != "":
 		tide_text = "   Tide %s%s" % [tide, "" if tide == "low" else " (low in %dh)" % ceil(Investigation.hours_to_low(GameData, GameState, time_of_day))]
 	_hud.text = "%s · %s   Day %d   %d:00 %s (%s)%s   Dread %d   Evidence %d" % [GameData.cases.get(map.get("case", ""), {}).get("name", "The Casebook"), where, GameState.day, h12, ampm, Investigation.phase(time_of_day), tide_text, GameState.dread, GameState.evidence.size()]
+	_refresh_next()
 	if _talk == null:
 		_apply_phase()
 	if _strip != null:
 		_strip.refresh()
 	get_tree().create_timer(0.5).timeout.connect(_hud_tick)
+
+
+## The lead chain's pointer under the HUD, and a word when a lead closes.
+func _refresh_next() -> void:
+	var ch: Array = Investigation.chain(GameData, GameState)
+	if ch.is_empty():
+		_next.text = ""
+		_chain_idx = -1
+		return
+	var idx := Investigation.chain_index(GameData, GameState, time_of_day)
+	if _chain_idx >= 0 and idx > _chain_idx and _chain_idx < ch.size() and _talk == null and _battle == null:
+		_toast("Lead closed: " + str(ch[_chain_idx].get("title", "")))
+	_chain_idx = idx
+	if idx >= ch.size():
+		_next.text = "NEXT  File the verdict at the Office case board"
+		return
+	var lead: Dictionary = ch[idx]
+	var where := str(lead.get("where", ""))
+	_next.text = "NEXT  %d/%d  %s%s" % [idx + 1, ch.size(), lead.get("goal", lead.get("title", "")), "  ·  " + where if where != "" else ""]
 
 
 ## Redraws the corner map for wherever the party is now: the district, or the room.

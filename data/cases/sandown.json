@@ -7,7 +7,10 @@
  "visit_year": 1994,
  "truth": "hoax",
  "days": 4,
- "tide": {"low_at": 3.0, "period": 12.4},
+ "tide": {
+  "low_at": 3.0,
+  "period": 12.4
+ },
  "locations": {
   "pier": "Sandown Pier",
   "seafront": "The seafront",
@@ -22,40 +25,369 @@
   "hut": "The Hut"
  },
  "observations": [
-  {"text": "Yellow pointed hat, taller than a man with it on", "lean": "hoax"},
-  {"text": "It is all colours. The colour keeps changing", "lean": "unexplained"},
-  {"text": "A voice with no breath in it", "lean": "unexplained"},
-  {"text": "Berries in a ring, one of every colour", "lean": "natural"},
-  {"text": "Dials. Walls of dials, and the sea behind them", "lean": "unexplained"},
-  {"text": "It is laughing. It thinks this is a show", "lean": "hoax"}
+  {
+   "text": "Yellow pointed hat, taller than a man with it on",
+   "lean": "hoax"
+  },
+  {
+   "text": "It is all colours. The colour keeps changing",
+   "lean": "unexplained"
+  },
+  {
+   "text": "A voice with no breath in it",
+   "lean": "unexplained"
+  },
+  {
+   "text": "Berries in a ring, one of every colour",
+   "lean": "natural"
+  },
+  {
+   "text": "Dials. Walls of dials, and the sea behind them",
+   "lean": "unexplained"
+  },
+  {
+   "text": "It is laughing. It thinks this is a show",
+   "lean": "hoax"
+  }
  ],
- "speech_tags": ["rapport", "empathy", "press", "lore", "logic", "tech", "bluff"],
+ "speech_tags": [
+  "rapport",
+  "empathy",
+  "press",
+  "lore",
+  "logic",
+  "tech",
+  "bluff"
+ ],
  "districts": {
-  "seafront": {"name": "Seafront and Pier", "map": "sandown_seafront"},
-  "town": {"name": "Town", "map": "sandown_town"},
-  "levels": {"name": "The Levels", "map": "sandown_levels"},
-  "lake": {"name": "Lake and the holiday camp", "map": "sandown_lake"},
-  "culver": {"name": "Culver Down", "map": "sandown_culver"}
+  "seafront": {
+   "name": "Seafront and Pier",
+   "map": "sandown_seafront"
+  },
+  "town": {
+   "name": "Town",
+   "map": "sandown_town"
+  },
+  "levels": {
+   "name": "The Levels",
+   "map": "sandown_levels"
+  },
+  "lake": {
+   "name": "Lake and the holiday camp",
+   "map": "sandown_lake"
+  },
+  "culver": {
+   "name": "Culver Down",
+   "map": "sandown_culver"
+  }
  },
  "gates": {
-  "golf_links": {"name": "The golf links", "locked": "MEMBERS AND GUESTS ONLY. A man in a club tie looks at your shoes.",
-   "opens": [{"item": "guest_pass"}, {"flag": "mower_helped"}, {"check": {"voice": "rapport", "difficulty": 9, "prompt": "Talk your way onto the links"}}]},
-  "theatre_backstage": {"name": "Backstage", "locked": "The pass door is locked and the stage manager has the only key.",
-   "opens": [{"trust": {"npc": "sf_stage_mgr", "level": 3}}, {"flag": "press_pass_bluffed"}, {"check": {"voice": "bluff", "difficulty": 10, "prompt": "Bluff a press pass"}}]},
-  "costume_store": {"name": "The costume store", "locked": "A padlock, new, on a door that is not.",
-   "opens": [{"item": "camp_office_key"}, {"check": {"voice": "logic", "difficulty": 10, "prompt": "Pick the padlock"}}]},
-  "battery_tunnels": {"name": "The battery tunnels", "locked": "A steel door, painted shut, with a National Trust padlock and a sigil under the paint.",
-   "opens": [{"item": "warden_key"}, {"all": [{"class": "occultist"}, {"item": "salt"}]}, {"check": {"voice": "lore", "difficulty": 10, "prompt": "Tell the warden the battery's real history"}}]},
-  "cliff_beach": {"name": "The beach under the cliffs", "locked": "The sea is up to the chalk. There is no beach to walk until the tide turns.",
-   "opens": [{"tide": "low"}]},
-  "the_hut": {"name": "The Hut", "locked": "There is nothing here but reeds. There was nothing here this morning either.",
-   "opens": [{"all": [{"signs": 3}, {"phase": ["dusk", "night"]}]}]},
-  "hut_inner_door": {"name": "The inner door", "locked": "No handle. A seam in the wall of dials.",
-   "opens": [{"flag": "hut_dials"}]}
+  "golf_links": {
+   "name": "The golf links",
+   "locked": "MEMBERS AND GUESTS ONLY. A man in a club tie looks at your shoes.",
+   "opens": [
+    {
+     "item": "guest_pass"
+    },
+    {
+     "flag": "mower_helped"
+    },
+    {
+     "check": {
+      "voice": "rapport",
+      "difficulty": 9,
+      "prompt": "Talk your way onto the links"
+     }
+    }
+   ]
+  },
+  "theatre_backstage": {
+   "name": "Backstage",
+   "locked": "The pass door is locked and the stage manager has the only key.",
+   "opens": [
+    {
+     "trust": {
+      "npc": "sf_stage_mgr",
+      "level": 3
+     }
+    },
+    {
+     "flag": "press_pass_bluffed"
+    },
+    {
+     "check": {
+      "voice": "bluff",
+      "difficulty": 10,
+      "prompt": "Bluff a press pass"
+     }
+    }
+   ]
+  },
+  "costume_store": {
+   "name": "The costume store",
+   "locked": "A padlock, new, on a door that is not.",
+   "opens": [
+    {
+     "item": "camp_office_key"
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "difficulty": 10,
+      "prompt": "Pick the padlock"
+     }
+    }
+   ]
+  },
+  "battery_tunnels": {
+   "name": "The battery tunnels",
+   "locked": "A steel door, painted shut, with a National Trust padlock and a sigil under the paint.",
+   "opens": [
+    {
+     "item": "warden_key"
+    },
+    {
+     "all": [
+      {
+       "class": "occultist"
+      },
+      {
+       "item": "salt"
+      }
+     ]
+    },
+    {
+     "check": {
+      "voice": "lore",
+      "difficulty": 10,
+      "prompt": "Tell the warden the battery's real history"
+     }
+    }
+   ]
+  },
+  "cliff_beach": {
+   "name": "The beach under the cliffs",
+   "locked": "The sea is up to the chalk. There is no beach to walk until the tide turns.",
+   "opens": [
+    {
+     "tide": "low"
+    }
+   ]
+  },
+  "the_hut": {
+   "name": "The Hut",
+   "locked": "There is nothing here but reeds. There was nothing here this morning either.",
+   "opens": [
+    {
+     "all": [
+      {
+       "signs": 3
+      },
+      {
+       "phase": [
+        "dusk",
+        "night"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "hut_inner_door": {
+   "name": "The inner door",
+   "locked": "No handle. A seam in the wall of dials.",
+   "opens": [
+    {
+     "flag": "hut_dials"
+    }
+   ]
+  }
  },
  "leads": [],
  "witnesses": {},
  "evidence": {},
  "contradictions": {},
- "trail": []
+ "trail": [],
+ "chain": [
+  {
+   "id": "sd_fay",
+   "district": "town",
+   "title": "Fay's story",
+   "goal": "Hear Fay Mallory's account of May 1973 at Harwood's Chemist",
+   "where": "Harwood's Chemist, High Street",
+   "done": {
+    "evidence": "fay_statement"
+   }
+  },
+  {
+   "id": "sd_colin",
+   "district": "seafront",
+   "title": "Colin's story",
+   "goal": "Find Colin Rudd on the pier and hear his version",
+   "where": "The pier pavilion, Seafront",
+   "done": {
+    "evidence": "colin_statement"
+   }
+  },
+  {
+   "id": "sd_programme",
+   "district": "seafront",
+   "title": "Backstage",
+   "goal": "Get backstage at the pavilion and find the 1973 programme",
+   "where": "The pier pavilion, backstage",
+   "done": [
+    {
+     "evidence": "sf_stage_mgr_1973"
+    },
+    {
+     "evidence": "sf_programme_1973"
+    },
+    {
+     "clue": "sf_programme_pin"
+    }
+   ]
+  },
+  {
+   "id": "sd_phone",
+   "district": "town",
+   "title": "Night 1: the telephone box",
+   "goal": "After dark, the voice in the station telephone box",
+   "where": "Sandown station, Town, at night",
+   "done": {
+    "clue": "tn_phone_voice"
+   }
+  },
+  {
+   "id": "sd_levels",
+   "district": "levels",
+   "title": "The Levels",
+   "goal": "Walk the Levels: the glove print on the hide glass and the ring in the meadow",
+   "where": "The birdwatching hide and the meadow, the Levels",
+   "done": [
+    {
+     "clue": "lv_glove_print"
+    },
+    {
+     "clue": "lv_berry_ring"
+    }
+   ]
+  },
+  {
+   "id": "sd_camp",
+   "district": "lake",
+   "title": "Sunnyside Holiday Camp",
+   "goal": "Ask the camp manager who was on the 1973 rota",
+   "where": "The camp office, Sunnyside, Lake",
+   "done": [
+    {
+     "evidence": "lk_rota_1973"
+    },
+    {
+     "clue": "lk_rota_cabinet"
+    },
+    {
+     "evidence": "lk_caretaker_jim"
+    },
+    {
+     "evidence": "lk_boss_walkabout"
+    }
+   ]
+  },
+  {
+   "id": "sd_hat",
+   "district": "lake",
+   "title": "Night 2: the costume store",
+   "goal": "Open the costume store and look at the yellow pointed hat",
+   "where": "The costume store, Sunnyside, at night",
+   "done": {
+    "clue": "lk_yellow_hat"
+   }
+  },
+  {
+   "id": "sd_coastguard",
+   "district": "culver",
+   "title": "Culver Point",
+   "goal": "The coastguard's 1973 log, and the dials on his set after dark",
+   "where": "The coastguard station, Culver Down",
+   "done": [
+    {
+     "clue": "cd_radio_dials"
+    },
+    {
+     "evidence": "cd_coastguard_log_1973"
+    }
+   ]
+  },
+  {
+   "id": "sd_tunnels",
+   "district": "culver",
+   "title": "The battery tunnels",
+   "goal": "The warden's key opens the painted-shut door; the dials on the tunnel wall",
+   "where": "Culver Battery",
+   "optional": true,
+   "done": {
+    "clue": "cd_tunnel_dials"
+   }
+  },
+  {
+   "id": "sd_hut",
+   "district": "levels",
+   "title": "The Hut",
+   "goal": "With three signs logged, the Hut stands in the reeds at dusk",
+   "where": "The reeds, the Levels, from dusk",
+   "done": [
+    {
+     "flag": "hut_man_observed"
+    },
+    {
+     "clue": "hut_tone"
+    },
+    {
+     "clue": "hut_founder_card"
+    }
+   ]
+  }
+ ],
+ "findings": [
+  "fay_statement",
+  "fay_drawing",
+  "fay_hut_sea",
+  "colin_statement",
+  "colin_laughing",
+  "colin_fay_hat",
+  "colin_dials_sea",
+  "sf_stage_mgr_1973",
+  "sf_programme_1973",
+  "sf_stage_mgr_set",
+  "sf_deckchair_fogbow",
+  "sf_slipway_ring",
+  "tn_phone_voice",
+  "tn_register_1973",
+  "tn_county_press_1973",
+  "tn_landlady_left_early",
+  "lv_glove_photo",
+  "lv_glove_lab",
+  "lv_berries_lab",
+  "lv_ring_photo",
+  "lv_yellow_coat_1973",
+  "lv_will_o_wisp",
+  "lv_birder_figure",
+  "lk_rota_1973",
+  "lk_hat_photo",
+  "lk_hat_lab",
+  "lk_boss_walkabout",
+  "lk_caretaker_jim",
+  "lk_caretaker_lights",
+  "cd_coastguard_log_1973",
+  "cd_dial_recording",
+  "cd_compere_tab",
+  "cd_laundry_hat",
+  "cd_cave_tone",
+  "cd_tunnel_dials_photo",
+  "hut_tone_tape",
+  "hut_founder_card",
+  "hut_man_photo",
+  "hut_man_tape",
+  "hut_man_walk"
+ ]
 }
