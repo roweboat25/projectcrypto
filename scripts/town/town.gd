@@ -59,6 +59,29 @@ func _ready() -> void:
 	_apply_debug_query()
 	_apply_time()
 	_apply_phase()
+	if GameState.flags.get("_open_map", false):
+		GameState.flags.erase("_open_map")
+		_open_map.call_deferred()
+
+
+## The case map (M): pick any story, area and room, or a road leg, and go there.
+func _open_map() -> void:
+	var talk := MapTalk.new(_box, _toast)
+	talk.travel.connect(_map_travel)
+	talk.drive.connect(func(leg: String) -> void: _drive.call_deferred(leg))
+	_start_talk(talk)
+
+
+func _map_travel(mid: String, rid: String) -> void:
+	var case_of: String = str(GameData.maps[mid].get("case", ""))
+	if GameData.cases.has(case_of) and case_of != "sutton":
+		GameState.case_id = case_of
+	if inside != "":
+		inside = ""
+	await _travel({"to": mid, "at": GameData.maps[mid].get("spawn", [2, 2])}, true)
+	if rid != "" and rooms.has(rid):
+		_enter(rid, false)
+	_toast(str(GameData.maps[mid].get("name", mid)) if rid == "" else str(GameData.maps[mid].interiors[rid].get("name", rid)))
 
 
 ## Builds a district and its rooms under a fresh World node.
@@ -146,6 +169,8 @@ func _process(delta: float) -> void:
 			_file.visible = true
 		if Input.is_action_just_pressed("gear"):
 			_start_talk(GearTalk.new(_box, _toast))
+		if Input.is_action_just_pressed("map"):
+			_open_map()
 		if Input.is_action_just_pressed("toggle_time"):
 			time_of_day = 0.25 if time_of_day > 0.5 else 0.8
 		if Input.is_action_just_pressed("save"):
@@ -802,7 +827,7 @@ func _build_ui() -> void:
 	root.add_child(_minimap)
 	_refresh_minimap()
 	var help := Label.new()
-	help.text = "WASD walk · Space talk/look · Tab case file · G gear · T day/night · H timed hits · F5 save · F9 load"
+	help.text = "WASD walk · Space talk/look · Tab case file · G gear · M case map · T day/night · H timed hits · F5 save · F9 load"
 	help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
 	help.offset_left = -420
 	help.offset_top = -16

@@ -46,7 +46,7 @@ func _ready() -> void:
 	title.add_theme_constant_override("shadow_offset_y", 2)
 	layer.add_child(title)
 	var sub := Label.new()
-	sub.text = "Season 1, 1994: the Sutton Office\n\nSpace to begin · F9 to load a saved game"
+	sub.text = "Season 1, 1994: the Sutton Office\n\nSpace to begin · M for the case map · F9 to load a saved game"
 	sub.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
 	sub.offset_top = 70
 	sub.offset_left = -300
@@ -70,6 +70,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("load") and GameState.load_game():
+		get_tree().change_scene_to_file("res://scenes/town.tscn")
+	elif Input.is_action_just_pressed("map"):
+		if GameState.party.is_empty():
+			GameState.party = ["player", "miriam", "teddy"]
+		if GameData.maps.has("sutton_office") and not GameState.flags.has("town_map"):
+			GameState.flags["town_map"] = "sutton_office"
+		GameState.flags["_open_map"] = true
 		get_tree().change_scene_to_file("res://scenes/town.tscn")
 	elif Input.is_action_just_pressed("interact"):
 		# a new hire fills in the form first; debug query strings skip it and pick a map

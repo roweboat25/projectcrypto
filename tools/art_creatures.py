@@ -356,6 +356,114 @@ def gull(p, x, y, flap):
 
 # ---------- the frames ----------
 
+# ---------- people ----------
+
+def person(p, cx, base, skin, hair, top, pants, f=0, hat=None, beard=None, gun=None, h=38,
+           eyes=True, mouth="line", lean=0, boots=(50, 40, 36), bulk=0):
+    """A person facing the viewer: boots, trousers, a jacket or shirt with
+    sleeves, hands, a head with hair and maybe a hat or beard. Frame 2 shifts
+    the weight and the gun."""
+    sk, hr, tp, pt = ramp(skin), ramp(hair), ramp(top), ramp(pants)
+    cx += lean if f else 0
+    bob = 1 if f else 0
+    top_y = base - h + bob
+    bw = 6 + bulk
+    # legs and boots
+    for sx in (-1, 1):
+        lx = cx + sx * 3
+        p.rect([lx - 2, base - 15, lx + 2, base - 3], pt[2] + (255,))
+        p.rect([lx - 2, base - 15, lx - 1, base - 3], pt[1] + (255,))
+        p.rect([lx - 3, base - 4, lx + 3, base], boots + (255,))
+        p.rect([lx - 3, base - 4, lx + 3, base - 4], ramp(boots)[3] + (255,))
+    # body
+    p.blob(cx, base - 24 + bob, bw, 10, tp)
+    p.inner_line([(cx, base - 32 + bob), (cx, base - 16 + bob)], tp)
+    # arms
+    for sx in (-1, 1):
+        ax = cx + sx * (bw + 1)
+        p.line([(ax, base - 30 + bob), (ax + sx, base - 18 + bob)], tp[1] + (255,), 3)
+        p.line([(ax - sx, base - 30 + bob), (ax, base - 20 + bob)], tp[3] + (255,), 1)
+        p.rect([ax - 1 + sx, base - 18 + bob, ax + 1 + sx, base - 16 + bob], sk[2] + (255,))
+    # head
+    hy = top_y + 7
+    p.blob(cx, hy, 5, 6, sk)
+    # hair cap
+    if hair is not None:
+        p.blob(cx, hy - 3, 5, 3, hr)
+        p.rect([cx - 5, hy - 4, cx + 5, hy - 2], hr[2] + (255,))
+    if beard:
+        bd = ramp(beard)
+        p.rect([cx - 4, hy + 2, cx + 4, hy + 5], bd[2] + (255,))
+        p.rect([cx - 3, hy + 5, cx + 3, hy + 6], bd[1] + (255,))
+    if eyes:
+        p.dot(cx - 2, hy, (30, 24, 24, 255))
+        p.dot(cx + 2, hy, (30, 24, 24, 255))
+    if mouth == "line":
+        p.line([(cx - 1, hy + 3), (cx + 1, hy + 3)], sk[0] + (255,))
+    elif mouth == "wide":
+        p.line([(cx - 5, hy + 3), (cx + 5, hy + 3)], (60, 10, 20, 255), 2)
+    if hat == "brim":
+        p.rect([cx - 8, hy - 4, cx + 8, hy - 3], hr[0] + (255,))
+        p.rect([cx - 5, hy - 9, cx + 5, hy - 4], hr[1] + (255,))
+    elif hat == "fedora":
+        p.rect([cx - 8, hy - 3, cx + 8, hy - 2], (24, 20, 26, 255))
+        p.rect([cx - 5, hy - 10, cx + 5, hy - 3], (34, 30, 38, 255))
+        p.rect([cx - 5, hy - 5, cx + 5, hy - 4], (60, 20, 30, 255))
+    elif hat == "helmet":
+        p.blob(cx, hy - 3, 7, 5, ramp((110, 116, 90)))
+        p.rect([cx - 6, hy - 1, cx + 6, hy - 1], (240, 240, 240, 255))
+    elif hat == "cone":
+        p.poly([(cx - 6, hy - 4), (cx, hy - 18), (cx + 6, hy - 4)], (240, 210, 60, 255))
+        p.poly([(cx - 3, hy - 4), (cx, hy - 11), (cx + 1, hy - 4)], (255, 240, 140, 255))
+        p.rect([cx - 7, hy - 4, cx + 7, hy - 3], (220, 190, 50, 255))
+        p.dot(cx, hy - 18, (230, 60, 50, 255))
+    if gun:
+        gx0, gy0, gx1, gy1 = gun
+        shift = -2 if f else 0
+        p.line([(cx + gx0, base + gy0 + shift), (cx + gx1, base + gy1 + shift)], (70, 50, 40, 255), 3)
+        p.line([(cx + gx0, base + gy0 + shift), (cx + gx1, base + gy1 + shift)], (120, 110, 110, 255), 1)
+
+
+def eyeshine(p, cx, base, f=0):
+    """Something low in the dark, mostly not there: a soft black shape and two lamps."""
+    for i, (r, a) in enumerate(((16, 60), (12, 110), (8, 160))):
+        p.d.ellipse([cx - r, base - 26 - r // 2 + i, cx + r, base - 2 + i], fill=(12, 10, 18, a))
+    p.d.ellipse([cx - 9, base - 38 + (1 if f else 0), cx + 9, base - 22], fill=(14, 12, 20, 190))
+    r = 2 if not f else 1
+    p.eye(cx - 4, base - 31 + (1 if f else 0), (255, 236, 90), r)
+    p.eye(cx + 4, base - 31 + (1 if f else 0), (255, 236, 90), r)
+
+
+def cave_breath(p, cx, base, f=0):
+    """Mist with a face in it: layered translucent puffs and three dark holes."""
+    rnd = random.Random(3 + f)
+    for _ in range(18):
+        x, y, r = rnd.randrange(2, 40), rnd.randrange(4, 40), rnd.randrange(4, 10)
+        p.d.ellipse([x, y, x + r, y + r], fill=(210, 224, 236, 70))
+    p.d.ellipse([cx - 11, base - 36, cx + 11, base - 12], fill=(228, 238, 246, 150))
+    p.d.ellipse([cx - 8, base - 33, cx + 6, base - 20], fill=(240, 246, 250, 120))
+    p.d.ellipse([cx - 6, base - 30, cx - 3, base - 26], fill=(90, 110, 130, 210))
+    p.d.ellipse([cx + 2, base - 30, cx + 5, base - 26], fill=(90, 110, 130, 210))
+    p.d.ellipse([cx - 2, base - 23, cx + 2, base - 17 + (2 if f else 0)], fill=(90, 110, 130, 210))
+
+
+def static_shade(p, cx, base, f=0):
+    """A person-shaped hole full of television snow."""
+    person(p, cx, base, (128, 128, 128), (128, 128, 128), (128, 128, 128), (128, 128, 128), f=f, eyes=False, mouth="", h=40)
+    rnd = random.Random(7 + f)
+    px = p.im.load()
+    for y in range(S):
+        for x in range(S):
+            if px[x, y][3]:
+                v = rnd.choice((30, 70, 120, 170, 220, 250))
+                px[x, y] = (v, v, v, 255)
+    if f:
+        for y in range(10, 14):
+            for x in range(S):
+                if px[x, y][3]:
+                    px[x, y] = (240, 240, 240, 255)
+
+
 def creature(name, f):
     """One 96x96 frame of a creature foe, outlined, or None when the foe is not drawn here."""
     p = Pix()
@@ -402,16 +510,62 @@ def creature(name, f):
         gull(p, 10, 10, f)
         gull(p, 28, 22, not f)
         gull(p, 14, 36, f)
+    elif name == "shotgun_man":
+        person(p, 24, base, (214, 170, 130), (160, 160, 160), (70, 90, 130), (60, 60, 66), f=f, beard=(150, 150, 150), gun=(-10, -24, 12, -8), bulk=1)
+    elif name == "drunk_local":
+        person(p, 24, base, (214, 170, 130), (110, 80, 50), (150, 40, 40), (60, 60, 66), f=f, hat="brim", beard=(110, 80, 50), gun=(-12, -18, 10, -26), lean=3)
+    elif name == "mp_patrol":
+        person(p, 24, base, (230, 190, 160), (100, 70, 40), (110, 116, 80), (100, 106, 70), f=f, hat="helmet")
+        p.rect([cx_r(24) + 9, base - 22, cx_r(24) + 12, base - 17], (50, 50, 56, 255))
+        p.poly([(cx_r(24) + 12, base - 22), (47, base - 34 + (2 if f else 0)), (47, base - 16)], (255, 240, 180, 90))
+    elif name == "the_hunters":
+        person(p, 14, base, (230, 190, 160), (100, 70, 40), (210, 120, 40), (70, 80, 50), f=f, beard=(100, 70, 40), gun=(-8, -22, 8, -10))
+        person(p, 34, base - 1, (190, 140, 100), (30, 26, 26), (70, 110, 60), (110, 80, 50), f=1 - f, beard=(30, 26, 26), gun=(-8, -22, 8, -10))
+        p.rect([22, base - 16, 26, base - 8], (60, 60, 70, 255))
+        p.d.ellipse([21, base - 19, 27, base - 13], fill=(255, 240, 170, 255))
+        p.d.ellipse([19, base - 21, 29, base - 11], fill=(255, 240, 170, 40))
+    elif name == "arcade_lads":
+        person(p, 14, base, (240, 200, 170), (220, 190, 90), (40, 190, 210), (40, 60, 180), f=f, boots=(230, 230, 230))
+        person(p, 34, base, (200, 150, 110), (30, 26, 26), (230, 220, 80), (110, 50, 150), f=1 - f, boots=(230, 230, 230))
+        p.line([(8, base - 26), (14, base - 32)], (220, 40, 140, 255), 2)
+        p.line([(28, base - 26), (34, base - 32)], (40, 160, 90, 255), 2)
+    elif name == "dark_suit":
+        person(p, 24, base, (248, 240, 232), (20, 16, 20), (24, 22, 28), (24, 22, 28), f=f, hat="fedora", eyes=False, mouth="wide", h=40)
+        p.rect([20, base - 36, 28, base - 34], (248, 240, 232, 255))
+        p.rect([23, base - 30, 25, base - 20], (200, 30, 40, 255))
+    elif name == "hut_man":
+        person(p, 24, base, (236, 200, 170), (160, 160, 160), (230, 120, 40), (120, 60, 150), f=f, hat="cone", h=40)
+        rnd = random.Random(9)
+        px = p.im.load()
+        for y in range(base - 34, base - 14):
+            for x in range(16, 33):
+                if px[x, y][3] and (x // 3 + y // 3) % 2:
+                    px[x, y] = rnd.choice([(230, 60, 50, 255), (60, 120, 220, 255), (240, 220, 80, 255), (60, 170, 90, 255), (200, 80, 180, 255)])
+    elif name == "eyeshine":
+        eyeshine(p, 24, base, f)
+    elif name == "cave_breath":
+        cave_breath(p, 24, base, f)
+    elif name == "static_shade":
+        static_shade(p, 24, base, f)
     else:
         return None
-    if name not in ("roof_walker", "the_tall_one"):
+    if name not in ("roof_walker", "the_tall_one", "eyeshine", "cave_breath"):
         p.outline()
-    return p.big()
+    im = p.big()
+    if name in WRONG:
+        im = wrong(im)
+    return im
 
 
-WRONG = {"wrong_owl", "owl_wrong_ky", "little_man", "floater", "the_tall_one", "roof_walker", "mothman", "igloo_crawler"}
+def cx_r(x):
+    return x
+
+
+WRONG = {"wrong_owl", "owl_wrong_ky", "little_man", "floater", "the_tall_one", "roof_walker", "mothman", "igloo_crawler", "dark_suit", "hut_man"}
 NAMES = ["stray_dog", "coyote", "hound_pack", "wrong_owl", "owl_wrong_ky", "little_man", "floater", "the_tall_one",
-         "roof_walker", "mothman", "igloo_crawler", "fair_monkey", "gull_swarm"]
+         "roof_walker", "mothman", "igloo_crawler", "fair_monkey", "gull_swarm",
+         "shotgun_man", "drunk_local", "mp_patrol", "the_hunters", "arcade_lads", "dark_suit", "hut_man",
+         "eyeshine", "cave_breath", "static_shade"]
 
 
 def wrong(im):
@@ -436,8 +590,6 @@ def sheet(name):
     im = Image.new("RGBA", (FW * 2, FW), (0, 0, 0, 0))
     for f in range(2):
         fr = creature(name, f)
-        if name in WRONG:
-            fr = wrong(fr)
         im.alpha_composite(fr, (f * FW, 0))
     return im
 
