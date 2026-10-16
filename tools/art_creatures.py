@@ -328,7 +328,7 @@ class Pix:
 
 # ---------- creatures ----------
 
-def dog(p, cx, base, coat, w=26, mangy=False, ears="flop", eyes=(200, 160, 40), teeth=True, f=0, lean=False):
+def dog(p, cx, base, coat, w=26, mangy=False, ears="flop", eyes=(200, 160, 40), teeth=True, f=0, lean=False, snout=1.0, bushy=False, grizzle=None):
     """A dog facing the viewer, head low and forward: haunches behind, a deep
     chest, forelegs with paws and claws, a head with brow, ears, muzzle, nose
     and a bared mouth, all in fur."""
@@ -337,9 +337,14 @@ def dog(p, cx, base, coat, w=26, mangy=False, ears="flop", eyes=(200, 160, 40), 
     dark = ramp(tuple(max(0, c - 30) for c in coat))
     bob = 1 if f else 0
     hw = w // 2
-    # tail, curled up behind the left haunch
-    p.line([(cx - hw + 2, base - 14), (cx - hw - 4, base - 22 + bob), (cx - hw - 2, base - 28 + bob)], rp[1], 2)
-    p.fline([(cx - hw + 1, base - 15), (cx - hw - 3, base - 22 + bob)], rp[3], 1)
+    # tail: curled up behind the left haunch, or hanging low and bushy with a dark tip
+    if bushy:
+        for i, (tx, ty, r) in enumerate(((cx - hw + 1, base - 12, 2.6), (cx - hw - 2.5, base - 8, 3), (cx - hw - 5, base - 3.5, 3.2))):
+            p.blob(tx, ty, r, r + 1, rp if i < 2 else ramp((70, 56, 46)))
+        p.fur(rp, 13 + f, 0.3, (cx - hw - 9, base - 16, cx - hw + 4, base), length=2)
+    else:
+        p.line([(cx - hw + 2, base - 14), (cx - hw - 4, base - 22 + bob), (cx - hw - 2, base - 28 + bob)], rp[1], 2)
+        p.fline([(cx - hw + 1, base - 15), (cx - hw - 3, base - 22 + bob)], rp[3], 1)
     # haunches behind the chest, hind paws under them
     for sx in (-1, 1):
         p.blob(cx + sx * (hw - 3), base - 11, 8, 9, dark)
@@ -353,6 +358,10 @@ def dog(p, cx, base, coat, w=26, mangy=False, ears="flop", eyes=(200, 160, 40), 
         p.blob(cx, base - 11 + bob, hw - 4, 6, pale, rim=False)
     else:
         p.blob(cx, base - 10 + bob, hw - 6, 5, pale, rim=False)
+    if grizzle:
+        gz = ramp(grizzle)
+        p.blob(cx, base - 21 + bob, hw - 3, 4, gz, rim=False, spec=False)
+        p.fur(gz, 15 + f, 0.5, (cx - hw + 3, base - 25, cx + hw - 3, base - 17), length=1)
     p.fur(rp, 11 + f, 0.16, (cx - hw, base - 24, cx + hw, base - 4), length=2)
     # forelegs: cylinders with paws and claws
     for sx in (-1, 1):
@@ -383,9 +392,10 @@ def dog(p, cx, base, coat, w=26, mangy=False, ears="flop", eyes=(200, 160, 40), 
             p.erase_ell([cx + 10, hy + 2, cx + 13, hy + 5])
     else:
         for sx in (-1, 1):
-            p.shade_poly([(cx + sx * 8, hy - 3), (cx + sx * 10.5, hy - 14), (cx + sx * 2, hy - 5)], rp, light=(-0.4 * sx, -0.6))
-            p.poly([(cx + sx * 7.5, hy - 4), (cx + sx * 9, hy - 11), (cx + sx * 4, hy - 5.5)], ramp((150, 100, 100))[1] if not mangy else rp[0])
-            p.fline([(cx + sx * 8, hy - 3), (cx + sx * 10.5, hy - 14)], rp[0], 1)
+            eh = 11 + 3 * snout
+            p.shade_poly([(cx + sx * 8, hy - 3), (cx + sx * 11, hy - eh), (cx + sx * 2, hy - 5)], rp, light=(-0.4 * sx, -0.6))
+            p.poly([(cx + sx * 7.5, hy - 4), (cx + sx * 9.5, hy - eh + 3), (cx + sx * 4, hy - 5.5)], ramp((150, 100, 100))[1] if not mangy else rp[0])
+            p.fline([(cx + sx * 8, hy - 3), (cx + sx * 11, hy - eh)], rp[0], 1)
         if mangy:
             p.erase_ell([cx + 8.5, hy - 10, cx + 11, hy - 7])
     # brow ridge, eyes, scowl lines
@@ -399,26 +409,33 @@ def dog(p, cx, base, coat, w=26, mangy=False, ears="flop", eyes=(200, 160, 40), 
     if mangy:
         p.fline([(cx - 7, hy + 1), (cx - 5, hy + 3)], rp[0], 1)
     # muzzle, pushed forward and down so it reads as a snout
-    p.blob(cx, hy + 6, 6, 5, pale if not mangy else rp, light=(-0.3, -0.6))
-    p.shade_poly([(cx - 3, hy + 2.5), (cx + 3, hy + 2.5), (cx + 2.5, hy + 5.5), (cx - 2.5, hy + 5.5)], ramp((36, 26, 28)), span=(1, 3.5))
-    p.pix(cx - 2, hy + 3, (90, 70, 74))
-    p.pix(cx - 1.5, hy + 3, (90, 70, 74))
-    p.pix(cx - 1.5, hy + 4.5, (16, 10, 12))
-    p.pix(cx + 1.5, hy + 4.5, (16, 10, 12))
+    ny = 3 * (snout - 1)
+    p.blob(cx, hy + 6 + ny, 6 - 1.5 * (snout - 1), 5 + ny, pale if not mangy else rp, light=(-0.3, -0.6))
+    if snout > 1:
+        p.blob(cx, hy + 3.5, 4.5, 2.5, rp, rim=False, spec=False)
+    p.shade_poly([(cx - 3, hy + 2.5 + ny), (cx + 3, hy + 2.5 + ny), (cx + 2.5, hy + 5.5 + ny), (cx - 2.5, hy + 5.5 + ny)], ramp((36, 26, 28)), span=(1, 3.5))
+    p.pix(cx - 2, hy + 3 + ny, (90, 70, 74))
+    p.pix(cx - 1.5, hy + 3 + ny, (90, 70, 74))
+    p.pix(cx - 1.5, hy + 4.5 + ny, (16, 10, 12))
+    p.pix(cx + 1.5, hy + 4.5 + ny, (16, 10, 12))
     if teeth:
-        p.rect([cx - 4.5, hy + 8, cx + 4.5, hy + 9.5], (46, 18, 24))
-        p.rect([cx - 3, hy + 9, cx + 3, hy + 10], (150, 50, 60))
+        p.rect([cx - 4.5, hy + 8 + ny, cx + 4.5, hy + 9.5 + ny], (46, 18, 24))
+        p.rect([cx - 3, hy + 9 + ny, cx + 3, hy + 10 + ny], (150, 50, 60))
         for tx in (-4, -2.5, -1, 0.5, 2, 3.5):
-            p.pix(cx + tx, hy + 8, (244, 240, 226))
-            p.pix(cx + tx, hy + 8.5, (220, 212, 196))
-        p.pix(cx - 4, hy + 9, (244, 240, 226))
-        p.pix(cx + 3.5, hy + 9, (244, 240, 226))
+            p.pix(cx + tx, hy + 8 + ny, (244, 240, 226))
+            p.pix(cx + tx, hy + 8.5 + ny, (220, 212, 196))
+        p.pix(cx - 4, hy + 9 + ny, (244, 240, 226))
+        p.pix(cx + 3.5, hy + 9 + ny, (244, 240, 226))
     else:
-        p.fline([(cx - 3.5, hy + 8), (cx, hy + 8.5), (cx + 3.5, hy + 8)], (50, 30, 30), 1)
+        p.fline([(cx - 3.5, hy + 8 + ny), (cx, hy + 8.5 + ny), (cx + 3.5, hy + 8 + ny)], (50, 30, 30), 1)
     p.fur(rp, 17 + f, 0.14, (cx - 10, hy - 8, cx + 10, hy + 4), length=2)
 
 
-def owl(p, cx, base, coat, face, f=0, eyes=2, horned=False, wings="half", glow=False):
+def owl(p, cx, base, coat, face, f=0, eyes=2, horned=False, wings="half", glow=False, species="barn"):
+    """An owl facing the viewer, drawn after the real bird: a barn owl (heart
+    face, golden speckled back, white breast, long legs) or a great horned owl
+    (ear tufts, barred breast, white throat, yellow eyes). The wrong ones
+    grow extra eyes."""
     rp = ramp(coat)
     fp = ramp(face)
     dk = ramp(tuple(max(0, c - 40) for c in coat))
@@ -432,6 +449,9 @@ def owl(p, cx, base, coat, face, f=0, eyes=2, horned=False, wings="half", glow=F
                 p.inner_line([(cx + sx * (10 + i * 3), base - 11 - i * 2), (cx + sx * (18 + i * 1.5), base - 30 - i * 4 + bob * 2)], rp)
             for k in range(3):
                 p.erase_ell([cx + sx * (10 + k * 4) - 1.5, base - 11 + k * 1.2, cx + sx * (10 + k * 4) + 1.5, base - 7 + k * 1.2])
+            if species == "horned":
+                for k in range(4):
+                    p.fline([(cx + sx * (11 + k), base - 16 - k * 5), (cx + sx * (18 + k * 0.5), base - 19 - k * 5)], dk[0], 1)
     else:
         for sx in (-1, 1):
             pts = [(cx + sx * 8, base - 28), (cx + sx * 16.5, base - 20), (cx + sx * 14.5, base - 5), (cx + sx * 8, base - 8)]
@@ -440,128 +460,237 @@ def owl(p, cx, base, coat, face, f=0, eyes=2, horned=False, wings="half", glow=F
                 p.inner_line([(cx + sx * (9.5 + i * 1.5), base - 9 - i * 3), (cx + sx * (11 + i * 1.5), base - 25 + i * 1.5)], rp)
             for k in range(3):
                 p.erase_ell([cx + sx * (9 + k * 2.2) - 1.2, base - 7 + k * 0.6, cx + sx * (9 + k * 2.2) + 1.2, base - 4 + k * 0.6])
-    # body and breast feathers
+            if species == "barn":
+                for k in range(6):
+                    p.pix(cx + sx * (10 + (k % 3) * 2), base - 24 + k * 3, dk[0])
+                    p.pix(cx + sx * (11 + (k % 3) * 2), base - 23 + k * 3, (250, 250, 240))
+    # body and breast
     p.blob(cx, base - 18 + bob, 10, 15, rp)
     p.blob(cx, base - 15 + bob, 6.5, 10, fp, rim=False, spec=False)
-    p.scallops(cx - 7, cx + 7, base - 26 + bob, base - 6, dk, pitch=3, r=1.3)
-    # feet: three toes each with a claw
+    if species == "barn":
+        rnd = random.Random(5 + f)
+        for _ in range(14):
+            x, y = cx - 5 + rnd.random() * 10, base - 24 + bob + rnd.random() * 16
+            p.pix(x, y, dk[1])
+    else:
+        for i in range(7):
+            y = base - 24 + bob + i * 2.6
+            for k in range(4):
+                x = cx - 5 + k * 2.6 + (1.3 if i % 2 else 0)
+                p.fline([(x - 1, y), (x + 1, y)], dk[0], 1)
+        p.blob(cx, base - 27 + bob, 4, 2.2, ramp((250, 246, 236)), rim=False, spec=False)
+    # legs and feet: three toes each with a claw; a barn owl's legs are long
     for sx in (-1, 1):
         fx = cx + sx * 4
+        if species == "barn":
+            p.cyl(fx - 1, base - 7, fx + 1, base - 3, fp)
         for t, tx in enumerate((-2.5, 0, 2.5)):
-            p.line([(fx, base - 3.5), (fx + tx, base - 0.5)], (120, 96, 56), 1)
+            p.line([(fx, base - 3.5), (fx + tx, base - 0.5)], (120, 96, 56) if species == "horned" else (190, 170, 130), 1)
             p.claw(fx + tx, base - 0.5, tx * 0.3, 1.2)
     # head
     p.blob(cx, base - 34 + bob, 9.5, 8.5, rp)
-    # facial discs ringed in dark feathers
-    for sx in (-1, 1):
-        p.blob(cx + sx * 4, base - 34 + bob, 5, 6, fp, light=(-0.2, -0.3), rim=False)
-        p.arc([cx + sx * 4 - 5, base - 40 + bob, cx + sx * 4 + 5, base - 28 + bob], 0, 360, dk[0], 1)
+    if species == "barn":
+        # heart-shaped facial disc: two lobes meeting in a point under the beak
+        for sx in (-1, 1):
+            p.blob(cx + sx * 4, base - 35.5 + bob, 5.2, 6, fp, light=(-0.2, -0.3), rim=False, spec=False)
+        p.poly([(cx - 8, base - 34 + bob), (cx + 8, base - 34 + bob), (cx, base - 26 + bob)], fp[2])
+        hr_ = (150, 108, 70)
+        p.fline([(cx - 8.5, base - 36 + bob), (cx - 8, base - 33 + bob), (cx, base - 26 + bob), (cx + 8, base - 33 + bob), (cx + 8.5, base - 36 + bob)], hr_, 1)
+        p.arc([cx - 9.2, base - 41.5 + bob, cx + 0.8, base - 29.5 + bob], 170, 300, hr_, 1)
+        p.arc([cx - 0.8, base - 41.5 + bob, cx + 9.2, base - 29.5 + bob], 240, 10, hr_, 1)
+        p.fline([(cx, base - 39 + bob), (cx, base - 31 + bob)], fp[3], 1)
+    else:
+        for sx in (-1, 1):
+            p.blob(cx + sx * 4, base - 34 + bob, 5, 6, fp, light=(-0.2, -0.3), rim=False)
+            p.arc([cx + sx * 4 - 5, base - 40 + bob, cx + sx * 4 + 5, base - 28 + bob], 0, 360, dk[0], 1)
+        p.poly([(cx - 3, base - 39 + bob), (cx + 3, base - 39 + bob), (cx, base - 36 + bob)], dk[1])
     if horned:
         for sx in (-1, 1):
             p.shade_poly([(cx + sx * 8, base - 38 + bob), (cx + sx * 12.5, base - 49 + bob), (cx + sx * 3, base - 40 + bob)], rp, light=(-0.5 * sx, -0.6))
             p.fline([(cx + sx * 7, base - 39 + bob), (cx + sx * 11.5, base - 47 + bob)], dk[0], 1)
+            p.fline([(cx + sx * 5, base - 40 + bob), (cx + sx * 9, base - 45 + bob)], rp[3], 1)
     # beak
-    p.shade_poly([(cx - 1.5, base - 34.5 + bob), (cx + 1.5, base - 34.5 + bob), (cx, base - 29.5 + bob)], ramp((110, 80, 44)), span=(1, 3.5))
+    bk = ramp((150, 130, 110)) if species == "barn" else ramp((70, 60, 50))
+    p.shade_poly([(cx - 1.5, base - 33 + bob), (cx + 1.5, base - 33 + bob), (cx, base - 28.5 + bob)], bk, span=(1, 3.5))
     # eyes
-    pos = [(cx - 4, base - 35 + bob), (cx + 4, base - 35 + bob)]
-    extra = [(cx - 6.5, base - 31 + bob), (cx + 6.5, base - 31 + bob), (cx, base - 39.5 + bob), (cx + 2, base - 31 + bob)]
+    pos = [(cx - 4, base - 35.5 + bob), (cx + 4, base - 35.5 + bob)]
+    extra = [(cx - 6.5, base - 31 + bob), (cx + 6.5, base - 31 + bob), (cx, base - 40 + bob), (cx + 2, base - 31 + bob)]
     pos += extra[:max(0, eyes - 2)]
     for (x, y) in pos:
         if glow:
+            col = (255, 220, 50) if species == "horned" else (90, 20, 20)
             p.arc([x - 2.5, y - 2.5, x + 2.5, y + 2.5], 0, 360, (60, 40, 20), 1)
-            p.eye(x, y, (255, 220, 50), 1.5)
+            p.eye(x, y, col, 1.5)
+            if species == "barn":
+                p.eye(x, y, (255, 120, 60), 0.6, glow=False)
         else:
             p.animal_eye(x, y, (240, 200, 40))
     p.fur(rp, 21 + f, 0.08, (cx - 12, base - 44, cx + 12, base - 26))
 
 
 def little_man(p, cx, base, skin, h=36, arms="up", f=0, eyes=True, glow=(255, 236, 90), claws=True):
-    """The Kelly creature: a big domed head with huge pointed ears, lamp eyes,
-    a thin silvery body and long arms that end in claws. Hovers a little."""
-    rp = ramp(skin, steps=(-90, -45, 0, 45, 90))
+    """The Kelly creature as the Suttons drew it in 1955: three and a half
+    feet, silver and lit from inside, a domed head with huge elephant ears,
+    big yellow eyes set wide, a thin body, long arms ending in talons, and
+    spindly legs that never quite touch the ground."""
+    rp = ramp(skin, steps=(-95, -50, 0, 50, 95))
     bob = 1 if f else 0
     top = base - h + bob
-    # legs, thin, with splayed feet
+    sh = base - 23           # shoulder line
+    # a soft glow beneath: it floats
+    p.ell([cx - 7, base - 2, cx + 7, base + 1], fill=(200, 220, 240, 50))
+    # legs, spindly, toes splayed
     for sx in (-1, 1):
-        p.line([(cx + sx * 3, base - 14), (cx + sx * 5, base - 2)], rp[1], 2)
-        p.fline([(cx + sx * 2.5, base - 14), (cx + sx * 4.5, base - 3)], rp[3], 1)
-        p.pix(cx + sx * 4, base - 8, rp[0])
-        p.blob(cx + sx * 5, base - 1, 3, 1.2, rp, rim=False)
-    # torso, ribbed
-    p.blob(cx, base - 18, 5, 8, rp)
+        p.line([(cx + sx * 2.5, base - 14), (cx + sx * 4, base - 3)], rp[1], 1.5)
+        p.fline([(cx + sx * 2, base - 14), (cx + sx * 3.5, base - 4)], rp[3], 1)
+        for k in (-2, 0, 2):
+            p.fline([(cx + sx * 4, base - 3), (cx + sx * 4 + k, base - 0.5)], rp[1], 1)
+    # torso, thin and ribbed, with a narrow pelvis
+    p.blob(cx, base - 18, 4.5, 7.5, rp)
     p.inner_line([(cx, base - 24), (cx, base - 12)], rp)
     for i in range(3):
-        y = base - 22 + i * 3
-        p.fline([(cx - 3.5, y), (cx - 1, y + 1)], rp[0], 1)
-        p.fline([(cx + 1, y + 1), (cx + 3.5, y)], rp[0], 1)
-    # arms, jointed, with claws
+        y = base - 22 + i * 2.8
+        p.fline([(cx - 3, y), (cx - 1, y + 0.8)], rp[0], 1)
+        p.fline([(cx + 1, y + 0.8), (cx + 3, y)], rp[0], 1)
+    # arms: long, jointed, raised like a surrender or reaching to the ground
     for sx in (-1, 1):
         if arms == "up":
-            pts = [(cx + sx * 4, base - 22), (cx + sx * 12, base - 30), (cx + sx * 16, top + 2)]
+            pts = [(cx + sx * 4, sh), (cx + sx * 11, base - 29), (cx + sx * 14, top + 3)]
         else:
-            pts = [(cx + sx * 4, base - 22), (cx + sx * 14, base - 20), (cx + sx * 20, base - 30)]
+            pts = [(cx + sx * 4, sh), (cx + sx * 12, base - 16), (cx + sx * 17, base - 3)]
         p.line(pts, rp[1], 2)
         p.fline(pts, rp[3], 1)
-        p.blob(pts[1][0], pts[1][1], 1.6, 1.6, rp, rim=False)
+        p.blob(pts[1][0], pts[1][1], 1.7, 1.7, rp, rim=False)
         ex, ey = pts[-1]
+        p.blob(ex, ey, 1.8, 1.5, rp, rim=False)
         if claws:
             for k in range(3):
-                dx, dy = sx * (k * 2 - 1.5), -4.5 - (k % 2) * 2
-                if arms != "up":
-                    dx, dy = sx * (2 + k * 0.8), -3 + (k - 1) * 2.2
-                p.line([(ex, ey), (ex + dx * 0.6, ey + dy * 0.6)], rp[1], 1)
-                p.claw(ex + dx * 0.6, ey + dy * 0.6, dx * 0.5, dy * 0.5, rp[0])
-    # head, domed
-    p.blob(cx, top + 8, 9, 8, rp, light=(-0.3, -0.6))
-    # ears, huge, with the inner fold
+                if arms == "up":
+                    dx, dy = sx * (k * 2.2 - 1.8), -5 - (k % 2) * 1.5
+                else:
+                    dx, dy = sx * (1.5 + k * 1.2), 2.5 + (k - 1) * 1.2
+                p.line([(ex, ey), (ex + dx * 0.55, ey + dy * 0.55)], rp[2], 1)
+                p.claw(ex + dx * 0.55, ey + dy * 0.55, dx * 0.5, dy * 0.5, rp[0])
+    # head: a big dome, bright as metal
+    hy = top + 9
+    p.blob(cx, hy, 9.5, 8.5, rp, light=(-0.3, -0.6))
+    p.blob(cx - 3, hy - 4.5, 3, 1.6, rp, rim=False, spec=False)
+    p.rect([cx - 5, hy - 5.5, cx - 1, hy - 5], rp[4])
+    # elephant ears, wide and veined
     for sx in (-1, 1):
-        p.shade_poly([(cx + sx * 8, top + 6), (cx + sx * 17.5, top - 1.5), (cx + sx * 7, top + 12)], rp, light=(-0.5 * sx, -0.5))
-        p.poly([(cx + sx * 9, top + 7), (cx + sx * 14.5, top + 1.5), (cx + sx * 8, top + 10)], rp[0])
-        p.fline([(cx + sx * 9.5, top + 7.5), (cx + sx * 13.5, top + 3)], rp[1], 1)
-    # mouth, a thin line with the suggestion of teeth
-    p.fline([(cx - 2.5, top + 13), (cx + 2.5, top + 13)], rp[0], 1)
-    for k in (-1.5, 0, 1.5):
-        p.pix(cx + k, top + 13.5, rp[3])
+        ex = cx + sx * 13.5
+        p.blob(ex, hy + 1, 5.5, 7, rp, light=(-0.4 * sx, -0.5))
+        p.poly([(cx + sx * 9, hy - 5), (cx + sx * 16, hy - 8), (cx + sx * 18, hy - 1), (cx + sx * 12, hy - 2)], rp[1])
+        p.blob(ex + sx * 0.5, hy + 1.5, 3.5, 5, ramp((104, 112, 136)), rim=False, spec=False)
+        p.fline([(cx + sx * 10, hy - 1), (ex + sx * 1, hy + 4)], rp[0], 1)
+        p.fline([(cx + sx * 10, hy + 1), (ex, hy + 6)], rp[0], 1)
+    # mouth, a slit
+    p.fline([(cx - 3, hy + 5.5), (cx + 3, hy + 5.5)], rp[0], 1)
     if eyes:
         for sx in (-1, 1):
-            p.arc([cx + sx * 4 - 3, top + 4, cx + sx * 4 + 3, top + 10], 0, 360, rp[0], 1)
-            p.eye(cx + sx * 4, top + 7, glow, 2)
+            p.arc([cx + sx * 4.5 - 3.4, hy - 3, cx + sx * 4.5 + 3.4, hy + 3.8], 0, 360, rp[0], 1)
+            p.eye(cx + sx * 4.5, hy + 0.4, glow, 2.6)
 
 
 def mothman(p, cx, base, f=0):
-    grey = ramp((88, 90, 104))
-    dark = ramp((52, 54, 68))
+    """The thing at the TNT area, November 1966: taller than a man, grey,
+    wings folded like a cape or spread ten feet, no head to speak of, and two
+    red eyes the size of saucers set in where the shoulders meet."""
+    grey = ramp((98, 92, 100))
+    dark = ramp((76, 68, 82))
     bob = 1 if f else 0
-    # wings, folded like a cape, tips above the shoulders, scalloped below
+    # wings: spread wide on the second frame, half folded on the first
     for sx in (-1, 1):
-        pts = [(cx + sx * 6, base - 40), (cx + sx * 20, base - 46 - bob * 2), (cx + sx * 21, base - 6), (cx + sx * 9, base - 2)]
-        p.shade_poly(pts, dark, light=(-0.6 * sx, -0.5), span=(0.3, 3.0))
-        p.shade_poly([(cx + sx * 6, base - 40), (cx + sx * 13, base - 43 - bob), (cx + sx * 14, base - 4), (cx + sx * 9, base - 2)], dark, light=(0.6 * sx, -0.6), span=(1.0, 3.4))
-        for i in range(3):
-            p.inner_line([(cx + sx * (9 + i * 4), base - 38), (cx + sx * (10.5 + i * 4), base - 6)], dark)
-            p.fline([(cx + sx * (9.5 + i * 4), base - 37), (cx + sx * (11 + i * 4), base - 8)], dark[2], 1)
-        for k in range(4):
-            x = cx + sx * (10 + k * 3)
-            p.erase_ell([x - 1.8, base - 5 + (k % 2), x + 1.8, base - 1 + (k % 2)])
-    # body: furred thorax, banded abdomen
-    p.blob(cx, base - 30 + bob, 7, 10, grey)
-    p.blob(cx, base - 14 + bob, 6, 10, grey, light=(-0.4, -0.2))
-    for i in range(4):
+        if f:
+            pts = [(cx + sx * 5, base - 36), (cx + sx * 15, base - 47), (cx + sx * 23.5, base - 42), (cx + sx * 23, base - 22), (cx + sx * 18, base - 10), (cx + sx * 8, base - 14)]
+        else:
+            pts = [(cx + sx * 5, base - 36), (cx + sx * 17, base - 44), (cx + sx * 22, base - 30), (cx + sx * 20, base - 8), (cx + sx * 8, base - 6)]
+        p.shade_poly(pts, dark, light=(-0.6 * sx, -0.5), span=(0.4, 3.2))
+        # membrane ribs from the shoulder
+        for i in range(4):
+            t = i / 3.0
+            tip = (pts[1][0] + (pts[-2][0] - pts[1][0]) * t, pts[1][1] + (pts[-2][1] - pts[1][1]) * t)
+            p.inner_line([(cx + sx * 6, base - 35), tip], dark)
+            p.fline([(cx + sx * 6.5, base - 34.5), (tip[0] - sx * 0.5, tip[1])], dark[3], 1)
+        # scalloped trailing edge
+        n = 5
+        for k in range(n):
+            t = (k + 0.5) / n
+            x = pts[-1][0] + (pts[-2][0] - pts[-1][0]) * t
+            y = pts[-1][1] + (pts[-2][1] - pts[-1][1]) * t
+            p.erase_ell([x - 2, y - 1.5, x + 2, y + 2.5])
+    # legs like a man's
+    for sx in (-1, 1):
+        lx = cx + sx * 3.5
+        p.cyl(lx - 2.5, base - 16, lx + 2.5, base - 2, grey, light=-0.5)
+        p.crease([(lx - 1.5, base - 9), (lx + 1, base - 9)], grey)
+        p.blob(lx + sx * 0.5, base - 1.2, 3.2, 1.5, grey, rim=False)
+        for k in (-1.5, 0, 1.5):
+            p.pix(lx + sx * 0.5 + k, base - 0.5, (30, 26, 32))
+    # body: a hunched torso with the shoulders rising straight into the wings and no head
+    p.blob(cx, base - 25 + bob, 7.5, 11, grey)
+    p.blob(cx, base - 35 + bob, 9, 5, grey, light=(-0.3, -0.7))
+    p.fur(grey, 31 + f, 0.32, (cx - 10, base - 41, cx + 10, base - 14), length=2)
+    for i in range(3):
         y = base - 20 + i * 3.5 + bob
-        p.arc([cx - 5.5, y - 2, cx + 5.5, y + 2], 10, 170, grey[0], 1)
-    p.fur(grey, 31 + f, 0.3, (cx - 8, base - 42, cx + 8, base - 20), length=2)
-    # legs
+        p.arc([cx - 5, y - 2, cx + 5, y + 2], 20, 160, grey[0], 1)
+    # the eyes, set in the shoulders
     for sx in (-1, 1):
-        p.cyl(cx + sx * 3.5 - 1.5, base - 6, cx + sx * 3.5 + 1.5, base, grey)
-        p.rect([cx + sx * 3.5 - 2, base - 0.5, cx + sx * 3.5 + 2, base], grey[0])
-    # a head that is mostly neck and eyes, with feathered antennae
-    p.blob(cx, base - 42 + bob, 6, 6, grey)
+        p.ell([cx + sx * 4.5 - 4.5, base - 42 + bob, cx + sx * 4.5 + 4.5, base - 33 + bob], fill=(255, 40, 30, 50))
+        p.eye(cx + sx * 4.5, base - 37.5 + bob, (255, 48, 36), 2.6)
+
+
+def sandown_clown(p, cx, base, f=0):
+    """The figure the two children met by the stream in May 1973: near seven
+    feet tall, a face white as paper with round black eyes, a triangle of a
+    nose and a slit mouth, no neck, a yellow pointed hat with a knob on it, a
+    green tunic with a red collar and ribbons, and hands with three fingers."""
+    gr = ramp((60, 130, 70))
+    rd = ramp((200, 40, 50))
+    wh = ramp((244, 240, 228))
+    yl = ramp((240, 206, 50))
+    bob = 1 if f else 0
+    hy = base - 36 + bob          # head centre; no neck, it sits on the tunic
+    # legs and big flat feet
     for sx in (-1, 1):
-        p.fline([(cx + sx * 2, base - 47 + bob), (cx + sx * 6, base - 52 + bob)], grey[0], 1)
-        for k in range(3):
-            p.pix(cx + sx * (3 + k * 1.3), base - 49.5 - k * 1.2 + bob, grey[3])
-    p.eye(cx - 3, base - 43 + bob, (255, 50, 40), 2)
-    p.eye(cx + 3, base - 43 + bob, (255, 50, 40), 2)
+        lx = cx + sx * 3
+        p.cyl(lx - 2.5, base - 16, lx + 2.5, base - 3, gr, light=-0.5)
+        p.blob(lx + sx * 1.5, base - 1.5, 4.5, 1.8, ramp((40, 36, 40)), rim=False)
+    # tunic, belted, with patches of every colour
+    p.blob(cx, base - 24 + bob, 7, 11, gr)
+    p.shade_poly([(cx - 6, base - 18 + bob), (cx + 6, base - 18 + bob), (cx + 6, base - 14 + bob), (cx - 6, base - 14 + bob)], gr, span=(0.3, 2))
+    rnd = random.Random(9 + f)
+    for _ in range(16):
+        x, y = cx - 5 + rnd.random() * 10, base - 32 + bob + rnd.random() * 15
+        p.rect([x, y, x + 1, y + 1], rnd.choice([(230, 60, 50), (60, 120, 220), (240, 220, 80), (200, 80, 180), (80, 200, 220)]))
+    p.rect([cx - 6, base - 16 + bob, cx + 6, base - 15 + bob], (40, 30, 28))
+    # red collar: ribbons hanging from the shoulders
+    for sx in (-1, 1):
+        p.shade_poly([(cx + sx * 1, base - 34 + bob), (cx + sx * 7, base - 34 + bob), (cx + sx * 5, base - 26 + bob)], rd, span=(1, 3.4))
+        p.fline([(cx + sx * 3, base - 33 + bob), (cx + sx * 7, base - 24 + bob)], rd[0], 1)
+    # arms and three-fingered hands
+    for sx in (-1, 1):
+        ax = cx + sx * 8
+        p.cyl(ax - 1.5, base - 32 + bob, ax + 1.5, base - 20 + bob, gr, light=-0.5 * sx)
+        p.blob(ax + sx * 0.5, base - 18.5 + bob, 2.2, 2, wh, rim=False)
+        for k in (-1.5, 0, 1.5):
+            p.fline([(ax + sx * 0.5 + k, base - 17.5 + bob), (ax + sx * 0.5 + k * 1.3, base - 14.5 + bob)], wh[1], 1)
+    # head: white as paper, rounded, straight onto the shoulders
+    p.blob(cx, hy, 7, 7.5, wh, light=(-0.3, -0.5))
+    p.rect([cx - 6, hy + 2, cx + 6, hy + 6], wh[2])
+    p.rect([cx - 6, hy + 6, cx + 6, hy + 6.5], wh[1])
+    for sx in (-1, 1):
+        p.ell([cx + sx * 3 - 1.8, hy - 2.5, cx + sx * 3 + 1.8, hy + 1], fill=(14, 12, 16))
+        p.pix(cx + sx * 3 - 1, hy - 2, (90, 90, 96))
+    p.poly([(cx, hy - 0.5), (cx - 1.5, hy + 2.5), (cx + 1.5, hy + 2.5)], wh[0])
+    p.fline([(cx - 3.5, hy + 4.5), (cx + 3.5, hy + 4.5)], (40, 30, 28), 1)
+    for k in (-2, 0, 2):
+        p.fline([(cx + k, hy + 4), (cx + k, hy + 5.5)], (40, 30, 28), 1)
+    # the yellow pointed hat with its knob
+    p.shade_poly([(cx - 7.5, hy - 5), (cx, hy - 17), (cx + 7.5, hy - 5)], yl, light=(-0.5, -0.4), span=(1, 3.8))
+    p.fline([(cx - 1, hy - 14.5), (cx - 5.5, hy - 6)], yl[4], 1)
+    p.rect([cx - 8.5, hy - 5.5, cx + 8.5, hy - 4.5], yl[1])
+    p.blob(cx, hy - 17, 1.8, 1.8, rd, rim=False)
 
 
 def crawler(p, cx, base, f=0):
@@ -817,14 +946,14 @@ def creature(name, f):
     if name == "stray_dog":
         dog(p, 24, base, (104, 82, 58), w=26, mangy=True, ears="point", f=f)
     elif name == "coyote":
-        dog(p, 24, base, (176, 150, 110), w=24, ears="point", f=f, lean=True, eyes=(230, 200, 60), teeth=False)
+        dog(p, 24, base, (186, 160, 118), w=22, ears="point", f=f, lean=True, eyes=(230, 200, 60), teeth=False, snout=1.3, bushy=True, grizzle=(120, 108, 92))
     elif name == "hound_pack":
         dog(p, 14, base, (60, 44, 34), w=20, ears="point", f=f, eyes=(220, 170, 60))
         dog(p, 33, base - 2, (160, 130, 90), w=22, ears="point", f=1 - f, eyes=(220, 170, 60))
     elif name == "wrong_owl":
-        owl(p, 24, base, (200, 180, 140), (240, 232, 210), f=f, eyes=6 if f else 5, glow=True)
+        owl(p, 24, base, (214, 178, 120), (248, 244, 232), f=f, eyes=6 if f else 5, glow=True, species="barn")
     elif name == "owl_wrong_ky":
-        owl(p, 24, base, (120, 96, 70), (190, 170, 130), f=f, horned=True, wings="up" if not f else "half", glow=True)
+        owl(p, 24, base, (118, 96, 72), (176, 150, 112), f=f, horned=True, wings="up" if not f else "half", glow=True, species="horned")
     elif name == "little_man":
         little_man(p, 24, base - 2, (176, 182, 190), f=f)
     elif name == "floater":
@@ -880,13 +1009,7 @@ def creature(name, f):
         p.rect([20, base - 36, 28, base - 34], (248, 240, 232, 255))
         p.rect([23, base - 30, 25, base - 20], (200, 30, 40, 255))
     elif name == "hut_man":
-        person(p, 24, base, (236, 200, 170), (160, 160, 160), (230, 120, 40), (120, 60, 150), f=f, hat="cone", h=40)
-        rnd = random.Random(9)
-        px = p.im.load()
-        for y in range(K * (base - 34), K * (base - 14)):
-            for x in range(K * 16, K * 33):
-                if px[x, y][3] and (x // 6 + y // 6) % 2:
-                    px[x, y] = rnd.choice([(230, 60, 50, 255), (60, 120, 220, 255), (240, 220, 80, 255), (60, 170, 90, 255), (200, 80, 180, 255)])
+        sandown_clown(p, 24, base, f)
     elif name == "eyeshine":
         eyeshine(p, 24, base, f)
     elif name == "cave_breath":
