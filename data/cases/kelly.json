@@ -23,102 +23,955 @@
   "cave": "The cave"
  },
  "observations": [
-  {"text": "Small figures, three feet, silver, with glowing yellow eyes", "lean": "unexplained"},
-  {"text": "Big ears, long arms, hands up like they were surrendering", "lean": "natural"},
-  {"text": "They floated down out of the trees", "lean": "unexplained"},
-  {"text": "Shotgun pellets did nothing; they rolled up and ran off", "lean": "unexplained"},
-  {"text": "Nobody saw more than two at once", "lean": "natural"},
-  {"text": "A light came down in the gully behind the house first", "lean": "unexplained"},
-  {"text": "The whole family was drinking, the neighbours said", "lean": "hoax"},
-  {"text": "A travelling show lost a monkey that week", "lean": "hoax"}
+  {
+   "text": "Small figures, three feet, silver, with glowing yellow eyes",
+   "lean": "unexplained"
+  },
+  {
+   "text": "Big ears, long arms, hands up like they were surrendering",
+   "lean": "natural"
+  },
+  {
+   "text": "They floated down out of the trees",
+   "lean": "unexplained"
+  },
+  {
+   "text": "Shotgun pellets did nothing; they rolled up and ran off",
+   "lean": "unexplained"
+  },
+  {
+   "text": "Nobody saw more than two at once",
+   "lean": "natural"
+  },
+  {
+   "text": "A light came down in the gully behind the house first",
+   "lean": "unexplained"
+  },
+  {
+   "text": "The whole family was drinking, the neighbours said",
+   "lean": "hoax"
+  },
+  {
+   "text": "A travelling show lost a monkey that week",
+   "lean": "hoax"
+  }
  ],
- "speech_tags": ["logic", "tech", "press", "nerve", "empathy", "lore", "intimidate"],
+ "speech_tags": [
+  "logic",
+  "tech",
+  "press",
+  "nerve",
+  "empathy",
+  "lore",
+  "intimidate"
+ ],
  "districts": {
-  "hopkinsville": {"name": "Hopkinsville", "map": "kelly_hopkinsville"},
-  "us41": {"name": "US-41", "map": "kelly_us41"},
-  "crossroads": {"name": "Kelly Crossroads", "map": "kelly_crossroads"},
-  "farm": {"name": "The Farm", "map": "kelly_farm"},
-  "sinks": {"name": "Pennyrile Sinks", "map": "kelly_sinks"}
+  "hopkinsville": {
+   "name": "Hopkinsville",
+   "map": "kelly_hopkinsville"
+  },
+  "us41": {
+   "name": "US-41",
+   "map": "kelly_us41"
+  },
+  "crossroads": {
+   "name": "Kelly Crossroads",
+   "map": "kelly_crossroads"
+  },
+  "farm": {
+   "name": "The Farm",
+   "map": "kelly_farm"
+  },
+  "sinks": {
+   "name": "Pennyrile Sinks",
+   "map": "kelly_sinks"
+  }
  },
  "gates": {
-  "farmhouse": {"name": "The farmhouse door", "locked": "Padlocked, and the padlock is new. Fresh pellet scars in the porch posts either side of it.",
-   "opens": [{"item": "cousin_key"}, {"trust": {"npc": "lacy_cousin", "level": 3}}, {"check": {"voice": "fieldcraft", "difficulty": 9, "prompt": "Force the back window"}}]},
-  "police_log": {"name": "The 1955 desk log", "locked": "The sergeant keeps one hand flat on the log and the other on the phone.",
-   "opens": [{"check": {"voice": "tech", "difficulty": 9, "prompt": "Ask for the radio log by its call sign"}}, {"check": {"voice": "logic", "difficulty": 9, "prompt": "Cite the open records act, chapter and verse"}}, {"flag": "ledger_morgue"}]},
-  "mp_report": {"name": "The Fort Campbell boundary", "locked": "A chain fence, a sign in two colours, and a jeep that is always just leaving.",
-   "opens": [{"item": "mp_letter"}, {"all": [{"class": "signals"}, {"phase": ["night"]}]}]},
-  "cave_deep": {"name": "The cave past the first chamber", "locked": "The passage drops away into cold air you can hear moving. Nobody goes further without a rope and a lamp.",
-   "opens": [{"all": [{"item": "rope"}, {"item": "lamp_oil"}]}, {"class": "occultist"}]},
-  "hospital_records": {"name": "Western State Hospital records", "locked": "The clerk is kind about it. The answer is still no.",
-   "opens": [{"trust": {"npc": "records_clerk", "level": 3}}, {"check": {"voice": "empathy", "difficulty": 10, "prompt": "Say why it matters to the one person it is about"}}]},
-  "siege_night": {"name": "The anniversary night", "locked": "Not yet. The house has to be ready, and the sun has to go down on the right day.",
-   "opens": [{"all": [{"day": 3}, {"phase": ["dusk", "night"]}]}]},
-  "siege_done": {"name": "After the siege", "locked": "", "opens": [{"flag": "siege_survived"}, {"flag": "siege_broken"}]},
-  "no_siege_yet": {"name": "Before the siege", "locked": "", "opens": [{"not_flag": "siege_survived"}]}
+  "farmhouse": {
+   "name": "The farmhouse door",
+   "locked": "Padlocked, and the padlock is new. Fresh pellet scars in the porch posts either side of it.",
+   "opens": [
+    {
+     "item": "cousin_key"
+    },
+    {
+     "trust": {
+      "npc": "lacy_cousin",
+      "level": 3
+     }
+    },
+    {
+     "check": {
+      "voice": "fieldcraft",
+      "difficulty": 9,
+      "prompt": "Force the back window"
+     }
+    }
+   ]
+  },
+  "police_log": {
+   "name": "The 1955 desk log",
+   "locked": "The sergeant keeps one hand flat on the log and the other on the phone.",
+   "opens": [
+    {
+     "check": {
+      "voice": "tech",
+      "difficulty": 9,
+      "prompt": "Ask for the radio log by its call sign"
+     }
+    },
+    {
+     "check": {
+      "voice": "logic",
+      "difficulty": 9,
+      "prompt": "Cite the open records act, chapter and verse"
+     }
+    },
+    {
+     "flag": "ledger_morgue"
+    }
+   ]
+  },
+  "mp_report": {
+   "name": "The Fort Campbell boundary",
+   "locked": "A chain fence, a sign in two colours, and a jeep that is always just leaving.",
+   "opens": [
+    {
+     "item": "mp_letter"
+    },
+    {
+     "all": [
+      {
+       "class": "signals"
+      },
+      {
+       "phase": [
+        "night"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "cave_deep": {
+   "name": "The cave past the first chamber",
+   "locked": "The passage drops away into cold air you can hear moving. Nobody goes further without a rope and a lamp.",
+   "opens": [
+    {
+     "all": [
+      {
+       "item": "rope"
+      },
+      {
+       "item": "lamp_oil"
+      }
+     ]
+    },
+    {
+     "class": "occultist"
+    }
+   ]
+  },
+  "hospital_records": {
+   "name": "Western State Hospital records",
+   "locked": "The clerk is kind about it. The answer is still no.",
+   "opens": [
+    {
+     "trust": {
+      "npc": "records_clerk",
+      "level": 3
+     }
+    },
+    {
+     "check": {
+      "voice": "empathy",
+      "difficulty": 10,
+      "prompt": "Say why it matters to the one person it is about"
+     }
+    }
+   ]
+  },
+  "siege_night": {
+   "name": "The anniversary night",
+   "locked": "Not yet. The house has to be ready, and the sun has to go down on the right day.",
+   "opens": [
+    {
+     "all": [
+      {
+       "day": 3
+      },
+      {
+       "phase": [
+        "dusk",
+        "night"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "siege_done": {
+   "name": "After the siege",
+   "locked": "",
+   "opens": [
+    {
+     "flag": "siege_survived"
+    },
+    {
+     "flag": "siege_broken"
+    }
+   ]
+  },
+  "no_siege_yet": {
+   "name": "Before the siege",
+   "locked": "",
+   "opens": [
+    {
+     "not_flag": "siege_survived"
+    }
+   ]
+  }
  },
  "items": {
-  "cousin_key": {"name": "The cousin's key", "text": "A padlock key on a bread tag that says LACY.", "kind": "kit", "price": 0, "case": "kelly"},
-  "mp_letter": {"name": "A retired MP's letter", "text": "A letter on lined paper that names a report and the night it was filed.", "kind": "kit", "price": 0, "case": "kelly"},
-  "rope": {"name": "Rope, fifty feet", "text": "For the cave. Also for the barn, if it comes to that.", "kind": "kit", "price": 12, "shop": ["kelly_feed", "kelly_pawn"], "reusable": true, "case": "kelly"},
-  "lamp_oil": {"name": "Lamp oil", "text": "A gallon. Lights a cave or a gully for a night.", "kind": "kit", "price": 6, "shop": ["kelly_store", "kelly_feed"], "case": "kelly"},
-  "boards": {"name": "Boards and nails", "text": "Enough to shut a window or two.", "kind": "kit", "price": 8, "shop": ["kelly_feed"], "case": "kelly"},
-  "net_bundle": {"name": "A fishing net", "text": "Forty feet of knotted net. Dale has ideas.", "kind": "kit", "price": 10, "shop": ["kelly_pawn", "kelly_store"], "case": "kelly"},
-  "salt_sack": {"name": "A sack of rock salt", "text": "Fifty pounds. For the doorsteps, Vera says, and she does not say why.", "kind": "kit", "price": 5, "shop": ["kelly_feed"], "case": "kelly"},
-  "sweet_tea": {"name": "Sweet tea, a quart", "text": "Restores Composure. It is mostly sugar.", "kind": "consumable", "price": 2, "shop": ["kelly_bbq", "kelly_store", "kelly_truckstop"], "restore": {"composure": 15}, "case": "kelly"},
-  "burgoo": {"name": "Burgoo", "text": "A stew of everything. Restores Composure and settles Dread a little.", "kind": "consumable", "price": 4, "shop": ["kelly_bbq"], "restore": {"composure": 25, "dread": -1}, "case": "kelly"},
-  "owl_call": {"name": "A great horned owl call", "text": "A wooden call from the pawn shop. +1 Intuition.", "kind": "charm", "tier": "local", "price": 9, "shop": ["kelly_pawn"], "stat": {"intuition": 1}, "case": "kelly"},
-  "cayce_reading": {"name": "A Cayce reading, typed", "text": "A photocopied trance reading from 1931. +1 Intuition, and the Lore voice listens.", "kind": "charm", "tier": "local", "price": 14, "shop": ["kelly_library"], "stat": {"intuition": 1}, "voice": {"lore": 1}, "case": "kelly"},
-  "feed_cap": {"name": "A feed-store cap", "text": "Sun off your eyes. +1 Grit.", "kind": "charm", "tier": "local", "price": 6, "shop": ["kelly_feed"], "stat": {"grit": 1}, "case": "kelly"},
-  "tobacco_coat": {"name": "A tobacco hand's canvas coat", "text": "Smells of smoke and August. +1 Grit, +6 Composure.", "kind": "coat", "tier": "local", "price": 30, "shop": ["kelly_pawn"], "stat": {"grit": 1}, "composure": 6, "case": "kelly"},
-  "kelly_pellet": {"name": "A 1955 shotgun pellet", "text": "Dug from a porch post. Takes a charm slot. +2 Grit.", "kind": "relic", "tier": "relic", "case": "kelly", "verdict": "natural", "stat": {"grit": 2}},
-  "kelly_eye": {"name": "A glass eye, yellow", "text": "Found where no glass eye should be. Takes a charm slot. +2 Intuition.", "kind": "relic", "tier": "relic", "case": "kelly", "verdict": "unexplained", "stat": {"intuition": 2}},
-  "kelly_ticket": {"name": "A 1955 fair ticket", "text": "Admit one, the week it happened. Takes a charm slot. +2 Charm.", "kind": "relic", "tier": "relic", "case": "kelly", "verdict": "hoax", "stat": {"charm": 2}}
+  "cousin_key": {
+   "name": "The cousin's key",
+   "text": "A padlock key on a bread tag that says LACY.",
+   "kind": "kit",
+   "price": 0,
+   "case": "kelly"
+  },
+  "mp_letter": {
+   "name": "A retired MP's letter",
+   "text": "A letter on lined paper that names a report and the night it was filed.",
+   "kind": "kit",
+   "price": 0,
+   "case": "kelly"
+  },
+  "rope": {
+   "name": "Rope, fifty feet",
+   "text": "For the cave. Also for the barn, if it comes to that.",
+   "kind": "kit",
+   "price": 12,
+   "shop": [
+    "kelly_feed",
+    "kelly_pawn"
+   ],
+   "reusable": true,
+   "case": "kelly"
+  },
+  "lamp_oil": {
+   "name": "Lamp oil",
+   "text": "A gallon. Lights a cave or a gully for a night.",
+   "kind": "kit",
+   "price": 6,
+   "shop": [
+    "kelly_store",
+    "kelly_feed"
+   ],
+   "case": "kelly"
+  },
+  "boards": {
+   "name": "Boards and nails",
+   "text": "Enough to shut a window or two.",
+   "kind": "kit",
+   "price": 8,
+   "shop": [
+    "kelly_feed"
+   ],
+   "case": "kelly"
+  },
+  "net_bundle": {
+   "name": "A fishing net",
+   "text": "Forty feet of knotted net. Dale has ideas.",
+   "kind": "kit",
+   "price": 10,
+   "shop": [
+    "kelly_pawn",
+    "kelly_store"
+   ],
+   "case": "kelly"
+  },
+  "salt_sack": {
+   "name": "A sack of rock salt",
+   "text": "Fifty pounds. For the doorsteps, Vera says, and she does not say why.",
+   "kind": "kit",
+   "price": 5,
+   "shop": [
+    "kelly_feed"
+   ],
+   "case": "kelly"
+  },
+  "sweet_tea": {
+   "name": "Sweet tea, a quart",
+   "text": "Restores Composure. It is mostly sugar.",
+   "kind": "consumable",
+   "price": 2,
+   "shop": [
+    "kelly_bbq",
+    "kelly_store",
+    "kelly_truckstop"
+   ],
+   "restore": {
+    "composure": 15
+   },
+   "case": "kelly"
+  },
+  "burgoo": {
+   "name": "Burgoo",
+   "text": "A stew of everything. Restores Composure and settles Dread a little.",
+   "kind": "consumable",
+   "price": 4,
+   "shop": [
+    "kelly_bbq"
+   ],
+   "restore": {
+    "composure": 25,
+    "dread": -1
+   },
+   "case": "kelly"
+  },
+  "owl_call": {
+   "name": "A great horned owl call",
+   "text": "A wooden call from the pawn shop. +1 Intuition.",
+   "kind": "charm",
+   "tier": "local",
+   "price": 9,
+   "shop": [
+    "kelly_pawn"
+   ],
+   "stat": {
+    "intuition": 1
+   },
+   "case": "kelly"
+  },
+  "cayce_reading": {
+   "name": "A Cayce reading, typed",
+   "text": "A photocopied trance reading from 1931. +1 Intuition, and the Lore voice listens.",
+   "kind": "charm",
+   "tier": "local",
+   "price": 14,
+   "shop": [
+    "kelly_library"
+   ],
+   "stat": {
+    "intuition": 1
+   },
+   "voice": {
+    "lore": 1
+   },
+   "case": "kelly"
+  },
+  "feed_cap": {
+   "name": "A feed-store cap",
+   "text": "Sun off your eyes. +1 Grit.",
+   "kind": "charm",
+   "tier": "local",
+   "price": 6,
+   "shop": [
+    "kelly_feed"
+   ],
+   "stat": {
+    "grit": 1
+   },
+   "case": "kelly"
+  },
+  "tobacco_coat": {
+   "name": "A tobacco hand's canvas coat",
+   "text": "Smells of smoke and August. +1 Grit, +6 Composure.",
+   "kind": "coat",
+   "tier": "local",
+   "price": 30,
+   "shop": [
+    "kelly_pawn"
+   ],
+   "stat": {
+    "grit": 1
+   },
+   "composure": 6,
+   "case": "kelly"
+  },
+  "kelly_pellet": {
+   "name": "A 1955 shotgun pellet",
+   "text": "Dug from a porch post. Takes a charm slot. +2 Grit.",
+   "kind": "relic",
+   "tier": "relic",
+   "case": "kelly",
+   "verdict": "natural",
+   "stat": {
+    "grit": 2
+   }
+  },
+  "kelly_eye": {
+   "name": "A glass eye, yellow",
+   "text": "Found where no glass eye should be. Takes a charm slot. +2 Intuition.",
+   "kind": "relic",
+   "tier": "relic",
+   "case": "kelly",
+   "verdict": "unexplained",
+   "stat": {
+    "intuition": 2
+   }
+  },
+  "kelly_ticket": {
+   "name": "A 1955 fair ticket",
+   "text": "Admit one, the week it happened. Takes a charm slot. +2 Charm.",
+   "kind": "relic",
+   "tier": "relic",
+   "case": "kelly",
+   "verdict": "hoax",
+   "stat": {
+    "charm": 2
+   }
+  }
  },
  "evidence": {
-  "roof_walker_photo": {"title": "Photo: the shape on the roof ridge", "text": "First grey light. For one frame it is a shape and not a shadow: short, long-armed, hands up. The next frame is a chimney.", "lean": "unexplained", "weight": 3, "kind": "recording", "reliability": "B"},
-  "roof_walker_tape": {"title": "Tape: something on the tin", "text": "A scrape on the roof tin every four seconds, a pause, then faster. June says a great horned owl walking on tin would do it. She does not say it twice.", "lean": "natural", "weight": 2, "kind": "recording", "reliability": "B"},
-  "roof_walker_gait": {"title": "The way it walked", "text": "It walked the ridge the way the account said, and the account changed four times tonight. It walked the way the last version said.", "lean": "hoax", "weight": 1, "kind": "testimony", "reliability": "C"},
-  "flashback_porch": {"title": "The account changed: the porch", "text": "In the first telling the shooting started on the porch. In the second it started in the kitchen, and the porch came later, after the first drink.", "lean": "natural", "weight": 2, "kind": "testimony", "reliability": "B"},
-  "flashback_eyes": {"title": "The account changed: the eyes", "text": "First telling: the eyes glowed. Second telling: the eyes shone, in the flashlight. Those are different things and the family stopped saying the second one.", "lean": "natural", "weight": 2, "kind": "testimony", "reliability": "B"},
-  "flashback_count": {"title": "The account changed: how many", "text": "Twelve or fifteen, the family told the police. Nobody in the house tonight ever saw more than two at once.", "lean": "hoax", "weight": 1, "kind": "testimony", "reliability": "C"},
-  "flashback_light": {"title": "The account kept one thing", "text": "Every telling begins the same way: a light came down into the gully behind the house, before any of it. That part never changed, in four tellings, in 39 years.", "lean": "unexplained", "weight": 2, "kind": "testimony", "reliability": "B"},
-  "lull_field_photo": {"title": "Photo: the field at two in the morning", "text": "The tobacco field in the lull, by flash. Nothing in it. And in the far rows, where nothing is, the plants are bent toward the house.", "lean": "unexplained", "weight": 2, "kind": "recording", "reliability": "B"},
-  "siege_held": {"title": "The house held until dawn", "text": "Whatever came, the house held, the family's way: lamps, boards, salt and nerve, from dusk to first light.", "lean": "unexplained", "weight": 1, "kind": "testimony", "reliability": "A"}
+  "roof_walker_photo": {
+   "title": "Photo: the shape on the roof ridge",
+   "text": "First grey light. For one frame it is a shape and not a shadow: short, long-armed, hands up. The next frame is a chimney.",
+   "lean": "unexplained",
+   "weight": 3,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "roof_walker_tape": {
+   "title": "Tape: something on the tin",
+   "text": "A scrape on the roof tin every four seconds, a pause, then faster. June says a great horned owl walking on tin would do it. She does not say it twice.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "roof_walker_gait": {
+   "title": "The way it walked",
+   "text": "It walked the ridge the way the account said, and the account changed four times tonight. It walked the way the last version said.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "flashback_porch": {
+   "title": "The account changed: the porch",
+   "text": "In the first telling the shooting started on the porch. In the second it started in the kitchen, and the porch came later, after the first drink.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "flashback_eyes": {
+   "title": "The account changed: the eyes",
+   "text": "First telling: the eyes glowed. Second telling: the eyes shone, in the flashlight. Those are different things and the family stopped saying the second one.",
+   "lean": "natural",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "flashback_count": {
+   "title": "The account changed: how many",
+   "text": "Twelve or fifteen, the family told the police. Nobody in the house tonight ever saw more than two at once.",
+   "lean": "hoax",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "C"
+  },
+  "flashback_light": {
+   "title": "The account kept one thing",
+   "text": "Every telling begins the same way: a light came down into the gully behind the house, before any of it. That part never changed, in four tellings, in 39 years.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "testimony",
+   "reliability": "B"
+  },
+  "lull_field_photo": {
+   "title": "Photo: the field at two in the morning",
+   "text": "The tobacco field in the lull, by flash. Nothing in it. And in the far rows, where nothing is, the plants are bent toward the house.",
+   "lean": "unexplained",
+   "weight": 2,
+   "kind": "recording",
+   "reliability": "B"
+  },
+  "siege_held": {
+   "title": "The house held until dawn",
+   "text": "Whatever came, the house held, the family's way: lamps, boards, salt and nerve, from dusk to first light.",
+   "lean": "unexplained",
+   "weight": 1,
+   "kind": "testimony",
+   "reliability": "A"
+  }
  },
  "siege": {
   "name": "The siege of the farmhouse",
   "flag": "siege_survived",
   "lose_flag": "siege_broken",
-  "intro": [["narrator", "Dusk on the anniversary. The cousin left the key and would not stay. The tobacco barns are smoking down the road and the gully behind the house is already dark."], ["narrator", "Four ways in: the gully, the treeline, the barn and the well. The signs you logged say which ones they will use. What you brought says which ones you can shut."]],
+  "intro": [
+   [
+    "narrator",
+    "Dusk on the anniversary. The cousin left the key and would not stay. The tobacco barns are smoking down the road and the gully behind the house is already dark."
+   ],
+   [
+    "narrator",
+    "Four ways in: the gully, the treeline, the barn and the well. The signs you logged say which ones they will use. What you brought says which ones you can shut."
+   ]
+  ],
   "approaches": {
-   "gully": {"name": "The gully", "sign": "fm_burned_circle", "prep": {"item": "lamp_oil", "text": "Hang lamps over the gully", "done": "Lamp light fills the gully. Nothing likes to be seen."}},
-   "treeline": {"name": "The treeline", "sign": "fm_cousin_account", "prep": {"item": "net_bundle", "text": "String the net along the treeline", "done": "Forty feet of knotted net between the oaks, at the height of a small man."}},
-   "barn": {"name": "The tobacco barn", "sign": "fm_eyeshine_rafters", "prep": {"item": "boards", "text": "Board the windows on the barn side", "done": "The barn-side windows are boards now. The house is darker and smaller."}},
-   "well": {"name": "The well and smokehouse", "sign": "fm_handprints_smokehouse", "prep": {"item": "salt_sack", "text": "Salt the doorsteps on the well side", "done": "A line of rock salt across every sill on the well side. Vera walks it twice."}}
+   "gully": {
+    "name": "The gully",
+    "sign": "fm_burned_circle",
+    "prep": {
+     "item": "lamp_oil",
+     "text": "Hang lamps over the gully",
+     "done": "Lamp light fills the gully. Nothing likes to be seen."
+    }
+   },
+   "treeline": {
+    "name": "The treeline",
+    "sign": "fm_cousin_account",
+    "prep": {
+     "item": "net_bundle",
+     "text": "String the net along the treeline",
+     "done": "Forty feet of knotted net between the oaks, at the height of a small man."
+    }
+   },
+   "barn": {
+    "name": "The tobacco barn",
+    "sign": "fm_eyeshine_rafters",
+    "prep": {
+     "item": "boards",
+     "text": "Board the windows on the barn side",
+     "done": "The barn-side windows are boards now. The house is darker and smaller."
+    }
+   },
+   "well": {
+    "name": "The well and smokehouse",
+    "sign": "fm_handprints_smokehouse",
+    "prep": {
+     "item": "salt_sack",
+     "text": "Salt the doorsteps on the well side",
+     "done": "A line of rock salt across every sill on the well side. Vera walks it twice."
+    }
+   }
   },
   "waves": [
-   {"from": "gully", "text": "Full dark. The first of them comes up out of the gully, and it has its hands up.", "foes": ["little_man"],
-    "flashback": {"lines": [["narrator", "Between the waves, the house tells the night the way the family told it, in 1955, to the police at two in the morning."], ["narrator", "\"We were on the porch. The dog went under the house. Then the first one came up the gully with its hands up, and Billy Ray shot it off the fence and it rolled up and ran.\""]],
-     "question": "Something is different from the way the cousin tells it. What?", "options": ["The dog", "Where they were standing", "The fence"], "answer": 1, "evidence": "flashback_porch"}},
-   {"from": "treeline", "text": "Two of them in the treeline, and one of them is not touching the ground.", "foes": ["little_man", "floater"],
-    "flashback": {"lines": [["narrator", "\"Their eyes glowed. Yellow. We shined the light on them and the eyes shone back like a cat's.\""]],
-     "question": "Which word did the family stop using after the first night?", "options": ["Yellow", "Shone", "Glowed"], "answer": 1, "evidence": "flashback_eyes"}},
-   {"from": "barn", "text": "Eyeshine in the barn rafters, and then the eyes are at the window.", "foes": ["eyeshine", "little_man"],
-    "flashback": {"lines": [["narrator", "\"There were twelve or fifteen of them. All over the yard. On the roof.\""], ["narrator", "The room is quiet. Nobody in it tonight has seen more than two at once."]],
-     "question": "What does the count tell you?", "options": ["That they lied", "That nobody counted", "That they saw the same two, over and over"], "answer": 2, "evidence": "flashback_count"}},
-   {"from": "well", "text": "The tall one fills the well-side window frame. It is the little man, if the little man were as tall as the door.", "foes": ["the_tall_one"],
-    "flashback": {"lines": [["narrator", "\"Before any of it, before supper, a light came down in the gully behind the house. Round. It went down slow and we never saw it again.\""], ["narrator", "Four tellings tonight. That part has not moved a word in 39 years."]],
-     "question": "What is the one thing that never changed?", "options": ["The shooting", "The light in the gully", "The dog"], "answer": 1, "evidence": "flashback_light"}}
+   {
+    "from": "gully",
+    "text": "Full dark. The first of them comes up out of the gully, and it has its hands up.",
+    "foes": [
+     "little_man"
+    ],
+    "flashback": {
+     "lines": [
+      [
+       "narrator",
+       "Between the waves, the house tells the night the way the family told it, in 1955, to the police at two in the morning."
+      ],
+      [
+       "narrator",
+       "\"We were on the porch. The dog went under the house. Then the first one came up the gully with its hands up, and Billy Ray shot it off the fence and it rolled up and ran.\""
+      ]
+     ],
+     "question": "Something is different from the way the cousin tells it. What?",
+     "options": [
+      "The dog",
+      "Where they were standing",
+      "The fence"
+     ],
+     "answer": 1,
+     "evidence": "flashback_porch"
+    }
+   },
+   {
+    "from": "treeline",
+    "text": "Two of them in the treeline, and one of them is not touching the ground.",
+    "foes": [
+     "little_man",
+     "floater"
+    ],
+    "flashback": {
+     "lines": [
+      [
+       "narrator",
+       "\"Their eyes glowed. Yellow. We shined the light on them and the eyes shone back like a cat's.\""
+      ]
+     ],
+     "question": "Which word did the family stop using after the first night?",
+     "options": [
+      "Yellow",
+      "Shone",
+      "Glowed"
+     ],
+     "answer": 1,
+     "evidence": "flashback_eyes"
+    }
+   },
+   {
+    "from": "barn",
+    "text": "Eyeshine in the barn rafters, and then the eyes are at the window.",
+    "foes": [
+     "eyeshine",
+     "little_man"
+    ],
+    "flashback": {
+     "lines": [
+      [
+       "narrator",
+       "\"There were twelve or fifteen of them. All over the yard. On the roof.\""
+      ],
+      [
+       "narrator",
+       "The room is quiet. Nobody in it tonight has seen more than two at once."
+      ]
+     ],
+     "question": "What does the count tell you?",
+     "options": [
+      "That they lied",
+      "That nobody counted",
+      "That they saw the same two, over and over"
+     ],
+     "answer": 2,
+     "evidence": "flashback_count"
+    }
+   },
+   {
+    "from": "well",
+    "text": "The tall one fills the well-side window frame. It is the little man, if the little man were as tall as the door.",
+    "foes": [
+     "the_tall_one"
+    ],
+    "flashback": {
+     "lines": [
+      [
+       "narrator",
+       "\"Before any of it, before supper, a light came down in the gully behind the house. Round. It went down slow and we never saw it again.\""
+      ],
+      [
+       "narrator",
+       "Four tellings tonight. That part has not moved a word in 39 years."
+      ]
+     ],
+     "question": "What is the one thing that never changed?",
+     "options": [
+      "The shooting",
+      "The light in the gully",
+      "The dog"
+     ],
+     "answer": 1,
+     "evidence": "flashback_light"
+    }
+   }
   ],
-  "lull": {"text": "Two in the morning. Nothing. The real night had this gap too; the family drove to town in it. The field is out there, and it is quiet, and the camera is on the table.",
-   "out": {"text": "Step outside and photograph the field", "evidence": "lull_field_photo", "foes": ["floater", "eyeshine"], "intro": "The flash goes off over the tobacco and something answers it."},
-   "stay": {"text": "Stay in the house and wait for it", "done": "You wait. The clock in the kitchen stopped years ago and you can still hear it."}},
-  "final": {"foes": ["roof_walker"], "intro": [["narrator", "First grey light. Something walks the roof ridge above you, and the shingles do not creak."], ["narrator", "Up the attic ladder, out the gable. The whole county is grey and the thing on the ridge turns to look at you."]],
-   "win": "The sun comes up over the Pennyrile and there is nothing on the roof but you. Down in the kitchen somebody has started coffee.", "lose": "You come down the ladder when the sun is up. Nobody asks what you saw."},
+  "lull": {
+   "text": "Two in the morning. Nothing. The real night had this gap too; the family drove to town in it. The field is out there, and it is quiet, and the camera is on the table.",
+   "out": {
+    "text": "Step outside and photograph the field",
+    "evidence": "lull_field_photo",
+    "foes": [
+     "floater",
+     "eyeshine"
+    ],
+    "intro": "The flash goes off over the tobacco and something answers it."
+   },
+   "stay": {
+    "text": "Stay in the house and wait for it",
+    "done": "You wait. The clock in the kitchen stopped years ago and you can still hear it."
+   }
+  },
+  "final": {
+   "foes": [
+    "roof_walker"
+   ],
+   "intro": [
+    [
+     "narrator",
+     "First grey light. Something walks the roof ridge above you, and the shingles do not creak."
+    ],
+    [
+     "narrator",
+     "Up the attic ladder, out the gable. The whole county is grey and the thing on the ridge turns to look at you."
+    ]
+   ],
+   "win": "The sun comes up over the Pennyrile and there is nothing on the roof but you. Down in the kitchen somebody has started coffee.",
+   "lose": "You come down the ladder when the sun is up. Nobody asks what you saw."
+  },
   "held": "siege_held"
  },
  "leads": [],
  "witnesses": {},
  "contradictions": {},
- "trail": []
+ "trail": [],
+ "chain": [
+  {
+   "id": "ky_sergeant",
+   "district": "hopkinsville",
+   "title": "The desk sergeant",
+   "goal": "Ask the desk sergeant what the 1955 log says about the Lacy call",
+   "where": "Hopkinsville police station",
+   "done": [
+    {
+     "evidence": "hv_sgt_sober"
+    },
+    {
+     "evidence": "hv_sgt_birdshot"
+    },
+    {
+     "evidence": "hv_police_log_1955"
+    }
+   ]
+  },
+  {
+   "id": "ky_ledger",
+   "district": "hopkinsville",
+   "title": "The Ledger",
+   "goal": "The editor's morgue copy of the 1955 story",
+   "where": "The Pennyrile Ledger, Hopkinsville",
+   "done": [
+    {
+     "evidence": "hv_editor_green"
+    },
+    {
+     "evidence": "hv_editor_monkey"
+    },
+    {
+     "evidence": "hv_police_log_copy"
+    },
+    {
+     "flag": "ledger_morgue"
+    }
+   ]
+  },
+  {
+   "id": "ky_records",
+   "district": "hopkinsville",
+   "title": "Western State",
+   "goal": "The 1955 admission record the clerk is kind about refusing",
+   "where": "Western State Hospital records office",
+   "optional": true,
+   "done": [
+    {
+     "clue": "hv_admission_record"
+    },
+    {
+     "evidence": "hv_clerk_confirms"
+    }
+   ]
+  },
+  {
+   "id": "ky_route",
+   "district": "us41",
+   "title": "US-41",
+   "goal": "The truck stop and the fairgrounds: who else was on the road in 1955",
+   "where": "The Pennyrile Truck Stop and the fairgrounds, US-41",
+   "done": [
+    {
+     "evidence": "rt_monkey_theory"
+    },
+    {
+     "evidence": "rt_anniversary_trade"
+    },
+    {
+     "evidence": "rt_shell_book_1955"
+    },
+    {
+     "evidence": "rt_mile_marker"
+    }
+   ]
+  },
+  {
+   "id": "ky_store",
+   "district": "crossroads",
+   "title": "Kelly Crossroads",
+   "goal": "Oates' store: the 1955 ledger, and the cousin's key on the nail",
+   "where": "The general store, Kelly Crossroads",
+   "done": [
+    {
+     "clue": "kc_ledger"
+    },
+    {
+     "flag": "key_offered"
+    },
+    {
+     "item": "cousin_key"
+    },
+    {
+     "evidence": "kc_sk_morning_after"
+    }
+   ]
+  },
+  {
+   "id": "ky_farm",
+   "district": "farm",
+   "title": "The Lacy farm",
+   "goal": "Get into the farmhouse and hear the cousin's account",
+   "where": "The Lacy farmhouse",
+   "done": [
+    {
+     "evidence": "fm_account_v1"
+    },
+    {
+     "clue": "fm_cousin_account"
+    }
+   ]
+  },
+  {
+   "id": "ky_barn",
+   "district": "farm",
+   "title": "Night 1: the tobacco barn",
+   "goal": "Eyeshine in the barn rafters after dark",
+   "where": "The tobacco barn, the Lacy farm, at night",
+   "done": [
+    {
+     "clue": "fm_eyeshine_rafters"
+    },
+    {
+     "flag": "gully_eyes_seen"
+    }
+   ]
+  },
+  {
+   "id": "ky_sinks",
+   "district": "sinks",
+   "title": "The Pennyrile Sinks",
+   "goal": "Harlan Tapp's cave shack, and the owl roost",
+   "where": "The cave shack, the Pennyrile Sinks",
+   "done": [
+    {
+     "clue": "sk_owl_pellets"
+    },
+    {
+     "evidence": "sk_guide_newsink"
+    },
+    {
+     "evidence": "sk_guide_lantern"
+    },
+    {
+     "evidence": "sk_guide_flares"
+    }
+   ]
+  },
+  {
+   "id": "ky_teagues",
+   "district": "sinks",
+   "title": "The Teague brothers",
+   "goal": "The poachers' cabin: talk them round by day, or face them at dusk",
+   "where": "The Teague cabin, the Pennyrile Sinks",
+   "done": [
+    {
+     "flag": "hunters_friend"
+    },
+    {
+     "evidence": "sk_hunter_owl_trade"
+    },
+    {
+     "evidence": "sk_hunter_light"
+    },
+    {
+     "clue": "sk_cabin_insulation"
+    }
+   ]
+  },
+  {
+   "id": "ky_cave",
+   "district": "sinks",
+   "title": "Below the drop",
+   "goal": "Rope and lamp oil take you past the first chamber",
+   "where": "The cave, the Pennyrile Sinks",
+   "optional": true,
+   "done": [
+    {
+     "clue": "sk_deep_shoe"
+    },
+    {
+     "clue": "sk_deep_flashlight"
+    },
+    {
+     "flag": "cave_breath_faced"
+    }
+   ]
+  },
+  {
+   "id": "ky_smokehouse",
+   "district": "farm",
+   "title": "Night 2: the smokehouse",
+   "goal": "The handprints on the smokehouse door",
+   "where": "The smokehouse, the Lacy farm, at night",
+   "done": {
+    "clue": "fm_handprints_smokehouse"
+   }
+  },
+  {
+   "id": "ky_gully",
+   "district": "farm",
+   "title": "Night 3: the gully",
+   "goal": "The burned circle behind the house, and what watches from the gully",
+   "where": "The gully behind the Lacy house, at night",
+   "done": [
+    {
+     "clue": "fm_burned_circle"
+    },
+    {
+     "flag": "gully_eyes_seen"
+    }
+   ]
+  },
+  {
+   "id": "ky_siege",
+   "district": "farm",
+   "title": "The anniversary night",
+   "goal": "Board the windows and hold the Lacy house from dusk to dawn",
+   "where": "The Lacy farmhouse, dusk of the fourth day",
+   "done": [
+    {
+     "flag": "siege_survived"
+    },
+    {
+     "flag": "siege_broken"
+    }
+   ]
+  }
+ ],
+ "findings": [
+  "hv_sgt_sober",
+  "hv_sgt_birdshot",
+  "hv_police_log_1955",
+  "hv_police_log_copy",
+  "hv_founder_signature",
+  "hv_editor_green",
+  "hv_editor_monkey",
+  "hv_mp_report_1955",
+  "hv_admission_record",
+  "hv_owl_survey",
+  "rt_monkey_theory",
+  "rt_monkey_claim",
+  "rt_shell_book_1955",
+  "rt_mile_marker",
+  "rt_sober_at_four",
+  "kc_ledger_1955",
+  "kc_sk_royce_shells",
+  "kc_preacher_light",
+  "kc_odessa_admits",
+  "kc_royce_road",
+  "kc_train_register",
+  "kc_pellets_lab",
+  "fm_account_v1",
+  "fm_account_v3",
+  "fm_account_light",
+  "fm_eyeshine_photo",
+  "fm_pellets_lab",
+  "fm_handprint_cast",
+  "fm_gully_reading",
+  "fm_hand_owls",
+  "sk_owl_pellets_lab",
+  "sk_guide_owls",
+  "sk_guide_1955",
+  "sk_hunter_owl_trade",
+  "sk_hunter_light",
+  "sk_cabin_feathers_lab",
+  "sk_deep_shoe_bag",
+  "sk_cave_draft_reading",
+  "roof_walker_photo",
+  "roof_walker_tape",
+  "flashback_eyes",
+  "flashback_light",
+  "lull_field_photo",
+  "siege_held"
+ ]
 }

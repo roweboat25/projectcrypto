@@ -33,12 +33,35 @@ func refresh() -> void:
 	var evidence: Dictionary = case.get("evidence", {})
 	var totals: Dictionary = Investigation.lean_totals(GameData, GameState)
 	var s := "[color=#e8a64a][b]CASE FILE: %s[/b][/color]   Day %d   [color=#9ab0c8]Hoax %d · Natural %d · Unexplained %d[/color]\n" % [case.get("name", "").to_upper(), GameState.day, totals.hoax, totals.natural, totals.unexplained]
+	var ch: Array = Investigation.chain(GameData, GameState)
+	if not ch.is_empty():
+		var idx := Investigation.chain_index(GameData, GameState, 0.3)
+		s += "\n[color=#e8a64a][b]LEADS[/b][/color]\n"
+		var ahead := 0
+		for i in ch.size():
+			var lead: Dictionary = ch[i]
+			var done := Investigation.lead_done(GameData, GameState, lead, 0.3)
+			if i > idx and not done:
+				ahead += 1
+				continue
+			var mark := "[color=#6a6f7a]done[/color]" if done else "[color=#e0303c]NOW[/color]"
+			if lead.get("optional", false) and not done:
+				mark = "[color=#9ab0c8]side[/color]"
+			s += "%s  [b]%s[/b]  [color=#c8d4e0]%s[/color]\n" % [mark, lead.get("title", ""), lead.get("goal", "") if not done else ""]
+		if ahead > 0:
+			s += "[color=#6a6f7a]· · ·  %d more lead%s to come[/color]\n" % [ahead, "" if ahead == 1 else "s"]
 	var by_kind := {"testimony": [], "physical": [], "recording": [], "document": []}
+	var notes := 0
 	for id in GameState.evidence:
+		if not Investigation.is_finding(GameData, GameState, id):
+			notes += 1
+			continue
 		var e: Dictionary = GameData.evidence(GameState.case_id, id)
 		by_kind.get(e.get("kind", "testimony"), by_kind.testimony).append(id)
 	if GameState.evidence.is_empty():
 		s += "\nNothing yet. Talk to people, and look closely at the ground.\n"
+	elif notes > 0:
+		s += "\n[color=#6a6f7a]%d note%s from conversations that do not bear on the verdict.[/color]\n" % [notes, "" if notes == 1 else "s"]
 	for kind in by_kind:
 		if by_kind[kind].is_empty():
 			continue

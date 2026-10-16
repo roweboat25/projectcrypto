@@ -483,6 +483,40 @@ def main():
         for d in c.get("districts", {}).values():
             if d.get("map") not in maps:
                 err("case %s district %s has unknown map %s" % (cid, d.get("name"), d.get("map")))
+        clue_ids = set()
+        for mid, m in maps.items():
+            if m.get("case") == cid:
+                clue_ids |= {cl.get("id") for cl in m.get("clues", [])}
+                for r in m.get("interiors", {}).values():
+                    clue_ids |= {cl.get("id") for cl in r.get("clues", [])}
+        seen_leads = []
+        for lead in c.get("chain", []):
+            lid = lead.get("id", "")
+            if not lid or lid in seen_leads:
+                err("case %s chain lead %r is missing an id or repeats one" % (cid, lid))
+            seen_leads.append(lid)
+            if lead.get("district") not in c.get("districts", {}):
+                err("case %s lead %s is set in unknown district %s" % (cid, lid, lead.get("district")))
+            for k in ("title", "goal"):
+                if not lead.get(k):
+                    err("case %s lead %s has no %s" % (cid, lid, k))
+            done = lead.get("done", [])
+            if isinstance(done, dict):
+                done = [done]
+            if not done:
+                err("case %s lead %s has no done condition" % (cid, lid))
+            for cond in done:
+                if "evidence" in cond and cond["evidence"] not in evidence:
+                    err("case %s lead %s waits on unknown evidence %s" % (cid, lid, cond["evidence"]))
+                if "item" in cond and cond["item"] not in items:
+                    err("case %s lead %s waits on unknown item %s" % (cid, lid, cond["item"]))
+                if "clue" in cond and cond["clue"] not in clue_ids:
+                    err("case %s lead %s waits on unknown clue %s" % (cid, lid, cond["clue"]))
+                if "lead" in cond and cond["lead"] not in seen_leads:
+                    err("case %s lead %s waits on a lead that is not before it" % (cid, lid))
+        for fid in c.get("findings", []):
+            if fid not in evidence:
+                err("case %s lists unknown finding %s" % (cid, fid))
         clue_nights = {}
         for mid, m in maps.items():
             if m.get("case") != cid:

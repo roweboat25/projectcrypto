@@ -29,10 +29,18 @@ func _show() -> void:
 		_menu("Every story in the casebook. Where to?", opts)
 	elif _map == "":
 		var c: Dictionary = GameData.cases[_case]
+		var lead: Dictionary = {}
+		if _case == GameState.case_id:
+			lead = Investigation.current_lead(GameData, GameState, 0.3)
 		for mid in _maps_of(_case):
 			var m: Dictionary = GameData.maps[mid]
 			_items.append({"kind": "map", "id": mid})
-			opts.append({"label": "%s (%d rooms)" % [m.get("name", mid), m.get("interiors", {}).size()], "enabled": true})
+			var tag := ""
+			if not lead.is_empty() and str(c.get("districts", {}).get(lead.get("district", ""), {}).get("map", "")) == mid:
+				tag = "  ▸ next: " + str(lead.get("title", ""))
+			elif _case == GameState.case_id and not Investigation.map_open(GameData, GameState, mid, 0.3):
+				tag = "  (not yet)"
+			opts.append({"label": "%s (%d rooms)%s" % [m.get("name", mid), m.get("interiors", {}).size(), tag], "enabled": true})
 		for lid in GameData.road.get("legs", {}):
 			var leg: Dictionary = GameData.road.legs[lid]
 			if leg.get("from", "") == _case:

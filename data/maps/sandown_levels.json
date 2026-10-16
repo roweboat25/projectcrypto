@@ -3789,7 +3789,8 @@
        ]
       ],
       "win": "It goes over the parapet into the dark, and the dials behind you all turn to blue. Somebody is crying, or laughing, a long way down.",
-      "lose": "You come to on the chalk path below the battery with the sun up and no memory of the stairs."
+      "lose": "You come to on the chalk path below the battery with the sun up and no memory of the stairs.",
+      "flag": "hut_man_observed"
      }
     }
    ],

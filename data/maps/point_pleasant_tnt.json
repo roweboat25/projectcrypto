@@ -4742,7 +4742,8 @@
        ]
       ],
       "win": "The lights go down the stairs the way they came, and the pump starts again on no power at all. You have what you have.",
-      "lose": "You do not remember the stairs or the door. You remember the road, and the car, and the heater on full."
+      "lose": "You do not remember the stairs or the door. You remember the road, and the car, and the heater on full.",
+      "flag": "plant_observed"
      }
     }
    ],

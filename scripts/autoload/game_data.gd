@@ -265,6 +265,29 @@ func validate() -> Array[String]:
 		for did in c.get("districts", {}):
 			if not maps.has(c.districts[did].get("map", "")):
 				errors.append("case %s district %s has an unknown map" % [case_id, did])
+		var seen_leads := []
+		for lead in c.get("chain", []):
+			var lid := str(lead.get("id", ""))
+			if lid == "" or lid in seen_leads:
+				errors.append("case %s chain lead %s is missing an id or repeats one" % [case_id, lid])
+			seen_leads.append(lid)
+			if not c.get("districts", {}).has(lead.get("district", "")):
+				errors.append("case %s lead %s is set in an unknown district" % [case_id, lid])
+			var done = lead.get("done", [])
+			if done is Dictionary:
+				done = [done]
+			if done.is_empty():
+				errors.append("case %s lead %s has no done condition" % [case_id, lid])
+			for cond in done:
+				if cond.has("evidence") and not evidence.has(cond.evidence):
+					errors.append("case %s lead %s waits on unknown evidence %s" % [case_id, lid, cond.evidence])
+				if cond.has("item") and not items.has(cond.item):
+					errors.append("case %s lead %s waits on unknown item %s" % [case_id, lid, cond.item])
+				if cond.has("lead") and not cond.lead in seen_leads:
+					errors.append("case %s lead %s waits on a lead that is not before it" % [case_id, lid])
+		for fid in c.get("findings", []):
+			if not evidence.has(fid):
+				errors.append("case %s lists unknown finding %s" % [case_id, fid])
 		if c.has("siege"):
 			errors.append_array(_validate_siege(case_id, c.siege, evidence))
 		for wid in dialogue.get(case_id, {}):

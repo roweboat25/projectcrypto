@@ -425,12 +425,98 @@ static func cond_holds(data: Node, state: Node, cond: Dictionary, time_of_day: f
 		return true
 	if cond.has("night") and night_number(state, time_of_day) >= int(cond.night):
 		return true
+	if cond.has("clue") and cond.clue in state.clues_done:
+		return true
+	if cond.has("lead") and lead_done(data, state, chain_lead(data, state, cond.lead), time_of_day):
+		return true
 	if cond.has("all") and not cond.all.is_empty():
 		for c in cond.all:
 			if not cond_holds(data, state, c, time_of_day):
 				return false
 		return true
 	return false
+
+
+# ---------- the lead chain ----------
+## A case with a `chain` is worked in order: each lead names a district, a goal and
+## the condition that closes it (any of its `done` conditions, in gate terms). The
+## current lead is the first one not yet done; districts open when the chain reaches
+## them, and a lead marked `optional` never holds the chain up.
+
+static func chain(data: Node, state: Node) -> Array:
+	return case_data(data, state).get("chain", [])
+
+
+static func chain_lead(data: Node, state: Node, lead_id: String) -> Dictionary:
+	for lead in chain(data, state):
+		if lead.get("id", "") == lead_id:
+			return lead
+	return {}
+
+
+static func lead_done(data: Node, state: Node, lead: Dictionary, time_of_day: float) -> bool:
+	if lead.is_empty():
+		return false
+	var done = lead.get("done", [])
+	if done is Dictionary:
+		done = [done]
+	for cond in done:
+		if cond_holds(data, state, cond, time_of_day):
+			return true
+	return false
+
+
+## The index of the current lead, or the chain's size once every required lead is done.
+static func chain_index(data: Node, state: Node, time_of_day: float) -> int:
+	var ch := chain(data, state)
+	for i in ch.size():
+		if ch[i].get("optional", false):
+			continue
+		if not lead_done(data, state, ch[i], time_of_day):
+			return i
+	return ch.size()
+
+
+static func current_lead(data: Node, state: Node, time_of_day: float) -> Dictionary:
+	var ch := chain(data, state)
+	var i := chain_index(data, state, time_of_day)
+	return ch[i] if i < ch.size() else {}
+
+
+## A district is open once the chain has reached a lead set there; districts the
+## chain never names, and every district of a case without a chain, are open.
+static func district_open(data: Node, state: Node, district: String, time_of_day: float) -> bool:
+	var ch := chain(data, state)
+	if ch.is_empty():
+		return true
+	var idx := chain_index(data, state, time_of_day)
+	for i in ch.size():
+		if ch[i].get("district", "") == district:
+			return i <= idx
+	return true
+
+
+static func map_district(data: Node, case_id: String, map_id: String) -> String:
+	var c: Dictionary = data.cases.get(case_id, {})
+	for did in c.get("districts", {}):
+		if str(c.districts[did].get("map", "")) == map_id:
+			return did
+	return ""
+
+
+static func map_open(data: Node, state: Node, map_id: String, time_of_day: float) -> bool:
+	var case_id := str(data.maps.get(map_id, {}).get("case", state.case_id))
+	if case_id != state.case_id:
+		return true
+	var d := map_district(data, case_id, map_id)
+	return d == "" or district_open(data, state, d, time_of_day)
+
+
+## The evidence the verdict weighs. A case that lists `findings` counts only those;
+## everything else it hands out is colour in the conversation and stays out of the file.
+static func is_finding(data: Node, state: Node, id: String) -> bool:
+	var f: Array = case_data(data, state).get("findings", [])
+	return f.is_empty() or id in f
 
 
 # ---------- the tide ----------
@@ -569,9 +655,12 @@ static func witness_options(data: Node, state: Node, witness_id: String) -> Arra
 	var options := []
 	var w: Dictionary = case_data(data, state).get("witnesses", {}).get(witness_id, {})
 	var contradictions: Dictionary = case_data(data, state).get("contradictions", {})
+	var findings: Array = case_data(data, state).get("findings", [])
 	for fact in w.get("facts", []):
 		if fact.id in state.facts:
 			options.append({"kind": "replay", "fact": fact, "label": "Ask again about " + fact.title, "enabled": true})
+			continue
+		if not findings.is_empty() and not fact.has("flag") and not fact.get("evidence", "") in findings:
 			continue
 		for gate in fact.gates:
 			if gate.has("check"):
@@ -764,6 +853,8 @@ static func lean_totals(data: Node, state: Node) -> Dictionary:
 	var totals := {"hoax": 0, "natural": 0, "unexplained": 0}
 	var evidence: Dictionary = case_data(data, state).get("evidence", {})
 	for id in standing_evidence(state):
+		if not is_finding(data, state, id):
+			continue
 		var e: Dictionary = evidence.get(id, {})
 		totals[e.get("lean", "unexplained")] += int(e.get("weight", 0))
 	return totals

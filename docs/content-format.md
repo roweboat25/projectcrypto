@@ -87,6 +87,23 @@ condition inside it holds, so the Hut is `{"all": [{"signs": 3}, {"phase": ["dus
 A case with `"tide": {"low_at": 3, "period": 12.4}` (the hour of the first low water on day 1,
 and the hours between low waters) shows the tide on the HUD. Low water lasts about a quarter of
 the cycle, so a low-tide gate is open for three hours twice a day.
+A case with a `chain` is worked in order. Each lead names a district, a title and goal for the
+HUD's NEXT line and the case file, where to go, and the condition that closes it: `done` is one
+gate condition or a list of them (any closes the lead), with two extra conditions, `{"clue": "id"}`
+(that clue has been processed, whatever the method) and `{"lead": "id"}` (an earlier lead is done).
+The current lead is the first not done; a district opens when the chain reaches a lead set there
+(districts the chain never names stay open), and an `optional` lead is a side thread that never
+holds the chain up. `findings` lists the evidence the verdict weighs and the case file shows; the
+rest of what witnesses hand out is colour, and a quick-format fact that gives neither a finding nor a
+flag is left out of the menu.
+
+```
+"chain": [ {"id": "pp_marlene", "district": "main_street", "title": "Marlene's story", "goal": "Hear what Marlene saw on Route 62",
+            "where": "Rosie's Diner", "done": {"evidence": "marlene_statement"}},
+           {"id": "pp_lowe", "district": "main_street", "title": "The fourth floor", "goal": "...", "optional": true, "done": {"evidence": "gus_card_1967"}} ],
+"findings": ["marlene_statement", "call_log"]
+```
+
 Witness facts are the quick format; a witness with a file in `data/dialogue`
 gets that script instead, and its `{"topics": true}` option offers the facts.
 
