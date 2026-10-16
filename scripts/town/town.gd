@@ -146,9 +146,19 @@ func _apply_debug_query() -> void:
 			_start_fight.call_deferred({"foes": Array(kv[1].split(",")), "intro": "A test of nerve."}, "", null)
 
 
+var _water_t := 0.0
+var _water_frame := 0
+
+
 func _process(delta: float) -> void:
 	if _talk == null and _battle == null:
 		time_of_day = fmod(time_of_day + delta / CYCLE_SECONDS, 1.0)
+	_water_t += delta
+	if _water_t > 0.5 and inside == "":
+		_water_t = 0.0
+		_water_frame += 1
+		for w in outside.get("water", []):
+			MapBuilder._tile(outside.water_layer, w.coords, w.names[(_water_frame + w.offset) % w.names.size()])
 	_apply_time()
 	_toast_label.visible = Time.get_ticks_msec() / 1000.0 < _toast_until
 	_snow.position = party[0].global_position + (Vector2(0, -30) if _weather == "mist" else Vector2(0, -230))
@@ -312,6 +322,8 @@ func _apply_time() -> void:
 	var lamps_on := daylight < 0.45
 	for l in outside.lamps:
 		l.visible = lamps_on
+	for wdw in outside.get("windows", []):
+		wdw.sprite.texture = wdw.night if lamps_on else wdw.day
 	for r in rooms.values():
 		for l in r.lamps:
 			l.visible = true
@@ -813,6 +825,24 @@ func _build_ui() -> void:
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(root)
 	_ui_root = root
+	# a soft vignette under the HUD
+	var vig := TextureRect.new()
+	var vt := GradientTexture2D.new()
+	var vg := Gradient.new()
+	vg.set_color(0, Color(0, 0, 0, 0.0))
+	vg.set_color(1, Color(0, 0, 0, 0.42))
+	vg.add_point(0.6, Color(0, 0, 0, 0.0))
+	vt.gradient = vg
+	vt.fill = GradientTexture2D.FILL_RADIAL
+	vt.fill_from = Vector2(0.5, 0.5)
+	vt.fill_to = Vector2(1.05, 0.5)
+	vt.width = 160
+	vt.height = 90
+	vig.texture = vt
+	vig.set_anchors_preset(Control.PRESET_FULL_RECT)
+	vig.stretch_mode = TextureRect.STRETCH_SCALE
+	vig.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_ui_root.add_child(vig)
 	_hud = Label.new()
 	_hud.position = Vector2(8, 6)
 	_hud.add_theme_font_size_override("font_size", 11)
