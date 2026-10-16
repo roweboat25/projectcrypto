@@ -35,6 +35,7 @@ var _running := false
 var _fx: Node2D                        # effects drawn over the actors
 var _banner: Label                     # the move's name, briefly
 var _gone: Array = []                  # actor keys already faded out
+var _players: Dictionary = {}          # sound name -> AudioStreamPlayer
 
 
 func _init(p_spec: Dictionary) -> void:
@@ -242,6 +243,7 @@ func _process(delta: float) -> void:
 # ---------- the loop ----------
 
 func _run() -> void:
+	await _reveal()
 	var intro = spec.get("intro", "")
 	if intro is String and intro != "":
 		await _say([["narrator", intro]])
@@ -268,6 +270,165 @@ func _run() -> void:
 		if BattleRules.outcome(b) != "":
 			break
 	await _outro()
+
+
+# ---------- the entrance ----------
+
+## The legendary entrance. An anomaly rises out of the dark in silhouette,
+## the screen flashes, it stands revealed over its name card and calls; the
+## uncanny get a burst of static and their name. Full length the first time
+## a foe is met, shorter after.
+func _reveal() -> void:
+	for f in BattleRules.alive(b, "foe"):
+		var kind: String = str(GameData.foes.get(f.id, {}).get("kind", ""))
+		if kind == "anomaly":
+			await _reveal_anomaly(f)
+		elif kind == "uncanny":
+			await _reveal_uncanny(f)
+
+
+func _reveal_anomaly(f: Dictionary) -> void:
+	var node: Node2D = _sprites.get(f.key)
+	if node == null:
+		return
+	var first: bool = not GameState.flags.has("seen_" + str(f.id))
+	GameState.flags["seen_" + str(f.id)] = true
+	var k := 1.0 if first else 0.45
+	_hud.visible = false
+	var dark := ColorRect.new()
+	dark.color = Color(0, 0, 0.02, 0)
+	dark.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dark.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(dark)
+	move_child(dark, _stage.get_index() + 1)
+	var front := Node2D.new()
+	add_child(front)
+	move_child(front, dark.get_index() + 1)
+	var front_fx := Node2D.new()
+	front.add_child(front_fx)
+	var home := node.position
+	node.reparent(front)
+	node.modulate = Color(0, 0, 0, 1)
+	node.position = home + Vector2(0, 80)
+	node.scale = Vector2(1.1, 1.1)
+	_play("reveal")
+	var tw := create_tween().set_parallel(true)
+	tw.tween_property(dark, "color:a", 0.88, 0.6 * k)
+	tw.tween_property(node, "position", home + Vector2(0, 30), 1.5 * k).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	var saved_fx := _fx
+	_fx = front_fx
+	for i in 3:
+		await get_tree().create_timer(0.2 * k).timeout
+		_shake(2 + i * 2)
+		# awaited, so nothing is still drawing into the front layer when it goes
+		await _fx_static(node.position + Vector2(0, -90), Color("d070ff"))
+	await get_tree().create_timer(0.2 * k).timeout
+	# the flash and the reveal
+	var flash := ColorRect.new()
+	flash.color = Color(1, 1, 1, 1)
+	flash.set_anchors_preset(Control.PRESET_FULL_RECT)
+	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(flash)
+	node.modulate = Color(1, 1, 1, 1)
+	_shake(8)
+	_play("cry_anomaly")
+	var tw2 := create_tween().set_parallel(true)
+	tw2.tween_property(flash, "color:a", 0.0, 0.7)
+	tw2.tween_property(node, "position", home, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_fx_burst(node.position + Vector2(0, -90), Color("b48cff"), 40)
+	# the name card
+	var card := _name_card(f, "An anomaly" + (". " + str(GameData.cases.get(GameState.case_id, {}).get("place", "")) if GameData.cases.has(GameState.case_id) else ""))
+	add_child(card)
+	card.modulate.a = 0.0
+	var tw3 := create_tween()
+	tw3.tween_property(card, "modulate:a", 1.0, 0.3)
+	await get_tree().create_timer((2.2 if first else 1.0)).timeout
+	_fx = saved_fx
+	var out := create_tween().set_parallel(true)
+	out.tween_property(card, "modulate:a", 0.0, 0.4)
+	out.tween_property(dark, "color:a", 0.0, 0.6)
+	out.tween_property(node, "scale", Vector2(1, 1), 0.6)
+	await out.finished
+	node.reparent(_stage)
+	node.position = home
+	node.scale = Vector2(1, 1)
+	_stage.move_child(node, 0)
+	front.queue_free()
+	dark.queue_free()
+	flash.queue_free()
+	card.queue_free()
+	_hud.visible = true
+
+
+func _reveal_uncanny(f: Dictionary) -> void:
+	var node: Node2D = _sprites.get(f.key)
+	if node == null:
+		return
+	_hud.visible = false
+	_play("uncanny")
+	_fx_dark(0.6)
+	_shake(4)
+	var card := _name_card(f, "Something wrong")
+	add_child(card)
+	await _fx_static(node.position + Vector2(0, -80), Color("d070ff"))
+	await get_tree().create_timer(0.7).timeout
+	var out := create_tween()
+	out.tween_property(card, "modulate:a", 0.0, 0.3)
+	await out.finished
+	card.queue_free()
+	_hud.visible = true
+
+
+func _name_card(f: Dictionary, sub: String) -> Control:
+	var card := Control.new()
+	card.set_anchors_preset(Control.PRESET_FULL_RECT)
+	card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var bar := ColorRect.new()
+	bar.color = Color(0.03, 0.02, 0.06, 0.8)
+	bar.position = Vector2(0, 262)
+	bar.size = Vector2(640, 60)
+	card.add_child(bar)
+	var rule := ColorRect.new()
+	rule.color = Color("e0303c")
+	rule.position = Vector2(220, 262)
+	rule.size = Vector2(200, 1)
+	card.add_child(rule)
+	var name := Label.new()
+	name.text = str(f.name).to_upper()
+	name.position = Vector2(0, 268)
+	name.size = Vector2(640, 30)
+	name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	name.add_theme_font_size_override("font_size", 22)
+	name.add_theme_color_override("font_color", Color("f0e6d2"))
+	name.add_theme_color_override("font_shadow_color", Color(0, 0, 0))
+	name.add_theme_constant_override("shadow_offset_x", 2)
+	name.add_theme_constant_override("shadow_offset_y", 2)
+	card.add_child(name)
+	var line := Label.new()
+	line.text = sub
+	line.position = Vector2(0, 298)
+	line.size = Vector2(640, 16)
+	line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	line.add_theme_font_size_override("font_size", 10)
+	line.add_theme_color_override("font_color", Color("b48cff"))
+	card.add_child(line)
+	return card
+
+
+func _play(sound: String) -> void:
+	# one player per sound, kept for the fight: freeing a player from its own
+	# finished signal trips the web audio driver
+	if not _players.has(sound):
+		var path := "res://assets/audio/%s.wav" % sound
+		if not ResourceLoader.exists(path):
+			return
+		var p := AudioStreamPlayer.new()
+		p.stream = load(path)
+		p.volume_db = -6.0
+		p.playback_type = AudioServer.PLAYBACK_TYPE_STREAM
+		add_child(p)
+		_players[sound] = p
+	_players[sound].play()
 
 
 func _party_turn(a: Dictionary) -> void:
@@ -847,11 +1008,14 @@ func _fx_static(at: Vector2, colour: Color) -> void:
 		r.size = Vector2(4 + randi() % 14, 2)
 		_fx.add_child(r)
 		rects.append(r)
-	for frame in 14:
+	# wall-clock bound so a slow frame rate does not stretch it
+	var until := Time.get_ticks_msec() + 450
+	while Time.get_ticks_msec() < until:
 		for r in rects:
-			r.position = at + Vector2(-30 + randi() % 60, -40 + randi() % 80)
-			r.visible = randf() < 0.7
-		await get_tree().process_frame
-		await get_tree().process_frame
+			if is_instance_valid(r):
+				r.position = at + Vector2(-30 + randi() % 60, -40 + randi() % 80)
+				r.visible = randf() < 0.7
+		await get_tree().create_timer(0.03).timeout
 	for r in rects:
-		r.queue_free()
+		if is_instance_valid(r):
+			r.queue_free()

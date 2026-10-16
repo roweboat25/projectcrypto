@@ -13,6 +13,7 @@ const ACTIONS := {
 	"timed": [KEY_H],
 	"evidence": [KEY_TAB, KEY_I],
 	"gear": [KEY_G],
+	"map": [KEY_M],
 	"cancel": [KEY_ESCAPE, KEY_X],
 	"save": [KEY_F5],
 	"load": [KEY_F9],
