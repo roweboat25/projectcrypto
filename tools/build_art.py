@@ -24,6 +24,7 @@ import art_extra  # noqa: E402
 import art_summer  # noqa: E402
 import art_kelly  # noqa: E402
 import art_foes  # noqa: E402
+import art_detail  # noqa: E402
 
 from PIL import Image, ImageDraw
 
@@ -172,6 +173,7 @@ TILES = {
 TILES.update(art_extra.EXTRA_TILES)
 TILES.update(art_summer.SUMMER_TILES)
 TILES.update(art_kelly.KELLY_TILES)
+TILES.update(art_detail.DETAIL_TILES)
 # painted walls, by colour index (3-column blocks left to right) and row group
 WALL_COLOURS = {
     "grey": wall(3, 0),
@@ -189,7 +191,14 @@ ATLAS_COLS = 16
 SOLID_PREFIXES = ("wall_", "brick_", "stone_", "drywall_", "window_", "frame_", "void", "water", "cement_edge") + art_kelly.SOLID_KELLY
 
 
+def tile_by_name(name):
+    loc = TILES[name]
+    return special_tile(name) if loc is None or isinstance(loc, str) else tile(*loc)
+
+
 def special_tile(name):
+    if name in art_detail.DETAIL_TILES:
+        return art_detail.make(name, tile_by_name)
     if name in art_extra.EXTRA_TILES and isinstance(art_extra.EXTRA_TILES[name], str):
         return art_extra.special_tile_extra(name, tile)
     if name in art_summer.SUMMER_TILES and isinstance(art_summer.SUMMER_TILES[name], str):
@@ -609,6 +618,9 @@ def roof_tile(colour, part, row):
     return tile(ROOF, col, cy + row)
 
 
+_night_pending = [None]
+
+
 def build_facade(name, spec):
     w, h = spec["w"], spec["h"]
     rh = spec["roof_h"]
@@ -630,19 +642,41 @@ def build_facade(name, spec):
             part = "l" if x == 0 else ("r" if x == w - 1 else "m")
             im.alpha_composite(siding_tile(spec["siding"], spec["shade"], part, wrow), (x * T, (steeple + rh + y) * T))
     wall_top = (steeple + rh) * T
-    # windows: 2 tall when the wall is 3+ tall, else the short window
+    # the eave: a dark line where the roof meets the wall and its shadow down the siding
+    eave = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    ed = ImageDraw.Draw(eave)
+    ed.line([(0, wall_top - 2), (w * T - 1, wall_top - 2)], fill=(0, 0, 0, 70))
+    ed.line([(0, wall_top - 1), (w * T - 1, wall_top - 1)], fill=(0, 0, 0, 130))
+    for k in range(9):
+        ed.line([(0, wall_top + k), (w * T - 1, wall_top + k)], fill=(0, 0, 0, 110 - k * 12))
+    ed.line([(0, steeple * T), (w * T - 1, steeple * T)], fill=(255, 255, 255, 50))
+    mask = im.split()[3]
+    eave.putalpha(Image.eval(eave.split()[3], lambda a: a).point(lambda a: a))
+    eave_px, mask_px = eave.load(), mask.load()
+    for yy in range(im.size[1]):
+        for xx in range(im.size[0]):
+            if mask_px[xx, yy] == 0:
+                eave_px[xx, yy] = (0, 0, 0, 0)
+    im.alpha_composite(eave)
+    # windows: 2 tall when the wall is 3+ tall, else the short window; the
+    # sheet's columns are dark, daylit and lamplit glass, so the night facade
+    # gets column 2
+    night = im.copy()
     for x in spec["windows"]:
         if spec.get("tall"):
-            win = crop(WINDOWS, 0, 32, 32, 64)
-            im.alpha_composite(win, (x * T, wall_top + (h - 2) * T - 16))
+            im.alpha_composite(crop(WINDOWS, 32, 32, 32, 64), (x * T, wall_top + (h - 2) * T - 16))
+            night.alpha_composite(crop(WINDOWS, 64, 32, 32, 64), (x * T, wall_top + (h - 2) * T - 16))
         else:
-            win = crop(WINDOWS, 0, 96, 32, 32)
-            im.alpha_composite(win, (x * T, wall_top + 6))
+            im.alpha_composite(crop(WINDOWS, 32, 96, 32, 32), (x * T, wall_top + 6))
+            night.alpha_composite(crop(WINDOWS, 64, 96, 32, 32), (x * T, wall_top + 6))
+    im.putalpha(im.split()[3])
+    _night_pending[0] = night
     # doors
     dc, dr = DOOR_COLOURS[spec["door"]]
     door = crop(DOORS, dc * T, dr * T, 32, 48)
     for x in spec.get("doors", [spec["door_x"]]):
         im.alpha_composite(door, (x * T, H * T - 48))
+        _night_pending[0].alpha_composite(door, (x * T, H * T - 48))
     # steeple: a narrow white tower with a dark roof cap
     if steeple:
         sx = (w // 2) * T
@@ -654,7 +688,17 @@ def build_facade(name, spec):
         d.polygon([(sx - 6, 8), (sx + 16, -20), (sx + 38, 8)], fill=(50, 54, 70))
         d.rectangle([sx + 14, 10, sx + 17, 22], fill=(220, 210, 180))
         d.rectangle([sx + 10, 14, sx + 21, 16], fill=(220, 210, 180))
-        im.alpha_composite(crop(WINDOWS, 0, 96, 32, 32), (sx, 40))
+        im.alpha_composite(crop(WINDOWS, 32, 96, 32, 32), (sx, 40))
+        night = _night_pending[0]
+        for y in range(3):
+            wrow = 0 if y == 0 else 1
+            night.alpha_composite(siding_tile(spec["siding"], 1, "l", wrow).crop((0, 0, 16, 32)), (sx, y * T))
+            night.alpha_composite(siding_tile(spec["siding"], 1, "r", wrow).crop((16, 0, 32, 32)), (sx + 16, y * T))
+        nd = ImageDraw.Draw(night)
+        nd.polygon([(sx - 6, 8), (sx + 16, -20), (sx + 38, 8)], fill=(50, 54, 70))
+        nd.rectangle([sx + 14, 10, sx + 17, 22], fill=(220, 210, 180))
+        nd.rectangle([sx + 10, 14, sx + 21, 16], fill=(220, 210, 180))
+        night.alpha_composite(crop(WINDOWS, 64, 96, 32, 32), (sx, 40))
     return im, {"w": w * T, "h": H * T, "wall_h": h * T, "solid_h": (rh + h) * T, "door_x": spec["door_x"] * T, "doors": [x * T for x in spec.get("doors", [spec["door_x"]])], "neon": spec.get("neon", "")}
 
 
@@ -665,6 +709,7 @@ def build_facades():
     for name, spec in FACADES.items():
         im, info = build_facade(name, spec)
         im.save(os.path.join(out, name + ".png"))
+        _night_pending[0].save(os.path.join(out, name + "_night.png"))
         index[name] = info
     with open(os.path.join(out, "facades.json"), "w") as f:
         json.dump(index, f, indent=1, sort_keys=True)

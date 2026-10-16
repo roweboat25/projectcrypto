@@ -5,6 +5,17 @@ class_name MapBuilder
 ## ground goes under a y-sorted "Actors" node so the party walks behind it.
 
 const T := 32
+## Ground families and how soft they are: a softer ground spills a fringe over
+## a harder neighbour (tiles <family>_fr_<side> from tools/art_detail.py).
+## -1 never takes or gives a fringe (water, void).
+const PRIORITY := {"snow": 3, "grass": 3, "dry_grass": 3, "fairway": 3, "sand": 2, "dirt": 1, "earth": 1, "mud": 1, "gravel": 1, "cement": 1,
+	"sea": -1, "water": -1, "void": -1, "sky": -1, "cloud": -1}
+const FRINGED := ["snow", "grass", "dry_grass", "fairway", "sand", "dirt", "earth", "cement"]
+const DECALED := ["snow", "grass", "dry_grass", "sand", "asphalt", "cement", "dirt", "earth", "gravel", "fairway", "promenade", "mud"]
+const STEMS := ["dry_grass", "wet_sand", "snow_drift", "snow_rock", "dirt_snow", "grass_tuft", "sea_top", "sea_deep", "water_snow", "water_red"]
+const WATER := {"sea": ["sea", "sea2", "sea3"], "sea_top": ["sea_top", "sea_top2", "sea_top3"], "sea_deep": ["sea_deep", "sea_deep2"],
+	"water": ["water", "water2", "water3"], "water_snow": ["water_snow_top", "water_snow_top2", "water_snow_top3"], "water_red": ["water_red", "water_red2"]}
+static var _name_at: Dictionary = {}
 const TILESET := "res://assets/tiles/tileset.tres"
 
 static var atlas: Dictionary = {}
@@ -15,6 +26,8 @@ static var facades_index: Dictionary = {}
 static func load_indexes() -> void:
 	if atlas.is_empty():
 		atlas = JSON.parse_string(FileAccess.get_file_as_string("res://assets/tiles/atlas.json"))
+		for n in atlas:
+			_name_at[Vector2i(atlas[n][0], atlas[n][1])] = n
 		props_index = JSON.parse_string(FileAccess.get_file_as_string("res://assets/props/props.json"))
 		facades_index = JSON.parse_string(FileAccess.get_file_as_string("res://assets/facades/facades.json"))
 
@@ -40,6 +53,11 @@ static func build_district(root: Node2D, map: Dictionary, origin: Vector2i, rng:
 			for x in range(r[0], r[0] + r[2]):
 				if rng.randf() < float(s.get("chance", 0.05)):
 					_tile(ground, origin + Vector2i(x, y), _pick(s.tiles, rng))
+	_detail(root, ground, walls, origin, size, rng, out)
+	var shadows := Node2D.new()
+	shadows.name = "Shadows"
+	root.add_child(shadows)
+	out.shadows = shadows
 	var actors := Node2D.new()
 	actors.name = "Actors"
 	actors.y_sort_enabled = true
@@ -48,7 +66,7 @@ static func build_district(root: Node2D, map: Dictionary, origin: Vector2i, rng:
 	for f in map.get("facades", []):
 		_facade(actors, f, origin, out)
 	for h in map.get("houses", []):
-		var node := prop(actors, h.prop, _px(h.pos, origin))
+		var node := prop(actors, h.prop, _px(h.pos, origin), shadows)
 		node.name = "house_" + h.id
 		if h.has("appears"):
 			out.appears.append({"node": node, "gate": h.appears})
@@ -72,7 +90,7 @@ static func _props(actors: Node2D, list: Array, origin: Vector2i, map_id: String
 		var key := "%s:%d" % [map_id, i]
 		if (p.has("pickup") or p.has("gate") or p.has("fight")) and (key in GameState.picked or (p.get("restock", false) and ("%s:%d" % [key, GameState.day]) in GameState.picked)):
 			continue
-		var node := prop(actors, p.kind, _px(p.pos, origin))
+		var node := prop(actors, p.kind, _px(p.pos, origin), out.get("shadows"))
 		if p.has("appears"):
 			out.appears.append({"node": node, "gate": p.appears})
 		if p.kind.begins_with("lamp_post"):
@@ -139,10 +157,12 @@ static func build_room(root: Node2D, id: String, room: Dictionary, origin: Vecto
 
 # ---------- pieces ----------
 
-static func prop(parent: Node2D, kind: String, pos: Vector2) -> Node2D:
+static func prop(parent: Node2D, kind: String, pos: Vector2, shadows: Node2D = null) -> Node2D:
 	var info: Dictionary = props_index.get(kind, {})
 	var node := Node2D.new()
 	node.position = pos
+	if shadows != null and int(info.get("solid", 0)) > 0 and not kind.begins_with("neon") and not kind.begins_with("clue"):
+		_ground_shadow(shadows, pos, float(info.get("w", 32)))
 	var sprite := Sprite2D.new()
 	sprite.texture = load("res://assets/props/%s.png" % kind)
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -180,6 +200,15 @@ static func _facade(parent: Node2D, f: Dictionary, origin: Vector2i, out: Dictio
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	sprite.position = Vector2(0, -h / 2.0)
 	node.add_child(sprite)
+	if out.has("shadows"):
+		_wall_shadow(out.shadows, bottom_left, w, float(info.get("wall_h", 64)))
+	# lamplit windows after dark: a second facade and a warm glow
+	var night_path := "res://assets/facades/%s_night.png" % asset
+	if ResourceLoader.exists(night_path):
+		if not out.has("windows"):
+			out.windows = []
+		out.windows.append({"sprite": sprite, "day": sprite.texture, "night": load(night_path)})
+		out.lamps.append(_light(node, Vector2(0, -float(info.get("wall_h", 64)) * 0.5), Color("ffc890"), 0.45, w * 0.7))
 	var body := StaticBody2D.new()
 	var shape := CollisionShape2D.new()
 	var rect := RectangleShape2D.new()
@@ -310,3 +339,130 @@ static func _pick(tiles: Variant, rng: RandomNumberGenerator) -> String:
 
 static func _px(pos: Array, origin: Vector2i) -> Vector2:
 	return (Vector2(pos[0], pos[1]) + Vector2(origin)) * T
+
+
+# ---------- ground detail ----------
+
+static func _family(tile: String) -> String:
+	var stem := tile.rstrip("0123456789")
+	for st in STEMS:
+		if stem.begins_with(st):
+			match st:
+				"snow_drift", "snow_rock": return "snow"
+				"grass_tuft": return "grass"
+				"dirt_snow": return "dirt"
+				"wet_sand": return "sand"
+				_: return st
+	var i := stem.find("_")
+	return stem if i < 0 else stem.substr(0, i)
+
+
+static func _priority(fam: String) -> int:
+	return int(PRIORITY.get(fam, 0))
+
+
+## Fringes where soft ground meets hard, decals on plain ground, and the list of water cells to animate.
+static func _detail(root: Node2D, ground: TileMapLayer, walls: TileMapLayer, origin: Vector2i, size: Array, rng: RandomNumberGenerator, out: Dictionary) -> void:
+	var fams := {}
+	for y in size[1]:
+		for x in size[0]:
+			var c := origin + Vector2i(x, y)
+			var name: String = _name_at.get(walls.get_cell_atlas_coords(c), "") if walls.get_cell_source_id(c) != -1 else _name_at.get(ground.get_cell_atlas_coords(c), "")
+			fams[c] = _family(name)
+	var layers := {}
+	for side in ["n", "s", "e", "w", "c"]:
+		layers[side] = _layer(root, "Fringe_" + side)
+	var mottle := _layer(root, "Mottle")
+	var decals := _layer(root, "Decals")
+	var dirs := {"n": Vector2i(0, -1), "s": Vector2i(0, 1), "e": Vector2i(1, 0), "w": Vector2i(-1, 0)}
+	var corners := {"ne": Vector2i(1, -1), "nw": Vector2i(-1, -1), "se": Vector2i(1, 1), "sw": Vector2i(-1, 1)}
+	out.water = []
+	out.water_layer = walls
+	for c in fams:
+		var fam: String = fams[c]
+		var pc := _priority(fam)
+		if WATER.has(fam):
+			out.water.append({"coords": c, "names": WATER[fam], "offset": rng.randi() % 3})
+		if pc < 0:
+			continue
+		if rng.randf() < 0.35:
+			_tile(mottle, c, "mottle_%d" % (1 + rng.randi() % 4))
+		var fringed := false
+		for d in dirs:
+			var n: Vector2i = c + dirs[d]
+			if not fams.has(n):
+				continue
+			var fn: String = fams[n]
+			if _priority(fn) > pc and fn in FRINGED:
+				_tile(layers[d], c, "%s_fr_%s" % [fn, d])
+				fringed = true
+		for k in corners:
+			var n: Vector2i = c + corners[k]
+			if not fams.has(n):
+				continue
+			var fn: String = fams[n]
+			if _priority(fn) > pc and fn in FRINGED:
+				var a: Vector2i = c + Vector2i(corners[k].x, 0)
+				var b: Vector2i = c + Vector2i(0, corners[k].y)
+				if _priority(fams.get(a, "")) <= pc and _priority(fams.get(b, "")) <= pc:
+					_tile(layers.c, c, "%s_fr_%s" % [fn, k])
+					fringed = true
+		if not fringed and fam in DECALED and rng.randf() < 0.06:
+			_tile(decals, c, "%s_dc_%d" % [fam, 1 + rng.randi() % 3])
+
+
+static var _shadow_tex: GradientTexture2D
+
+
+static func _ground_shadow(parent: Node2D, at: Vector2, w: float) -> void:
+	if _shadow_tex == null:
+		_shadow_tex = GradientTexture2D.new()
+		var g := Gradient.new()
+		g.set_color(0, Color(0, 0, 0, 0.45))
+		g.set_color(1, Color(0, 0, 0, 0.0))
+		g.add_point(0.55, Color(0, 0, 0, 0.3))
+		_shadow_tex.gradient = g
+		_shadow_tex.fill = GradientTexture2D.FILL_RADIAL
+		_shadow_tex.fill_from = Vector2(0.5, 0.5)
+		_shadow_tex.fill_to = Vector2(1.0, 0.5)
+		_shadow_tex.width = 64
+		_shadow_tex.height = 64
+	var sp := Sprite2D.new()
+	sp.texture = _shadow_tex
+	sp.position = at + Vector2(2, -3)
+	sp.scale = Vector2(w * 1.25 / 64.0, 0.42 * w / 64.0 + 0.1)
+	parent.add_child(sp)
+
+
+static func _wall_shadow(parent: Node2D, bottom_left: Vector2, w: float, wall_h: float) -> void:
+	# the foot of the wall, and the sun from the left throwing a strip to the right
+	var foot := GradientTexture2D.new()
+	var g := Gradient.new()
+	g.set_color(0, Color(0, 0, 0, 0.5))
+	g.set_color(1, Color(0, 0, 0, 0.0))
+	foot.gradient = g
+	foot.fill_from = Vector2(0, 0)
+	foot.fill_to = Vector2(0, 1)
+	foot.width = 8
+	foot.height = 8
+	var f := Sprite2D.new()
+	f.texture = foot
+	f.centered = false
+	f.position = bottom_left
+	f.scale = Vector2(w / 8.0, 14.0 / 8.0)
+	parent.add_child(f)
+	var side := GradientTexture2D.new()
+	var g2 := Gradient.new()
+	g2.set_color(0, Color(0, 0, 0, 0.35))
+	g2.set_color(1, Color(0, 0, 0, 0.0))
+	side.gradient = g2
+	side.fill_from = Vector2(0, 0)
+	side.fill_to = Vector2(1, 0)
+	side.width = 8
+	side.height = 8
+	var sd := Sprite2D.new()
+	sd.texture = side
+	sd.centered = false
+	sd.position = bottom_left + Vector2(w, -wall_h + 12)
+	sd.scale = Vector2(14.0 / 8.0, (wall_h - 12) / 8.0)
+	parent.add_child(sd)

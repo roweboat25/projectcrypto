@@ -7,6 +7,18 @@
   6,
   1
  ],
+ "asphalt_dc_1": [
+  8,
+  13
+ ],
+ "asphalt_dc_2": [
+  9,
+  13
+ ],
+ "asphalt_dc_3": [
+  10,
+  13
+ ],
  "asphalt_line": [
   7,
   1
@@ -67,9 +79,53 @@
   11,
   1
  ],
+ "cement_dc_1": [
+  11,
+  13
+ ],
+ "cement_dc_2": [
+  12,
+  13
+ ],
+ "cement_dc_3": [
+  13,
+  13
+ ],
  "cement_edge": [
   10,
   1
+ ],
+ "cement_fr_e": [
+  6,
+  12
+ ],
+ "cement_fr_n": [
+  4,
+  12
+ ],
+ "cement_fr_ne": [
+  8,
+  12
+ ],
+ "cement_fr_nw": [
+  9,
+  12
+ ],
+ "cement_fr_s": [
+  5,
+  12
+ ],
+ "cement_fr_se": [
+  10,
+  12
+ ],
+ "cement_fr_sw": [
+  11,
+  12
+ ],
+ "cement_fr_w": [
+  7,
+  12
  ],
  "chalk": [
   4,
@@ -119,6 +175,50 @@
   11,
   0
  ],
+ "dirt_dc_1": [
+  14,
+  13
+ ],
+ "dirt_dc_2": [
+  15,
+  13
+ ],
+ "dirt_dc_3": [
+  0,
+  14
+ ],
+ "dirt_fr_e": [
+  14,
+  10
+ ],
+ "dirt_fr_n": [
+  12,
+  10
+ ],
+ "dirt_fr_ne": [
+  0,
+  11
+ ],
+ "dirt_fr_nw": [
+  1,
+  11
+ ],
+ "dirt_fr_s": [
+  13,
+  10
+ ],
+ "dirt_fr_se": [
+  2,
+  11
+ ],
+ "dirt_fr_sw": [
+  3,
+  11
+ ],
+ "dirt_fr_w": [
+  15,
+  10
+ ],
  "dirt_snow": [
   12,
   0
@@ -142,6 +242,50 @@
  "dry_grass3": [
   11,
   7
+ ],
+ "dry_grass_dc_1": [
+  2,
+  13
+ ],
+ "dry_grass_dc_2": [
+  3,
+  13
+ ],
+ "dry_grass_dc_3": [
+  4,
+  13
+ ],
+ "dry_grass_fr_e": [
+  14,
+  9
+ ],
+ "dry_grass_fr_n": [
+  12,
+  9
+ ],
+ "dry_grass_fr_ne": [
+  0,
+  10
+ ],
+ "dry_grass_fr_nw": [
+  1,
+  10
+ ],
+ "dry_grass_fr_s": [
+  13,
+  9
+ ],
+ "dry_grass_fr_se": [
+  2,
+  10
+ ],
+ "dry_grass_fr_sw": [
+  3,
+  10
+ ],
+ "dry_grass_fr_w": [
+  15,
+  9
  ],
  "drywall_bot": [
   7,
@@ -167,6 +311,50 @@
   7,
   5
  ],
+ "earth_dc_1": [
+  1,
+  14
+ ],
+ "earth_dc_2": [
+  2,
+  14
+ ],
+ "earth_dc_3": [
+  3,
+  14
+ ],
+ "earth_fr_e": [
+  6,
+  11
+ ],
+ "earth_fr_n": [
+  4,
+  11
+ ],
+ "earth_fr_ne": [
+  8,
+  11
+ ],
+ "earth_fr_nw": [
+  9,
+  11
+ ],
+ "earth_fr_s": [
+  5,
+  11
+ ],
+ "earth_fr_se": [
+  10,
+  11
+ ],
+ "earth_fr_sw": [
+  11,
+  11
+ ],
+ "earth_fr_w": [
+  7,
+  11
+ ],
  "fairway": [
   6,
   6
@@ -174,6 +362,50 @@
  "fairway2": [
   7,
   6
+ ],
+ "fairway_dc_1": [
+  7,
+  14
+ ],
+ "fairway_dc_2": [
+  8,
+  14
+ ],
+ "fairway_dc_3": [
+  9,
+  14
+ ],
+ "fairway_fr_e": [
+  14,
+  11
+ ],
+ "fairway_fr_n": [
+  12,
+  11
+ ],
+ "fairway_fr_ne": [
+  0,
+  12
+ ],
+ "fairway_fr_nw": [
+  1,
+  12
+ ],
+ "fairway_fr_s": [
+  13,
+  11
+ ],
+ "fairway_fr_se": [
+  2,
+  12
+ ],
+ "fairway_fr_sw": [
+  3,
+  12
+ ],
+ "fairway_fr_w": [
+  15,
+  11
  ],
  "farm_floor": [
   11,
@@ -215,6 +447,50 @@
   2,
   5
  ],
+ "grass_dc_1": [
+  15,
+  12
+ ],
+ "grass_dc_2": [
+  0,
+  13
+ ],
+ "grass_dc_3": [
+  1,
+  13
+ ],
+ "grass_fr_e": [
+  6,
+  9
+ ],
+ "grass_fr_n": [
+  4,
+  9
+ ],
+ "grass_fr_ne": [
+  8,
+  9
+ ],
+ "grass_fr_nw": [
+  9,
+  9
+ ],
+ "grass_fr_s": [
+  5,
+  9
+ ],
+ "grass_fr_se": [
+  10,
+  9
+ ],
+ "grass_fr_sw": [
+  11,
+  9
+ ],
+ "grass_fr_w": [
+  7,
+  9
+ ],
  "grass_tuft": [
   3,
   5
@@ -230,6 +506,18 @@
  "gravel2": [
   11,
   4
+ ],
+ "gravel_dc_1": [
+  4,
+  14
+ ],
+ "gravel_dc_2": [
+  5,
+  14
+ ],
+ "gravel_dc_3": [
+  6,
+  14
  ],
  "herringbone": [
   11,
@@ -267,6 +555,22 @@
   9,
   8
  ],
+ "mottle_1": [
+  0,
+  15
+ ],
+ "mottle_2": [
+  1,
+  15
+ ],
+ "mottle_3": [
+  2,
+  15
+ ],
+ "mottle_4": [
+  3,
+  15
+ ],
  "mud": [
   14,
   4
@@ -274,6 +578,18 @@
  "mud2": [
   15,
   4
+ ],
+ "mud_dc_1": [
+  13,
+  14
+ ],
+ "mud_dc_2": [
+  14,
+  14
+ ],
+ "mud_dc_3": [
+  15,
+  14
  ],
  "pier_deck": [
   8,
@@ -294,6 +610,18 @@
  "promenade2": [
   11,
   6
+ ],
+ "promenade_dc_1": [
+  10,
+  14
+ ],
+ "promenade_dc_2": [
+  11,
+  14
+ ],
+ "promenade_dc_3": [
+  12,
+  14
  ],
  "rail": [
   12,
@@ -322,6 +650,50 @@
  "sand3": [
   10,
   5
+ ],
+ "sand_dc_1": [
+  5,
+  13
+ ],
+ "sand_dc_2": [
+  6,
+  13
+ ],
+ "sand_dc_3": [
+  7,
+  13
+ ],
+ "sand_fr_e": [
+  6,
+  10
+ ],
+ "sand_fr_n": [
+  4,
+  10
+ ],
+ "sand_fr_ne": [
+  8,
+  10
+ ],
+ "sand_fr_nw": [
+  9,
+  10
+ ],
+ "sand_fr_s": [
+  5,
+  10
+ ],
+ "sand_fr_se": [
+  10,
+  10
+ ],
+ "sand_fr_sw": [
+  11,
+  10
+ ],
+ "sand_fr_w": [
+  7,
+  10
  ],
  "sea": [
   11,
@@ -391,6 +763,18 @@
   2,
   0
  ],
+ "snow_dc_1": [
+  12,
+  12
+ ],
+ "snow_dc_2": [
+  13,
+  12
+ ],
+ "snow_dc_3": [
+  14,
+  12
+ ],
  "snow_drift": [
   3,
   0
@@ -402,6 +786,38 @@
  "snow_drift3": [
   5,
   0
+ ],
+ "snow_fr_e": [
+  14,
+  8
+ ],
+ "snow_fr_n": [
+  12,
+  8
+ ],
+ "snow_fr_ne": [
+  0,
+  9
+ ],
+ "snow_fr_nw": [
+  1,
+  9
+ ],
+ "snow_fr_s": [
+  13,
+  8
+ ],
+ "snow_fr_se": [
+  2,
+  9
+ ],
+ "snow_fr_sw": [
+  3,
+  9
+ ],
+ "snow_fr_w": [
+  15,
+  8
  ],
  "snow_rock": [
   6,
@@ -472,100 +888,100 @@
   4
  ],
  "wall_blue_bot": [
-  6,
-  9
+  14,
+  15
  ],
  "wall_blue_mid": [
-  5,
-  9
+  13,
+  15
  ],
  "wall_blue_one": [
-  7,
-  9
+  15,
+  15
  ],
  "wall_blue_top": [
-  4,
-  9
+  12,
+  15
  ],
  "wall_cream_bot": [
-  2,
-  9
+  10,
+  15
  ],
  "wall_cream_mid": [
-  1,
-  9
+  9,
+  15
  ],
  "wall_cream_one": [
-  3,
-  9
+  11,
+  15
  ],
  "wall_cream_top": [
-  0,
-  9
+  8,
+  15
  ],
  "wall_grey_bot": [
-  14,
-  8
+  6,
+  15
  ],
  "wall_grey_mid": [
-  13,
-  8
+  5,
+  15
  ],
  "wall_grey_one": [
-  15,
-  8
+  7,
+  15
  ],
  "wall_grey_top": [
-  12,
-  8
+  4,
+  15
  ],
  "wall_navy_bot": [
-  14,
-  9
+  6,
+  16
  ],
  "wall_navy_mid": [
-  13,
-  9
+  5,
+  16
  ],
  "wall_navy_one": [
-  15,
-  9
+  7,
+  16
  ],
  "wall_navy_top": [
-  12,
-  9
+  4,
+  16
  ],
  "wall_peach_bot": [
-  2,
-  10
+  10,
+  16
  ],
  "wall_peach_mid": [
-  1,
-  10
+  9,
+  16
  ],
  "wall_peach_one": [
-  3,
-  10
+  11,
+  16
  ],
  "wall_peach_top": [
-  0,
-  10
+  8,
+  16
  ],
  "wall_purple_bot": [
-  10,
-  9
+  2,
+  16
  ],
  "wall_purple_mid": [
-  9,
-  9
+  1,
+  16
  ],
  "wall_purple_one": [
-  11,
-  9
+  3,
+  16
  ],
  "wall_purple_top": [
-  8,
-  9
+  0,
+  16
  ],
  "water": [
   15,
