@@ -146,7 +146,7 @@ func _draw_party_card(a: Dictionary, sx: float) -> void:
 func _draw_foe_card(a: Dictionary, sx: float) -> void:
 	var w := 84.0
 	var x := sx - w / 2.0
-	var y := 26.0
+	var y := 206.0
 	_text(Vector2(x, y + 8), a.name, 9, PAPER, HORIZONTAL_ALIGNMENT_CENTER, w)
 	if a.key == current:
 		draw_colored_polygon(PackedVector2Array([Vector2(sx - 4, y - 6), Vector2(sx + 4, y - 6), Vector2(sx, y - 1)]), RED)

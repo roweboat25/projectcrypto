@@ -8,6 +8,8 @@ import os
 import random
 from PIL import Image, ImageDraw
 
+import art_creatures
+
 FW = 96
 OUT = (18, 12, 16, 255)
 
@@ -467,9 +469,13 @@ def build_foes(assets, sheet, adult, outline):
     for name, fn in _foes().items():
         sheet_im = Image.new("RGBA", (FW * 2, FW), (0, 0, 0, 0))
         for f in range(2):
-            frame = fn(f)
-            if name not in ("eyeshine", "cave_breath", "static_shade"):
-                frame = outline(frame, OUT)
+            # creatures are painted in art_creatures.py (shaded, already outlined);
+            # people and the formless things keep their recipes here
+            frame = art_creatures.creature(name, f)
+            if frame is None:
+                frame = fn(f)
+                if name not in ("eyeshine", "cave_breath", "static_shade"):
+                    frame = outline(frame, OUT)
             sheet_im.alpha_composite(frame, (f * FW, 0))
         sheet_im.save(os.path.join(out, name + ".png"))
         index[name] = {"w": FW, "h": FW, "frames": 2}
